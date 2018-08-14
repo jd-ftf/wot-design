@@ -1,0 +1,39 @@
+/**
+ * 辅助函数
+ */
+@import 'config';
+
+/* 转换成字符串 */
+@function selectorToString($selector) {
+  $selector: inspect($selector);
+  $selector: str-slice($selector, 2, -2);
+
+  @return $selector;
+}
+
+/* 判断是否存在 Modifier */
+@function containsModifier($selector) {
+  $selector: selectorToString($selector);
+
+  @if str-index($selector, $modifierSeparator) {
+    @return true;
+  } @else {
+    @return false;
+  }
+}
+
+/* 判断是否存在伪类 */
+@function containsPseudo($selector) {
+  $selector: selectorToString($selector);
+
+  @if str-index($selector, ':') {
+    @return true;
+  } @else {
+    @return false;
+  }
+}
+
+/* 判断 Element 是否需要嵌套 */
+@function needNest($selector) {
+  @return containsModifier($selector) or containsPseudo($selector);
+}

@@ -1,0 +1,62 @@
+{
+  "components": {
+    "title": "组件",
+    "sideTabs": [
+      {
+        "groupName": "快速开始",
+        "groupList": {
+          "Af": {
+            "title": "博客4",
+            "path": "/af"
+          }
+        }
+      }, {
+        "groupName": "组件",
+        "groupList": [
+          {
+            "title": "基础组件",
+            "children": {
+              "Toast": {
+                "title": "Toast 弹窗",
+                "path": "/toast"
+              },
+              "Ab": {
+                "title": "博客1",
+                "path": "/ab"
+              }
+            }
+          }, {
+            "title": "Form组件",
+            "children": {
+              "Ac": {
+                "title": "博客2",
+                "path": "/ac"
+              },
+              "Ae": {
+                "title": "博客3",
+                "path": "/ae"
+              }
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "description": {
+    "title": "描述",
+    "sideTabs": {
+      "alert": {
+        "title": "Toast 弹窗",
+        "path": "/toast"
+      },
+      "message": {
+        "title": "博客1",
+        "path": "/ab"
+      }
+    }
+  },
+  "about": {
+    "title": "关于",
+    "href": "http://jd.com"
+  }
+}

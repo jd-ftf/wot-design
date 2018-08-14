@@ -1,0 +1,82 @@
+/**
+ * 混合宏
+ */
+@import 'config';
+@import 'function';
+
+/**
+ * BEM
+ */
+@mixin b($block) {
+  $B: $namespace + '-' + $block !global;
+
+  .#{$B} {
+    @content;
+  }
+}
+@mixin e($element) {
+  $selector: &;
+  $selectors: '';
+  @each $item in $element {
+    $selectors: #{$selectors + $selector + $elementSeparator + $item + ','};
+  }
+
+  @if needNest($selector) {
+    @at-root {
+      .#{$B} {
+        #{$selectors} {
+          @content;
+        }
+      }
+    }
+  } @else {
+    @at-root {
+      #{$selectors} {
+        @content;
+      }
+    }
+  }
+}
+@mixin m($modifier) {
+  $selectors: '';
+  @each $item in $modifier {
+    $selectors: #{$selectors + & + $modifierSeparator + $item + ','};
+  }
+
+  @at-root {
+    #{$selectors} {
+      @content;
+    }
+  }
+}
+
+/**
+ * 常用混合宏
+ */
+
+/* 单行超出隐藏 */
+@mixin lineEllipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* 多行超出隐藏 */
+@mixin multiEllipsis($lineNumber: 3) {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: $lineNumber;
+  overflow: hidden;
+}
+
+/* 清除浮动 */
+@mixin clearFloat {
+  &::after {
+    display: block;
+    content: '';
+    height: 0;
+    clear: both;
+    overflow: hidden;
+    visibility: hidden;
+  }
+}
