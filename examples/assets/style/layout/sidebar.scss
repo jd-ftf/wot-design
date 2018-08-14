@@ -1,0 +1,33 @@
+@import '../variable';
+
+.side-bar {
+  position: fixed;
+  left: 80px;
+  top: $layout-header-height;
+  bottom: 0;
+  width: 210px;
+  padding-top: 20px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  background: $color-bg;
+}
+.side-bar__group-name {
+  display: block;
+  margin: 16px 0;
+  color: $color-important;
+  font-size: $fs-title;
+  font-weight: 700;
+}
+.side-group__link {
+  display: block;
+  margin: 16px 0;
+}
+.side-group__link--active {
+  color: $color-theme;
+}
+.side-bar__item-list {
+  margin-top: 26px;
+}
+.side-bar__item-listist-name {
+  color: $color-black-l7;
+}

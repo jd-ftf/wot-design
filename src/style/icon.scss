@@ -1,0 +1,37 @@
+@font-face {
+  font-family: 'dolphin-icons';
+  src:
+    url('./fonts/dolphin-icons.ttf?c8cemg') format('truetype'),
+    url('./fonts/dolphin-icons.woff?c8cemg') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="du-icon-"], [class*=" du-icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  display: inline-block;
+  font-family: 'dolphin-icons' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.du-icon-circle-check:before {
+  content: "\e901";
+  color: #fff;
+}
+.du-icon-forbid:before {
+  content: "\e902";
+  color: #fff;
+}
+.du-icon-caveat:before {
+  content: "\e900";
+  color: #fff;
+}
