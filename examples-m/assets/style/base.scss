@@ -1,0 +1,24 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: vetica, Tahoma, Arial, "PingFang SC", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", "WenQuanYi Micro Hei";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 13px;
+}
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+a {
+  color: #333;
+  text-decoration: none;
+
+  &:active {
+    color: #333;
+  }
+}
+.page-center {
+  text-align: center;
+}

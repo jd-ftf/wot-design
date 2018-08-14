@@ -1,0 +1,70 @@
+/**
+ * 布局文件 header 的样式
+ */
+@import '../variable';
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  box-shadow: 0 1px 1px #ccc;
+  background: $color-bg;
+  z-index: 100;
+}
+.header-container {
+  margin: 0 80px;
+  height: $layout-header-height;
+  line-height: $layout-header-height;
+}
+.logo-block {
+  display: inline-block;
+  padding: 9px 0;
+  line-height: 1.2;
+  vertical-align: top;
+
+  img {
+    display: inline-block;
+    width: 50px;
+    vertical-align: middle;
+  }
+  .name {
+    display: inline-block;
+    width: 110px;
+    vertical-align: middle;
+  }
+}
+.header-tab {
+  float: right;
+}
+.header-tab__item {
+  display: inline-block;
+}
+.header-tab__link {
+  position: relative;
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: $fs-title;
+  line-height: 25px;
+  color: $color-text-light;
+
+  &:hover {
+    color: $color-important;
+  }
+}
+.header-tab__link--active{
+  color: $color-theme;
+  
+  &:hover {
+    color: $color-theme;
+  }
+  &::after {
+    position: absolute;
+    content: '';
+    width: 70%;
+    height: 3px;
+    left: 15%;
+    bottom: 0;
+    background: $color-theme;
+  }
+}

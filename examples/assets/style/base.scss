@@ -1,0 +1,29 @@
+/**
+ * 初始化
+ */
+@import 'variable';
+@import 'markdown';
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: $font-family;
+  font-size: $fs-text;
+  color: $color-text;
+  background: $color-bg;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  color: $color-text;
+
+  &:active {
+    color: $color-text;
+  }
+}
