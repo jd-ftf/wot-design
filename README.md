@@ -4,7 +4,7 @@
 
 ## 文档地址
 
-在进行开放前请先阅读文档
+在进行开发前请先阅读文档
 
 [文档地址](http://git.jd.com/JM-FE/jm-design/wikis/home)
 
