@@ -1,6 +1,5 @@
 @import '../abstracts/variable';
 @import '../abstracts/mixin';
-@import '../base/transition';
 
 @include b(toast) {
   position: fixed;
