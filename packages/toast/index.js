@@ -89,7 +89,7 @@ const showToast = (instance, options) => {
   return instance
 }
 
-let Toast = (options = {}) => {
+let Toast = options => {
   options = options || {}
 
   if (options.multi) {
