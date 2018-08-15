@@ -1,16 +1,16 @@
 @font-face {
-  font-family: 'dolphin-icons';
+  font-family: 'jm-icons';
   src:
-    url('./fonts/dolphin-icons.ttf?c8cemg') format('truetype'),
-    url('./fonts/dolphin-icons.woff?c8cemg') format('woff');
+    url('./fonts/jm-icons.ttf?nyb70f') format('truetype'),
+    url('./fonts/jm-icons.woff?nyb70f') format('woff');
   font-weight: normal;
   font-style: normal;
 }
 
-[class^="du-icon-"], [class*=" du-icon-"] {
+[class^="jm-icon-"], [class*=" jm-icon-"] {
   /* use !important to prevent issues with browser extensions that change fonts */
   display: inline-block;
-  font-family: 'dolphin-icons' !important;
+  font-family: 'jm-icons' !important;
   speak: none;
   font-style: normal;
   font-weight: normal;
@@ -23,15 +23,15 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.du-icon-circle-check:before {
+.jm-icon-caveat:before {
+  content: "\e900";
+  color: #fff;
+}
+.jm-icon-circle-check:before {
   content: "\e901";
   color: #fff;
 }
-.du-icon-forbid:before {
+.jm-icon-forbid:before {
   content: "\e902";
-  color: #fff;
-}
-.du-icon-caveat:before {
-  content: "\e900";
   color: #fff;
 }
