@@ -13,8 +13,11 @@
     "e2e": "node test/e2e/runner.js",
     "test": "npm run unit && npm run e2e",
     "lint": "eslint --ext .js,.vue src test/unit test/e2e/specs",
-    "docs": "node build/build-docs.js",
-    "build": "rm -rf lib && webpack --config build/webpack.prod.conf.js && webpack --config build/webpack.component.conf.js"
+    "build:docs": "node build/build-docs.js",
+    "build:lib": "node build/build-lib.js",
+    "build:comp": "node build/build-components.js",
+    "build:theme": "node build/mixCssFile.js",
+    "build": "rm -rf lib && npm run build:theme && npm run build:lib && npm run build:comp"
   },
   "main": "./lib/index.js",
   "style": [],

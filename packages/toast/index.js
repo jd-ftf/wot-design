@@ -13,9 +13,9 @@
  */
 
 import Vue from 'vue'
-import fwToast from './index.vue'
-import '../../src/style/theme.scss'
-import '../../src/style/components/toast.scss'
+import fwToast from './src/main.vue'
+import '@/style/base.scss'
+import '@/style/components/toast.scss'
 
 const ToastConstructor = Vue.extend(fwToast)
 
