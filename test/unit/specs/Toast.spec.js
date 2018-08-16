@@ -56,7 +56,7 @@ describe('Toast', () => {
     }, 200)
   })
 
-  it('shoud have check icon', done => {
+  it('should have check icon', done => {
     Toast({
       msg: 'Test',
       iconName: 'check'
