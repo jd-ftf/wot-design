@@ -3,9 +3,7 @@
     <div v-show="show" class="jm-toast" :class="customClass">
       <i v-if="iconName" class="jm-toast__icon" :class="[ iconNameToClass ]"></i>
       <i v-else-if="iconClass" class="jm-toast__icon" :class="iconClass.split(' ')"></i>
-      <div class="jm-toast__msg">
-        {{ msg }}
-      </div>
+      <div class="jm-toast__msg">{{ msg }}</div>
     </div>
   </transition>
 </template>
