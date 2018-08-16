@@ -19,7 +19,7 @@
       <button type="button" @click="handleToast6">底部toast</button>
     </div>
     <div>
-      <button type="button" @click="handleToast7">多重toast</button>
+      <button type="button" @click="handleToast7">只同时展示一个toast</button>
     </div>
   </div>
 </template>
@@ -64,8 +64,8 @@ export default {
     },
     handleToast7 () {
       this.$toast({
-        msg: '多重toast',
-        multi: true
+        msg: '只同时展示一个toast',
+        single: true
       })
     }
   }

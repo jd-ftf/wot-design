@@ -14,7 +14,7 @@ const createLintingRule = () => ({
   test: /\.(js|vue)$/,
   loader: 'eslint-loader',
   enforce: 'pre',
-  include: [resolve('src'), resolve('test'), resolve('packages'), resolve('examples'), resolve('examples-m')],
+  include: [resolve('src'), resolve('packages'), resolve('examples'), resolve('examples-m')],
   options: {
     formatter: require('eslint-friendly-formatter'),
     emitWarning: !config.dev.showEslintErrorsInOverlay
