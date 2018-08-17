@@ -10,7 +10,7 @@
 
 <script>
 export default {
-  name: 'toast',
+  name: 'JmToast',
   props: {
     iconName: {
       default: 'check'
@@ -21,7 +21,6 @@ export default {
       type: String,
       default: 'middle'
     },
-    className: String,
     show: Boolean
   },
   computed: {
@@ -38,7 +37,6 @@ export default {
         default:
           classList.push('jm-toast--middle')
       }
-      classList.push(this.className)
 
       if (this.iconName || this.iconClass) {
         classList.push('jm-toast--with-icon')

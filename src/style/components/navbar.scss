@@ -1,0 +1,39 @@
+@import '../abstracts/variable';
+@import '../abstracts/mixin';
+
+@include b(navbar) {
+  display: flex;
+  width: 100%;
+  height: $-navbar-size-height;
+  line-height: $-navbar-size-height;
+  justify-content: space-between;
+  background: $-navbar-color-bg;
+  color: $-navbar-color-txt;
+
+  @include e(side) {
+    display: block;
+    flex: 1;
+    padding: 0 $-size-side-padding;
+    font-size: $-navbar-fs-side;
+  }
+  @include e(side-left) {
+    text-align: left;
+  }
+  @include e(side-right) {
+    text-align: right;
+  }
+  @include e(title) {
+    display: block;
+    flex: 2;
+    font-size: $-navbar-fs-title;
+    text-align: center;
+    @include lineEllipsis;
+  }
+  @include m(light) {
+    position: relative;
+    background: #fff;
+    color: #333;
+
+    @include halfPixelBorder;
+  }
+}
