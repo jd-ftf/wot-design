@@ -107,14 +107,12 @@ describe('Toast', () => {
     Toast({
       msg: 'Test',
       position: 'bottom',
-      iconName: 'caveat',
-      className: 'custom-class'
+      iconName: 'caveat'
     })
 
     setTimeout(() => {
       const dom = document.querySelector('.jm-toast')
       expect(dom.classList.contains('jm-toast--bottom')).to.true
-      expect(dom.classList.contains('custom-class')).to.true
       expect(dom.querySelector('.jm-icon-caveat')).to.exist
       done()
     }, 200)

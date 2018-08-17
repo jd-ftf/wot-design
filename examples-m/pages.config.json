@@ -1,5 +1,11 @@
 [
   {
+    "name": "Button",
+    "path": "/button"
+  }, {
+    "name": "Navbar",
+    "path": "/navbar"
+  }, {
     "name": "Toast",
     "path": "/toast"
   }, {

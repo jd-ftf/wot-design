@@ -7,7 +7,6 @@
  *   duration: Number,    // 持续时间，默认2000
  *   iconName: String,    // icon图标，可选值：'success', 'warn', 'forbid'(即X)
  *   iconClass: String,   // icon自定义图表，传入类名，多个类名以空格连接
- *   className: String,   // toast根节点样式，可选值
  *   position: String     // toast位置，可选值：'top', 'middle', 'bottom'，default: 'middle'
  * })
  */
@@ -70,7 +69,6 @@ const showToast = (instance, options) => {
   clearTimeout(instance.timer)
   instance.msg = typeof options === 'string' ? options : options.msg
   instance.position = options.position || 'middle'
-  instance.className = options.className || ''
   instance.iconName = options.iconName || ''
   instance.iconClass = options.iconClass || ''
 

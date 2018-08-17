@@ -3,9 +3,11 @@
  */
 
 /* 主题颜色 */
-$-color-theme: #0083ff !default;                  // 正常色
-$-color-theme-light: #66b5ff !default;            // 弱化色
-$-color-theme-emph: #0068d7 !default;             // 强调色
+$-color-theme: #0084ff !default;                  // 正常色
+$-color-white: #fff !default;                     // 用于mix的白色
+$-color-black: #000 !default;                     // 用于mix的黑色
+$-color-theme-light: mix($-color-white, $-color-theme, 42%) !default;            // 弱化色
+$-color-theme-emph: mix($-color-black, $-color-theme, 18%) !default;             // 强调色
 
 /* 辅助色 */
 $-color-aid-red: #e2231a !default;
@@ -14,3 +16,13 @@ $-color-aid-red: #e2231a !default;
 $-color-icon: #c5c5c5 !default;                   // icon颜色
 $-color-line: #eee !default;                      // 分割线
 $-color-bg: #f4f4f4 !default;                     // 背景色
+
+/* 尺寸 */
+$-size-side-padding: 15px !default;                 // 屏幕两边留白
+
+/* navbar */
+$-navbar-color-bg: $-color-theme !default;          // navbar背景颜色
+$-navbar-color-txt: #fff !default;                // navbar字体颜色
+$-navbar-size-height: 44px !default;                // navbar高度
+$-navbar-fs-title: 16px !default;                   // navbar中间标题的字体大小
+$-navbar-fs-side: 14px !default;                    // navbar两边操作的字体大小

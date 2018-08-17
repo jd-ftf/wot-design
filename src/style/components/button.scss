@@ -1,0 +1,27 @@
+@import '../abstracts/variable';
+@import '../abstracts/mixin';
+
+@include b(button) {
+  display: block;
+  outline: none;
+  text-align: center;
+  border: none;
+  -webkit-appearance: none;
+
+  @include m(primary) {
+    width: 100%;
+    height: 44px;
+    border-radius: 8px;
+    background: $-color-theme;
+    color: #fff;
+    font-size: 16px;
+
+    &:active {
+      background: $-color-theme-emph;
+    }
+  }
+  @include m(disabled) {
+    opacity: 0.6;
+    color: $-color-theme-light;
+  }
+}
