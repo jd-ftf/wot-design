@@ -46,12 +46,12 @@ export default {
     },
     iconNameToClass () {
       switch (this.iconName) {
-        case 'check':
-          return 'jm-icon-circle-check'
-        case 'caveat':
-          return 'jm-icon-caveat'
-        case 'forbid':
-          return 'jm-icon-forbid'
+        case 'success':
+          return 'jm-icon-success'
+        case 'error':
+          return 'jm-icon-error'
+        case 'warning':
+          return 'jm-icon-warning'
         default:
           return ''
       }

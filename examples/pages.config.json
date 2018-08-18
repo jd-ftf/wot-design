@@ -1,40 +1,37 @@
 {
   "components": {
-    "title": "组件",
+    "name": "组件",
     "sideTabs": [
       {
-        "groupName": "快速开始",
-        "groupList": {
-          "Af": {
-            "title": "博客4",
-            "path": "/af"
-          }
+        "Install": {
+          "name": "安装",
+          "path": "/install"
+        },
+        "QuickUse": {
+          "name": "快速上手",
+          "path": "/quickUse"
         }
       }, {
-        "groupName": "组件",
-        "groupList": [
+        "name": "组件",
+        "list": [
           {
-            "title": "基础组件",
-            "children": {
-              "Toast": {
-                "title": "Toast 弹窗",
-                "path": "/toast"
+            "name": "基础组件",
+            "list": {
+              "Button": {
+                "name": "Button 按钮",
+                "path": "/button"
               },
-              "Ab": {
-                "title": "博客1",
-                "path": "/ab"
+              "Navbar": {
+                "name": "Navbar 导航栏",
+                "path": "/navbar"
               }
             }
           }, {
-            "title": "Form组件",
-            "children": {
-              "Ac": {
-                "title": "博客2",
-                "path": "/ac"
-              },
-              "Ae": {
-                "title": "博客3",
-                "path": "/ae"
+            "name": "交互组件",
+            "list": {
+              "Toast": {
+                "name": "Toast 消息提示",
+                "path": "/toast"
               }
             }
           }
@@ -43,20 +40,20 @@
     ]
   },
   "description": {
-    "title": "描述",
+    "name": "设计规范",
     "sideTabs": {
-      "alert": {
-        "title": "Toast 弹窗",
-        "path": "/toast"
+      "Color": {
+        "name": "Color 颜色",
+        "path": "/color"
       },
-      "message": {
-        "title": "博客1",
-        "path": "/ab"
+      "Font": {
+        "name": "Font 字体",
+        "path": "/font"
       }
     }
   },
   "about": {
-    "title": "关于",
+    "name": "关于",
     "href": "http://jd.com"
   }
 }

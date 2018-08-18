@@ -2,7 +2,7 @@
   <div class="page">
     <div class="header">
       <jm-navbar :title="$route.meta.pageName">
-        <a class="return-back" @click="goBack" slot="left">返回</a>
+        <router-link class="return-back" to="/" slot="left">返回</router-link>
       </jm-navbar>
     </div>
     <div class="page-content">
@@ -13,11 +13,7 @@
 
 <script>
 export default {
-  methods: {
-    goBack () {
-      this.$router.go(-1)
-    }
-  }
+
 }
 </script>
 

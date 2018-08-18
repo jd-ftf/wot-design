@@ -15,29 +15,45 @@ for (let [pageKey, page] of Object.entries(pageConfig)) {
   if (sideTabs instanceof Array) {
     let totalPage = 0
     for (let i = 0, len = sideTabs.length; i < len; i++) {
-      let groupList = sideTabs[i].groupList
+      let groupList = sideTabs[i].list
+
+      if (!groupList) {
+        let list = Object.keys(sideTabs[i])
+        for (let m = 0, groupLen = list.length; m < groupLen; m++) {
+          pageObjCache[pageKey][list[m]] = totalPage
+          pageArrCache[pageKey].push({
+            routeName: list[m],
+            name: sideTabs[i][list[m]].name
+          })
+          totalPage++
+        }
+        continue
+      }
 
       if (groupList instanceof Array) {
         for (let m = 0, groupLen = groupList.length; m < groupLen; m++) {
-          let tabs = Object.keys(groupList[m].children)
+          let tabs = Object.keys(groupList[m].list)
 
           for (let j = 0, tabsLen = tabs.length; j < tabsLen; j++) {
             pageObjCache[pageKey][tabs[j]] = totalPage
             pageArrCache[pageKey].push({
               routeName: tabs[j],
-              title: groupList[m].children[tabs[j]].title
+              name: groupList[m].list[tabs[j]].name
             })
             totalPage++
           }
         }
-      } else if (groupList instanceof Object) {
+        continue
+      }
+
+      if (groupList instanceof Object) {
         let tabs = Object.keys(groupList)
 
         for (let j = 0, tabsLen = tabs.length; j < tabsLen; j++) {
           pageObjCache[pageKey][tabs[j]] = totalPage
           pageArrCache[pageKey].push({
             routeName: tabs[j],
-            title: groupList[tabs[j]].title
+            name: groupList[tabs[j]].name
           })
           totalPage++
         }
@@ -50,7 +66,7 @@ for (let [pageKey, page] of Object.entries(pageConfig)) {
       pageObjCache[pageKey][tabs[j]] = j
       pageArrCache[pageKey].push({
         routeName: tabs[j],
-        title: sideTabs[tabs[j]].title
+        name: sideTabs[tabs[j]].name
       })
     }
   }

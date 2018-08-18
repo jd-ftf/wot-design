@@ -10,30 +10,42 @@ const getSideTabs = (page, key) => {
 
   if (page.sideTabs instanceof Array) {
     page.sideTabs.forEach(group => {
-      let groupList = group.groupList
+      let groupList = group.list
 
-      if (groupList instanceof Array) {
-        for (let itemList of groupList) {
-          let list = Object.keys(itemList.children).map(name => {
+      if (!groupList) {
+        let list = Object.keys(group).map(name => {
+          return {
+            path: `/${key}${group[name].path}`,
+            name: name,
+            component: () => import(`./docs${group[name].path}`)
+          }
+        })
+
+        sideTabs = sideTabs.concat(list)
+      } else {
+        if (groupList instanceof Array) {
+          for (let itemList of groupList) {
+            let list = Object.keys(itemList.list).map(name => {
+              return {
+                path: `/${key}${itemList.list[name].path}`,
+                name: name,
+                component: () => import(`./docs${itemList.list[name].path}`)
+              }
+            })
+
+            sideTabs = sideTabs.concat(list)
+          }
+        } else {
+          let list = Object.keys(group.list).map(name => {
             return {
-              path: `/${key}${itemList.children[name].path}`,
+              path: `/${key}${group.list[name].path}`,
               name: name,
-              component: () => import(`./docs${itemList.children[name].path}`)
+              component: () => import(`./docs${group.list[name].path}`)
             }
           })
 
           sideTabs = sideTabs.concat(list)
         }
-      } else {
-        let list = Object.keys(group.groupList).map(name => {
-          return {
-            path: `/${key}${group.groupList[name].path}`,
-            name: name,
-            component: () => import(`./docs${group.groupList[name].path}`)
-          }
-        })
-
-        sideTabs = sideTabs.concat(list)
       }
     })
   } else if (page.sideTabs instanceof Object) {
@@ -67,10 +79,16 @@ Object.entries(pagesConfig).forEach(([key, page]) => {
   let sideTabs = getSideTabs(page, key)
 
   if (page.sideTabs instanceof Array) {
+    let redirectUrl
+    if (page.sideTabs[0].list) {
+      redirectUrl = `/${key}${page.sideTabs[0].list[0].path}`
+    } else {
+      redirectUrl = `/${key}${Object.values(page.sideTabs[0])[0].path}`
+    }
     pages.push({
       path: `/${key}`,
       component: () => import(`./layout/sideTabs`),
-      redirect: `/${key}${Object.values(Object.values(page.sideTabs)[0].groupList)[0].path}`,
+      redirect: redirectUrl,
       children: sideTabs
     })
   } else if (page.sideTabs instanceof Object) {
