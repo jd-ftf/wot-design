@@ -1,5 +1,6 @@
 <template>
   <button
+    type="button"
     class="jm-button"
     :class="btnClass"
     :disabled="disabled"

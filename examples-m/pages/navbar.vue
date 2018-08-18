@@ -1,5 +1,8 @@
 <template>
   <div>
+    <white-space>
+      默认深色Navbar
+    </white-space>
     <white-space :hor="0">
       <jm-navbar title="标题"></jm-navbar>
     </white-space>
@@ -23,6 +26,9 @@
       <jm-navbar title="标题的字数如果太多则超出隐藏">
         <span slot="left">返回</span>
       </jm-navbar>
+    </white-space>
+    <white-space>
+      淡色Navbar
     </white-space>
     <white-space :hor="0">
       <jm-navbar title="标题" light></jm-navbar>

@@ -31,7 +31,6 @@ const vueMarkdownOptions = {
           let description = (m && m.length > 1) ? m[1] : ''
           let demoLink = description ? (process.env.NODE_ENV === 'dev' ? config.dev.demoPath : config.docs.demoPath) +
             description.split('=')[1] : ''
-          let content = tokens[idx + 1].content
 
           return '<demo-block demo-link="' + demoLink + '">'
         }
@@ -39,7 +38,8 @@ const vueMarkdownOptions = {
         return '</demo-block>\n'
       }
     }]
-  ]
+  ],
+  preventExtract: true
 }
 
 module.exports = {

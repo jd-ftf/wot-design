@@ -8,32 +8,13 @@ Vue.use(Router)
 
 let pagesRouter = []
 pagesConfig.forEach(page => {
-  if (page.list && page.list.length > 0) {
-    pagesRouter.push({
-      path: page.path,
-      component: () => import(`./pages${page.path}/index`),
-      meta: {
-        pageName: page.name
-      }
-    })
-    page.list.forEach(item => {
-      pagesRouter.push({
-        path: `${page.path}${item.path}`,
-        component: () => import(`./pages${page.path}${item.path}`),
-        meta: {
-          pageName: item.name
-        }
-      })
-    })
-  } else {
-    pagesRouter.push({
-      path: page.path,
-      component: () => import(`./pages${page.path}`),
-      meta: {
-        pageName: page.name
-      }
-    })
-  }
+  pagesRouter.push({
+    path: page.path,
+    component: () => import(`./pages${page.path}`),
+    meta: {
+      pageName: page.name
+    }
+  })
 })
 
 const router = new Router({

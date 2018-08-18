@@ -3,12 +3,12 @@
     <div v-if="prevPage" class="page-controller__prev">
       <router-link class="page-controller__link" :to="{ name: prevPage.routeName }">
         <i class="iconfont icon-arrow-left"></i>
-        <span>{{ prevPage.title }}</span>
+        <span>{{ prevPage.name }}</span>
       </router-link>
     </div>
     <div v-if="nextPage" class="page-controller__next">
       <router-link class="page-controller__link" :to="{ name: nextPage.routeName }">
-        <span>{{ nextPage.title }}</span>
+        <span>{{ nextPage.name }}</span>
         <i class="iconfont icon-arrow-right"></i>
       </router-link>
     </div>

@@ -20,6 +20,10 @@ $-color-bg: #f4f4f4 !default;                     // 背景色
 /* 尺寸 */
 $-size-side-padding: 15px !default;                 // 屏幕两边留白
 
+/* button */
+$-button-color-primary: $-color-theme !default;                   // 默认按钮颜色
+$-button-color-primary-active: $-color-theme-emph !default;      // 默认按钮颜色点击态
+
 /* navbar */
 $-navbar-color-bg: $-color-theme !default;          // navbar背景颜色
 $-navbar-color-txt: #fff !default;                // navbar字体颜色

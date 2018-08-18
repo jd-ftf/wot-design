@@ -57,19 +57,19 @@ export default {
     handleToast2 () {
       this.$toast({
         msg: '操作成功',
-        iconName: 'check'
+        iconName: 'success'
       })
     },
     handleToast3 () {
       this.$toast({
         msg: '手机验证码输入错误，请重新输入',
-        iconName: 'forbid'
+        iconName: 'error'
       })
     },
     handleToast4 () {
       this.warnToast = this.$toast({
         msg: '提示信息',
-        iconName: 'caveat'
+        iconName: 'warning'
       })
     },
     handleToast5 () {
