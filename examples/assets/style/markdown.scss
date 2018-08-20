@@ -187,4 +187,9 @@
       color: $color-json-type;
     }
   }
+  .language-bash, .language-BASH {
+    .hljs-built_in {
+      color: $color-bash-built;
+    }
+  }
 }
