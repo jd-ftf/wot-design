@@ -21,7 +21,7 @@ const webpackConfig = merge(baseWebpackConfig, {
   entry: components,
   output: {
     path: config.build.assetsRoot,
-    filename: '[name].js',
+    filename: '[name]/index.js',
     library: ['JMDesign', '[name]'],
     libraryTarget: 'umd'
   },
@@ -44,7 +44,7 @@ const webpackConfig = merge(baseWebpackConfig, {
       parallel: true
     }),
     new ExtractTextPlugin({
-      filename: 'theme-default/[name].css',
+      filename: '[name]/style/css/[name].css',
       allChunks: true,
     }),
     new OptimizeCSSPlugin({

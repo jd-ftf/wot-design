@@ -4,7 +4,7 @@
 
 ### 使用
 
-#### 按需引用
+#### 按需引入
 
 ```javascript
 import Vue from 'vue'
