@@ -20,7 +20,7 @@
   }
   h1, h2, h3, h4, h5, h6 {
     margin: 20px 0;
-    font-weight: 400;
+    font-weight: 700;
     color: $color-important;
   }
   h1 {
@@ -166,8 +166,14 @@
     .hljs-selector-class {
       color: $color-css-selector;
     }
-    .hljs-attribute {
+    .hljs-attribute, .hljs-variable {
       color: $color-css-attr;
+    }
+    .hljs-number {
+      color: $color-css-number;
+    }
+    .hljs-comment {
+      color: $color-js-comment;
     }
   }
   .language-json, .languane-JSON {

@@ -4,16 +4,16 @@
 
 ### 使用
 
-#### 按需引用
+#### 按需引入
 
 ```javascript
-import Vue from 'vue
+import Vue from 'vue'
 import { Navbar } from 'jm-design'
 
 Vue.use(Navbar)
 ```
 
-#### CDN按需引用
+#### CDN 按需引入
 
 ```html
 <!-- CSS引用 -->
