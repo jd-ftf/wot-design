@@ -1,15 +1,12 @@
 [
   {
+    "name": "Button",
+    "path": "/button"
+  }, {
+    "name": "Navbar",
+    "path": "/navbar"
+  }, {
     "name": "Toast",
     "path": "/toast"
-  }, {
-    "name": "MessageBox",
-    "path": "/messageBox",
-    "list": [
-      {
-        "name": "MessageBox 1",
-        "path": "/a"
-      }
-    ]
   }
 ]

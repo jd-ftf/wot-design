@@ -4,7 +4,9 @@
 
 ## 文档地址
 
-[文档](http://git.jd.com/JM-FE/jm-design/wikis/home)
+在进行开发前请先阅读文档
+
+[文档地址](http://git.jd.com/JM-FE/jm-design/wikis/home)
 
 ## Build Setup
 
@@ -19,7 +21,7 @@ npm run dev
 npm run build
 
 # 打包文档和移动端demo
-npm run docs
+npm run build:docs
 
 # 打包插件库并分析包大小
 npm run build --report
@@ -32,6 +34,15 @@ npm run e2e
 
 # 运行所有的测试
 npm test
+
+# 辅助命令：打包组件库总入口
+npm run build:lib
+
+# 辅助命令：打包组件库各组件入口
+npm run build:comp
+
+# 辅助命令：将组件库的scss样式文件引入为一个index.scss文件入口，用于开发者自定义主题
+npm run build:theme
 ```
 
 ## 使用的技术栈

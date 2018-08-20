@@ -3,16 +3,14 @@
     <div v-show="show" class="jm-toast" :class="customClass">
       <i v-if="iconName" class="jm-toast__icon" :class="[ iconNameToClass ]"></i>
       <i v-else-if="iconClass" class="jm-toast__icon" :class="iconClass.split(' ')"></i>
-      <div class="jm-toast__msg">
-        {{ msg }}
-      </div>
+      <div class="jm-toast__msg">{{ msg }}</div>
     </div>
   </transition>
 </template>
 
 <script>
 export default {
-  name: 'toast',
+  name: 'JmToast',
   props: {
     iconName: {
       default: 'check'
@@ -23,7 +21,6 @@ export default {
       type: String,
       default: 'middle'
     },
-    className: String,
     show: Boolean
   },
   computed: {
@@ -40,7 +37,6 @@ export default {
         default:
           classList.push('jm-toast--middle')
       }
-      classList.push(this.className)
 
       if (this.iconName || this.iconClass) {
         classList.push('jm-toast--with-icon')
@@ -50,12 +46,12 @@ export default {
     },
     iconNameToClass () {
       switch (this.iconName) {
-        case 'check':
-          return 'jm-icon-circle-check'
-        case 'caveat':
-          return 'jm-icon-caveat'
-        case 'forbid':
-          return 'jm-icon-forbid'
+        case 'success':
+          return 'jm-icon-success'
+        case 'error':
+          return 'jm-icon-error'
+        case 'warning':
+          return 'jm-icon-warning'
         default:
           return ''
       }

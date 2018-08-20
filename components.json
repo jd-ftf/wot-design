@@ -1,3 +1,5 @@
 {
+  "button": "./packages/button/index.js",
+  "navbar": "./packages/navbar/index.js",
   "toast": "./packages/toast/index.js"
 }

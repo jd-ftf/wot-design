@@ -4,10 +4,12 @@ import FastClick from 'fastclick'
 import JMDesign from '@/index'
 import router from './route'
 import './assets/style/base.scss'
+import WhiteSpace from './components/whiteSpace.vue'
 
 FastClick.attach(document.body)
 
 Vue.use(JMDesign)
+Vue.component(WhiteSpace.name, WhiteSpace)
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */

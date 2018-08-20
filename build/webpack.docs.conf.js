@@ -69,7 +69,7 @@ const webpackConfig = merge(baseWebpackConfig, {
         collapseWhitespace: true,
         removeAttributeQuotes: true
       },
-      chunks: ['vendor', 'manifest-examples', 'examples'],
+      chunks: ['vendor', 'manifest', 'examples'],
       chunksSortMode: 'dependency'
     }),
     // 自动生成 docs 的静态页面，以 docs/index.html 为模板，docs 的 chunk 文件自动插入 html 文件
@@ -83,7 +83,7 @@ const webpackConfig = merge(baseWebpackConfig, {
         removeComments: true,
         collapseWhitespace: true,
       },
-      chunks: ['vendor', 'manifest-docs', 'docs'],
+      chunks: ['vendor', 'manifest', 'docs'],
       chunksSortMode: 'dependency'
     }),
     new webpack.HashedModuleIdsPlugin(),
@@ -101,15 +101,13 @@ const webpackConfig = merge(baseWebpackConfig, {
       }
     }),
     new webpack.optimize.CommonsChunkPlugin({
-      name: 'manifest-examples',
-      minChunks: Infinity,
-      chunks: ['examples']
+      name: 'manifest',
+      minChunks: Infinity
     }),
-    new webpack.optimize.CommonsChunkPlugin({
-      name: 'manifest-docs',
-      minChunks: Infinity,
-      chunks: ['docs']
-    }),
+    // new webpack.optimize.CommonsChunkPlugin({
+    //   name: 'manifest-docs',
+    //   minChunks: Infinity
+    // }),
     new webpack.optimize.CommonsChunkPlugin({
       name: 'app-examples',
       async: 'vendor-async',

@@ -1,24 +1,18 @@
 <template>
-  <div class="demo" ref="demoBlock" :style="{ 'min-height': showDemo ? '751px' : '' }">
-    <div class="demo-code" :class="{ 'demo-code-shrink': showDemo }">
+  <div class="demo" ref="demoBlock">
+    <div class="demo-code">
       <slot></slot>
-      <a class="demo-open" @click="toggleDemo">
-        <i class="iconfont icon-jiantou-right" :class="{ 'icon-jiantou-left': !showDemo }"></i>
-      </a>
     </div>
-    <transition name="slide">
-      <div
-        v-show="showDemo"
-        class="demo-html"
-        ref="phone"
-        :style="phoneStyle"
-      >
-        <div class="phone-frame">
-          <iframe frameborder="0" :src="demoLink" width="320" height="544"></iframe>
-          <i class="phone-circle"></i>
-        </div>
+    <div
+      class="demo-html"
+      ref="phone"
+      :style="phoneStyle"
+    >
+      <div class="phone-frame">
+        <iframe frameborder="0" :src="demoLink" width="320" height="544"></iframe>
+        <i class="phone-circle"></i>
       </div>
-    </transition>
+    </div>
   </div>
 </template>
 
@@ -27,7 +21,6 @@ export default {
   name: 'DemoBlock',
   data () {
     return {
-      showDemo: true,
       phoneStyle: {
         position: 'absolute',
         right: '0',
@@ -40,15 +33,11 @@ export default {
     demoLink: String
   },
   methods: {
-    toggleDemo () {
-      this.showDemo = !this.showDemo
-    },
     phoneListener () {
       let phoneHeight = this.$refs.phone.clientHeight
 
       if (this.$refs.demoBlock.clientHeight > phoneHeight) {
         let demoBlockRect = this.$refs.demoBlock.getBoundingClientRect()
-        console.log(demoBlockRect.bottom, phoneHeight)
 
         if (demoBlockRect.top - 60 < 0 && demoBlockRect.bottom - 60 > phoneHeight) {
           this.phoneStyle = {
@@ -98,45 +87,15 @@ export default {
       padding-right: 36px;
     }
   }
-  .demo-open {
-    position: absolute;
-    right: 2px;
-    top: 2px;
-    width: 30px;
-    height: 30px;
-    cursor: pointer;
-    text-align: center;
-    line-height: 30px;
-    overflow: hidden;
-    background: rgba(255, 255, 255, 1);
-    box-shadow: 0 0 8px #ccc;
-    border-radius: 50%;
-
-    &:hover {
-      .iconfont {
-        color: $color-theme-l2;
-      }
-    }
-    .iconfont {
-      color: #999;
-      font-size: 18px;
-      transition: color 0.3s;
-    }
-  }
 }
 .demo-code {
   position: relative;
   display: inline-block;
-  width: 100%;
-  transition: width 0.5s;
-}
-.demo-code-shrink {
   width: calc(100% - 390px);
 }
 .demo-html {
   width: 390px;
   text-align: right;
-  transition: all 0.5s;
   overflow: hidden;
   transform: scale(1);
   transform-origin: right top;

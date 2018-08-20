@@ -2,29 +2,28 @@
  * toast组件
  * 使用：
  * Toast({
- *   multi: Boolean,      // 是否可以同时展示多个Toast，默认为false
+ *   single: Boolean,     // 是否只展示1个Toast，默认为false
  *   msg: String,         // toast信息
  *   duration: Number,    // 持续时间，默认2000
  *   iconName: String,    // icon图标，可选值：'success', 'warn', 'forbid'(即X)
  *   iconClass: String,   // icon自定义图表，传入类名，多个类名以空格连接
- *   className: String,   // toast根节点样式，可选值
  *   position: String     // toast位置，可选值：'top', 'middle', 'bottom'，default: 'middle'
  * })
  */
 
 import Vue from 'vue'
-import fwToast from './src/main.vue'
+import jmToast from './src/main.vue'
 import '@/style/base.scss'
 import '@/style/components/toast.scss'
 
-const ToastConstructor = Vue.extend(fwToast)
+const ToastConstructor = Vue.extend(jmToast)
 
 let toastList = []
 let toastSingleTon
 
 let getAnInstance = () => {
   if (toastList.length > 0) {
-    toastList.shift()
+    return toastList.shift()
   }
 
   return new ToastConstructor({
@@ -70,7 +69,6 @@ const showToast = (instance, options) => {
   clearTimeout(instance.timer)
   instance.msg = typeof options === 'string' ? options : options.msg
   instance.position = options.position || 'middle'
-  instance.className = options.className || ''
   instance.iconName = options.iconName || ''
   instance.iconClass = options.iconClass || ''
 
@@ -82,17 +80,17 @@ const showToast = (instance, options) => {
       if (instance.closed) {
         return
       }
-      instance.close(options.multi)
+      instance.close(!options.single)
     }, duration)
   })
 
   return instance
 }
 
-let Toast = (options = {}) => {
+let Toast = options => {
   options = options || {}
 
-  if (options.multi) {
+  if (!options.single) {
     let instance = getAnInstance()
 
     return showToast(instance, options)

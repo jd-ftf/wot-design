@@ -1,3 +1,6 @@
+/**
+ * 引入所有样式文件，用于开发者进行主题自定义
+ */
 const path = require('path')
 const fs = require('fs')
 const ora = require('ora')
@@ -20,7 +23,7 @@ const isFileExit = filepath => {
 }
 
 Object.keys(components).forEach(key => {
-  indexContent += `@import "${key}.scss";\n`
+  indexContent += `@import "./components/${key}.scss";\n`
   let filepath = path.resolve(basePath, 'components', `${key}.scss`)
   
   if (!isFileExit(filepath)) {

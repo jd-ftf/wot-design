@@ -2,18 +2,17 @@
   <header class="header">
     <div class="header-container">
       <router-link :to="{ path: '/index' }" class="logo-block">
-        <img class="logo" src="../assets/img/dolphin.png" />
-        <img class="name" src="../assets/img/name.png" />
+        <img class="name" src="../assets/img/jm-design.png" />
       </router-link>
       <ul class="header-tab">
         <li class="header-tab__item" v-for="(page, key) in pages" :key="key">
-          <a v-if="page.href" :href="page.href" class="header-tab__link" target="_blank">{{ page.title }}</a>
+          <a v-if="page.href" :href="page.href" class="header-tab__link" target="_blank">{{ page.name }}</a>
           <router-link
             v-else
             class="header-tab__link"
             active-class="header-tab__link--active"
             :to="`/${key}`"
-          >{{ page.title }}</router-link>
+          >{{ page.name }}</router-link>
         </li>
       </ul>
     </div>

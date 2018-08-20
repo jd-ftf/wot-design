@@ -80,3 +80,23 @@
     visibility: hidden;
   }
 }
+
+/* 0.5px 边框 */
+@mixin halfPixelBorder($direction: 'bottom') {
+  &::after {
+    position: absolute;
+    display: block;
+    content: '';
+    width: 100%;
+    height: 1px;
+    left: 0;
+    @if ($direction == 'bottom') {
+      bottom: 0;
+    }
+    @else {
+      top: 0;
+    }
+    transform: scaleY(0.5);
+    background: $-color-line;
+  }
+}
