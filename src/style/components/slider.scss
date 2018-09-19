@@ -1,0 +1,89 @@
+@import '../abstracts/variable';
+@import '../abstracts/mixin';
+
+$font-color: #333;
+$font-size: 14px;
+$slider-radius: 14px;
+$container-height: $slider-radius * 4;
+$axie-height: 6px;
+
+@include b(slider) {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  height: $slider-radius * 3;
+
+  @include e(label-min) {
+    font-size: $font-size;
+    color: $font-color;
+    
+    @include m(disabled) {
+      color: #d2d2d2;
+    }
+  }
+
+  @include e(label-max) {
+    font-size: $font-size;
+    color: $font-color;
+
+    @include m(disabled) {
+      color: #d2d2d2;
+    }
+  }
+
+  @include e(label-cur) {
+    text-align: center;
+    line-height: $slider-radius * 2;
+    font-size: $font-size;
+    color: $font-color;
+  }
+
+  @include e(axle) {
+    flex-grow: 1;
+    position: relative;
+    height: $axie-height;
+    border-radius: $axie-height / 2;
+    background-color: #e5e5e5;
+    margin: 0 $slider-radius;
+
+    @include m(has-min-max) {
+      margin: 0 $slider-radius * 1.5;
+    }
+  }
+
+  @include e(ball-container) {
+    position: absolute;
+    top: $slider-radius - $container-height + $axie-height / 2;
+    left: -$slider-radius;
+    display: flex;
+    flex-flow: column-reverse nowrap;
+    height: $container-height;
+  }
+
+  @include e(ball) {
+    height: $slider-radius * 2;
+    width: $slider-radius * 2;
+    background-color: #fff;
+    border-radius: 100%;
+    border: 1px solid #e5e5e5;
+    box-shadow: 0 2px 4px 0 rgba($color: #000000, $alpha: 0.3);
+  }
+
+  @include e(progress-bar) {
+    height: $axie-height;
+    border-radius: $axie-height / 2;
+    width: 80px;
+    background-color: #0083ff;
+
+    @include m(disabled) {
+      background-color: #e5f3ff;
+    }
+  }
+
+  @include m(has-label) {
+    padding-top: $slider-radius;
+    @include e(axle) {
+      height: 200px;
+    }
+  }
+} 

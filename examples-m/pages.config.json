@@ -8,5 +8,9 @@
   }, {
     "name": "Toast",
     "path": "/toast"
+  },
+  {
+    "name": "Slider",
+    "path": "/slider"
   }
 ]
