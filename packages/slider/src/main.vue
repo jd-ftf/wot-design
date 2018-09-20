@@ -1,10 +1,7 @@
 <template>
   <div
     class="jm-slider"
-    :class="classRoot"
-    @touchstart="startDrag"
-    @touchend="endDrag"
-    @touchmove="move">
+    :class="classRoot">
     <label
       class="jm-slider__label-min"
       :class="classMinLabel"
@@ -14,17 +11,29 @@
     <div
       class="jm-slider__axle"
       ref="axle"
-      :class="classAxle">
+      :class="classAxle"
+      @touchstart="startDrag"
+      @touchend="endDrag"
+      @touchmove="move">
       <div
         class="jm-slider__ball-container"
         ref="container"
-        v-show="!disabled"
+        v-show="!isDisable"
         :style="posLeft">
         <div class="jm-slider__ball"></div>
         <label
           class="jm-slider__label-cur"
           v-show="showLabel"
           v-text="curValue">
+        </label>
+      </div>
+      <div
+        class="jm-slider__ball-container"
+        v-if="type === 'double'">
+        <div class="jm-slider__ball"></div>
+        <label
+          class="jm-slider__label-cur"
+          v-show="showLabel">
         </label>
       </div>
       <div
@@ -78,9 +87,15 @@ export default {
   data () {
     return {
       dragActive: false,
+      isDisable: false,
       pos: 0,
       axleWidth: 0,
-      ballRadius: 0
+      ballRadius: 0,
+      eventList: {
+        slidingstart: [],
+        slidingend: [],
+        sliding: []
+      }
     }
   },
   mounted () {
@@ -93,12 +108,12 @@ export default {
       this.minValue = [this.maxValue, this.maxValue = this.minValue][0]
     }
 
+    this.isDisable = this.disabled
+
     // 对初始值进行设定
     let value = this.value.replace(/\s+/g, '').split(',').map(val => Number(val))
     if (this.type === 'single') {
-      value[0] < this.maxValue && value[0] > this.minValue
-        ? this.setValue(value[0])
-        : this.setValue(this.minValue)
+      this.setValue(value[0])
     } else if (this.type === 'double') {
       // todo
     }
@@ -112,18 +127,18 @@ export default {
     },
     classRoot () {
       let classList = []
-      this.disabled && classList.push('jm-slider--disabled')
-      this.showLabel && !this.disabled && classList.push('jm-slider--has-label')
+      this.isDisable && classList.push('jm-slider--disabled')
+      this.showLabel && classList.push('jm-slider--has-label')
       return classList.join(' ')
     },
     classMinLabel () {
       let classList = []
-      this.disabled && classList.push('jm-slider__label-min--disabled')
+      this.isDisable && classList.push('jm-slider__label-min--disabled')
       return classList.join(' ')
     },
     classMaxLabel () {
       let classList = []
-      this.disabled && classList.push('jm-slider__label-max--disabled')
+      this.isDisable && classList.push('jm-slider__label-max--disabled')
       return classList.join(' ')
     },
     classAxle () {
@@ -133,7 +148,7 @@ export default {
     },
     classProgressBar () {
       let classList = []
-      this.disabled && classList.push('jm-slider__progress-bar--disabled')
+      this.isDisable && classList.push('jm-slider__progress-bar--disabled')
       return classList.join(' ')
     },
     progressBarWidth () {
@@ -144,22 +159,23 @@ export default {
 
     // 开始拖动事件
     startDrag (event) {
-      if (!this.disabled) {
+      if (!this.isDisable) {
         this.dragActive = true
-        this.setPos(event.changedTouches[0].clientX)
+        this.setPos(event.changedTouches[0].clientX - this.$refs.axle.offsetLeft)
+        this.eventList['slidingstart'].forEach(fn => fn && fn(event))
       }
     },
 
     // 结束拖动事件
-    endDrag () {
-      if (!this.disabled) {
+    endDrag (event) {
+      if (!this.isDisable) {
         this.dragActive = false
+        this.eventList['slidingend'].forEach(fn => fn && fn(event))
       }
     },
 
     // 给滑块定位
     setPos (pos) {
-      pos -= this.$refs.axle.offsetLeft
       pos = pos < 0 ? 0 : pos
       pos = pos > this.axleWidth ? this.axleWidth : pos
       this.pos = pos
@@ -167,8 +183,9 @@ export default {
 
     // 指尖开始移动
     move (event) {
-      if (this.dragActive && !this.disabled) {
-        this.setPos(event.changedTouches[0].clientX)
+      if (this.dragActive && !this.isDisable) {
+        this.setPos(event.changedTouches[0].clientX - this.$refs.axle.offsetLeft)
+        this.eventList['sliding'].forEach(fn => fn && fn(event))
       }
     },
 
@@ -180,11 +197,34 @@ export default {
 
     setValue (value) {
       if (this.type === 'single') {
+        if (value > this.maxValue || value < this.minValue) {
+          value = this.minValue
+        }
         let percent = (value - this.minValue) / (this.maxValue - this.minValue)
-        this.pos = percent * this.axleWidth
+        this.setPos(percent * this.axleWidth)
       } else if (this.type === 'double') {
         // todo
       }
+    },
+
+    disable (bool) {
+      this.isDisable = bool
+    },
+
+    // 添加事件
+    addEvent (type, fn) {
+      if (typeof type === 'function') {
+        [fn, type] = [type, 'slidingend']
+      }
+      return typeof fn === 'function'
+        ? type + '-' + (this.eventList[type].push(fn) - 1)
+        : false
+    },
+
+    // 移除事件
+    removeEvent (id) {
+      let [type, index] = id.split('-')
+      this.eventList[type][index] = null
     }
   }
 }

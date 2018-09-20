@@ -45,6 +45,7 @@ $axie-height: 6px;
     border-radius: $axie-height / 2;
     background-color: #e5e5e5;
     margin: 0 $slider-radius;
+    z-index: 0;
 
     @include m(has-min-max) {
       margin: 0 $slider-radius * 1.5;
@@ -58,6 +59,7 @@ $axie-height: 6px;
     display: flex;
     flex-flow: column-reverse nowrap;
     height: $container-height;
+    z-index: 2;
   }
 
   @include e(ball) {
@@ -74,6 +76,10 @@ $axie-height: 6px;
     border-radius: $axie-height / 2;
     width: 80px;
     background-color: #0083ff;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
 
     @include m(disabled) {
       background-color: #e5f3ff;
@@ -82,8 +88,5 @@ $axie-height: 6px;
 
   @include m(has-label) {
     padding-top: $slider-radius;
-    @include e(axle) {
-      height: 200px;
-    }
   }
 } 

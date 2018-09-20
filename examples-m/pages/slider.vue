@@ -6,40 +6,119 @@
       这个值不能超过设定的<code>maxValue</code>或低于设定的<code>minValue</code>，
       如果不符合会自动设定值为最小值。
     </white-space>
-    <white-space >
+    <white-space>
       <jm-slider type="single" value="30"></jm-slider>
     </white-space>
     <white-space>
       可以通过设定<code>:minValue</code>与<code>:maxValue</code>来设定最小值与最大值，
       注意，这两个值都是<code>Number</code>型的
     </white-space>
-    <white-space >
+    <white-space>
       <jm-slider :minValue="4" :maxValue="677" value="479"></jm-slider>
     </white-space>
     <white-space>
-      可以设置label为不使用<code>showLabel="false"</code>
+      可以设置标签为不使用<code>:showLabel="false"</code>
     </white-space>
     <white-space>
       <jm-slider :showLabel="false" value="50"></jm-slider>
     </white-space>
     <white-space>
-      也可以设置不显示最大最小值<code>showMinMax="false"</code>
+      也可以设置不显示最大最小值<code>:showMinMax="false"</code>
     </white-space>
     <white-space>
       <jm-slider :showMinMax="false"></jm-slider>
     </white-space>
     <white-space>
-      设置slider为禁用状态<code>disabled="false"</code>
+      设置滑块为禁用状态<code>disabled="false"</code>
     </white-space>
     <white-space>
-      <jm-slider :disabled="true" value="70"></jm-slider>
+      <jm-slider :disabled="true" :showLabel="false" value="70"></jm-slider>
+    </white-space>
+    <white-space>
+      可以通过下面的一些<code>JS</code>来操纵这个单向滑块，
+      <code>Number: getValue()</code>来获取滑块的值，
+      <code>setValue(Number: value)</code>来设定滑块的值
+      <code>disable(Boolean: bool)</code>来设定滑块的禁用与否
+    </white-space>
+    <white-space>
+      <jm-slider value="0" ref="slider1"></jm-slider>
+    </white-space>
+    <white-space>
+      <jm-button @click="click11">获得滑块的值</jm-button>
+    </white-space>
+    <white-space>
+      <jm-button @click="click12">将滑块的值设为66</jm-button>
+    </white-space>
+    <white-space>
+      <jm-button @click="click13">禁用/启用滑块</jm-button>
+    </white-space>
+    <white-space>
+      在JS中可以通过<code>addEvent(String: type, function: fn)</code>来添加事件，type的参数有
+      slidingstart slidingend sliding，也可以通过 <code>addEvent(function: fn)</code>来添加
+      slidingend 事件，添加成功后会返回ID，之后可通过 <code>removeEvent(String: id)</code>
+      来移除事件
+    </white-space>
+    <white-space>
+      <div class="color-box" :style="styleColorBox">这是一个可调整颜色的色块</div>
+    </white-space>
+    <white-space>
+      <jm-slider type="single" value="100" ref="slider2"></jm-slider>
+    </white-space>
+     <white-space>
+      <jm-button @click="click21">绑定事件</jm-button>
+    </white-space>
+    <white-space>
+      <jm-button @click="click22">移除事件</jm-button>
+    </white-space>
+    <white-space>
+      接下来介绍的是双向滑块<code>type="double"</code>，这种模块在设定<code>value</code>
+      的时候需要用逗号将最大最小值分开，例如 <code>value="39,76"</code>，有空格也是被允许的，
+      但如果超过最大最小值，将会自动把值设定为0与100
+    </white-space>
+    <white-space>
+      <jm-slider type="double" value="39,76"></jm-slider>
     </white-space>
   </div>
 </template>
 
 <script>
 export default {
-  mounted () {
+  data () {
+    return {
+      sliderDisable: false,
+      sliderEvent: '',
+      colorValue: 255
+    }
+  },
+  computed: {
+    styleColorBox () {
+      let c = this.colorValue
+      return `background-color: rgb(${c}, ${c}, ${c})`
+    }
+  },
+  methods: {
+    click11 () {
+      this.$toast({
+        msg: this.$refs.slider1.getValue(),
+        position: 'bottom',
+        single: true
+      })
+    },
+    click12 () {
+      this.$refs.slider1.setValue(66)
+    },
+    click13 () {
+      this.sliderDisable = !this.sliderDisable
+      this.$refs.slider1.disable(this.sliderDisable)
+    },
+    click21 () {
+      this.sliderEvent = this.$refs.slider2.addEvent('sliding', (event) => {
+        this.colorValue = this.$refs.slider2.getValue() * 255 / 100
+      })
+    },
+    click22 () {
+      this.$refs.slider2.removeEvent(this.sliderEvent)
+    }
   }
 }
 </script>
@@ -53,6 +132,17 @@ export default {
     white-space: nowrap;
     font-size: 0.8em;
     background-color: #f8f8f8;
+    -webkit-font-smoothing: initial;
+  }
+  .color-box {
+    height: 50px;
+    width: 100%;
+    border: 2px solid #0083ff;
+    border-radius: 2px;
+    background-color: #fff;
+    line-height: 50px;
+    text-align: center;
+    color: #0083ff;
     -webkit-font-smoothing: initial;
   }
 </style>
