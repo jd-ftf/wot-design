@@ -12,34 +12,43 @@
       class="jm-slider__axle"
       ref="axle"
       :class="classAxle"
-      @touchstart="startDrag"
-      @touchend="endDrag"
-      @touchmove="move">
+      @touchstart="_slidingStart"
+      @touchend="_slidingEnd"
+      @touchmove="_sliding">
       <div
         class="jm-slider__ball-container"
         ref="container"
         v-show="!isDisable"
-        :style="posLeft">
+        :class="classContainer1"
+        :style="styleContainer1"
+        @touchstart="_activeSlider(1)"
+        @touchend="_inactiveSlider(1)">
         <div class="jm-slider__ball"></div>
         <label
           class="jm-slider__label-cur"
           v-show="showLabel"
-          v-text="curValue">
+          v-text="_getValue()[0]">
         </label>
       </div>
       <div
         class="jm-slider__ball-container"
-        v-if="type === 'double'">
+        ref="container2"
+        :class="classContainer2"
+        :style="styleContainer2"
+        v-if="type === 'double'"
+        @touchstart="_activeSlider(2)"
+        @touchend="_inactiveSlider(2)">
         <div class="jm-slider__ball"></div>
         <label
           class="jm-slider__label-cur"
-          v-show="showLabel">
+          v-show="showLabel"
+          v-text="_getValue()[1]">
         </label>
       </div>
       <div
         class="jm-slider__progress-bar"
         :class="classProgressBar"
-        :style="progressBarWidth">
+        :style="styleProgressBar">
       </div>
     </div>
     <label
@@ -86,14 +95,16 @@ export default {
   },
   data () {
     return {
-      dragActive: false,
       isDisable: false,
-      pos: 0,
+      pos1: 0,
+      pos2: 0,
+      isSlider1Active: false,
+      isSlider2Active: false,
       axleWidth: 0,
       ballRadius: 0,
       eventList: {
-        slidingstart: [],
-        slidingend: [],
+        slidingStart: [],
+        slidingEnd: [],
         sliding: []
       }
     }
@@ -108,105 +119,137 @@ export default {
       this.minValue = [this.maxValue, this.maxValue = this.minValue][0]
     }
 
+    // 将disabled设到变量上使其可以操控
     this.isDisable = this.disabled
 
     // 对初始值进行设定
-    let value = this.value.replace(/\s+/g, '').split(',').map(val => Number(val))
-    if (this.type === 'single') {
-      this.setValue(value[0])
-    } else if (this.type === 'double') {
-      // todo
-    }
+    this.setValue(this.value.split(',').map(val => Number(val)))
   },
   computed: {
-    posLeft () {
-      return `left: ${this.pos - this.ballRadius}px;`
-    },
-    curValue () {
-      return this.getValue()
-    },
     classRoot () {
       let classList = []
       this.isDisable && classList.push('jm-slider--disabled')
       this.showLabel && classList.push('jm-slider--has-label')
       return classList.join(' ')
     },
+    classAxle () {
+      return this.showMinMax ? 'jm-slider__axle--has-min-max' : ''
+    },
     classMinLabel () {
-      let classList = []
-      this.isDisable && classList.push('jm-slider__label-min--disabled')
-      return classList.join(' ')
+      return this.isDisable ? 'jm-slider__label-min--disabled' : ''
     },
     classMaxLabel () {
-      let classList = []
-      this.isDisable && classList.push('jm-slider__label-max--disabled')
-      return classList.join(' ')
-    },
-    classAxle () {
-      let classList = []
-      this.showMinMax && classList.push('jm-slider__axle--has-min-max')
-      return classList.join(' ')
+      return this.isDisable ? 'jm-slider__label-max--disabled' : ''
     },
     classProgressBar () {
-      let classList = []
-      this.isDisable && classList.push('jm-slider__progress-bar--disabled')
-      return classList.join(' ')
+      return this.isDisable ? 'jm-slider__progress-bar--disabled' : ''
     },
-    progressBarWidth () {
-      return `width: ${this.pos}px;`
+    classContainer1 () {
+      return this.isSlider1Active ? 'jm-slider__ball-container--active' : ''
+    },
+    classContainer2 () {
+      return this.isSlider2Active ? 'jm-slider__ball-container--active' : ''
+    },
+    styleProgressBar () {
+      if (this.type === 'single') {
+        return `width: ${this.pos1}px;`
+      }
+      let styleList = []
+      styleList.push(`width: ${Math.abs(this.pos1 - this.pos2)}px;`)
+      styleList.push(`left: ${Math.min(this.pos1, this.pos2)}px`)
+      return styleList.join(';')
+    },
+    styleContainer1 () {
+      return `left: ${this.pos1 - this.ballRadius}px;`
+    },
+    styleContainer2 () {
+      return `left: ${this.pos2 - this.ballRadius}px;`
     }
   },
   methods: {
+    // 第n个滑块被激活
+    _activeSlider (n) {
+      this[`isSlider${n}Active`] = true
+    },
+
+    // 第n个滑块被重置
+    _inactiveSlider (n) {
+      this[`isSlider${n}Active`] = false
+    },
 
     // 开始拖动事件
-    startDrag (event) {
+    _slidingStart (event) {
       if (!this.isDisable) {
-        this.dragActive = true
-        this.setPos(event.changedTouches[0].clientX - this.$refs.axle.offsetLeft)
-        this.eventList['slidingstart'].forEach(fn => fn && fn(event))
+        if (this.type === 'single') {
+          this._setPos(event.changedTouches[0].clientX - this.$refs.axle.offsetLeft)
+        }
+        this.eventList['slidingStart'].forEach(fn => fn && fn(event))
       }
-    },
-
-    // 结束拖动事件
-    endDrag (event) {
-      if (!this.isDisable) {
-        this.dragActive = false
-        this.eventList['slidingend'].forEach(fn => fn && fn(event))
-      }
-    },
-
-    // 给滑块定位
-    setPos (pos) {
-      pos = pos < 0 ? 0 : pos
-      pos = pos > this.axleWidth ? this.axleWidth : pos
-      this.pos = pos
     },
 
     // 指尖开始移动
-    move (event) {
-      if (this.dragActive && !this.isDisable) {
-        this.setPos(event.changedTouches[0].clientX - this.$refs.axle.offsetLeft)
+    _sliding (event) {
+      if (!this.isDisable) {
+        this._setPos(event.changedTouches[0].clientX - this.$refs.axle.offsetLeft)
         this.eventList['sliding'].forEach(fn => fn && fn(event))
       }
     },
 
-    // 获得通过pos转化过来的value值
-    getValue () {
-      let percent = this.pos / this.axleWidth
-      return percent * (this.maxValue - this.minValue) + this.minValue | 0
-    },
-
-    setValue (value) {
-      if (this.type === 'single') {
-        if (value > this.maxValue || value < this.minValue) {
-          value = this.minValue
-        }
-        let percent = (value - this.minValue) / (this.maxValue - this.minValue)
-        this.setPos(percent * this.axleWidth)
-      } else if (this.type === 'double') {
-        // todo
+    // 结束拖动事件
+    _slidingEnd (event) {
+      if (!this.isDisable) {
+        this.eventList['slidingEnd'].forEach(fn => fn && fn(event))
       }
     },
 
+    // 给滑块定位
+    _setPos (pos) {
+      pos < 0 && (pos = 0)
+      pos > this.axleWidth && (pos = this.axleWidth)
+      this.isSlider1Active && (this.pos1 = pos)
+      this.isSlider2Active && (this.pos2 = pos)
+    },
+
+    // 将pos转化为value
+    _pos2Value (pos) {
+      return pos / this.axleWidth * (this.maxValue - this.minValue) + this.minValue | 0
+    },
+
+    // 将value转化为pos
+    _value2Pos (value) {
+      return (value - this.minValue) / (this.maxValue - this.minValue) * this.axleWidth
+    },
+
+    // 获得通过pos转化过来的value值，有可能不是正序
+    _getValue () {
+      return [this.pos1, this.pos2].map(pos => this._pos2Value(pos))
+    },
+
+    // 获得大小正序排列的value
+    // type=single输出Number
+    // type=double输出Array
+    getValue () {
+      let val = this._getValue()
+      return this.type === 'single'
+        ? val[0]
+        : [Math.min(val[0], val[1]), Math.max(val[0], val[1])]
+    },
+
+    // 给插件赋值
+    setValue (value, otherValue) {
+      // 将各种各样的输入转化为value = []的形式
+      value = otherValue ? [value, otherValue] : value instanceof Array ? value : [value]
+      value.forEach((val, index) => {
+        val < this.minValue && (val = this.minValue)
+        val > this.maxValue && (val = this.maxValue)
+        // 只有在激活Slider的时候才能setPos
+        this._activeSlider(index + 1)
+        this._setPos(this._value2Pos(val))
+        this._inactiveSlider(index + 1)
+      })
+    },
+
+    // 是否禁用插件
     disable (bool) {
       this.isDisable = bool
     },
@@ -216,6 +259,7 @@ export default {
       if (typeof type === 'function') {
         [fn, type] = [type, 'slidingend']
       }
+      type = type.toLowerCase()
       return typeof fn === 'function'
         ? type + '-' + (this.eventList[type].push(fn) - 1)
         : false
