@@ -37,14 +37,15 @@
     <white-space>
       可以通过下面的一些<code>JS</code>来操纵这个单向滑块，
       <code>Number: getValue()</code>来获取滑块的值，
-      <code>setValue(Number: value)</code>来设定滑块的值
-      <code>disable(Boolean: bool)</code>来设定滑块的禁用与否
+      <code>setValue(Number: value)</code>来设定滑块的值，
+      <code>disable(Boolean: bool)</code>来设定滑块的禁用与否，滑块禁用后将无法滑动赋值，
+      但还是能通过<code>setValue()</code>进行赋值
     </white-space>
     <white-space>
       <jm-slider value="0" ref="slider1"></jm-slider>
     </white-space>
     <white-space>
-      <jm-button @click="click11">获得滑块的值</jm-button>
+      <jm-button @click="click11">获取滑块的值</jm-button>
     </white-space>
     <white-space>
       <jm-button @click="click12">将滑块的值设为66</jm-button>
@@ -76,7 +77,17 @@
       但如果超过最大最小值，将会自动把值设定为0与100
     </white-space>
     <white-space>
-      <jm-slider type="double" value="39,76"></jm-slider>
+      使用<code>setValue(Number: val1, Number: val2)</code>进行赋值，使用
+      <code>Array: getValue()</code>进行取值，取到的是一个长度为2的数组，[0]是较小值，[1]是较大值
+    </white-space>
+    <white-space>
+      <jm-slider type="double" value="39, 76" ref="slider3"></jm-slider>
+    </white-space>
+    <white-space>
+      <jm-button @click="click31">获取滑块的值</jm-button>
+    </white-space>
+    <white-space>
+      <jm-button @click="click32">将滑块的值设为0与100</jm-button>
     </white-space>
   </div>
 </template>
@@ -100,8 +111,7 @@ export default {
     click11 () {
       this.$toast({
         msg: this.$refs.slider1.getValue(),
-        position: 'bottom',
-        single: true
+        position: 'bottom'
       })
     },
     click12 () {
@@ -118,6 +128,15 @@ export default {
     },
     click22 () {
       this.$refs.slider2.removeEvent(this.sliderEvent)
+    },
+    click31 () {
+      this.$toast({
+        msg: this.$refs.slider3.getValue(),
+        position: 'bottom'
+      })
+    },
+    click32 () {
+      this.$refs.slider3.setValue(0, 100)
     }
   }
 }
@@ -135,12 +154,13 @@ export default {
     -webkit-font-smoothing: initial;
   }
   .color-box {
+    box-sizing: border-box;
     height: 50px;
     width: 100%;
     border: 2px solid #0083ff;
     border-radius: 2px;
     background-color: #fff;
-    line-height: 50px;
+    line-height: 46px;
     text-align: center;
     color: #0083ff;
     -webkit-font-smoothing: initial;

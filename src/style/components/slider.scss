@@ -1,92 +1,97 @@
 @import '../abstracts/variable';
 @import '../abstracts/mixin';
 
-$font-color: #333;
-$font-size: 14px;
-$slider-radius: 14px;
-$container-height: $slider-radius * 4;
-$axie-height: 6px;
+
 
 @include b(slider) {
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
-  height: $slider-radius * 3;
+  height: $-slider-ball-radius * 3;
 
   @include e(label-min) {
-    font-size: $font-size;
-    color: $font-color;
+    font-size: $-slider-font-size;
+    color: $-slider-font-color;
     
     @include m(disabled) {
-      color: #d2d2d2;
+      color: $-slider-disable-font-color;
     }
   }
 
   @include e(label-max) {
-    font-size: $font-size;
-    color: $font-color;
+    font-size: $-slider-font-size;
+    color: $-slider-font-color;
 
     @include m(disabled) {
-      color: #d2d2d2;
+      color: $-slider-disable-font-color;
     }
   }
 
   @include e(label-cur) {
     text-align: center;
-    line-height: $slider-radius * 2;
-    font-size: $font-size;
-    color: $font-color;
+    line-height: $-slider-ball-radius * 2;
+    font-size: $-slider-font-size;
+    color: $-slider-font-color;
+    background-color: rgba($color: $-color-white, $alpha: 0.5);
+    border-radius: 100%;
   }
 
   @include e(axle) {
     flex-grow: 1;
     position: relative;
-    height: $axie-height;
-    border-radius: $axie-height / 2;
-    background-color: #e5e5e5;
-    margin: 0 $slider-radius;
+    height: $-slider-axie-height;
+    border-radius: $-slider-axie-height / 2;
+    background-color: $-slider-axie-bg-color;
+    margin: 0 $-slider-ball-radius;
     z-index: 0;
 
     @include m(has-min-max) {
-      margin: 0 $slider-radius * 1.5;
+      margin: 0 $-slider-ball-radius * 1.5;
     }
   }
 
   @include e(ball-container) {
     position: absolute;
-    top: $slider-radius - $container-height + $axie-height / 2;
-    left: -$slider-radius;
+    top: $-slider-axie-height / 2 - $-slider-ball-radius * 3;
+    left: -$-slider-ball-radius;
     display: flex;
     flex-flow: column-reverse nowrap;
-    height: $container-height;
+    height: $-slider-ball-radius * 4;
     z-index: 2;
+
+    @include m(active) {
+      z-index: 3;
+    }
   }
 
   @include e(ball) {
-    height: $slider-radius * 2;
-    width: $slider-radius * 2;
-    background-color: #fff;
+    height: $-slider-ball-radius * 2;
+    width: $-slider-ball-radius * 2;
+    background-color: $-color-white;
     border-radius: 100%;
-    border: 1px solid #e5e5e5;
-    box-shadow: 0 2px 4px 0 rgba($color: #000000, $alpha: 0.3);
+    border: 1px solid $-slider-axie-bg-color;
+    box-shadow: 0 2px 4px 0 rgba($color: $-color-black, $alpha: 0.3);
   }
 
   @include e(progress-bar) {
-    height: $axie-height;
-    border-radius: $axie-height / 2;
-    width: 80px;
-    background-color: #0083ff;
+    height: $-slider-axie-height;
+    border-radius: $-slider-axie-height / 2;
+    background-color: $-color-theme;
     position: absolute;
-    top: 0;
-    left: 0;
     z-index: 1;
 
     @include m(disabled) {
-      background-color: #e5f3ff;
+      background-color: $-slider-disable-line-color;
     }
   }
 
   @include m(has-label) {
-    padding-top: $slider-radius;
+    padding-top: $-slider-ball-radius;
   }
+
+  // @include m(disabled) {
+  //   @include e(progress-bar) {
+  //     background-color: red;
+  //   }
+  // }
 } 
