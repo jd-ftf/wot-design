@@ -93,12 +93,12 @@ describe('Slider', () => {
     const $labelCur = vm.$el.querySelectorAll('.jm-slider__label-cur')
 
     vm.$nextTick(() => {
-      $labelCur[0].textContent.should.equal('33')
-      $labelCur[1].textContent.should.equal('77')
+      expect($labelCur[0].textContent).to.equal('33')
+      expect($labelCur[1].textContent).to.equal('77')
       vm.$refs.slider.setValue(-30, 130)
       vm.$nextTick(() => {
-        $labelCur[0].textContent.should.equal('0')
-        $labelCur[1].textContent.should.equal('100')
+        expect($labelCur[0].textContent).to.equal('0')
+        expect($labelCur[1].textContent).to.equal('100')
         done()
       })
     })
@@ -109,23 +109,22 @@ describe('Slider', () => {
       template: '<jm-slider value="33" ref="slider"></jm-slider>'
     })
 
-    vm.$refs.slider.getValue().should.be.a('number')
-    vm.$refs.slider.getValue().should.equal(33)
+    expect(vm.$refs.slider.getValue()).to.be.a('number')
+    expect(vm.$refs.slider.getValue()).to.equal(33)
     vm.$refs.slider.setValue(-30)
-    vm.$refs.slider.getValue().should.equal(0)
+    expect(vm.$refs.slider.getValue()).to.equal(0)
     vm.$refs.slider.setValue(130)
-    vm.$refs.slider.getValue().should.equal(100)
+    expect(vm.$refs.slider.getValue()).to.equal(100)
 
     destroyVM(vm)
     vm = createTplVM({
       template: '<jm-slider type="double" value="33,77" ref="slider"></jm-slider>'
     })
-    vm.$refs.slider.getValue().should.be.a('array')
-    vm.$refs.slider.getValue()[0].should.equal(33)
-    vm.$refs.slider.getValue()[1].should.equal(77)
+
+    expect(vm.$refs.slider.getValue()).to.be.a('array')
+    expect(vm.$refs.slider.getValue()).to.eql([33, 77])
     vm.$refs.slider.setValue(-30, 130)
-    vm.$refs.slider.getValue()[0].should.equal(0)
-    vm.$refs.slider.getValue()[1].should.equal(100)
+    expect(vm.$refs.slider.getValue()).to.eql([0, 100])
   })
 
   it('should render correct content when sliding over', () => {
@@ -148,14 +147,15 @@ describe('Slider', () => {
     vm.$refs.slider._activeSlider(1)
     setfingerX(0)
     vm.$refs.slider._slidingStart(event)
-    vm.$refs.slider.getValue().should.equal(0)
+    expect(vm.$refs.slider.getValue()).to.equal(0)
     // 模拟手指滑动
     for (let i = 0; i <= 5; i++) {
       setfingerX(150 + AXLE_WIDTH / 2 * i) // 保证能滑出界
       vm.$refs.slider._sliding(event)
     }
-    vm.$refs.slider.getValue().should.equal(100)
+    expect(vm.$refs.slider.getValue()).to.equal(100)
     vm.$refs.slider._slidingEnd(event)
     vm.$refs.slider._inactiveSlider(1)
+    expect(vm.$refs.slider.getValue()).to.equal(100)
   })
 })
