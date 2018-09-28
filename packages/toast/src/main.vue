@@ -13,7 +13,7 @@ export default {
   name: 'JmToast',
   props: {
     iconName: {
-      default: 'check'
+      default: 'success'
     },
     iconClass: String,
     msg: String,
