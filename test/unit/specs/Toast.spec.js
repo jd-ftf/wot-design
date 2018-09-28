@@ -56,14 +56,14 @@ describe('Toast', () => {
     }, 200)
   })
 
-  it('should have check icon', done => {
+  it('should have success icon', done => {
     Toast({
       msg: 'Test',
-      iconName: 'check'
+      iconName: 'success'
     })
 
     setTimeout(() => {
-      expect(document.querySelector('.jm-toast .jm-icon-circle-check')).to.exist
+      expect(document.querySelector('.jm-toast .jm-icon-success')).to.exist
     }, 200)
 
     setTimeout(() => {
@@ -72,14 +72,14 @@ describe('Toast', () => {
     }, 1800)
   })
 
-  it('should have forbid icon', done => {
+  it('should have error icon', done => {
     Toast({
       msg: 'Test',
-      iconName: 'forbid'
+      iconName: 'error'
     })
 
     setTimeout(() => {
-      expect(document.querySelector('.jm-toast .jm-icon-forbid')).to.exist
+      expect(document.querySelector('.jm-toast .jm-icon-error')).to.exist
     }, 200)
 
     setTimeout(() => {
@@ -107,13 +107,13 @@ describe('Toast', () => {
     Toast({
       msg: 'Test',
       position: 'bottom',
-      iconName: 'caveat'
+      iconName: 'warning'
     })
 
     setTimeout(() => {
       const dom = document.querySelector('.jm-toast')
       expect(dom.classList.contains('jm-toast--bottom')).to.true
-      expect(dom.querySelector('.jm-icon-caveat')).to.exist
+      expect(dom.querySelector('.jm-icon-warning')).to.exist
       done()
     }, 200)
   })
