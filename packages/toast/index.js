@@ -57,7 +57,7 @@ const showToast = (instance, options) => {
   let duration
 
   if (options.iconName) {
-    if (options.iconName === 'check') {
+    if (options.iconName === 'success') {
       duration = 1500
     } else {
       duration = 3000
