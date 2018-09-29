@@ -14,22 +14,26 @@
     @content;
   }
 }
-@mixin e($element) {
+/* 对于需要需要嵌套在 m 底下的 e，需要将 $eInM 设置为 true，对于伪类，会自动将 e 嵌套在 伪类 底下 */
+@mixin e($element, $eInM: false) {
   $selector: &;
   $selectors: '';
-  @each $item in $element {
-    $selectors: #{$selectors + $selector + $elementSeparator + $item + ','};
-  }
 
-  @if needNest($selector) {
+  @if containsPseudo($selector) or containsModifier($selector) and $eInM {
+    @each $item in $element {
+      $selectors: #{$selectors + $B + $elementSeparator + $item + ','};
+    }
     @at-root {
-      .#{$B} {
+      #{$selector} {
         #{$selectors} {
           @content;
         }
       }
     }
   } @else {
+    @each $item in $element {
+      $selectors: #{$selectors + $selector + $elementSeparator + $item + ','};
+    }
     @at-root {
       #{$selectors} {
         @content;
