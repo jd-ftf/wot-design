@@ -6,7 +6,7 @@
       class="jm-slider__label-min"
       :class="classMinLabel"
       v-show="showMinMax"
-      v-text="minValue">
+      v-text="min">
     </label>
     <div
       class="jm-slider__axle"
@@ -55,7 +55,7 @@
       class="jm-slider__label-max"
       :class="classMaxLabel"
       v-show="showMinMax"
-      v-text="maxValue">
+      v-text="max">
     </label>
   </div>
 </template>
@@ -95,6 +95,8 @@ export default {
   },
   data () {
     return {
+      min: 0,
+      max: 100,
       isDisable: false,
       pos1: 0,
       pos2: 0,
@@ -116,7 +118,11 @@ export default {
 
     // 看最小值和最大值是否相反
     if (this.minValue > this.maxValue) {
-      this.minValue = [this.maxValue, this.maxValue = this.minValue][0]
+      this.min = this.maxValue
+      this.max = this.minValue
+    } else {
+      this.min = this.minValue
+      this.max = this.maxValue
     }
 
     // 将disabled设到变量上使其可以操控
@@ -212,12 +218,12 @@ export default {
 
     // 将pos转化为value
     _pos2Value (pos) {
-      return pos / this.axleWidth * (this.maxValue - this.minValue) + this.minValue | 0
+      return pos / this.axleWidth * (this.max - this.min) + this.min | 0
     },
 
     // 将value转化为pos
     _value2Pos (value) {
-      return (value - this.minValue) / (this.maxValue - this.minValue) * this.axleWidth
+      return (value - this.min) / (this.max - this.min) * this.axleWidth
     },
 
     // 获得通过pos转化过来的value值，有可能不是正序
@@ -240,8 +246,8 @@ export default {
       // 将各种各样的输入转化为value = []的形式
       value = otherValue ? [value, otherValue] : value instanceof Array ? value : [value]
       value.forEach((val, index) => {
-        val < this.minValue && (val = this.minValue)
-        val > this.maxValue && (val = this.maxValue)
+        val < this.min && (val = this.min)
+        val > this.max && (val = this.max)
         // 只有在激活Slider的时候才能setPos
         this._activeSlider(index + 1)
         this._setPos(this._value2Pos(val))
