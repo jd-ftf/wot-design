@@ -14,12 +14,12 @@
     @content;
   }
 }
-/* 对于需要需要嵌套在 m 底下的 e，需要将 $eInM 设置为 true，对于伪类，会自动将 e 嵌套在 伪类 底下 */
-@mixin e($element, $eInM: false) {
+/* 对于伪类，会自动将 e 嵌套在 伪类 底下 */
+@mixin e($element...) {
   $selector: &;
   $selectors: '';
 
-  @if containsPseudo($selector) or containsModifier($selector) and $eInM {
+  @if containsPseudo($selector) {
     @each $item in $element {
       $selectors: #{$selectors + $B + $elementSeparator + $item + ','};
     }
@@ -41,7 +41,7 @@
     }
   }
 }
-@mixin m($modifier) {
+@mixin m($modifier...) {
   $selectors: '';
   @each $item in $modifier {
     $selectors: #{$selectors + & + $modifierSeparator + $item + ','};
@@ -50,6 +50,33 @@
   @at-root {
     #{$selectors} {
       @content;
+    }
+  }
+}
+/* 对于需要需要嵌套在 m 底下的 e，调用这个混合宏，一般在切换整个组件的状态，如切换颜色的时候 */
+@mixin me($element...) {
+  $selector: &;
+  $selectors: '';
+
+  @if containsModifier($selector) {
+    @each $item in $element {
+      $selectors: #{$selectors + $B + $elementSeparator + $item + ','};
+    }
+    @at-root {
+      #{$selector} {
+        #{$selectors} {
+          @content;
+        }
+      }
+    }
+  } @else {
+    @each $item in $element {
+      $selectors: #{$selectors + $selector + $elementSeparator + $item + ','};
+    }
+    @at-root {
+      #{$selectors} {
+        @content;
+      }
     }
   }
 }
