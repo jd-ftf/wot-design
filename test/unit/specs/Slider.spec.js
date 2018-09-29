@@ -7,6 +7,18 @@ describe('Slider', () => {
     destroyVM(vm)
   })
 
+  // 模拟事件
+  const fakeEvent = {
+    changedTouches: [{
+      clientX: 0
+    }]
+  }
+
+  // 给事件设定值
+  const setfingerX = (x) => {
+    fakeEvent.changedTouches[0].clientX = x
+  }
+
   it('should render correct contents when default', () => {
     vm = createTplVM({
       template: '<jm-slider></jm-slider>'
@@ -132,30 +144,74 @@ describe('Slider', () => {
       template: '<jm-slider ref="slider"></jm-slider>'
     })
 
-    const AXLE_WIDTH = vm.$refs.slider.axleWidth
-
-    const event = {
-      changedTouches: [{
-        clientX: 0
-      }]
-    }
-
-    const setfingerX = (x) => {
-      event.changedTouches[0].clientX = x
-    }
+    const axleWidth = vm.$refs.slider.axleWidth
 
     vm.$refs.slider._activeSlider(1)
     setfingerX(0)
-    vm.$refs.slider._slidingStart(event)
+    vm.$refs.slider._slidingStart(fakeEvent)
     expect(vm.$refs.slider.getValue()).to.equal(0)
     // 模拟手指滑动
     for (let i = 0; i <= 5; i++) {
-      setfingerX(150 + AXLE_WIDTH / 2 * i) // 保证能滑出界
-      vm.$refs.slider._sliding(event)
+      setfingerX(150 + axleWidth / 2 * i) // 保证能滑出界
+      vm.$refs.slider._sliding(fakeEvent)
     }
     expect(vm.$refs.slider.getValue()).to.equal(100)
-    vm.$refs.slider._slidingEnd(event)
+    vm.$refs.slider._slidingEnd(fakeEvent)
     vm.$refs.slider._inactiveSlider(1)
     expect(vm.$refs.slider.getValue()).to.equal(100)
+  })
+
+  it('should render nothing when sliding over and is disabled', () => {
+    vm = createTplVM({
+      template: '<jm-slider ref="slider" :disabled="true"></jm-slider>'
+    })
+
+    const axleWidth = vm.$refs.slider.axleWidth
+
+    vm.$refs.slider._activeSlider(1)
+    setfingerX(0)
+    vm.$refs.slider._slidingStart(fakeEvent)
+    expect(vm.$refs.slider.getValue()).to.equal(0)
+    // 模拟手指滑动
+    for (let i = 0; i <= 5; i++) {
+      setfingerX(150 + axleWidth / 2 * i) // 保证能滑出界
+      vm.$refs.slider._sliding(fakeEvent)
+    }
+    expect(vm.$refs.slider.getValue()).to.not.equal(100)
+    vm.$refs.slider._slidingEnd(fakeEvent)
+    vm.$refs.slider._inactiveSlider(1)
+    expect(vm.$refs.slider.getValue()).to.not.equal(100)
+  })
+
+  it('should exchange min and max value when minValue big than maxValue', done => {
+    vm = createTplVM({
+      template: '<jm-slider :minValue="99" :maxValue="1"></jm-slider>'
+    })
+
+    vm.$nextTick(() => {
+      expect(vm.$el.querySelector('.jm-slider__label-min').textContent).to.equal('1')
+      expect(vm.$el.querySelector('.jm-slider__label-cur').textContent).to.equal('1')
+      expect(vm.$el.querySelector('.jm-slider__label-max').textContent).to.equal('99')
+      done()
+    })
+  })
+
+  it('should render correct content when disabled is set', done => {
+    vm = createTplVM({
+      template: '<jm-slider :disabled="true" ref="slider"></jm-slider>'
+    })
+
+    vm.$nextTick(() => {
+      expect(vm.$el.querySelector('.jm-slider__label-min').classList.contains('jm-slider__label-min--disabled')).to.be.true
+      expect(vm.$el.querySelector('.jm-slider__label-max').classList.contains('jm-slider__label-max--disabled')).to.be.true
+      expect(vm.$el.querySelector('.jm-slider__progress-bar').classList.contains('jm-slider__progress-bar--disabled')).to.be.true
+      expect(vm.$el.classList.contains('jm-slider--disabled')).to.be.true
+
+      vm.$refs.slider._slidingStart(event)
+      vm.$refs.slider._sliding(event)
+      vm.$refs.slider._slidingEnd(event)
+
+      done()
+    })
   })
 })
