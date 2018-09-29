@@ -32,8 +32,3 @@
     @return false;
   }
 }
-
-/* 判断 Element 是否需要嵌套 */
-@function needNest($selector) {
-  @return containsModifier($selector) or containsPseudo($selector);
-}
