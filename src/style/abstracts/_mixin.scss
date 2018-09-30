@@ -21,7 +21,7 @@
 
   @if containsPseudo($selector) {
     @each $item in $element {
-      $selectors: #{$selectors + $B + $elementSeparator + $item + ','};
+      $selectors: #{$selectors + '.' + $B + $elementSeparator + $item + ','};
     }
     @at-root {
       #{$selector} {
@@ -60,7 +60,7 @@
 
   @if containsModifier($selector) {
     @each $item in $element {
-      $selectors: #{$selectors + $B + $elementSeparator + $item + ','};
+      $selectors: #{$selectors + '.' + $B + $elementSeparator + $item + ','};
     }
     @at-root {
       #{$selector} {
