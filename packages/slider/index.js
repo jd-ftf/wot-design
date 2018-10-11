@@ -2,15 +2,22 @@
  * slider组件
  * 使用：
  * <jm-slider
- *   type="single"  // slider的类型，可选值 'single'，'double'，默认为
- * Toast({
- *   single: Boolean,     // 是否只展示1个Toast，默认为false
- *   msg: String,         // toast信息
- *   duration: Number,    // 持续时间，默认2000
- *   iconName: String,    // icon图标，可选值：'success', 'warn', 'forbid'(即X)
- *   iconClass: String,   // icon自定义图表，传入类名，多个类名以空格连接
- *   position: String     // toast位置，可选值：'top', 'middle', 'bottom'，default: 'middle'
- * })
+ *   属性：
+ *   type           // 类型，可选值"single"，"double"，默认值为"single"
+ *   :value         // 初始值，类型是Array，默认值是[0, 0]
+ *   :min-value     // 最小值，类型是Number，默认值为0
+ *   :max-value     // 最大值，类型是Number，默认值为100
+ *   :step          // 步长，类型是Number，默认值为1
+ *   :disabled      // 是否禁用，类型是Boolean，默认值为false
+ *   :show-label    // 是否展示当前值，类型是Boolean，默认值为true
+ *   :show-min-max  // 是否展示最大值最小值，类型是Boolean，默认值为true
+ *   事件：
+ *   @slidingstart  // 滑动开始事件
+ *   @sliding       // 滑动中事件
+ *   @slidingend    // 滑动结束事件
+ *   @change        // 值改变事件
+ *   @input         // 操作滑块事件
+ * ></jm-slider>
  */
 
 import Slider from './src/main'

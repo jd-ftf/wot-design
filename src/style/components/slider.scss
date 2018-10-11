@@ -7,29 +7,16 @@
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
-  height: $-slider-ball-radius * 3;
+  height: $-slider-handle-radius * 3;
 
-  @include e(label-min) {
+  @include e(label-min, label-max) {
     font-size: $-slider-font-size;
     color: $-slider-font-color;
-    
-    @include m(disabled) {
-      color: $-slider-disable-font-color;
-    }
-  }
-
-  @include e(label-max) {
-    font-size: $-slider-font-size;
-    color: $-slider-font-color;
-
-    @include m(disabled) {
-      color: $-slider-disable-font-color;
-    }
   }
 
   @include e(label-cur) {
     text-align: center;
-    line-height: $-slider-ball-radius * 2;
+    line-height: $-slider-handle-radius * 2;
     font-size: $-slider-font-size;
     color: $-slider-font-color;
     background-color: rgba($color: $-color-white, $alpha: 0.5);
@@ -42,31 +29,27 @@
     height: $-slider-axie-height;
     border-radius: $-slider-axie-height / 2;
     background-color: $-slider-axie-bg-color;
-    margin: 0 $-slider-ball-radius;
+    margin: 0 $-slider-handle-radius;
     z-index: 0;
 
     @include m(has-min-max) {
-      margin: 0 $-slider-ball-radius * 1.5;
+      margin: 0 $-slider-handle-radius * 1.5;
     }
   }
 
-  @include e(ball-container) {
+  @include e(handle-container) {
     position: absolute;
-    top: $-slider-axie-height / 2 - $-slider-ball-radius * 3;
-    left: -$-slider-ball-radius;
+    top: $-slider-axie-height / 2 - $-slider-handle-radius * 3;
+    left: -$-slider-handle-radius;
     display: flex;
     flex-flow: column-reverse nowrap;
-    height: $-slider-ball-radius * 4;
+    height: $-slider-handle-radius * 4;
     z-index: 2;
-
-    @include m(active) {
-      z-index: 3;
-    }
   }
 
-  @include e(ball) {
-    height: $-slider-ball-radius * 2;
-    width: $-slider-ball-radius * 2;
+  @include e(handle) {
+    height: $-slider-handle-radius * 2;
+    width: $-slider-handle-radius * 2;
     background-color: $-color-white;
     border-radius: 100%;
     border: 1px solid $-slider-axie-bg-color;
@@ -79,19 +62,20 @@
     background-color: $-color-theme;
     position: absolute;
     z-index: 1;
-
-    @include m(disabled) {
-      background-color: $-slider-disable-line-color;
-    }
   }
 
   @include m(has-label) {
-    padding-top: $-slider-ball-radius;
+    padding-top: $-slider-handle-radius;
   }
 
-  // @include m(disabled) {
-  //   @include e(progress-bar) {
-  //     background-color: red;
-  //   }
-  // }
+  @include m(disabled) {
+
+    @include me(progress-bar) {
+      background-color: $-slider-disable-line-color;
+    }
+
+    @include me(label-min, label-max) {
+      color: $-slider-disable-font-color;
+    }
+  }
 } 
