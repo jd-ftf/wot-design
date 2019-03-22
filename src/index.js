@@ -1,7 +1,7 @@
 import Button from 'jm-design/button/index.js'
 import Navbar from 'jm-design/navbar/index.js'
 import Toast from 'jm-design/toast/index.js'
-import Slider from 'jm-design/Slider/index.js'
+import Slider from 'jm-design/slider/index.js'
 
 const components = [
   Button,
