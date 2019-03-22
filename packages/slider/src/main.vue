@@ -28,11 +28,11 @@
         <div
           class="jm-slider__label-cur"
           v-show="showLabel">
-          {{ value[0] }}
+          {{ typeof value === 'number' ? value : value[0] }}
         </div>
       </div>
       <div
-        v-show="!disabled && type === 'double'"
+        v-show="!disabled && typeof value !== 'number'"
         :style="{ left: handlePosition[1] - handleRadius + 'px' }"
         class="jm-slider__handle-container">
         <div class="jm-slider__handle"></div>
@@ -87,10 +87,8 @@ export default {
       default: 0
     },
     value: {
-      type: Array,
-      default () {
-        return [0, 0]
-      }
+      type: [Number, Array],
+      default: 0
     },
     step: {
       type: Number,
@@ -105,7 +103,7 @@ export default {
   },
   computed: {
     handlePosition () {
-      return this.type === 'single'
+      return typeof this.value === 'number'
         ? [this.value2Pos(this.value), 0]
         : [this.value2Pos(this.value[0]), this.value2Pos(this.value[1])]
     }
@@ -133,25 +131,28 @@ export default {
         const axleX = this.$refs.axle.offsetLeft
         const currentPos = touchX - axleX
 
-        const deltaLeft = Math.abs(currentPos - this.value2Pos(this.value[0]))
-        const deltaRight = Math.abs(currentPos - this.value2Pos(this.value[1]))
+        if (typeof this.value === 'number') {
+          const value = this.pos2Value(currentPos)
+          this.$emit('sliding', value)
+          this.$emit('input', value)
+        } else {
+          const deltaLeft = Math.abs(currentPos - this.value2Pos(this.value[0]))
+          const deltaRight = Math.abs(currentPos - this.value2Pos(this.value[1]))
 
-        const value = this.pos2Value(currentPos)
-        const currentValue = deltaLeft < deltaRight
-          ? [value, this.value[1]]
-          : [this.value[0], value]
-        console.log('deltaLeft :', deltaLeft)
-        console.log('deltaRight :', deltaRight)
-        this.$emit('sliding', currentValue)
-        this.$emit('input', currentValue)
+          const value = this.pos2Value(currentPos)
+          const currentValue = deltaLeft < deltaRight
+            ? [value, this.value[1]]
+            : [this.value[0], value]
+          this.$emit('sliding', currentValue)
+          this.$emit('input', currentValue)
+        }
       }
     },
 
     // 结束拖动事件
     slidingEnd () {
       if (!this.disabled) {
-        // this.$emit('slidingend', this.value)
-        // this.$emit('change', this.value)
+        this.$emit('slidingend', this.value)
       }
     },
 
