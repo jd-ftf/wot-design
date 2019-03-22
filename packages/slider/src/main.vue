@@ -1,0 +1,181 @@
+<template>
+  <div
+    :class="{
+      'jm-slider': true,
+      'jm-slider--has-label': showLabel,
+      'jm-slider--disabled': disabled
+    }">
+    <div
+      class="jm-slider__label-min"
+      v-show="showMinMax">
+      {{ minValue }}
+    </div>
+    <div
+      ref="axle"
+      :class="{
+        'jm-slider__axle': true,
+        'jm-slider__axle--has-min-max': showMinMax
+      }"
+      @touchstart="slidingStart"
+      @touchend="slidingEnd"
+      @touchmove="sliding">
+      <div
+        ref="container"
+        v-show="!disabled"
+        class="jm-slider__handle-container"
+        :style="{ left: handlePosition[0] - handleRadius + 'px' }">
+        <div class="jm-slider__handle"></div>
+        <div
+          class="jm-slider__label-cur"
+          v-show="showLabel">
+          {{ value[0] }}
+        </div>
+      </div>
+      <div
+        v-show="!disabled && type === 'double'"
+        :style="{ left: handlePosition[1] - handleRadius + 'px' }"
+        class="jm-slider__handle-container">
+        <div class="jm-slider__handle"></div>
+        <div
+          class="jm-slider__label-cur"
+          v-show="showLabel">
+          {{ value[1] }}
+        </div>
+      </div>
+      <div
+        class="jm-slider__progress-bar"
+        :style="{
+          width: Math.abs(handlePosition[0] - handlePosition[1]) + 'px',
+          left: Math.min(handlePosition[0], handlePosition[1]) + 'px'
+        }">
+      </div>
+    </div>
+    <div
+      class="jm-slider__label-max"
+      v-show="showMinMax">
+      {{ maxValue }}
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'JmSlider',
+  props: {
+    type: {
+      type: String,
+      default: 'single'
+    },
+    showMinMax: {
+      type: Boolean,
+      default: true
+    },
+    showLabel: {
+      type: Boolean,
+      default: true
+    },
+    disabled: {
+      type: Boolean,
+      default: false
+    },
+    maxValue: {
+      type: Number,
+      default: 100
+    },
+    minValue: {
+      type: Number,
+      default: 0
+    },
+    value: {
+      type: Array,
+      default () {
+        return [0, 0]
+      }
+    },
+    step: {
+      type: Number,
+      default: 1
+    }
+  },
+  data () {
+    return {
+      handleRadius: 0,
+      axleWidth: 0
+    }
+  },
+  computed: {
+    handlePosition () {
+      return this.type === 'single'
+        ? [this.value2Pos(this.value), 0]
+        : [this.value2Pos(this.value[0]), this.value2Pos(this.value[1])]
+    }
+  },
+  mounted () {
+    this.handleRadius = this.$refs.container.clientWidth / 2
+    this.axleWidth = this.$refs.axle.clientWidth
+    window.onresize = () => {
+      this.axleWidth = this.$refs.axle.clientWidth
+    }
+  },
+  methods: {
+
+    // 开始拖动事件
+    slidingStart () {
+      if (!this.disabled) {
+        this.$emit('slidingstart', this.value)
+      }
+    },
+
+    // 拖动事件
+    sliding (event) {
+      if (!this.disabled) {
+        const touchX = event.changedTouches[0].clientX
+        const axleX = this.$refs.axle.offsetLeft
+        const currentPos = touchX - axleX
+
+        const deltaLeft = Math.abs(currentPos - this.value2Pos(this.value[0]))
+        const deltaRight = Math.abs(currentPos - this.value2Pos(this.value[1]))
+
+        const value = this.pos2Value(currentPos)
+        const currentValue = deltaLeft < deltaRight
+          ? [value, this.value[1]]
+          : [this.value[0], value]
+        console.log('deltaLeft :', deltaLeft)
+        console.log('deltaRight :', deltaRight)
+        this.$emit('sliding', currentValue)
+        this.$emit('input', currentValue)
+      }
+    },
+
+    // 结束拖动事件
+    slidingEnd () {
+      if (!this.disabled) {
+        // this.$emit('slidingend', this.value)
+        // this.$emit('change', this.value)
+      }
+    },
+
+    // 如果value超出限定值则设定为限定值
+    fixValue (value) {
+      value < this.minValue && (value = this.minValue)
+      value > this.maxValue && (value = this.maxValue)
+      return value
+    },
+
+    // 将pos转化为value
+    pos2Value (pos) {
+      const percent = pos / this.axleWidth
+      const value = percent * (this.maxValue - this.minValue) + this.minValue
+      const res = this.minValue + Math.floor((value - this.minValue) / this.step) * this.step
+      return this.fixValue(res)
+    },
+
+    // 将value转化为pos
+    value2Pos (value) {
+      const fixedValue = this.fixValue(value)
+      const percent = (fixedValue - this.minValue) / (this.maxValue - this.minValue)
+      return percent * this.axleWidth
+    }
+  }
+}
+</script>

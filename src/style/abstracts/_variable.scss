@@ -30,3 +30,12 @@ $-navbar-color-txt: #fff !default;                // navbar字体颜色
 $-navbar-size-height: 44px !default;                // navbar高度
 $-navbar-fs-title: 16px !default;                   // navbar中间标题的字体大小
 $-navbar-fs-side: 14px !default;                    // navbar两边操作的字体大小
+
+/* slider */
+$-slider-font-size: 14px !default;                       // 字体大小
+$-slider-handle-radius: 14px !default;                   // 滑块半径
+$-slider-axie-height: 6px !default;                      // 滑轴高度
+$-slider-font-color: #333 !default;                    // 字体颜色
+$-slider-axie-bg-color: #e5e5e5 !default;              // 滑轴的默认背景色
+$-slider-disable-font-color: #d2d2d2 !default;         // 禁用状态下字体颜色
+$-slider-disable-line-color: #e5f3ff !default;         // 禁用状态下进度条的颜色

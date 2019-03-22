@@ -1,0 +1,81 @@
+@import '../abstracts/variable';
+@import '../abstracts/mixin';
+
+
+
+@include b(slider) {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  height: $-slider-handle-radius * 3;
+
+  @include e(label-min, label-max) {
+    font-size: $-slider-font-size;
+    color: $-slider-font-color;
+  }
+
+  @include e(label-cur) {
+    text-align: center;
+    line-height: $-slider-handle-radius * 2;
+    font-size: $-slider-font-size;
+    color: $-slider-font-color;
+    background-color: rgba($color: $-color-white, $alpha: 0.5);
+    border-radius: 100%;
+  }
+
+  @include e(axle) {
+    flex-grow: 1;
+    position: relative;
+    height: $-slider-axie-height;
+    border-radius: $-slider-axie-height / 2;
+    background-color: $-slider-axie-bg-color;
+    margin: 0 $-slider-handle-radius;
+    z-index: 0;
+
+    @include m(has-min-max) {
+      margin: 0 $-slider-handle-radius * 1.5;
+    }
+  }
+
+  @include e(handle-container) {
+    position: absolute;
+    top: $-slider-axie-height / 2 - $-slider-handle-radius * 3;
+    left: -$-slider-handle-radius;
+    display: flex;
+    flex-flow: column-reverse nowrap;
+    height: $-slider-handle-radius * 4;
+    z-index: 2;
+  }
+
+  @include e(handle) {
+    height: $-slider-handle-radius * 2;
+    width: $-slider-handle-radius * 2;
+    background-color: $-color-white;
+    border-radius: 100%;
+    border: 1px solid $-slider-axie-bg-color;
+    box-shadow: 0 2px 4px 0 rgba($color: $-color-black, $alpha: 0.3);
+  }
+
+  @include e(progress-bar) {
+    height: $-slider-axie-height;
+    border-radius: $-slider-axie-height / 2;
+    background-color: $-color-theme;
+    position: absolute;
+    z-index: 1;
+  }
+
+  @include m(has-label) {
+    padding-top: $-slider-handle-radius;
+  }
+
+  @include m(disabled) {
+
+    @include me(progress-bar) {
+      background-color: $-slider-disable-line-color;
+    }
+
+    @include me(label-min, label-max) {
+      color: $-slider-disable-font-color;
+    }
+  }
+} 
