@@ -1,7 +1,7 @@
 <template>
   <div class="page">
     <div class="header">
-      <jm-navbar :title="$route.meta.pageName">
+      <jm-navbar :title="$route.meta.pageName" light>
         <router-link class="return-back" to="/" slot="left">返回</router-link>
       </jm-navbar>
     </div>
@@ -29,7 +29,6 @@ export default {
     display: block;
     width: 40px;
     height: 100%;
-    color: #fff;
   }
 }
 .page-content {

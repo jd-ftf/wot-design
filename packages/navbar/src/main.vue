@@ -1,5 +1,5 @@
 <template>
-  <header class="jm-navbar" :class="{ 'jm-navbar--light': light }">
+  <header class="jm-navbar" :class="{ 'is-light': light }">
     <div class="jm-navbar__side jm-navbar__side-left">
       <slot name="left"></slot>
     </div>

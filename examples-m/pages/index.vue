@@ -1,5 +1,7 @@
 <template>
-  <list-link :list="list"></list-link>
+  <div>
+    <list-link :list="list"></list-link>
+  </div>
 </template>
 
 <script>
