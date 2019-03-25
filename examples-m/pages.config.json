@@ -3,14 +3,16 @@
     "name": "Button",
     "path": "/button"
   }, {
+    "name": "Loading",
+    "path": "/loading"
+  }, {
     "name": "Navbar",
     "path": "/navbar"
   }, {
-    "name": "Toast",
-    "path": "/toast"
-  },
-  {
     "name": "Slider",
     "path": "/slider"
+  }, {
+    "name": "Toast",
+    "path": "/toast"
   }
 ]

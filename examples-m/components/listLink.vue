@@ -35,5 +35,6 @@ export default {
 .examples-list__link{
   display: block;
   padding: 15px;
+  background: #fff;
 }
 </style>
