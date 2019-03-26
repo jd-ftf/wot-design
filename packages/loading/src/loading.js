@@ -27,6 +27,7 @@ const Loading = {
       return
     }
     instance.msg = typeof options === 'string' ? options : options.msg || ''
+    instance.type = typeof options === 'string' ? 'circle' : options.type || ''
 
     Vue.nextTick(() => {
       instance.show = true

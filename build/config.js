@@ -7,7 +7,7 @@ module.exports = {
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
     proxyTable: {},
-    host: 'localhost',
+    host: '0.0.0.0',
     port: 8080,
     autoOpenBrowser: false,
     errorOverlay: true,

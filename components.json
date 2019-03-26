@@ -1,5 +1,8 @@
 {
   "button": "./packages/button/index.js",
   "navbar": "./packages/navbar/index.js",
-  "toast": "./packages/toast/index.js"
+  "toast": "./packages/toast/index.js",
+  "slider": "./packages/slider/index.js",
+  "loading": "./packages/loading/index.js",
+  "search": "./packages/search/index.js"
 }

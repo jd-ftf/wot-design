@@ -3,12 +3,14 @@ import Navbar from 'jm-design/navbar/index.js'
 import Toast from 'jm-design/toast/index.js'
 import Slider from 'jm-design/slider/index.js'
 import Loading from 'jm-design/loading/index.js'
+import Search from 'jm-design/search/index.js'
 
 const components = [
   Button,
   Navbar,
   Slider,
-  Loading.Indicator
+  Loading.Indicator,
+  Search
 ]
 
 const JMDesign = {
