@@ -2,7 +2,7 @@
   <transition name="loading">
     <div class="jm-loading" v-show="show">
       <div class="jm-loading__wrap" :class="{ 'is-with-msg': !!msg }">
-        <jm-loading />
+        <jm-loading :type="type" />
         <div v-if="msg" class="jm-loading__msg">
           {{ msg }}
         </div>
@@ -18,25 +18,11 @@ import JmLoading from './indicator'
 export default {
   props: {
     msg: String,
-    iconName: {
-      type: String,
-      default: 'loading'
-    },
-    iconClass: String,
+    type: String,
     show: Boolean
   },
   components: {
     JmLoading
-  },
-  computed: {
-    iconNameToClass () {
-      switch (this.iconName) {
-        case 'loading':
-          return 'icon-fw-loading'
-        default:
-          return ''
-      }
-    }
   }
 }
 </script>

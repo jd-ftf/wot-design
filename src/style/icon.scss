@@ -1,8 +1,8 @@
 @font-face {
   font-family: 'jm-icons';
   src:
-    url('fonts/jm-icons.ttf?skxcz2') format('truetype'),
-    url('fonts/jm-icons.woff?skxcz2') format('woff');
+    url('fonts/jm-icons.ttf?xekqzb') format('truetype'),
+    url('fonts/jm-icons.woff?xekqzb') format('woff');
   font-weight: normal;
   font-style: normal;
 }
@@ -23,15 +23,23 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.jm-icon-warning:before {
+.jm-icon-circle-close:before {
+  content: "\e904";
+  color: #a7a7a7;
+}
+.jm-icon-error:before {
   content: "\e900";
   color: #fff;
 }
-.jm-icon-success:before {
+.jm-icon-search:before {
   content: "\e901";
+  color: #a7a7a7;
+}
+.jm-icon-success:before {
+  content: "\e902";
   color: #fff;
 }
-.jm-icon-error:before {
-  content: "\e902";
+.jm-icon-warning:before {
+  content: "\e903";
   color: #fff;
 }
