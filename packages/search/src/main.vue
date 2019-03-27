@@ -20,9 +20,7 @@
         <i class="jm-icon-search jm-search__search-icon"></i>
         <span v-show="!typing && !value" class="jm-search__placeholder-txt">{{ placeholder || '搜索' }}</span>
       </div>
-      <div v-show="typing || value" class="jm-search__clear" @click="clearSearch">
-        <i class="jm-icon-circle-close"></i>
-      </div>
+      <div v-show="typing || value" class="jm-search__clear jm-icon-circle-close" @click="clearSearch"></div>
     </div>
     <slot name="action">
       <div v-show="!hideCancel" class="jm-search__cancel" @click="handleCancel">

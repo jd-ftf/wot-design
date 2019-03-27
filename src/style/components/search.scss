@@ -74,6 +74,7 @@
     padding: 0 15px 0 10px;
     height: 28px;
     line-height: 28px;
+    font-size: 14px;
     color: $-color-theme;
   }
   @include when(light) {

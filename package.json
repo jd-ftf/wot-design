@@ -1,11 +1,10 @@
 {
   "name": "@jd/jm-design",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "JM Mobile UI components for vue.js",
   "contributors": [
     "zhongzhijie <zhongzhijie@jd.com>"
   ],
-  "private": true,
   "scripts": {
     "dev": "cross-env NODE_ENV=dev webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
     "start": "npm run dev",
