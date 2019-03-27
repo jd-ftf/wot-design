@@ -129,7 +129,7 @@
       line-height: 2;
     }
   }
-  .language-javascript, .language-JavaScript {
+  .language-javascript, .language-JavaScript, .javascript {
     .hljs-keyword {
       color: $color-js-keyword;
     }
@@ -148,16 +148,30 @@
     .hljs-built_in {
       color: $color-js-built_in;
     }
+    .hljs-attr {
+      color: $color-js-attr;
+    }
   }
   .language-html, .language-HTML {
     .hljs-tag {
       color: $color-html-tag;
     }
     .hljs-attr {
-      color: $color-html-tag;
+      color: $color-html-attr;
     }
     .hljs-string {
-      color: $color-html-attr;
+      color: $color-html-attr-value;
+    }
+    .hljs-name {
+      color: $color-html-tag-name;
+    }
+    .hljs-comment {
+      color: $color-html-comment;
+    }
+    .javascript {
+      .hljs-attr {
+        color: $color-js-attr;
+      }
     }
   }
   .language-css, .language-scss, .language-sass, .language-less {

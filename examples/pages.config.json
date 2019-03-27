@@ -33,6 +33,18 @@
           }, {
             "name": "交互组件",
             "list": {
+              "Loading": {
+                "name": "Loading 加载",
+                "path": "/loading"
+              },
+              "Search": {
+                "name": "Search 搜索框",
+                "path": "/search"
+              },
+              "Slider": {
+                "name": "Slider 滑块",
+                "path": "/slider"
+              },
               "Toast": {
                 "name": "Toast 消息提示",
                 "path": "/toast"
