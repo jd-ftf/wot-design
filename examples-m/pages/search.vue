@@ -7,7 +7,6 @@
         @search="handleSearch"
         @cancel="handleCancel"
         @clear="handleClear"
-        ref="search"
       />
     </white-space>
     <white-space :hor="0">
@@ -65,9 +64,6 @@ export default {
     handleFocus2 () {
       this.$toast('点击了搜索框，但不会聚焦，因为搜索框不可用')
     }
-  },
-  mounted () {
-    this.$refs.search.searchFocus()
   }
 }
 </script>

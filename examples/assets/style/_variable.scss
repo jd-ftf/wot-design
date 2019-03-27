@@ -70,11 +70,15 @@ $color-code: #2d3c4a;
 $color-js-keyword: $color-theme;
 $color-js-string: $color-aid-l2;
 $color-html-tag: #464646;
-$color-html-attr: #429606;
+$color-html-attr: #0083ff;
+$color-html-attr-value: #429606;
+$color-html-tag-name: $color-aid;
+$color-html-comment: #999;
 $color-js-comment: mix($color-white, $color-code, 50%);
 $color-js-number: #ae81ff;
 $color-js-literal: #ae81ff;
 $color-js-built_in: #429606;
+$color-js-attr: $color-aid;
 $color-css-selector: $color-theme;
 $color-css-attr: $color-code;
 $color-css-number: $color-aid;
@@ -87,7 +91,7 @@ $color-bash-built: $color-theme;
 $code-family: ("Roboto Mono", Monaco, courier, monospace);
 
 /* 字体 */
-$font-family: (vetica, Tahoma, Arial, "PingFang SC", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", "WenQuanYi Micro Hei");
+$font-family: ('Helvetica Neue','PingFang SC','Microsoft YaHei',Helvetica,'Hiragino Sans GB',SimSun,sans-serif);
 
 /* 字体大小 */
 $fs-large-title: 20px;            // 大标题

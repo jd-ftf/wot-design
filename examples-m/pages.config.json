@@ -9,13 +9,13 @@
     "name": "Navbar",
     "path": "/navbar"
   }, {
+    "name": "Search",
+    "path": "/search"
+  }, {
     "name": "Slider",
     "path": "/slider"
   }, {
     "name": "Toast",
     "path": "/toast"
-  }, {
-    "name": "Search",
-    "path": "/search"
   }
 ]

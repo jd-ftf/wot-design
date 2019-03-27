@@ -1,5 +1,5 @@
 {
-  "name": "jm-design",
+  "name": "@jd/jm-design",
   "version": "0.1.0",
   "description": "JM Mobile UI components for vue.js",
   "contributors": [
@@ -7,7 +7,7 @@
   ],
   "private": true,
   "scripts": {
-    "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
+    "dev": "cross-env NODE_ENV=dev webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
     "start": "npm run dev",
     "unit": "cross-env BABEL_ENV=test karma start test/unit/karma.conf.js --single-run",
     "e2e": "node test/e2e/runner.js",

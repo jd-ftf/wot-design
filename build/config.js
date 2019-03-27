@@ -32,7 +32,7 @@ module.exports = {
     productionGzip: false,
     productionGzipExtensions: ['js', 'css'],
     bundleAnalyzerReport: process.env.npm_config_report,
-    demoPath: 'https://jm-assist.jd.com/jmdesign/examples.html#'          // demo 根地址
+    demoPath: 'https://beta-jmw.jd.com/docs/jm-design/examples.html#'          // demo 根地址
   },
 
   build: {
