@@ -31,7 +31,7 @@ new Vue({
 }).$mount('#app')
 ```
 
-### 按需引入
+### 按需引入(暂时不可用)
 
 借助 [babel-plugin-import](https://www.npmjs.com/package/babel-plugin-import)，我们可以只引入需要的组件，以达到减小项目体积的目的。
 

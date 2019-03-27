@@ -17,9 +17,9 @@ Vue.use(Navbar)
 
 ```html
 <!-- CSS引用 -->
-<link rel="stylesheet" href="//jm-static.jd.com/jmdesign/navbar.css">
+<link rel="stylesheet" href="//static.360buyimg.com/lib/jm-design/0.1.1/navbar/style/css/navbar.css">
 <!-- JS引用 -->
-<script src="//jm-static.jd.com/jmdesign/navbar.js">
+<script src="//static.360buyimg.com/lib/jm-design/0.1.1/navbar/index.js">
 ```
 
 #### 示例

@@ -17,9 +17,9 @@ Vue.use(Loading)
 
 ```html
 <!-- CSS引用 -->
-<link rel="stylesheet" href="//jm-static.jd.com/jmdesign/loading.css">
+<link rel="stylesheet" href="//static.360buyimg.com/lib/jm-design/0.1.1/loading/style/css/loading.css">
 <!-- JS引用 -->
-<script src="//jm-static.jd.com/jmdesign/loading.js">
+<script src="//static.360buyimg.com/lib/jm-design/0.1.1/loading/index.js">
 ```
 
 #### 示例
