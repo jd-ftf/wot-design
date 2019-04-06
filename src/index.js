@@ -1,18 +1,22 @@
-import Button from 'jm-design/button/index.js'
-import Icon from 'jm-design/icon/index.js'
-import Navbar from 'jm-design/navbar/index.js'
-import Toast from 'jm-design/toast/index.js'
-import Slider from 'jm-design/slider/index.js'
-import Loading from 'jm-design/loading/index.js'
-import Search from 'jm-design/search/index.js'
+import Button from 'jm-design/button'
+import Icon from 'jm-design/icon'
+import InfiniteLoad from 'jm-design/infiniteLoad'
+import Navbar from 'jm-design/navbar'
+import Rate from 'jm-design/rate'
+import Search from 'jm-design/search'
+import Slider from 'jm-design/slider'
+import Toast from 'jm-design/toast'
+import Loading from 'jm-design/loading'
 
 const components = [
   Button,
   Icon,
+  InfiniteLoad,
   Navbar,
   Slider,
   Loading.Indicator,
-  Search
+  Search,
+  Rate
 ]
 
 const JMDesign = {
