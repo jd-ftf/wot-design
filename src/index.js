@@ -1,4 +1,5 @@
 import Button from 'jm-design/button/index.js'
+import Icon from 'jm-design/icon/index.js'
 import Navbar from 'jm-design/navbar/index.js'
 import Toast from 'jm-design/toast/index.js'
 import Slider from 'jm-design/slider/index.js'
@@ -7,6 +8,7 @@ import Search from 'jm-design/search/index.js'
 
 const components = [
   Button,
+  Icon,
   Navbar,
   Slider,
   Loading.Indicator,

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="18px" height="16px" viewBox="0 0 18 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.4 (67378) - http://www.bohemiancoding.com/sketch -->
+    <title>icon_mq_content</title>
+    <desc>Created with Sketch.</desc>
+    <g id="B03-京麦App-Guideline-数据展示组件" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="数据展示－图标" transform="translate(-222.000000, -2767.000000)" fill="#666666" fill-rule="nonzero">
+            <g id="评论数" transform="translate(220.000000, 2762.000000)">
+                <g id="Group-2" transform="translate(0.000000, 1.000000)">
+                    <path d="M3,5 L3,15.8888889 L16.4585183,15.8888889 C16.5930884,15.8888889 16.7219775,15.9431329 16.81605,16.0393591 L19,18.2733068 L19,5 L3,5 Z M2.5,16.8888889 C2.22385763,16.8888889 2,16.6650313 2,16.3888889 L2,4.5 C2,4.22385763 2.22385763,4 2.5,4 L19.5,4 C19.7761424,4 20,4.22385763 20,4.5 L20,19.5 C20,19.9481858 19.4557769,20.170011 19.1424683,19.8495298 L16.2480891,16.8888889 L2.5,16.8888889 Z" id="icon_mq_content"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

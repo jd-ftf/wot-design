@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="10px" height="10px" viewBox="0 0 10 10" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.4 (67378) - http://www.bohemiancoding.com/sketch -->
+    <title>合并形状</title>
+    <desc>Created with Sketch.</desc>
+    <g id="B03-京麦App-Guideline-数据展示组件" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="数据展示－图标" transform="translate(-300.000000, -2541.000000)" fill="#666666">
+            <g id="Group-15" transform="translate(300.000000, 2541.000000)">
+                <g id="Group-14">
+                    <path d="M5,10 C2.23857625,10 0,7.76142375 0,5 C0,2.23857625 2.23857625,0 5,0 C7.76142375,0 10,2.23857625 10,5 C10,7.76142375 7.76142375,10 5,10 Z M2.5,4.5 C2.22385763,4.5 2,4.72385763 2,5 C2,5.27614237 2.22385763,5.5 2.5,5.5 L7.5,5.5 C7.77614237,5.5 8,5.27614237 8,5 C8,4.72385763 7.77614237,4.5 7.5,4.5 L2.5,4.5 Z" id="合并形状"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

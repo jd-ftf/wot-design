@@ -3,6 +3,9 @@
     "name": "Button",
     "path": "/button"
   }, {
+    "name": "Icon",
+    "path": "/icon"
+  }, {
     "name": "Loading",
     "path": "/loading"
   }, {
