@@ -6,7 +6,7 @@
     "zhongzhijie <zhongzhijie@jd.com>"
   ],
   "scripts": {
-    "dev": "cross-env NODE_ENV=dev webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
+    "dev": "npm run build:icon & cross-env NODE_ENV=dev webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
     "start": "npm run dev",
     "unit": "cross-env BABEL_ENV=test karma start test/unit/karma.conf.js --single-run",
     "e2e": "node test/e2e/runner.js",
@@ -16,6 +16,7 @@
     "build:lib": "node build/build-lib.js",
     "build:comp": "node build/build-components.js",
     "build:theme": "node build/mixCssFile.js",
+    "build:icon": "node build/iconInit.js",
     "build": "rm -rf lib && npm run build:theme && npm run build:lib && npm run build:comp"
   },
   "main": "./lib/index.js",

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.4 (67378) - http://www.bohemiancoding.com/sketch -->
+    <title>Group 6</title>
+    <desc>Created with Sketch.</desc>
+    <g id="B03-京麦App-Guideline-数据展示组件" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="数据展示－图标" transform="translate(-193.000000, -2766.000000)" fill="#666666" fill-rule="nonzero">
+            <g id="icon_login_password" transform="translate(191.000000, 2765.000000)">
+                <g id="Group-6" transform="translate(2.000000, 2.000000)">
+                    <path d="M2,7 C1.44771525,7 1,7.44771525 1,8 L1,13 C1,13.5522847 1.44771525,14 2,14 L14,14 C14.5522847,14 15,13.5522847 15,13 L15,8 C15,7.44771525 14.5522847,7 14,7 L2,7 Z M2,6 L14,6 C15.1045695,6 16,6.8954305 16,8 L16,13 C16,14.1045695 15.1045695,15 14,15 L2,15 C0.8954305,15 1.3527075e-16,14.1045695 0,13 L0,8 C-1.3527075e-16,6.8954305 0.8954305,6 2,6 Z" id="Rectangle-17"></path>
+                    <path d="M12.5,4 L12.5,6.90162741 L3.5,6.90162741 L3.5,4 C3.5,1.51471863 5.51471863,-0.5 8,-0.5 C10.4852814,-0.5 12.5,1.51471863 12.5,4 Z M11.5,4 C11.5,2.06700338 9.93299662,0.5 8,0.5 C6.06700338,0.5 4.5,2.06700338 4.5,4 L4.5,5.90162741 L11.5,5.90162741 L11.5,4 Z" id="Oval-3"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="40px" height="40px" viewBox="0 0 40 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.4 (67378) - http://www.bohemiancoding.com/sketch -->
+    <title>分组</title>
+    <desc>Created with Sketch.</desc>
+    <g id="B03-京麦App-Guideline-数据展示组件" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="数据展示－图标" transform="translate(-244.000000, -3240.000000)" fill="#666666">
+            <g id="Group-11" transform="translate(136.000000, 3227.000000)">
+                <g id="分组" transform="translate(108.000000, 13.000000)">
+                    <path d="M20,38 C29.9411255,38 38,29.9411255 38,20 C38,10.0588745 29.9411255,2 20,2 C10.0588745,2 2,10.0588745 2,20 C2,29.9411255 10.0588745,38 20,38 Z M20,40 C8.954305,40 0,31.045695 0,20 C0,8.954305 8.954305,0 20,0 C31.045695,0 40,8.954305 40,20 C40,31.045695 31.045695,40 20,40 Z" id="Oval-4" fill-rule="nonzero"></path>
+                    <g id="Group-61" transform="translate(15.000000, 13.000000)">
+                        <rect id="Rectangle-27" x="0" y="0" width="3" height="15" rx="1.5"></rect>
+                        <rect id="Rectangle-27-Copy" x="7" y="0" width="3" height="15" rx="1.5"></rect>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

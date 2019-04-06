@@ -1,15 +1,14 @@
 @font-face {
   font-family: 'jm-icons';
   src:
-    url('fonts/jm-icons.ttf?xekqzb') format('truetype'),
-    url('fonts/jm-icons.woff?xekqzb') format('woff');
+    url('fonts/jm-icons.ttf?v4jvml') format('truetype'),
+    url('fonts/jm-icons.woff?v4jvml') format('woff');
   font-weight: normal;
   font-style: normal;
 }
 
 [class^="jm-icon-"], [class*=" jm-icon-"] {
   /* use !important to prevent issues with browser extensions that change fonts */
-  display: inline-block;
   font-family: 'jm-icons' !important;
   speak: none;
   font-style: normal;
@@ -23,23 +22,219 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.jm-icon-circle-close:before {
+.jm-icon-add-circle:before {
+  content: "\e900";
+}
+.jm-icon-add:before {
+  content: "\e901";
+}
+.jm-icon-arrow-down:before {
+  content: "\e902";
+}
+.jm-icon-arrow-left:before {
+  content: "\e903";
+}
+.jm-icon-arrow-right:before {
   content: "\e904";
-  color: #a7a7a7;
+}
+.jm-icon-arrow-up:before {
+  content: "\e905";
+}
+.jm-icon-bad:before {
+  content: "\e906";
+}
+.jm-icon-bubble:before {
+  content: "\e907";
+}
+.jm-icon-camera:before {
+  content: "\e908";
+}
+.jm-icon-caret-bottom:before {
+  content: "\e909";
+}
+.jm-icon-caret-left:before {
+  content: "\e90a";
+}
+.jm-icon-caret-right:before {
+  content: "\e90b";
+}
+.jm-icon-caret-top:before {
+  content: "\e90c";
+}
+.jm-icon-cart:before {
+  content: "\e90d";
+}
+.jm-icon-chat-bubble-circle:before {
+  content: "\e90e";
+}
+.jm-icon-chat-bubble:before {
+  content: "\e90f";
+}
+.jm-icon-chat:before {
+  content: "\e910";
+}
+.jm-icon-check-outline:before {
+  content: "\e911";
+}
+.jm-icon-check:before {
+  content: "\e912";
+}
+.jm-icon-clock-fill:before {
+  content: "\e913";
+}
+.jm-icon-clock:before {
+  content: "\e914";
+}
+.jm-icon-close-fill:before {
+  content: "\e915";
+}
+.jm-icon-close-outline:before {
+  content: "\e916";
+}
+.jm-icon-close:before {
+  content: "\e917";
+}
+.jm-icon-collect:before {
+  content: "\e918";
+}
+.jm-icon-computer:before {
+  content: "\e919";
+}
+.jm-icon-delete:before {
+  content: "\e91a";
+}
+.jm-icon-edit-outline:before {
+  content: "\e91b";
 }
 .jm-icon-error:before {
-  content: "\e900";
-  color: #fff;
+  content: "\e91c";
+}
+.jm-icon-eye-close:before {
+  content: "\e91d";
+}
+.jm-icon-filter:before {
+  content: "\e91e";
+}
+.jm-icon-fingerprint:before {
+  content: "\e91f";
+}
+.jm-icon-flashlight:before {
+  content: "\e920";
+}
+.jm-icon-font-size:before {
+  content: "\e921";
+}
+.jm-icon-general:before {
+  content: "\e922";
+}
+.jm-icon-good:before {
+  content: "\e923";
+}
+.jm-icon-happy:before {
+  content: "\e924";
+}
+.jm-icon-history:before {
+  content: "\e925";
+}
+.jm-icon-indicator-right:before {
+  content: "\e926";
+}
+.jm-icon-invite:before {
+  content: "\e927";
+}
+.jm-icon-link:before {
+  content: "\e928";
+}
+.jm-icon-load:before {
+  content: "\e929";
+}
+.jm-icon-lock:before {
+  content: "\e92a";
+}
+.jm-icon-menu-fill:before {
+  content: "\e92b";
+}
+.jm-icon-menu:before {
+  content: "\e92c";
+}
+.jm-icon-more:before {
+  content: "\e92d";
+}
+.jm-icon-news:before {
+  content: "\e92e";
+}
+.jm-icon-pause:before {
+  content: "\e92f";
+}
+.jm-icon-pen:before {
+  content: "\e930";
+}
+.jm-icon-person:before {
+  content: "\e931";
+}
+.jm-icon-phone:before {
+  content: "\e932";
+}
+.jm-icon-picture:before {
+  content: "\e933";
+}
+.jm-icon-play:before {
+  content: "\e934";
+}
+.jm-icon-praise-fill:before {
+  content: "\e935";
+}
+.jm-icon-praise:before {
+  content: "\e936";
+}
+.jm-icon-question-outline:before {
+  content: "\e937";
+}
+.jm-icon-record:before {
+  content: "\e938";
+}
+.jm-icon-refresh:before {
+  content: "\e939";
+}
+.jm-icon-remove-fill:before {
+  content: "\e93a";
+}
+.jm-icon-remove-outline:before {
+  content: "\e93b";
+}
+.jm-icon-safe:before {
+  content: "\e93c";
 }
 .jm-icon-search:before {
-  content: "\e901";
-  color: #a7a7a7;
+  content: "\e93d";
+}
+.jm-icon-select:before {
+  content: "\e93e";
+}
+.jm-icon-service:before {
+  content: "\e93f";
+}
+.jm-icon-setting:before {
+  content: "\e940";
+}
+.jm-icon-share:before {
+  content: "\e941";
+}
+.jm-icon-star-fill:before {
+  content: "\e942";
+}
+.jm-icon-star:before {
+  content: "\e943";
 }
 .jm-icon-success:before {
-  content: "\e902";
-  color: #fff;
+  content: "\e944";
+}
+.jm-icon-tickets:before {
+  content: "\e945";
+}
+.jm-icon-view:before {
+  content: "\e946";
 }
 .jm-icon-warning:before {
-  content: "\e903";
-  color: #fff;
+  content: "\e947";
 }
