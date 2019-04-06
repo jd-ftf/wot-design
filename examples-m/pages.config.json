@@ -1,24 +1,30 @@
 [
   {
-    "name": "Button",
+    "name": "Button 按钮",
     "path": "/button"
   }, {
-    "name": "Icon",
+    "name": "Icon 图标",
     "path": "/icon"
   }, {
-    "name": "Loading",
+    "name": "InfiniteLoad 无限加载",
+    "path": "/infiniteLoad"
+  }, {
+    "name": "Loading 加载指示器",
     "path": "/loading"
   }, {
-    "name": "Navbar",
+    "name": "Navbar 导航栏",
     "path": "/navbar"
   }, {
-    "name": "Search",
+    "name": "Rate 评分",
+    "path": "/rate"
+  }, {
+    "name": "Search 搜索",
     "path": "/search"
   }, {
-    "name": "Slider",
+    "name": "Slider 滑块",
     "path": "/slider"
   }, {
-    "name": "Toast",
+    "name": "Toast 轻提示",
     "path": "/toast"
   }
 ]
