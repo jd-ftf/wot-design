@@ -3,12 +3,8 @@
  */
 const path = require('path')
 const fs = require('fs')
-const ora = require('ora')
 const chalk = require('chalk')
 const components = require('../components.json')
-
-const spinner = ora('Mix all scss into index.scss...')
-spinner.start()
 
 const basePath = path.resolve(__dirname, '../src/style')
 
@@ -34,7 +30,6 @@ Object.keys(components).forEach(key => {
 
 try {
   fs.writeFileSync(path.resolve(basePath, 'index.scss'), indexContent)
-  spinner.stop()
   console.log(chalk.cyan(' Scss mix complete.\n'))
 } catch(err) {
   console.log(chalk.red('  Scss mix failed with errors.\n'))

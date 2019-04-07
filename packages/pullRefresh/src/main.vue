@@ -158,6 +158,7 @@ export default {
       this.$el.addEventListener('touchstart', this.handleTouchStart)
       this.$el.addEventListener('touchmove', this.handleTouchMove)
       this.$el.addEventListener('touchend', this.handleTouchEnd)
+      this.$el.removeEventListener('touchcancel', this.handleTouchEnd)
     },
     init () {
       this.topText = this.topPullText
@@ -272,6 +273,7 @@ export default {
     this.$el.removeEventListener('touchstart', this.handleTouchStart)
     this.$el.removeEventListener('touchmove', this.handleTouchMove)
     this.$el.removeEventListener('touchend', this.handleTouchEnd)
+    this.$el.removeEventListener('touchcancel', this.handleTouchEnd)
   }
 }
 </script>
