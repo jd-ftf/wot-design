@@ -2,6 +2,7 @@ import Button from 'jm-design/button'
 import Icon from 'jm-design/icon'
 import InfiniteLoad from 'jm-design/infiniteLoad'
 import Navbar from 'jm-design/navbar'
+import PullRefresh from 'jm-design/pullRefresh'
 import Rate from 'jm-design/rate'
 import Search from 'jm-design/search'
 import Slider from 'jm-design/slider'
@@ -16,7 +17,8 @@ const components = [
   Slider,
   Loading.Indicator,
   Search,
-  Rate
+  Rate,
+  PullRefresh
 ]
 
 const JMDesign = {

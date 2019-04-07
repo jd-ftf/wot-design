@@ -15,6 +15,9 @@
     "name": "Navbar 导航栏",
     "path": "/navbar"
   }, {
+    "name": "PullRefresh 下拉刷新",
+    "path": "/pullRefresh"
+  }, {
     "name": "Rate 评分",
     "path": "/rate"
   }, {
