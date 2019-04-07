@@ -24,7 +24,6 @@ Vue.use(Navbar)
 
 #### 示例
 
-:::demo link=/navbar
 ```html
 <!-- 左右无操作 -->
 <jm-navbar title="标题"></jm-navbar>
@@ -56,7 +55,6 @@ Vue.use(Navbar)
   <span slot="right">菜单</span>
 </jm-navbar>
 ```
-:::
 
 ### Attributes
 | 参数      | 说明                                 | 类型      | 可选值       | 默认值   |

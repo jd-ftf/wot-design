@@ -1,5 +1,4 @@
-import '@/style/components/rate.scss'
-import '@/style/icon.scss'
+import '@/style/rate.scss'
 import Rate from './src/main.vue'
 
 Rate.install = Vue => {

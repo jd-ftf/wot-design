@@ -24,7 +24,6 @@ Vue.use(Search)
 
 #### 示例
 
-:::demo link=/search
 ```html
 <!-- 搜索，监听对应事件search、cancel、clear事件 -->
 <jm-search
@@ -86,7 +85,6 @@ export default {
 }
 </script>
 ```
-:::
 
 ### Arrtibute
 

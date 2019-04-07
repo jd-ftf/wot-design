@@ -1,5 +1,5 @@
-@import '../abstracts/variable';
-@import '../abstracts/mixin';
+@import './abstracts/variable';
+@import './abstracts/mixin';
 
 @include b(loading) {
   transition: all .2s;

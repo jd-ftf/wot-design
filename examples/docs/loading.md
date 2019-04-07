@@ -24,7 +24,6 @@ Vue.use(Loading)
 
 #### 示例
 
-:::demo link=/loading
 ```html
 <!-- circle 类型的加载指示器 -->
 <jm-loading />
@@ -69,7 +68,6 @@ export default {
 }
 </script>
 ```
-:::
 
 ### Loading 加载指示器
 

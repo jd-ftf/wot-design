@@ -1,5 +1,7 @@
-@import '../abstracts/variable';
-@import '../abstracts/mixin';
+@import './abstracts/variable';
+@import './abstracts/mixin';
+@import './icon.scss';
+@import './common/transition.scss';
 
 @include b(toast) {
   position: fixed;

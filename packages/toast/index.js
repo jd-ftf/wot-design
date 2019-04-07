@@ -13,8 +13,7 @@
 
 import Vue from 'vue'
 import jmToast from './src/main.vue'
-import '@/style/base.scss'
-import '@/style/components/toast.scss'
+import '@/style/toast.scss'
 
 const ToastConstructor = Vue.extend(jmToast)
 
