@@ -22,23 +22,7 @@ const createLintingRule = () => ({
 })
 
 const vueMarkdownOptions = {
-  use: [
-    [MarkdownItContainer, 'demo', {
-      validate: params => params.trim().match(/^demo\s*(.*)$/),
-      render: (tokens, idx) => {
-        let m = tokens[idx].info.trim().match(/^demo\s*(.*)$/)
-        if (tokens[idx].nesting === 1) {
-          let description = (m && m.length > 1) ? m[1] : ''
-          let demoLink = description ? (process.env.NODE_ENV === 'dev' ? config.dev.demoPath : config.docs.demoPath) +
-            description.split('=')[1] : ''
-
-          return '<demo-block demo-link="' + demoLink + '">'
-        }
-
-        return '</demo-block>\n'
-      }
-    }]
-  ],
+  use: [ MarkdownItContainer ],
   preventExtract: true
 }
 

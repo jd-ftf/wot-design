@@ -5,15 +5,18 @@
       {
         "Install": {
           "name": "安装",
-          "path": "/install"
+          "path": "/install",
+          "demo": "/"
         },
         "QuickUse": {
           "name": "快速上手",
-          "path": "/quickUse"
+          "path": "/quickUse",
+          "demo": "/"
         },
         "CustomTheme": {
           "name": "自定义主题",
-          "path": "/customTheme"
+          "path": "/customTheme",
+          "demo": "/"
         }
       }, {
         "name": "组件",

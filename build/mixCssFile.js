@@ -23,8 +23,8 @@ const isFileExit = filepath => {
 }
 
 Object.keys(components).forEach(key => {
-  indexContent += `@import "./components/${key}.scss";\n`
-  let filepath = path.resolve(basePath, 'components', `${key}.scss`)
+  indexContent += `@import "./${key}.scss";\n`
+  let filepath = path.resolve(basePath, `${key}.scss`)
   
   if (!isFileExit(filepath)) {
     fs.writeFileSync(filepath, '', 'utf-8')

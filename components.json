@@ -1,8 +1,13 @@
 {
   "button": "./packages/button/index.js",
-  "navbar": "./packages/navbar/index.js",
-  "toast": "./packages/toast/index.js",
-  "slider": "./packages/slider/index.js",
+  "icon": "./packages/icon/index.js",
+  "infiniteLoad": "./packages/infiniteLoad/idnex.js",
   "loading": "./packages/loading/index.js",
-  "search": "./packages/search/index.js"
+  "messageBox": "./packages/messageBox/index.js",
+  "navbar": "./packages/navbar/index.js",
+  "pullRefresh": "./packages/pullRefresh/index.js",
+  "rate": "./packages/rate/index.js",
+  "search": "./packages/search/index.js",
+  "slider": "./packages/slider/index.js",
+  "toast": "./packages/toast/index.js"
 }

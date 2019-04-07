@@ -21,7 +21,7 @@
  */
 
 import Slider from './src/main'
-import '@/style/components/slider.scss'
+import '@/style/slider.scss'
 
 Slider.install = Vue => {
   Vue.component(Slider.name, Slider)

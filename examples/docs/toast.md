@@ -24,7 +24,6 @@ Vue.$toast = Vue.prototype.$toast = Toast
 
 #### 示例
 
-:::demo link=/toast
 ```javascript
 // 纯文字提示
 this.$toast('提示信息')
@@ -85,7 +84,6 @@ export default {
   }
 }
 ```
-:::
 
 #### 调用方式
 

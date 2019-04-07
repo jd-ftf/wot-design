@@ -44,7 +44,7 @@ const webpackConfig = merge(baseWebpackConfig, {
       parallel: true
     }),
     new ExtractTextPlugin({
-      filename: '[name]/style/css/[name].css',
+      filename: '[name]/index.css',
       allChunks: true,
     }),
     new OptimizeCSSPlugin({

@@ -1,5 +1,4 @@
-import '@/style/components/pullRefresh.scss'
-import '@/style/icon.scss'
+import '@/style/pullRefresh.scss'
 import PullRefresh from './src/main.vue'
 
 PullRefresh.install = Vue => {
