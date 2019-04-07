@@ -112,6 +112,9 @@ export default {
     this.setContainer()
     this.resetListener()
     this.immediateCheck && this.loadmore()
+  },
+  beforeDestroy () {
+    this.scrollObj.removeEventListener('scroll', this.loadmore)
   }
 }
 </script>
