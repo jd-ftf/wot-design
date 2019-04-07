@@ -1,6 +1,4 @@
 'use strict'
-require('./check-versions')()
-
 process.env.NODE_ENV = 'document'
 
 const ora = require('ora')

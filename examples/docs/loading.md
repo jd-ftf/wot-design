@@ -1,4 +1,4 @@
-## Loading
+## Loading 加载指示器
 
 加载，支持单独使用加载指示器和js直接打开loading框
 
@@ -11,15 +11,6 @@ import Vue from 'vue'
 import { Loading } from 'jm-design'
 
 Vue.use(Loading)
-```
-
-#### CDN 按需引入
-
-```html
-<!-- CSS引用 -->
-<link rel="stylesheet" href="//static.360buyimg.com/lib/jm-design/0.1.1/loading/style/css/loading.css">
-<!-- JS引用 -->
-<script src="//static.360buyimg.com/lib/jm-design/0.1.1/loading/index.js">
 ```
 
 #### 示例

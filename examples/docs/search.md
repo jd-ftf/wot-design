@@ -1,6 +1,4 @@
-## Search
-
-搜索框
+## Search 搜索框
 
 ### 使用
 
@@ -11,15 +9,6 @@ import Vue from 'vue'
 import { Search } from 'jm-design'
 
 Vue.use(Search)
-```
-
-#### CDN 按需引入
-
-```html
-<!-- CSS引用 -->
-<link rel="stylesheet" href="//static.360buyimg.com/lib/jm-design/0.1.1/search/style/css/search.css">
-<!-- JS引用 -->
-<script src="//static.360buyimg.com/lib/jm-design/0.1.1/search/index.js">
 ```
 
 #### 示例

@@ -29,6 +29,11 @@
                 "path": "/button",
                 "demo": "/button"
               },
+              "Icon": {
+                "name": "Icon 图标",
+                "path": "/icon",
+                "demo": "/icon"
+              },
               "Navbar": {
                 "name": "Navbar 导航栏",
                 "path": "/navbar",
@@ -38,10 +43,25 @@
           }, {
             "name": "交互组件",
             "list": {
+              "InfiniteLoad": {
+                "name": "InfiniteLoad 无限加载",
+                "path": "/infiniteLoad",
+                "demo": "/infiniteLoad"
+              },
               "Loading": {
                 "name": "Loading 加载",
                 "path": "/loading",
                 "demo": "/loading"
+              },
+              "MessageBox": {
+                "name": "MessageBox 弹框",
+                "path": "/messageBox",
+                "demo": "/messageBox"
+              },
+              "PullRefresh": {
+                "name": "PullRefresh 下拉刷新",
+                "path": "/pullRefresh",
+                "demo": "/pullRefresh"
               },
               "Search": {
                 "name": "Search 搜索框",
@@ -54,9 +74,18 @@
                 "demo": "/slider"
               },
               "Toast": {
-                "name": "Toast 消息提示",
+                "name": "Toast 轻提示",
                 "path": "/toast",
                 "demo": "/toast"
+              }
+            }
+          }, {
+            "name": "表单组件",
+            "list": {
+              "Rate": {
+                "name": "Rate 评分",
+                "path": "/rate",
+                "demo": "/rate"
               }
             }
           }
