@@ -14,9 +14,7 @@
 .side-bar__group-name {
   display: block;
   margin: 16px 0;
-  color: $color-important;
   font-size: $fs-title;
-  font-weight: 700;
 }
 .side-group__link {
   display: block;
@@ -24,7 +22,6 @@
 }
 .side-group__link--title {
   font-size: $fs-title;
-  font-weight: 700;
 }
 .side-group__link--active {
   color: $color-theme;

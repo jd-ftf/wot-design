@@ -1,13 +1,14 @@
 import Button from 'jm-design/button'
 import Icon from 'jm-design/icon'
 import InfiniteLoad from 'jm-design/infiniteLoad'
+import Loading from 'jm-design/loading'
+import MessageBox from 'jm-design/messageBox'
 import Navbar from 'jm-design/navbar'
 import PullRefresh from 'jm-design/pullRefresh'
 import Rate from 'jm-design/rate'
 import Search from 'jm-design/search'
 import Slider from 'jm-design/slider'
 import Toast from 'jm-design/toast'
-import Loading from 'jm-design/loading'
 
 const components = [
   Button,
@@ -16,6 +17,7 @@ const components = [
   Navbar,
   Slider,
   Loading.Indicator,
+  MessageBox.jmMessageBox,
   Search,
   Rate,
   PullRefresh
@@ -29,6 +31,7 @@ const JMDesign = {
 
     Vue.prototype.$toast = Toast
     Vue.prototype.$loading = Loading.loading
+    Vue.prototype.$messageBox = MessageBox.MessageBox
   }
 }
 
