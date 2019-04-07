@@ -62,10 +62,6 @@
 export default {
   name: 'JmSlider',
   props: {
-    type: {
-      type: String,
-      default: 'single'
-    },
     showMinMax: {
       type: Boolean,
       default: true

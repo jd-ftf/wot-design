@@ -7,26 +7,28 @@
   border-top: 1px solid $color-line;
 
   @include clearFloat;
-}
-.page-controller__prev {
-  float: left;
-}
-.page-controller__next {
-  float: right;
-}
-.page-controller__link {
-  font-weight: 400;
-  color: $color-theme-l2;
 
-  &:hover, &:active {
-    color: $color-theme-l2;
+  .page-controller__prev {
+    float: left;
   }
-  span {
-    display: inline-block;
-    margin: 0 4px;
-    vertical-align: middle;
+  .page-controller__next {
+    float: right;
   }
-  .iconfont {
-    vertical-align: middle;
+  .page-controller__link {
+    font-weight: 400;
+    color: #666;
+    transition: .2s;
+  
+    &:hover, &:active {
+      color: $color-theme-l2;
+    }
+    span {
+      display: inline-block;
+      margin: 0 4px;
+      vertical-align: middle;
+    }
+    .iconfont {
+      vertical-align: middle;
+    }
   }
 }

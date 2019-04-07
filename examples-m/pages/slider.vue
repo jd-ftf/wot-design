@@ -59,7 +59,6 @@ export default {
   data () {
     return {
       sliderDisable: false,
-      sliderEvent: '',
       colorValue: 255,
       value1: 30,
       value2: 479,
@@ -68,12 +67,6 @@ export default {
       value5: 70,
       value6: [20, 40],
       value7: 0
-    }
-  },
-  computed: {
-    styleColorBox () {
-      let c = this.colorValue
-      return `background-color: rgb(${c}, ${c}, ${c})`
     }
   },
   methods: {

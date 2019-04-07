@@ -42,26 +42,26 @@ export default {
       type: String,
       default: '正在刷新'
     },
-    distanceRatio: { // refresh组件 拖动距离与手指实际拖动的拖拽比例
+    distanceRatio: {
       type: Number,
       default: 2
     },
-    topDistance: { // 下拉刷新事件触发的距离
+    topDistance: {
       type: Number,
       default: 50
     },
-    maxDistance: { // refresh组件 可拖动的最大距离，0表示无限制
+    maxDistance: {
       type: Number,
       default: 0
     },
-    showTip: { // 是否开启提示
+    showTip: {
       type: Boolean,
       default: false
     },
-    tipText: String, // 提示文字
-    canRefresh: { // 是否可拖动
+    tipText: String,
+    disabled: {
       type: Boolean,
-      default: true
+      default: false
     }
   },
   data () {
@@ -196,7 +196,7 @@ export default {
       }
 
       let elRect = this.$el.getBoundingClientRect()
-      if (this.startTouch.y < elRect.top || this.startTouch.y > elRect.bottom || !this.canRefresh) {
+      if (this.startTouch.y < elRect.top || this.startTouch.y > elRect.bottom || this.disabled) {
         return
       }
 

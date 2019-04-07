@@ -43,7 +43,7 @@ export default {
         if (demoBlockRect.top - 60 < 0 && demoBlockRect.bottom - 60 > phoneHeight) {
           this.phoneStyle = {
             position: 'fixed',
-            right: '150px',
+            right: '120px',
             top: '60px'
           }
         } else if (demoBlockRect.top - 60 > 0) {
@@ -73,7 +73,7 @@ export default {
 
 <style lang="scss">
 .tab-content{
-  margin: 0 150px 100px 320px;
+  margin: 0 120px 100px 360px;
 
   .content-flex {
     position: relative;
