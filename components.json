@@ -1,7 +1,7 @@
 {
   "button": "./packages/button/index.js",
   "icon": "./packages/icon/index.js",
-  "infiniteLoad": "./packages/infiniteLoad/idnex.js",
+  "infiniteLoad": "./packages/infiniteLoad/index.js",
   "loading": "./packages/loading/index.js",
   "messageBox": "./packages/messageBox/index.js",
   "navbar": "./packages/navbar/index.js",
