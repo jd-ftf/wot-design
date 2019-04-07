@@ -9,11 +9,9 @@
           <div v-if="title" class="jm-message-box__title">
             {{ title }}
           </div>
-          <div v-if="type !== 'prompt'" class="jm-message-box__content"
-            :style="{ color: msgColor }"
-          >
+          <div v-if="type !== 'prompt'" class="jm-message-box__content">
             <slot>
-              <div v-html="message"></div>
+              <div v-html="msg"></div>
             </slot>
           </div>
           <div v-else class="jm-message-box__content">
@@ -48,18 +46,16 @@ export default {
   name: 'JmMessageBox',
   data () {
     return {
-      message: '',
+      msg: '',
       type: '',
       showInput: false,
-      closeOnClickModal: true,
       inputType: 'text',
       inputValue: '',
       inputPlaceholder: '请输入',
       inputError: '',
       inputPattern: '',
       inputValidate: '',
-      showErr: false,
-      msgColor: ''
+      showErr: false
     }
   },
   props: {
@@ -83,6 +79,10 @@ export default {
     cancelButtonText: {
       type: String,
       default: '取消'
+    },
+    closeOnClickModal: {
+      type: Boolean,
+      default: true
     }
   },
   methods: {

@@ -51,6 +51,7 @@ export default {
     position: relative;
     padding: 15px;
     background-color: #fff;
+    color: #666;
 
     &::after {
       position: absolute;

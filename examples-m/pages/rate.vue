@@ -17,7 +17,7 @@
       <jm-rate v-model="rate4" active-color="#FFAE16" />
     </white-space>
     <white-space>
-      <div slot="desc">修改选中颜色</div>
+      <div slot="desc">修改icon和选中颜色</div>
       <jm-rate v-model="rate5" icon="jm-icon-good" active-icon="jm-icon-good" active-color="#0083ff" />
     </white-space>
   </div>

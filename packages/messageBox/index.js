@@ -10,8 +10,8 @@ import '@/style/messageBox.scss'
 import jmMessageBox from './src/main.vue'
 
 let defaults = {
-  title: '提示',
-  message: '', // message可以是html格式
+  title: '',
+  msg: '', // message可以是html格式
   type: 'alert',
   showInput: false,
   closeOnClickModal: true, // 是否可以点击幕布关闭
@@ -23,8 +23,7 @@ let defaults = {
   showConfirmButton: true,
   showCancelButton: false,
   confirmButtonText: '确定',
-  cancelButtonText: '取消',
-  msgColor: '' // 信息颜色
+  cancelButtonText: '取消'
 }
 
 const merge = (target, ...args) => {
@@ -120,7 +119,7 @@ const MessageBox = (options, callback) => {
       title: options
     }
     if (arguments[1]) {
-      options.message = arguments[1]
+      options.msg = arguments[1]
     }
     if (arguments[2]) {
       options.type = arguments[2]
@@ -150,7 +149,7 @@ const MessageBox = (options, callback) => {
   }
 }
 
-MessageBox.alert = (message, title, options) => {
+MessageBox.alert = (msg, title, options) => {
   if (typeof title === 'object') {
     options = title
     title = ''
@@ -158,13 +157,13 @@ MessageBox.alert = (message, title, options) => {
 
   return MessageBox(merge({
     title: title,
-    message: message,
+    msg: msg,
     type: 'alert',
     closeOnClickModal: false
   }, options))
 }
 
-MessageBox.confirm = (message, title, options) => {
+MessageBox.confirm = (msg, title, options) => {
   if (typeof title === 'object') {
     options = title
     title = ''
@@ -172,7 +171,7 @@ MessageBox.confirm = (message, title, options) => {
 
   return MessageBox(merge({
     title: title,
-    message: message,
+    msg: msg,
     type: 'confirm',
     showCancelButton: true
   }, options))

@@ -5,6 +5,7 @@ import JMDesign from '@/index'
 import router from './route'
 import './assets/style/base.scss'
 import WhiteSpace from './components/whiteSpace.vue'
+import '@vant/doc/helper/touch-simulator'
 
 FastClick.attach(document.body)
 

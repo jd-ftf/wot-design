@@ -1,6 +1,6 @@
 <template>
   <div>
-    <jm-pull-refresh v-model="isLoading" @refresh="refresh" show-tip tip-text="刷新成功">
+    <jm-pull-refresh v-model="isLoading" @refresh="refresh">
       <div class="refresh-list">
         <div v-for="(item, index) in list" :key="index" class="refresh-list-item">
           <img :src="item.img" />
@@ -57,6 +57,10 @@ export default {
     refresh () {
       setTimeout(() => {
         this.isLoading = false
+        this.$toast({
+          position: 'top',
+          msg: '刷新成功'
+        })
       }, 1000)
     }
   }

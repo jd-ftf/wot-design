@@ -34,7 +34,7 @@ export default {
 .scroll-top {
   position: fixed;
   display: inline-block;
-  right: 70px;
+  right: 60px;
   bottom: 100px;
   display: inline-block;
   width: 44px;

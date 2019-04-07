@@ -22,7 +22,7 @@
         "name": "组件",
         "list": [
           {
-            "name": "基础组件",
+            "name": "基础",
             "list": {
               "Button": {
                 "name": "Button 按钮",
@@ -41,7 +41,7 @@
               }
             }
           }, {
-            "name": "交互组件",
+            "name": "交互",
             "list": {
               "InfiniteLoad": {
                 "name": "InfiniteLoad 无限加载",
@@ -80,7 +80,7 @@
               }
             }
           }, {
-            "name": "表单组件",
+            "name": "表单",
             "list": {
               "Rate": {
                 "name": "Rate 评分",
