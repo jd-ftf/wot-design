@@ -105,4 +105,8 @@ let Toast = options => {
   return showToast(toastSingleTon, options)
 }
 
+Toast.install = Vue => {
+  Vue.prototype.$toast = Toast
+}
+
 export default Toast

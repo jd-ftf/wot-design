@@ -23,11 +23,13 @@
             "list": {
               "Button": {
                 "name": "Button 按钮",
-                "path": "/button"
+                "path": "/button",
+                "demo": "/button"
               },
               "Navbar": {
                 "name": "Navbar 导航栏",
-                "path": "/navbar"
+                "path": "/navbar",
+                "demo": "/navbar"
               }
             }
           }, {
@@ -35,19 +37,23 @@
             "list": {
               "Loading": {
                 "name": "Loading 加载",
-                "path": "/loading"
+                "path": "/loading",
+                "demo": "/loading"
               },
               "Search": {
                 "name": "Search 搜索框",
-                "path": "/search"
+                "path": "/search",
+                "demo": "/search"
               },
               "Slider": {
                 "name": "Slider 滑块",
-                "path": "/slider"
+                "path": "/slider",
+                "demo": "/slider"
               },
               "Toast": {
                 "name": "Toast 消息提示",
-                "path": "/toast"
+                "path": "/toast",
+                "demo": "/toast"
               }
             }
           }
@@ -67,9 +73,5 @@
         "path": "/font"
       }
     }
-  },
-  "about": {
-    "name": "关于",
-    "href": "http://jd.com"
   }
 }

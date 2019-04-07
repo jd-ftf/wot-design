@@ -2,8 +2,13 @@
   <div>
     <side-bar parentKey="components"></side-bar>
     <div class="tab-content">
-      <div class="jm-markdown">
-        <router-view></router-view>
+      <div class="flex">
+        <div class="jm-markdown">
+          <router-view></router-view>
+        </div>
+        <div class="demo-iframe" v-show="$route.meta.demo">
+          <iframe frameborder="0" :src="`/examples${$route.meta.demo}`" width="320" height="544"></iframe>
+        </div>
       </div>
       <page-controller></page-controller>
     </div>
@@ -24,7 +29,6 @@ export default {
 
 <style lang="scss">
 .tab-content{
-  padding-top: 20px;
   overflow: hidden;
   margin: 0 150px 100px 320px;
 }

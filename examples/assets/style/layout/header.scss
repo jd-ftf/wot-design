@@ -8,7 +8,7 @@
   top: 0;
   left: 0;
   width: 100%;
-  box-shadow: 0 1px 1px #ccc;
+  border-bottom: 1px solid #e2e2e2;
   background: $color-bg;
   z-index: 100;
 }
@@ -19,20 +19,11 @@
 }
 .logo-block {
   display: inline-block;
-  padding: 12px 0;
-  line-height: 1.2;
+  height: $layout-header-height;
+  line-height: $layout-header-height;
   vertical-align: top;
-
-  img {
-    display: inline-block;
-    width: 50px;
-    vertical-align: middle;
-  }
-  .name {
-    display: inline-block;
-    width: 150px;
-    vertical-align: middle;
-  }
+  font-size: 18px;
+  color: $color-theme;
 }
 .header-tab {
   float: right;
@@ -62,7 +53,7 @@
     position: absolute;
     content: '';
     width: 70%;
-    height: 3px;
+    height: 2px;
     left: 15%;
     bottom: 0;
     background: $color-theme;

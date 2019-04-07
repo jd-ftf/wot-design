@@ -1,0 +1,121 @@
+@import '../abstracts/variable';
+@import '../abstracts/mixin';
+
+@include b(message-box) {
+  @include e(modal-mask) {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 999;
+    background-color: rgba(0, 0, 0, 0.7);
+  }
+  @include e(container) {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate3d(-50%, -50%, 0);
+    width: 270px;
+    z-index: 1000;
+    border-radius: 8px;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+  @include e(body) {
+    background-color: #fff;    
+    padding: 25px 20px;
+  }
+  @include e(title) {
+    text-align: center;
+    font-size: 16px;
+    margin-bottom: 4px;
+    color: #333;
+  }
+  @include e(content) {
+    max-height: 170px;
+    color: #666;
+    font-size: 12px;
+    text-align: center;
+    overflow: auto;
+  }
+  @include e(input-container) {
+    position: relative;
+    
+    &::after {
+      position: absolute;
+      display: block;
+      content: '';
+      width: 100%;
+      height: 1px;
+      left: 0;
+      bottom: 0;
+      transform: scaleY(0.5);
+      background: $-color-icon;
+    }
+  }
+  @include e(input) {
+    margin-top: 14px;
+    border: none;
+    padding: 9px 0;
+    width: 100%;
+    font-size: 14px;
+    box-sizing: border-box;
+    outline: none;
+
+    &::-webkit-input-placeholder {
+      color: #d2d2d2;
+    }
+  }
+  @include e(input-error) {
+    min-height: 18px;
+    margin-top: 2px;
+    color: red;
+    text-align: left;
+
+    @include when(hidden) {
+      visibility: hidden;
+    }
+  }
+  @include e(actions) {
+    display: flex;
+  }
+  @include e(button) {
+    display: block;
+    flex: 1;
+    font-size: 16px;
+    text-align: center;
+    height: 45px;
+    line-height: 45px;
+    color: #666;
+    outline: none;
+    -webkit-appearance: none;
+    border: none;
+
+    @include m(cancel) {
+      background-color: #fff;
+      border-top: 1px solid #eee;
+      box-sizing: border-box;
+    }
+    @include m(confirm) {
+      background-color: $-color-theme;
+      color: #fff;
+    }
+  }
+}
+
+.zoomIn-enter-active, .zoomIn-leave-active{
+  opacity: 1;
+  transform: translate3d(-50%, -50%, 0) scale(1);
+  transition: all .2s;
+}
+.zoomIn-enter{
+  opacity: 0;
+  transform: translate3d(-50%, -50%, 0) scale(0.7);
+  transition: all .2s ease-out;
+}
+.zoomIn-leave-to{
+  opacity: 0;
+  transform: translate3d(-50%, -50%, 0) scale(0.9);
+  transition: all .2s ease-out;
+}
