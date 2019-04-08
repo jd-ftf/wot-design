@@ -97,18 +97,5 @@
         ]
       }
     ]
-  },
-  "description": {
-    "name": "设计规范",
-    "sideTabs": {
-      "Color": {
-        "name": "Color 颜色",
-        "path": "/color"
-      },
-      "Font": {
-        "name": "Font 字体",
-        "path": "/font"
-      }
-    }
   }
 }

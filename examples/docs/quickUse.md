@@ -72,6 +72,8 @@ Vue.use(Button)
 <script src="//static.360buyimg.com/bus/lib/jm-design/button/index.js"></script>
 ```
 
+引入后调用 `Vue.use(button)` 进行组件注册。
+
 引入其他组件则将 button 换成组件的名字（小驼峰法）即可。
 
 ### 开始使用
