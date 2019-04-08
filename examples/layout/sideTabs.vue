@@ -8,7 +8,7 @@
           <page-controller></page-controller>
         </div>
         <div class="demo-iframe" v-show="$route.meta.demo" ref="phone" :style="phoneStyle">
-          <iframe frameborder="0" :src="`/examples#${$route.meta.demo}`" style="height: 640px"></iframe>
+          <iframe frameborder="0" :src="demoLink" style="height: 640px"></iframe>
         </div>
       </div>
     </div>
@@ -32,6 +32,13 @@ export default {
   components: {
     SideBar,
     PageController
+  },
+  computed: {
+    demoLink () {
+      return process.env.NODE_ENV === 'dev'
+        ? `/examples#${this.$route.meta.demo}`
+        : `.//examples#${this.$route.meta.demo}`
+    }
   },
   methods: {
     phoneListener () {
