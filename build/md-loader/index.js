@@ -32,8 +32,6 @@ module.exports = source => {
     scriptStart = 0
   }
 
-  console.log(scriptStart, scriptEnd)
-
   pageHtml.push(content.slice(0, scriptStart))
   pageHtml.push(content.slice(scriptEnd))
 

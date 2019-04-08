@@ -1,4 +1,3 @@
-'use strict'
 const path = require('path')
 const utils = require('./utils')
 const { VueLoaderPlugin } = require('vue-loader')
@@ -62,6 +61,14 @@ module.exports = {
       {
         test: /\.scss$/,
         use: utils.cssLoader('css-loader', 'postcss-loader', 'sass-loader')
+      },
+      {
+        test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
+        loader: 'url-loader',
+        options: {
+          limit: 10000,
+          name: 'fonts/[name].[ext]'
+        }
       }
     ]
   },

@@ -1,19 +1,18 @@
+const webpack = require('webpack')
 const TerserPlugin = require('terser-webpack-plugin')
+const components = require('../components.json')
 const path = require('path')
 const utils = require('./utils')
 const { VueLoaderPlugin } = require('vue-loader')
-const webpack = require('webpack')
 
 module.exports = {
   mode: 'production',
   context: path.resolve(__dirname, '../'),
-  entry: {
-    index: './src/index.js'
-  },
+  entry: components,
   output: {
     path: path.resolve(__dirname, '../lib'),
-    filename: '[name].js',
-    library: 'JMDesign',
+    filename: '[name]/index.js',
+    library: ['JMDesign', '[name]'],
     libraryTarget: 'umd'
   },
   module: {
