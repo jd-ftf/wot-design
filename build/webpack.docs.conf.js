@@ -98,6 +98,9 @@ const webpackConf = {
     entrypoints: false
   },
   plugins: [
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV': JSON.stringify(isDev ? 'dev' : 'prod')
+    }),
     new VueLoaderPlugin()
   ]
 }
