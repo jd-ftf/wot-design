@@ -12,7 +12,7 @@
     "build:components": "webpack --progress --config build/webpack.components.conf.js",
     "build:theme": "node build/mixCssFile.js & gulp build --gulpfile build/build-theme.js && node build/build-style-entry.js",
     "build:icon": "node build/iconInit.js",
-    "build": "rimraf lib && npm run build:lib && npm run build:components && npm run build:theme",
+    "build:dist": "rimraf lib && npm run build:lib && npm run build:components && npm run build:theme",
     "unit": "cross-env BABEL_ENV=test karma start test/unit/karma.conf.js --single-run",
     "e2e": "node test/e2e/runner.js",
     "test": "npm run unit && npm run e2e",
