@@ -1,7 +1,7 @@
 <template>
   <header class="header">
     <div class="header-container">
-      <router-link :to="{ path: '/index' }" class="logo-block">
+      <router-link :to="{ path: '/' }" class="logo-block">
         JM Design
       </router-link>
       <ul class="header-tab">

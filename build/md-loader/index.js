@@ -1,0 +1,48 @@
+const hljs = require('highlight.js')
+const MarkdownIt = require('markdown-it')
+
+const md = new MarkdownIt({
+  html: true,
+  highlight: function (str, lang) {
+    str = str.replace(/&lt;/g, "<")
+    str = str.replace(/&gt;/g, ">")
+
+    if (lang && hljs.getLanguage(lang)) {
+      try {
+        return '<pre class="hljs language-' + lang +  '"><code>' +
+               hljs.highlight(lang, str, true).value +
+               '</code></pre>'
+      } catch (__) {}
+    }
+    return '<pre class="hljs"><code>' + md.utils.escapeHtml(str) + '</code></pre>'
+  }
+})
+
+module.exports = source => {
+  const content = md.render(source)
+  let scriptStart = content.indexOf('<script>')
+  let scriptEnd = 0
+  let pageScript
+  let pageHtml = []
+
+  if (scriptStart > -1) {
+    scriptEnd = content.indexOf('</script>') + '</script>'.length
+    pageScript = content.slice(scriptStart, scriptEnd);
+  } else {
+    scriptStart = 0
+  }
+
+  console.log(scriptStart, scriptEnd)
+
+  pageHtml.push(content.slice(0, scriptStart))
+  pageHtml.push(content.slice(scriptEnd))
+
+  return `
+    <template>
+      <section class="markdown-content">
+        ${pageHtml.join('')}
+      </section>
+    </template>
+    ${pageScript}
+  `;
+}

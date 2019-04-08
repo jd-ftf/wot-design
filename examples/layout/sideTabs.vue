@@ -81,6 +81,9 @@ export default {
   .jm-markdown {
     margin-right: 380px;
   }
+  .markdown-content {
+    min-height: 600px;
+  }
   .demo-iframe {
     width: 360px;
     margin-left: 20px;

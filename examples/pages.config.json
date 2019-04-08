@@ -3,6 +3,11 @@
     "name": "组件",
     "sideTabs": [
       {
+        "Introduction": {
+          "name": "介绍",
+          "path": "/introduction",
+          "demo": "/"
+        },
         "Install": {
           "name": "安装",
           "path": "/install",
