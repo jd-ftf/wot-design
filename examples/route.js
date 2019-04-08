@@ -118,14 +118,8 @@ const router = new Router({
     {
       path: '/',
       component: MainLayout,
-      redirect: '/index',
-      children: [
-        {
-          path: '/index',
-          component: () => import(`./pages/index`)
-        },
-        ...pages
-      ]
+      redirect: pages[0].children[0].path,
+      children: pages
     }
   ]
 })

@@ -113,6 +113,7 @@ let showNextMsg = () => {
   }
 }
 
+/* eslint-disable */
 const MessageBox = (options, callback) => {
   if (typeof options === 'string') {
     options = {
@@ -148,6 +149,7 @@ const MessageBox = (options, callback) => {
     showNextMsg()
   }
 }
+/* eslint-disable */
 
 MessageBox.alert = (msg, title, options) => {
   if (typeof title === 'object') {

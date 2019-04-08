@@ -1,52 +1,59 @@
 'use strict'
 const utils = require('./utils')
 const webpack = require('webpack')
-const config = require('./config')
 const merge = require('webpack-merge')
-const path = require('path')
 const baseWebpackConfig = require('./webpack.base.conf')
-const CopyWebpackPlugin = require('copy-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 const portfinder = require('portfinder')
-
-const HOST = process.env.HOST
-const PORT = process.env.PORT && Number(process.env.PORT)
+const path = require('path')
 
 const devWebpackConfig = merge(baseWebpackConfig, {
   // 多入口配置，examples 是 H5 格式的组件例子，docs 是 API 文档
+  mode: 'development',
   entry: {
     examples: './examples-m/main.js',
     docs: './examples/main.js'
   },
   module: {
-    rules: utils.styleLoaders({ sourceMap: config.dev.cssSourceMap, usePostCSS: true })
+    rules: [
+      {
+        test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
+        loader: 'url-loader',
+        options: {
+          limit: 20000,
+          name: 'img/[name].[hash:8].[ext]'
+        }
+      },
+      {
+        test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
+        loader: 'url-loader',
+        options: {
+          limit: 10000,
+          name: 'fonts/[name].[hash:7].[ext]'
+        }
+      }
+    ]
   },
-  devtool: config.dev.devtool,
-
+  devtool: 'cheap-module-eval-source-map',
   devServer: {
     clientLogLevel: 'warning',
     historyApiFallback: {
       rewrites: [
-        { from: /\/docs/, to: path.posix.join(config.dev.assetsPublicPath, 'docs.html') },
-        { from: /\/examples/, to: path.posix.join(config.dev.assetsPublicPath, 'examples.html') },
+        { from: /\/docs/, to: '/docs.html' },
+        { from: /\/examples/, to: '/examples.html' },
       ],
     },
     hot: true,
     contentBase: false,
     compress: true,
-    host: HOST || config.dev.host,
-    port: PORT || config.dev.port,
-    open: config.dev.autoOpenBrowser,
-    overlay: config.dev.errorOverlay
-      ? { warnings: false, errors: true }
-      : false,
-    publicPath: config.dev.assetsPublicPath,
-    proxy: config.dev.proxyTable,
-    quiet: true,
-    watchOptions: {
-      poll: config.dev.poll,
+    host: '0.0.0.0',
+    port: 8090,
+    overlay: {
+      warnings: false,
+      errors: true
     },
+    quiet: true,
     disableHostCheck: true
   },
   plugins: [
@@ -56,34 +63,23 @@ const devWebpackConfig = merge(baseWebpackConfig, {
       }
     }),
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NamedModulesPlugin(),
-    new webpack.NoEmitOnErrorsPlugin(),
     // examples 入口使用的 HTML 模板
     new HtmlWebpackPlugin({
       filename: 'examples.html',
-      template: 'examples-m/index.html',
-      chunks: ['examples'],
-      inject: true
+      template: path.resolve(__dirname, '../examples-m/index.html'),
+      chunks: ['examples']
     }),
     // docs 入口使用的 HTML 模板
     new HtmlWebpackPlugin({
       filename: 'docs.html',
-      template: 'examples/index.html',
-      chunks: ['docs'],
-      inject: true
-    }),
-    new CopyWebpackPlugin([
-      {
-        from: path.resolve(__dirname, '../static'),
-        to: config.dev.assetsSubDirectory,
-        ignore: ['.*']
-      }
-    ])
+      template: path.resolve(__dirname, '../examples/index.html'),
+      chunks: ['docs']
+    })
   ]
 })
 
 module.exports = new Promise((resolve, reject) => {
-  portfinder.basePort = process.env.PORT || config.dev.port
+  portfinder.basePort = 8090
   portfinder.getPort((err, port) => {
     if (err) {
       reject(err)
@@ -94,12 +90,15 @@ module.exports = new Promise((resolve, reject) => {
       devWebpackConfig.plugins.push(new FriendlyErrorsPlugin({
         compilationSuccessInfo: {
           // 页面入口，examples 路径和 docs 入口
-          messages: [`Docs is running here: http://${devWebpackConfig.devServer.host}:${port}/docs` +
-            `, examples is running here: http://${devWebpackConfig.devServer.host}:${port}/examples`],
+          messages: [
+  `App running at:
+    
+    - Docs: http://${devWebpackConfig.devServer.host}:${port}/docs
+    - Mobile examples: http://${devWebpackConfig.devServer.host}:${port}/examples
+    
+  `],
         },
-        onErrors: config.dev.notifyOnErrors
-        ? utils.createNotifierCallback()
-        : undefined
+        onErrors: utils.createNotifierCallback()
       }))
 
       resolve(devWebpackConfig)
