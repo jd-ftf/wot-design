@@ -1,4 +1,3 @@
-import '@/style/icon.scss'
 import Icon from './src/main'
 
 Icon.install = Vue => {

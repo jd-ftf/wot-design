@@ -1,4 +1,3 @@
-'use strict'
 const utils = require('./utils')
 const webpack = require('webpack')
 const merge = require('webpack-merge')
@@ -14,26 +13,6 @@ const devWebpackConfig = merge(baseWebpackConfig, {
   entry: {
     examples: './examples-m/main.js',
     docs: './examples/main.js'
-  },
-  module: {
-    rules: [
-      {
-        test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
-        loader: 'url-loader',
-        options: {
-          limit: 20000,
-          name: 'img/[name].[hash:8].[ext]'
-        }
-      },
-      {
-        test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
-        loader: 'url-loader',
-        options: {
-          limit: 10000,
-          name: 'fonts/[name].[hash:7].[ext]'
-        }
-      }
-    ]
   },
   devtool: 'cheap-module-eval-source-map',
   devServer: {
@@ -57,11 +36,6 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     disableHostCheck: true
   },
   plugins: [
-    new webpack.DefinePlugin({
-      'process.env': {
-        NODE_ENV: '"development"'
-      }
-    }),
     new webpack.HotModuleReplacementPlugin(),
     // examples 入口使用的 HTML 模板
     new HtmlWebpackPlugin({

@@ -1,4 +1,3 @@
-import '@/style/search.scss'
 import Search from './src/main'
 
 Search.install = Vue => {

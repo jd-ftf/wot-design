@@ -1,28 +1,70 @@
-/**
- * docs文档和examples打包配置
- */
-'use strict'
 const path = require('path')
-const merge = require('webpack-merge')
-const baseWebpackConfig = require('./webpack.base.conf')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
+const TerserPlugin = require('terser-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
+const utils = require('./utils')
+const { VueLoaderPlugin } = require('vue-loader')
+const merge = require('webpack-merge')
+const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
+const portfinder = require('portfinder')
+const webpack = require('webpack')
 
-module.exports = merge(baseWebpackConfig, {
-  mdoe: 'production',
+const isDev = process.env.NODE_ENV === 'development'
+let outputConfig
+
+const webpackConf = {
+  mode: isDev ? 'development' : 'production',
+  context: path.resolve(__dirname, '../'),
   entry: {
     examples: './examples-m/main.js',
     docs: './examples/main.js'
   },
-  output: {
-    path: path.resolve(__dirname, '../docs'),
-    filename: 'js/[name].[chunkhash].js',
-    chunkFilename: 'js/[id].[chunkhash].js'
-  },
   module: {
     rules: [
+      {
+        test: /\.(js|vue)$/,
+        loader: 'eslint-loader',
+        enforce: 'pre',
+        include: [utils.resolve('src'), utils.resolve('packages'), utils.resolve('test')],
+        options: {
+          formatter: require('eslint-friendly-formatter'),
+          emitWarning: true
+        }
+      },
+      {
+        test: /\.vue$/,
+        loader: 'vue-loader'
+      },
+      {
+        test: /\.md$/,
+        use: [
+          {
+            loader: 'vue-loader',
+            options: {
+              compilerOptions: {
+                preserveWhitespace: false
+              }
+            }
+          },
+          {
+            loader: path.resolve(__dirname, './md-loader/index.js')
+          }
+        ]
+      },
+      {
+        test: /\.js$/,
+        loader: 'babel-loader',
+        exclude: /node_modules/
+      },
+      {
+        test: /\.css$/,
+        use: utils.cssLoader('css-loader', 'postcss-loader')
+      },
+      {
+        test: /\.scss$/,
+        use: utils.cssLoader('css-loader', 'postcss-loader', 'sass-loader')
+      },
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
         loader: 'url-loader',
@@ -36,35 +78,126 @@ module.exports = merge(baseWebpackConfig, {
         loader: 'url-loader',
         options: {
           limit: 10000,
-          name: 'fonts/[name].[hash:7].[ext]'
+          name: 'fonts/[name].[ext]'
         }
       }
     ]
   },
-  optimization: {
-    minimizer: [
-      new UglifyJsPlugin({
-        cache: true,
-        parallel: true
-      }),
-      new OptimizeCSSAssetsPlugin()
-    ]
+  devtool: isDev ? 'cheap-module-eval-source-map' : false,
+  resolve: {
+    extensions: ['.js', '.vue', '.json', '.md'],
+    alias: {
+      'vue$': 'vue/dist/vue.esm.js',
+      '@': utils.resolve('src'),
+      'jm-design': utils.resolve('packages')
+    }
+  },
+  stats: {
+    children: false,
+    modules: false,
+    entrypoints: false
   },
   plugins: [
-    new MiniCssExtractPlugin({
-      filename: 'css/[name].[contenthash:8].css',
-      chunkFilename: 'css/[name].[contenthash:8].css'
-    }),
-    new HtmlWebpackPlugin({
-      filename: path.resolve(__dirname, '../docs-dist/examples.html'),
-      template: 'examples-m/index.html',
-      chunks: ['examples']
-    }),
-    new HtmlWebpackPlugin({
-      filename: path.resolve(__dirname, '../docs-dist/docs.html'),
-      template: 'examples/index.html',
-      chunks: ['docs']
+    new VueLoaderPlugin()
+  ]
+}
+
+if (isDev) {
+  let devWebpackConf = merge(webpackConf, {
+    devServer: {
+      clientLogLevel: 'warning',
+      historyApiFallback: {
+        rewrites: [
+          { from: /\/docs/, to: '/docs.html' },
+          { from: /\/examples/, to: '/examples.html' },
+        ],
+      },
+      hot: true,
+      contentBase: false,
+      compress: true,
+      host: '0.0.0.0',
+      port: 8090,
+      overlay: {
+        warnings: false,
+        errors: true
+      },
+      quiet: true,
+      disableHostCheck: true
+    },
+    plugins: [
+      new webpack.HotModuleReplacementPlugin(),
+      new HtmlWebpackPlugin({
+        filename: 'examples.html',
+        template: path.resolve(__dirname, '../examples-m/index.html'),
+        chunks: ['examples']
+      }),
+      new HtmlWebpackPlugin({
+        filename: 'docs.html',
+        template: path.resolve(__dirname, '../examples/index.html'),
+        chunks: ['docs']
+      })
+    ]
+  })
+  outputConfig = new Promise((resolve, reject) => {
+    portfinder.basePort = 8090
+    portfinder.getPort((err, port) => {
+      if (err) {
+        reject(err)
+      } else {
+        process.env.PORT = port
+        devWebpackConf.devServer.port = port
+  
+        devWebpackConf.plugins.push(new FriendlyErrorsPlugin({
+          compilationSuccessInfo: {
+            // 页面入口，examples 路径和 docs 入口
+            messages: [
+    `App running at:
+      
+      - Docs: http://${devWebpackConf.devServer.host}:${port}/docs
+      - Mobile examples: http://${devWebpackConf.devServer.host}:${port}/examples
+      
+    `],
+          },
+          onErrors: utils.createNotifierCallback()
+        }))
+  
+        resolve(devWebpackConf)
+      }
     })
-  ],
-  target: 'node'
-})
+  })
+} else {
+  outputConfig = merge(webpackConf, {
+    output: {
+      path: path.resolve(__dirname, '../docs'),
+      filename: 'js/[name].[chunkhash].js',
+      chunkFilename: 'js/[id].[chunkhash].js'
+    },
+    optimization: {
+      minimizer: [
+        new TerserPlugin({
+          cache: true,
+          parallel: true
+        }),
+        new OptimizeCSSAssetsPlugin()
+      ]
+    },
+    plugins: [
+      new MiniCssExtractPlugin({
+        filename: 'css/[name].[contenthash:8].css',
+        chunkFilename: 'css/[name].[contenthash:8].css'
+      }),
+      new HtmlWebpackPlugin({
+        filename: path.resolve(__dirname, '../docs/examples.html'),
+        template: 'examples-m/index.html',
+        chunks: ['examples']
+      }),
+      new HtmlWebpackPlugin({
+        filename: path.resolve(__dirname, '../docs/docs.html'),
+        template: 'examples/index.html',
+        chunks: ['docs']
+      })
+    ]
+  })
+}
+
+module.exports = outputConfig

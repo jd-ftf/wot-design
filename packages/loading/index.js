@@ -1,4 +1,3 @@
-import '@/style/loading.scss'
 import loading from './src/loading'
 import Indicator from './src/indicator'
 

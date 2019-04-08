@@ -6,7 +6,6 @@
  * Message.prompt(message[, title, options])
  */
 import Vue from 'vue'
-import '@/style/messageBox.scss'
 import jmMessageBox from './src/main.vue'
 
 let defaults = {

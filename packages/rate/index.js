@@ -1,4 +1,3 @@
-import '@/style/rate.scss'
 import Rate from './src/main.vue'
 
 Rate.install = Vue => {

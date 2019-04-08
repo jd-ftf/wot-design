@@ -31,7 +31,7 @@ new Vue({
 }).$mount('#app')
 ```
 
-### 按需引入(暂时不可用)
+### 按需引入
 
 借助 [babel-plugin-import](https://www.npmjs.com/package/babel-plugin-import)，我们可以只引入需要的组件，以达到减小项目体积的目的。
 
@@ -49,7 +49,7 @@ npm i babel-plugin-import -D
     ["import", {
       "libraryName": "JMDesign",
       "camel2DashComponentName": false,
-      "style": "css"
+      "style": true
     }]
   ]
 }
@@ -63,6 +63,16 @@ import { Button } from 'jm-design'
 
 Vue.use(Button)
 ```
+
+如果想通过 script 和 link 标签只引入自己想要的组件，则引入的方式如下：
+
+```html
+<link rel="stylesheet" href="//static.360buyimg.com/bus/lib/jm-design/theme-default/button.css" />
+
+<script src="//static.360buyimg.com/bus/lib/jm-design/button/index.js"></script>
+```
+
+引入其他组件则将 button 换成组件的名字（小驼峰法）即可。
 
 ### 开始使用
 

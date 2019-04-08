@@ -1,5 +1,3 @@
-'use strict';
-
 var postcss = require('postcss');
 var fs = require('fs');
 var path = require('path');

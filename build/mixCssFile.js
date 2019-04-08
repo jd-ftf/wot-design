@@ -8,7 +8,7 @@ const components = require('../components.json')
 
 const basePath = path.resolve(__dirname, '../src/style')
 
-let indexContent = '@import "base.scss";\n'
+let indexContent = '@import "./common/transition.scss";\n'
 
 const isFileExit = filepath => {
   try {
@@ -19,7 +19,7 @@ const isFileExit = filepath => {
 }
 
 Object.keys(components).forEach(key => {
-  indexContent += `@import "./${key}.scss";\n`
+  indexContent += `@import './${key}.scss';\n`
   let filepath = path.resolve(basePath, `${key}.scss`)
   
   if (!isFileExit(filepath)) {
