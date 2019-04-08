@@ -21,6 +21,7 @@ npm i jm-design
 import Vue from 'vue'
 import App from './App.vue'
 import JMDesign from 'jm-design'
+import 'jm-design/lib/theme-default/index.css'
 
 Vue.use(JMDesign)
 
