@@ -14,9 +14,9 @@ npm install @jd/jm-design
 
 ```html
 <!-- 引入样式文件 -->
-<link rel="stylesheet" href="//static.360buyimg.com/lib/jm-design/0.2.0/theme-default/index.css">
+<link rel="stylesheet" href="//static.360buyimg.com/lib/jm-design/0.2.1/theme-default/index.css">
 <!-- 引入JS文件 -->
-<script src="//static.360buyimg.com/lib/jm-design/0.2.0/index.js"></script>
+<script src="//static.360buyimg.com/lib/jm-design/0.2.1/index.js"></script>
 
 <!-- 长期更新版本 -->
 <!-- 引入样式文件 -->

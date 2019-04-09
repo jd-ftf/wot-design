@@ -60,7 +60,7 @@
     display: block;
     width: 100%;
     height: 100%;
-    animation: van-rotate 0.8s linear infinite;
+    animation: jm-rotate 0.8s linear infinite;
   }
   @include m(circle) {
     animation-duration: 2s;
@@ -69,7 +69,7 @@
       stroke: currentColor;
       stroke-width: 3;
       stroke-linecap: round;
-      animation: van-circular 1.5s ease-in-out infinite;
+      animation: jm-circular 1.5s ease-in-out infinite;
     }
   }
   @include m(spinner) {
@@ -101,7 +101,7 @@
   }
 }
 
-@keyframes van-circular {
+@keyframes jm-circular {
   0% {
     stroke-dasharray: 1, 200;
     stroke-dashoffset: 0;
@@ -118,7 +118,7 @@
   }
 }
 
-@keyframes van-rotate {
+@keyframes jm-rotate {
   from {
     transform: rotate(0deg);
   }
