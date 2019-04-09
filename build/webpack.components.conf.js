@@ -13,7 +13,7 @@ module.exports = {
     path: path.resolve(__dirname, '../lib'),
     filename: ({ chunk }) => {
       let returnName = chunk.name.replace(/([A-Z])/g, ($1, $2) => {
-        return '-' + $2
+        return '-' + $2.toLowerCase()
       })
 
       return `${returnName}/index.js`
