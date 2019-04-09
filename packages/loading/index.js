@@ -3,7 +3,7 @@ import Indicator from './src/indicator'
 
 export default {
   install (Vue) {
-    Vue.components(Indicator.name, Indicator)
+    Vue.component(Indicator.name, Indicator)
     Vue.prototype.$loading = loading
   },
   Indicator,

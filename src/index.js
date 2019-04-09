@@ -23,24 +23,32 @@ const components = [
   PullRefresh
 ]
 
-const JMDesign = {
-  install: Vue => {
-    components.forEach(component => {
-      Vue.component(component.name, component)
-    })
+const install = Vue => {
+  components.forEach(component => {
+    Vue.component(component.name, component)
+  })
 
-    Vue.prototype.$toast = Toast
-    Vue.prototype.$loading = Loading.loading
-    Vue.prototype.$messageBox = MessageBox.MessageBox
-  }
+  Vue.prototype.$toast = Toast
+  Vue.prototype.$loading = Loading.loading
+  Vue.prototype.$messageBox = MessageBox.MessageBox
 }
 
 if (typeof window !== 'undefined' && window.Vue) {
-  JMDesign.install(window.Vue)
+  install(window.Vue)
 }
 
-export {
+export default {
+  version: '0.2.5',
+  install,
+  Button,
+  Icon,
+  InfiniteLoad,
+  Navbar,
+  Slider,
+  Loading,
+  MessageBox,
+  Search,
+  Rate,
+  PullRefresh,
   Toast
 }
-
-export default JMDesign

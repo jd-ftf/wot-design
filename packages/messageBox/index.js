@@ -204,7 +204,7 @@ MessageBox.close = () => {
 
 export default {
   install (Vue) {
-    Vue.components(jmMessageBox, jmMessageBox)
+    Vue.component(jmMessageBox, jmMessageBox)
     Vue.prototype.$messageBox = MessageBox
   },
   jmMessageBox,
