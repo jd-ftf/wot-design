@@ -1,31 +1,35 @@
 <template>
   <div>
     <white-space>
-      <jm-button @click="handleToast1">纯文字toast</jm-button>
+      <div class="demo-item">
+        <jm-button @click="handleToast1">纯文字toast</jm-button>
+      </div>
+      <div class="demo-item">
+        <jm-button @click="handleToast2">成功toast</jm-button>
+      </div>
+      <div class="demo-item">
+        <jm-button @click="handleToast3">错误toast</jm-button>
+      </div>
+      <div class="demo-item">
+        <jm-button @click="handleToast4">警告toast</jm-button>
+      </div>
+      <div class="demo-item">
+        <jm-button @click="handleToast5">顶部toast</jm-button>
+      </div>
+      <div class="demo-item">
+        <jm-button @click="handleToast6">底部toast</jm-button>
+      </div>
     </white-space>
     <white-space>
-      <jm-button @click="handleToast2">成功toast</jm-button>
-    </white-space>
-    <white-space>
-      <jm-button @click="handleToast3">错误toast</jm-button>
-    </white-space>
-    <white-space>
-      <jm-button @click="handleToast4">警告toast</jm-button>
-    </white-space>
-    <white-space>
-      <jm-button @click="handleToast5">顶部toast</jm-button>
-    </white-space>
-    <white-space>
-      <jm-button @click="handleToast6">底部toast</jm-button>
-    </white-space>
-    <white-space>
-      有时候，我们不想要一次性弹出多个弹窗，我们可以使用单例模式，让页面只能同时出现一个弹窗，将 single
-      设置为 true，同时不要在这个页面上出现 single 非 true 的弹窗实例
-    </white-space>
-    <white-space>
-      你可以反复点击下面这个按钮进行尝试
-    </white-space>
-    <white-space>
+      <div slot="desc">
+        <p>
+          有时候，我们不想要一次性弹出多个弹窗，我们可以使用单例模式，让页面只能同时出现一个弹窗，将 single
+          设置为 true，同时不要在这个页面上出现 single 非 true 的弹窗实例
+        </p>
+        <p>
+          你可以反复点击下面这个按钮进行尝试
+        </p>
+      </div>
       <jm-button @click="handleToast7">同时只展示一个toast</jm-button>
     </white-space>
     <white-space>
@@ -33,9 +37,9 @@
       切换的dom节点上，而是挂载在body上的
     </white-space>
     <white-space>
-      Toast实例具有close()方法，可以手动关闭弹窗，不过你需要用一个变量保存调用toast返回的实例
-    </white-space>
-    <white-space>
+      <div slot="desc">
+        Toast实例具有close()方法，可以手动关闭弹窗，不过你需要用一个变量保存调用toast返回的实例
+      </div>
       <jm-button @click="handleToast8">手动关闭“警告Toast”</jm-button>
     </white-space>
   </div>

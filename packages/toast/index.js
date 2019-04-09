@@ -13,8 +13,6 @@
 
 import Vue from 'vue'
 import jmToast from './src/main.vue'
-import '@/style/base.scss'
-import '@/style/components/toast.scss'
 
 const ToastConstructor = Vue.extend(jmToast)
 
@@ -103,6 +101,10 @@ let Toast = options => {
   if (toastSingleTon.show) return
 
   return showToast(toastSingleTon, options)
+}
+
+Toast.install = Vue => {
+  Vue.prototype.$toast = Toast
 }
 
 export default Toast

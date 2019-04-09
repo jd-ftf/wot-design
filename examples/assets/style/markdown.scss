@@ -4,10 +4,13 @@
   line-height: 1.6;
   word-wrap: break-word;
 
+  p {
+    color: #666;
+  }
   a {
     background: transparent;
     text-decoration: none;
-    font-weight: 600;
+    font-weight: 500;
     color: $color-theme-l3;
 
     &:active, &:hover {
@@ -20,7 +23,7 @@
   }
   h1, h2, h3, h4, h5, h6 {
     margin: 20px 0;
-    font-weight: 700;
+    font-weight: 400;
     color: $color-important;
   }
   h1 {
@@ -67,7 +70,7 @@
   }
   th {
     text-align: left;
-    font-weight: 700;
+    font-weight: 500;
     padding: 15px;
     color: $color-theme-l2;
     border-bottom: 1px solid $color-line-light;
@@ -78,6 +81,7 @@
     padding: 15px;
     border-bottom: 1px solid $color-line-light;
     max-width: 194px;
+    color: #666;
   }
   blockquote {
     margin: 30px 0;
@@ -129,7 +133,7 @@
       line-height: 2;
     }
   }
-  .language-javascript, .language-JavaScript {
+  .language-javascript, .language-JavaScript, .javascript {
     .hljs-keyword {
       color: $color-js-keyword;
     }
@@ -148,16 +152,30 @@
     .hljs-built_in {
       color: $color-js-built_in;
     }
+    .hljs-attr {
+      color: $color-js-attr;
+    }
   }
   .language-html, .language-HTML {
     .hljs-tag {
       color: $color-html-tag;
     }
     .hljs-attr {
-      color: $color-html-tag;
+      color: $color-html-attr;
     }
     .hljs-string {
-      color: $color-html-attr;
+      color: $color-html-attr-value;
+    }
+    .hljs-name {
+      color: $color-html-tag-name;
+    }
+    .hljs-comment {
+      color: $color-html-comment;
+    }
+    .javascript {
+      .hljs-attr {
+        color: $color-js-attr;
+      }
     }
   }
   .language-css, .language-scss, .language-sass, .language-less {

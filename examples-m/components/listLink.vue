@@ -1,7 +1,12 @@
 <template>
   <ul class="examples-list">
     <li class="examples-list__item" v-for="(item, index) in list" :key="index">
-      <router-link class="examples-list__link" :to="item.path">{{ item.name }}</router-link>
+      <router-link class="examples-list__link" :to="item.path">
+        <div>{{ item.name }}</div>
+        <div>
+          <jm-icon name="arrow-right" color="#aaa" />
+        </div>
+      </router-link>
     </li>
   </ul>
 </template>
@@ -30,10 +35,16 @@ export default {
     right: 15px;
     bottom: 0;
     background: #eee;
+    transform: scaleY(0.5);
+  }
+  &:last-cchild::after {
+    display: none;
   }
 }
 .examples-list__link{
-  display: block;
+  display: flex;
   padding: 15px;
+  background: #fff;
+  justify-content: space-between;
 }
 </style>

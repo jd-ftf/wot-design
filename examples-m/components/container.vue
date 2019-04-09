@@ -1,8 +1,11 @@
 <template>
   <div class="page">
     <div class="header">
-      <jm-navbar :title="$route.meta.pageName">
-        <router-link class="return-back" to="/" slot="left">返回</router-link>
+      <jm-navbar :title="$route.meta.pageName" light>
+        <router-link class="return-back" to="/" slot="left">
+          <jm-icon name="arrow-left" />
+          <span>返回</span>
+        </router-link>
       </jm-navbar>
     </div>
     <div class="page-content">
@@ -26,10 +29,13 @@ export default {
   z-index: 999;
 
   .return-back {
-    display: block;
     width: 40px;
     height: 100%;
-    color: #fff;
+    vertical-align: middle;
+
+    span, i {
+      vertical-align: middle;
+    }
   }
 }
 .page-content {

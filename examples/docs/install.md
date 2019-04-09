@@ -5,7 +5,7 @@
 建议使用 `npm` 进行安装，开发者可以做到按需引用和自定义主题
 
 ```bash
-npm install jm-design
+npm install @jd/jm-design
 ```
 
 ### CDN引用
@@ -14,7 +14,13 @@ npm install jm-design
 
 ```html
 <!-- 引入样式文件 -->
-<link rel="stylesheet" href="//jm-static.jd.com/jmdesign/index.css">
+<link rel="stylesheet" href="//static.360buyimg.com/lib/jm-design/0.2.5/theme-default/index.css">
 <!-- 引入JS文件 -->
-<script src="//jm-static.jd.com/jmdesign/index.js"></script>
+<script src="//static.360buyimg.com/lib/jm-design/0.2.5/index.js"></script>
+
+<!-- 长期更新版本 -->
+<!-- 引入样式文件 -->
+<link rel="stylesheet" href="//static.360buyimg.com/lib/jm-design/theme-default/index.css">
+<!-- 引入JS文件 -->
+<script src="//static.360buyimg.com/lib/jm-design/index.js"></script>
 ```

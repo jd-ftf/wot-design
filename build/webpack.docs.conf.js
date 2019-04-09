@@ -1,133 +1,207 @@
-/**
- * docs文档和examples打包配置
- */
-'use strict'
 const path = require('path')
-const utils = require('./utils')
-const webpack = require('webpack')
-const config = require('./config')
-const merge = require('webpack-merge')
-const baseWebpackConfig = require('./webpack.base.conf')
-const CopyWebpackPlugin = require('copy-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const ExtractTextPlugin = require('extract-text-webpack-plugin')
-const OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
+const TerserPlugin = require('terser-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
+const utils = require('./utils')
+const { VueLoaderPlugin } = require('vue-loader')
+const merge = require('webpack-merge')
+const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
+const portfinder = require('portfinder')
+const webpack = require('webpack')
 
-const webpackConfig = merge(baseWebpackConfig, {
+const isDev = process.env.NODE_ENV === 'development'
+let outputConfig
+
+const webpackConf = {
+  mode: isDev ? 'development' : 'production',
+  context: path.resolve(__dirname, '../'),
   entry: {
     examples: './examples-m/main.js',
     docs: './examples/main.js'
   },
   module: {
-    rules: utils.styleLoaders({
-      sourceMap: config.docs.productionSourceMap,
-      extract: true,
-      usePostCSS: true
-    })
+    rules: [
+      {
+        test: /\.(js|vue)$/,
+        loader: 'eslint-loader',
+        enforce: 'pre',
+        include: [utils.resolve('src'), utils.resolve('packages'), utils.resolve('test')],
+        options: {
+          formatter: require('eslint-friendly-formatter'),
+          emitWarning: true
+        }
+      },
+      {
+        test: /\.vue$/,
+        loader: 'vue-loader'
+      },
+      {
+        test: /\.md$/,
+        use: [
+          {
+            loader: 'vue-loader',
+            options: {
+              compilerOptions: {
+                preserveWhitespace: false
+              }
+            }
+          },
+          {
+            loader: path.resolve(__dirname, './md-loader/index.js')
+          }
+        ]
+      },
+      {
+        test: /\.js$/,
+        loader: 'babel-loader',
+        exclude: /node_modules/
+      },
+      {
+        test: /\.css$/,
+        use: utils.cssLoader('css-loader', 'postcss-loader')
+      },
+      {
+        test: /\.scss$/,
+        use: utils.cssLoader('css-loader', 'postcss-loader', 'sass-loader')
+      },
+      {
+        test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
+        loader: 'url-loader',
+        options: {
+          limit: 20000,
+          name: 'img/[name].[hash:8].[ext]'
+        }
+      },
+      {
+        test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
+        loader: 'url-loader',
+        options: {
+          limit: 10000,
+          name: 'fonts/[name].[ext]'
+        }
+      }
+    ]
   },
-  devtool: config.docs.productionSourceMap ? config.docs.devtool : false,
-  output: {
-    path: config.docs.assetsRoot,
-    filename: utils.assetsPath('js/[name].[chunkhash].js'),
-    chunkFilename: utils.assetsPath('js/[id].[chunkhash].js')
+  devtool: isDev ? 'cheap-module-eval-source-map' : false,
+  resolve: {
+    extensions: ['.js', '.vue', '.json', '.md'],
+    alias: {
+      'vue$': 'vue/dist/vue.esm.js',
+      '@': utils.resolve('src'),
+      'jm-design': utils.resolve('packages')
+    }
+  },
+  stats: {
+    children: false,
+    modules: false,
+    entrypoints: false
   },
   plugins: [
     new webpack.DefinePlugin({
-      'process.env': {
-        NODE_ENV: process.env.NODE_ENV === 'testing' ? '"testing"' : '"document"'
-      }
+      'process.env.NODE_ENV': JSON.stringify(isDev ? 'dev' : 'prod')
     }),
-    new UglifyJsPlugin({
-      uglifyOptions: {
-        compress: {
-          warnings: false
-        }
-      },
-      sourceMap: config.docs.productionSourceMap,
-      parallel: true
-    }),
-    // 将 css 样式整合进一个 css 文件，多入口的话是针对每个入口单独抽离出 css 样式，生成对应的文件
-    new ExtractTextPlugin({
-      filename: utils.assetsPath('css/[name].[contenthash].css'),
-      allChunks: true
-    }),
-    new OptimizeCSSPlugin({
-      cssProcessorOptions: config.docs.productionSourceMap
-        ? { safe: true, map: { inline: false } }
-        : { safe: true }
-    }),
-    // 自动生成 examples 的静态页面，以 examples/index.html 为模板，examples 的 chunk 文件自动插入 html 文件
-    new HtmlWebpackPlugin({
-      filename: process.env.NODE_ENV === 'testing'
-        ? 'examples.html'
-        : config.docs.examples,
-      template: 'examples-m/index.html',
-      inject: true,
-      minify: {
-        removeComments: true,
-        collapseWhitespace: true,
-        removeAttributeQuotes: true
-      },
-      chunks: ['vendor', 'manifest', 'examples'],
-      chunksSortMode: 'dependency'
-    }),
-    // 自动生成 docs 的静态页面，以 docs/index.html 为模板，docs 的 chunk 文件自动插入 html 文件
-    new HtmlWebpackPlugin({
-      filename: process.env.NODE_ENV === 'testing'
-        ? 'docs.html'
-        : config.docs.docs,
-      template: 'examples/index.html',
-      inject: true,
-      minify: {
-        removeComments: true,
-        collapseWhitespace: true,
-      },
-      chunks: ['vendor', 'manifest', 'docs'],
-      chunksSortMode: 'dependency'
-    }),
-    new webpack.HashedModuleIdsPlugin(),
-    new webpack.optimize.ModuleConcatenationPlugin(),
-    new webpack.optimize.CommonsChunkPlugin({
-      name: 'vendor',
-      minChunks (module) {
-        return (
-          module.resource &&
-          /\.js$/.test(module.resource) &&
-          module.resource.indexOf(
-            path.join(__dirname, '../node_modules')
-          ) === 0
-        )
-      }
-    }),
-    new webpack.optimize.CommonsChunkPlugin({
-      name: 'manifest',
-      minChunks: Infinity
-    }),
-    // new webpack.optimize.CommonsChunkPlugin({
-    //   name: 'manifest-docs',
-    //   minChunks: Infinity
-    // }),
-    new webpack.optimize.CommonsChunkPlugin({
-      name: 'app-examples',
-      async: 'vendor-async',
-      minChunks: 3,
-      chunks: ['examples']
-    }),
-    new webpack.optimize.CommonsChunkPlugin({
-      name: 'app-docs',
-      async: 'vendor-async',
-      minChunks: 3,
-      chunks: ['docs']
-    }),
-    new CopyWebpackPlugin([
-      {
-        from: path.resolve(__dirname, '../static'),
-        to: config.docs.assetsSubDirectory,
-        ignore: ['.*']
-      }
-    ])
+    new VueLoaderPlugin()
   ]
-})
+}
 
-module.exports = webpackConfig
+if (isDev) {
+  let devWebpackConf = merge(webpackConf, {
+    devServer: {
+      clientLogLevel: 'warning',
+      historyApiFallback: {
+        rewrites: [
+          { from: /\/docs/, to: '/docs.html' },
+          { from: /\/examples/, to: '/examples.html' },
+        ],
+      },
+      hot: true,
+      contentBase: false,
+      compress: true,
+      host: '0.0.0.0',
+      port: 8090,
+      overlay: {
+        warnings: false,
+        errors: true
+      },
+      quiet: true,
+      disableHostCheck: true
+    },
+    plugins: [
+      new webpack.HotModuleReplacementPlugin(),
+      new HtmlWebpackPlugin({
+        filename: 'examples.html',
+        template: path.resolve(__dirname, '../examples-m/index.html'),
+        chunks: ['examples']
+      }),
+      new HtmlWebpackPlugin({
+        filename: 'docs.html',
+        template: path.resolve(__dirname, '../examples/index.html'),
+        chunks: ['docs']
+      })
+    ]
+  })
+  outputConfig = new Promise((resolve, reject) => {
+    portfinder.basePort = 8090
+    portfinder.getPort((err, port) => {
+      if (err) {
+        reject(err)
+      } else {
+        process.env.PORT = port
+        devWebpackConf.devServer.port = port
+  
+        devWebpackConf.plugins.push(new FriendlyErrorsPlugin({
+          compilationSuccessInfo: {
+            // 页面入口，examples 路径和 docs 入口
+            messages: [
+    `App running at:
+      
+      - Docs: http://${devWebpackConf.devServer.host}:${port}/docs
+      - Mobile examples: http://${devWebpackConf.devServer.host}:${port}/examples
+      
+    `],
+          },
+          onErrors: utils.createNotifierCallback()
+        }))
+  
+        resolve(devWebpackConf)
+      }
+    })
+  })
+} else {
+  outputConfig = merge(webpackConf, {
+    output: {
+      publicPath: './',
+      path: path.resolve(__dirname, '../docs'),
+      filename: 'js/[name].[chunkhash].js',
+      chunkFilename: 'js/[id].[chunkhash].js'
+    },
+    optimization: {
+      minimizer: [
+        new TerserPlugin({
+          cache: true,
+          parallel: true
+        }),
+        new OptimizeCSSAssetsPlugin()
+      ]
+    },
+    plugins: [
+      new MiniCssExtractPlugin({
+        filename: '[name].[contenthash:8].css',
+        chunkFilename: '[name].[contenthash:8].css'
+      }),
+      new HtmlWebpackPlugin({
+        filename: path.resolve(__dirname, '../docs/examples.html'),
+        template: 'examples-m/index.html',
+        chunks: ['examples']
+      }),
+      new HtmlWebpackPlugin({
+        filename: path.resolve(__dirname, '../docs/docs.html'),
+        template: 'examples/index.html',
+        chunks: ['docs']
+      })
+    ]
+  })
+}
+
+module.exports = outputConfig

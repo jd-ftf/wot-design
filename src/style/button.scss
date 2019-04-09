@@ -1,0 +1,42 @@
+@import './abstracts/variable';
+@import './abstracts/mixin';
+
+@include b(button) {
+  display: block;
+  outline: none;
+  text-align: center;
+  border: none;
+  -webkit-appearance: none;
+
+  @include m(primary) {
+    width: 100%;
+    height: 44px;
+    border-radius: 8px;
+    background: $-button-color-primary;
+    color: #fff;
+    font-size: 16px;
+
+    &:active {
+      background: $-button-color-primary-active;
+    }
+    &.jm-button--disabled {
+      opacity: 0.6;
+      color: $-color-theme-light;
+    }
+  }
+  @include m(suck) {
+    width: 100%;
+    height: 50px;
+    font-size: 16px;
+    color: #fff;
+    background: $-button-color-primary;
+
+    &:active {
+      background: $-button-color-primary-active;
+    }
+    &.jm-button--disabled {
+      opacity: 0.6;
+      color: $-color-theme-light;
+    }
+  }
+}

@@ -1,28 +1,54 @@
-import Button from 'jm-design/button/index.js'
-import Navbar from 'jm-design/navbar/index.js'
-import Toast from 'jm-design/toast/index.js'
+import Button from 'jm-design/button'
+import Icon from 'jm-design/icon'
+import InfiniteLoad from 'jm-design/infiniteLoad'
+import Loading from 'jm-design/loading'
+import MessageBox from 'jm-design/messageBox'
+import Navbar from 'jm-design/navbar'
+import PullRefresh from 'jm-design/pullRefresh'
+import Rate from 'jm-design/rate'
+import Search from 'jm-design/search'
+import Slider from 'jm-design/slider'
+import Toast from 'jm-design/toast'
 
 const components = [
   Button,
-  Navbar
+  Icon,
+  InfiniteLoad,
+  Navbar,
+  Slider,
+  Loading.Indicator,
+  MessageBox.jmMessageBox,
+  Search,
+  Rate,
+  PullRefresh
 ]
 
-const JMDesign = {
-  install: Vue => {
-    components.forEach(component => {
-      Vue.component(component.name, component)
-    })
+const install = Vue => {
+  components.forEach(component => {
+    Vue.component(component.name, component)
+  })
 
-    Vue.$toast = Vue.prototype.$toast = Toast
-  }
+  Vue.prototype.$toast = Toast
+  Vue.prototype.$loading = Loading.loading
+  Vue.prototype.$messageBox = MessageBox.MessageBox
 }
 
 if (typeof window !== 'undefined' && window.Vue) {
-  JMDesign.install(window.Vue)
+  install(window.Vue)
 }
 
-export {
+export default {
+  version: '0.2.5',
+  install,
+  Button,
+  Icon,
+  InfiniteLoad,
+  Navbar,
+  Slider,
+  Loading,
+  MessageBox,
+  Search,
+  Rate,
+  PullRefresh,
   Toast
 }
-
-export default JMDesign

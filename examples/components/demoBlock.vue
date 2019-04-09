@@ -76,6 +76,7 @@ export default {
 .demo {
   position: relative;
   width: 100%;
+  min-height: 750px;
   margin: 1em 0;
   font-size: 0;
 

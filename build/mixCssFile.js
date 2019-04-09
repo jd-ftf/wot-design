@@ -3,16 +3,12 @@
  */
 const path = require('path')
 const fs = require('fs')
-const ora = require('ora')
 const chalk = require('chalk')
 const components = require('../components.json')
 
-const spinner = ora('Mix all scss into index.scss...')
-spinner.start()
-
 const basePath = path.resolve(__dirname, '../src/style')
 
-let indexContent = '@import "base.scss";\n'
+let indexContent = '@import "./common/transition.scss";\n'
 
 const isFileExit = filepath => {
   try {
@@ -23,8 +19,8 @@ const isFileExit = filepath => {
 }
 
 Object.keys(components).forEach(key => {
-  indexContent += `@import "./components/${key}.scss";\n`
-  let filepath = path.resolve(basePath, 'components', `${key}.scss`)
+  indexContent += `@import './${key}.scss';\n`
+  let filepath = path.resolve(basePath, `${key}.scss`)
   
   if (!isFileExit(filepath)) {
     fs.writeFileSync(filepath, '', 'utf-8')
@@ -34,7 +30,6 @@ Object.keys(components).forEach(key => {
 
 try {
   fs.writeFileSync(path.resolve(basePath, 'index.scss'), indexContent)
-  spinner.stop()
   console.log(chalk.cyan(' Scss mix complete.\n'))
 } catch(err) {
   console.log(chalk.red('  Scss mix failed with errors.\n'))

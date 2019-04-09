@@ -1,0 +1,90 @@
+@import './abstracts/variable';
+@import './abstracts/mixin';
+
+@include b(search) {
+  display: flex;
+  padding: 10px 0 10px 15px;
+  align-items: center;
+  background: #fff;
+
+  @include e(block) {
+    position: relative;
+    flex: 1;
+    background-color: #f4f4f4;
+    border-radius: 4px;
+  }
+  @include e(input) {
+    width: 100%;
+    height: 28px;
+    border-radius: 4px;
+    box-sizing: border-box;
+    padding: 5px 32px;
+    border: none;
+    line-height: 14px;
+    background: transparent;
+    font-size: 14px;
+    -webkit-appearance: none;
+    outline: none;
+    color: #333;
+
+    @include lineEllipsis;
+
+    &::-webkit-search-cancel-button{
+      -webkit-appearance: none;
+    }
+  }
+  @include e(placeholder) {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    line-height: 28px;
+    left: 0;
+    top: 0;
+    text-align: center;
+    font-size: 0;
+
+    @include when(focus) {
+      left: 10px;
+      text-align: left;
+    }
+  }
+  @include e(search-icon) {
+    display: inline-block;
+    color: #c5c5c5;
+    vertical-align: middle;
+    font-size: 14px;
+  }
+  @include e(placeholder-txt) {
+    display: inline-block;
+    margin-left: 10px;
+    color: #a7a7a7;
+    font-size: 14px;
+    vertical-align: middle;
+  }
+  @include e(clear) {
+    position: absolute;
+    padding: 4px;
+    right: 12px;
+    top: 50%;
+    transform: translate(0, -50%);
+    font-size: 14px;
+    color: #a7a7a7;
+  }
+  @include e(cancel) {
+    padding: 0 15px 0 10px;
+    height: 28px;
+    line-height: 28px;
+    font-size: 14px;
+    color: $-color-theme;
+  }
+  @include when(light) {
+    background: #f4f4f4;
+
+    .jm-search__block {
+      background: #fff;
+    }
+  }
+  @include when(without-cancel) {
+    padding-right: 15px;
+  }
+}

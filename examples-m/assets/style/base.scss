@@ -5,6 +5,7 @@ html, body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-size: 13px;
+  background: #f4f4f4;
 }
 ul {
   margin: 0;
@@ -21,4 +22,14 @@ a {
 }
 .page-center {
   text-align: center;
+}
+code {
+  color: #0083ff;
+  padding: 1px 2px;
+  margin: 0 2px;
+  border-radius: 2px;
+  white-space: nowrap;
+  font-size: 0.8em;
+  background-color: #f8f8f8;
+  -webkit-font-smoothing: initial;
 }

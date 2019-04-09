@@ -3,61 +3,99 @@
     "name": "组件",
     "sideTabs": [
       {
+        "Introduction": {
+          "name": "介绍",
+          "path": "/introduction",
+          "demo": "/"
+        },
         "Install": {
           "name": "安装",
-          "path": "/install"
+          "path": "/install",
+          "demo": "/"
         },
         "QuickUse": {
           "name": "快速上手",
-          "path": "/quickUse"
+          "path": "/quickUse",
+          "demo": "/"
         },
         "CustomTheme": {
           "name": "自定义主题",
-          "path": "/customTheme"
+          "path": "/customTheme",
+          "demo": "/"
         }
       }, {
         "name": "组件",
         "list": [
           {
-            "name": "基础组件",
+            "name": "基础",
             "list": {
               "Button": {
                 "name": "Button 按钮",
-                "path": "/button"
+                "path": "/button",
+                "demo": "/button"
+              },
+              "Icon": {
+                "name": "Icon 图标",
+                "path": "/icon",
+                "demo": "/icon"
               },
               "Navbar": {
                 "name": "Navbar 导航栏",
-                "path": "/navbar"
+                "path": "/navbar",
+                "demo": "/navbar"
               }
             }
           }, {
-            "name": "交互组件",
+            "name": "交互",
             "list": {
+              "InfiniteLoad": {
+                "name": "InfiniteLoad 无限加载",
+                "path": "/infiniteLoad",
+                "demo": "/infiniteLoad"
+              },
+              "Loading": {
+                "name": "Loading 加载",
+                "path": "/loading",
+                "demo": "/loading"
+              },
+              "MessageBox": {
+                "name": "MessageBox 弹框",
+                "path": "/messageBox",
+                "demo": "/messageBox"
+              },
+              "PullRefresh": {
+                "name": "PullRefresh 下拉刷新",
+                "path": "/pullRefresh",
+                "demo": "/pullRefresh"
+              },
+              "Search": {
+                "name": "Search 搜索框",
+                "path": "/search",
+                "demo": "/search"
+              },
+              "Slider": {
+                "name": "Slider 滑块",
+                "path": "/slider",
+                "demo": "/slider"
+              },
               "Toast": {
-                "name": "Toast 消息提示",
-                "path": "/toast"
+                "name": "Toast 轻提示",
+                "path": "/toast",
+                "demo": "/toast"
+              }
+            }
+          }, {
+            "name": "表单",
+            "list": {
+              "Rate": {
+                "name": "Rate 评分",
+                "path": "/rate",
+                "demo": "/rate"
               }
             }
           }
         ]
       }
     ]
-  },
-  "description": {
-    "name": "设计规范",
-    "sideTabs": {
-      "Color": {
-        "name": "Color 颜色",
-        "path": "/color"
-      },
-      "Font": {
-        "name": "Font 字体",
-        "path": "/font"
-      }
-    }
-  },
-  "about": {
-    "name": "关于",
-    "href": "http://jd.com"
   }
 }

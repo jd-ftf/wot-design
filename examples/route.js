@@ -17,7 +17,10 @@ const getSideTabs = (page, key) => {
           return {
             path: `/${key}${group[name].path}`,
             name: name,
-            component: () => import(`./docs${group[name].path}`)
+            component: () => import(`./docs${group[name].path}`),
+            meta: {
+              demo: group[name].demo
+            }
           }
         })
 
@@ -29,7 +32,10 @@ const getSideTabs = (page, key) => {
               return {
                 path: `/${key}${itemList.list[name].path}`,
                 name: name,
-                component: () => import(`./docs${itemList.list[name].path}`)
+                component: () => import(`./docs${itemList.list[name].path}`),
+                meta: {
+                  demo: itemList.list[name].demo
+                }
               }
             })
 
@@ -40,7 +46,10 @@ const getSideTabs = (page, key) => {
             return {
               path: `/${key}${group.list[name].path}`,
               name: name,
-              component: () => import(`./docs${group.list[name].path}`)
+              component: () => import(`./docs${group.list[name].path}`),
+              meta: {
+                demo: group.list[name].demo
+              }
             }
           })
 
@@ -53,7 +62,10 @@ const getSideTabs = (page, key) => {
       return {
         path: `/${key}${page.sideTabs[name].path}`,
         name: name,
-        component: () => import(`./docs${page.sideTabs[name].path}`)
+        component: () => import(`./docs${page.sideTabs[name].path}`),
+        meta: {
+          demo: page.sideTabs[name].demo
+        }
       }
     })
   }
@@ -106,14 +118,8 @@ const router = new Router({
     {
       path: '/',
       component: MainLayout,
-      redirect: '/index',
-      children: [
-        {
-          path: '/index',
-          component: () => import(`./pages/index`)
-        },
-        ...pages
-      ]
+      redirect: pages[0].children[0].path,
+      children: pages
     }
   ]
 })

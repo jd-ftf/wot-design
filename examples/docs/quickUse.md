@@ -21,6 +21,7 @@ npm i jm-design
 import Vue from 'vue'
 import App from './App.vue'
 import JMDesign from 'jm-design'
+import 'jm-design/lib/theme-default/index.css'
 
 Vue.use(JMDesign)
 
@@ -48,8 +49,7 @@ npm i babel-plugin-import -D
   "plugins": [
     ["import", {
       "libraryName": "JMDesign",
-      "camel2DashComponentName": false,
-      "style": "css"
+      "style": true
     }]
   ]
 }
@@ -63,6 +63,18 @@ import { Button } from 'jm-design'
 
 Vue.use(Button)
 ```
+
+如果想通过 script 和 link 标签只引入自己想要的组件，则引入的方式如下：
+
+```html
+<link rel="stylesheet" href="//static.360buyimg.com/bus/lib/jm-design/theme-default/button.css" />
+
+<script src="//static.360buyimg.com/bus/lib/jm-design/button/index.js"></script>
+```
+
+引入后调用 `Vue.use(JMDesign.button)` 进行组件注册。
+
+引入其他组件链接则将 button 换成组件的名字即可，如果组件名为小驼峰法，则将大写字母换成小写并用 `-` 连接，如下拉刷新组件 `pullRefresh` 则为 `pull-refresh`。
 
 ### 开始使用
 

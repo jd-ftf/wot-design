@@ -1,8 +1,8 @@
 <template>
   <header class="header">
     <div class="header-container">
-      <router-link :to="{ path: '/index' }" class="logo-block">
-        <img class="name" src="../assets/img/jm-design.png" />
+      <router-link :to="{ path: '/' }" class="logo-block">
+        JM Design
       </router-link>
       <ul class="header-tab">
         <li class="header-tab__item" v-for="(page, key) in pages" :key="key">

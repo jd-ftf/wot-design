@@ -12,9 +12,7 @@
 export default {
   name: 'JmToast',
   props: {
-    iconName: {
-      default: 'success'
-    },
+    iconName: String,
     iconClass: String,
     msg: String,
     position: {

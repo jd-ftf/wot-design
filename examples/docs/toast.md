@@ -1,4 +1,4 @@
-## Toast
+## Toast 轻提示
 
 消息提示框，支持同时存在多个消息提示框或一个消息提示框，可以设置持续时间，位置和图标，支持手动关闭
 
@@ -10,21 +10,11 @@
 import Vue from 'vue'
 import { Toast } from 'jm-design'
 
-Vue.$toast = Vue.prototype.$toast = Toast
-```
-
-#### CDN 按需引入
-
-```html
-<!-- CSS引用 -->
-<link rel="stylesheet" href="//jm-static.jd.com/jmdesign/toast.css">
-<!-- JS引用 -->
-<script src="//jm-static.jd.com/jmdesign/toast.js">
+Vue.use(Toast)
 ```
 
 #### 示例
 
-:::demo link=/toast
 ```javascript
 // 纯文字提示
 this.$toast('提示信息')
@@ -85,7 +75,6 @@ export default {
   }
 }
 ```
-:::
 
 #### 调用方式
 
@@ -119,6 +108,6 @@ Toast实例具有close()方法，可以手动关闭弹窗，不过你需要用�
 |single   	| 是否使用单例模式显示消息提示框          |	boolean   |	—            |	false     |
 
 ### Methods
-| 方法名称      | 说明       | 回调参数   |
+| 方法名称      | 说明       | 参数   |
 |------------- |----------- |---------  |
 |close         |手动关闭消息提示框，是Toast实例上的方法| —  |
