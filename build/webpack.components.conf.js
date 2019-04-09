@@ -11,7 +11,13 @@ module.exports = {
   entry: components,
   output: {
     path: path.resolve(__dirname, '../lib'),
-    filename: '[name]/index.js',
+    filename: ({ chunk }) => {
+      let returnName = chunk.name.replace(/([A-Z])/g, ($1, $2) => {
+        return '-' + $2
+      })
+
+      return `${returnName}/index.js`
+    },
     library: ['JMDesign', '[name]'],
     libraryTarget: 'umd'
   },

@@ -5,7 +5,10 @@ const components = require('../components.json')
 
 console.log(chalk.cyan('Create the entry of component\'s css file...'))
 Object.keys(components).forEach(component => {
-  let entryPath = path.resolve(__dirname, `../lib/${component}/style`)
+  let libName = component.replace(/([A-Z])/g, ($1, $2) => {
+    return '-' + $2
+  })
+  let entryPath = path.resolve(__dirname, `../lib/${libName}/style`)
   if (!fs.existsSync(entryPath)) {
     fs.mkdirSync(entryPath)
   }
