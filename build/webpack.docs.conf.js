@@ -171,6 +171,7 @@ if (isDev) {
 } else {
   outputConfig = merge(webpackConf, {
     output: {
+      publicPath: './',
       path: path.resolve(__dirname, '../docs'),
       filename: 'js/[name].[chunkhash].js',
       chunkFilename: 'js/[id].[chunkhash].js'
@@ -186,8 +187,8 @@ if (isDev) {
     },
     plugins: [
       new MiniCssExtractPlugin({
-        filename: 'css/[name].[contenthash:8].css',
-        chunkFilename: 'css/[name].[contenthash:8].css'
+        filename: '[name].[contenthash:8].css',
+        chunkFilename: '[name].[contenthash:8].css'
       }),
       new HtmlWebpackPlugin({
         filename: path.resolve(__dirname, '../docs/examples.html'),

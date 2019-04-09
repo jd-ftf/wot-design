@@ -37,7 +37,7 @@ export default {
     demoLink () {
       return process.env.NODE_ENV === 'dev'
         ? `/examples#${this.$route.meta.demo}`
-        : `.//examples#${this.$route.meta.demo}`
+        : `./examples.html#${this.$route.meta.demo}`
     }
   },
   methods: {
