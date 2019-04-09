@@ -49,7 +49,6 @@ npm i babel-plugin-import -D
   "plugins": [
     ["import", {
       "libraryName": "JMDesign",
-      "camel2DashComponentName": false,
       "style": true
     }]
   ]
@@ -73,9 +72,9 @@ Vue.use(Button)
 <script src="//static.360buyimg.com/bus/lib/jm-design/button/index.js"></script>
 ```
 
-引入后调用 `Vue.use(button)` 进行组件注册。
+引入后调用 `Vue.use(JMDesign.button)` 进行组件注册。
 
-引入其他组件则将 button 换成组件的名字（小驼峰法）即可。
+引入其他组件链接则将 button 换成组件的名字即可，如果组件名为小驼峰法，则将大写字母换成小写并用 `-` 连接，如下拉刷新组件 `pullRefresh` 则为 `pull-refresh`。
 
 ### 开始使用
 
