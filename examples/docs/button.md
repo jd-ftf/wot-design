@@ -6,9 +6,9 @@
 
 ```javascript
 import Vue from 'vue'
-import { button } from 'jm-design'
+import { Button } from 'jm-design'
 
-Vue.use(button)
+Vue.use(Button)
 ```
 
 #### 示例
