@@ -37,8 +37,6 @@ module.exports = source => {
 
   let output = pageHtml.join('').replace(/\{/g, '<span>&#123;</span>').replace(/\}/g, '<span>&#125;</span>')
 
-  console.log(output)
-
   return `
     <template>
       <section class="markdown-content">
