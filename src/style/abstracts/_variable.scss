@@ -16,6 +16,13 @@ $-color-aid-red: #e2231a !default;
 $-color-icon: #c5c5c5 !default;                   // icon颜色
 $-color-line: #eee !default;                      // 分割线
 $-color-bg: #f4f4f4 !default;                     // 背景色
+$-color-border: #c5c5c5 !default;                 // 边框颜色
+
+/* 文字颜色 */
+$-color-title: #333 !default;     // 模块标题/重要正文
+$-color-text: #666 !default;      // 普通正文
+$-color-secondary: #A7A7A7 !default; // 次要信息，注释/补充/正文
+$-color-tip: #D2D2D2 !default;    // 弱化信息，引导性/不可点文字
 
 /* 尺寸 */
 $-size-side-padding: 15px !default;                 // 屏幕两边留白

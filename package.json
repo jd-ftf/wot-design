@@ -90,7 +90,7 @@
     "karma-webpack": "^3.0.5",
     "markdown-it": "^8.4.2",
     "mini-css-extract-plugin": "^0.5.0",
-    "mocha": "^6.1.1",
+    "mocha": "^6.1.4",
     "nightwatch": "^1.0.19",
     "node-notifier": "^5.4.0",
     "node-sass": "^4.11.0",
@@ -126,5 +126,8 @@
     "last 2 versions",
     "not ie <= 8"
   ],
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "vue-lazyload": "^1.2.6"
+  }
 }

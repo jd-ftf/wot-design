@@ -7,13 +7,15 @@ import Container from './components/container.vue'
 Vue.use(Router)
 
 let pagesRouter = []
-pagesConfig.forEach(page => {
-  pagesRouter.push({
-    path: page.path,
-    component: () => import(`./pages${page.path}`),
-    meta: {
-      pageName: page.name
-    }
+pagesConfig.forEach(componentModule => {
+  componentModule.list.forEach(page => {
+    pagesRouter.push({
+      path: page.path,
+      component: () => import(`./pages${page.path}`),
+      meta: {
+        pageName: page.name
+      }
+    })
   })
 })
 

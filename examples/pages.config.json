@@ -39,6 +39,11 @@
                 "path": "/icon",
                 "demo": "/icon"
               },
+              "Lazyload": {
+                "name": "Lazyload 图片懒加载",
+                "path": "/lazyload",
+                "demo": "/lazyload"
+              },
               "Navbar": {
                 "name": "Navbar 导航栏",
                 "path": "/navbar",
@@ -87,6 +92,11 @@
           }, {
             "name": "表单",
             "list": {
+              "Input": {
+                "name": "Input 输入框",
+                "path": "/input",
+                "demo": "/input"
+              },
               "Rate": {
                 "name": "Rate 评分",
                 "path": "/rate",
