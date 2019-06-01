@@ -1,0 +1,47 @@
+@import './abstracts/variable';
+@import './abstracts/mixin';
+
+@include b(input) {
+  position: relative;
+  
+  &::after {
+    position: absolute;
+    content: '';
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: $-color-border;
+    transform: scaleY(0.5);
+  }
+  @include when(disabled) {
+    .jm-input__inner {
+      color: $-color-tip;
+    }
+  }
+  @include e(inner) {
+    display: block;
+    width: 100%;
+    padding: 10px 0;
+    font-size: 14px;
+    color: $-color-title;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+
+    &::-webkit-input-placeholder {
+      color: $-color-tip;
+    }
+  }
+  @include e(suffix) {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 37px;
+    line-height: 40px;
+  }
+  @include e(icon) {
+    font-size: 16px;
+    color: $-color-icon;
+  }
+}

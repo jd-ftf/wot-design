@@ -1,36 +1,57 @@
 [
   {
-    "name": "Button 按钮",
-    "path": "/button"
+    "module": "基础组件",
+    "list": [
+      {
+        "name": "Button 按钮",
+        "path": "/button"
+      }, {
+        "name": "Icon 图标",
+        "path": "/icon"
+      }, {
+        "name": "Lazyload 图片懒加载",
+        "path": "/lazyload"
+      }, {
+        "name": "Navbar 导航栏",
+        "path": "/navbar"
+      }
+    ]
   }, {
-    "name": "Icon 图标",
-    "path": "/icon"
+    "module": "交互组件",
+    "list": [
+      {
+        "name": "InfiniteLoad 无限加载",
+        "path": "/infiniteLoad"
+      }, {
+        "name": "Loading 加载指示器",
+        "path": "/loading"
+      }, {
+        "name": "MessageBox 弹框",
+        "path": "/messageBox"
+      }, {
+        "name": "PullRefresh 下拉刷新",
+        "path": "/pullRefresh"
+      }, {
+        "name": "Slider 滑块",
+        "path": "/slider"
+      }, {
+        "name": "Toast 轻提示",
+        "path": "/toast"
+      }
+    ]
   }, {
-    "name": "InfiniteLoad 无限加载",
-    "path": "/infiniteLoad"
-  }, {
-    "name": "Loading 加载指示器",
-    "path": "/loading"
-  }, {
-    "name": "MessageBox 弹框",
-    "path": "/messageBox"
-  }, {
-    "name": "Navbar 导航栏",
-    "path": "/navbar"
-  }, {
-    "name": "PullRefresh 下拉刷新",
-    "path": "/pullRefresh"
-  }, {
-    "name": "Rate 评分",
-    "path": "/rate"
-  }, {
-    "name": "Search 搜索",
-    "path": "/search"
-  }, {
-    "name": "Slider 滑块",
-    "path": "/slider"
-  }, {
-    "name": "Toast 轻提示",
-    "path": "/toast"
+    "module": "表单组件",
+    "list": [
+      {
+        "name": "Input 输入框",
+        "path": "/input"
+      }, {
+        "name": "Rate 评分",
+        "path": "/rate"
+      }, {
+        "name": "Search 搜索",
+        "path": "/search"
+      }
+    ]
   }
 ]
