@@ -31,9 +31,8 @@ export default {
   .module-title {
     padding: 0 15px;
     margin: 10px 0;
-    font-size: 14px;
-    color: #333;
-    font-weight: 400;
+    font-size: 12px;
+    color: #0083ff;
   }
 }
 </style>
