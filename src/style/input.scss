@@ -14,6 +14,11 @@
     background: $-color-border;
     transform: scaleY(0.5);
   }
+  @include when(textarea) {
+    &::after {
+      display: none;
+    }
+  }
   @include when(disabled) {
     .jm-input__inner {
       color: $-color-tip;
@@ -32,16 +37,79 @@
     &::-webkit-input-placeholder {
       color: $-color-tip;
     }
+    @include m(prefix) {
+      padding-left: 24px;
+    }
+    @include m(suffix-1) {
+      padding-right: 24px;
+
+      &.jm-input__inner--count {
+        padding-right: 36px;
+      }
+    }
+    @include m(suffix-2) {
+      padding-right: 48px;
+
+      &.jm-input__inner--count {
+        padding-right: 66px;
+      }
+    }
+    @include m(suffix-3) {
+      padding-right: 72px;
+
+      &.jm-input__inner--count {
+        padding-right: 94px;
+      }
+    }
+    @include m(suffix-4) {
+      padding-right: 122px;
+    }
+  }
+  @include e(prefix) {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
   }
   @include e(suffix) {
     position: absolute;
     right: 0;
     top: 0;
-    height: 37px;
-    line-height: 40px;
+    z-index: 1;
   }
   @include e(icon) {
+    margin-left: 8px;
     font-size: 16px;
     color: $-color-icon;
+    vertical-align: middle;
+    height: 37px;
+    line-height: 37px;
+    background: #fff;
+
+    &:first-child {
+      margin-left: 0;
+    }
+  }
+  @include e(count) {
+    margin-left: 8px;
+    font-size: 12px;
+    color: $-color-secondary;
+    vertical-align: middle;
+    height: 37px;
+    line-height: 37px;
+    background: #fff;
+  }
+  @include e(count-current) {
+    color: $-color-title;
+  }
+
+  @include e(textarea) {
+    padding: 17px 14px;
+  }
+  @include e(textarea-inner) {
+    line-height: 17px;
+    outline: none;
+    overflow: auto;
+    -webkit-user-modify: read-write-plaintext-only;
   }
 }
