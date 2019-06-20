@@ -6,38 +6,41 @@
       'is-disabled': disabled
     }"
   >
-    <!-- <textarea
-      class="jm-input__textarea"
-      v-if="type === 'textarea'"
-      :placeholder="placeholder"
-      :name="name"
-      :disabled="disabled"
-      :readonly="readonly"
-      :minlength="minlength"
-      :maxlength="maxlength"
-      @focus="handleFocus"
-      @blur="handleBlur"
-      ref="textarea"
-    ></textarea> -->
-    <template v-if="type === 'textarea'">
-      <div class="jm-input__textarea">
-        <div
+    <template v-if="type === 'textarea' || (type === 'text' && autosize)">
+      <div
+        class="jm-input__textarea"
+        :class="{
+          'is-show-limit': showWordCount,
+          'is-text-auto': type === 'text' && autosize
+        }"
+      >
+        <textarea
           class="jm-input__textarea-inner"
-          :style="{
-            height: !autosize ? rows * 17 + 'px' : ''
+          :class="{
+            'is-suffix': showClear
           }"
-          v-if="type === 'textarea'"
+          :style="textareaStyle"
           :placeholder="placeholder"
+          :value="value"
           :name="name"
           @input="handleInput"
+          @change="handleChange"
           :disabled="disabled"
           :readonly="readonly"
           :minlength="minlength"
           :maxlength="maxlength"
+          :rows="rows"
+          :autofocus="autofocus"
           @focus="handleFocus"
           @blur="handleBlur"
           ref="textarea"
-        >{{ textareaVal }}<font v-if="overVal.length" color="#f00;">{{ overVal }}</font></div>
+        ></textarea>
+        <div class="jm-input__textarea-suffix">
+          <i v-show="showClear" class="jm-input__textarea-icon jm-icon-close-outline" @click="clear"></i>
+          <span v-if="showWordCount" class="jm-input__textarea-count">
+            <span class="jm-input__textarea-count-current" :class="{ 'is-error': value.length > parseInt(maxlength) }">{{ value.length }}</span>/{{ maxlength }}
+          </span>
+        </div>
       </div>
     </template>
     <template v-else>
@@ -66,7 +69,7 @@
         :min="min"
         :max="max"
         :step="step"
-        :tabindex="tabindex"
+        :autofocus="autofocus"
         @focus="handleFocus"
         @blur="handleBlur"
       />
@@ -82,7 +85,7 @@
           @click="togglePwdVisible"
         ></i>
         <span v-if="showWordCount" class="jm-input__count">
-          <span class="jm-input__count-current">{{ value.length }}</span>/{{ maxlength }}
+          <span class="jm-input__count-current" :class="{ 'is-error': value.length > maxlength }">{{ value.length }}</span>/{{ maxlength }}
         </span>
         <slot name="suffix"></slot>
         <i v-if="suffixIcon" class="jm-input__icon" :class="suffixIcon"></i>
@@ -92,14 +95,15 @@
 </template>
 
 <script>
+import calcTextareaHeight from './calcTextareaHeight'
+
 export default {
   name: 'JmInput',
   data () {
     return {
       focused: false,
       isPwdVisible: false,
-      textareaVal: '',
-      overVal: ''
+      textareaCalcStyle: {}
     }
   },
   props: {
@@ -122,16 +126,20 @@ export default {
     max: String,
     min: String,
     step: String,
-    tabindex: String,
     rows: {
-      type: Number,
-      default: 2
+      type: String,
+      default: '3'
     },
-    autosize: Boolean
+    autosize: [Boolean, Object],
+    resize: {
+      type: String,
+      default: 'none'
+    },
+    autofocus: Boolean
   },
   watch: {
     value () {
-      this.updateTextareaVal()
+      this.$nextTick(this.resizeTextarea)
     }
   },
   computed: {
@@ -152,46 +160,25 @@ export default {
       this.showWordCount && count++
 
       return count
+    },
+    textareaStyle () {
+      return Object.assign({}, this.textareaCalcStyle, {
+        resize: this.resize
+      })
     }
   },
   methods: {
     focus () {
       this.getInput().focus()
-
-      if (this.type === 'textarea') {
-        if (window.getSelection) {
-          let range = window.getSelection()
-          range.selectAllChildren(this.getInput())
-          range.collapseToEnd()
-        }
-      }
     },
     blur () {
       this.getInput().blur()
     },
     select () {
-      if (this.type === 'textarea') {
-        this.getInput().focus()
-        let range = window.getSelection()
-        range.selectAllChildren(this.getInput())
-      } else {
-        this.getInput().select()
-      }
+      this.getInput().select()
     },
     handleInput (event) {
-      if (this.type === 'textarea') {
-        let newVal = this.getInput().innerText
-        this.$emit('input', newVal)
-        if (this.maxlength && newVal.length > this.maxlength) {
-          this.textareaVal = newVal.slice(0, this.maxlength)
-          this.overVal = newVal.slice(this.maxlength, newVal.length)
-          this.focus()
-        } else {
-          this.overVal = ''
-        }
-      } else {
-        this.$emit('input', event.target.value)
-      }
+      this.$emit('input', event.target.value)
     },
     handleChange (event) {
       this.$emit('change', event.target.value)
@@ -215,17 +202,27 @@ export default {
     togglePwdVisible () {
       this.isPwdVisible = !this.isPwdVisible
     },
-    updateTextareaVal () {
-      if (this.type === 'textarea' && this.value !== this.getInput().innerText) {
-        this.textareaVal = this.value
-        if (this.focused) {
-          this.focus()
+    resizeTextarea () {
+      if (this.type === 'textarea' || (this.type === 'text' && this.autosize)) {
+        if (!this.autosize) {
+          this.textareaCalcStyle = {
+            minHeight: calcTextareaHeight(this.getInput()).minHeight
+          }
+          return
         }
+        let minRows
+        let maxRows
+
+        if (typeof this.autosize === 'object') {
+          minRows = this.autosize.minRows
+          maxRows = this.autosize.maxRows
+        }
+        this.textareaCalcStyle = calcTextareaHeight(this.getInput(), minRows, maxRows)
       }
     }
   },
   mounted () {
-    this.updateTextareaVal()
+    this.resizeTextarea()
   }
 }
 </script>

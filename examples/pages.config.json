@@ -73,11 +73,6 @@
                 "path": "/pullRefresh",
                 "demo": "/pullRefresh"
               },
-              "Search": {
-                "name": "Search 搜索框",
-                "path": "/search",
-                "demo": "/search"
-              },
               "Slider": {
                 "name": "Slider 滑块",
                 "path": "/slider",
@@ -101,6 +96,11 @@
                 "name": "Rate 评分",
                 "path": "/rate",
                 "demo": "/rate"
+              },
+              "Search": {
+                "name": "Search 搜索框",
+                "path": "/search",
+                "demo": "/search"
               }
             }
           }
