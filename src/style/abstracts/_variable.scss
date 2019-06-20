@@ -28,8 +28,40 @@ $-color-tip: #D2D2D2 !default;    // 弱化信息，引导性/不可点文字
 $-size-side-padding: 15px !default;                 // 屏幕两边留白
 
 /* button */
-$-button-color-primary: $-color-theme !default;                   // 默认按钮颜色
-$-button-color-primary-active: $-color-theme-emph !default;      // 默认按钮颜色点击态
+$-button-color-normal: #333 !default;
+$-button-color-normal-active: mix($-color-black, $-button-color-normal, 18%) !default;
+$-button-color-normal-disabled: mix($-color-white, $-button-color-normal, 42%) !default;
+$-button-color-primary: $-color-theme !default;
+$-button-color-primary-active: $-color-theme-emph !default;
+$-button-color-primary-disabled: $-color-theme-light !default;
+$-button-color-success: #00c740 !default;
+$-button-color-success-active: mix($-color-black, $-button-color-success, 18%) !default;
+$-button-color-success-disabled: mix($-color-white, $-button-color-success, 42%) !default;
+$-button-color-info: #909399 !default;
+$-button-color-info-active: mix($-color-black, $-button-color-info, 18%) !default;
+$-button-color-info-disabled: mix($-color-white, $-button-color-info, 42%) !default;
+$-button-color-warning: #ffb300 !default;
+$-button-color-warning-active: mix($-color-black, $-button-color-warning, 18%) !default;
+$-button-color-warning-disabled: mix($-color-white, $-button-color-warning, 42%) !default;
+$-button-color-error: #e2231a !default;
+$-button-color-error-active: mix($-color-black, $-button-color-error, 18%) !default;
+$-button-color-error-disabled: mix($-color-white, $-button-color-error, 42%) !default;
+$-button-color-border: $-color-secondary !default;
+$-button-small-padding: 3px 10px !default;
+$-button-small-font-size: 12px !default;
+$-button-small-radius: 2px !default;
+$-button-small-round-radius: 13px !default;
+$-button-small-loading: 14px !default;
+$-button-medium-padding: 6px 15px !default;
+$-button-medium-font-size: 14px !default;
+$-button-medium-radius: 4px !default;
+$-button-medium-round-radius: 23px !default;
+$-button-medium-loading: 16px !default;
+$-button-large-padding: 11px 36px !default;
+$-button-large-font-size: 16px !default;
+$-button-large-radius: 8px !default;
+$-button-large-round-radius: 23px !default;
+$-button-large-loading: 18px !default;
 
 /* navbar */
 $-navbar-color-bg: $-color-theme !default;          // navbar背景颜色
