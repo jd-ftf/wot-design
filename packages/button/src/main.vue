@@ -1,44 +1,55 @@
 <template>
   <button
-    type="button"
+    :type="nativeType"
     class="jm-button"
     :class="btnClass"
     :disabled="disabled"
     @click="handleClick"
   >
-    <i></i>
+    <jm-indicator v-if="loading" class="jm-button__loading" type="spinner" size="" color="" />
     <span><slot></slot></span>
   </button>
 </template>
 
 <script>
+import JmIndicator from '../../loading/src/indicator'
+
 export default {
   name: 'JmButton',
+  components: {
+    JmIndicator
+  },
   props: {
-    type: {
-      type: String,
-      default: 'primary'
-    },
-    inline: {
-      type: Boolean,
-      default: false
-    },
+    type: String,
+    round: Boolean,
+    circle: Boolean,
+    plain: Boolean,
+    loading: Boolean,
+    block: Boolean,
+    suck: Boolean,
     size: {
       type: String,
-      default: 'normal'
+      default: 'medium'
     },
-    disabled: {
-      type: Boolean,
-      default: false
-    }
+    disabled: Boolean,
+    nativeType: {
+      type: String,
+      default: 'button'
+    },
+    icon: String,
+    onlyIcon: Boolean
   },
   computed: {
     btnClass () {
       let btnClass = []
-      btnClass.push(`jm-button--${this.type}`)
-      btnClass.push(`jm-button--${this.size}`)
-      this.inline && btnClass.push('jm-button--inline')
-      this.disabled && btnClass.push('jm-button--disabled')
+      this.type && btnClass.push(`is-${this.type}`)
+      btnClass.push(`is-${this.size}`)
+      this.inline && btnClass.push('is-inline')
+      this.disabled && btnClass.push('is-disabled')
+      this.round && btnClass.push('is-round')
+      this.plain && btnClass.push('is-plain')
+      this.loading && btnClass.push('is-loading')
+      this.suck && btnClass.push('is-suck')
 
       return btnClass
     }

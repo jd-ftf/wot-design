@@ -2,7 +2,10 @@
   <div>
     <div class="list-container">
       <div class="list">
-        <div v-for="item in list" :key="item" class="list-item">{{ item }}</div>
+        <div v-for="(item, index) in list" :key="index" class="list-item">
+          <img :src="item.img" />
+          <div>{{ item.text }}</div>
+        </div>
       </div>
       <jm-infinite-load ref="loadmore" @loadmore="loadmore" :loading="loading" />
     </div>
@@ -10,6 +13,8 @@
 </template>
 
 <script>
+import Dog from '../assets/img/dog.png'
+
 export default {
   data () {
     return {
@@ -28,7 +33,10 @@ export default {
           let list = []
           this.num += 15
           for (let i = this.num - 15; i < this.num; i++) {
-            list.push(i + 1)
+            list.push({
+              img: Dog,
+              text: `这是一条测试${i + 1}`
+            })
           }
           this.list = this.list.concat(list)
           this.loading = false
@@ -49,22 +57,33 @@ export default {
 
   .list-item {
     position: relative;
-    padding: 15px;
-    background-color: #fff;
-    color: #666;
+    display: flex;
+    padding: 10px 15px;
+    background: #fff;
+    color: #464646;
 
     &::after {
       position: absolute;
+      display: block;
       content: '';
-      width: 100%;
-      left: 0;
-      bottom: 0;
       height: 1px;
-      transform: scaleY(0.5);
+      left: 0;
+      width: 100%;
+      bottom: 0;
       background: #eee;
+      transform: scaleY(0.5);
     }
     &:last-child::after {
-      opacity: 0;
+      display: none;
+    }
+    img {
+      display: block;
+      width: 120px;
+      height: 78px;
+      margin-right: 15px;
+    }
+    div {
+      flex: 1;
     }
   }
 }
