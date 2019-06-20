@@ -14,6 +14,8 @@
           @compositionend="toggleTyping"
           @blur="searchBlur"
           :disabled="disabled"
+          :maxlength="maxlength"
+          :autofocus="autofocus"
         />
       </form>
       <div class="jm-search__placeholder" :class="{ 'is-focus': isFocus || (!typing && value) || placeholderLeft }">
@@ -37,22 +39,12 @@ export default {
     value: String,
     placeholder: String,
     cancelTxt: String,
-    light: {
-      type: Boolean,
-      default: false
-    },
-    placeholderLeft: {
-      type: Boolean,
-      default: false
-    },
-    hideCancel: {
-      type: Boolean,
-      default: false
-    },
-    disabled: {
-      type: Boolean,
-      default: false
-    }
+    light: Boolean,
+    placeholderLeft: Boolean,
+    hideCancel: Boolean,
+    disabled: Boolean,
+    maxlength: String,
+    autofocus: Boolean
   },
   data () {
     return {

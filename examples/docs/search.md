@@ -86,6 +86,8 @@ export default {
 | placeholder-left | 搜索框占位文本是否靠左对齐        | boolean    | -         | false   |
 | hide-cancel     | 是否隐藏右侧文本                 | boolean    | -          | false   |
 | disabled        | 是否禁用搜索框                   | boolean    | -          | false   |
+| maxlength | 原生属性，设置最大长度 | string | - | - |
+| autofocus | 原生属性，是否自动聚焦，如果在页面加载时让其获得焦点，对于 android 有效， iOS 无效 | boolean | - | - |
 
 ### Events
 

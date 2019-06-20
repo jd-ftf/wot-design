@@ -30,7 +30,15 @@
     </white-space>
     <white-space :hor="0">
       <div slot="desc">textarea</div>
-      <jm-input type="textarea" maxlength="10" ref="textarea" v-model="input8" />
+      <jm-input type="textarea" v-model="input8" placeholder="请填写评价..." />
+    </white-space>
+    <white-space :hor="0">
+      <div slot="desc">textarea 清空按钮 和 字数限制</div>
+      <jm-input type="textarea" v-model="input9" rows="6" maxlength="120" clearable show-word-limit />
+    </white-space>
+    <white-space>
+      <div slot="desc"><code>type</code> 为 <code>text</code> 且设置 <code>autosize</code></div>
+      <jm-input v-model="input10" autosize clearable />
     </white-space>
   </div>
 </template>
@@ -46,7 +54,9 @@ export default {
       input5: '1234',
       input6: '',
       input7: '',
-      input8: '这是文本域'
+      input8: '',
+      input9: '支持清空和字数限制的文本域',
+      input10: '输入文字后，输入框高度跟随字数多少变化'
     }
   }
 }
