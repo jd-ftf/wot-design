@@ -1,5 +1,7 @@
 @import './abstracts/variable';
 @import './abstracts/mixin';
+@import './loading.scss';
+@import './icon.scss';
 
 @mixin button-type-style ($normal, $active, $disabled) {
   background: $normal;
@@ -10,8 +12,13 @@
     background: $active;
   }
   @include when(disabled) {
+    &:active {
+      background: $disabled;
+    }
+    
     opacity: 0.6;
-    color: $disabled;
+    background: $disabled;
+    border-color: $disabled;
   }
   .jm-button__loading {
     color: #fff;
@@ -34,6 +41,7 @@
 @mixin button-plain-style ($normal, $active, $disabled) {
   color: $normal;
   border-color: $normal;
+  background: transparent;
 
   &:active {
     color: $active;
@@ -61,19 +69,41 @@
   background: transparent;
   border: 1px solid $-button-color-border;
   color: $-button-color-normal;
+  box-sizing: border-box;
+  transition: all .2s;
+  user-select: none;
 
   span {
     display: inline-block;
     vertical-align: middle;
   }
+
+  &:active {
+    color: $-button-color-normal-active;
+    background: $-button-color-normal-active-bg;
+    border-color: $-button-color-normal-active-border;
+  }
+  @include when(disabled) {
+    &:active {
+      color: $-button-color-normal-disabled;
+      background: $-button-color-normal-disabled-bg;
+      border-color: $-button-color-normal-disabled-border;
+    }
+    color: $-button-color-normal-disabled;
+    background: $-button-color-normal-disabled-bg;
+    border-color: $-button-color-normal-disabled-border;
+  }
+
   @include e(loading) {
     display: inline-block;
-    margin-right: 4px;
+    margin-right: 2px;
     vertical-align: middle;
     color: $-button-color-normal-disabled;
   }
   @include when(loading) {
     color: $-button-color-normal-disabled;
+    background: $-button-color-normal-disabled-bg;
+    border-color: $-button-color-normal-disabled-border;
   }
 
   @include when(primary) {
@@ -132,6 +162,21 @@
     }
   }
 
+  @include when(text) {
+    border: none;
+    color: $-button-color-primary;
+    padding: 4px 0;
+
+    &:active {
+      color: $-button-color-primary-active;
+      background: transparent;
+    }
+    @include when(disabled) {
+      color: $-button-color-normal-disabled;
+      background: transparent;
+    }
+  }
+
   @include when(plain) {
     background: #fff;
 
@@ -150,14 +195,56 @@
     @include when(error) {
       @include button-plain-style($-button-color-error, $-button-color-error-active, $-button-color-error-disabled);
     }
+    @include when(suck) {
+      &:active {
+        background: #eee;
+      }
+      @include when(disabled) {
+        background: #fff;
+      }
+    }
   }
   
   @include when(suck) {
-    font-size: 16px;
-    height: 50px;
-    box-sizing: border-box;
+    font-size: $-button-large-font-size;
+    height: $-button-suck-height;
     width: 100%;
     border: none;
     border-radius: 0;
+  }
+
+  @include when(block) {
+    width: 100%;
+  }
+
+  @include when(icon) {
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    line-height: 40px;
+    text-align: center;
+    border: none;
+    border-radius: 50%;
+    font-size: 0;
+    color: $-button-color-icon;
+
+    &:active {
+      background: $-button-color-icon-active;
+    }
+    @include when(disabled) {
+      color: $-button-color-icon-disabled;
+      background: transparent;
+
+      &:active {
+        background: transparent;
+      }
+    }
+  }
+
+  @include e(icon) {
+    display: inline-block;
+    margin-right: 2px;
+    font-size: $-button-medium-font-size;
+    vertical-align: middle;
   }
 }

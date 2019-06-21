@@ -7,6 +7,7 @@
     @click="handleClick"
   >
     <jm-indicator v-if="loading" class="jm-button__loading" type="spinner" size="" color="" />
+    <i v-if="icon" class="jm-button__icon" :class="icon"></i>
     <span><slot></slot></span>
   </button>
 </template>
@@ -22,7 +23,6 @@ export default {
   props: {
     type: String,
     round: Boolean,
-    circle: Boolean,
     plain: Boolean,
     loading: Boolean,
     block: Boolean,
@@ -36,8 +36,7 @@ export default {
       type: String,
       default: 'button'
     },
-    icon: String,
-    onlyIcon: Boolean
+    icon: String
   },
   computed: {
     btnClass () {
@@ -50,6 +49,7 @@ export default {
       this.plain && btnClass.push('is-plain')
       this.loading && btnClass.push('is-loading')
       this.suck && btnClass.push('is-suck')
+      this.block && btnClass.push('is-block')
 
       return btnClass
     }
