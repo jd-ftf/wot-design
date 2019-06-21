@@ -1,24 +1,12 @@
 <template>
-  <div>
+  <div class="page-toast">
     <white-space>
-      <div class="demo-item">
-        <jm-button type="primary" plain @click="handleToast1">纯文字toast</jm-button>
-      </div>
-      <div class="demo-item">
-        <jm-button type="primary" plain @click="handleToast2">成功toast</jm-button>
-      </div>
-      <div class="demo-item">
-        <jm-button type="primary" plain @click="handleToast3">错误toast</jm-button>
-      </div>
-      <div class="demo-item">
-        <jm-button type="primary" plain @click="handleToast4">警告toast</jm-button>
-      </div>
-      <div class="demo-item">
-        <jm-button type="primary" plain @click="handleToast5">顶部toast</jm-button>
-      </div>
-      <div class="demo-item">
-        <jm-button type="primary" plain @click="handleToast6">底部toast</jm-button>
-      </div>
+      <jm-button type="primary" plain @click="handleToast1">纯文字toast</jm-button>
+      <jm-button type="primary" plain @click="handleToast2">成功toast</jm-button>
+      <jm-button type="primary" plain @click="handleToast3">错误toast</jm-button>
+      <jm-button type="primary" plain @click="handleToast4">警告toast</jm-button>
+      <jm-button type="primary" plain @click="handleToast5">顶部toast</jm-button>
+      <jm-button type="primary" plain @click="handleToast6">底部toast</jm-button>
     </white-space>
     <white-space>
       <div slot="desc">
@@ -100,3 +88,11 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+.page-toast {
+  .jm-button {
+    margin: 0 10px 10px 0;
+  }
+}
+</style>

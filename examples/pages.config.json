@@ -101,6 +101,11 @@
                 "name": "Search 搜索框",
                 "path": "/search",
                 "demo": "/search"
+              },
+              "Switch": {
+                "name": "Switch 开关",
+                "path": "/switch",
+                "demo": "/switch"
               }
             }
           }

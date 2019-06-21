@@ -51,6 +51,9 @@
       }, {
         "name": "Search 搜索",
         "path": "/search"
+      }, {
+        "name": "Switch 开关",
+        "path": "/switch"
       }
     ]
   }

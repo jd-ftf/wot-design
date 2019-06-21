@@ -86,3 +86,10 @@ $-slider-font-color: #333 !default;                    // 字体颜色
 $-slider-axie-bg-color: #e5e5e5 !default;              // 滑轴的默认背景色
 $-slider-disable-font-color: #d2d2d2 !default;         // 禁用状态下字体颜色
 $-slider-disable-line-color: #e5f3ff !default;         // 禁用状态下进度条的颜色
+
+/* switch */
+$-switch-color-active: $-color-theme !default;
+$-switch-color-active-shadow: rgba(0, 83, 162, 0.5) !default;
+$-switch-color-inactive: #fff !default;
+$-switch-color-inactive-shadow: rgba(0, 0, 0, 0.3) !default;
+$-switch-color-border: #e5e5e5 !default;
