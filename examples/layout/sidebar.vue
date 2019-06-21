@@ -1,5 +1,5 @@
 <template>
-  <ul class="side-bar">
+  <ul class="side-bar" :class="isMac ? '' : 'win-scrollbar'">
     <li v-for="(group, index) in pages[$route.path.split('/')[1]].sideTabs" class="side-bar__item" :key="index">
       <template v-if="group.list">
         <a class="side-bar__group-name">{{ group.name }}</a>
@@ -50,12 +50,14 @@
 
 <script>
 import pageConfig from '../pages.config.json'
+import { isMac } from '../utils/index'
 
 export default {
   data () {
     return {
       pages: pageConfig,
-      parentKey: ''
+      parentKey: '',
+      isMac: isMac
     }
   },
   watch: {
