@@ -68,5 +68,38 @@ export default {
 </script>
 
 <style lang="scss">
-@import '../assets/style/layout/sidebar.scss';
+@import '../assets/style/_variable.scss';
+
+.side-bar {
+  position: fixed;
+  left: 120px;
+  top: $layout-header-height;
+  bottom: 0;
+  border-right: 1px solid #eee;
+  width: 210px;
+  padding-top: 20px;
+  padding-bottom: 100px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  background: $color-bg;
+}
+.side-bar__group-name {
+  display: block;
+  margin: 16px 0;
+  font-size: $fs-title;
+  font-weight: 600;
+}
+.side-group__link {
+  display: block;
+  margin: 16px 0;
+}
+.side-group__link--active {
+  color: $color-theme;
+}
+.side-bar__item-list {
+  margin-top: 26px;
+}
+.side-bar__item-listist-name {
+  color: $color-black-l7;
+}
 </style>

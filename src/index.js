@@ -10,6 +10,7 @@ import PullRefresh from 'jm-design/pullRefresh'
 import Rate from 'jm-design/rate'
 import Search from 'jm-design/search'
 import Slider from 'jm-design/slider'
+import Switch from 'jm-design/switch'
 import Toast from 'jm-design/toast'
 
 import lazyPlaceholder from './img/placeholder.png'
@@ -19,13 +20,14 @@ const components = [
   Icon,
   InfiniteLoad,
   Input,
-  Navbar,
-  Slider,
   Loading.Indicator,
   MessageBox.jmMessageBox,
-  Search,
+  Navbar,
+  PullRefresh,
   Rate,
-  PullRefresh
+  Search,
+  Slider,
+  Switch
 ]
 
 const install = (Vue, config = {}) => {
