@@ -52,7 +52,7 @@ export default {
 
 <style lang="scss">
 .list-container {
-  height: 500px;
+  height: calc(100vh - 44px);
   overflow: auto;
 
   .list-item {

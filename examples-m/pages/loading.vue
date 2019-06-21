@@ -21,10 +21,10 @@
         <p>JS 手动调用 loading 弹窗</p>
       </div>
       <div class="item">
-        <jm-button @click="openLoading">打开loading弹窗</jm-button>
+        <jm-button type="primary" plain @click="openLoading">打开loading弹窗</jm-button>
       </div>
       <div class="item">
-        <jm-button @click="openSpinnerloading">打开Spinner类型的loading弹窗</jm-button>
+        <jm-button type="primary" plain @click="openSpinnerloading">打开Spinner类型的loading弹窗</jm-button>
       </div>
     </white-space>
   </div>

@@ -2,23 +2,23 @@
   <div>
     <white-space>
       <div slot="desc">Alert 弹框</div>
-      <jm-button @click="alert">alert</jm-button>
+      <jm-button type="primary" plain @click="alert">alert</jm-button>
     </white-space>
     <white-space>
       <div slot="desc">Confirm 弹框</div>
-      <jm-button @click="confirm">confirm</jm-button>
+      <jm-button type="primary" plain @click="confirm">confirm</jm-button>
     </white-space>
     <white-space>
       <div slot="desc">Prompt 弹框</div>
-      <jm-button @click="prompt">prompt</jm-button>
+      <jm-button type="primary" plain @click="prompt">prompt</jm-button>
     </white-space>
     <white-space>
       <div slot="desc">文案过长</div>
-      <jm-button @click="alert2">alert</jm-button>
+      <jm-button type="primary" plain @click="alert2">alert</jm-button>
     </white-space>
     <white-space>
       <div slot="desc">使用其他组件</div>
-      <jm-button @click="custom">custom</jm-button>
+      <jm-button type="primary" plain @click="custom">custom</jm-button>
       <jm-message-box :show="isShow" show-cancel-button @action="handleAction" title="评分">
         <jm-rate v-model="rate" />
       </jm-message-box>

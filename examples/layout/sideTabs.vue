@@ -12,7 +12,7 @@
             <img class="phone-title" src="../assets/img/phtitle.png" />
             <input readonly v-model="demoLink" class="phone-link" />
           </div>
-          <iframe frameborder="0" :src="demoLink" style="height: 597px"></iframe>
+          <iframe frameborder="0" :src="demoLink" style="height: 597px" ref="iframe"></iframe>
         </div>
       </div>
     </div>
@@ -78,6 +78,10 @@ export default {
   },
   beforeDestroy () {
     window.removeEventListener('scroll', this.phoneListener)
+  },
+  beforeRouteUpdate (to, from, next) {
+    this.$refs.iframe.contentWindow.scrollTo(0, 0)
+    next()
   }
 }
 </script>
