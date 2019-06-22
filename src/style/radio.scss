@@ -1,0 +1,47 @@
+@import './abstracts/variable';
+@import './abstracts/mixin';
+@import './icon.scss';
+
+@include b(radio) {
+  display: block;
+  margin-bottom: 10px;
+
+  &:last-child {
+    margin-bottom: 10px;
+  }
+
+  @include e(shape) {
+    position: relative;
+    display: inline-block;
+    width: $-radio-size;
+    height: $-radio-size;
+    border: 1px solid $-radio-color-border;
+    border-radius: 50%;
+    background: #fff;
+    vertical-align: middle;
+  }
+  @include e(input) {
+    position: absolute;
+    width: 0;
+    height: 0;
+    margin: 0;
+    opacity: 0;
+  }
+  @include e(label) {
+    display: inline-block;
+    margin-left: 5px;
+    vertical-align: middle;
+    font-size: $-radio-label-font-size;
+    color: $-color-title;
+  }
+  @include e(checked) {
+    display: inline-block;
+    
+  }
+  @include when(checked) {
+    .jm-radio__shape {
+      background: $-radio-color-checked;
+      border-color: $-radio-color-checked;
+    }
+  }
+}

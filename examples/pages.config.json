@@ -92,6 +92,11 @@
                 "path": "/input",
                 "demo": "/input"
               },
+              "Radio": {
+                "name": "Radio 单选框",
+                "path": "/radio",
+                "demo": "/radio"
+              },
               "Rate": {
                 "name": "Rate 评分",
                 "path": "/rate",

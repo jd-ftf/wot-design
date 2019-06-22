@@ -93,3 +93,9 @@ $-switch-color-active-shadow: rgba(0, 83, 162, 0.5) !default;
 $-switch-color-inactive: #fff !default;
 $-switch-color-inactive-shadow: rgba(0, 0, 0, 0.3) !default;
 $-switch-color-border: #e5e5e5 !default;
+
+/* radio */
+$-radio-size: 16px !default;
+$-radio-color-border: #a7a7a7 !default;
+$-radio-label-font-size: 12px !default;
+$-radio-color-checked: $-color-theme !default;
