@@ -28,9 +28,9 @@
         @change="handleChange"
       />
     </span>
-    <span class="jm-radio__label" :style="{ 'color': isChecked && finalShape === 'button' && !finalDisabled ? finalCheckedColor : '' }">
+    <div class="jm-radio__label" :style="{ 'color': isChecked && finalShape === 'button' && !finalDisabled ? finalCheckedColor : '' }">
       <slot></slot>
-    </span>
+    </div>
   </label>
 </template>
 
@@ -56,7 +56,7 @@ export default {
       return this.checkedColor || this.radioGroup.checkedColor
     },
     finalDisabled () {
-      return this.disabled || this.radioGroup.disabled
+      return this.disabled || this.radioGroup.disabled || false
     }
   },
   methods: {
