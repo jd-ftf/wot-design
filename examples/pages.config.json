@@ -87,6 +87,11 @@
           }, {
             "name": "表单",
             "list": {
+              "Checkbox": {
+                "name": "Checkbox 复选框",
+                "path": "/checkbox",
+                "demo": "/checkbox"
+              },
               "Input": {
                 "name": "Input 输入框",
                 "path": "/input",
