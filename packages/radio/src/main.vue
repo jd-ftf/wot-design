@@ -1,16 +1,34 @@
 <template>
-  <label class="jm-radio" :class="{'is-checked': isChecked}">
-    <span class="jm-radio__shape">
-      <i class="jm-radio__check"></i>
+  <label
+    class="jm-radio"
+    :class="{
+      'is-checked': isChecked,
+      'is-dot': finalShape === 'dot',
+      'is-button': finalShape === 'button',
+      'is-disabled': finalDisabled
+    }"
+  >
+    <span class="jm-radio__shape" :style="{ 'color': isChecked && !finalDisabled ? finalCheckedColor : '' }">
+      <i
+        class="jm-radio__check"
+        :class="{
+          'jm-icon-check-round': finalShape === 'circle'
+        }"
+        :style="{
+          'color': isChecked && finalShape !== 'circle' && !finalDisabled ? finalCheckedColor : ''
+        }"
+      ></i>
       <input
         type="radio"
         class="jm-radio__input"
+        :name="name"
         :value="value"
         :checked="isChecked"
+        :disabled="finalDisabled"
         @change="handleChange"
       />
     </span>
-    <span class="jm-radio__label">
+    <span class="jm-radio__label" :style="{ 'color': isChecked && finalShape === 'button' && !finalDisabled ? finalCheckedColor : '' }">
       <slot></slot>
     </span>
   </label>
@@ -24,8 +42,8 @@ export default {
     value: [String, Number, Boolean],
     name: String,
     shape: String,
-    dot: Boolean,
-    checkedColor: String
+    checkedColor: String,
+    disabled: Boolean
   },
   computed: {
     isChecked () {
@@ -34,11 +52,11 @@ export default {
     finalShape () {
       return this.shape || this.radioGroup.shape
     },
-    finalDot () {
-      return this.dot || this.radioGroup.dot
-    },
     finalCheckedColor () {
       return this.checkedColor || this.radioGroup.checkedColor
+    },
+    finalDisabled () {
+      return this.disabled || this.radioGroup.disabled
     }
   },
   methods: {

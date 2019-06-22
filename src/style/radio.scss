@@ -5,6 +5,7 @@
 @include b(radio) {
   display: block;
   margin-bottom: 10px;
+  font-size: 0;
 
   &:last-child {
     margin-bottom: 10px;
@@ -17,8 +18,10 @@
     height: $-radio-size;
     border: 1px solid $-radio-color-border;
     border-radius: 50%;
+    color: #fff;
     background: #fff;
     vertical-align: middle;
+    transition: background .2s;
   }
   @include e(input) {
     position: absolute;
@@ -29,19 +32,106 @@
   }
   @include e(label) {
     display: inline-block;
-    margin-left: 5px;
+    margin-left: 10px;
     vertical-align: middle;
     font-size: $-radio-label-font-size;
     color: $-color-title;
   }
-  @include e(checked) {
+  @include e(check) {
+    position: absolute;
     display: inline-block;
-    
+    right: 0;
+    top: 1px;
+    color: #fff;
+    font-size: 13px;
+    opacity: 0;
+    transition: opacity .2s;
   }
   @include when(checked) {
     .jm-radio__shape {
-      background: $-radio-color-checked;
-      border-color: $-radio-color-checked;
+      color: $-radio-color-checked;
+      background: currentColor;
+      border-color: currentColor;
+    }
+    .jm-radio__check {
+      opacity: 1;
+    }
+  }
+  @include when(dot) {
+    .jm-radio__check {
+      width: 10px;
+      height: 10px;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      background: currentColor;
+      border-radius: 50%;
+    }
+    @include when(checked) {
+      .jm-radio__check {
+        color: $-radio-color-checked;
+      }
+      .jm-radio__shape {
+        background: #fff;
+        border-color: currentColor;
+      }
+    }
+  }
+
+  @include when(button) {
+    display: inline-block;
+    margin-bottom: 0;
+    margin-right: 8px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+    .jm-radio__shape {
+      width: 0;
+      height: 0;
+      overflow: hidden;
+      opacity: 0;
+      border: none;
+    }
+    .jm-radio__label {
+      margin-left: 0;
+      padding: 4px 28px;
+      border: 1px solid $-radio-color-border;
+      border-radius: 4px;
+      transition: all .2s;
+    }
+    @include when(checked) {
+      .jm-radio__label {
+        color: $-radio-color-checked;
+        border-color: currentColor;
+      }
+    }
+  }
+
+  @include when(disabled) {
+    .jm-radio__shape {
+      border-color: $-radio-color-disabled;
+    }
+    .jm-radio__label {
+      color: $-radio-color-disabled-label;
+    }
+    @include when(checked) {
+      .jm-radio__shape {
+        color: $-radio-color-disabled;
+      }
+      @include when(dot) {
+        .jm-radio__check {
+          color: $-radio-color-disabled;
+        }
+      }
+      .jm-radio__label {
+        color: $-radio-color-disabled-label;
+      }
+    }
+    @include when(button) {
+      .jm-radio__label {
+        border-color: $-radio-color-disabled;
+      }
     }
   }
 }

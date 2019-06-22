@@ -13,8 +13,8 @@ export default {
       type: String,
       default: 'circle'
     },
-    dot: Boolean,
-    checkedColor: String
+    checkedColor: String,
+    disabled: Boolean
   },
   provide () {
     return {
