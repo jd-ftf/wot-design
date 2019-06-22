@@ -7,6 +7,8 @@ import Loading from 'jm-design/loading'
 import MessageBox from 'jm-design/messageBox'
 import Navbar from 'jm-design/navbar'
 import PullRefresh from 'jm-design/pullRefresh'
+import Radio from 'jm-design/radio'
+import RadioGroup from 'jm-design/radioGroup'
 import Rate from 'jm-design/rate'
 import Search from 'jm-design/search'
 import Slider from 'jm-design/slider'
@@ -24,6 +26,8 @@ const components = [
   MessageBox.jmMessageBox,
   Navbar,
   PullRefresh,
+  Radio,
+  RadioGroup,
   Rate,
   Search,
   Slider,
