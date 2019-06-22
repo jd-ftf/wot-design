@@ -1,4 +1,6 @@
 import Button from 'jm-design/button'
+import Checkbox from 'jm-design/checkbox'
+import CheckboxGroup from 'jm-design/checkboxGroup'
 import Icon from 'jm-design/icon'
 import InfiniteLoad from 'jm-design/infiniteLoad'
 import Input from 'jm-design/input'
@@ -19,6 +21,8 @@ import lazyPlaceholder from './img/placeholder.png'
 
 const components = [
   Button,
+  Checkbox,
+  CheckboxGroup,
   Icon,
   InfiniteLoad,
   Input,

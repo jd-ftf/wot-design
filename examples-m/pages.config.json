@@ -43,6 +43,9 @@
     "module": "表单组件",
     "list": [
       {
+        "name": "Checkbox 复选框",
+        "path": "/checkbox"
+      }, {
         "name": "Input 输入框",
         "path": "/input"
       }, {
