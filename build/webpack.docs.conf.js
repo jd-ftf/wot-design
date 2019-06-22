@@ -132,12 +132,14 @@ if (isDev) {
       new HtmlWebpackPlugin({
         filename: 'examples.html',
         template: path.resolve(__dirname, '../examples-m/index.html'),
-        chunks: ['examples']
+        chunks: ['examples'],
+        favicon: path.resolve(__dirname, '../examples-m/favicon.ico')
       }),
       new HtmlWebpackPlugin({
         filename: 'docs.html',
         template: path.resolve(__dirname, '../examples/index.html'),
-        chunks: ['docs']
+        chunks: ['docs'],
+        favicon: path.resolve(__dirname, '../examples/favicon.ico')
       })
     ]
   })
