@@ -15,14 +15,14 @@
       </jm-radio-group>
     </white-space>
     <white-space>
-      <div slot="desc">修改形状(在radioGroup上设置) <code>shape</code> 为 <code>'square'</code></div>
+      <div slot="desc">修改形状(在radioGroup上设置) <code>shape</code> 为 <code>'button'</code></div>
       <jm-radio-group v-model="radio3" shape="button">
         <jm-radio value="1">京麦</jm-radio>
         <jm-radio value="2">商家后台</jm-radio>
       </jm-radio-group>
     </white-space>
     <white-space>
-      <div slot="desc">修改单个形状(在radio上设置) <code>shape</code> 为 <code>'square'</code></div>
+      <div slot="desc">修改单个形状(在radio上设置) <code>shape</code> 为 <code>'dot'</code></div>
       <jm-radio-group v-model="radio4">
         <jm-radio value="1" shape="dot">京麦</jm-radio>
         <jm-radio value="2">商家后台</jm-radio>
