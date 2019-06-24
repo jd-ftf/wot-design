@@ -14,6 +14,7 @@
   @include when(disabled) {
     &:active {
       background: $disabled;
+      color: #fff;
     }
     
     opacity: 0.6;
