@@ -8,7 +8,7 @@ import { isMac } from './utils/index'
 Vue.config.productionTip = false
 
 if (!isMac) {
-  document.body.classList.add('win-scrollbar')
+  document.body.classList.add('body-scrollbar')
 }
 
 /* eslint-disable no-new */
