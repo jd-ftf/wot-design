@@ -1,8 +1,6 @@
 ## Input 输入框
 
-### 使用
-
-#### 按需引入
+### 按需引入
 
 ```javascript
 import Vue from 'vue'
@@ -11,57 +9,90 @@ import { Input } from 'jm-design'
 Vue.use(Input)
 ```
 
-#### 示例
+### 基本用法
+
+`v-model` 为绑定值。
 
 ```html
-<!-- 基本用法 -->
-<jm-input v-model="input1" placeholder="请输入用户名" />
-
-<!-- 禁止使用 disabled -->
-<jm-input v-model="input2" disabled />
-
-<!-- 只读状态 readonly -->
-<jm-input v-model="input3" readonly />
-
-<!-- 支持清空 -->
-<jm-input v-model="input4" clearable />
-
-<!-- 密码输入框 -->
-<jm-input v-model="input5" clearable show-password />
-
-<!-- 前后设置icon -->
-<jm-input v-model="input6" prefix-icon="jm-icon-person" suffix-icon="jm-icon-tickets" />
-
-<!-- 限制字数输入 -->
-<jm-input v-model="input7" maxlength="20" show-word-limit />
-
-<!-- textarea 文本域 -->
-<jm-input type="textarea" v-model="input8" placeholder="请填写评价..." />
-
-<!-- 支持清空和字数限制的textarea，设置rows行数，也可以设置 autosize 随文本字数高度自动增加 -->
-<jm-input type="textarea" v-model="input9" :rows="6" maxlength="120" clearable show-word-limit />
-
-<!-- 支持 type 为 text 的高度自增加输入框 -->
-<jm-input v-model="input10" autosize clearable />
+<jm-input v-model="input" placeholder="请输入用户名" />
 
 <script>
 export default {
   data () {
     return {
-      input1: '',
-      input2: '这是禁用状态',
-      input3: '这是只读状态',
-      input4: '支持清空',
-      input5: '1234',
-      input6: '',
-      input7: '',
-      input8: '',
-      input9: '支持清空和字数限制的文本域',
-      input10: '输入文字后，输入框高度跟随字数多少变化'
+      input: ''
     }
   }
 }
 </script>
+```
+
+### 禁用
+
+设置 `disabled` 属性。
+
+```html
+<jm-input v-model="input" disabled />
+```
+
+### 只读
+
+设置 `readonly` 属性。
+
+```html
+<jm-input v-model="input" readonly />
+```
+
+### 清空按钮
+
+设置 `clearable` 属性。
+
+```html
+<jm-input v-model="input" clearable />
+```
+
+### 密码输入框
+
+设置 `show-password` 属性。
+
+```html
+<jm-input v-model="input" clearable show-password />
+```
+
+### 前后icon
+
+设置前置icon `prefix-icon`，设置后置icon `suffix-icon`。
+
+```html
+<jm-input v-model="input" prefix-icon="jm-icon-person" suffix-icon="jm-icon-tickets" />
+```
+
+### 限制字数输入
+
+设置 `maxlength` 属性，如果要显示字数限制，设置 `show-word-limit` 属性。
+
+```html
+<jm-input v-model="input" maxlength="20" show-word-limit />
+```
+
+### 文本域
+
+设置 `type` 为 'textarea`。
+
+```html
+<jm-input type="textarea" v-model="input" placeholder="请填写评价..." />
+```
+
+设置清空，字数限制，设置 `rows` 行数。也可以设置 `autosize` ，使文本域高度自动增加。
+
+```html
+<jm-input type="textarea" v-model="input" :rows="6" maxlength="120" clearable show-word-limit />
+```
+
+### 普通输入框高度自增加
+
+```html
+<jm-input v-model="input" autosize clearable />
 ```
 
 ### Arrtibute

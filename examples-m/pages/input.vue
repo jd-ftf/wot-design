@@ -1,7 +1,7 @@
 <template>
   <div>
     <white-space>
-      <div slot="desc">基础用法</div>
+      <div slot="desc">基本用法</div>
       <jm-input v-model="input1" placeholder="请输入用户名" />
     </white-space>
     <white-space>

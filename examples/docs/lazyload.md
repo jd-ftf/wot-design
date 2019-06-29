@@ -2,7 +2,7 @@
 
 ### 使用
 
-图片懒加载使用的是开源组件`vue-lazyload`，其用法同`vue-lazyload`，详见[文档](https://github.com/hilongjw/vue-lazyload)。
+图片懒加载使用的是开源组件`vue-lazyload`，其用法同 [vue-lazyload](https://github.com/hilongjw/vue-lazyload)。
 
 `jm-design` 对`vue-lazyload`做了默认参数设置：`loading` 参数默认设置为 `JDM` 占位图，`attempt` 参数设置为 3。
 
@@ -35,7 +35,7 @@ Vue.use(Lazyload, {
 })
 ```
 
-#### 示例
+### 基本用法
 
 ```html
 <template>
@@ -62,7 +62,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style>
 .lazyload-item {
   margin: 20px 0;
 }
