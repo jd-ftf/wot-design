@@ -22,7 +22,6 @@
           :style="textareaStyle"
           :placeholder="placeholder"
           :value="value"
-          :name="name"
           @input="handleInput"
           @change="handleChange"
           :disabled="disabled"
@@ -61,7 +60,6 @@
         @input="handleInput"
         @change="handleChange"
         :placeholder="placeholder"
-        :name="name"
         :readonly="readonly"
         :disabled="disabled"
         :minlength="minlength"
@@ -111,7 +109,6 @@ export default {
       type: String,
       default: 'text'
     },
-    name: String,
     value: [String, Number],
     placeholder: String,
     clearable: Boolean,

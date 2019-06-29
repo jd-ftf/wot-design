@@ -78,6 +78,11 @@
                 "path": "/slider",
                 "demo": "/slider"
               },
+              "Swipe": {
+                "name": "Swipe 轮播图",
+                "path": "/swipe",
+                "demo": "/swipe"
+              },
               "Toast": {
                 "name": "Toast 轻提示",
                 "path": "/toast",

@@ -54,5 +54,4 @@ export default {
 | inactive-value | 关闭时的值 | boolean / string / number | - | false |
 | active-color | 打开时的背景色 | string | - | '#0083ff' |
 | inactive-color | 关闭时的背景色，默认为白色，所以有灰色边框，如果设置了该值，则会自动去除灰色边框 | string | - | '#fff' |
-| name | 原生属性 | string | - | - |
 | size | 开关大小，可以为任何单位的字符串尺寸 | string | - | '28px' |
