@@ -22,6 +22,7 @@
     background: #fff;
     vertical-align: middle;
     transition: background .2s;
+    overflow: hidden;
   }
   @include e(input) {
     position: absolute;
@@ -33,7 +34,7 @@
   @include e(label) {
     display: inline-block;
     margin-left: 10px;
-    vertical-align: middle;
+    vertical-align: top;
     font-size: $-radio-label-font-size;
     color: $-color-title;
   }
@@ -110,18 +111,18 @@
 
   @include when(disabled) {
     .jm-radio__shape {
-      border-color: $-radio-color-disabled;
+      border-color: $-radio-color-disabled-label;
     }
     .jm-radio__label {
       color: $-radio-color-disabled-label;
     }
     @include when(checked) {
       .jm-radio__shape {
-        color: $-radio-color-disabled;
+        color: $-radio-color-disabled-label;
       }
       @include when(dot) {
         .jm-radio__check {
-          color: $-radio-color-disabled;
+          color: $-radio-color-disabled-label;
         }
       }
       .jm-radio__label {

@@ -14,7 +14,8 @@ import pagesConfig from '../pages.config.json'
 export default {
   data () {
     return {
-      pagesConfig: pagesConfig
+      pagesConfig: pagesConfig,
+      scrollTop: 0
     }
   },
   components: {
