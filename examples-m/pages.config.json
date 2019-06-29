@@ -35,6 +35,9 @@
         "name": "Slider 滑块",
         "path": "/slider"
       }, {
+        "name": "Swipe 轮播图",
+        "path": "/swipe"
+      }, {
         "name": "Toast 轻提示",
         "path": "/toast"
       }

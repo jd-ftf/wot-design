@@ -26,7 +26,6 @@
       <input
         type="checkbox"
         class="jm-checkbox__input"
-        :name="name"
         :value="value"
         :checked="isChecked"
         :disabled="finalDisabled"
@@ -55,7 +54,6 @@ export default {
   },
   props: {
     value: [String, Number, Boolean],
-    name: String,
     shape: String,
     checkedColor: String,
     disabled: Boolean,

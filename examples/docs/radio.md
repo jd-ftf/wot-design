@@ -71,4 +71,3 @@ Vue.use(Radio)
 | shape | 单选框形状 | string | 'circle', 'dot', 'button' | 'circle' |
 | checked-color | 选中的颜色 | string | - | '#0083ff' |
 | disabled | 禁用 | boolean | - | false |
-| name | 原生属性 | string | - | - |

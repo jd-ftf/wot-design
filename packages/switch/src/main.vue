@@ -10,7 +10,6 @@
   >
     <input
       type="checkbox"
-      :name="name"
       class="jm-switch__checkbox"
       :disabled="disabled"
       :true-value="activeValue"
@@ -36,7 +35,6 @@ export default {
     },
     activeColor: String,
     inactiveColor: String,
-    name: String,
     size: {
       type: String,
       default: '28px'

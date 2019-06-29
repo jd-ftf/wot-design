@@ -69,7 +69,6 @@ export default {
 | 参数      | 说明                                 | 类型      | 可选值       | 默认值   |
 |---------- |------------------------------------ |---------- |------------- |-------- |
 | type | 类型 | string | text, textarea, number, email | text |
-| name | 原生属性 | string | - | - |
 | value/v-model   |	绑定值                        |	string / number     | -   |	-  |
 | placeholder	    | 占位文本                  |	string    |	-         |	'搜索' |
 | clearable | 显示清空按钮 | boolean | - | false |

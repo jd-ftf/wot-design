@@ -21,7 +21,6 @@
       <input
         type="radio"
         class="jm-radio__input"
-        :name="name"
         :value="value"
         :checked="isChecked"
         :disabled="finalDisabled"
@@ -40,7 +39,6 @@ export default {
   inject: ['radioGroup'],
   props: {
     value: [String, Number, Boolean],
-    name: String,
     shape: String,
     checkedColor: String,
     disabled: Boolean
