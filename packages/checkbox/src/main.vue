@@ -7,7 +7,13 @@
       'is-disabled': finalDisabled
     }"
   >
-    <span class="jm-checkbox__shape" :style="{ 'color': isChecked && !finalDisabled ? finalCheckedColor : '' }">
+    <span
+      class="jm-checkbox__shape"
+      :class="{
+        'is-square': finalShape === 'square'
+      }"
+      :style="{ 'color': isChecked && !finalDisabled ? finalCheckedColor : '' }"
+    >
       <i
         class="jm-checkbox__check"
         :class="{
@@ -24,11 +30,17 @@
         :value="value"
         :checked="isChecked"
         :disabled="finalDisabled"
-        @change="handleChange"
+        @change="toggle"
       />
     </span>
-    <div class="jm-checkbox__label" :style="{ 'color': isChecked && finalShape === 'button' && !finalDisabled ? finalCheckedColor : '' }">
-      <slot></slot>
+    <div
+      class="jm-checkbox__label"
+      :style="{ 'color': isChecked && finalShape === 'button' && !finalDisabled ? finalCheckedColor : '' }"
+    >
+      <i class="jm-checkbox__btn-check jm-icon-check" v-if="finalShape === 'button' && isChecked"></i>
+      <span class="jm-checkbox__txt">
+        <slot></slot>
+      </span>
     </div>
   </label>
 </template>
@@ -46,12 +58,16 @@ export default {
     name: String,
     shape: String,
     checkedColor: String,
-    disabled: Boolean
+    disabled: Boolean,
+    trueValue: [String, Number],
+    falseValue: [String, Number]
   },
   computed: {
     isChecked () {
       if (this.checkboxGroup) {
         return this.checkboxGroup.value.indexOf(this.value) > -1
+      } else if (this.trueValue && this.falseValue) {
+        return this.value === this.trueValue
       } else {
         return this.value
       }
@@ -63,17 +79,30 @@ export default {
       return this.checkedColor || (this.checkboxGroup && this.checkboxGroup.checkedColor)
     },
     finalDisabled () {
-      return this.disabled || (this.checkboxGroup && this.checkboxGroup.disabled) || false
+      if (this.checkboxGroup) {
+        let { min, max, value, disabled } = this.checkboxGroup
+        let sizeDisabled = false
+        if (min && value.length <= min && this.isChecked) {
+          sizeDisabled = true
+        } else if (max && value.length >= max && !this.isChecked) {
+          sizeDisabled = true
+        }
+        return this.disabled || disabled || sizeDisabled || false
+      } else {
+        return this.disabled || false
+      }
     }
   },
   methods: {
-    handleChange () {
+    toggle () {
       if (this.checkboxGroup) {
         this.checkboxGroup.changeValue(this.value)
-        this.$emit('change', this.isChecked)
+      } else if (this.trueValue && this.falseValue) {
+        this.$emit('input', this.isChecked ? this.falseValue : this.trueValue)
       } else {
         this.$emit('input', !this.value)
       }
+      this.$emit('change', this.value)
     }
   }
 }

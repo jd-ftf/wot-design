@@ -22,6 +22,10 @@
     background: #fff;
     vertical-align: middle;
     transition: background .2s;
+
+    @include when(square) {
+      border-radius: 4px;
+    }
   }
   @include e(input) {
     position: absolute;
@@ -30,10 +34,22 @@
     margin: 0;
     opacity: 0;
   }
+  @include e(btn-check) {
+    display: inline-block;
+    font-size: 16px;
+    vertical-align: middle;
+    margin-right: 4px;
+    height: 16px;
+    width: 16px;
+  }
+  @include e(txt) {
+    display: inline-block;
+    vertical-align: middle;
+  }
   @include e(label) {
     display: inline-block;
     margin-left: 10px;
-    vertical-align: middle;
+    vertical-align: top;
     font-size: $-checkbox-label-font-size;
     color: $-color-title;
   }
@@ -98,10 +114,12 @@
       padding: 4px 28px;
       border: 1px solid $-checkbox-color-border;
       border-radius: 4px;
-      transition: all .2s;
+      transition: color .2s, border .2s;
     }
     @include when(checked) {
       .jm-checkbox__label {
+        padding-left: 16px;
+        padding-right: 16px;
         color: $-checkbox-color-checked;
         border-color: currentColor;
       }
@@ -110,18 +128,18 @@
 
   @include when(disabled) {
     .jm-checkbox__shape {
-      border-color: $-checkbox-color-disabled;
+      border-color: $-checkbox-color-disabled-label;
     }
     .jm-checkbox__label {
       color: $-checkbox-color-disabled-label;
     }
     @include when(checked) {
       .jm-checkbox__shape {
-        color: $-checkbox-color-disabled;
+        color: $-checkbox-color-disabled-label;
       }
       @include when(dot) {
         .jm-checkbox__check {
-          color: $-checkbox-color-disabled;
+          color: $-checkbox-color-disabled-label;
         }
       }
       .jm-checkbox__label {

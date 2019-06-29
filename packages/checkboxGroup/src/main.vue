@@ -19,7 +19,15 @@ export default {
       default: 'circle'
     },
     checkedColor: String,
-    disabled: Boolean
+    disabled: Boolean,
+    min: {
+      type: Number,
+      default: 0
+    },
+    max: {
+      type: Number,
+      default: 0
+    }
   },
   provide () {
     return {
@@ -28,8 +36,14 @@ export default {
   },
   methods: {
     changeValue (value) {
-      this.$emit('input', value)
-      this.$emit('change', value)
+      let index = this.value.indexOf(value)
+      if (index > -1) {
+        this.value.splice(index, 1)
+      } else {
+        this.value.push(value)
+      }
+      this.$emit('input', this.value)
+      this.$emit('change', this.value)
     }
   }
 }

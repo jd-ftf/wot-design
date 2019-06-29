@@ -21,7 +21,7 @@ Vue.use(Radio)
   <jm-radio value="2">单选框2</jm-radio>
 </jm-radio-group>
 
-<!-- 修改单选框形状: shaped, 默认为 'circle', 支持对单个radio标签修改形状 -->
+<!-- 修改单选框形状: shape, 默认为 'circle', 支持对单个radio标签修改形状 -->
 <jm-radio-group v-model="radio2" shape="dot">
   <jm-radio value="1">京麦</jm-radio>
   <jm-radio value="2">商家后台</jm-radio>
