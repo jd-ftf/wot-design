@@ -8,7 +8,7 @@
   >
     <jm-indicator v-if="loading" class="jm-button__loading" type="spinner" size="" color="" />
     <i v-if="icon" class="jm-button__icon" :class="icon"></i>
-    <span><slot></slot></span>
+    <span class="jm-button__txt"><slot></slot></span>
   </button>
 </template>
 

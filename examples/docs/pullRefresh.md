@@ -1,8 +1,6 @@
 ## PullRefresh 下拉刷新
 
-### 使用
-
-#### 按需引入
+### 按需引入
 
 ```javascript
 import Vue from 'vue'
@@ -11,7 +9,7 @@ import { PullRefresh } from 'jm-design'
 Vue.use(PullRefresh)
 ```
 
-#### 示例
+### 基本用法
 
 ```html
 <template>

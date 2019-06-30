@@ -74,11 +74,6 @@
   transition: all .2s;
   user-select: none;
 
-  span {
-    display: inline-block;
-    vertical-align: middle;
-  }
-
   &:active {
     color: $-button-color-normal-active;
     background: $-button-color-normal-active-bg;
@@ -124,6 +119,8 @@
   }
 
   @include when(small) {
+    height: $-button-small-height;
+    line-height: #{$-button-small-height - 2px};
     padding: $-button-small-padding;
     border-radius: $-button-small-radius;
     font-size: $-button-small-font-size;
@@ -137,6 +134,9 @@
     }
   }
   @include when(medium) {
+    height: $-button-medium-height;
+    line-height: #{$-button-medium-height - 2px};
+    padding: $-button-small-padding;
     padding: $-button-medium-padding;
     border-radius: $-button-medium-radius;
     font-size: $-button-medium-font-size;
@@ -150,6 +150,9 @@
     }
   }
   @include when(large) {
+    height: $-button-large-height;
+    line-height: #{$-button-large-height - 2px};
+    padding: $-button-small-padding;
     padding: $-button-large-padding;
     border-radius: $-button-large-radius;
     font-size: $-button-large-font-size;
@@ -246,6 +249,6 @@
     display: inline-block;
     margin-right: 2px;
     font-size: $-button-medium-font-size;
-    vertical-align: middle;
+    vertical-align: top;
   }
 }

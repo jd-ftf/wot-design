@@ -1,6 +1,7 @@
 <template>
   <div class="page-toast">
     <white-space>
+      <div slot="desc">基本用法</div>
       <jm-button type="primary" plain @click="handleToast1">纯文字toast</jm-button>
       <jm-button type="primary" plain @click="handleToast2">成功toast</jm-button>
       <jm-button type="primary" plain @click="handleToast3">错误toast</jm-button>

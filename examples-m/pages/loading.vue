@@ -1,24 +1,24 @@
 <template>
   <div>
     <white-space>
-      <div slot="desc">circle</div>
+      <div slot="desc"><code>type</code>默认为 'circle' 类型，可以通过 <code>color</code> 修改指示器颜色</div>
       <jm-loading />
       <jm-loading color="#fff" class="loading-black" />
     </white-space>
     <white-space>
-      <div slot="desc">spinner</div>
+      <div slot="desc">设置<code>type</code>属性为 'spinner'</div>
       <jm-loading type="spinner" />
       <jm-loading type="spinner" color="#fff" class="loading-black" />
     </white-space>
     <white-space>
-      <div slot="desc">设置<code>size</code></div>
+      <div slot="desc">设置<code>size</code>，修改指示器的大小</div>
       <jm-loading size="20px" />
       <jm-loading size="30px" />
       <jm-loading size="50px" />
     </white-space>
     <white-space>
       <div slot="desc">
-        <p>JS 手动调用 loading 弹窗</p>
+        <p>JS 手动调用 loading 弹窗，通过 <code>this.$loading.open(options)</code> 和 <code>this.$loading.close()</code> 开启和关闭</p>
       </div>
       <div class="item">
         <jm-button type="primary" plain @click="openLoading">打开loading弹窗</jm-button>

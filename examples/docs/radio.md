@@ -1,8 +1,6 @@
 ## Radio 单选框
 
-### 使用
-
-#### 按需引入
+### 按需引入
 
 ```javascript
 import Vue from 'vue'
@@ -12,39 +10,69 @@ Vue.use(RadioGroup)
 Vue.use(Radio)
 ```
 
-#### 示例
+### 基本用法
+
+`v-model` 为绑定值，为选中的 `jm-radio` 的 `value` 值。
 
 ```html
-<!-- 基本用法 -->
-<jm-radio-group v-model="radio1">
+<jm-radio-group v-model="radio">
   <jm-radio value="1">单选框1</jm-radio>
   <jm-radio value="2">单选框2</jm-radio>
 </jm-radio-group>
 
-<!-- 修改单选框形状: shape, 默认为 'circle', 支持对单个radio标签修改形状 -->
-<jm-radio-group v-model="radio2" shape="dot">
+<script>
+export default {
+  data () {
+    return {
+      radio: '1'
+    }
+  }
+}
+</script>
+```
+
+### 修改图标形状
+
+修改 `shape` 属性，可选值为 'circle'、'dot'、'button'，默认为 'circle'。
+
+```html
+<jm-radio-group v-model="radio1" shape="dot">
   <jm-radio value="1">京麦</jm-radio>
   <jm-radio value="2">商家后台</jm-radio>
 </jm-radio-group>
 
-<jm-radio-group v-model="radio3" shape="button">
+<jm-radio-group v-model="radio2" shape="button">
   <jm-radio value="1">京麦</jm-radio>
   <jm-radio value="2">商家后台</jm-radio>
 </jm-radio-group>
+```
 
-<jm-radio-group v-model="radio4">
+可以只修改其中某个radio的图标形状。
+
+```html
+<jm-radio-group v-model="radio">
   <jm-radio value="1" shape="dot">京麦</jm-radio>
   <jm-radio value="2">商家后台</jm-radio>
 </jm-radio-group>
+```
 
-<!-- 修改选中的颜色: checked-color -->
-<jm-radio-group v-model="radio5" checked-color="#f00">
+### 修改选中的颜色
+
+设置 `checked-color` 属性。
+
+```html
+<jm-radio-group v-model="radio" checked-color="#f00">
   <jm-radio value="1">京麦</jm-radio>
   <jm-radio value="2">商家后台</jm-radio>
 </jm-radio-group>
+```
 
-<!-- 设置禁用: disabled, 支持对单个radio标签设置 disabled -->
-<jm-radio-group v-model="radio6" disabled>
+### 禁用
+
+可以在 `radio-group` 上面设置 `disabled`，禁用所有单选框，也可以在单个单选框上面设置 `disabled` 属性，禁用某个单选框。
+
+```html
+<jm-radio-group v-model="radio" disabled>
   <jm-radio value="1">京麦</jm-radio>
   <jm-radio value="2">商家后台</jm-radio>
 </jm-radio-group>

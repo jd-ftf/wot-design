@@ -1,8 +1,6 @@
 ## Rate 评分
 
-### 使用
-
-#### 按需引入
+### 按需引入
 
 ```javascript
 import Vue from 'vue'
@@ -11,41 +9,54 @@ import { Rate } from 'jm-design'
 Vue.use(Rate)
 ```
 
-#### 示例
+### 基本用法
+
+`v-model` 为绑定值，设置分数。
 
 ```html
-<template>
-  <div>
-    <!-- 基本用法 -->
-    <jm-rate v-model="rate1" />
-
-    <!-- 只读状态 -->
-    <jm-rate v-model="rate2" readonly />
-
-    <!-- 禁用状态 -->
-    <jm-rate v-model="rate3" disabled />
-
-    <!-- 修改选中颜色 -->
-    <jm-rate v-model="rate4" active-color="#FFAE16" />
-
-    <!-- 修改icon和选中颜色 -->
-    <jm-rate v-model="rate5" icon="jm-icon-good" active-icon="jm-icon-good" active-color="#0083ff" />
-  </div>
-</template>
+<jm-rate v-model="rate" />
 
 <script>
 export default {
   data () {
     return {
-      rate1: 5,
-      rate2: 3,
-      rate3: 2,
-      rate4: 3.5,
-      rate5: 1
+      rate: 5
     }
   }
 }
 </script>
+```
+
+### 只读
+
+设置 `readonly` 属性。
+
+```html
+<jm-rate v-model="rate" readonly />
+```
+
+### 禁用
+
+设置 `disabled` 属性。
+
+```html
+<jm-rate v-model="rate" disabled />
+```
+
+### 修改颜色
+
+可以通过 `color` 属性修改未选中的颜色，`active-color` 修改选中的颜色。
+
+```html
+<jm-rate v-model="rate" active-color="#FFAE16" />
+```
+
+### 修改icon
+
+可以通过 `icon` 属性修改未选中的图标，`active-icon` 修改选中的图标。
+
+```html
+<jm-rate v-model="rate" icon="jm-icon-good" active-icon="jm-icon-good" active-color="#0083ff" />
 ```
 
 ### Attributes
