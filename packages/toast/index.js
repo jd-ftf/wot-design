@@ -11,6 +11,10 @@
  * })
  */
 
+/**
+ * Todo: 需要优化调用方法。
+ */
+
 import Vue from 'vue'
 import jmToast from './src/main.vue'
 

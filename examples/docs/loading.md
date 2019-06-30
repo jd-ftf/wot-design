@@ -2,9 +2,7 @@
 
 加载，支持单独使用加载指示器和js直接打开loading框
 
-### 使用
-
-#### 按需引入
+### 按需引入
 
 ```javascript
 import Vue from 'vue'
@@ -13,29 +11,55 @@ import { Loading } from 'jm-design'
 Vue.use(Loading)
 ```
 
-#### 示例
+### 基本用法
+
+默认为 `circle` 类型的加载指示器。
 
 ```html
-<!-- circle 类型的加载指示器 -->
 <jm-loading />
+```
 
-<!-- circle 类型，白色的加载指示器 -->
+### 修改颜色
+
+通过 `color` 属性修改指示器的颜色。比如修改为白色，同时设置背景为黑色。
+
+```html
 <jm-loading color="#fff" class="loading-black" />
+```
 
-<!-- spinner 类型的加载指示器 -->
+```css
+.loading-black {
+  background: rgba(0, 0, 0, 0.7);
+  padding: 10px;
+  border-radius: 4px;
+}
+```
+
+### 修改指示器类型
+
+通过 `type` 修改指示器的类型，可选值为 'spinner' 和 'circle'，默认为 'circle'。
+
+```html
 <jm-loading type="spinner" />
+```
 
-<!-- spinner 类型，白色的加载指示器 -->
-<jm-loading type="spinner" color="#fff" class="loading-black" />
+### 修改指示器大小
 
-<!-- 设置 size 大小 -->
+通过 `size` 属性设置指示器的大小，默认为 '32px' 大小。
+
+```html
 <jm-loading size="20px" />
 <jm-loading size="30px" />
 <jm-loading size="50px" />
+```
 
-<!-- 手动打开 loading 加载框 -->
-<jm-button @click="openLoading">打开loading弹窗</jm-button>
-<jm-button @click="openSpinnerloading">打开Spinner类型的loading弹窗</jm-button>
+### JS 打开 loading 弹窗
+
+该组件会在 Vue 上挂载 `$loading` 对象，通过该对象我们可以手动打开和关闭弹窗。
+
+```html
+<jm-button type="primary" plain @click="openLoading">打开loading弹窗</jm-button>
+<jm-button type="primary" plain @click="openSpinnerloading">打开Spinner类型的loading弹窗</jm-button>
 
 <script>
 export default {
