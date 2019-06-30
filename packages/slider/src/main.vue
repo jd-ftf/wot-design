@@ -59,6 +59,9 @@
 </template>
 
 <script>
+/**
+ * Todo: 双滑块有bug，而且api的约定不太好，待优化
+ */
 export default {
   name: 'JmSlider',
   props: {
