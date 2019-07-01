@@ -189,8 +189,8 @@ if (isDev) {
     },
     plugins: [
       new MiniCssExtractPlugin({
-        filename: '[name].[contenthash:8].css',
-        chunkFilename: '[name].[contenthash:8].css'
+        filename: 'css/[name].[contenthash:8].css',
+        chunkFilename: 'css/[name].[contenthash:8].css'
       }),
       new HtmlWebpackPlugin({
         filename: path.resolve(__dirname, '../docs/examples.html'),
