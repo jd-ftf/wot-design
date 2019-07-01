@@ -64,6 +64,30 @@ $color-aid-e7: mix($color-black, $color-aid, 70%);
 $color-aid-e8: mix($color-black, $color-aid, 80%);
 $color-aid-e9: mix($color-black, $color-aid, 90%);
 
+/* 警告色 */
+$color-warn: #ff9900;
+$color-warn-l1: mix($color-white, $color-warn, 10%);
+$color-warn-l2: mix($color-white, $color-warn, 20%);
+$color-warn-l3: mix($color-white, $color-warn, 30%);
+$color-warn-l4: mix($color-white, $color-warn, 40%);
+$color-warn-l5: mix($color-white, $color-warn, 50%);
+$color-warn-l6: mix($color-white, $color-warn, 60%);
+$color-warn-l7: mix($color-white, $color-warn, 70%);
+$color-warn-l8: mix($color-white, $color-warn, 80%);
+$color-warn-l9: mix($color-white, $color-warn, 90%);
+
+/* 错误色 */
+$color-error: #ff3333;
+$color-error-l1: mix($color-white, $color-error, 10%);
+$color-error-l2: mix($color-white, $color-error, 20%);
+$color-error-l3: mix($color-white, $color-error, 30%);
+$color-error-l4: mix($color-white, $color-error, 40%);
+$color-error-l5: mix($color-white, $color-error, 50%);
+$color-error-l6: mix($color-white, $color-error, 60%);
+$color-error-l7: mix($color-white, $color-error, 70%);
+$color-error-l8: mix($color-white, $color-error, 80%);
+$color-error-l9: mix($color-white, $color-error, 90%);
+
 /* 代码颜色 */
 $color-code-bg: #f6f6f6;
 $color-code: #2d3c4a;
