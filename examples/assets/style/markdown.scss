@@ -211,4 +211,37 @@
       color: $color-bash-built;
     }
   }
+  .info {
+    background: $color-theme-l9;
+    padding: 10px 20px;
+    margin: 20px 0;
+    border-radius: 3px;
+    border-left: 5px solid $color-theme-l4;
+
+    p {
+      margin: 0;
+    }
+  }
+  .warning {
+    background: $color-warn-l9;
+    padding: 10px 20px;
+    margin: 20px 0;
+    border-radius: 3px;
+    border-left: 5px solid $color-warn-l4;
+
+    p {
+      margin: 0;
+    }
+  }
+  .error {
+    background: $color-error-l9;
+    padding: 10px 20px;
+    margin: 20px 0;
+    border-radius: 3px;
+    border-left: 5px solid $color-error-l4;
+
+    p {
+      margin: 0;
+    }
+  }
 }

@@ -1,5 +1,6 @@
 const hljs = require('highlight.js')
 const MarkdownIt = require('markdown-it')
+const markdownItContainer = require('markdown-it-container')
 
 const md = new MarkdownIt({
   html: true,
@@ -16,7 +17,9 @@ const md = new MarkdownIt({
     }
     return '<pre class="hljs"><code>' + md.utils.escapeHtml(str) + '</code></pre>'
   }
-})
+}).use(markdownItContainer, 'warning')
+  .use(markdownItContainer, 'error')
+  .use(markdownItContainer, 'info')
 
 module.exports = source => {
   const content = md.render(source)
