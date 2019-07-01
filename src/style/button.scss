@@ -120,7 +120,6 @@
 
   @include when(small) {
     height: $-button-small-height;
-    line-height: #{$-button-small-height - 2px};
     padding: $-button-small-padding;
     border-radius: $-button-small-radius;
     font-size: $-button-small-font-size;
@@ -135,7 +134,6 @@
   }
   @include when(medium) {
     height: $-button-medium-height;
-    line-height: #{$-button-medium-height - 2px};
     padding: $-button-small-padding;
     padding: $-button-medium-padding;
     border-radius: $-button-medium-radius;
@@ -151,7 +149,6 @@
   }
   @include when(large) {
     height: $-button-large-height;
-    line-height: #{$-button-large-height - 2px};
     padding: $-button-small-padding;
     padding: $-button-large-padding;
     border-radius: $-button-large-radius;
