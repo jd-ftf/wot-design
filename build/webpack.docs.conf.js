@@ -101,7 +101,19 @@ const webpackConf = {
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify(isDev ? 'dev' : 'prod')
     }),
-    new VueLoaderPlugin()
+    new VueLoaderPlugin(),
+    new HtmlWebpackPlugin({
+      filename: isDev ? 'examples.html' : path.resolve(__dirname, '../docs/examples.html'),
+      template: path.resolve(__dirname, '../examples-m/index.html'),
+      chunks: ['examples'],
+      favicon: path.resolve(__dirname, '../examples-m/favicon.ico')
+    }),
+    new HtmlWebpackPlugin({
+      filename: isDev ? 'docs.html' : path.resolve(__dirname, '../docs/docs.html'),
+      template: path.resolve(__dirname, '../examples/index.html'),
+      chunks: ['docs'],
+      favicon: path.resolve(__dirname, '../examples/favicon.ico')
+    })
   ]
 }
 
@@ -128,19 +140,7 @@ if (isDev) {
       disableHostCheck: true
     },
     plugins: [
-      new webpack.HotModuleReplacementPlugin(),
-      new HtmlWebpackPlugin({
-        filename: 'examples.html',
-        template: path.resolve(__dirname, '../examples-m/index.html'),
-        chunks: ['examples'],
-        favicon: path.resolve(__dirname, '../examples-m/favicon.ico')
-      }),
-      new HtmlWebpackPlugin({
-        filename: 'docs.html',
-        template: path.resolve(__dirname, '../examples/index.html'),
-        chunks: ['docs'],
-        favicon: path.resolve(__dirname, '../examples/favicon.ico')
-      })
+      new webpack.HotModuleReplacementPlugin()
     ]
   })
   outputConfig = new Promise((resolve, reject) => {
@@ -191,16 +191,6 @@ if (isDev) {
       new MiniCssExtractPlugin({
         filename: '[name].[contenthash:8].css',
         chunkFilename: '[name].[contenthash:8].css'
-      }),
-      new HtmlWebpackPlugin({
-        filename: path.resolve(__dirname, '../docs/examples.html'),
-        template: 'examples-m/index.html',
-        chunks: ['examples']
-      }),
-      new HtmlWebpackPlugin({
-        filename: path.resolve(__dirname, '../docs/docs.html'),
-        template: 'examples/index.html',
-        chunks: ['docs']
       })
     ]
   })
