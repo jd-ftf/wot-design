@@ -10,7 +10,7 @@
 
 请查看[快速上手](#/components/quickUse)文档。
 
-### 手机扫码体验
+### 扫码体验
 
 <img style="width: 150px; height: 150px;" :src="codeImg" />
 
