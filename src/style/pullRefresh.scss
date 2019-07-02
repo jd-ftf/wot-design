@@ -18,10 +18,10 @@
     margin-top: -50px;
     line-height: 50px;
     text-align: center;
+    font-size: 0;
   }
   @include e(loading) {
     display: inline-block;
-    margin-right: 6px;
   }
   @include e(tip) {
     position: absolute;
@@ -35,79 +35,33 @@
     background-color: $-color-theme;
     border-radius: 15px;
     color: #fff;
-    font-size: 14px;
+    font-size: 12px;
     transition: .3s;
     box-shadow: 0 0 6px #666;
   }
   @include e(arrow) {
+    font-size: 12px;
     display: inline-block;
     margin-right: 6px;
     color: #a7a7a7;
     vertical-align: middle;
   }
   @include e(text) {
+    font-size: 12px;
     color: #a7a7a7;
     vertical-align: middle;
   }
 
-  .slice-down-enter-active{
+  .jm-slice-down-enter-active {
     transform: translate3d(-50%, 10px, 0);
   }
-  .slice-down-enter{
+  .jm-slice-down-enter {
     transform: translate3d(-50%, -34px, 0);
   }
-  .slice-down-leave-active{
+  .jm-slice-down-leave-active {
     opacity: 1;
   }
-  .slice-down-leave-to{
-    opacity: 0;
-  }
-}
-.scroll-view{
-  .scroll-view-icon-down{
-    display: inline-block;
-    width: 12px;
-    height: 32px;
-    margin-right: 13px;
-    // background: url('../../assets/img/arrow.png') no-repeat;
-    background-size: cover;
-    transform: rotate(0);
-    transition: all .3s;
-    vertical-align: middle;
-  }
-  .scroll-view-icon-up{
-    transform: rotate(-180deg);
-  }
-  .scroll-view-icon-loading{
-    display: inline-block;
-    width: 20px;
-    height: 20px;
-    margin-right: 6px;
-    // background: url('../../assets/img/refreshIcon.png') no-repeat;
-    background-size: cover;
-    vertical-align: middle;
-    animation: rotate 0.8s linear infinite;
-  }
-
-  @keyframes rotate {
-    from{
-      transform: rotate(0);
-    }
-    to{
-      transform: rotate(360deg);
-    }
-  }
-
-  .slice-down-enter-active{
-    transform: translate3d(-50%, 10px, 0);
-  }
-  .slice-down-enter{
-    transform: translate3d(-50%, -34px, 0);
-  }
-  .slice-down-leave-active{
-    opacity: 1;
-  }
-  .slice-down-leave-to{
+  .jm-slice-down-leave-to {
     opacity: 0;
   }
 }

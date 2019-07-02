@@ -5,7 +5,13 @@
     </transition>
     <transition name="zoomIn">
       <div class="jm-message-box__container" v-if="show">
-        <div class="jm-message-box__body">
+        <div
+          class="jm-message-box__body"
+          :class="{
+            'is-no-title': !title,
+            'is-prompt': type === 'prompt'
+          }"
+        >
           <div v-if="title" class="jm-message-box__title">
             {{ title }}
           </div>

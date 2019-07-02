@@ -1,8 +1,6 @@
 ## Search 搜索框
 
-### 使用
-
-#### 按需引入
+### 按需引入
 
 ```javascript
 import Vue from 'vue'
@@ -11,68 +9,84 @@ import { Search } from 'jm-design'
 Vue.use(Search)
 ```
 
-#### 示例
+### 基本用法
+
+`v-model` 设置输入框绑定值，`search` 绑定搜索事件，`cancel` 绑定取消事件，`clear` 绑定清空事件。
 
 ```html
-<!-- 搜索，监听对应事件search、cancel、clear事件 -->
 <jm-search
-  v-model="search1"
+  v-model="search"
   @search="handleSearch"
   @cancel="handleCancel"
   @clear="handleClear"
 />
 
-<!-- light 为 true 的搜索，监听 focus 和 blur 事件 -->
-<jm-search
-  v-model="search2"
-  light
-  @focus="handleFocus1"
-  @blur="handleBlur"
-/>
-
-<!-- placeholder-left 为 true 的搜索 -->
-<jm-search v-model="search3" placeholder-left />
-
-<!-- hide-cancel 为 true ，且 disabled 为 true 的搜索，一般用于在本页显示搜索框，点击搜索时跳进搜索页 -->
-<jm-search v-model="search4" @focus="handleFocus2" hide-cancel disabled />
-
-<!-- 修改 placeholder 和 cancel-txt 的值 -->
-<jm-search v-model="search5" placeholder="请输入订单号/订单名称" cancel-txt="搜索" />
-
 <script>
 export default {
   data () {
     return {
-      search1: '',
-      search2: '',
-      search3: '',
-      search4: '',
-      search5: '',
-      search6: ''
+      search: ''
     }
   },
   methods: {
     handleSearch (val) {
       this.$toast(`搜索：${val}`)
     },
-    handleFocus1 () {
-      this.$toast('聚焦搜索框')
-    },
-    handleBlur () {
-      this.$toast('搜索框失去焦点')
-    },
     handleCancel () {
       this.$toast('点击了取消按钮')
     },
     handleClear () {
       this.$toast('点击了清除按钮')
-    },
-    handleFocus2 () {
-      this.$toast('点击了搜索框，但不会聚焦，因为搜索框不可用')
     }
   }
 }
 </script>
+```
+
+### 浅色主题
+
+设置 `light` 属性，将组件背景色和输入框背景色反转。
+
+```html
+<jm-search v-model="search" light />
+```
+
+### 输入框提示文案靠左
+
+设置 `placeholder-left` 属性。
+
+```html
+<jm-search v-model="search" placeholder-left />
+```
+
+### 隐藏取消按钮
+
+设置 `hide-cancel` 属性。
+
+```html
+<jm-search v-model="search" hide-cancel />
+```
+
+### 禁用
+
+设置 `disabled` 属性。
+
+```html
+<jm-search v-model="search" disabled />
+```
+
+可以和 `hide-cancel` 结合使用，用于在本页只展示搜索框，当点击搜索框时，将页面路由切换进搜索页，在搜索页中再使用搜索功能。
+
+```html
+<jm-search v-model="search" hide-cancel disabled />
+```
+
+### 自定义
+
+通过设置 `placeholder` 修改输入框提示文案，`cancel-txt` 修改取消按钮文案。
+
+```html
+<jm-search v-model="search" placeholder="请输入订单号/订单名称" cancel-txt="搜索" />
 ```
 
 ### Arrtibute
@@ -86,6 +100,8 @@ export default {
 | placeholder-left | 搜索框占位文本是否靠左对齐        | boolean    | -         | false   |
 | hide-cancel     | 是否隐藏右侧文本                 | boolean    | -          | false   |
 | disabled        | 是否禁用搜索框                   | boolean    | -          | false   |
+| maxlength | 原生属性，设置最大长度 | string | - | - |
+| autofocus | 原生属性，是否自动聚焦，如果在页面加载时让其获得焦点，对于 android 有效， iOS 无效 | boolean | - | - |
 
 ### Events
 

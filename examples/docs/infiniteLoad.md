@@ -1,10 +1,6 @@
 ## InfiniteLoad 无限加载
 
-### 使用
-
-在需要进行加载的列表的底部引入该组件即可。
-
-#### 按需引入
+### 按需引入
 
 ```javascript
 import Vue from 'vue'
@@ -13,19 +9,28 @@ import { InfiniteLoad } from 'jm-design'
 Vue.use(InfiniteLoad)
 ```
 
-#### 示例
+### 基本用法
+
+在需要进行加载的列表的底部引入该组件即可。`loadmore` 当滑动到列表底部时，会调用该函数进行数据请求。
+`loading` 设置加载状态。如果没有更多数据了，通过 `ref` 调用该组件上面的 `loadEnd` 方法。
+
 
 ```html
 <template>
   <div class="list-container">
     <div class="list">
-      <div v-for="item in list" :key="item" class="list-item">{{ item }}</div>
+      <div v-for="(item, index) in list" :key="index" class="list-item">
+        <img :src="item.img" />
+        <div>{{ item.text }}</div>
+      </div>
     </div>
     <jm-infinite-load ref="loadmore" @loadmore="loadmore" :loading="loading" />
   </div>
 </template>
 
 <script>
+import Dog from '../assets/img/dog.png'
+
 export default {
   data () {
     return {
@@ -44,10 +49,14 @@ export default {
           let list = []
           this.num += 15
           for (let i = this.num - 15; i < this.num; i++) {
-            list.push(i + 1)
+            list.push({
+              img: Dog,
+              text: `这是一条测试${i + 1}`
+            })
           }
           this.list = this.list.concat(list)
           this.loading = false
+          // 模拟请求，请求3次，3次结束后设置加载结束
           this.time--
         }, 1000)
       } else {

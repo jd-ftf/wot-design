@@ -16,13 +16,63 @@ $-color-aid-red: #e2231a !default;
 $-color-icon: #c5c5c5 !default;                   // icon颜色
 $-color-line: #eee !default;                      // 分割线
 $-color-bg: #f4f4f4 !default;                     // 背景色
+$-color-border: #c5c5c5 !default;                 // 边框颜色
+
+/* 文字颜色 */
+$-color-title: #333 !default;     // 模块标题/重要正文
+$-color-text: #666 !default;      // 普通正文
+$-color-secondary: #A7A7A7 !default; // 次要信息，注释/补充/正文
+$-color-tip: #D2D2D2 !default;    // 弱化信息，引导性/不可点文字
 
 /* 尺寸 */
 $-size-side-padding: 15px !default;                 // 屏幕两边留白
 
 /* button */
-$-button-color-primary: $-color-theme !default;                   // 默认按钮颜色
-$-button-color-primary-active: $-color-theme-emph !default;      // 默认按钮颜色点击态
+$-button-color-normal: #333 !default;
+$-button-color-normal-active: #bfbfbf !default;
+$-button-color-normal-active-bg: #f2f2f2 !default;
+$-button-color-normal-active-border: #cbcbcb !default;
+$-button-color-normal-disabled: #dedede !default;
+$-button-color-normal-disabled-bg: #ffffff !default;
+$-button-color-normal-disabled-border: #f4f4f4 !default;
+$-button-color-primary: $-color-theme !default;
+$-button-color-primary-active: $-color-theme-emph !default;
+$-button-color-primary-disabled: $-color-theme-light !default;
+$-button-color-success: #00c740 !default;
+$-button-color-success-active: mix($-color-black, $-button-color-success, 18%) !default;
+$-button-color-success-disabled: mix($-color-white, $-button-color-success, 42%) !default;
+$-button-color-info: #909399 !default;
+$-button-color-info-active: mix($-color-black, $-button-color-info, 18%) !default;
+$-button-color-info-disabled: mix($-color-white, $-button-color-info, 42%) !default;
+$-button-color-warning: #ffb300 !default;
+$-button-color-warning-active: mix($-color-black, $-button-color-warning, 18%) !default;
+$-button-color-warning-disabled: mix($-color-white, $-button-color-warning, 42%) !default;
+$-button-color-error: #e2231a !default;
+$-button-color-error-active: mix($-color-black, $-button-color-error, 18%) !default;
+$-button-color-error-disabled: mix($-color-white, $-button-color-error, 42%) !default;
+$-button-color-border: $-color-secondary !default;
+$-button-small-height: 26px !default;
+$-button-small-padding: 0 10px !default;
+$-button-small-font-size: 12px !default;
+$-button-small-radius: 2px !default;
+$-button-small-round-radius: 13px !default;
+$-button-small-loading: 14px !default;
+$-button-medium-height: 32px !default;
+$-button-medium-padding: 0 15px !default;
+$-button-medium-font-size: 14px !default;
+$-button-medium-radius: 4px !default;
+$-button-medium-round-radius: 23px !default;
+$-button-medium-loading: 16px !default;
+$-button-large-height: 44px !default;
+$-button-large-padding: 0 36px !default;
+$-button-large-font-size: 16px !default;
+$-button-large-radius: 8px !default;
+$-button-large-round-radius: 23px !default;
+$-button-large-loading: 18px !default;
+$-button-suck-height: 50px !default;
+$-button-color-icon: #666 !default;
+$-button-color-icon-active: #eee !default;
+$-button-color-icon-disabled: #a7a7a7 !default;
 
 /* navbar */
 $-navbar-color-bg: $-color-theme !default;          // navbar背景颜色
@@ -39,3 +89,26 @@ $-slider-font-color: #333 !default;                    // 字体颜色
 $-slider-axie-bg-color: #e5e5e5 !default;              // 滑轴的默认背景色
 $-slider-disable-font-color: #d2d2d2 !default;         // 禁用状态下字体颜色
 $-slider-disable-line-color: #e5f3ff !default;         // 禁用状态下进度条的颜色
+
+/* switch */
+$-switch-color-active: $-color-theme !default;
+$-switch-color-active-shadow: rgba(0, 83, 162, 0.5) !default;
+$-switch-color-inactive: #fff !default;
+$-switch-color-inactive-shadow: rgba(0, 0, 0, 0.3) !default;
+$-switch-color-border: #e5e5e5 !default;
+
+/* radio */
+$-radio-size: 16px !default;
+$-radio-color-border: #a7a7a7 !default;
+$-radio-label-font-size: 12px !default;
+$-radio-color-checked: $-color-theme !default;
+$-radio-color-disabled: #f4f4f4 !default;
+$-radio-color-disabled-label: #dedede !default;
+
+/* checkbox */
+$-checkbox-size: 16px !default;
+$-checkbox-color-border: #a7a7a7 !default;
+$-checkbox-label-font-size: 12px !default;
+$-checkbox-color-checked: $-color-theme !default;
+$-checkbox-color-disabled: #f4f4f4 !default;
+$-checkbox-color-disabled-label: #dedede !default;

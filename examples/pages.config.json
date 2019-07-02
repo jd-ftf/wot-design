@@ -39,6 +39,11 @@
                 "path": "/icon",
                 "demo": "/icon"
               },
+              "Lazyload": {
+                "name": "Lazyload 图片懒加载",
+                "path": "/lazyload",
+                "demo": "/lazyload"
+              },
               "Navbar": {
                 "name": "Navbar 导航栏",
                 "path": "/navbar",
@@ -68,15 +73,15 @@
                 "path": "/pullRefresh",
                 "demo": "/pullRefresh"
               },
-              "Search": {
-                "name": "Search 搜索框",
-                "path": "/search",
-                "demo": "/search"
-              },
               "Slider": {
                 "name": "Slider 滑块",
                 "path": "/slider",
                 "demo": "/slider"
+              },
+              "Swipe": {
+                "name": "Swipe 轮播图",
+                "path": "/swipe",
+                "demo": "/swipe"
               },
               "Toast": {
                 "name": "Toast 轻提示",
@@ -87,10 +92,35 @@
           }, {
             "name": "表单",
             "list": {
+              "Checkbox": {
+                "name": "Checkbox 复选框",
+                "path": "/checkbox",
+                "demo": "/checkbox"
+              },
+              "Input": {
+                "name": "Input 输入框",
+                "path": "/input",
+                "demo": "/input"
+              },
+              "Radio": {
+                "name": "Radio 单选框",
+                "path": "/radio",
+                "demo": "/radio"
+              },
               "Rate": {
                 "name": "Rate 评分",
                 "path": "/rate",
                 "demo": "/rate"
+              },
+              "Search": {
+                "name": "Search 搜索框",
+                "path": "/search",
+                "demo": "/search"
+              },
+              "Switch": {
+                "name": "Switch 开关",
+                "path": "/switch",
+                "demo": "/switch"
               }
             }
           }

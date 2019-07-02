@@ -3,11 +3,13 @@ import router from './route'
 import App from './App'
 import './assets/style/base.scss'
 import './assets/fonts/iconfont.css'
-import DemoBlock from './components/demoBlock.vue'
+import { isMac } from './utils/index'
 
 Vue.config.productionTip = false
 
-Vue.component(DemoBlock.name, DemoBlock)
+if (!isMac) {
+  document.body.classList.add('body-scrollbar')
+}
 
 /* eslint-disable no-new */
 new Vue({

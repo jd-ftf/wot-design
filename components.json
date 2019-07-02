@@ -1,13 +1,19 @@
 {
   "button": "./packages/button/index.js",
+  "checkbox": "./packages/checkbox/index.js",
+  "checkboxGroup": "./packages/checkboxGroup/index.js",
   "icon": "./packages/icon/index.js",
   "infiniteLoad": "./packages/infiniteLoad/index.js",
+  "input": "./packages/input/index.js",
   "loading": "./packages/loading/index.js",
   "messageBox": "./packages/messageBox/index.js",
   "navbar": "./packages/navbar/index.js",
   "pullRefresh": "./packages/pullRefresh/index.js",
+  "radio": "./packages/radio/index.js",
+  "radioGroup": "./packages/radioGroup/index.js",
   "rate": "./packages/rate/index.js",
   "search": "./packages/search/index.js",
   "slider": "./packages/slider/index.js",
+  "switch": "./packages/switch/index.js",
   "toast": "./packages/toast/index.js"
 }

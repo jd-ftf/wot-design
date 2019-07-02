@@ -1,14 +1,14 @@
 <template>
   <div class="jm-pull-refresh">
     <div class="jm-pull-refresh__container" :class="{ 'dropping': topDropped }" :style="{ 'transform': transform }">
-      <transition name="slice-down" v-if="showTip">
+      <transition name="jm-slice-down" v-if="showTip">
         <div class="jm-pull-refresh__tip" v-show="tipShow">
           {{ tipText }}
         </div>
       </transition>
       <slot name="top">
         <div class="jm-pull-refresh__top">
-          <jm-indicator v-if="topStatus == 'loading'" class="jm-pull-refresh__loading" type="spinner" size="20px" color="#a7a7a7" />
+          <jm-indicator v-if="topStatus == 'loading'" class="jm-pull-refresh__loading" type="spinner" size="16px" color="#a7a7a7" />
           <i
             class="jm-pull-refresh__arrow"
             :class="{

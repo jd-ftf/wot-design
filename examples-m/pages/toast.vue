@@ -1,24 +1,13 @@
 <template>
-  <div>
+  <div class="page-toast">
     <white-space>
-      <div class="demo-item">
-        <jm-button @click="handleToast1">纯文字toast</jm-button>
-      </div>
-      <div class="demo-item">
-        <jm-button @click="handleToast2">成功toast</jm-button>
-      </div>
-      <div class="demo-item">
-        <jm-button @click="handleToast3">错误toast</jm-button>
-      </div>
-      <div class="demo-item">
-        <jm-button @click="handleToast4">警告toast</jm-button>
-      </div>
-      <div class="demo-item">
-        <jm-button @click="handleToast5">顶部toast</jm-button>
-      </div>
-      <div class="demo-item">
-        <jm-button @click="handleToast6">底部toast</jm-button>
-      </div>
+      <div slot="desc">基本用法</div>
+      <jm-button type="primary" plain @click="handleToast1">纯文字toast</jm-button>
+      <jm-button type="primary" plain @click="handleToast2">成功toast</jm-button>
+      <jm-button type="primary" plain @click="handleToast3">错误toast</jm-button>
+      <jm-button type="primary" plain @click="handleToast4">警告toast</jm-button>
+      <jm-button type="primary" plain @click="handleToast5">顶部toast</jm-button>
+      <jm-button type="primary" plain @click="handleToast6">底部toast</jm-button>
     </white-space>
     <white-space>
       <div slot="desc">
@@ -30,7 +19,7 @@
           你可以反复点击下面这个按钮进行尝试
         </p>
       </div>
-      <jm-button @click="handleToast7">同时只展示一个toast</jm-button>
+      <jm-button type="primary" plain @click="handleToast7">同时只展示一个toast</jm-button>
     </white-space>
     <white-space>
       如果你使用的是单页面路由，在toast没关闭之前跳转页面，那toast是会依旧存在的，因为toast不是挂载在路由
@@ -40,7 +29,7 @@
       <div slot="desc">
         Toast实例具有close()方法，可以手动关闭弹窗，不过你需要用一个变量保存调用toast返回的实例
       </div>
-      <jm-button @click="handleToast8">手动关闭“警告Toast”</jm-button>
+      <jm-button type="primary" plain @click="handleToast8">手动关闭“警告Toast”</jm-button>
     </white-space>
   </div>
 </template>
@@ -100,3 +89,11 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+.page-toast {
+  .jm-button {
+    margin: 0 10px 10px 0;
+  }
+}
+</style>

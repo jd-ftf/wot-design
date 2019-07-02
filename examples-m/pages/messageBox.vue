@@ -1,24 +1,28 @@
 <template>
   <div>
     <white-space>
-      <div slot="desc">Alert 弹框</div>
-      <jm-button @click="alert">alert</jm-button>
+      <div slot="desc"><code>alert</code>类型的弹框</div>
+      <jm-button type="primary" plain @click="alert">alert</jm-button>
     </white-space>
     <white-space>
-      <div slot="desc">Confirm 弹框</div>
-      <jm-button @click="confirm">confirm</jm-button>
+      <div slot="desc">显示标题</div>
+      <jm-button type="primary" plain @click="alert2">alert</jm-button>
     </white-space>
     <white-space>
-      <div slot="desc">Prompt 弹框</div>
-      <jm-button @click="prompt">prompt</jm-button>
+      <div slot="desc"><code>confirm</code>类型的弹框</div>
+      <jm-button type="primary" plain @click="confirm">confirm</jm-button>
     </white-space>
     <white-space>
-      <div slot="desc">文案过长</div>
-      <jm-button @click="alert2">alert</jm-button>
+      <div slot="desc"><code>prompt</code>类型的弹框，支持输入框输入和校验</div>
+      <jm-button type="primary" plain @click="prompt">prompt</jm-button>
     </white-space>
     <white-space>
-      <div slot="desc">使用其他组件</div>
-      <jm-button @click="custom">custom</jm-button>
+      <div slot="desc">当文案过长时，弹框的高度不再增加，而是将文案内容设置成滚动</div>
+      <jm-button type="primary" plain @click="alert3">alert</jm-button>
+    </white-space>
+    <white-space>
+      <div slot="desc">使用<code>jm-message-box</code>组件，通过<code>slot</code>插入其他组件内容</div>
+      <jm-button type="primary" plain @click="custom">custom</jm-button>
       <jm-message-box :show="isShow" show-cancel-button @action="handleAction" title="评分">
         <jm-rate v-model="rate" />
       </jm-message-box>
@@ -38,6 +42,9 @@ export default {
     alert () {
       this.$messageBox.alert('操作成功')
     },
+    alert2 () {
+      this.$messageBox.alert('提示文案', '标题')
+    },
     confirm () {
       this.$messageBox.confirm('是否删除', '提示').then(() => {
         this.$messageBox.alert('删除成功')
@@ -50,7 +57,7 @@ export default {
         this.$messageBox.alert(`你输入的邮箱是： ${value}`)
       })
     },
-    alert2 () {
+    alert3 () {
       this.$messageBox.alert('以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文', '标题')
     },
     custom () {
