@@ -15,5 +15,7 @@
   "search": "./packages/search/index.js",
   "slider": "./packages/slider/index.js",
   "switch": "./packages/switch/index.js",
+  "swipe": "./packages/swipe/index.js",
+  "swipeItem": "./packages/swipeItem/index.js",
   "toast": "./packages/toast/index.js"
 }
