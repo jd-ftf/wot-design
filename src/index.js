@@ -15,6 +15,8 @@ import Rate from 'jm-design/rate'
 import Search from 'jm-design/search'
 import Slider from 'jm-design/slider'
 import Switch from 'jm-design/switch'
+import Swipe from 'jm-design/swipe'
+import SwipeItem from 'jm-design/swipeItem'
 import Toast from 'jm-design/toast'
 
 import lazyPlaceholder from './img/placeholder.png'
@@ -35,7 +37,9 @@ const components = [
   Rate,
   Search,
   Slider,
-  Switch
+  Switch,
+  Swipe,
+  SwipeItem
 ]
 
 const install = (Vue, config = {}) => {
