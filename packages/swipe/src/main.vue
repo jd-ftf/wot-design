@@ -78,12 +78,12 @@ export default {
       type: Boolean,
       default: true
     },
+    vertical: Boolean,
     height: String,
     space: {
       type: Number,
       default: 0
-    },
-    vertical: Boolean
+    }
   },
   watch: {
     items () {

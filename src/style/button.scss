@@ -60,7 +60,7 @@
   @include when(loading) {
     background: transparent;
   }
-} 
+}
 
 @include b(button) {
   outline: none;
@@ -246,5 +246,9 @@
     display: inline-block;
     margin-right: 2px;
     font-size: $-button-medium-font-size;
+  }
+
+  @include e(txt) {
+    user-select: none;
   }
 }

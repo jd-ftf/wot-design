@@ -104,7 +104,7 @@ Vue.use(Button)
 <jm-button type="primary" block>加载中</jm-button>
 ```
 
-### Arrtibute
+### Attributes
 
 | 参数      | 说明                                 | 类型      | 可选值       | 默认值   |
 |---------- |------------------------------------ |---------- |------------- |-------- |
