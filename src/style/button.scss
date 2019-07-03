@@ -80,14 +80,15 @@
     border-color: $-button-color-normal-active-border;
   }
   @include when(disabled) {
+    color: $-button-color-normal-disabled;
+    background: $-button-color-normal-disabled-bg;
+    border-color: $-button-color-normal-disabled-border;
+    
     &:active {
       color: $-button-color-normal-disabled;
       background: $-button-color-normal-disabled-bg;
       border-color: $-button-color-normal-disabled-border;
     }
-    color: $-button-color-normal-disabled;
-    background: $-button-color-normal-disabled-bg;
-    border-color: $-button-color-normal-disabled-border;
   }
 
   @include e(loading) {
