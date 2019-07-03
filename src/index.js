@@ -4,6 +4,7 @@ import CheckboxGroup from 'jm-design/checkboxGroup'
 import Icon from 'jm-design/icon'
 import InfiniteLoad from 'jm-design/infiniteLoad'
 import Input from 'jm-design/input'
+import InputNumber from 'jm-design/inputNumber'
 import Lazyload from 'jm-design/lazyload'
 import Loading from 'jm-design/loading'
 import MessageBox from 'jm-design/messageBox'
@@ -28,6 +29,7 @@ const components = [
   Icon,
   InfiniteLoad,
   Input,
+  InputNumber,
   Loading.Indicator,
   MessageBox.jmMessageBox,
   Navbar,
