@@ -22,6 +22,7 @@
   @include when(disabled) {
     .jm-input__inner, .jm-input__textarea-inner {
       color: $-color-tip;
+      background: transparent;
     }
   }
   @include e(inner) {
