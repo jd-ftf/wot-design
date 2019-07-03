@@ -1,9 +1,6 @@
 <template>
   <div class="page-navbar">
-    <white-space :hor="0">
-      <div slot="desc">
-        默认深色Navbar
-      </div>
+    <space title="默认深色Navbar">
       <jm-navbar title="标题"></jm-navbar>
       <jm-navbar title="左侧文字">
         <div slot="left">
@@ -27,11 +24,8 @@
           <span class="middle">返回</span>
         </div>
       </jm-navbar>
-    </white-space>
-    <white-space :hor="0" color="#f8f8f8">
-      <div slot="desc">
-        淡色Navbar
-      </div>
+    </space>
+    <space title="淡色Navbar">
       <jm-navbar title="标题" light></jm-navbar>
       <jm-navbar title="左侧文字" light>
         <div slot="left">
@@ -55,7 +49,7 @@
           <span class="middle">返回</span>
         </div>
       </jm-navbar>
-    </white-space>
+    </space>
   </div>
 </template>
 
