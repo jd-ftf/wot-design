@@ -16,8 +16,9 @@
         :min="min"
         :max="max"
         :disabled="disabled"
-        :value="currentValue"
+        :value="displayValue"
         @input="handleInput"
+        @change="handleChange"
         @blur="handleBlur"
       />
       <i class="jm-input-number__input-border"></i>
@@ -33,7 +34,7 @@ export default {
   name: 'JmInputNumber',
   data () {
     return {
-      currentValue: ''
+      inputValue: ''
     }
   },
   props: {
@@ -59,23 +60,34 @@ export default {
     withoutInput: Boolean,
     inputWidth: String
   },
-  watch: {
-    value: {
-      immediate: true,
-      handler (value) {
-        this.currentValue = value
-      }
-    }
-  },
   computed: {
     minDisabled () {
       return this.disabled || this.value <= this.min || (this.value - this.step) < this.min
     },
     maxDisabled () {
       return this.disabled || this.value >= this.max || (this.value + this.step) > this.max
+    },
+    displayValue () {
+      if (this.inputValue) {
+        return this.inputValue
+      }
+
+      return this.value
     }
   },
   methods: {
+    toPrecision (value) {
+      return parseFloat(Math.round(value * Math.pow(10, this.precision)) / Math.pow(10, this.precision))
+    },
+    setValue (value) {
+      if (value !== undefined && this.precision) {
+        value = this.toPrecision(value)
+      }
+      if (value > this.max) value = this.max
+      if (value < this.min) value = this.min
+      this.$emit('input', value)
+      this.$emit('change', value)
+    },
     sub () {
       if (this.minDisabled) return
 
@@ -87,13 +99,15 @@ export default {
       this.$emit('input', parseFloat(this.value) + this.step)
     },
     handleInput (event) {
-      let value = parseFloat(event.target.value)
-      this.$emit('input', value)
+      this.inputValue = event.target.value
+    },
+    handleChange (event) {
+      let value = event.target.value === '' ? this.min : Number(event.target.value)
+      this.setValue(value)
+      this.inputValue = null
     },
     handleBlur () {
-      if (!this.value) {
-        this.$emit('input', this.min)
-      }
+      this.$emit('blur')
     },
     format (value) {
       value = value || 0
