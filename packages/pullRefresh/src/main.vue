@@ -1,7 +1,7 @@
 <template>
   <div class="jm-pull-refresh">
     <div class="jm-pull-refresh__container" :class="{ 'dropping': topDropped }" :style="{ 'transform': transform }">
-      <transition name="jm-slice-down" v-if="showTip">
+      <transition name="jm-slice-down" v-if="tipText">
         <div class="jm-pull-refresh__tip" v-show="tipShow">
           {{ tipText }}
         </div>
@@ -54,10 +54,6 @@ export default {
       type: Number,
       default: 0
     },
-    showTip: {
-      type: Boolean,
-      default: false
-    },
     tipText: String,
     disabled: {
       type: Boolean,
@@ -91,7 +87,7 @@ export default {
   },
   computed: {
     transform () {
-      return this.translate === 0 ? null : `translate3d(0, ${this.translate}px, 0)`
+      return this.translate === 0 ? null : `translate3d(0, ${this.ease(this.translate)}px, 0)`
     }
   },
   components: {
@@ -105,7 +101,7 @@ export default {
           this.topStatus = 'pull'
         }, 200)
 
-        if (this.showTip) {
+        if (this.tipText) {
           this.tipShowTimer = setTimeout(() => {
             this.tipShow = true
           }, 300)
@@ -189,7 +185,7 @@ export default {
         return
       }
 
-      if (this.showTip) {
+      if (this.tipText) {
         this.tipShowTimer && clearTimeout(this.tipShowTimer)
         this.tipHideTimer && clearTimeout(this.tipHideTimer)
         this.tipShow = false
@@ -264,6 +260,14 @@ export default {
       this.fingerStatus = 'out'
 
       this.$emit('drag-end', this.topStatus)
+    },
+    ease (height) {
+      const { topDistance } = this
+      return height < topDistance
+        ? height
+        : height < topDistance * 2
+          ? Math.round(topDistance + (height - topDistance) / 2)
+          : Math.round(topDistance * 1.5 + (height - topDistance * 2) / 4)
     }
   },
   mounted () {

@@ -152,7 +152,7 @@ this.$messageBox.prompt(title, options) //  title 可以跳过不写，即支持
 
 ### MessageBox JS 调用
 
-#### Options Arrtibute
+#### Options Attributes
 
 | 参数      | 说明                                 | 类型      | 可选值       | 默认值   |
 |---------- |------------------------------------ |---------- |------------- |-------- |
@@ -170,7 +170,7 @@ this.$messageBox.prompt(title, options) //  title 可以跳过不写，即支持
 
 ### MessageBox 组件调用
 
-#### Arrtibute
+#### Attributes
 
 | 参数      | 说明                                 | 类型      | 可选值       | 默认值   |
 |---------- |------------------------------------ |---------- |------------- |-------- |
