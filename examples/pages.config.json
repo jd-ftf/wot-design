@@ -34,6 +34,11 @@
                 "path": "/button",
                 "demo": "/button"
               },
+              "Cell": {
+                "name": "Cell 单元格",
+                "path": "/cell",
+                "demo": "/cell"
+              },
               "Icon": {
                 "name": "Icon 图标",
                 "path": "/icon",

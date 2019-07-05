@@ -1,0 +1,32 @@
+@import './abstracts/variable';
+@import './abstracts/mixin';
+@import './icon.scss';
+
+
+.jm-cell-group {
+  background-color: $-color-white;
+  box-sizing: border-box;
+  color: inherit;
+  min-height: 45px;
+  display: block;
+  overflow: hidden;
+  position: relative;
+  text-decoration: none;
+  padding: 0 10px;
+  width: 100%;
+  font-size: 16px;
+  line-height: 1;
+  align-items: center;
+  display: flex;
+  .jm-cell-group-left{
+    text-align: left;
+  }
+  .jm-cell-group-right{
+    text-align: right;
+  }
+  .jm-cell-group-title{
+    font-weight: normal;
+    font-size: 16px;
+    flex: 1;
+  }
+}
