@@ -83,6 +83,11 @@
                 "path": "/swipe",
                 "demo": "/swipe"
               },
+              "Tab": {
+                "name": "Tab 标签页",
+                "path": "/tab",
+                "demo": "/tab"
+              },
               "Toast": {
                 "name": "Toast 轻提示",
                 "path": "/toast",
