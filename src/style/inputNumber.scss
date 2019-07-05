@@ -55,6 +55,7 @@
     text-align: center;
     color: $-inputNumber-color;
     font-size: 12px;
+    -webkit-appearance: none;
   }
   @include e(input-border) {
     position: absolute;
