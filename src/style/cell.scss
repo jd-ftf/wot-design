@@ -1,0 +1,113 @@
+@import './abstracts/variable';
+@import './abstracts/mixin';
+@import './icon.scss';
+
+
+.jm-cell {
+    background-color: $-color-white;
+    box-sizing: border-box;
+    color: inherit;
+    min-height: 45px;
+    display: block;
+    overflow: hidden;
+    position: relative;
+    text-decoration: none;
+
+    &:first-child {
+      .jm-cell-wrapper {
+        background-origin: border-box;
+      }
+    }
+
+    &:last-child {
+      background-image: linear-gradient(0deg, $-color-grey, $-color-grey 50%, transparent 50%);
+      background-size: 100% 1px;
+      background-repeat: no-repeat;
+      background-position: bottom;
+    }
+
+    .jm-cell-wrapper {
+      background: linear-gradient(180deg, $-color-grey, $-color-grey 50%, transparent 50%) no-repeat top left;
+      background-size: 120% 1px;
+      background-origin: content-box;
+      align-items: center;
+      box-sizing: border-box;
+      display: flex;
+      font-size: 16px;
+      line-height: 1;
+      min-height: inherit;
+      overflow: hidden;
+      padding: 0 10px;
+      width: 100%;
+    }
+
+    .jm-cell-mask {
+      &::after {
+        background-color: #000;
+        content: " ";
+        opacity: 0;
+        position: absolute;
+      }
+
+      &:active::after {
+        opacity: .1;
+      }
+    }
+
+    .jm-cell-text {
+      vertical-align: middle;
+    }
+
+    .jm-cell-label {
+      color: #888;
+      display: block;
+      font-size: 12px;
+      margin-top: 6px;
+    }
+
+    img {
+      vertical-align: middle;
+    }
+
+    .jm-cell-title {
+      flex: 1;
+    }
+
+    .jm-cell-value {
+      color: $-cell-value-color;
+      display: flex;
+      align-items: center;
+
+      .is-link {
+        margin-right: 24px;
+      }
+    }
+
+    .jm-cell-left {
+      position: absolute;
+      height: 100%;
+      left: 0;
+      transform: translate3d(-100%, 0, 0);
+    }
+
+    .jm-cell-right {
+      position: absolute;
+      height: 100%;
+      right: 0;
+      top: 0;
+      transform: translate3d(100%, 0, 0);
+    }
+
+    .jm-cell-allow-right::after {
+      border: solid 2px $-border-color;
+      border-bottom-width: 0;
+      border-left-width: 0;
+      content: " ";
+      position: absolute;
+      top:50%;
+      right:20px;
+      width:5px;
+      height:5px;
+      transform: translateY(-50%) rotate(45deg);
+    }
+}

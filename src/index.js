@@ -1,4 +1,6 @@
 import Button from 'jm-design/button'
+import Cell from 'jm-design/cell'
+import CellGroup from 'jm-design/cellGroup'
 import Checkbox from 'jm-design/checkbox'
 import CheckboxGroup from 'jm-design/checkboxGroup'
 import Icon from 'jm-design/icon'
@@ -21,6 +23,8 @@ import lazyPlaceholder from './img/placeholder.png'
 
 const components = [
   Button,
+  Cell,
+  CellGroup,
   Checkbox,
   CheckboxGroup,
   Icon,
@@ -61,6 +65,8 @@ export default {
   version: '0.2.5',
   install,
   Button,
+  Cell,
+  CellGroup,
   Icon,
   InfiniteLoad,
   Navbar,
