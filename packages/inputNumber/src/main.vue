@@ -12,6 +12,9 @@
     <div v-if="!withoutInput" class="jm-input-number__inner">
       <input
         class="jm-input-number__input"
+        :style="{
+          'width': inputWidth
+        }"
         type="number"
         :min="min"
         :max="max"
@@ -34,7 +37,7 @@ export default {
   name: 'JmInputNumber',
   data () {
     return {
-      inputValue: ''
+      inputValue: null
     }
   },
   props: {
@@ -60,27 +63,53 @@ export default {
     withoutInput: Boolean,
     inputWidth: String
   },
+  watch: {
+    value: {
+      immediate: true,
+      handler () {
+        this.$emit('input', this.formatValue(this.value))
+      }
+    }
+  },
   computed: {
     minDisabled () {
-      return this.disabled || this.value <= this.min || (this.value - this.step) < this.min
+      return this.disabled || this.value <= this.min || this.changeStep(this.value, -this.step) < this.min
     },
     maxDisabled () {
-      return this.disabled || this.value >= this.max || (this.value + this.step) > this.max
+      return this.disabled || this.value >= this.max || this.changeStep(this.value, this.step) > this.max
     },
     displayValue () {
-      if (this.inputValue) {
+      if (this.inputValue !== null) {
         return this.inputValue
       }
 
-      return this.value
+      return this.formatValue(this.value)
     }
   },
   methods: {
     toPrecision (value) {
       return parseFloat(Math.round(value * Math.pow(10, this.precision)) / Math.pow(10, this.precision))
     },
+    getPrecision (value) {
+      if (value === undefined) return 0
+      const valueString = value.toString()
+      const dotPosition = valueString.indexOf('.')
+      let precision = 0
+      if (dotPosition !== -1) {
+        precision = valueString.length - dotPosition - 1
+      }
+      return precision
+    },
+    toStrictlyStep (value) {
+      const stepPrecision = this.getPrecision(this.step)
+      const precisionFactory = Math.pow(10, stepPrecision)
+      return Math.round(value / this.step) * precisionFactory * this.step / precisionFactory
+    },
     setValue (value) {
-      if (value !== undefined && this.precision) {
+      if (this.stepStrictly) {
+        value = this.toStrictlyStep(value)
+      }
+      if (value !== undefined && this.precision !== undefined) {
         value = this.toPrecision(value)
       }
       if (value > this.max) value = this.max
@@ -88,15 +117,26 @@ export default {
       this.$emit('input', value)
       this.$emit('change', value)
     },
+    changeStep (val, step) {
+      val = Number(val)
+
+      if (isNaN(val)) {
+        return this.min
+      }
+
+      const precisionFactory = Math.pow(10, this.precision)
+
+      return this.toPrecision((val * precisionFactory + step * precisionFactory) / precisionFactory)
+    },
     sub () {
       if (this.minDisabled) return
 
-      this.$emit('input', parseFloat(this.value) - this.step)
+      this.$emit('input', this.changeStep(this.value, -this.step))
     },
     add () {
       if (this.maxDisabled) return
 
-      this.$emit('input', parseFloat(this.value) + this.step)
+      this.$emit('input', this.changeStep(this.value, this.step))
     },
     handleInput (event) {
       this.inputValue = event.target.value
@@ -109,9 +149,22 @@ export default {
     handleBlur () {
       this.$emit('blur')
     },
-    format (value) {
-      value = value || 0
-      return parseFloat(value).toFixed(this.precision)
+    formatValue (value) {
+      value = Number(this.value)
+
+      if (isNaN(value)) {
+        value = this.min
+      }
+
+      if (this.stepStrictly) {
+        value = this.toStrictlyStep(value)
+      }
+
+      if (this.precision) {
+        value = value.toFixed(this.precision)
+      }
+
+      return value
     }
   }
 }

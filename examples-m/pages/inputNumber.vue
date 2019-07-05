@@ -39,6 +39,18 @@
       </template>
       <jm-input-number v-model="value6" :precision="2" :step="0.1" />
     </white-space>
+    <white-space>
+      <template #desc>
+        <div>输入严格为步数的倍数<code>step-strictly</code></div>
+      </template>
+      <jm-input-number v-model="value7" step-strictly :step="2" />
+    </white-space>
+    <white-space>
+      <template #desc>
+        <div>修改输入框宽度<code>input-width</code></div>
+      </template>
+      <jm-input-number v-model="value8" input-width="70px" />
+    </white-space>
   </div>
 </template>
 
@@ -51,7 +63,9 @@ export default {
       value3: 4,
       value4: 2,
       value5: 1,
-      value6: 1
+      value6: '1.205',
+      value7: 1,
+      value8: 1
     }
   }
 }
