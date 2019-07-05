@@ -44,6 +44,9 @@
         "name": "Swipe 轮播图",
         "path": "/swipe"
       }, {
+        "name": "Tab 标签页",
+        "path": "/tab"
+      }, {
         "name": "Toast 轻提示",
         "path": "/toast"
       }

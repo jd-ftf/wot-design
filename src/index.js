@@ -20,6 +20,8 @@ import Slider from 'jm-design/slider'
 import Switch from 'jm-design/switch'
 import Swipe from 'jm-design/swipe'
 import SwipeItem from 'jm-design/swipeItem'
+import Tab from 'jm-design/tab'
+import Tabs from 'jm-design/tabs'
 import Toast from 'jm-design/toast'
 
 import lazyPlaceholder from './img/placeholder.png'
@@ -45,7 +47,9 @@ const components = [
   Slider,
   Switch,
   Swipe,
-  SwipeItem
+  SwipeItem,
+  Tab,
+  Tabs
 ]
 
 const install = (Vue, config = {}) => {
