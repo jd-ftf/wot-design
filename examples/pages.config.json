@@ -84,9 +84,9 @@
                 "demo": "/swipe"
               },
               "Tab": {
-                "name": "Tab 标签页",
-                "path": "/tab",
-                "demo": "/tab"
+                "name": "Tabs 标签页",
+                "path": "/tabs",
+                "demo": "/tabs"
               },
               "Toast": {
                 "name": "Toast 轻提示",

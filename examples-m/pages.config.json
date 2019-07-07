@@ -38,8 +38,8 @@
         "name": "Swipe 轮播图",
         "path": "/swipe"
       }, {
-        "name": "Tab 标签页",
-        "path": "/tab"
+        "name": "Tabs 标签页",
+        "path": "/tabs"
       }, {
         "name": "Toast 轻提示",
         "path": "/toast"
