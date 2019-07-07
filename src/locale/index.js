@@ -1,9 +1,9 @@
 import Vue from 'vue'
-import zhCN from './lang/zh_CN'
+import zhCN from './lang/zh-CN'
 
 let message = zhCN
 
-let $t = (...args) => {
+let translate = function (...args) {
   let translate = Object.getPrototypeOf(this || Vue).$t
   if (translate && typeof translate === 'function') {
     return translate.apply(this, args)
@@ -11,7 +11,7 @@ let $t = (...args) => {
 }
 
 export function t (key, options) {
-  let value = $t.apply(this, arguments)
+  let value = translate.apply(this, arguments)
 
   if (!value) {
     let keys = key.split('.')
@@ -50,8 +50,8 @@ export function use (langMessage) {
   message = langMessage || zhCN
 }
 
-export function i18n (translate) {
-  $t = translate || $t
+export function i18n (fn) {
+  translate = fn || translate
 }
 
 export default {

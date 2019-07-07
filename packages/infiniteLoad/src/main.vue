@@ -53,10 +53,10 @@ export default {
   computed: {
     showText () {
       return this.isFinished
-        ? (this.finishedText || this.$t('jmd.infiniteLoad.finished'))
+        ? (this.finishedText || this.t('jmd.infiniteLoad.finished'))
         : this.isError
-          ? (this.errorText || this.$t('jmd.infiniteLoad.error'))
-          : (this.loadingText || this.$t('jmd.infiniteLoad.loading'))
+          ? (this.errorText || this.t('jmd.infiniteLoad.error'))
+          : (this.loadingText || this.t('jmd.infiniteLoad.loading'))
     }
   },
   methods: {
