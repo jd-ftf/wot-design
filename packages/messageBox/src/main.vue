@@ -25,12 +25,12 @@
               <input
                 :type="inputType"
                 v-model="inputValue"
-                :placeholder="inputPlaceholder || $t('jmd.messageBox.inputPlaceholder')"
+                :placeholder="inputPlaceholder || t('jmd.messageBox.inputPlaceholder')"
                 class="jm-message-box__input"
               />
             </div>
             <div v-show="showErr" class="jm-message-box__input-error">
-              {{ inputError || $t('jmd.messageBox.inputNoValidate') }}
+              {{ inputError || t('jmd.messageBox.inputNoValidate') }}
             </div>
           </div>
         </div>
@@ -39,12 +39,12 @@
             v-if="showCancelButton"
             class="jm-message-box__button jm-message-box__button--cancel"
             @click="toggleModal('cancel')">
-            {{ cancelButtonText || $t('jmd.messageBox.cancel') }}
+            {{ cancelButtonText || t('jmd.messageBox.cancel') }}
           </button>
           <button type="button"
             class="jm-message-box__button jm-message-box__button--confirm"
             @click="toggleModal('confirm')">
-            {{ confirmButtonText || $t('jmd.messageBox.confirm') }}
+            {{ confirmButtonText || t('jmd.messageBox.confirm') }}
           </button>
         </div>
       </div>

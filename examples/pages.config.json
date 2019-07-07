@@ -18,6 +18,11 @@
           "path": "/quickUse",
           "demo": "/"
         },
+        "locale": {
+          "name": "国际化",
+          "path": "/locale",
+          "demo": "/"
+        },
         "CustomTheme": {
           "name": "自定义主题",
           "path": "/customTheme",

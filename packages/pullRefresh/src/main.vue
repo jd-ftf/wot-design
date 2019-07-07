@@ -109,13 +109,13 @@ export default {
 
       switch (val) {
         case 'pull':
-          this.topText = this.topPullText || this.$t('jmd.pullRefresh.topPull')
+          this.topText = this.topPullText || this.t('jmd.pullRefresh.topPull')
           break
         case 'drop':
-          this.topText = this.topDropText || this.$t('jmd.pullRefresh.topDrop')
+          this.topText = this.topDropText || this.t('jmd.pullRefresh.topDrop')
           break
         case 'loading':
-          this.topText = this.topLoadingText || this.$t('jmd.pullRefresh.topLoading')
+          this.topText = this.topLoadingText || this.t('jmd.pullRefresh.topLoading')
           break
       }
     }
@@ -150,7 +150,7 @@ export default {
       this.$el.removeEventListener('touchcancel', this.handleTouchEnd)
     },
     init () {
-      this.topText = this.topPullText || this.$t('jmd.pullRefresh.topPull')
+      this.topText = this.topPullText || this.t('jmd.pullRefresh.topPull')
       this.scrollEventTarget = this.getScrollTargetEvent(this.$el)
       this.bindTouchEvent()
     },
