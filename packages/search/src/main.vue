@@ -20,21 +20,24 @@
       </form>
       <div class="jm-search__placeholder" :class="{ 'is-focus': isFocus || (!typing && value) || placeholderLeft }">
         <i class="jm-icon-search jm-search__search-icon"></i>
-        <span v-show="!typing && !value" class="jm-search__placeholder-txt">{{ placeholder || '搜索' }}</span>
+        <span v-show="!typing && !value" class="jm-search__placeholder-txt">{{ placeholder || $t('jmd.search.search') }}</span>
       </div>
       <i v-show="typing || value" class="jm-search__clear jm-icon-close-fill" @click="clearSearch"></i>
     </div>
     <slot name="action">
       <div v-show="!hideCancel" class="jm-search__cancel" @click="handleCancel">
-        {{ cancelTxt || '取消' }}
+        {{ cancelTxt || $t('jmd.search.cancel') }}
       </div>
     </slot>
   </div>
 </template>
 
 <script>
+import locale from '@/mixins/locale'
+
 export default {
   name: 'JmSearch',
+  mixins: [locale],
   props: {
     value: String,
     placeholder: String,

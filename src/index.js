@@ -21,6 +21,7 @@ import SwipeItem from 'jm-design/swipeItem'
 import Tab from 'jm-design/tab'
 import Tabs from 'jm-design/tabs'
 import Toast from 'jm-design/toast'
+import locale from './locale'
 
 import lazyPlaceholder from './img/placeholder.png'
 
@@ -49,6 +50,8 @@ const components = [
 ]
 
 const install = (Vue, config = {}) => {
+  locale.use(config.locale)
+
   components.forEach(component => {
     Vue.component(component.name, component)
   })
@@ -69,6 +72,7 @@ if (typeof window !== 'undefined' && window.Vue) {
 
 export default {
   version: '0.2.5',
+  locale,
   install,
   Button,
   Icon,

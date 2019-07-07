@@ -1,5 +1,5 @@
 <template>
-  <div v-show="!isFinished || finishedText" class="jm-infinite-load" ref="loadmore" @click="reload">
+  <div class="jm-infinite-load" ref="loadmore" @click="reload">
     <slot>
       <jm-icon
         v-show="!isFinished && !isError"
@@ -12,10 +12,12 @@
 </template>
 
 <script>
+import locale from '@/mixins/locale'
 import JmIcon from '../../icon'
 
 export default {
   name: 'JmInfiniteLoad',
+  mixins: [locale],
   data () {
     return {
       isError: false,
@@ -26,18 +28,9 @@ export default {
   },
   props: {
     loading: Boolean,
-    loadingText: {
-      type: String,
-      default: '加载中...'
-    },
-    finishedText: {
-      type: String,
-      default: '没有更多了'
-    },
-    errorText: {
-      type: String,
-      default: '加载失败，点击重试'
-    },
+    loadingText: String,
+    finishedText: String,
+    errorText: String,
     offset: {
       type: Number,
       default: 50
@@ -60,9 +53,10 @@ export default {
   computed: {
     showText () {
       return this.isFinished
-        ? this.finishedText
+        ? (this.finishedText || this.$t('jmd.infiniteLoad.finished'))
         : this.isError
-          ? this.errorText : this.loadingText
+          ? (this.errorText || this.$t('jmd.infiniteLoad.error'))
+          : (this.loadingText || this.$t('jmd.infiniteLoad.loading'))
     }
   },
   methods: {
