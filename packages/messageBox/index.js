@@ -16,13 +16,10 @@ let defaults = {
   closeOnClickModal: true, // 是否可以点击幕布关闭
   inputType: 'text', // prompt中input类型
   inputValue: '', // prompt中input数据
-  inputPlaceholder: '请输入...',
   inputPattern: '', // prompt中验证input数据的正则表达式
   inputValidate: '', // prompt中验证input数据的函数
   showConfirmButton: true,
-  showCancelButton: false,
-  confirmButtonText: '确定',
-  cancelButtonText: '取消'
+  showCancelButton: false
 }
 
 const merge = (target, ...args) => {

@@ -24,24 +24,17 @@
 </template>
 
 <script>
+import locale from '@/mixins/locale'
 import JmIndicator from '../../loading/src/indicator'
 
 export default {
   name: 'JmPullRefresh',
+  mixins: [locale],
   props: {
     value: Boolean,
-    topPullText: {
-      type: String,
-      default: '下拉刷新'
-    },
-    topDropText: {
-      type: String,
-      default: '释放刷新'
-    },
-    topLoadingText: {
-      type: String,
-      default: '正在刷新'
-    },
+    topPullText: String,
+    topDropText: String,
+    topLoadingText: String,
     distanceRatio: {
       type: Number,
       default: 2
@@ -116,13 +109,13 @@ export default {
 
       switch (val) {
         case 'pull':
-          this.topText = this.topPullText
+          this.topText = this.topPullText || this.t('jmd.pullRefresh.topPull')
           break
         case 'drop':
-          this.topText = this.topDropText
+          this.topText = this.topDropText || this.t('jmd.pullRefresh.topDrop')
           break
         case 'loading':
-          this.topText = this.topLoadingText
+          this.topText = this.topLoadingText || this.t('jmd.pullRefresh.topLoading')
           break
       }
     }
@@ -157,7 +150,7 @@ export default {
       this.$el.removeEventListener('touchcancel', this.handleTouchEnd)
     },
     init () {
-      this.topText = this.topPullText
+      this.topText = this.topPullText || this.t('jmd.pullRefresh.topPull')
       this.scrollEventTarget = this.getScrollTargetEvent(this.$el)
       this.bindTouchEvent()
     },
