@@ -93,5 +93,7 @@ export default {
   Switch,
   Swipe,
   SwipeItem,
-  Toast
+  Toast,
+  Tab,
+  Tabs
 }
