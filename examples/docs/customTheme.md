@@ -30,7 +30,7 @@ Vue.use(JMDesign)
 
 CDN 引入要自定义样式，目前的方式是将 JMDesign 的项目源码 clone 到本地，开发者手动修改 src/style/abstracts/_variable.scss 文件中的样式变量，然后运行 `npm run build` 命令，将 lib/theme-default/index.css 样式文件放到自己的项目中进行引入
 
-### 按需引入的自定义样式(暂时不可用)
+### 按需引入的自定义样式
 
 #### npm 项目中创建 SCSS 变量文件
 
