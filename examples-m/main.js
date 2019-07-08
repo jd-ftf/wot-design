@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import App from './App'
 import JMDesign from '@/index'
-import '@/style/index.scss'
+import '../src/style/index.scss'
 import router from './route'
 import './assets/style/base.scss'
 import WhiteSpace from './components/whiteSpace.vue'
