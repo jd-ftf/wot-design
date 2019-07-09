@@ -107,6 +107,11 @@
                 "path": "/input",
                 "demo": "/input"
               },
+              "InputNumber": {
+                "name": "InputNumber 计数器",
+                "path": "/inputNumber",
+                "demo": "/inputNumber"
+              },
               "Radio": {
                 "name": "Radio 单选框",
                 "path": "/radio",

@@ -7,6 +7,7 @@
   "icon": "./packages/icon/index.js",
   "infiniteLoad": "./packages/infiniteLoad/index.js",
   "input": "./packages/input/index.js",
+  "inputNumber": "./packages/inputNumber/index.js",
   "loading": "./packages/loading/index.js",
   "messageBox": "./packages/messageBox/index.js",
   "navbar": "./packages/navbar/index.js",
@@ -17,5 +18,7 @@
   "search": "./packages/search/index.js",
   "slider": "./packages/slider/index.js",
   "switch": "./packages/switch/index.js",
+  "swipe": "./packages/swipe/index.js",
+  "swipeItem": "./packages/swipeItem/index.js",
   "toast": "./packages/toast/index.js"
 }

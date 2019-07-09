@@ -95,7 +95,7 @@ export default {
 <jm-input v-model="input" autosize clearable />
 ```
 
-### Arrtibute
+### Attributes
 
 | 参数      | 说明                                 | 类型      | 可选值       | 默认值   |
 |---------- |------------------------------------ |---------- |------------- |-------- |

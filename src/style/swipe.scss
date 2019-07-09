@@ -1,0 +1,52 @@
+@import './abstracts/variable';
+@import './abstracts/mixin';
+
+@include b(swipe) {
+  position: relative;
+  overflow: hidden;
+
+  @include e(container) {
+    white-space: nowrap;
+  }
+  @include e(indicators) {
+    position: absolute;
+    display: inline-block;
+    left: 50%;
+    bottom: 6px;
+    transform: translate(-50%, -50%);
+    font-size: 0;
+  }
+  @include e(indicator) {
+    display: inline-block;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    margin-right: 6px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+  @include when(vertical) {
+    .jm-swipe__container {
+      white-space: normal;
+    }
+    .jm-swipe-item {
+      display: block;
+    }
+    .jm-swipe__indicators {
+      left: 10px;
+      bottom: auto;
+      top: 50%;
+    }
+    .jm-swipe__indicator {
+      display: block;
+      margin-right: 0;
+      margin-bottom: 6px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+}

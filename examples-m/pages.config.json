@@ -58,6 +58,9 @@
         "name": "Input 输入框",
         "path": "/input"
       }, {
+        "name": "InputNumber 计数器",
+        "path": "/inputNumber"
+      }, {
         "name": "Radio 单选框",
         "path": "/radio"
       }, {

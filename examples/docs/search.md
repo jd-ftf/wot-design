@@ -89,7 +89,7 @@ export default {
 <jm-search v-model="search" placeholder="请输入订单号/订单名称" cancel-txt="搜索" />
 ```
 
-### Arrtibute
+### Attributes
 
 | 参数      | 说明                                 | 类型      | 可选值       | 默认值   |
 |---------- |------------------------------------ |---------- |------------- |-------- |

@@ -6,6 +6,7 @@ import CheckboxGroup from 'jm-design/checkboxGroup'
 import Icon from 'jm-design/icon'
 import InfiniteLoad from 'jm-design/infiniteLoad'
 import Input from 'jm-design/input'
+import InputNumber from 'jm-design/inputNumber'
 import Lazyload from 'jm-design/lazyload'
 import Loading from 'jm-design/loading'
 import MessageBox from 'jm-design/messageBox'
@@ -17,6 +18,8 @@ import Rate from 'jm-design/rate'
 import Search from 'jm-design/search'
 import Slider from 'jm-design/slider'
 import Switch from 'jm-design/switch'
+import Swipe from 'jm-design/swipe'
+import SwipeItem from 'jm-design/swipeItem'
 import Toast from 'jm-design/toast'
 
 import lazyPlaceholder from './img/placeholder.png'
@@ -30,6 +33,7 @@ const components = [
   Icon,
   InfiniteLoad,
   Input,
+  InputNumber,
   Loading.Indicator,
   MessageBox.jmMessageBox,
   Navbar,
@@ -39,7 +43,9 @@ const components = [
   Rate,
   Search,
   Slider,
-  Switch
+  Switch,
+  Swipe,
+  SwipeItem
 ]
 
 const install = (Vue, config = {}) => {
