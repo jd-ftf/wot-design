@@ -2,11 +2,11 @@
   <div class="page-cell">
     <jm-cell title="标题文字"></jm-cell>
     <jm-cell title="标题文字" value="说明文字"></jm-cell>
-    <jm-cell title="标题文字" icon="jm-icon-star-fill" value="带 icon"></jm-cell>
     <jm-cell title="标题文字" icon="jm-icon-star-fill">
       <span>icon 是图片</span>
-      <img slot="icon" src="../assets/img/dolphin.png" width="24" height="24">
+      <img slot="icon" src="https://img10.360buyimg.com/jmadvertisement/jfs/t1/71075/7/3762/1820/5d1f26d1E0d600b9e/a264c901943080ac.png" width="24" height="24">
     </jm-cell>
+    <jm-cell title="标题文字" icon="jm-icon-star-fill" value="带 icon"></jm-cell>
     <jm-cell icon="jm-icon-star-fill">
       <span>title</span>
       <span slot="title">标题文字<label class="end-time">还有25天到期</label></span>
