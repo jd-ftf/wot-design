@@ -4,22 +4,24 @@
     <div class="jm-cell-left">
       <slot name="left"></slot>
     </div>
-    <div class="jm-cell-wrapper">
-      <div class="jm-cell-title">
-        <slot name="icon">
-          <i v-if="icon" class="jmui" :class="icon"></i>
-        </slot>
-        <slot name="title">
-          <span class="jm-cell-text" v-text="title"></span>
-          <span v-if="label" class="jm-cell-label" v-text="label"></span>
-        </slot>
+    <div class="jm-cell-outer">
+      <slot name="icon">
+        <i v-if="icon" class="jmui-icon" :class="icon"></i>
+      </slot>
+      <div class="jm-cell-wrapper">
+        <div class="jm-cell-title">
+          <slot name="title">
+            <span class="jm-cell-text" v-text="title"></span>
+            <span v-if="label" class="jm-cell-label" v-text="label"></span>
+          </slot>
+        </div>
+        <div class="jm-cell-value" :class="{ 'is-link' : isLink }">
+          <slot>
+            <span v-text="value"></span>
+          </slot>
+        </div>
+        <i v-if="isLink" class="jm-cell-allow-right"></i>
       </div>
-      <div class="jm-cell-value" :class="{ 'is-link' : isLink }">
-        <slot>
-          <span v-text="value"></span>
-        </slot>
-      </div>
-      <i v-if="isLink" class="jm-cell-allow-right"></i>
     </div>
     <div class="jm-cell-right">
       <slot name="right"></slot>

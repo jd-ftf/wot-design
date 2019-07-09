@@ -2,9 +2,13 @@
 @import './abstracts/mixin';
 @import './icon.scss';
 
-
-.jm-cell-group {
+.jm-cell-group-outer{
   background-color: $-color-white;
+}
+.jm-cell-group {
+
+  background: linear-gradient(180deg, $-color-grey, $-color-grey 50%, transparent 50%) no-repeat bottom left;
+  background-size: 120% 1px;
   box-sizing: border-box;
   color: inherit;
   min-height: 45px;
@@ -12,7 +16,7 @@
   overflow: hidden;
   position: relative;
   text-decoration: none;
-  padding: 0 10px;
+  padding: 0 15px;
   width: 100%;
   font-size: 16px;
   line-height: 1;
