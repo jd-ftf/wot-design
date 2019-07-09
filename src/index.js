@@ -19,6 +19,7 @@ import Switch from 'jm-design/switch'
 import Swipe from 'jm-design/swipe'
 import SwipeItem from 'jm-design/swipeItem'
 import Toast from 'jm-design/toast'
+import Badge from 'jm-design/badge'
 
 import lazyPlaceholder from './img/placeholder.png'
 
@@ -41,7 +42,8 @@ const components = [
   Slider,
   Switch,
   Swipe,
-  SwipeItem
+  SwipeItem,
+  Badge
 ]
 
 const install = (Vue, config = {}) => {
@@ -76,5 +78,6 @@ export default {
   Search,
   Rate,
   PullRefresh,
-  Toast
+  Toast,
+  Badge
 }

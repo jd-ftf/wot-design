@@ -18,5 +18,6 @@
   "switch": "./packages/switch/index.js",
   "swipe": "./packages/swipe/index.js",
   "swipeItem": "./packages/swipeItem/index.js",
-  "toast": "./packages/toast/index.js"
+  "toast": "./packages/toast/index.js",
+  "badge":"./packages/badge/index.js"
 }

@@ -66,6 +66,9 @@
       }, {
         "name": "Switch 开关",
         "path": "/switch"
+      },{
+        "name": "Badge 角标",
+        "path": "/badge"
       }
     ]
   }
