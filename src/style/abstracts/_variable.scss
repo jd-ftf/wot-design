@@ -11,8 +11,6 @@ $-color-theme-emph: mix($-color-black, $-color-theme, 18%) !default;            
 
 /* 辅助色 */
 $-color-aid-red: #e2231a !default;
-$-color-grey: #d9d9d9;
-$-border-color: #c8c8cd;
 
 /* 图形颜色 */
 $-color-icon: #c5c5c5 !default;                   // icon颜色
@@ -76,9 +74,6 @@ $-button-color-icon: #666 !default;
 $-button-color-icon-active: #eee !default;
 $-button-color-icon-disabled: #a7a7a7 !default;
 
-/* cell */
-$-cell-value-color: #888;
-
 /* navbar */
 $-navbar-color-bg: $-color-theme !default;          // navbar背景颜色
 $-navbar-color-txt: #fff !default;                // navbar字体颜色
@@ -117,3 +112,25 @@ $-checkbox-label-font-size: 12px !default;
 $-checkbox-color-checked: $-color-theme !default;
 $-checkbox-color-disabled: #f4f4f4 !default;
 $-checkbox-color-disabled-label: #dedede !default;
+
+/* inputNumber */
+$-inputNumber-color: #333 !default;
+$-inputNumber-border-color: #cbcbcb !default;
+$-inputNumber-disabled-color: #bfbfbf !default;
+$-inputNumber-disabled-input-bg: #f2f2f2 !default;
+$-inputNumber-height: 24px !default;
+$-inputNumber-btn-width: 26px !default;
+$-inputNumber-input-width: 36px !default;
+
+/* Badge
+-------------------------- */
+$--badge-fill:  #ff3333 !default;
+$--badge-radius: 10px !default;
+$--badge-font-size: 12px !default;
+$--badge-padding: 6px !default;
+$--badge-size: 18px !default;
+$--badge-primary: $--badge-fill !default;
+$--badge-success: #00bb66 !default;
+$--badge-warning: #ff9900 !default;
+$--badge-danger:#ff3333!default;
+$--badge-info: #3399ff !default;

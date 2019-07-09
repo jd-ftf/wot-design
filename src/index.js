@@ -18,10 +18,8 @@ import Slider from 'jm-design/slider'
 import Switch from 'jm-design/switch'
 import Swipe from 'jm-design/swipe'
 import SwipeItem from 'jm-design/swipeItem'
-import Tab from 'jm-design/tab'
-import Tabs from 'jm-design/tabs'
 import Toast from 'jm-design/toast'
-import locale from './locale'
+import Badge from 'jm-design/badge'
 
 import lazyPlaceholder from './img/placeholder.png'
 
@@ -45,13 +43,10 @@ const components = [
   Switch,
   Swipe,
   SwipeItem,
-  Tab,
-  Tabs
+  Badge
 ]
 
 const install = (Vue, config = {}) => {
-  locale.use(config.locale)
-
   components.forEach(component => {
     Vue.component(component.name, component)
   })
@@ -72,28 +67,17 @@ if (typeof window !== 'undefined' && window.Vue) {
 
 export default {
   version: '0.2.5',
-  locale,
   install,
   Button,
-  Checkbox,
-  CheckboxGroup,
   Icon,
   InfiniteLoad,
-  Input,
-  InputNumber,
+  Navbar,
+  Slider,
   Loading,
   MessageBox,
-  Navbar,
-  PullRefresh,
-  Radio,
-  RadioGroup,
-  Rate,
   Search,
-  Slider,
-  Switch,
-  Swipe,
-  SwipeItem,
+  Rate,
+  PullRefresh,
   Toast,
-  Tab,
-  Tabs
+  Badge
 }
