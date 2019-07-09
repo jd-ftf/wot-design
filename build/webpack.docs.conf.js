@@ -70,7 +70,7 @@ const webpackConf = {
         loader: 'url-loader',
         options: {
           limit: 20000,
-          name: 'img/[name].[hash:8].[ext]'
+          name: utils.assetsPath('img/[name].[hash:8].[ext]')
         }
       },
       {
@@ -78,7 +78,7 @@ const webpackConf = {
         loader: 'url-loader',
         options: {
           limit: 10000,
-          name: 'fonts/[name].[ext]'
+          name: utils.assetsPath('fonts/[name].[ext]')
         }
       }
     ]
@@ -175,8 +175,8 @@ if (isDev) {
     output: {
       publicPath: './',
       path: path.resolve(__dirname, '../docs'),
-      filename: 'js/[name].[chunkhash].js',
-      chunkFilename: 'js/[id].[chunkhash].js'
+      filename: utils.assetsPath('js/[name].[chunkhash].js'),
+      chunkFilename: utils.assetsPath('js/[id].[chunkhash].js')
     },
     optimization: {
       minimizer: [
@@ -184,13 +184,14 @@ if (isDev) {
           cache: true,
           parallel: true
         }),
+        new webpack.optimize.ModuleConcatenationPlugin(),
         new OptimizeCSSAssetsPlugin()
       ]
     },
     plugins: [
       new MiniCssExtractPlugin({
-        filename: '[name].[contenthash:8].css',
-        chunkFilename: '[name].[contenthash:8].css'
+        filename: utils.assetsPath('css/[name].[contenthash:8].css'),
+        chunkFilename: utils.assetsPath('css/[name].[contenthash:8].css')
       })
     ]
   })

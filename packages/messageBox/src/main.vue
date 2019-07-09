@@ -22,10 +22,15 @@
           </div>
           <div v-else class="jm-message-box__content">
             <div class="jm-message-box__input-container">
-              <input :type="inputType" v-model="inputValue" :placeholder="inputPlaceholder" class="jm-message-box__input" />
+              <input
+                :type="inputType"
+                v-model="inputValue"
+                :placeholder="inputPlaceholder || t('jmd.messageBox.inputPlaceholder')"
+                class="jm-message-box__input"
+              />
             </div>
             <div v-show="showErr" class="jm-message-box__input-error">
-              {{ inputError || '输入的数据不合法' }}
+              {{ inputError || t('jmd.messageBox.inputNoValidate') }}
             </div>
           </div>
         </div>
@@ -34,12 +39,12 @@
             v-if="showCancelButton"
             class="jm-message-box__button jm-message-box__button--cancel"
             @click="toggleModal('cancel')">
-            {{ cancelButtonText }}
+            {{ cancelButtonText || t('jmd.messageBox.cancel') }}
           </button>
           <button type="button"
             class="jm-message-box__button jm-message-box__button--confirm"
             @click="toggleModal('confirm')">
-            {{ confirmButtonText }}
+            {{ confirmButtonText || t('jmd.messageBox.confirm') }}
           </button>
         </div>
       </div>
@@ -48,8 +53,11 @@
 </template>
 
 <script>
+import locale from '@/mixins/locale'
+
 export default {
   name: 'JmMessageBox',
+  mixins: [locale],
   data () {
     return {
       msg: '',
@@ -57,7 +65,7 @@ export default {
       showInput: false,
       inputType: 'text',
       inputValue: '',
-      inputPlaceholder: '请输入',
+      inputPlaceholder: '',
       inputError: '',
       inputPattern: '',
       inputValidate: '',
@@ -78,14 +86,8 @@ export default {
       type: Boolean,
       default: false
     },
-    confirmButtonText: {
-      type: String,
-      default: '确定'
-    },
-    cancelButtonText: {
-      type: String,
-      default: '取消'
-    },
+    confirmButtonText: String,
+    cancelButtonText: String,
     closeOnClickModal: {
       type: Boolean,
       default: true

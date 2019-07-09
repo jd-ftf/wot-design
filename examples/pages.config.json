@@ -18,6 +18,11 @@
           "path": "/quickUse",
           "demo": "/"
         },
+        "locale": {
+          "name": "国际化",
+          "path": "/locale",
+          "demo": "/"
+        },
         "CustomTheme": {
           "name": "自定义主题",
           "path": "/customTheme",
@@ -87,6 +92,11 @@
                 "name": "Swipe 轮播图",
                 "path": "/swipe",
                 "demo": "/swipe"
+              },
+              "Tab": {
+                "name": "Tabs 标签页",
+                "path": "/tabs",
+                "demo": "/tabs"
               },
               "Toast": {
                 "name": "Toast 轻提示",
