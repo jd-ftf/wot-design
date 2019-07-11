@@ -7,7 +7,7 @@
         v-text="content"
         class="jm-badge__content"
         :class="[
-          'jm-badge__content--' + type,
+          type ? `jm-badge__content--${type}` : '',
           {
             'is-fixed': $slots.default,
             'is-dot': isDot
@@ -25,7 +25,7 @@
 export default {
   name: 'JmBadge',
   props: {
-    value: {},
+    value: [Number, String],
     bgColor: String,
     max: Number,
     isDot: Boolean,

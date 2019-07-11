@@ -34,6 +34,11 @@
           {
             "name": "基础",
             "list": {
+              "Badge": {
+                "name": "Badge 角标",
+                "path": "/badge",
+                "demo": "/badge"
+              },
               "Button": {
                 "name": "Button 按钮",
                 "path": "/button",
@@ -141,11 +146,6 @@
                 "name": "Switch 开关",
                 "path": "/switch",
                 "demo": "/switch"
-              },
-              "Badge": {
-                "name": "Badge 角标",
-                "path": "/badge",
-                "demo": "/badge"
               }
             }
           }
