@@ -9,7 +9,12 @@ exports.cssLoader = (...loaders) => {
   formatLoaders.push('vue-style-loader')
   
   if (!isDev) {
-    formatLoaders.push(MiniCssExtractPlugin.loader)
+    formatLoaders.push({
+      loader: MiniCssExtractPlugin.loader,
+      options: {
+        publicPath: '../../'
+      }
+    })
   }
   loaders.forEach(loader => {
     formatLoaders.push({
@@ -43,4 +48,8 @@ exports.createNotifierCallback = () => {
 
 exports.resolve = dir => {
   return path.join(__dirname, '..', dir)
+}
+
+exports.assetsPath = file => {
+  return path.posix.join('static', file)
 }

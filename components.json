@@ -19,5 +19,7 @@
   "switch": "./packages/switch/index.js",
   "swipe": "./packages/swipe/index.js",
   "swipeItem": "./packages/swipeItem/index.js",
+  "tab": "./packages/tab/index.js",
+  "tabs": "./packages/tabs/index.js",
   "toast": "./packages/toast/index.js"
 }
