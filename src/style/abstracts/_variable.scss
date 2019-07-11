@@ -124,13 +124,13 @@ $-inputNumber-input-width: 36px !default;
 
 /* Badge
 -------------------------- */
-$--badge-fill:  #ff3333 !default;
-$--badge-radius: 10px !default;
-$--badge-font-size: 12px !default;
-$--badge-padding: 6px !default;
-$--badge-size: 18px !default;
-$--badge-primary: $--badge-fill !default;
-$--badge-success: #00bb66 !default;
-$--badge-warning: #ff9900 !default;
-$--badge-danger:#ff3333!default;
-$--badge-info: #3399ff !default;
+$-badge-fill:  $-color-aid-red !default;
+$-badge-radius: 10px !default;
+$-badge-font-size: 12px !default;
+$-badge-padding: 6px !default;
+$-badge-size: 18px !default;
+$-badge-primary: $-color-theme !default;
+$-badge-success: #00c740 !default;
+$-badge-warning: #ffb300 !default;
+$-badge-danger:$-color-aid-red !default;
+$-badge-info: #909399 !default;
