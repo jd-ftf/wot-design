@@ -1,2 +1,55 @@
 @import './abstracts/variable';
 @import './abstracts/mixin';
+
+@include b(tabs) {
+  background: #fff;
+  overflow: hidden;
+
+  @include e(nav) {
+    position: relative;
+    height: $-tabs-nav-height;
+    overflow: hidden;
+
+    @include halfPixelBorder;
+  }
+  @include e(nav-container) {
+    position: relative;
+    display: flex;
+    height: 100%;
+    padding-bottom: 15px;
+  }
+  @include e(nav-item) {
+    flex: 1;
+    text-align: center;
+    height: $-tabs-nav-height;
+    line-height: $-tabs-nav-height;
+    font-size: 14px;
+    color: #333;
+    transition: color .3s;
+
+    @include when(active) {
+      color: $-tabs-nav-active-color;
+    }
+  }
+  @include e(line) {
+    position: absolute;
+    bottom: 15px;
+    height: $-tabs-nav-line-height;
+    background: $-tabs-nav-active-color;
+    z-index: 1;
+  }
+  @include e(body) {
+    display: flex;
+    width: 100%;
+    height: 100%;
+  }
+
+  @include when(slide) {
+    .jm-tabs__nav-container {
+      overflow-x: auto;
+    }
+    .jm-tabs__nav-item {
+      padding: 0 10px;
+    }
+  }
+}
