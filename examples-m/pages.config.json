@@ -9,9 +9,6 @@
         "name": "Cell 单元格",
         "path": "/cell"
       }, {
-        "name": "CellGroup",
-        "path": "/cellGroup"
-      }, {
         "name": "Icon 图标",
         "path": "/icon"
       }, {

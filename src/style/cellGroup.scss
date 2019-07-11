@@ -1,36 +1,17 @@
 @import './abstracts/variable';
 @import './abstracts/mixin';
-@import './icon.scss';
 
-.jm-cell-group-outer{
+@include b(cell-group) {
   background-color: $-color-white;
-}
-.jm-cell-group {
 
-  background: linear-gradient(180deg, $-color-grey, $-color-grey 50%, transparent 50%) no-repeat bottom left;
-  background-size: 120% 1px;
-  box-sizing: border-box;
-  color: inherit;
-  min-height: 45px;
-  display: block;
-  overflow: hidden;
-  position: relative;
-  text-decoration: none;
-  padding: 0 15px;
-  width: 100%;
-  font-size: 16px;
-  line-height: 1;
-  align-items: center;
-  display: flex;
-  .jm-cell-group-left{
-    text-align: left;
+  @include e(title) {
+    position: relative;
+    padding: 15px;
+    background: #fff;
+    
+    @include halfPixelBorder;
   }
-  .jm-cell-group-right{
-    text-align: right;
-  }
-  .jm-cell-group-title{
-    font-weight: normal;
-    font-size: 16px;
-    flex: 1;
+  @include e(body) {
+    background: #fff;
   }
 }
