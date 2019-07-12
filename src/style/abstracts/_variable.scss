@@ -139,3 +139,21 @@ $-cell-label-size: 12px !default;
 $-cell-label-color: $-color-secondary !default;
 $-cell-value-size: 14px !default;
 $-cell-value-color: $-color-text !default;
+
+/* tabs */
+$-tabs-nav-height: 40px !default;
+$-tabs-nav-active-color: $-color-theme !default;
+$-tabs-nav-line-height: 3px !default;
+
+/* Badge
+-------------------------- */
+$-badge-fill:  $-color-aid-red !default;
+$-badge-radius: 10px !default;
+$-badge-font-size: 12px !default;
+$-badge-padding: 6px !default;
+$-badge-size: 18px !default;
+$-badge-primary: $-color-theme !default;
+$-badge-success: #00c740 !default;
+$-badge-warning: #ffb300 !default;
+$-badge-danger:$-color-aid-red !default;
+$-badge-info: #909399 !default;
