@@ -1,4 +1,5 @@
 {
+  "badge":"./packages/badge/index.js",
   "button": "./packages/button/index.js",
   "checkbox": "./packages/checkbox/index.js",
   "checkboxGroup": "./packages/checkboxGroup/index.js",

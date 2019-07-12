@@ -3,6 +3,9 @@
     "module": "基础组件",
     "list": [
       {
+        "name": "Badge 角标",
+        "path": "/badge"
+      }, {
         "name": "Button 按钮",
         "path": "/button"
       }, {

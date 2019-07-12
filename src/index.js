@@ -1,3 +1,4 @@
+import Badge from 'jm-design/badge'
 import Button from 'jm-design/button'
 import Checkbox from 'jm-design/checkbox'
 import CheckboxGroup from 'jm-design/checkboxGroup'
@@ -26,6 +27,7 @@ import locale from './locale'
 import lazyPlaceholder from './img/placeholder.png'
 
 const components = [
+  Badge,
   Button,
   Checkbox,
   CheckboxGroup,
@@ -74,6 +76,7 @@ export default {
   version: '0.2.5',
   locale,
   install,
+  Badge,
   Button,
   Checkbox,
   CheckboxGroup,
