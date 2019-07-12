@@ -1,36 +1,32 @@
 <template>
   <a class="jm-cell" :href="href">
-    <span class="jm-cell-mask" v-if="isLink"></span>
-    <div class="jm-cell-left">
-      <slot name="left"></slot>
-    </div>
-    <div class="jm-cell-outer">
+    <div v-if="iconShow" class="jm-cell__icon">
       <slot name="icon">
-        <i v-if="icon" class="jmui-icon" :class="icon"></i>
+        <i :class="icon"></i>
       </slot>
-      <div class="jm-cell-wrapper">
-        <div class="jm-cell-title">
-          <slot name="title">
-            <span class="jm-cell-text" v-text="title"></span>
-            <span v-if="label" class="jm-cell-label" v-text="label"></span>
-          </slot>
-        </div>
-        <div class="jm-cell-value" :class="{ 'is-link' : isLink }">
-          <slot>
-            <span v-text="value"></span>
-          </slot>
-        </div>
-        <i v-if="isLink" class="jm-cell-allow-right"></i>
-      </div>
     </div>
-    <div class="jm-cell-right">
-      <slot name="right"></slot>
+    <div class="jm-cell__wrapper">
+      <div class="jm-cell__title">
+        <slot name="title">
+          <div v-text="title"></div>
+        </slot>
+        <slot name="label">
+          <div v-if="label" class="jm-cell__label" v-text="label"></div>
+        </slot>
+      </div>
+      <div class="jm-cell__right">
+        <span class="jm-cell__value" v-if="valueShow">
+          <slot>
+            {{ value }}
+          </slot>
+        </span>
+        <i v-if="isLink" class="jm-cell__arrow-right jm-icon-arrow-right"></i>
+      </div>
     </div>
   </a>
 </template>
 
 <script>
-
 export default {
   name: 'JmCell',
   props: {
@@ -59,14 +55,63 @@ export default {
         return resolved.fullPath || resolved.path
       }
       return this.to
+    },
+    iconShow () {
+      return this.icon || this.$slots.icon
+    },
+    valueShow () {
+      return this.value || this.$slots.default
     }
   },
-
   methods: {
     handleClick ($event) {
       $event.preventDefault()
       this.$router.push(this.href)
     }
+  },
+  render (h) {
+    const Icon = this.iconShow ? (
+      <div class="jm-cell__icon">
+        <slot name="icon">
+          <i class={ this.icon }></i>
+        </slot>
+      </div>
+    ) : ''
+    const Wrapper = (
+      <div class="jm-cell__wrapper">
+        <div class="jm-cell__title">
+          {
+            this.$slots.title ? this.$slots.title : <div>{ this.title }</div>
+          }
+          {
+            this.$slots.label
+              ? this.$slots.label
+              : this.label
+                ? <div class="jm-cell__label">{ this.label }</div>
+                : ''
+          }
+        </div>
+        <div class="jm-cell__right">
+          {
+            this.valueShow ? <span class="jm-cell__value">{ this.$slots.default ? this.$slots.default : '' }</span> : ''
+          }
+          {
+            this.isLink ? <i class="jm-cell__arrow-right jm-icon-arrow-right"></i> : ''
+          }
+        </div>
+      </div>
+    )
+    let isRouterLink = true
+    if (this.to && this.$router) {
+      const resolved = this.$router.match(this.to)
+      if (!resolved.matched.length) {
+        isRouterLink = false
+      }
+    }
+
+    return isRouterLink
+      ? <router-link to={ this.to } class="jm-cell">{Icon}{Wrapper}</router-link>
+      : <a class="jm-cell" href={ this.to }>{Icon}{Wrapper}</a>
   }
 }
 </script>
