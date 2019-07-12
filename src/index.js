@@ -1,5 +1,7 @@
 import Badge from 'jm-design/badge'
 import Button from 'jm-design/button'
+import Cell from 'jm-design/cell'
+import CellGroup from 'jm-design/cellGroup'
 import Checkbox from 'jm-design/checkbox'
 import CheckboxGroup from 'jm-design/checkboxGroup'
 import Icon from 'jm-design/icon'
@@ -29,6 +31,8 @@ import lazyPlaceholder from './img/placeholder.png'
 const components = [
   Badge,
   Button,
+  Cell,
+  CellGroup,
   Checkbox,
   CheckboxGroup,
   Icon,
@@ -78,6 +82,8 @@ export default {
   install,
   Badge,
   Button,
+  Cell,
+  CellGroup,
   Checkbox,
   CheckboxGroup,
   Icon,

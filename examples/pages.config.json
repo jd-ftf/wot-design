@@ -53,11 +53,25 @@
                 "name": "Lazyload 图片懒加载",
                 "path": "/lazyload",
                 "demo": "/lazyload"
+              }
+            }
+          }, {
+            "name": "导航",
+            "list": {
+              "Cell": {
+                "name": "Cell 单元格",
+                "path": "/cell",
+                "demo": "/cell"
               },
               "Navbar": {
                 "name": "Navbar 导航栏",
                 "path": "/navbar",
                 "demo": "/navbar"
+              },
+              "Tab": {
+                "name": "Tabs 标签页",
+                "path": "/tabs",
+                "demo": "/tabs"
               }
             }
           }, {
@@ -92,11 +106,6 @@
                 "name": "Swipe 轮播图",
                 "path": "/swipe",
                 "demo": "/swipe"
-              },
-              "Tab": {
-                "name": "Tabs 标签页",
-                "path": "/tabs",
-                "demo": "/tabs"
               },
               "Toast": {
                 "name": "Toast 轻提示",

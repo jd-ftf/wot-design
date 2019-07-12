@@ -1,0 +1,70 @@
+@import './abstracts/variable';
+@import './abstracts/mixin';
+@import './icon.scss';
+
+@include b(cell) {
+  position: relative;
+  display: flex;
+  padding-left: 15px;
+  background-color: #fff;
+  text-decoration: none;
+  color: $-cell-title-color;
+  -webkit-tap-highlight-color: transparent;
+
+  @include e(wrapper) {
+    position: relative;
+    display: flex;
+    flex: 1;
+    padding: 12px 15px 12px 0;
+    justify-content: space-between;
+
+    @include halfPixelBorder;
+  }
+  @include e(title) {
+    font-size: $-cell-title-size;
+    vertical-align: middle;
+  }
+  @include e(label) {
+    margin-top: 3px;
+    font-size: $-cell-label-size;
+    color: $-cell-label-color;
+  }
+  @include e(right) {
+    position: relative;
+    font-size: 0;
+    text-align: right;
+    vertical-align: middle;
+  }
+  @include e(icon) {
+    position: relative;
+    min-width: $-cell-icon-size;
+    height: $-cell-icon-height;
+    line-height: $-cell-icon-height;
+    margin-right: $-cell-icon-right;
+    font-size: $-cell-icon-size;
+  }
+  @include e(value) {
+    display: inline-block;
+    font-size: $-cell-value-size;
+    color: $-cell-value-color;
+    vertical-align: middle;
+  }
+  @include e(arrow-right) {
+    display: inline-block;
+    margin-left: 5px;
+    height: 22px;
+    min-width: 14px;
+    line-height: 22px;
+    font-size: 14px;
+    vertical-align: middle;
+    color: #c5c5c5;
+  }
+  &:last-child {
+    .jm-cell__wrapper::after {
+      display: none;
+    }
+  }
+  @include when(link) {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0.06);
+  }
+}

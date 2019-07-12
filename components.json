@@ -1,6 +1,8 @@
 {
   "badge":"./packages/badge/index.js",
   "button": "./packages/button/index.js",
+  "cell": "./packages/cell/index.js",
+  "cellGroup": "./packages/cellGroup/index.js",
   "checkbox": "./packages/checkbox/index.js",
   "checkboxGroup": "./packages/checkboxGroup/index.js",
   "icon": "./packages/icon/index.js",
