@@ -19,6 +19,9 @@ export default {
     search: {
       search: '搜索',
       cancel: '取消'
+    },
+    tabs: {
+      all: '全部'
     }
   }
 }

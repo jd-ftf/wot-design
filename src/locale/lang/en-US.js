@@ -19,6 +19,9 @@ export default {
     search: {
       search: 'search',
       cancel: 'cancel'
+    },
+    tabs: {
+      all: 'All'
     }
   }
 }
