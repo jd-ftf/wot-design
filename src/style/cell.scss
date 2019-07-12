@@ -9,6 +9,7 @@
   background-color: #fff;
   text-decoration: none;
   color: $-cell-title-color;
+  -webkit-tap-highlight-color: transparent;
 
   @include e(wrapper) {
     position: relative;
@@ -29,6 +30,7 @@
     color: $-cell-label-color;
   }
   @include e(right) {
+    position: relative;
     font-size: 0;
     text-align: right;
     vertical-align: middle;
@@ -61,5 +63,8 @@
     .jm-cell__wrapper::after {
       display: none;
     }
+  }
+  @include when(link) {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0.06);
   }
 }
