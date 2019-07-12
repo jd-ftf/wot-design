@@ -76,9 +76,6 @@ $-button-color-icon: #666 !default;
 $-button-color-icon-active: #eee !default;
 $-button-color-icon-disabled: #a7a7a7 !default;
 
-/* cell */
-$-cell-value-color: #888;
-
 /* navbar */
 $-navbar-color-bg: $-color-theme !default;          // navbar背景颜色
 $-navbar-color-txt: #fff !default;                // navbar字体颜色
@@ -130,6 +127,8 @@ $-inputNumber-input-width: 36px !default;
 /* cell */
 $-cell-group-title-size: 16px !default;
 $-cell-group-title-color: $-color-title !default;
+$-cell-group-value-size: 14px !default;
+$-cell-group-value-color: $-color-text !default;
 $-cell-icon-height: 46px !default;
 $-cell-icon-right: 15px !default;
 $-cell-icon-size: 18px !default;

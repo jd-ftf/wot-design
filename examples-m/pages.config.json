@@ -9,17 +9,25 @@
         "name": "Button 按钮",
         "path": "/button"
       }, {
-        "name": "Cell 单元格",
-        "path": "/cell"
-      }, {
         "name": "Icon 图标",
         "path": "/icon"
       }, {
         "name": "Lazyload 图片懒加载",
         "path": "/lazyload"
+      }
+    ]
+  }, {
+    "module": "导航组件",
+    "list": [
+      {
+        "name": "Cell 单元格",
+        "path": "/cell"
       }, {
         "name": "Navbar 导航栏",
         "path": "/navbar"
+      }, {
+        "name": "Tabs 标签页",
+        "path": "/tabs"
       }
     ]
   }, {
@@ -43,9 +51,6 @@
       }, {
         "name": "Swipe 轮播图",
         "path": "/swipe"
-      }, {
-        "name": "Tabs 标签页",
-        "path": "/tabs"
       }, {
         "name": "Toast 轻提示",
         "path": "/toast"
