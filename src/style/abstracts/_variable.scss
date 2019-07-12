@@ -11,6 +11,8 @@ $-color-theme-emph: mix($-color-black, $-color-theme, 18%) !default;            
 
 /* 辅助色 */
 $-color-aid-red: #e2231a !default;
+$-color-grey: #d9d9d9;
+$-border-color: #c8c8cd;
 
 /* 图形颜色 */
 $-color-icon: #c5c5c5 !default;                   // icon颜色
@@ -74,6 +76,9 @@ $-button-color-icon: #666 !default;
 $-button-color-icon-active: #eee !default;
 $-button-color-icon-disabled: #a7a7a7 !default;
 
+/* cell */
+$-cell-value-color: #888;
+
 /* navbar */
 $-navbar-color-bg: $-color-theme !default;          // navbar背景颜色
 $-navbar-color-txt: #fff !default;                // navbar字体颜色
@@ -122,15 +127,15 @@ $-inputNumber-height: 24px !default;
 $-inputNumber-btn-width: 26px !default;
 $-inputNumber-input-width: 36px !default;
 
-/* Badge
--------------------------- */
-$-badge-fill:  $-color-aid-red !default;
-$-badge-radius: 10px !default;
-$-badge-font-size: 12px !default;
-$-badge-padding: 6px !default;
-$-badge-size: 18px !default;
-$-badge-primary: $-color-theme !default;
-$-badge-success: #00c740 !default;
-$-badge-warning: #ffb300 !default;
-$-badge-danger:$-color-aid-red !default;
-$-badge-info: #909399 !default;
+/* cell */
+$-cell-group-title-size: 16px !default;
+$-cell-group-title-color: $-color-title !default;
+$-cell-icon-height: 46px !default;
+$-cell-icon-right: 15px !default;
+$-cell-icon-size: 18px !default;
+$-cell-title-size: 16px !default;
+$-cell-title-color: $-color-title !default;
+$-cell-label-size: 12px !default;
+$-cell-label-color: $-color-secondary !default;
+$-cell-value-size: 14px !default;
+$-cell-value-color: $-color-text !default;

@@ -1,31 +1,32 @@
 <template>
   <div class="page-cell">
-    <space title="">
-      <jm-cell-group title="分类一">
-        <div slot="right"><jm-button type="text">订购</jm-button></div>
-        <jm-cell title="标题文字" icon="jm-icon-star-fill">
-          <span>icon 是图片</span>
-          <img style="margin-right: 10px" slot="icon" src="https://img10.360buyimg.com/jmadvertisement/jfs/t1/71075/7/3762/1820/5d1f26d1E0d600b9e/a264c901943080ac.png" width="24" height="24">
-        </jm-cell>
-        <jm-cell title="标题文字" value="说明文字">
-          <span>icon 是图片</span>
-          <img style="margin-right: 10px" slot="icon" src="https://img10.360buyimg.com/jmadvertisement/jfs/t1/79714/24/3731/1678/5d1f26e4Ec35532d0/94ae1e86bd8a4264.png" width="24" height="24">
-        </jm-cell>
-        <jm-cell title="标题文字" value="说明文字">
-          <span>icon 是图片</span>
-          <img style="margin-right: 10px" slot="icon" src="https://img10.360buyimg.com/jmadvertisement/jfs/t1/35788/2/12969/1948/5d1f26f4E30e3cc3d/3242313928f5ae5c.png" width="24" height="24">
+    <space title="基本用法">
+      <jm-cell-group>
+        <jm-cell title="标题文字" value="内容" />
+        <jm-cell title="标题文字" label="描述信息" value="内容" />
+      </jm-cell-group>
+    </space>
+    <space title="图标">
+      <jm-cell-group>
+        <jm-cell title="标题文字" value="内容" icon="jm-icon-setting" />
+        <jm-cell title="标题文字" value="内容" icon="jm-icon-collect" />
+        <jm-cell title="标题文字" value="内容">
+          <div class="custom-icon" slot="icon">
+            <i class="cell-icon"></i>
+          </div>
         </jm-cell>
       </jm-cell-group>
     </space>
-    <space title="">
-      <jm-cell-group title="分类二">
-        <i slot="left" class="jm-icon-star-fill"></i>
-        <div slot="right"><i class="jm-icon-star-fill"></i><jm-button type="text">订购</jm-button></div>
-        <jm-cell title="标题文字" icon="jm-icon-star-fill" value="带 icon"></jm-cell>
-        <jm-cell icon="jm-icon-star-fill">
-          <span>title</span>
-          <span slot="title">标题文字<label class="end-time">还有25天到期</label></span>
-        </jm-cell>
+    <space title="分组标题">
+      <jm-cell-group title="交易管理">
+        <jm-cell title="标题文字" value="内容" />
+        <jm-cell title="标题文字" label="描述信息" value="内容" />
+      </jm-cell-group>
+    </space>
+    <space title="页面跳转">
+      <jm-cell-group>
+        <jm-cell title="帮助与反馈" is-link />
+        <jm-cell title="设置" value="内容" is-link />
       </jm-cell-group>
     </space>
     <space title="">
@@ -62,6 +63,22 @@ export default {
   }
   .jm-icon-star-fill {
     color: #0083ff;
+  }
+  .custom-icon {
+    position: relative;
+    width: 18px;
+    height: 100%;
+  }
+  .cell-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    background: url('https://img10.360buyimg.com/jmadvertisement/jfs/t1/71075/7/3762/1820/5d1f26d1E0d600b9e/a264c901943080ac.png') no-repeat;
+    background-size: cover;
   }
 }
 </style>

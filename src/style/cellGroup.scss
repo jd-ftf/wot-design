@@ -8,6 +8,8 @@
     position: relative;
     padding: 15px;
     background: #fff;
+    font-size: $-cell-group-title-size;
+    color: $-color-title;
     
     @include halfPixelBorder;
   }
