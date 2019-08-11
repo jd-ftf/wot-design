@@ -17,12 +17,14 @@
   @include e(nav-container) {
     position: relative;
     display: flex;
-    height: 100%;
+    box-sizing: content-box;
     padding-bottom: 15px;
     overflow: hidden;
+    user-select: none;
   }
   @include e(nav-item) {
     flex: 1;
+    min-width: 0;
     text-align: center;
     height: $-tabs-nav-height;
     line-height: $-tabs-nav-height;
@@ -155,6 +157,10 @@
   }
 
   @include when(slide) {
+    .jm-tabs__nav-container {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
     .jm-tabs__nav-item {
       flex: 0 0 auto;
       padding: 0 17px;

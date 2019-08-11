@@ -21,36 +21,22 @@
         </jm-tab>
       </jm-tabs>
     </space>
-    <space title="数量大于6时可滚动">
-      <jm-tabs v-model="tab4">
-        <jm-tab v-for="item in 7" :key="item" :title="`标签${item}`" class="demo-tab">
-          <p>内容{{ item }}</p>
-        </jm-tab>
-      </jm-tabs>
-    </space>
-    <space title="数量大于10时出现导航地图">
-      <jm-tabs v-model="tab5">
-        <jm-tab v-for="item in 12" :key="item" :title="`标签${item}`" class="demo-tab2">
-          <p>内容{{ item }}</p>
-        </jm-tab>
-      </jm-tabs>
-    </space>
     <space title="禁用tab">
-      <jm-tabs v-model="tab6">
+      <jm-tabs v-model="tab4">
         <jm-tab v-for="item in 4" :key="item" :title="`标签${item}`" class="demo-tab" :disabled="item === 2">
           <p>内容{{ item }}</p>
         </jm-tab>
       </jm-tabs>
     </space>
     <space title="点击事件">
-      <jm-tabs v-model="tab7" @click="handleTabClick">
+      <jm-tabs v-model="tab5" @click="handleTabClick">
         <jm-tab v-for="item in 4" :key="item" :title="`标签${item}`" class="demo-tab">
           <p>内容{{ item }}</p>
         </jm-tab>
       </jm-tabs>
     </space>
-    <space title="自定义标签">
-      <jm-tabs v-model="tab8">
+    <space title="自定义标题">
+      <jm-tabs v-model="tab6">
         <jm-tab v-for="item in 4" :key="item" class="demo-tab">
           <div slot="title">
             <i class="jm-icon-tickets"></i>
@@ -61,8 +47,29 @@
       </jm-tabs>
     </space>
     <space title="延迟渲染">
-      <jm-tabs v-model="tab9" lazy-render>
+      <jm-tabs v-model="tab7" lazy-render>
         <jm-tab v-for="item in 4" :key="item" :title="`标签${item}`" class="demo-tab">
+          <p>内容{{ item }}</p>
+        </jm-tab>
+      </jm-tabs>
+    </space>
+    <space title="手势滑动">
+      <jm-tabs v-model="tab8" swipeable>
+        <jm-tab v-for="item in 4" :key="item" :title="`标签${item}`" class="demo-tab">
+          <p>内容{{ item }}</p>
+        </jm-tab>
+      </jm-tabs>
+    </space>
+    <space title="数量大于6时可滚动">
+      <jm-tabs v-model="tab9">
+        <jm-tab v-for="item in 7" :key="item" :title="`标签${item}`" class="demo-tab">
+          <p>内容{{ item }}</p>
+        </jm-tab>
+      </jm-tabs>
+    </space>
+    <space title="数量大于10时出现导航地图">
+      <jm-tabs v-model="tab10">
+        <jm-tab v-for="item in 12" :key="item" :title="`标签${item}`" class="demo-tab2">
           <p>内容{{ item }}</p>
         </jm-tab>
       </jm-tabs>
@@ -82,7 +89,8 @@ export default {
       tab6: 0,
       tab7: 0,
       tab8: 0,
-      tab9: 0
+      tab9: 0,
+      tab10: 0
     }
   },
   methods: {
