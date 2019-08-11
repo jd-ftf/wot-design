@@ -74,8 +74,6 @@ export default {
       tipShow: false,
       tipShowTimer: '',
       tipHideTimer: '',
-      startTime: '',
-      endTime: '',
       fingerStatus: 'out'
     }
   },
@@ -141,13 +139,16 @@ export default {
       this.bindTouchEvent()
     },
     handleTouchStart (event) {
+      if (this.fingerStatus === 'in' && event.touches.length > 1) {
+        this.handleTouchEnd()
+      }
+
       this.fingerStatus = 'in'
 
       if (this.topStatus === 'loading') {
         return
       }
 
-      this.startTime = new Date().getTime()
       this.startTouch = {
         x: event.touches[0].pageX,
         y: event.touches[0].pageY
@@ -175,7 +176,6 @@ export default {
         return
       }
 
-      this.endTime = new Date().getTime()
       this.endTouch = {
         x: event.touches[0].pageX,
         y: event.touches[0].pageY
