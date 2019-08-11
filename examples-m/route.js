@@ -13,7 +13,8 @@ pagesConfig.forEach(componentModule => {
       path: page.path,
       component: () => import(`./pages${page.path}`),
       meta: {
-        pageName: page.name
+        pageName: page.name,
+        ...page.meta
       }
     })
   })

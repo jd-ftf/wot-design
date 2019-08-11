@@ -1,6 +1,6 @@
 <template>
   <div class="page">
-    <div class="header">
+    <div class="header" :class="{ 'is-no-fixed': $route.meta.headerNoFix }">
       <jm-navbar :title="$route.meta.pageName" light>
         <router-link class="return-back" to="/" slot="left">
           <jm-icon name="arrow-left" />
@@ -8,7 +8,7 @@
         </router-link>
       </jm-navbar>
     </div>
-    <div class="page-content">
+    <div class="page-content" :class="{ 'is-no-fixed': $route.meta.headerNoFix }">
       <router-view></router-view>
     </div>
   </div>
@@ -37,8 +37,15 @@ export default {
       vertical-align: middle;
     }
   }
+  &.is-no-fixed {
+    position: relative;
+  }
 }
 .page-content {
   padding-top: 44px;
+
+  &.is-no-fixed {
+    padding-top: 0;
+  }
 }
 </style>

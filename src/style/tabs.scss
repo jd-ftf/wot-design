@@ -5,12 +5,12 @@
 @include b(tabs) {
   position: relative;
   background: #fff;
-  overflow: hidden;
 
   @include e(nav) {
     position: relative;
     height: $-tabs-nav-height;
     overflow: hidden;
+    background: #fff;
 
     @include halfPixelBorder;
   }
@@ -45,6 +45,10 @@
     background: $-tabs-nav-active-color;
     z-index: 1;
   }
+  @include e(container) {
+    position: relative;
+    overflow: hidden;
+  }
   @include e(body) {
     display: flex;
     width: 100%;
@@ -68,6 +72,7 @@
     color: #c5c5c5;
     z-index: 3;
     background: #fff;
+    @include halfPixelBorder;
 
     &::before {
       position: absolute;
@@ -79,7 +84,14 @@
       transform: scaleX(0.5);
       background: #eee;
     }
-    @include halfPixelBorder;
+  }
+  @include e(map-arrow) {
+    display: block;
+    transition: transform .3s;
+
+    @include when(open) {
+      transform: rotate(180deg);
+    }
   }
   @include e(map-header) {
     position: relative;
@@ -143,17 +155,9 @@
   }
 
   @include when(slide) {
-    .jm-tabs__nav-container {
-      display: block;
-      overflow-x: auto;
-      white-space: nowrap;
-    }
     .jm-tabs__nav-item {
-      display: inline-block;
+      flex: 0 0 auto;
       padding: 0 17px;
-    }
-    .jm-tabs__line {
-      bottom: 0;
     }
   }
   @include when(map) {
