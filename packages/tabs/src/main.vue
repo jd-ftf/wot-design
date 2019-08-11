@@ -1,6 +1,7 @@
 <script>
 import animateScrollLeft from '@/utils/animateScrollLeft'
 import locale from '@/mixins/locale'
+import Sticky from 'jm-design/sticky/main.vue'
 
 export default {
   name: 'JmTabs',
@@ -39,7 +40,14 @@ export default {
     mapNum: {
       type: Number,
       default: 10
+    },
+    offsetTop: {
+      type: Number,
+      default: 0
     }
+  },
+  components: {
+    Sticky
   },
   computed: {
     tabLength () {
@@ -178,7 +186,11 @@ export default {
       NavMap = (
         <div class="jm-tabs__map">
           <span class="jm-tabs__map-btn" on-click={this.toggleMap}>
-            <i class="jm-icon-arrow-down"></i>
+            <i class={{
+              'jm-tabs__map-arrow': true,
+              'jm-icon-arrow-down': true,
+              'is-open': this.animating
+            }}></i>
           </span>
           <div
             class="jm-tabs__map-header"
@@ -194,6 +206,15 @@ export default {
       )
     }
 
+    const Nav = (
+      <div class="jm-tabs__nav" ref="navVisible">
+        <div class="jm-tabs__nav-container" ref="navContainer">
+          {Navs}
+          <i class="jm-tabs__line" style={this.lineStyle}></i>
+        </div>
+      </div>
+    )
+
     return (
       <div
         class={{
@@ -202,14 +223,15 @@ export default {
           'is-map': this.mapNum < this.items.length && this.mapNum !== 0
         }}
       >
-        <div class="jm-tabs__nav" ref="navVisible">
-          <div class="jm-tabs__nav-container" ref="navContainer">
-            {Navs}
-            <i class="jm-tabs__line" style={this.lineStyle}></i>
+        {
+          this.sticky
+            ? <Sticky offsetTop={this.offsetTop} container={this.$el}>{Nav}</Sticky>
+            : Nav
+        }
+        <div class="jm-tabs__container">
+          <div class="jm-tabs__body" style={this.bodyStyle}>
+            {this.$slots.default}
           </div>
-        </div>
-        <div class="jm-tabs__body" style={this.bodyStyle}>
-          {this.$slots.default}
         </div>
         {
           NavMap

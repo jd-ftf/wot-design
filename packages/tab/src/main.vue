@@ -1,7 +1,7 @@
 <template>
   <div class="jm-tab" :style="tabStyle">
     <div class="jm-tab__body">
-      <slot></slot>
+      <slot v-if="shouldRender"></slot>
     </div>
   </div>
 </template>
@@ -10,6 +10,11 @@
 export default {
   name: 'JmTab',
   inject: ['tabs'],
+  data () {
+    return {
+      init: false
+    }
+  },
   props: {
     title: String,
     name: String,
@@ -31,6 +36,14 @@ export default {
         }
       }
       return sty
+    },
+    shouldRender () {
+      return this.init || !this.tabs.lazyRender
+    }
+  },
+  watch: {
+    isActive () {
+      this.init = this.init || this.isActive
     }
   },
   created () {

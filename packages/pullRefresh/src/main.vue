@@ -25,6 +25,7 @@
 
 <script>
 import locale from '@/mixins/locale'
+import { getScrollTargetEvent } from '@/utils'
 import JmIndicator from '../../loading/src/indicator'
 
 export default {
@@ -121,21 +122,6 @@ export default {
     }
   },
   methods: {
-    getScrollTargetEvent (element) {
-      let currentNode = element
-
-      while (currentNode && currentNode.tagName !== 'HTML' && currentNode.tagName !== 'BODY' &&
-        currentNode.nodeType === 1) {
-        let overflowY = document.defaultView.getComputedStyle(currentNode).overflowY
-        if (overflowY === 'auto' || overflowY === 'scroll') {
-          return currentNode
-        }
-
-        currentNode = currentNode.parentNode
-      }
-
-      return window
-    },
     getScrollTop (element) {
       if (element === window) {
         return Math.max(window.pageYOffset || 0, document.documentElement.scrollTop)
@@ -151,7 +137,7 @@ export default {
     },
     init () {
       this.topText = this.topPullText || this.t('jmd.pullRefresh.topPull')
-      this.scrollEventTarget = this.getScrollTargetEvent(this.$el)
+      this.scrollEventTarget = getScrollTargetEvent(this.$el)
       this.bindTouchEvent()
     },
     handleTouchStart (event) {
