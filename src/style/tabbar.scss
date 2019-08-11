@@ -1,0 +1,7 @@
+@import './abstracts/variable';
+@import './abstracts/mixin';
+
+@include b(tabbar) {
+  display: flex;
+  background: #fff;
+}

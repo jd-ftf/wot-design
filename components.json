@@ -1,6 +1,8 @@
 {
   "badge":"./packages/badge/index.js",
   "button": "./packages/button/index.js",
+  "cell": "./packages/cell/index.js",
+  "cellGroup": "./packages/cellGroup/index.js",
   "checkbox": "./packages/checkbox/index.js",
   "checkboxGroup": "./packages/checkboxGroup/index.js",
   "icon": "./packages/icon/index.js",
@@ -19,5 +21,9 @@
   "switch": "./packages/switch/index.js",
   "swipe": "./packages/swipe/index.js",
   "swipeItem": "./packages/swipeItem/index.js",
+  "tab": "./packages/tab/index.js",
+  "tabs": "./packages/tabs/index.js",
+  "tabbar": "./packages/tabbar/index.js",
+  "tabbarItem": "./packages/tabbarItem/index.js",
   "toast": "./packages/toast/index.js"
 }
