@@ -26,6 +26,9 @@
         "name": "Navbar 导航栏",
         "path": "/navbar"
       }, {
+        "name": "Tabbar 标签栏",
+        "path": "/tabbar"
+      }, {
         "name": "Tabs 标签页",
         "path": "/tabs"
       }

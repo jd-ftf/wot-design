@@ -1,0 +1,27 @@
+@import './abstracts/variable';
+@import './abstracts/mixin';
+@import './badge.scss';
+
+@include b(tabbar-item) {
+  flex: 1;
+  padding: 10px 0 1px;
+  text-align: center;
+  color: $-tabbar-color;
+  user-select: none;
+
+  @include e(icon-container) {
+    position: relative;
+  }
+  @include e(icon) {
+    font-size: 18px;
+  }
+  @include e(label) {
+    margin-top: 1px;
+    font-size: 12px;
+    transform: scale(0.83);
+  }
+
+  @include when(active) {
+    color: $-tabbar-active-color;
+  }
+}

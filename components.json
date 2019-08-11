@@ -23,5 +23,7 @@
   "swipeItem": "./packages/swipeItem/index.js",
   "tab": "./packages/tab/index.js",
   "tabs": "./packages/tabs/index.js",
+  "tabbar": "./packages/tabbar/index.js",
+  "tabbarItem": "./packages/tabbarItem/index.js",
   "toast": "./packages/toast/index.js"
 }

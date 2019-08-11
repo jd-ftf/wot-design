@@ -23,6 +23,8 @@ import Swipe from 'jm-design/swipe'
 import SwipeItem from 'jm-design/swipeItem'
 import Tab from 'jm-design/tab'
 import Tabs from 'jm-design/tabs'
+import Tabbar from 'jm-design/tabbar'
+import TabbarItem from 'jm-design/tabbarItem'
 import Toast from 'jm-design/toast'
 import locale from './locale'
 
@@ -52,7 +54,9 @@ const components = [
   Swipe,
   SwipeItem,
   Tab,
-  Tabs
+  Tabs,
+  Tabbar,
+  TabbarItem
 ]
 
 const install = (Vue, config = {}) => {

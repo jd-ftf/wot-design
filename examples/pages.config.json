@@ -68,6 +68,11 @@
                 "path": "/navbar",
                 "demo": "/navbar"
               },
+              "Tabbar": {
+                "name": "Tabbar 标签栏",
+                "path": "/tabbar",
+                "demo": "/tabbar"
+              },
               "Tab": {
                 "name": "Tabs 标签页",
                 "path": "/tabs",
