@@ -1,5 +1,10 @@
 <template>
-  <div class="jm-tabbar">
+  <div
+    class="jm-tabbar"
+    :class="{
+      'is-border': border,
+      'is-fixed': fixed
+    }">
     <slot></slot>
   </div>
 </template>
@@ -19,7 +24,11 @@ export default {
   },
   props: {
     value: [Number, String],
-    route: Boolean
+    border: Boolean,
+    fixed: Boolean,
+    activeColor: String,
+    inactiveColor: String,
+    badgeColor: String
   },
   computed: {
     activeIndex () {
@@ -38,10 +47,12 @@ export default {
     changeTabbar (index) {
       if (this.activeIndex === index) return
 
+      let name = this.items[index].name
+      this.$emit('change', index, name)
       if (typeof this.value === 'number') {
         this.$emit('input', index)
       } else {
-        this.$emit('input', this.items[index].name)
+        this.$emit('input', name)
       }
     }
   }
