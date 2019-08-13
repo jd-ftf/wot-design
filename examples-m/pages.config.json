@@ -11,9 +11,6 @@
       }, {
         "name": "Icon 图标",
         "path": "/icon"
-      }, {
-        "name": "Lazyload 图片懒加载",
-        "path": "/lazyload"
       }
     ]
   }, {
@@ -31,35 +28,6 @@
       }, {
         "name": "Tabs 标签页",
         "path": "/tabs"
-      }
-    ]
-  }, {
-    "module": "交互组件",
-    "list": [
-      {
-        "name": "Collapse 折叠面板",
-        "path": "/collapse"
-      }, {
-        "name": "InfiniteLoad 无限加载",
-        "path": "/infiniteLoad"
-      }, {
-        "name": "Loading 加载指示器",
-        "path": "/loading"
-      }, {
-        "name": "MessageBox 弹框",
-        "path": "/messageBox"
-      }, {
-        "name": "PullRefresh 下拉刷新",
-        "path": "/pullRefresh"
-      }, {
-        "name": "Slider 滑块",
-        "path": "/slider"
-      }, {
-        "name": "Swipe 轮播图",
-        "path": "/swipe"
-      }, {
-        "name": "Toast 轻提示",
-        "path": "/toast"
       }
     ]
   }, {
@@ -86,6 +54,43 @@
       }, {
         "name": "Switch 开关",
         "path": "/switch"
+      }
+    ]
+  }, {
+    "module": "交互组件",
+    "list": [
+      {
+        "name": "InfiniteLoad 无限加载",
+        "path": "/infiniteLoad"
+      }, {
+        "name": "Loading 加载指示器",
+        "path": "/loading"
+      }, {
+        "name": "MessageBox 弹框",
+        "path": "/messageBox"
+      }, {
+        "name": "PullRefresh 下拉刷新",
+        "path": "/pullRefresh"
+      }, {
+        "name": "Slider 滑块",
+        "path": "/slider"
+      }, {
+        "name": "Swipe 轮播图",
+        "path": "/swipe"
+      }, {
+        "name": "Toast 轻提示",
+        "path": "/toast"
+      }
+    ]
+  }, {
+    "module": "展示组件",
+    "list": [
+      {
+        "name": "Collapse 折叠面板",
+        "path": "/collapse"
+      }, {
+        "name": "Lazyload 图片懒加载",
+        "path": "/lazyload"
       }
     ]
   }
