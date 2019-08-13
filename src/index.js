@@ -20,6 +20,8 @@ import RadioGroup from 'jm-design/radioGroup'
 import Rate from 'jm-design/rate'
 import Search from 'jm-design/search'
 import Slider from 'jm-design/slider'
+import Step from 'jm-design/step'
+import Steps from 'jm-design/steps'
 import Switch from 'jm-design/switch'
 import Swipe from 'jm-design/swipe'
 import SwipeItem from 'jm-design/swipeItem'
@@ -54,6 +56,8 @@ const components = [
   Rate,
   Search,
   Slider,
+  Step,
+  Steps,
   Switch,
   Swipe,
   SwipeItem,

@@ -24,6 +24,12 @@ export default {
       search: '搜索',
       cancel: '取消'
     },
+    steps: {
+      wait: '未开始',
+      finished: '已完成',
+      process: '进行中',
+      failed: '失败'
+    },
     tabs: {
       all: '全部'
     }

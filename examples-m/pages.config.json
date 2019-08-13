@@ -91,6 +91,9 @@
       }, {
         "name": "Lazyload 图片懒加载",
         "path": "/lazyload"
+      }, {
+        "name": "Steps 步骤条",
+        "path": "/steps"
       }
     ]
   }
