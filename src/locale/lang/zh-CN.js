@@ -1,5 +1,9 @@
 export default {
   jmd: {
+    collapse: {
+      expand: '展开',
+      retract: '收起'
+    },
     infiniteLoad: {
       loading: '加载中...',
       finished: '没有更多了',

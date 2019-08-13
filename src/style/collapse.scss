@@ -1,0 +1,39 @@
+@import './abstracts/variable';
+@import './abstracts/mixin';
+@import './icon.scss';
+
+@include b(collapse) {
+  background: #fff;
+
+  @include when(viewmore) {
+    padding: $-collapse-body-padding;
+  }
+  @include e(content) {
+    font-size: $-collapse-body-size;
+    color: $-collapse-body-color;
+
+    @include when(retract) {
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+  }
+  @include e(more) {
+    margin-top: 4px;
+    font-size: $-collapse-more-size;
+    color: $-collapse-more-color;
+    user-select: none;
+  }
+  @include e(more-txt) {
+    display: inline-block;
+    vertical-align: middle;
+  }
+  @include e(arrow) {
+    display: inline-block;
+    vertical-align: middle;
+
+    @include when(retract) {
+      transform: rotate(-180deg);
+    }
+  }
+}

@@ -37,6 +37,9 @@
     "module": "交互组件",
     "list": [
       {
+        "name": "Collapse 折叠面板",
+        "path": "/collapse"
+      }, {
         "name": "InfiniteLoad 无限加载",
         "path": "/infiniteLoad"
       }, {

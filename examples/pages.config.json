@@ -82,6 +82,11 @@
           }, {
             "name": "交互",
             "list": {
+              "Collapse": {
+                "name": "Collapse 折叠面板",
+                "path": "/collapse",
+                "demo": "/collapse"
+              },
               "InfiniteLoad": {
                 "name": "InfiniteLoad 无限加载",
                 "path": "/infiniteLoad",

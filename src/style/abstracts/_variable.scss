@@ -159,3 +159,16 @@ $-badge-info: #909399 !default;
 /* tabbar */
 $-tabbar-color: $-color-secondary !default;
 $-tabbar-active-color: $-color-theme !default;
+
+/* collapse */
+$-collapse-header-padding: 11px 15px !default;
+$-collapse-title-color: $-color-title !default;
+$-collapse-title-size: 16px !default;
+$-collapse-arrow-size: 14px !default;
+$-collapse-arrow-color: $-color-icon !default;
+$-collapse-body-padding: 13px 15px !default;
+$-collapse-body-size: 13px !default;
+$-collapse-body-color: $-color-text !default;
+$-collapse-disabled-color: $-color-tip !default;
+$-collapse-more-size: 13px !default;
+$-collapse-more-color: $-color-theme !default;
