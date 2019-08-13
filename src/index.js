@@ -4,6 +4,8 @@ import Cell from 'jm-design/cell'
 import CellGroup from 'jm-design/cellGroup'
 import Checkbox from 'jm-design/checkbox'
 import CheckboxGroup from 'jm-design/checkboxGroup'
+import Collapse from 'jm-design/collapse'
+import CollapseItem from 'jm-design/collapseItem'
 import Icon from 'jm-design/icon'
 import InfiniteLoad from 'jm-design/infiniteLoad'
 import Input from 'jm-design/input'
@@ -37,6 +39,8 @@ const components = [
   CellGroup,
   Checkbox,
   CheckboxGroup,
+  Collapse,
+  CollapseItem,
   Icon,
   InfiniteLoad,
   Input,

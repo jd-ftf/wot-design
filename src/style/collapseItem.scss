@@ -1,0 +1,58 @@
+@import './abstracts/variable';
+@import './abstracts/mixin';
+
+@include b(collapse-item) {
+  &:first-child {
+    .jm-collapse-item__header::after {
+      display: none;
+    }
+  }
+
+  @include e(header) {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: $-collapse-header-padding;
+    overflow: hidden;
+    user-select: none;
+
+    @include halfPixelBorder(top, 15px);
+  }
+  @include e(title) {
+    color: $-collapse-title-color;
+    font-size: $-collapse-title-size;
+  }
+  @include e(arrow) {
+    display: block;
+    font-size: $-collapse-arrow-size;
+    color: $-collapse-arrow-color;
+    transition: transform .3s;
+
+    @include when(retract) {
+      transform: rotate(-180deg);
+    }
+  }
+  @include e(wrapper) {
+    position: relative;
+    transition: height .3s ease-in-out;
+    overflow: hidden;
+    will-change: height;
+
+    @include halfPixelBorder(top, 15px);
+  }
+  @include e(body) {
+    padding: $-collapse-body-padding;
+    color: $-collapse-body-color;
+    font-size: $-collapse-body-size;
+  }
+
+  @include when(disabled) {
+    .jm-collapse-item__title {
+      color: $-collapse-disabled-color;
+    }
+    .jm-collapse-item__arrow {
+      color: $-collapse-disabled-color;
+    }
+  }
+}
