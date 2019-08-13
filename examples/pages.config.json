@@ -48,11 +48,6 @@
                 "name": "Icon 图标",
                 "path": "/icon",
                 "demo": "/icon"
-              },
-              "Lazyload": {
-                "name": "Lazyload 图片懒加载",
-                "path": "/lazyload",
-                "demo": "/lazyload"
               }
             }
           }, {
@@ -77,50 +72,6 @@
                 "name": "Tabs 标签页",
                 "path": "/tabs",
                 "demo": "/tabs"
-              }
-            }
-          }, {
-            "name": "交互",
-            "list": {
-              "Collapse": {
-                "name": "Collapse 折叠面板",
-                "path": "/collapse",
-                "demo": "/collapse"
-              },
-              "InfiniteLoad": {
-                "name": "InfiniteLoad 无限加载",
-                "path": "/infiniteLoad",
-                "demo": "/infiniteLoad"
-              },
-              "Loading": {
-                "name": "Loading 加载",
-                "path": "/loading",
-                "demo": "/loading"
-              },
-              "MessageBox": {
-                "name": "MessageBox 弹框",
-                "path": "/messageBox",
-                "demo": "/messageBox"
-              },
-              "PullRefresh": {
-                "name": "PullRefresh 下拉刷新",
-                "path": "/pullRefresh",
-                "demo": "/pullRefresh"
-              },
-              "Slider": {
-                "name": "Slider 滑块",
-                "path": "/slider",
-                "demo": "/slider"
-              },
-              "Swipe": {
-                "name": "Swipe 轮播图",
-                "path": "/swipe",
-                "demo": "/swipe"
-              },
-              "Toast": {
-                "name": "Toast 轻提示",
-                "path": "/toast",
-                "demo": "/toast"
               }
             }
           }, {
@@ -160,6 +111,59 @@
                 "name": "Switch 开关",
                 "path": "/switch",
                 "demo": "/switch"
+              }
+            }
+          }, {
+            "name": "交互",
+            "list": {
+              "InfiniteLoad": {
+                "name": "InfiniteLoad 无限加载",
+                "path": "/infiniteLoad",
+                "demo": "/infiniteLoad"
+              },
+              "Loading": {
+                "name": "Loading 加载",
+                "path": "/loading",
+                "demo": "/loading"
+              },
+              "MessageBox": {
+                "name": "MessageBox 弹框",
+                "path": "/messageBox",
+                "demo": "/messageBox"
+              },
+              "PullRefresh": {
+                "name": "PullRefresh 下拉刷新",
+                "path": "/pullRefresh",
+                "demo": "/pullRefresh"
+              },
+              "Slider": {
+                "name": "Slider 滑块",
+                "path": "/slider",
+                "demo": "/slider"
+              },
+              "Swipe": {
+                "name": "Swipe 轮播图",
+                "path": "/swipe",
+                "demo": "/swipe"
+              },
+              "Toast": {
+                "name": "Toast 轻提示",
+                "path": "/toast",
+                "demo": "/toast"
+              }
+            }
+          }, {
+            "name": "展示",
+            "list": {
+              "Collapse": {
+                "name": "Collapse 折叠面板",
+                "path": "/collapse",
+                "demo": "/collapse"
+              },
+              "Lazyload": {
+                "name": "Lazyload 图片懒加载",
+                "path": "/lazyload",
+                "demo": "/lazyload"
               }
             }
           }
