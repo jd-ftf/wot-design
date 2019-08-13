@@ -52,7 +52,7 @@ export default {
     }
   },
   destroyed () {
-    this.tabs.items.slice(this.tabs.items.indexOf(this), 1)
+    this.tabs.items.splice(this.tabs.items.indexOf(this), 1)
   }
 }
 </script>

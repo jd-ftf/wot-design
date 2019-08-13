@@ -1,0 +1,131 @@
+@import './abstracts/variable';
+@import './abstracts/mixin';
+
+@include b(step) {
+  position: relative;
+
+  &:last-child {
+    .jm-step__line {
+      display: none;
+    }
+  }
+  @include e(header) {
+    position: relative;
+    font-size: 0;
+
+    @include when(dot) {
+      margin-top: $-steps-title-size / 2;
+    }
+  }
+  @include e(icon) {
+    display: inline-block;
+    position: relative;
+    width: $-steps-icon-size;
+    height: $-steps-icon-size;
+    background: #fff;
+    z-index: 1;
+
+    @include when(icon) {
+      width: $-steps-is-icon-width;
+      text-align: center;
+    }
+    @include when(dot) {
+      background: transparent;
+    }
+  }
+  @include e(icon-inner) {
+    font-size: $-steps-icon-size;
+    color: $-steps-inactive-color;
+  }
+  @include e(icon-outer) {
+    width: $-steps-icon-size - 2px;
+    height: $-steps-icon-size - 2px;
+    border: 1px solid $-steps-inactive-color;
+    color: $-steps-inactive-color;
+    text-align: center;
+    line-height: $-steps-icon-size - 2px;
+    border-radius: 50%;
+    font-size: $-steps-icon-text-size;
+  }
+  @include e(line) {
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    background: $-steps-line-color;
+    top: 50%;
+    left: 0;
+  }
+  @include e(dot) {
+    position: relative;
+    display: block;
+    margin: 0 auto;
+    width: $-steps-dot-size;
+    height: $-steps-dot-size;
+    border-radius: 50%;
+    background: $-steps-line-color;
+  }
+  @include e(content){
+    margin-top: 7px;
+    color: $-steps-inactive-color;
+    font-size: $-steps-label-size;
+  }
+  @include e(title) {
+    @include when(description) {
+      font-size: $-steps-title-size;
+    }
+  }
+  @include e(description) {
+    margin-top: 4px;
+    padding: 0 2px 4px;
+  }
+  @include when(finished) {
+    .jm-step__icon-inner {
+      color: $-steps-finished-color;
+    }
+    .jm-step__title {
+      color: $-steps-finished-color;
+    }
+  }
+  @include when(process) {
+    .jm-step__icon.is-icon {
+      .jm-step__icon-inner {
+        color: $-steps-finished-color;
+      }
+    }
+    .jm-step__icon-outer {
+      color: #fff;
+      background: $-steps-finished-color;
+      border-color: $-steps-finished-color;
+    }
+    .jm-step__title {
+      color: $-steps-finished-color;
+    }
+  }
+  @include when(center) {
+    text-align: center;
+
+    .jm-step__line {
+      left: 50%;
+      right: -50%;
+    }
+  }
+  @include when(vertical) {
+    .jm-step__header {
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+    }
+    .jm-step__content {
+      margin-left: 30px;
+      margin-top: 0;
+      min-height: 56px;
+    }
+    .jm-step__line {
+      top: 0;
+      left: 50%;
+      width: 1px;
+      height: 100%;
+    }
+  }
+}

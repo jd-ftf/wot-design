@@ -1,7 +1,7 @@
 <template>
   <div class="whitespace" :style="{ background: color }">
     <div class="desc">
-      <slot name="desc"></slot>
+      <slot name="desc">{{ title }}</slot>
     </div>
     <div class="demo" :style="{ margin: `${ver}px ${hor}px` }">
       <slot></slot>
@@ -27,7 +27,8 @@ export default {
     color: {
       type: String,
       default: '#fff'
-    }
+    },
+    title: String
   }
 }
 </script>

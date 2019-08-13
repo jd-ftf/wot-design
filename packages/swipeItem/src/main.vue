@@ -28,7 +28,7 @@ export default {
     this.$parent.items.push(this)
   },
   destroyed () {
-    this.$parent.items.slice(this.$parent.items.indexOf(this), 1)
+    this.$parent.items.splice(this.$parent.items.indexOf(this), 1)
   }
 }
 </script>

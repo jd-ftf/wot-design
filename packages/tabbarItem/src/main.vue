@@ -96,7 +96,7 @@ export default {
     }
   },
   destroyed () {
-    this.tabbar.items.slice(this.tabbar.items.indexOf(this), 1)
+    this.tabbar.items.splice(this.tabbar.items.indexOf(this), 1)
   }
 }
 </script>

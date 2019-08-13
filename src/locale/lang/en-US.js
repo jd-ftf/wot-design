@@ -24,6 +24,12 @@ export default {
       search: 'search',
       cancel: 'cancel'
     },
+    steps: {
+      wait: 'Wait',
+      finished: 'Finished',
+      process: 'Process',
+      failed: 'Failed'
+    },
     tabs: {
       all: 'All'
     }
