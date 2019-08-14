@@ -29,6 +29,7 @@ import Tab from 'jm-design/tab'
 import Tabs from 'jm-design/tabs'
 import Tabbar from 'jm-design/tabbar'
 import TabbarItem from 'jm-design/tabbarItem'
+import Tag from 'jm-design/tag'
 import Toast from 'jm-design/toast'
 import locale from './locale'
 
@@ -64,7 +65,8 @@ const components = [
   Tab,
   Tabs,
   Tabbar,
-  TabbarItem
+  TabbarItem,
+  Tag
 ]
 
 const install = (Vue, config = {}) => {
