@@ -169,6 +169,11 @@
                 "name": "Steps 步骤条",
                 "path": "/steps",
                 "demo": "/steps"
+              },
+              "Tag": {
+                "name": "Tag 标签",
+                "path": "/tag",
+                "demo": "/tag"
               }
             }
           }

@@ -29,5 +29,6 @@
   "tabs": "./packages/tabs/index.js",
   "tabbar": "./packages/tabbar/index.js",
   "tabbarItem": "./packages/tabbarItem/index.js",
+  "tag": "./packages/tag/index.js",
   "toast": "./packages/toast/index.js"
 }

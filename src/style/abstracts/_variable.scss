@@ -144,7 +144,7 @@ $-tabs-nav-height: 40px !default;
 $-tabs-nav-active-color: $-color-theme !default;
 $-tabs-nav-line-height: 3px !default;
 
-/* Badge */
+/* badge */
 $-badge-fill:  $-color-aid-red !default;
 $-badge-radius: 10px !default;
 $-badge-font-size: 12px !default;
@@ -185,3 +185,19 @@ $-steps-is-icon-width: 30px !default;
 $-steps-line-color: $-color-tip !default;
 $-steps-dot-size: 7px !default;
 $-steps-dot-active-size: 9px !default;
+
+/* tag */
+$-tag-small-padding: 0 5px !default;
+$-tag-large-padding: 3px 10px !default;
+$-tag-font-size: 12px !default;
+$-tag-info-color: #777 !default;
+$-tag-info-color-light: #888 !default;
+$-tag-primary-color: #0083ff !default;
+$-tag-primary-color-light: #0098ff !default;
+$-tag-danger-color: #ff4c4c !default;
+$-tag-danger-color-light: #ff614c !default;
+$-tag-danger-color-dark: #f2403d !default;
+$-tag-warning-color: #ff8200 !default;
+$-tag-warning-color-light: #f69f00 !default;
+$-tag-success-color: #30be05 !default;
+$-tag-success-color-light: #31ca03 !default;
