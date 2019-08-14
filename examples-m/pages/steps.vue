@@ -31,18 +31,25 @@
         <jm-step icon="jm-icon-clock" />
       </jm-steps>
     </white-space>
-    <white-space title="垂直方向">
+    <white-space title="竖向步骤条">
       <jm-steps :active="1" vertical>
         <jm-step description="注册1个账号" />
         <jm-step description="登录账号并绑定手机" />
         <jm-step description="完善个人信息" />
       </jm-steps>
     </white-space>
-    <white-space title="点状步骤">
+    <white-space title="点状步骤和垂直方向">
       <jm-steps :active="1" vertical dot>
         <jm-step description="注册1个账号" />
         <jm-step description="登录账号并绑定手机" />
         <jm-step description="完善个人信息" />
+      </jm-steps>
+    </white-space>
+    <white-space title="修改状态">
+      <jm-steps :active="1" align-center>
+        <jm-step title="绑定手机" status="error" />
+        <jm-step title="重新绑定手机" />
+        <jm-step title="步骤3" />
       </jm-steps>
     </white-space>
   </div>

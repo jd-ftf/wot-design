@@ -26,6 +26,11 @@ export default {
     dot: Boolean,
     space: String,
     alignCenter: Boolean
+  },
+  computed: {
+    canAlignCenter () {
+      return !this.vertical && this.alignCenter
+    }
   }
 }
 </script>
