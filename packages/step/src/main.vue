@@ -1,17 +1,17 @@
 <template>
   <div
     class="jm-step"
-    :class="[ currentStatus ? `is-${currentStatus}` : '', steps.alignCenter ? 'is-center': '', steps.vertical ? 'is-vertical' : '' ]"
-    :style="{ 'flex-basis': flexWidth }"
+    :class="[ currentStatus ? `is-${currentStatus}` : '', steps.canAlignCenter ? 'is-center': '', steps.vertical ? 'is-vertical' : '' ]"
+    :style="space"
   >
     <div class="jm-step__header" :class="{ 'is-dot': steps.dot }">
       <div class="jm-step__icon" :class="{
-        'is-icon': !!icon,
-        'is-text': !icon && !steps.dot,
+        'is-icon': !!icon || $slots.icon,
+        'is-text': !steps.dot && !icon && !$slots.icon,
         'is-dot': steps.dot
       }">
         <i v-if="steps.dot" class="jm-step__dot"></i>
-        <slot v-else-if="currentStatus !== 'finished' && currentStatus !== 'error' || icon" name="icon">
+        <slot v-else-if="currentStatus !== 'finished' && currentStatus !== 'error' || icon || $slots.icon" name="icon">
           <i v-if="icon" class="jm-step__icon-inner" :class="icon"></i>
           <div v-else class="jm-step__icon-outer">{{ index + 1 }}</div>
         </slot>
@@ -20,8 +20,16 @@
       <div class="jm-step__line"></div>
     </div>
     <div class="jm-step__content">
-      <div class="jm-step__title" :class="{ 'is-description': !!description }">{{ currentTitle }}</div>
-      <div v-if="description" class="jm-step__description">{{ description }}</div>
+      <div class="jm-step__title" :class="{ 'is-description': !!description || $slots.description }">
+        <slot name="title">
+          {{ currentTitle }}
+        </slot>
+      </div>
+      <div v-if="description || $slots.description" class="jm-step__description">
+        <slot name="description">
+          {{ description }}
+        </slot>
+      </div>
     </div>
   </div>
 </template>
@@ -56,10 +64,16 @@ export default {
         return 'wait'
       }
     },
-    flexWidth () {
-      if (this.steps.vertical) return
+    space () {
+      if (this.steps.vertical && this.steps.space) {
+        return {
+          height: this.steps.space
+        }
+      }
 
-      return this.steps.space || (100 / this.steps.items.length + '%')
+      return {
+        'flex-basis': this.steps.space || (100 / this.steps.items.length + '%')
+      }
     },
     currentTitle () {
       if (this.title) return this.title
