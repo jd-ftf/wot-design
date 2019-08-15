@@ -187,9 +187,11 @@ $-steps-dot-size: 7px !default;
 $-steps-dot-active-size: 9px !default;
 
 /* tag */
-$-tag-small-padding: 0 5px !default;
+$-tag-small-padding: 2px 3px !default;
+$-tag-medium-padding: 0 5px !default;
 $-tag-large-padding: 3px 10px !default;
 $-tag-font-size: 12px !default;
+$-tag-small-font-size: 10px !default;
 $-tag-info-color: #777 !default;
 $-tag-info-color-light: #888 !default;
 $-tag-primary-color: #0083ff !default;
@@ -201,3 +203,5 @@ $-tag-warning-color: #ff8200 !default;
 $-tag-warning-color-light: #f69f00 !default;
 $-tag-success-color: #30be05 !default;
 $-tag-success-color-light: #31ca03 !default;
+$-tag-close-size: 14px !default;
+$-tag-close-color: #c5c5c5 !default;
