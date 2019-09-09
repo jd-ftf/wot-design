@@ -92,6 +92,9 @@
         "name": "Lazyload 图片懒加载",
         "path": "/lazyload"
       }, {
+        "name": "Progress 进度条",
+        "path": "/progress"
+      }, {
         "name": "Steps 步骤条",
         "path": "/steps"
       }, {
