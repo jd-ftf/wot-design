@@ -14,6 +14,7 @@ import Lazyload from 'jm-design/lazyload'
 import Loading from 'jm-design/loading'
 import MessageBox from 'jm-design/messageBox'
 import Navbar from 'jm-design/navbar'
+import NoticeBar from 'jm-design/noticeBar'
 import PullRefresh from 'jm-design/pullRefresh'
 import Progress from 'jm-design/progress'
 import Radio from 'jm-design/radio'
@@ -52,6 +53,7 @@ const components = [
   Loading.Indicator,
   MessageBox.jmMessageBox,
   Navbar,
+  NoticeBar,
   PullRefresh,
   Progress,
   Radio,
