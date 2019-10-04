@@ -1,0 +1,11 @@
+@import './abstracts/variable';
+@import './abstracts/mixin';
+@import './icon.scss';
+
+@include b(notice-bar) {
+  display: flex;
+  padding: 12px 15px;
+  background: $-notice-bar-bg;
+  color: $-notice-bar-color;
+  font-size: $-notice-bar-fs;
+}
