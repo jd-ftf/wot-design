@@ -14,6 +14,7 @@
   "loading": "./packages/loading/index.js",
   "messageBox": "./packages/messageBox/index.js",
   "navbar": "./packages/navbar/index.js",
+  "noticeBar": "./packages/noticeBar/index.js",
   "progress": "./packages/progress/index.js",
   "pullRefresh": "./packages/pullRefresh/index.js",
   "radio": "./packages/radio/index.js",
