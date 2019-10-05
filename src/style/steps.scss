@@ -4,7 +4,7 @@
 
 @include b(steps) {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   font-size: 0;
 
   @include when(vertical) {
