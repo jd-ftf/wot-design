@@ -15,6 +15,7 @@ import Loading from 'jm-design/loading'
 import MessageBox from 'jm-design/messageBox'
 import Navbar from 'jm-design/navbar'
 import NoticeBar from 'jm-design/noticeBar'
+import Popup from 'jm-design/popup'
 import PullRefresh from 'jm-design/pullRefresh'
 import Progress from 'jm-design/progress'
 import Radio from 'jm-design/radio'
@@ -54,6 +55,7 @@ const components = [
   MessageBox.jmMessageBox,
   Navbar,
   NoticeBar,
+  Popup,
   PullRefresh,
   Progress,
   Radio,

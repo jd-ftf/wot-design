@@ -1,5 +1,5 @@
 <template>
-  <transition name="jm-fadeIn">
+  <transition name="jm-fade">
     <div v-show="show" class="jm-toast" :class="customClass">
       <i v-if="iconName" class="jm-toast__icon" :class="[ iconNameToClass ]"></i>
       <i v-else-if="iconClass" class="jm-toast__icon" :class="iconClass.split(' ')"></i>

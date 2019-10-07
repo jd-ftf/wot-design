@@ -56,7 +56,7 @@ export default {
       </div>
     )
 
-    return this.disableTransition ? Tag : (<transition name="jm-fadeIn">{ Tag }</transition>)
+    return this.disableTransition ? Tag : (<transition name="jm-fade">{ Tag }</transition>)
   }
 }
 </script>
