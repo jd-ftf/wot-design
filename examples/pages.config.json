@@ -121,6 +121,11 @@
           }, {
             "name": "交互",
             "list": {
+              "ActionSheet": {
+                "name": "ActionSheet 上拉菜单",
+                "path": "/actionSheet",
+                "demo": "/actionSheet"
+              },
               "InfiniteLoad": {
                 "name": "InfiniteLoad 无限加载",
                 "path": "/infiniteLoad",

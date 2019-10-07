@@ -1,5 +1,6 @@
 {
-  "badge":"./packages/badge/index.js",
+  "actionSheet": "./packages/actionSheet/index.js",
+  "badge": "./packages/badge/index.js",
   "button": "./packages/button/index.js",
   "cell": "./packages/cell/index.js",
   "cellGroup": "./packages/cellGroup/index.js",

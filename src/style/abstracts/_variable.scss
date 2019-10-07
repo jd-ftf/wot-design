@@ -219,3 +219,14 @@ $-notice-bar-fs: 12px !default;
 
 /* popup */
 $-popup-modal-bg: rgba(0, 0, 0, 0.7) !default;
+
+/* action-sheet */
+$-action-sheet-action-height: 50px !default;
+$-action-sheet-color: $-color-title !default;
+$-action-sheet-fs: 14px !default;
+$-action-sheet-border-color: $-color-line !default;
+$-action-sheet-active-color: $-color-bg !default;
+$-action-sheet-subname-fs: 12px !default;
+$-action-sheet-subname-color: #a7a7a7 !default;
+$-action-sheet-disabled-color: $-color-tip !default;
+$-action-sheet-bg: #eee !default;
