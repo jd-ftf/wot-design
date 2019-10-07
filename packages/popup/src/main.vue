@@ -1,11 +1,13 @@
 <template>
-  <transition :name="transitionName">
+  <transition :name="transitionName" @after-enter="handleOpened" @after-leave="handleClosed">
     <div
       v-show="value"
       class="jm-popup"
       :class="[ `jm-popup--${position}` ]"
+      :style="{ 'transition-duration': duration ? (duration + 'ms') : '' }"
     >
       <slot></slot>
+      <i v-if="closable" class="jm-popup__close jm-icon-add" @click="close"></i>
     </div>
   </transition>
 </template>
@@ -22,7 +24,7 @@ export default {
       default: 'center'
     },
     duration: Number,
-    closeable: Boolean
+    closable: Boolean
   },
   computed: {
     transitionName () {
@@ -31,6 +33,14 @@ export default {
       } else {
         return `jm-popup-slide-${this.position}`
       }
+    }
+  },
+  methods: {
+    handleOpened () {
+      this.$emit('opened')
+    },
+    handleClosed () {
+      this.$emit('closed')
     }
   }
 }

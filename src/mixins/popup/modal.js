@@ -21,12 +21,9 @@ const ModalInstance = Vue.extend(Modal)
 export function updateModal () {
   if (!modal) {
     modal = new ModalInstance({
-      el: document.createElement('div'),
-      props: {
-        onClickModal
-      }
+      el: document.createElement('div')
     })
-    modal.onClickModal = onClickModal
+    modal.$on('click-modal', onClickModal)
     document.body.appendChild(modal.$el)
   }
 
@@ -42,7 +39,6 @@ export function updateModal () {
       show: true
     })
   } else {
-    console.log('close')
     modal.show = false
   }
 }

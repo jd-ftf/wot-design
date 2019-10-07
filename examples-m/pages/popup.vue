@@ -1,8 +1,8 @@
 <template>
-  <div>
+  <div class="page-popup">
     <white-space title="基本用法">
       <jm-button type="primary" plain @click="show1 = true">弹出层</jm-button>
-      <jm-popup v-model="show1" :style="{ 'width': '100px', 'height': '100px' }"></jm-popup>
+      <jm-popup v-model="show1" :style="{ 'padding': '30px 40px' }">内容</jm-popup>
     </white-space>
     <white-space title="弹出位置">
       <jm-button type="primary" plain @click="show2 = true">顶部</jm-button>
@@ -13,6 +13,10 @@
       <jm-popup v-model="show4" position="bottom" :style="{ 'height': '200px' }"></jm-popup>
       <jm-button type="primary" plain @click="show5 = true">左侧</jm-button>
       <jm-popup v-model="show5" position="left" :style="{ 'width': '200px' }"></jm-popup>
+    </white-space>
+    <white-space title="关闭按钮">
+      <jm-button type="primary" plain @click="show6 = true">关闭按钮</jm-button>
+      <jm-popup v-model="show6" position="bottom" :style="{ 'height': '200px' }" closable></jm-popup>
     </white-space>
   </div>
 </template>
@@ -25,8 +29,17 @@ export default {
       show2: false,
       show3: false,
       show4: false,
-      show5: false
+      show5: false,
+      show6: false
     }
   }
 }
 </script>
+
+<style lang="scss">
+.page-popup {
+  .jm-button {
+    margin: 0 10px 0 0;
+  }
+}
+</style>

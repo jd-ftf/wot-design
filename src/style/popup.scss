@@ -7,8 +7,8 @@
   position: fixed;
   max-height: 100%;
   overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
   background: #fff;
-  opacity: 1;
   transition: transform .3s ease-out;
 
   @include e(modal) {
@@ -19,6 +19,14 @@
     left: 0;
     background: $-popup-modal-bg;
     transition: opacity .3s;
+  }
+  @include e(close) {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: #666;
+    font-size: 24px;
+    transform: rotate(-45deg);
   }
   @include m(center) {
     left: 50%;
