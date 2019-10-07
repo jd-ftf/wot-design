@@ -33,9 +33,6 @@ export default {
       this.renderModal()
 
       if (this.lockScroll) {
-        document.addEventListener('touchstart', this.touchStart)
-        document.addEventListener('touchmove', this.touchMove)
-
         if (!context.lockCount) {
           document.body.classList.add('jm-overflow-hidden')
         }
@@ -45,8 +42,6 @@ export default {
     close () {
       if (this.lockScroll) {
         context.lockCount--
-        document.removeEventListener('touchstart', this.touchStart)
-        document.removeEventListener('touchmove', this.touchMove)
 
         if (!context.lockCount) {
           document.body.classList.remove('jm-overflow-hidden')
@@ -60,19 +55,25 @@ export default {
       this.$el.style.zIndex = ++context.zIndex + 1
       openModal(this, {
         duration: this.duration,
-        zIndex: context.zIndex++
+        zIndex: context.zIndex++,
+        closeOnClickModal: this.closeOnClickModal
       })
-    },
-    touchStart () {
-
-    },
-    touchMove () {
-
     }
   },
   mounted () {
     if (this.value) {
       this.open()
     }
+  },
+  beforeDestroy () {
+    this.close()
+  },
+  activated () {
+    if (this.value) {
+      this.open()
+    }
+  },
+  deactivated () {
+    this.close()
   }
 }
