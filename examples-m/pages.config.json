@@ -63,6 +63,9 @@
     "module": "交互组件",
     "list": [
       {
+        "name": "ActionSheet 上拉菜单",
+        "path": "/actionSheet"
+      }, {
         "name": "InfiniteLoad 无限加载",
         "path": "/infiniteLoad"
       }, {

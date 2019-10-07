@@ -1,3 +1,4 @@
+import ActionSheet from 'jm-design/actionSheet'
 import Badge from 'jm-design/badge'
 import Button from 'jm-design/button'
 import Cell from 'jm-design/cell'
@@ -39,6 +40,7 @@ import locale from './locale'
 import lazyPlaceholder from './img/placeholder.png'
 
 const components = [
+  ActionSheet,
   Badge,
   Button,
   Cell,

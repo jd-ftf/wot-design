@@ -1,0 +1,94 @@
+@import './abstracts/variable';
+@import './abstracts/mixin';
+@import './popup.scss';
+@import './loading.scss';
+
+@include b(action-sheet) {
+  @include e(action) {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: $-action-sheet-action-height;
+    line-height: $-action-sheet-action-height;
+    color: $-action-sheet-color;
+    font-size: $-action-sheet-fs;
+    text-align: center;
+    border: none;
+    background: #fff;
+    outline: none;
+
+    &:active {
+      background: $-action-sheet-active-color;
+    }
+    &::after {
+      position: absolute;
+      content: '';
+      width: 100%;
+      height: 1px;
+      left: 0;
+      bottom: 0;
+      background: $-action-sheet-border-color;
+      transform: scaleY(0.5);
+    }
+    &:last-child::after {
+      display: none;
+    }
+
+    @include m(disabled) {
+      color: $-action-sheet-disabled-color;
+    }
+  }
+  @include e(subname) {
+    font-size: $-action-sheet-subname-fs;
+    color: $-action-sheet-subname-color;
+  }
+  @include e(cancel) {
+    display: block;
+    width: 100%;
+    line-height: $-action-sheet-action-height;
+    padding: 0;
+    color: $-action-sheet-color;
+    font-size: $-action-sheet-fs;
+    text-align: center;
+    border: none;
+    background: #fff;
+    outline: none;
+
+    &:active {
+      background: $-action-sheet-active-color;
+    }
+    &::before {
+      display: block;
+      content: '';
+      height: 10px;
+      background: $-action-sheet-bg;
+    }
+  }
+  @include e(header) {
+    position: relative;
+    height: 45px;
+    line-height: 45px;
+    text-align: center;
+    font-size: 16px;
+
+    &::after {
+      position: absolute;
+      content: '';
+      width: 100%;
+      height: 1px;
+      left: 0;
+      bottom: 0;
+      background: $-action-sheet-border-color;
+      transform: scaleY(0.5);
+    }
+  }
+  @include e(close) {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: #666;
+    font-size: 24px;
+    transform: rotate(-45deg);
+    line-height: 1.1;
+  }
+}
