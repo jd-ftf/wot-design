@@ -130,7 +130,7 @@ $-cell-group-title-color: $-color-title !default;
 $-cell-group-value-size: 14px !default;
 $-cell-group-value-color: $-color-text !default;
 $-cell-icon-height: 46px !default;
-$-cell-icon-right: 15px !default;
+$-cell-icon-right: $-size-side-padding !default;
 $-cell-icon-size: 18px !default;
 $-cell-title-size: 16px !default;
 $-cell-title-color: $-color-title !default;
@@ -161,12 +161,12 @@ $-tabbar-color: $-color-secondary !default;
 $-tabbar-active-color: $-color-theme !default;
 
 /* collapse */
-$-collapse-header-padding: 11px 15px !default;
+$-collapse-header-padding: 11px $-size-side-padding !default;
 $-collapse-title-color: $-color-title !default;
 $-collapse-title-size: 16px !default;
 $-collapse-arrow-size: 14px !default;
 $-collapse-arrow-color: $-color-icon !default;
-$-collapse-body-padding: 13px 15px !default;
+$-collapse-body-padding: 13px $-size-side-padding !default;
 $-collapse-body-size: 13px !default;
 $-collapse-body-color: $-color-text !default;
 $-collapse-disabled-color: $-color-tip !default;
@@ -230,3 +230,16 @@ $-action-sheet-subname-fs: 12px !default;
 $-action-sheet-subname-color: #a7a7a7 !default;
 $-action-sheet-disabled-color: $-color-tip !default;
 $-action-sheet-bg: #eee !default;
+
+/* picker */
+$-picker-toolbar-bg: #ededed !default;
+$-picker-toolbar-height: 44px !default;
+$-picker-toolbar-border-color: #d0d0d0 !default;
+$-picker-toolbar-padding: $-size-side-padding !default;
+$-picker-toolbar-color: $-color-theme !default;
+$-picker-toolbar-cancel-color: $-color-text !default;
+$-picker-toolbar-fs: 16px !default;
+$-picker-toolbar-title-color: $-color-title !default;
+$-picker-column-fs: 16px !default;
+$-picker-column-color: #292929 !default;
+$-picker-column-active-fs: 18px !default;

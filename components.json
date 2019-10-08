@@ -16,6 +16,7 @@
   "messageBox": "./packages/messageBox/index.js",
   "navbar": "./packages/navbar/index.js",
   "noticeBar": "./packages/noticeBar/index.js",
+  "picker": "./packages/picker/index.js",
   "popup": "./packages/popup/index.js",
   "progress": "./packages/progress/index.js",
   "pullRefresh": "./packages/pullRefresh/index.js",

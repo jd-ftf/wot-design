@@ -46,6 +46,9 @@
         "name": "InputNumber 计数器",
         "path": "/inputNumber"
       }, {
+        "name": "Picker 选择器",
+        "path": "/picker"
+      }, {
         "name": "Radio 单选框",
         "path": "/radio"
       }, {

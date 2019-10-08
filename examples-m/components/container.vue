@@ -2,10 +2,10 @@
   <div class="page">
     <div class="header" :class="{ 'is-no-fixed': $route.meta.headerNoFix }">
       <jm-navbar :title="$route.meta.pageName" light>
-        <router-link class="return-back" to="/" slot="left">
+        <a class="return-back" slot="left" @click="goBack">
           <jm-icon name="arrow-left" />
           <span>返回</span>
-        </router-link>
+        </a>
       </jm-navbar>
     </div>
     <div class="page-content" :class="{ 'is-no-fixed': $route.meta.headerNoFix }">
@@ -16,7 +16,11 @@
 
 <script>
 export default {
-
+  methods: {
+    goBack () {
+      this.$router.back()
+    }
+  }
 }
 </script>
 
@@ -29,9 +33,8 @@ export default {
   z-index: 999;
 
   .return-back {
-    width: 40px;
+    display: block;
     height: 100%;
-    vertical-align: middle;
 
     span, i {
       vertical-align: middle;

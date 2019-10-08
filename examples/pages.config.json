@@ -97,6 +97,11 @@
                 "path": "/inputNumber",
                 "demo": "/inputNumber"
               },
+              "Picker": {
+                "name": "Picker 选择器",
+                "path": "/picker",
+                "demo": "/picker"
+              },
               "Radio": {
                 "name": "Radio 单选框",
                 "path": "/radio",

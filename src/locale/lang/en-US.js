@@ -15,6 +15,10 @@ export default {
       cancel: 'cancel',
       inputNoValidate: 'The data entered is not legal'
     },
+    picker: {
+      cancel: 'cancel',
+      finish: 'finish'
+    },
     pullRefresh: {
       topPull: 'Pull down',
       topDrop: 'Release',
