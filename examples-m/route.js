@@ -37,23 +37,4 @@ const router = new Router({
   ]
 })
 
-let indexScrollTop = 0
-
-router.beforeEach((to, from, next) => {
-  if (from.name === 'Index') {
-    indexScrollTop = document.body.scrollTop || document.documentElement.scrollTop
-  }
-  next()
-})
-
-router.afterEach((to, from) => {
-  let scrollTop = 0
-  if (to.name === 'Index') {
-    scrollTop = indexScrollTop
-  }
-  setTimeout(() => {
-    window.scrollTo(0, scrollTop)
-  }, 0)
-})
-
 export default router

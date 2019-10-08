@@ -15,6 +15,10 @@ export default {
       cancel: '取消',
       inputNoValidate: '输入的数据不合法'
     },
+    picker: {
+      cancel: '取消',
+      finish: '完成'
+    },
     pullRefresh: {
       topPull: '下拉刷新',
       topDrop: '释放刷新',
