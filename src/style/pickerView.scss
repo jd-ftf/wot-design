@@ -1,5 +1,6 @@
 @import './abstracts/variable';
 @import './abstracts/mixin';
+@import './loading.scss';
 
 @include b(picker-view) {
   @include e(toolbar) {
@@ -64,11 +65,13 @@
   }
   @include e(select) {
     position: absolute;
+    display: flex;
+    justify-content: space-around;
     top: 50%;
     left: 0;
     right: 0;
     transform: translate3d(0, -50%, 0);
-    z-index: 3;
+    z-index: 4;
     pointer-events: none;
 
     &::before, &::after {
@@ -87,6 +90,23 @@
     &::after {
       bottom: 0;
     }
+  }
+  @include e(separator) {
+    display: block;
+    font-size: $-picker-column-fs;
+    color: $-picker-column-color;
+  }
+  @include e(loading) {
+    position: absolute;
+    display: flex;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    align-items: center;
+    justify-content: center;
+    z-index: 3;
+    background: rgba(255, 255, 255, 0.8);
   }
 }
 

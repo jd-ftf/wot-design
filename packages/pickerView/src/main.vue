@@ -3,7 +3,7 @@
     <div v-if="showToolbar" class="jm-picker-view__toolbar">
       <button class="jm-picker-view__action jm-picker-view__action--cancel" @click="onCancel">{{ cancelButtonText || t('jmd.pickerView.cancel') }}</button>
       <span v-if="title" class="jm-pickerview__title">{{ title }}</span>
-      <button class="jm-pickerview__action" @click="onConfirm">{{ confirmButtonText || t('jmd.pickerView.done') }}</button>
+      <button class="jm-picker-view__action" @click="onConfirm">{{ confirmButtonText || t('jmd.pickerView.done') }}</button>
     </div>
     <div class="jm-picker-view__columns" :style="{ 'height': itemHeight * visibleItemCount + 'px' }">
       <jm-picker-view-column
@@ -14,10 +14,14 @@
         :arrow-html="arrowHtml"
         :default-index="isSingle ? defaultIndex : column.defaultIndex"
         :initial-values="column.values"
+        :value-key="valueKey"
         @change="onChange(index)"
       />
       <div class="jm-picker-view__mask" :style="{ 'background-size': `100% ${itemHeight * (visibleItemCount - 1) / 2}px` }"></div>
       <div class="jm-picker-view__select" :style="{ 'height': `${itemHeight}px` }"></div>
+      <div v-if="loading" class="jm-picker-view__loading">
+        <jm-loading size="30px" color="#0083ff" />
+      </div>
     </div>
   </div>
 </template>
@@ -26,12 +30,14 @@
 import locale from '@/mixins/locale'
 import pickerProps from './pickerProps'
 import JmPickerViewColumn from './pickerColumn'
+import JmLoading from 'jm-design/loading'
 
 export default {
   name: 'JmPickerView',
   mixins: [locale],
   components: {
-    JmPickerViewColumn
+    JmPickerViewColumn,
+    JmLoading: JmLoading.Indicator
   },
   data () {
     return {
@@ -57,7 +63,7 @@ export default {
   },
   computed: {
     isSingle () {
-      return this.columns.length && !this.columns[0].value
+      return this.columns.length && !this.columns[0].values
     },
     formatColumns () {
       return this.isSingle ? [{ values: this.columns }] : this.columns

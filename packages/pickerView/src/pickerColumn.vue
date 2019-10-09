@@ -63,7 +63,11 @@ export default {
         return []
       }
     },
-    defaultIndex: Number
+    defaultIndex: {
+      type: Number,
+      default: 0
+    },
+    valueKey: String
   },
   computed: {
     length () {
@@ -84,7 +88,7 @@ export default {
   },
   methods: {
     getText (item) {
-      return typeof item === 'object' ? item.text : item
+      return typeof item === 'object' && this.valueKey in item ? item[this.valueKey] : item
     },
     range (value, min, max) {
       return Math.min(Math.max(value, min), max)

@@ -15,7 +15,7 @@ export default {
       cancel: 'Cancel',
       inputNoValidate: 'The data entered is not legal'
     },
-    picker: {
+    pickerView: {
       cancel: 'Cancel',
       done: 'Done'
     },

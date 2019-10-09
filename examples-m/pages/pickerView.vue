@@ -12,10 +12,28 @@
     <space title="禁用">
       <jm-picker-view :columns="columns2" />
     </space>
+    <space title="加载中">
+      <jm-picker-view :columns="columns1" loading />
+    </space>
+    <space title="多列">
+      <jm-picker-view :columns="columns3" />
+    </space>
+    <space title="多列联动">
+      <jm-picker-view :columns="columns4" @change="onChangeDistrict" />
+    </space>
   </div>
 </template>
 
 <script>
+const district = {
+  '0': [{ text: '北京', id: '110000' }, { text: '广东省', id: '440000' }],
+  '110000': [{ text: '北京', id: '110100' }],
+  '440000': [{ text: '广州市', id: '440100' }, { text: '深圳市', id: '440300' }],
+  '110100': [{ text: '东城区', id: '110101' }, { text: '西城区', id: '110102' }],
+  '440100': [{ text: '荔湾区', id: '440103' }, { text: '越秀区', id: '440104' }],
+  '440300': [{ text: '罗湖区', id: '440303' }, { text: '福田区', id: '440304' }]
+}
+
 export default {
   data () {
     return {
@@ -37,6 +55,24 @@ export default {
         }, {
           text: '选项7'
         }
+      ],
+      columns3: [
+        {
+          values: ['中山大学', '中南大学', '华南理工大学'],
+          defaultIndex: 1
+        }, {
+          values: ['计算机科学与技术', '软件工程', '通信工程', '法学', '经济学'],
+          defaultIndex: 2
+        }
+      ],
+      columns4: [
+        {
+          values: district[0]
+        }, {
+          values: district[district[0][0].id]
+        }, {
+          values: district[district[district[0][0].id][0].id]
+        }
       ]
     }
   },
@@ -49,6 +85,16 @@ export default {
     },
     onConfirm (picker, value, index) {
       this.$toast(`点击了完成，当前选中项: ${value}, 下标: ${index}`)
+    },
+    onChangeDistrict (picker, values, columnIndex) {
+      if (columnIndex === 0) {
+        picker.setColumnValues(1, district[values[columnIndex].id])
+        picker.setColumnValues(2, district[district[values[columnIndex].id][0].id])
+        return
+      }
+      if (columnIndex === 1) {
+        picker.setColumnValues(2, district[values[columnIndex].id])
+      }
     }
   }
 }
