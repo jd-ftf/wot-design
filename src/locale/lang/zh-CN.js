@@ -15,7 +15,7 @@ export default {
       cancel: '取消',
       inputNoValidate: '输入的数据不合法'
     },
-    picker: {
+    pickerView: {
       cancel: '取消',
       done: '完成'
     },
