@@ -1,7 +1,6 @@
 export default {
   title: String,
   loading: Boolean,
-  showToolbar: Boolean,
   cancelButtonText: Boolean,
   confirmButtonText: Boolean,
   arrowHtml: {

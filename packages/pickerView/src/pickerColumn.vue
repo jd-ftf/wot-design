@@ -1,0 +1,216 @@
+<template>
+  <ul
+    class="jm-picker-view-column"
+    :style="{
+      'transform': `translate3d(0, ${offset + baseOffset}px, 0)`,
+      'transition-duration': `${duration}ms`
+    }"
+    @touchstart="onTouchStart"
+    @touchmove="onTouchMove"
+    @touchend="onTouchEnd"
+    @touchcancel="onTouchEnd"
+    @transitionend="onTranstionEnd"
+  >
+    <li
+      v-for="(item, index) in values"
+      :key="index"
+      :class="{
+        'jm-picker-view-column__item': 1,
+        'jm-picker-view-column__item--active': index === activeIndex,
+        'jm-picker-view-column__item--disabled': typeof item === 'string' ? false : item.disabled
+      }"
+      :style="{
+        'height': itemHeight + 'px',
+        'line-height': itemHeight + 'px'
+      }"
+      @click="selectItem(index)"
+      v-html="arrowHtml ? getText(item) : ''"
+    >
+      {{ arrowHtml ? '' : getText(item) }}
+    </li>
+  </ul>
+</template>
+
+<script>
+import touchMixin from '@/mixins/touch'
+
+const SELECT_DURATION = 300
+const MOMENTUM_LIMIT_DURATION = 300
+const MOMENTUM_LIMIT_DISTANCE = 15
+const MOMENTUM_DURATION = 1000
+
+export default {
+  name: 'JmPickerViewColumn',
+  mixins: [touchMixin],
+  data () {
+    return {
+      offset: 0,
+      activeIndex: 0,
+      selectedIndex: 0,
+      duration: 0,
+      moving: false,
+      transitionEndTrigger: '',
+      values: this.initialValues
+    }
+  },
+  props: {
+    arrowHtml: Boolean,
+    visibleItemCount: Number,
+    itemHeight: Number,
+    initialValues: {
+      type: Array,
+      default () {
+        return []
+      }
+    },
+    defaultIndex: Number
+  },
+  computed: {
+    length () {
+      return this.values.length
+    },
+    baseOffset () {
+      return this.itemHeight * (this.visibleItemCount - 1) / 2
+    }
+  },
+  watch: {
+    defaultIndex: {
+      handler () {
+        this.activeIndex = this.defaultIndex
+        this.setIndex(this.defaultIndex, false)
+      },
+      immediate: true
+    }
+  },
+  methods: {
+    getText (item) {
+      return typeof item === 'object' ? item.text : item
+    },
+    range (value, min, max) {
+      return Math.min(Math.max(value, min), max)
+    },
+    adjustIndex (index) {
+      index = this.range(index, 0, this.length)
+
+      for (let i = index; i < this.length; i++) {
+        if (typeof this.values[i] !== 'object' || !this.values[i].disabled) return i
+      }
+
+      for (let i = this.length - 1; i >= index; i--) {
+        if (typeof this.values[i] !== 'object' || !this.values[i].disabled) return i
+      }
+    },
+    selectItem (index) {
+      if (this.moving) return
+
+      this.duration = SELECT_DURATION
+      this.setIndex(index)
+    },
+    setIndex (index, userAction = true) {
+      index = this.adjustIndex(index)
+      this.offset = -index * this.itemHeight
+
+      const trigger = () => {
+        this.activeIndex = index
+        if (this.selectedIndex !== index) {
+          this.selectedIndex = index
+
+          if (userAction) {
+            this.$emit('change')
+          }
+        }
+      }
+
+      if (this.moving) {
+        this.transitionEndTrigger = trigger
+      } else {
+        trigger()
+      }
+    },
+    onTouchStart (event) {
+      this.touchStart(event)
+
+      this.startOffset = this.offset
+      this.duration = 0
+      this.transitionEndTrigger = null
+      this.startTime = Date.now()
+      this.momentumOffset = this.startOffset
+    },
+    onTouchMove (event) {
+      this.moving = true
+      this.touchMove(event)
+
+      if (this.direction === 'vertical') {
+        event.preventDefault()
+      }
+
+      this.offset = this.range(this.startOffset + this.deltaY, -this.itemHeight * this.length, this.itemHeight)
+      this.activeIndex = this.getIndexByOffset(this.offset)
+      const now = Date.now()
+
+      if (now - this.startTime > MOMENTUM_LIMIT_DURATION) {
+        this.startTime = now
+        this.momentumOffset = this.offset
+      }
+    },
+    onTouchEnd (event) {
+      const distance = this.offset - this.momentumOffset
+      const duration = Date.now() - this.startTime
+      const shouldMomentum = distance > MOMENTUM_LIMIT_DISTANCE && duration < MOMENTUM_LIMIT_DURATION
+
+      if (shouldMomentum) {
+        this.momentum(distance, duration)
+        return
+      }
+
+      const index = this.getIndexByOffset(this.offset)
+      this.moving = false
+      this.duration = SELECT_DURATION
+      this.setIndex(index)
+    },
+    momentum (distane, duration) {
+      const speed = distane / duration
+      const momentumDistance = this.offset + speed * MOMENTUM_DURATION
+      const nextIndex = this.getIndexByOffset(momentumDistance)
+
+      this.duration = MOMENTUM_DURATION
+      this.setIndex(nextIndex)
+    },
+    onTranstionEnd () {
+      this.moving = false
+      this.duration = 0
+
+      if (this.transitionEndTrigger) {
+        this.transitionEndTrigger()
+        this.transitionEndTrigger = null
+      }
+    },
+    getIndexByOffset (offset) {
+      return this.range(Math.round(-offset / this.itemHeight), 0, this.length - 1)
+    },
+    getValue () {
+      return this.values[this.selectedIndex]
+    },
+    setValue (text) {
+      for (let i = 0; i < this.length; i++) {
+        if (this.getText(this.values[i]) === text) {
+          this.setIndex(i, false)
+          return
+        }
+      }
+    }
+  },
+  created () {
+    if (this.$parent.children) {
+      this.$parent.children.push(this)
+    }
+  },
+  destroyed () {
+    const { children } = this.$parent
+
+    if (children) {
+      children.splice(children.indexOf(this), 1)
+    }
+  }
+}
+</script>
