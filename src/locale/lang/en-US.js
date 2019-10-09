@@ -10,14 +10,14 @@ export default {
       error: 'Failed to load, click to try again'
     },
     messageBox: {
-      inputPlaceholder: 'please input',
-      confirm: 'confirm',
-      cancel: 'cancel',
+      inputPlaceholder: 'please enter',
+      confirm: 'Confirm',
+      cancel: 'Cancel',
       inputNoValidate: 'The data entered is not legal'
     },
     picker: {
-      cancel: 'cancel',
-      finish: 'finish'
+      cancel: 'Cancel',
+      done: 'Done'
     },
     pullRefresh: {
       topPull: 'Pull down',
@@ -25,8 +25,8 @@ export default {
       topLoading: 'Refreshing'
     },
     search: {
-      search: 'search',
-      cancel: 'cancel'
+      search: 'Search',
+      cancel: 'Cancel'
     },
     steps: {
       wait: 'Wait',

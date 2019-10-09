@@ -17,7 +17,7 @@ export default {
     },
     picker: {
       cancel: '取消',
-      finish: '完成'
+      done: '完成'
     },
     pullRefresh: {
       topPull: '下拉刷新',

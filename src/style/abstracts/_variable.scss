@@ -23,8 +23,8 @@ $-color-border: #c5c5c5 !default;                 // 边框颜色
 /* 文字颜色 */
 $-color-title: #333 !default;     // 模块标题/重要正文
 $-color-text: #666 !default;      // 普通正文
-$-color-secondary: #A7A7A7 !default; // 次要信息，注释/补充/正文
-$-color-tip: #D2D2D2 !default;    // 弱化信息，引导性/不可点文字
+$-color-secondary: #a7a7a7 !default; // 次要信息，注释/补充/正文
+$-color-tip: #d2d2d2 !default;    // 弱化信息，引导性/不可点文字
 
 /* 尺寸 */
 $-size-side-padding: 15px !default;                 // 屏幕两边留白
@@ -243,3 +243,4 @@ $-picker-toolbar-title-color: $-color-title !default;
 $-picker-column-fs: 16px !default;
 $-picker-column-color: #292929 !default;
 $-picker-column-active-fs: 18px !default;
+$-picker-column-disabled-color: #dedede !default;

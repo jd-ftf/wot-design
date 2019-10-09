@@ -1,7 +1,7 @@
 @import './abstracts/variable';
 @import './abstracts/mixin';
 
-@include b(picker) {
+@include b(picker-view) {
   @include e(toolbar) {
     position: relative;
     display: flex;
@@ -62,19 +62,49 @@
     z-index: 2;
     pointer-events: none;
   }
+  @include e(select) {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    transform: translate3d(0, -50%, 0);
+    z-index: 3;
+    pointer-events: none;
+
+    &::before, &::after {
+      position: absolute;
+      display: block;
+      content: '';
+      width: 100%;
+      height: 1px;
+      left: 0;
+      transform: scaleY(0.5);
+      background: $-color-line;
+    }
+    &::before {
+      top: 0;
+    }
+    &::after {
+      bottom: 0;
+    }
+  }
 }
 
-@include b(picker-column) {
+@include b(picker-view-column) {
   flex: 1;
   font-size: $-picker-column-fs;
   color: $-picker-column-color;
   text-align: center;
+  transition-timing-function: cubic-bezier(0.28, 0.8, 0.63, 1);
 
   @include e(item) {
-    transition: font .3s color .3s;
+    transition: font .3s ease-out;
 
     @include m(active) {
       font-size: $-picker-column-active-fs;
+    }
+    @include m(disabled) {
+      color: $-picker-column-disabled-color;
     }
   }
 }

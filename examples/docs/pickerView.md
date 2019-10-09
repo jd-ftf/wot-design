@@ -1,4 +1,4 @@
-## Picker 通知栏
+## PickerView 选择器视图
 
 ### 按需引入
 

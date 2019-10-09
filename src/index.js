@@ -16,7 +16,7 @@ import Loading from 'jm-design/loading'
 import MessageBox from 'jm-design/messageBox'
 import Navbar from 'jm-design/navbar'
 import NoticeBar from 'jm-design/noticeBar'
-import Picker from 'jm-design/picker'
+import PickerView from 'jm-design/pickerView'
 import Popup from 'jm-design/popup'
 import PullRefresh from 'jm-design/pullRefresh'
 import Progress from 'jm-design/progress'
@@ -58,7 +58,7 @@ const components = [
   MessageBox.jmMessageBox,
   Navbar,
   NoticeBar,
-  Picker,
+  PickerView,
   Popup,
   PullRefresh,
   Progress,
