@@ -89,11 +89,14 @@ export default {
     onChangeDistrict (picker, values, columnIndex) {
       if (columnIndex === 0) {
         picker.setColumnValues(1, district[values[columnIndex].id])
+        picker.setColumnIndex(1, 0)
         picker.setColumnValues(2, district[district[values[columnIndex].id][0].id])
+        picker.setColumnIndex(2, 0)
         return
       }
       if (columnIndex === 1) {
         picker.setColumnValues(2, district[values[columnIndex].id])
+        picker.setColumnIndex(2, 0)
       }
     }
   }
