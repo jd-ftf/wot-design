@@ -3,47 +3,6 @@
 @import './loading.scss';
 
 @include b(picker-view) {
-  @include e(toolbar) {
-    position: relative;
-    display: flex;
-    height: $-picker-toolbar-height;
-    line-height: $-picker-toolbar-height;
-    font-size: $-picker-toolbar-fs;
-    justify-content: space-between;
-    align-items: center;
-    background: $-picker-toolbar-bg;
-
-    &::after {
-      position: absolute;
-      display: block;
-      content: '';
-      width: 100%;
-      height: 1px;
-      left: 0;
-      bottom: 0;
-      transform: scaleY(0.5);
-      background: $-picker-toolbar-border-color;
-    }
-  }
-  @include e(action) {
-    display: block;
-    height: 100%;
-    padding: 0 $-picker-toolbar-padding;
-    border: none;
-    outline: none;
-    font-size: $-picker-toolbar-fs;
-    color: $-picker-toolbar-color;
-    background: transparent;
-
-    @include m(cancel) {
-      color: $-picker-toolbar-cancel-color;
-    }
-  }
-  @include e(title) {
-    display: block;
-    float: 1;
-    color: $-picker-toolbar-title-color;
-  }
   @include e(columns) {
     position: relative;
     display: flex;
@@ -91,11 +50,6 @@
       bottom: 0;
     }
   }
-  @include e(separator) {
-    display: block;
-    font-size: $-picker-column-fs;
-    color: $-picker-column-color;
-  }
   @include e(loading) {
     position: absolute;
     display: flex;
@@ -118,6 +72,7 @@
   transition-timing-function: cubic-bezier(0.28, 0.8, 0.63, 1);
 
   @include e(item) {
+    user-select: none;
     transition: font .3s ease-out;
 
     @include m(active) {

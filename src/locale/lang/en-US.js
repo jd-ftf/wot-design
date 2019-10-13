@@ -15,9 +15,10 @@ export default {
       cancel: 'Cancel',
       inputNoValidate: 'The data entered is not legal'
     },
-    pickerView: {
+    picker: {
       cancel: 'Cancel',
-      done: 'Done'
+      done: 'Done',
+      placeholder: 'please select'
     },
     pullRefresh: {
       topPull: 'Pull down',

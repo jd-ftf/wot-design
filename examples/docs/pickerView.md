@@ -11,16 +11,17 @@ Vue.use(PickerView)
 
 ### 基本用法
 
-单列选择器，给 `columns` 传入一个数值数组，可以通过 `default-index` 属性设置默认选中项，通过监听 `change` 事件获取选中值。选项可以为字符串，也可以为对象，如果为对象，则默认取 `text` 属性为选项内容进行渲染。
+单列选择器，给 `columns` 传入一个数值数组，设置 `v-model` 绑定值。选项可以为字符串，也可以为对象，如果为对象则默认取 `label` 属性为选项内容进行渲染，获取的值为 `value` 属性的值，如果 `value` 属性不存在，则取 `label` 的值。
 
 ```html
-<jm-picker-view :columns="columns" @change="onChange" :default-index="2" />
+<jm-picker-view :columns="columns" v-model="value" @change="onChange" />
 
 <script>
 export default {
   data () {
     return {
-      columns: ['选项1', '选项2', '选项3', '选项4', '选项5', '选项6', '选项7']
+      columns: ['选项1', '选项2', '选项3', '选项4', '选项5', '选项6', '选项7'],
+      value: '选项1'
     }
   },
   methods: {
@@ -37,13 +38,14 @@ export default {
 设置 `show-toolbar` 属性，监听 `cancel` 和 `confirm` 事件。
 
 ```html
-<jm-picker-view :columns="columns" show-toolbar @cancel="onCancel" @confirm="onConfirm" />
+<jm-picker-view :columns="columns" v-model="value show-toolbar @cancel="onCancel" @confirm="onConfirm" />
 
 <script>
 export default {
   data () {
     return {
-      columns: ['选项1', '选项2', '选项3', '选项4', '选项5', '选项6', '选项7']
+      columns: ['选项1', '选项2', '选项3', '选项4', '选项5', '选项6', '选项7'],
+      value: '选项3'
     }
   },
   methods: {
@@ -63,7 +65,7 @@ export default {
 选项可以为对象，设置 `disabled` 属性。
 
 ```html
-<jm-picker-view :columns="columns" />
+<jm-picker-view :columns="columns" v-model="value" />
 
 <script>
 export default {
@@ -86,7 +88,8 @@ export default {
         }, {
           text: '选项7'
         }
-      ]
+      ],
+      value: '选项1'
     }
   }
 }
@@ -101,12 +104,12 @@ export default {
 <jm-picker-view :columns="columns" loading />
 ```
 
-### 多列/多列联动
+### 多列
 
 `columns` 属性可以为包含 `values` 属性的对象数组，通过 `defaultIndex` 属性设置当前列默认选中值。
 
 ```html
-<jm-picker-view :columns="columns" />
+<jm-picker-view :columns="columns" v-model="value" />
 
 <script>
 export default {
@@ -120,54 +123,51 @@ export default {
           values: ['计算机科学与技术', '软件工程', '通信工程', '法学', '经济学'],
           defaultIndex: 2
         }
-      ]
+      ],
+      value: ['中南大学', '软件工程']
     }
   }
 }
 </script>
 ```
 
-多列联动，需要通过暴露出来的 `setColumnValues` 和 `setColumnIndex` 修改其他列的数据和选中项。
+### 多级联动
+
+需要通过暴露出来的 `setColumnData` 修改其他列的数据源。
 
 ```html
-<jm-picker-view :columns="columns" @change="onChangeDistrict" />
+<jm-picker-view :columns="columns" v-model="value" column-change="onChangeDistrict" />
 
 <script>
 const district = {
-  '0': [{ text: '北京', id: '110000' }, { text: '广东省', id: '440000' }],
-  '110000': [{ text: '北京', id: '110100' }],
-  '440000': [{ text: '广州市', id: '440100' }, { text: '深圳市', id: '440300' }],
-  '110100': [{ text: '东城区', id: '110101' }, { text: '西城区', id: '110102' }],
-  '440100': [{ text: '荔湾区', id: '440103' }, { text: '越秀区', id: '440104' }],
-  '440300': [{ text: '罗湖区', id: '440303' }, { text: '福田区', id: '440304' }]
+  '0': [{ label: '北京', value: '110000' }, { label: '广东省', value: '440000' }],
+  '110000': [{ label: '北京', value: '110100' }],
+  '440000': [{ label: '广州市', value: '440100' }, { label: '深圳市', value: '440300' }],
+  '110100': [{ label: '东城区', value: '110101' }, { label: '西城区', value: '110102' }],
+  '440100': [{ label: '荔湾区', value: '440103' }, { label: '越秀区', value: '440104' }],
+  '440300': [{ label: '罗湖区', value: '440303' }, { label: '福田区', value: '440304' }]
 }
 
 export default {
   data () {
     return {
       columns: [
-        {
-          values: district[0]
-        }, {
-          values: district[district[0][0].id]
-        }, {
-          values: district[district[district[0][0].id][0].id]
-        }
-      ]
+        district[0],
+        district[district[0][0].value],
+        district[district[district[0][0].value][0].value]
+      ],
+      value: ['110000', '110100', '110102']
     }
   },
   methods: {
-    onChangeDistrict (picker, values, columnIndex) {
+    onChangeDistrict (picker, item, columnIndex) {
       if (columnIndex === 0) {
-        picker.setColumnValues(1, district[values[columnIndex].id])
-        picker.setColumnIndex(1, 0)
-        picker.setColumnValues(2, district[district[values[columnIndex].id][0].id])
-        picker.setColumnIndex(2, 0)
+        picker.setColumnData(1, district[item.value])
+        picker.setColumnData(2, district[district[item.value][0].value])
         return
       }
       if (columnIndex === 1) {
-        picker.setColumnValues(2, district[values[columnIndex].id])
-        picker.setColumnIndex(2, 0)
+        picker.setColumnData(2, district[item.value])
       }
     }
   }
@@ -189,7 +189,8 @@ export default {
 | arrow-html | 是否使用html渲染选择器内容 | boolean | - | true |
 | visible-item-count | 展示的行数 | number | - | 7 |
 | item-height | 选项高度 | number | - | 33 |
-| value-key | 选项对象中，文字对应的 key | string | - | 'text' |
+| value-key | 选项对象中，value对应的 key | string | - | 'text' |
+| label-key | 选项对象中，展示的文本对应的 key | string | - | 'value' |
 
 ### Events
 

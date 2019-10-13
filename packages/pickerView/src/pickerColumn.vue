@@ -12,7 +12,7 @@
     @transitionend="onTranstionEnd"
   >
     <li
-      v-for="(item, index) in values"
+      v-for="(item, index) in data"
       :key="index"
       :class="{
         'jm-picker-view-column__item': 1,
@@ -24,9 +24,9 @@
         'line-height': itemHeight + 'px'
       }"
       @click="selectItem(index)"
-      v-html="arrowHtml ? getText(item) : ''"
+      v-html="arrowHtml ? getItemLabel(item) : ''"
     >
-      {{ arrowHtml ? '' : getText(item) }}
+      {{ arrowHtml ? '' : getItemLabel(item) }}
     </li>
   </ul>
 </template>
@@ -50,14 +50,14 @@ export default {
       duration: 0,
       moving: false,
       transitionEndTrigger: '',
-      values: this.initialValues
+      data: this.initialData
     }
   },
   props: {
     arrowHtml: Boolean,
     visibleItemCount: Number,
     itemHeight: Number,
-    initialValues: {
+    initialData: {
       type: Array,
       default () {
         return []
@@ -67,28 +67,42 @@ export default {
       type: Number,
       default: 0
     },
+    value: String,
+    labelKey: String,
     valueKey: String
   },
   computed: {
     length () {
-      return this.values.length
+      return this.data.length
     },
     baseOffset () {
       return this.itemHeight * (this.visibleItemCount - 1) / 2
     }
   },
   watch: {
-    defaultIndex: {
+    value: {
       handler () {
-        this.activeIndex = this.defaultIndex
-        this.setIndex(this.defaultIndex, false)
+        let selectedIndex = 0
+        for (let i = 0; i < this.length; i++) {
+          if (this.getItemValue(this.data[i]) === this.value) {
+            selectedIndex = i
+            break
+          }
+        }
+        this.setIndex(selectedIndex, false)
       },
       immediate: true
+    },
+    data () {
+      this.setIndex(0, false)
     }
   },
   methods: {
-    getText (item) {
-      return typeof item === 'object' && this.valueKey in item ? item[this.valueKey] : item
+    getItemLabel (item) {
+      return typeof item === 'object' && this.labelKey in item ? item[this.labelKey] : item
+    },
+    getItemValue (item) {
+      return typeof item === 'object' && this.valueKey in item ? item[this.valueKey] : this.getItemLabel(item)
     },
     range (value, min, max) {
       return Math.min(Math.max(value, min), max)
@@ -97,11 +111,11 @@ export default {
       index = this.range(index, 0, this.length)
 
       for (let i = index; i < this.length; i++) {
-        if (typeof this.values[i] !== 'object' || !this.values[i].disabled) return i
+        if (typeof this.data[i] !== 'object' || !this.data[i].disabled) return i
       }
 
       for (let i = this.length - 1; i >= index; i--) {
-        if (typeof this.values[i] !== 'object' || !this.values[i].disabled) return i
+        if (typeof this.data[i] !== 'object' || !this.data[i].disabled) return i
       }
     },
     selectItem (index) {
@@ -193,11 +207,14 @@ export default {
       return this.range(Math.round(-offset / this.itemHeight), 0, this.length - 1)
     },
     getValue () {
-      return this.values[this.selectedIndex]
+      return this.getItemValue(this.data[this.selectedIndex])
     },
-    setValue (text) {
+    getLabel () {
+      return this.getItemLabel(this.data[this.selectedIndex])
+    },
+    setValue (value) {
       for (let i = 0; i < this.length; i++) {
-        if (this.getText(this.values[i]) === text) {
+        if (this.getItemValue(this.data[i]) === value) {
           this.setIndex(i, false)
           return
         }

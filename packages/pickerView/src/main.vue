@@ -1,10 +1,5 @@
 <template>
   <div class="jm-picker-view">
-    <div v-if="showToolbar" class="jm-picker-view__toolbar">
-      <button class="jm-picker-view__action jm-picker-view__action--cancel" @click="onCancel">{{ cancelButtonText || t('jmd.pickerView.cancel') }}</button>
-      <span v-if="title" class="jm-pickerview__title">{{ title }}</span>
-      <button class="jm-picker-view__action" @click="onConfirm">{{ confirmButtonText || t('jmd.pickerView.done') }}</button>
-    </div>
     <div class="jm-picker-view__columns" :style="{ 'height': itemHeight * visibleItemCount + 'px' }">
       <jm-picker-view-column
         v-for="(column, index) in formatColumns"
@@ -12,9 +7,10 @@
         :visible-item-count="visibleItemCount"
         :item-height="itemHeight"
         :arrow-html="arrowHtml"
-        :default-index="isSingle ? defaultIndex : column.defaultIndex"
-        :initial-values="column.values"
+        :value="value instanceof Array ? value[index] : value"
+        :initial-data="column"
         :value-key="valueKey"
+        :label-key="labelKey"
         @change="onChange(index)"
       />
       <div class="jm-picker-view__mask" :style="{ 'background-size': `100% ${itemHeight * (visibleItemCount - 1) / 2}px` }"></div>
@@ -52,29 +48,36 @@ export default {
         return []
       }
     },
-    defaultIndex: {
-      type: Number,
-      default: 0
-    },
+    value: [String, Array],
     valueKey: {
       type: String,
-      default: 'text'
-    }
+      default: 'value'
+    },
+    labelKey: {
+      type: String,
+      default: 'label'
+    },
+    columnChange: Function
   },
   computed: {
     isSingle () {
-      return this.columns.length && !this.columns[0].values
+      return this.columns.length && !(this.columns[0] instanceof Array)
     },
     formatColumns () {
-      return this.isSingle ? [{ values: this.columns }] : this.columns
+      return this.isSingle ? [this.columns] : this.columns
     }
   },
   methods: {
     onChange (columnIndex) {
+      this.columnChange && this.columnChange(this, this.getColumnItem(columnIndex), columnIndex)
       if (this.isSingle) {
-        this.$emit('change', this, this.getColumnValue(columnIndex), this.getColumnIndex(columnIndex))
+        let value = this.getColumnValue(columnIndex)
+        this.$emit('input', value)
+        this.$emit('change', this, value, this.getColumnIndex(columnIndex))
       } else {
-        this.$emit('change', this, this.getValues(), columnIndex)
+        let value = this.getValues()
+        this.$emit('input', value)
+        this.$emit('change', this, value, columnIndex)
       }
     },
     getValues () {
@@ -82,32 +85,31 @@ export default {
         return column.getValue()
       })
     },
-    setValues (values) {
-      this.children.forEach((column, index) => {
-        column.setValue(values[index])
+    getLabels () {
+      return this.children.map(column => {
+        return column.getValue()
       })
     },
-    getColumnValue (index) {
-      const column = this.children[index]
+    getColumnValue (columnIndex) {
+      const column = this.children[columnIndex]
       return column && column.getValue()
     },
-    setColumnValue (index, value) {
-      const column = this.children[index]
-      column && column.setValue(value)
+    getColumnIndex (columnIndex) {
+      return (this.children[columnIndex] || {}).selectedIndex
     },
-    getColumnIndex (index) {
-      return (this.children[index] || {}).selectedIndex
-    },
-    setColumnIndex (columnIndex, itemIndex) {
+    getColumnItem (columnIndex) {
       const column = this.children[columnIndex]
-      column && column.setIndex(itemIndex)
+
+      if (column) {
+        return column.data[column.selectedIndex]
+      }
     },
-    getColumnValues (columnIndex) {
-      return (this.children[columnIndex] || {}).values
+    getColumnData (columnIndex) {
+      return (this.children[columnIndex] || {}).data
     },
-    setColumnValues (columnIndex, values) {
+    setColumnData (columnIndex, data) {
       const column = this.children[columnIndex]
-      column && (column.values = values)
+      column && (column.data = data)
     },
     onCancel () {
       this.$emit('cancel')
