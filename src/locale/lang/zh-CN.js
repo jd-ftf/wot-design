@@ -15,9 +15,10 @@ export default {
       cancel: '取消',
       inputNoValidate: '输入的数据不合法'
     },
-    pickerView: {
+    picker: {
       cancel: '取消',
-      done: '完成'
+      done: '完成',
+      placeholder: '请选择'
     },
     pullRefresh: {
       topPull: '下拉刷新',

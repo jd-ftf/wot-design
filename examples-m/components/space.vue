@@ -1,6 +1,8 @@
 <template>
   <div class="space">
-    <div v-if="title" class="space__title">{{ title }}</div>
+    <div v-if="title || $slots.title" class="space__title">
+      <slot name="title">{{ title }}</slot>
+    </div>
     <div class="space__body">
       <slot></slot>
     </div>
