@@ -9,7 +9,7 @@
     <space title="展示工具栏">
       <jm-picker-view :columns="columns1" show-toolbar @cancel="onCancel" @confirm="onConfirm" />
     </space>
-    <space title="禁用">
+    <space title="禁用选项">
       <jm-picker-view :columns="columns2" />
     </space>
     <space title="加载中">

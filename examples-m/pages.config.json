@@ -46,6 +46,9 @@
         "name": "InputNumber 计数器",
         "path": "/inputNumber"
       }, {
+        "name": "Picker 选择器",
+        "path": "/picker"
+      }, {
         "name": "PickerView 选择器视图",
         "path": "/pickerView"
       }, {

@@ -1,9 +1,9 @@
 export default {
-  title: String,
-  loading: Boolean,
   showToolbar: Boolean,
+  title: String,
   cancelButtonText: Boolean,
   confirmButtonText: Boolean,
+  loading: Boolean,
   arrowHtml: {
     type: Boolean,
     default: true
