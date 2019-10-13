@@ -97,10 +97,15 @@
                 "path": "/inputNumber",
                 "demo": "/inputNumber"
               },
-              "Picker": {
+              "picker": {
                 "name": "Picker 选择器",
                 "path": "/picker",
                 "demo": "/picker"
+              },
+              "PickerView": {
+                "name": "PickerView 选择器视图",
+                "path": "/pickerView",
+                "demo": "/pickerView"
               },
               "Radio": {
                 "name": "Radio 单选框",
