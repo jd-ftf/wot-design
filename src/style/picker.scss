@@ -17,11 +17,13 @@
     width: 33%;
     padding: 11px 0;
     color: $-picker-label-color;
+    @include lineEllipsis;
   }
   @include e(value) {
     flex: 1;
     padding: 11px 0;
     color: $-picker-value-color;
+    @include lineEllipsis;
   }
   @include e(arrow) {
     display: block;
