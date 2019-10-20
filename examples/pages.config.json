@@ -87,6 +87,10 @@
                 "path": "/checkbox",
                 "demo": "/checkbox"
               },
+              "DatetimePicker": {
+                "name": "DatetimePicker 时间选择器",
+                "demo": "/datetimePicker"
+              },
               "Input": {
                 "name": "Input 输入框",
                 "path": "/input",

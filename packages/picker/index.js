@@ -1,7 +1,7 @@
-import JmPicker from './src/main.vue'
+import Picker from './src/main.vue'
 
-JmPicker.install = Vue => {
-  Vue.component(JmPicker.name, JmPicker)
+Picker.install = Vue => {
+  Vue.component(Picker.name, Picker)
 }
 
-export default JmPicker
+export default Picker

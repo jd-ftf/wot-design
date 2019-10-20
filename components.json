@@ -8,6 +8,7 @@
   "checkboxGroup": "./packages/checkboxGroup/index.js",
   "collapse": "./packages/collapse/index.js",
   "collapseItem": "./packages/collapseItem/index.js",
+  "dateTimePicker": "./packages/datetimePicker/index.js",
   "icon": "./packages/icon/index.js",
   "infiniteLoad": "./packages/infiniteLoad/index.js",
   "input": "./packages/input/index.js",

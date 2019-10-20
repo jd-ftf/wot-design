@@ -68,7 +68,17 @@ export default {
         district[district[0][0].value],
         district[district[district[0][0].value][0].value]
       ],
-      value5: ['110000', '110100', '110102']
+      value5: ['110000', '110100', '110102'],
+      onChangeDistrict (picker, item, columnIndex) {
+        if (columnIndex === 0) {
+          picker.setColumnData(1, district[item.value])
+          picker.setColumnData(2, district[district[item.value][0].value])
+          return
+        }
+        if (columnIndex === 1) {
+          picker.setColumnData(2, district[item.value])
+        }
+      }
     }
   },
   methods: {
@@ -80,16 +90,6 @@ export default {
     },
     onConfirm (picker, value, index) {
       this.$toast(`点击了完成，当前选中项: ${value}, 下标: ${index}`)
-    },
-    onChangeDistrict (picker, item, columnIndex) {
-      if (columnIndex === 0) {
-        picker.setColumnData(1, district[item.value])
-        picker.setColumnData(2, district[district[item.value][0].value])
-        return
-      }
-      if (columnIndex === 1) {
-        picker.setColumnData(2, district[item.value])
-      }
     }
   }
 }

@@ -1,7 +1,7 @@
-import JmPickerView from './src/main.vue'
+import PickerView from './src/main.vue'
 
-JmPickerView.install = Vue => {
-  Vue.component(JmPickerView.name, JmPickerView)
+PickerView.install = Vue => {
+  Vue.component(PickerView.name, PickerView)
 }
 
-export default JmPickerView
+export default PickerView

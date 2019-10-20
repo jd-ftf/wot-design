@@ -7,6 +7,7 @@ import Checkbox from 'jm-design/checkbox'
 import CheckboxGroup from 'jm-design/checkboxGroup'
 import Collapse from 'jm-design/collapse'
 import CollapseItem from 'jm-design/collapseItem'
+import DatetimePicker from 'jm-design/datetimePicker'
 import Icon from 'jm-design/icon'
 import InfiniteLoad from 'jm-design/infiniteLoad'
 import Input from 'jm-design/input'
@@ -51,6 +52,7 @@ const components = [
   CheckboxGroup,
   Collapse,
   CollapseItem,
+  DatetimePicker,
   Icon,
   InfiniteLoad,
   Input,
