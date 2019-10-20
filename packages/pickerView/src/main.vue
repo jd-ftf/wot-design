@@ -24,7 +24,7 @@
 
 <script>
 import locale from '@/mixins/locale'
-import pickerProps from './pickerProps'
+import pickerViewProps from './pickerViewProps'
 import JmPickerViewColumn from './pickerColumn'
 import JmLoading from 'jm-design/loading'
 
@@ -41,14 +41,15 @@ export default {
     }
   },
   props: {
-    ...pickerProps,
+    ...pickerViewProps,
+    value: [String, Array],
+    columnChange: Function,
     columns: {
       type: Array,
       default () {
         return []
       }
     },
-    value: [String, Array],
     valueKey: {
       type: String,
       default: 'value'
@@ -56,8 +57,7 @@ export default {
     labelKey: {
       type: String,
       default: 'label'
-    },
-    columnChange: Function
+    }
   },
   computed: {
     isSingle () {
@@ -87,7 +87,7 @@ export default {
     },
     getLabels () {
       return this.children.map(column => {
-        return column.getValue()
+        return column.getLabel()
       })
     },
     getColumnValue (columnIndex) {

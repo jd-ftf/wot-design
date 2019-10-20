@@ -40,6 +40,9 @@
         "name": "Checkbox 复选框",
         "path": "/checkbox"
       }, {
+        "name": "DatetimePicker 时间选择器",
+        "path": "/datetimePicker"
+      }, {
         "name": "Input 输入框",
         "path": "/input"
       }, {

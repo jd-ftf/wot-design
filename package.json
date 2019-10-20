@@ -51,6 +51,7 @@
     "@babel/preset-env": "^7.4.3",
     "@vant/doc": "^1.0.25",
     "@vue/babel-preset-app": "^3.5.5",
+    "@vue/babel-preset-jsx": "^1.1.1",
     "autoprefixer": "^9.5.1",
     "babel-eslint": "^10.0.1",
     "babel-helper-vue-jsx-merge-props": "^2.0.3",
@@ -138,6 +139,7 @@
   ],
   "license": "MIT",
   "dependencies": {
+    "@vue/babel-helper-vue-jsx-merge-props": "^1.0.0",
     "vue-lazyload": "^1.2.6"
   }
 }

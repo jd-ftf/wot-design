@@ -12,6 +12,12 @@
     text-decoration: none;
     color: $-cell-title-color;
     font-size: $-picker-cell-fs;
+
+    @include m(disabled) {
+      .jm-picker__value {
+        color: $-picker-column-disabled-color;
+      }
+    }
   }
   @include e(label) {
     width: 33%;

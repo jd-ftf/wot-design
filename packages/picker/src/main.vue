@@ -1,9 +1,15 @@
 <template>
-  <div class="jm-picker">
-    <div class="jm-picker__field" @click="showPopup">
+  <div class="jm-picker jm-field">
+    <div
+      class="jm-picker__field"
+      :class="{
+        'jm-picker__field--disabled': disabled
+      }"
+      @click="showPopup"
+    >
       <div class="jm-picker__label">{{ label }}</div>
-      <div class="jm-picker__value">{{ showValue || placeholder || t('jmd.picker.placeholder') }}</div>
-      <i class="jm-picker__arrow jm-icon-arrow-right"></i>
+      <div class="jm-picker__value">{{ (value ? showValue : placeholder) || t('jmd.picker.placeholder') }}</div>
+      <i v-if="!disabled && !readonly" class="jm-picker__arrow jm-icon-arrow-right"></i>
     </div>
     <jm-popup v-model="popupShow" position="bottom" @click-modal="onCancel">
       <div class="jm-picker__toolbar">
@@ -21,6 +27,7 @@
         :item-height="itemHeight"
         :value-key="valueKey"
         :label-key="labelKey"
+        :column-change="columnChange"
       />
     </jm-popup>
   </div>
@@ -30,7 +37,7 @@
 import locale from '@/mixins/locale'
 import JmPopup from 'jm-design/popup'
 import JmPickerView from 'jm-design/pickerView'
-import pickerProps from 'jm-design/pickerView/src/pickerProps'
+import pickerProps from './pickerProps'
 
 export default {
   name: 'JmPicker',
@@ -48,6 +55,8 @@ export default {
   },
   props: {
     ...pickerProps,
+    value: [String, Array],
+    columnChange: Function,
     columns: {
       type: Array,
       default () {
@@ -56,28 +65,19 @@ export default {
     },
     valueKey: {
       type: String,
-      default: 'label'
+      default: 'value'
     },
     labelKey: {
       type: String,
-      default: 'value'
-    },
-    showToolbar: Boolean,
-    title: String,
-    cancelButtonText: Boolean,
-    confirmButtonText: Boolean,
-    label: String,
-    placeholder: String,
-    disabled: Boolean,
-    readonly: Boolean,
-    valueSeparator: {
-      type: String,
-      default: ','
+      default: 'label'
     }
   },
   watch: {
-    value () {
-      this.pickerValue = this.value
+    value: {
+      handler () {
+        this.pickerValue = this.value
+      },
+      immediate: true
     }
   },
   methods: {
@@ -92,12 +92,18 @@ export default {
       this.$emit('cancel')
     },
     onConfirm () {
-      let labels = this.$refs.pickerView.getLabels()
-      this.showValue = labels.length === 1 ? labels[0] : labels.join(this.valueSeparator)
       this.$emit('input', this.pickerValue)
       this.popupShow = false
       this.$emit('confirm')
+      this.setShowValue()
+    },
+    setShowValue () {
+      let labels = this.$refs.pickerView.getLabels()
+      this.showValue = labels.length === 1 ? labels[0] : labels.join(this.labelSeparator)
     }
+  },
+  mounted () {
+    this.setShowValue()
   }
 }
 </script>
