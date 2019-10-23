@@ -12,5 +12,6 @@ export default {
   labelSeparator: {
     type: String,
     default: ','
-  }
+  },
+  displayFormat: Function
 }

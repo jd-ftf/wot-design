@@ -95,11 +95,20 @@ export default {
       this.$emit('input', this.pickerValue)
       this.popupShow = false
       this.$emit('confirm')
-      this.setShowValue()
+      this.$nextTick(() => {
+        this.setShowValue()
+      })
     },
     setShowValue () {
       let labels = this.$refs.pickerView.getLabels()
-      this.showValue = labels.length === 1 ? labels[0] : labels.join(this.labelSeparator)
+      this.showValue = this.displayFormat
+        ? this.displayFormat(this.value)
+        : labels.length === 1
+          ? labels[0]
+          : labels.join(',')
+    },
+    getPickerView () {
+      return this.$refs.pickerView
     }
   },
   mounted () {

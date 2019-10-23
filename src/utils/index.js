@@ -37,3 +37,13 @@ export const getScrollTargetEvent = function (element, rootElement = window) {
 
   return rootElement
 }
+
+export const padZero = (number, length = 2) => {
+  number = number + ''
+
+  while (number.length < length) {
+    number = '0' + number
+  }
+
+  return number
+}

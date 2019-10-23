@@ -67,7 +67,7 @@ export default {
       type: Number,
       default: 0
     },
-    value: String,
+    value: [String, Number],
     labelKey: String,
     valueKey: String
   },
@@ -92,9 +92,6 @@ export default {
         this.setIndex(selectedIndex, false)
       },
       immediate: true
-    },
-    data () {
-      this.setIndex(0, false)
     }
   },
   methods: {

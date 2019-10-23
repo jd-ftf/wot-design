@@ -1,5 +1,6 @@
 import Picker from 'jm-design/picker'
 import pickerProps from 'jm-design/picker/src/pickerProps'
+import { padZero } from '@/utils'
 
 const times = (num, formatter) => {
   let index = -1
@@ -12,27 +13,18 @@ const times = (num, formatter) => {
   return array
 }
 
-const padZero = (number, length = 2) => {
-  number = number + ''
-
-  while (number.length < length) {
-    number = '0' + number
-  }
-
-  return number
-}
-
 export default {
   data () {
     return {
-      innerValue: this.formatValue(this.value)
+      innerValue: this.formatValue(this.value),
+      pickerValue: this.getPickerValue(this.value)
     }
   },
   computed: {
     originColumns () {
       return this.ranges.map(({ type, range }) => {
         let values = times(range[1] - range[0] + 1, index => {
-          return padZero(range[0] + index)
+          return range[0] + index
         })
 
         if (this.filter) {
@@ -48,10 +40,37 @@ export default {
     columns () {
       return this.originColumns.map(column => {
         return column.values.map(value => ({
-          label: this.formatter(column.type, value),
+          label: this.formatter(column.type, padZero(value)),
           value
         }))
       })
+    }
+  },
+  watch: {
+    columns: 'updateColumnValues',
+    value () {
+      this.pickerValue = this.getPickerValue(this.value)
+    }
+  },
+  methods: {
+    onConfirm () {
+      this.$nextTick(() => {
+        this.$emit('input', this.transferToValue())
+        this.$emit('confirm')
+      })
+    },
+    onCancel () {
+      this.$emit('cancel')
+    },
+    getPickerValue () {
+      if (this.value) {
+        let value = this.formatValue(this.value)
+        let result = this.getValueArray(value)
+
+        return result
+      }
+
+      return ''
     }
   },
   render () {
@@ -62,8 +81,12 @@ export default {
 
     return (
       <Picker
+        ref="picker"
+        vModel={this.pickerValue}
         columns={this.columns}
         column-change={this.onColumnChange}
+        onConfirm={this.onConfirm}
+        onCancel={this.onCancel}
         {...{ props }}
       />
     )
