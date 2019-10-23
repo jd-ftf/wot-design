@@ -67,6 +67,14 @@ export default {
       return this.isSingle ? [this.columns] : this.columns
     }
   },
+  watch: {
+    columns () {
+      let formatColumns = this.isSingle ? [this.columns] : this.columns
+      formatColumns.forEach((data, index) => {
+        this.setColumnData(index, data)
+      })
+    }
+  },
   methods: {
     onChange (columnIndex) {
       this.columnChange && this.columnChange(this, this.getColumnItem(columnIndex), columnIndex)
@@ -83,6 +91,11 @@ export default {
     getValues () {
       return this.children.map(column => {
         return column.getValue()
+      })
+    },
+    setValues (values) {
+      this.children.forEach((column, index) => {
+        column.setValue(values[index])
       })
     },
     getLabels () {
@@ -109,7 +122,10 @@ export default {
     },
     setColumnData (columnIndex, data) {
       const column = this.children[columnIndex]
-      column && (column.data = data)
+      if (column && JSON.stringify(column.data) !== JSON.stringify(data)) {
+        column.data = data
+        column.setIndex(0, false)
+      }
     },
     onCancel () {
       this.$emit('cancel')

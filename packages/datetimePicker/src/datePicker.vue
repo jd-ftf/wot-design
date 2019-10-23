@@ -1,6 +1,7 @@
 <script>
 import DatetimePickerMixin from '@/mixins/datetimePicker'
 import props from './props'
+import { padZero } from '@/utils'
 
 const currentYear = new Date().getFullYear()
 
@@ -23,6 +24,16 @@ export default {
     maxDate: {
       type: Date,
       default: () => new Date(currentYear + 10, 11, 31)
+    },
+    displayFormat: {
+      type: Function,
+      default (value) {
+        return value.length === 2
+          ? `${value[0]}-${padZero(value[1])}`
+          : value.length === 3
+            ? `${value[0]}-${padZero(value[1])}-${padZero(value[2])}`
+            : `${value[0]}-${padZero(value[1])}-${padZero(value[2])} ${padZero(value[3])}:${padZero(value[4])}`
+      }
     }
   },
   watch: {
@@ -32,7 +43,9 @@ export default {
       if (val.valueOf() !== this.innerValue.valueOf()) {
         this.innerValue = val
       }
-    }
+    },
+    maxDate: 'updateInnerValue',
+    minDate: 'updateInnerValue'
   },
   computed: {
     ranges () {
@@ -100,7 +113,7 @@ export default {
           if (value.getDate() === date) {
             hour = boundary.getHours()
 
-            if (value.getHour() === hour) {
+            if (value.getHours() === hour) {
               minute = boundary.getMinutes()
             }
           }
@@ -114,6 +127,65 @@ export default {
         [`${type}Hour`]: hour,
         [`${type}Minute`]: minute
       }
+    },
+    updateInnerValue () {
+      const pickerView = this.$refs.picker.getPickerView()
+      const values = pickerView.getValues()
+      const year = values[0] && parseInt(values[0])
+      const month = values[1] && parseInt(values[1])
+
+      const maxDate = getMonthEndDay(year, month)
+      let date = this.type === 'year-month' ? 1 : (values[2] && parseInt(values[2]))
+      date = date > maxDate ? maxDate : date
+
+      let hour = 0
+      let minute = 0
+
+      if (this.type === 'datetime') {
+        hour = values[3] && parseInt(values[3])
+        minute = values[4] && parseInt(values[4])
+      }
+      const value = new Date(year, month - 1, date, hour, minute)
+
+      this.innerValue = this.formatValue(value)
+    },
+    onColumnChange (pickerView) {
+      this.updateInnerValue()
+    },
+    updateColumnValues () {
+      const values = this.getValueArray(this.innerValue)
+
+      this.$nextTick(() => {
+        let pickerView = this.$refs.picker.getPickerView()
+        pickerView.setValues(values)
+      })
+    },
+    getValueArray (value) {
+      const values = [
+        value.getFullYear(),
+        value.getMonth() + 1,
+        value.getDate(),
+        value.getHours(),
+        value.getMinutes()
+      ]
+
+      if (this.type === 'date') values.splice(3, 2)
+
+      if (this.type === 'year-month') values.splice(2, 3)
+
+      return values
+    },
+    transferToValue () {
+      let date
+      if (this.type === 'date') {
+        date = new Date(this.pickerValue[0], this.pickerValue[1] - 1, this.pickerValue[2], 0, 0)
+      } else if (this.type === 'year-month') {
+        date = new Date(this.pickerValue[0], this.pickerValue[1] - 1, this.pickerValue[2], 0, 0)
+      } else {
+        date = new Date(this.pickerValue[0], this.pickerValue[1] - 1, this.pickerValue[2], this.pickerValue[3], this.pickerValue[4])
+      }
+
+      return date
     }
   }
 }
