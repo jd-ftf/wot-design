@@ -1,7 +1,6 @@
 <script>
 import DatetimePickerMixin from '@/mixins/datetimePicker'
 import props from './props'
-import { padZero } from '@/utils'
 
 const currentYear = new Date().getFullYear()
 
@@ -13,10 +12,6 @@ export default {
   mixins: [DatetimePickerMixin],
   props: {
     ...props,
-    type: {
-      type: String,
-      default: 'datetime'
-    },
     minDate: {
       type: Date,
       default: () => new Date(currentYear - 10, 0, 1)
@@ -24,16 +19,6 @@ export default {
     maxDate: {
       type: Date,
       default: () => new Date(currentYear + 10, 11, 31)
-    },
-    displayFormat: {
-      type: Function,
-      default (value) {
-        return value.length === 2
-          ? `${value[0]}-${padZero(value[1])}`
-          : value.length === 3
-            ? `${value[0]}-${padZero(value[1])}-${padZero(value[2])}`
-            : `${value[0]}-${padZero(value[1])}-${padZero(value[2])} ${padZero(value[3])}:${padZero(value[4])}`
-      }
     }
   },
   watch: {

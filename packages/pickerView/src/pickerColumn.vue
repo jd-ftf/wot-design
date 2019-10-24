@@ -33,6 +33,7 @@
 
 <script>
 import touchMixin from '@/mixins/touch'
+import { range } from '@/utils'
 
 const SELECT_DURATION = 300
 const MOMENTUM_LIMIT_DURATION = 300
@@ -101,11 +102,8 @@ export default {
     getItemValue (item) {
       return typeof item === 'object' && this.valueKey in item ? item[this.valueKey] : this.getItemLabel(item)
     },
-    range (value, min, max) {
-      return Math.min(Math.max(value, min), max)
-    },
     adjustIndex (index) {
-      index = this.range(index, 0, this.length)
+      index = range(index, 0, this.length)
 
       for (let i = index; i < this.length; i++) {
         if (typeof this.data[i] !== 'object' || !this.data[i].disabled) return i
@@ -159,7 +157,7 @@ export default {
         event.preventDefault()
       }
 
-      this.offset = this.range(this.startOffset + this.deltaY, -this.itemHeight * this.length, this.itemHeight)
+      this.offset = range(this.startOffset + this.deltaY, -this.itemHeight * this.length, this.itemHeight)
       this.activeIndex = this.getIndexByOffset(this.offset)
       const now = Date.now()
 
@@ -201,7 +199,7 @@ export default {
       }
     },
     getIndexByOffset (offset) {
-      return this.range(Math.round(-offset / this.itemHeight), 0, this.length - 1)
+      return range(Math.round(-offset / this.itemHeight), 0, this.length - 1)
     },
     getValue () {
       return this.getItemValue(this.data[this.selectedIndex])

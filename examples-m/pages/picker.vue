@@ -1,10 +1,11 @@
 <template>
   <div style="margin: 20px 0">
-    <jm-picker :columns="columns1" label="单列选项" v-model="value1" placeholder="请选择" />
+    <jm-picker :columns="columns1" label="单列选项" v-model="value1" />
     <jm-picker :columns="columns1" label="禁用" v-model="value2" disabled />
     <jm-picker :columns="columns1" label="只读" v-model="value3" readonly />
-    <jm-picker :columns="columns2" label="多列" v-model="value4" />
-    <jm-picker :columns="columns3" label="多列联动" v-model="value5" :column-change="onChangeDistrict" label-separator=" - " />
+    <jm-picker :columns="columns1" label="loading" v-model="value4" loading />
+    <jm-picker :columns="columns2" label="多列" v-model="value5" />
+    <jm-picker :columns="columns3" label="多列联动" v-model="value6" :column-change="onChangeDistrict" :display-format="displayFormat" />
   </div>
 </template>
 
@@ -34,17 +35,23 @@ export default {
       value1: '',
       value2: '选项3',
       value3: '选项4',
-      value4: ['中南大学', '软件工程'],
-      value5: ['110000', '110100', '110102'],
-      onChangeDistrict (picker, item, columnIndex) {
+      value4: '',
+      value5: ['中南大学', '软件工程'],
+      value6: ['110000', '110100', '110102'],
+      onChangeDistrict (pickerView, item, columnIndex) {
         if (columnIndex === 0) {
-          picker.setColumnData(1, district[item.value])
-          picker.setColumnData(2, district[district[item.value][0].value])
+          pickerView.setColumnData(1, district[item.value])
+          pickerView.setColumnData(2, district[district[item.value][0].value])
           return
         }
         if (columnIndex === 1) {
-          picker.setColumnData(2, district[item.value])
+          pickerView.setColumnData(2, district[item.value])
         }
+      },
+      displayFormat (items) {
+        return items.map(item => {
+          return item.label
+        }).join('-')
       }
     }
   }

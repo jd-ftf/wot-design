@@ -100,12 +100,16 @@ export default {
       })
     },
     setShowValue () {
+      if (this.displayFormat) {
+        let items = this.$refs.pickerView.getItems()
+        this.showValue = this.displayFormat(items)
+        return
+      }
+
       let labels = this.$refs.pickerView.getLabels()
-      this.showValue = this.displayFormat
-        ? this.displayFormat(this.value)
-        : labels.length === 1
-          ? labels[0]
-          : labels.join(',')
+      this.showValue = labels.length === 1
+        ? labels[0]
+        : labels.join(',')
     },
     getPickerView () {
       return this.$refs.pickerView

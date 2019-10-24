@@ -89,6 +89,7 @@
               },
               "DatetimePicker": {
                 "name": "DatetimePicker 时间选择器",
+                "path": "/datetimePicker",
                 "demo": "/datetimePicker"
               },
               "Input": {

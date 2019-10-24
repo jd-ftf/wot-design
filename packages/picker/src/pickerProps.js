@@ -9,9 +9,5 @@ export default {
   placeholder: String,
   disabled: Boolean,
   readonly: Boolean,
-  labelSeparator: {
-    type: String,
-    default: ','
-  },
   displayFormat: Function
 }
