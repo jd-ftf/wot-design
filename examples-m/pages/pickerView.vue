@@ -69,14 +69,14 @@ export default {
         district[district[district[0][0].value][0].value]
       ],
       value5: ['110000', '110100', '110102'],
-      onChangeDistrict (picker, item, columnIndex) {
+      onChangeDistrict (pickerView, item, columnIndex) {
         if (columnIndex === 0) {
-          picker.setColumnData(1, district[item.value])
-          picker.setColumnData(2, district[district[item.value][0].value])
+          pickerView.setColumnData(1, district[item.value])
+          pickerView.setColumnData(2, district[district[item.value][0].value])
           return
         }
         if (columnIndex === 1) {
-          picker.setColumnData(2, district[item.value])
+          pickerView.setColumnData(2, district[item.value])
         }
       }
     }

@@ -28,7 +28,7 @@ export default {
         })
 
         if (this.filter) {
-          this.filter(type, values)
+          values = this.filter(type, values)
         }
 
         return {
@@ -71,6 +71,19 @@ export default {
       }
 
       return ''
+    },
+    formatDisplay (items) {
+      if (this.displayFormat) return this.displayFormat(items)
+
+      if (this.type !== 'time') {
+        return items.length === 2
+          ? `${items[0].value}-${padZero(items[1].value)}`
+          : items.length === 3
+            ? `${items[0].value}-${padZero(items[1].value)}-${padZero(items[2].value)}`
+            : `${items[0].value}-${padZero(items[1].value)}-${padZero(items[2].value)} ${padZero(items[3].value)}:${padZero(items[4].value)}`
+      }
+
+      return `${padZero(items[0].value)}:${padZero(items[1].value)}`
     }
   },
   render () {
@@ -78,6 +91,7 @@ export default {
     Object.keys(pickerProps).forEach(key => {
       props[key] = this[key]
     })
+    props.displayFormat = this.formatDisplay
 
     return (
       <Picker

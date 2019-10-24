@@ -1,173 +1,161 @@
-## Picker 选择器视图
+## DatetimePicker 日期时间选择器
+
+为 Picker 组件的封装，在其内部构建好日期时间选项。
 
 ### 按需引入
 
 ```javascript
 import Vue from 'vue'
-import { PickerView } from 'jm-design'
+import { DatetimePicker } from 'jm-design'
 
-Vue.use(PickerView)
+Vue.use(DatetimePicker)
 ```
 
 ### 基本用法
 
-单列选择器，给 `columns` 传入一个数值数组，可以通过 `default-index` 属性设置默认选中项，通过监听 `change` 事件获取选中值。选项可以为字符串，也可以为对象，如果为对象，则默认取 `text` 属性为选项内容进行渲染。
+`v-model` 设置绑定值，默认为 'datetime' 类型，展示年月日时分，绑定值为 `Date` 类型，如果为 'time' 类型，绑定值为字符串。
 
 ```html
-<jm-picker-view :columns="columns" @change="onChange" :default-index="2" />
+<jm-datetime-picker v-model="value" label="日期选择" />
 
 <script>
 export default {
   data () {
     return {
-      columns: ['选项1', '选项2', '选项3', '选项4', '选项5', '选项6', '选项7']
-    }
-  },
-  methods: {
-    onChange (picker, value, index) {
-      this.$toast(`当前选中项: ${value}, 下标: ${index}`)
+      value: new Date()
     }
   }
 }
 </script>
 ```
 
-### 展示工具栏
+### date 类型
 
-设置 `show-toolbar` 属性，监听 `cancel` 和 `confirm` 事件。
+'date' 类型只展示年月日。
 
 ```html
-<jm-picker-view :columns="columns" show-toolbar @cancel="onCancel" @confirm="onConfirm" />
+<jm-datetime-picker type="date" v-model="value" label="年月日" />
 
 <script>
 export default {
   data () {
     return {
-      columns: ['选项1', '选项2', '选项3', '选项4', '选项5', '选项6', '选项7']
-    }
-  },
-  methods: {
-    onCancel () {
-      this.$toast('点击了取消')
-    },
-    onConfirm (picker, value, index) {
-      this.$toast(`点击了完成，当前选中项: ${value}, 下标: ${index}`)
+      value2: ''
     }
   }
 }
 </script>
 ```
 
-### 禁用选项
+### year-month 类型
 
-选项可以为对象，设置 `disabled` 属性。
+'year-month' 类型只展示年月。
 
 ```html
-<jm-picker-view :columns="columns" />
+<jm-datetime-picker type="year-month" v-model="value" label="年月" />
 
 <script>
 export default {
   data () {
     return {
-      columns: [
-        {
-          text: '选项1'
-        }, {
-          text: '选项2'
-        }, {
-          text: '选项3',
-          disabled: true
-        }, {
-          text: '选项4'
-        }, {
-          text: '选项5'
-        }, {
-          text: '选项6'
-        }, {
-          text: '选项7'
-        }
-      ]
+      value: new Date()
     }
   }
 }
 </script>
 ```
 
-### 加载中
+### time 类型
 
-设置 `loading` 属性。
-
-```html
-<jm-picker-view :columns="columns" loading />
-```
-
-### 多列/多列联动
-
-`columns` 属性可以为包含 `values` 属性的对象数组，通过 `defaultIndex` 属性设置当前列默认选中值。
+'time' 类型只展示时分。
 
 ```html
-<jm-picker-view :columns="columns" />
+<jm-datetime-picker type="time" v-model="value" label="时分" />
 
 <script>
 export default {
   data () {
     return {
-      columns: [
-        {
-          values: ['中山大学', '中南大学', '华南理工大学'],
-          defaultIndex: 1
-        }, {
-          values: ['计算机科学与技术', '软件工程', '通信工程', '法学', '经济学'],
-          defaultIndex: 2
-        }
-      ]
+      value: '09:20'
     }
   }
 }
 </script>
 ```
 
-多列联动，需要通过暴露出来的 `setColumnValues` 和 `setColumnIndex` 修改其他列的数据和选中项。
+### 修改展示格式
+
+给 `display-format` 属性传入一个函数，接收所有选中项数组，返回展示的文本内容。
 
 ```html
-<jm-picker-view :columns="columns" @change="onChangeDistrict" />
+<jm-datetime-picker v-model="value" label="展示格式" :display-format="displayFormat" />
 
 <script>
-const district = {
-  '0': [{ text: '北京', id: '110000' }, { text: '广东省', id: '440000' }],
-  '110000': [{ text: '北京', id: '110100' }],
-  '440000': [{ text: '广州市', id: '440100' }, { text: '深圳市', id: '440300' }],
-  '110100': [{ text: '东城区', id: '110101' }, { text: '西城区', id: '110102' }],
-  '440100': [{ text: '荔湾区', id: '440103' }, { text: '越秀区', id: '440104' }],
-  '440300': [{ text: '罗湖区', id: '440303' }, { text: '福田区', id: '440304' }]
-}
-
 export default {
   data () {
     return {
-      columns: [
-        {
-          values: district[0]
-        }, {
-          values: district[district[0][0].id]
-        }, {
-          values: district[district[district[0][0].id][0].id]
-        }
-      ]
-    }
-  },
-  methods: {
-    onChangeDistrict (picker, values, columnIndex) {
-      if (columnIndex === 0) {
-        picker.setColumnValues(1, district[values[columnIndex].id])
-        picker.setColumnIndex(1, 0)
-        picker.setColumnValues(2, district[district[values[columnIndex].id][0].id])
-        picker.setColumnIndex(2, 0)
-        return
+      value: new Date(),
+      displayFormat (items) {
+        return `${items[0].label}年${items[1].label}月${items[2].label}日 ${items[3].label}:${items[4].label}`
       }
-      if (columnIndex === 1) {
-        picker.setColumnValues(2, district[values[columnIndex].id])
-        picker.setColumnIndex(2, 0)
+    }
+  }
+}
+</script>
+```
+
+### 修改弹出层内部格式
+
+给 `formatter` 属性传入一个函数，接收 `type` 和 `value` 值，返回展示的文本内容。`type` 有 `year`、`month`、`date`、`hour`、`minute` 类型，`value` 为 `number` 类型。
+
+```html
+<jm-datetime-picker v-model="value" label="内部格式" :formatter="formatter" />
+
+<script>
+export default {
+  data () {
+    return {
+      value: new Date(),
+      formatter (type, value) {
+        switch (type) {
+          case 'year':
+            return value + '年'
+          case 'month':
+            return value + '月'
+          case 'date':
+            return value + '日'
+          case 'hour':
+            return value + '时'
+          case 'minute':
+            return value + '分'
+          default:
+            return value
+        }
+      }
+    }
+  }
+}
+</script>
+```
+
+### 过滤选项
+
+给 `filter` 属性传入一个函数，接收 `type` 和 `values` 值，返回列的选项列表。`type` 有 `year`、`month`、`date`、`hour`、`minute` 类型，`values` 为 number数组。
+
+```html
+<jm-datetime-picker v-model="value" label="过滤选项" :filter="filter" />
+
+<script>
+export default {
+  data () {
+    return {
+      value: '',
+      filter (type, values) {
+        if (type === 'minute') {
+          return values.filter(value => value % 5 === 0)
+        }
+
+        return values
       }
     }
   }
@@ -179,44 +167,33 @@ export default {
 
 | 参数      | 说明                                 | 类型      | 可选值       | 默认值   |
 |---------- |------------------------------------ |---------- |------------- |-------- |
-| columns | 选择器数据，可以为字符串数组，也可以为对象数组，对象中如果包含values字段，则为多列配置 | array | - | - |
-| default-index | 单列模式下的默认选中值下标 | number | - | 0 |
-| show-toolbar | 显示工具栏 | boolean | - | false |
-| title | 工具栏标题 | string | - | - |
-| cancel-button-text | 取消按钮文案 | string | - | '取消' |
-| confirm-button-text | 确认按钮文案 | string | - | '完成' |
+| value/v-model | 选中项，当 type 为 time 时，类型为字符串，否则为 Date | string / date | - |
+| type | 选择器类型 | string | 'date' / 'year-month' / 'time' | 'datetime' |
 | loading | 加载中 | boolean | - | false |
 | arrow-html | 是否使用html渲染选择器内容 | boolean | - | true |
 | visible-item-count | 展示的行数 | number | - | 7 |
 | item-height | 选项高度 | number | - | 33 |
-| value-key | 选项对象中，文字对应的 key | string | - | 'text' |
+| title | 弹出层标题 | string | - | - |
+| cancel-button-text | 取消按钮文案 | string | - | '取消' |
+| confirm-button-text | 确认按钮文案 | string | - | '完成' |
+| label | 选择器左侧文案 | string | - | - |
+| placeholder | 选择器占位符 | string | - | '请选择' |
+| disabled | 禁用 | boolean | - | fasle |
+| readonly | 只读 | boolean | - | false |
+| display-format | 自定义展示文案的格式化函数，返回一个字符串 | function | - | - |
+| formatter | 自定义弹出层选项文案的格式化函数，返回一个字符串 | function | - | - |
+| filter | 自定义过滤选项的函数，返回列的选项数组 | function | - | - |
+| minDate | 最小日期 | date | - | 当前日期 - 10年 |
+| maxDate | 最大日期 | date | - | 当前日志 + 10年 |
+| minHour | 最小小时 | number | - | 0 |
+| maxHour | 最大小时 | number | - | 23 |
+| minMinute | 最小分钟 | number | - | 0 |
+| maxMinute | 最大分钟 | number | - | 59 |
 
 ### Events
 
 | 事件名称      | 说明                                 | 参数     |
 |------------- |------------------------------------ |--------- |
-| change | 选项值修改时触发 | 单列: picker实例, 选中项, 选中项下标; 多列: picker实例, 所有列选中项, 当前列的下标 |
-| confirm | 点击完成按钮时触发 | 单列: picker实例, 选中项, 选中项下标; 多列: picker实例, 所有列选中项, 所有列选中项的下标 |
-| cancel | 点击取消按钮时触发 | - |
+| confirm | 点击右侧按钮触发 | - |
+| cancel | 点击左侧按钮触发 | - |
 
-### column 数据结构
-
-多列选择器下的column为一个对象数组，每个对象为一列，对象有如下 key。
-
-| 键名      | 说明                                 | 类型     |
-|------------- |------------------------------------ |--------- |
-| values | 当前列的选项数据 | array |
-| defaultIndex | 当前列的选中项 | number |
-
-### Methods
-
-| 方法名称      | 说明       | 参数   |
-|------------- |----------- |---------  |
-| getValues | 获取所有列选中项，返回值为一个选中项数组 | - |
-| setValues | 设置所有列选中项 | 选中项文本数组 | 
-| getColumnValue | 获取某一列的选中项 | columnIndex |
-| setColumnValue | 设置某一列的选中项 | columnIndex, value(文本) | 
-| getColumnIndex | 获取某一列的选中项下标 | columnIndex |
-| setColumnIndex | 设置某一列的选中项下标 | columnIndex, valueIndex |
-| getColumnValues | 获取某一列的选项 | columnIndex |
-| setColumnValues | 设置某一列的选项 | columnIndex, values |

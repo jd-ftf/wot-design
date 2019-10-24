@@ -42,7 +42,7 @@ export default {
   },
   props: {
     ...pickerViewProps,
-    value: [String, Array],
+    value: [String, Number, Boolean, Array],
     columnChange: Function,
     columns: {
       type: Array,
@@ -109,6 +109,11 @@ export default {
     },
     getColumnIndex (columnIndex) {
       return (this.children[columnIndex] || {}).selectedIndex
+    },
+    getItems () {
+      return this.children.map(column => {
+        return column.data[column.selectedIndex]
+      })
     },
     getColumnItem (columnIndex) {
       const column = this.children[columnIndex]
