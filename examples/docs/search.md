@@ -14,12 +14,7 @@ Vue.use(Search)
 `v-model` 设置输入框绑定值，`search` 绑定搜索事件，`cancel` 绑定取消事件，`clear` 绑定清空事件。
 
 ```html
-<jm-search
-  v-model="search"
-  @search="handleSearch"
-  @cancel="handleCancel"
-  @clear="handleClear"
-/>
+<jm-search v-model="search" @search="handleSearch" @cancel="handleCancel" @clear="handleClear" />
 
 <script>
 export default {
