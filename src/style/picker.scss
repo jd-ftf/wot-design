@@ -13,6 +13,12 @@
     color: $-cell-title-color;
     font-size: $-picker-cell-fs;
 
+    @include halfPixelBorder('bottom', 15px);
+
+    &:last-child::after {
+      display: none;
+    }
+
     @include m(disabled) {
       .jm-picker__value {
         color: $-picker-column-disabled-color;
