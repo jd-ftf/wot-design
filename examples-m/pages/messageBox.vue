@@ -2,27 +2,27 @@
   <div>
     <white-space>
       <div slot="desc"><code>alert</code>类型的弹框</div>
-      <jm-button type="primary" plain @click="alert">alert</jm-button>
+      <jm-button type="primary" @click="alert">alert</jm-button>
     </white-space>
     <white-space>
       <div slot="desc">显示标题</div>
-      <jm-button type="primary" plain @click="alert2">alert</jm-button>
+      <jm-button type="primary" @click="alert2">alert</jm-button>
     </white-space>
     <white-space>
       <div slot="desc"><code>confirm</code>类型的弹框</div>
-      <jm-button type="primary" plain @click="confirm">confirm</jm-button>
+      <jm-button type="primary" @click="confirm">confirm</jm-button>
     </white-space>
     <white-space>
       <div slot="desc"><code>prompt</code>类型的弹框，支持输入框输入和校验</div>
-      <jm-button type="primary" plain @click="prompt">prompt</jm-button>
+      <jm-button type="primary" @click="prompt">prompt</jm-button>
     </white-space>
     <white-space>
       <div slot="desc">当文案过长时，弹框的高度不再增加，而是将文案内容设置成滚动</div>
-      <jm-button type="primary" plain @click="alert3">alert</jm-button>
+      <jm-button type="primary" @click="alert3">alert</jm-button>
     </white-space>
     <white-space>
       <div slot="desc">使用<code>jm-message-box</code>组件，通过<code>slot</code>插入其他组件内容</div>
-      <jm-button type="primary" plain @click="custom">custom</jm-button>
+      <jm-button type="primary" @click="custom">custom</jm-button>
       <jm-message-box :show="isShow" show-cancel-button @action="handleAction" title="评分">
         <jm-rate v-model="rate" />
       </jm-message-box>
