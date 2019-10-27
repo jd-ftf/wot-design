@@ -1,6 +1,7 @@
 [
   {
     "module": "基础组件",
+    "icon": "//img10.360buyimg.com/jmadvertisement/jfs/t1/66588/29/14007/357/5db52ec2E8707b074/5c48948a4dbe08d0.png",
     "list": [
       {
         "name": "Badge 角标",
@@ -18,6 +19,7 @@
     ]
   }, {
     "module": "导航组件",
+    "icon": "//img10.360buyimg.com/jmadvertisement/jfs/t1/57401/2/14433/579/5db52423Eb624b53d/5fdc9b3664a130c5.png",
     "list": [
       {
         "name": "Cell 单元格",
@@ -35,6 +37,7 @@
     ]
   }, {
     "module": "表单组件",
+    "icon": "//img10.360buyimg.com/jmadvertisement/jfs/t1/95180/24/842/200/5db52eb0E1070b290/055da7b5938eff6e.png",
     "list": [
       {
         "name": "Checkbox 复选框",
@@ -70,6 +73,7 @@
     ]
   }, {
     "module": "交互组件",
+    "icon": "//img10.360buyimg.com/jmadvertisement/jfs/t1/61394/26/14003/924/5db5213aEebdbae4b/13a175a474dcf220.png",
     "list": [
       {
         "name": "ActionSheet 上拉菜单",
@@ -99,6 +103,7 @@
     ]
   }, {
     "module": "展示组件",
+    "icon": "//img10.360buyimg.com/jmadvertisement/jfs/t1/64146/11/13923/495/5db52ed3Ea32effd5/f15411c2a37f5dc9.png",
     "list": [
       {
         "name": "Collapse 折叠面板",
