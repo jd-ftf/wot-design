@@ -14,6 +14,17 @@ const getSideTabs = (page, key) => {
 
       if (!groupList) {
         let list = Object.keys(group).map(name => {
+          if (group[name].type && group[name].type === 'pages') {
+            return {
+              path: `/${key}${group[name].path}`,
+              name: name,
+              component: () => import(`./pages${group[name].path}`),
+              meta: {
+                demo: group[name].demo
+              }
+            }
+          }
+
           return {
             path: `/${key}${group[name].path}`,
             name: name,

@@ -27,6 +27,12 @@
           "name": "自定义主题",
           "path": "/customTheme",
           "demo": "/"
+        },
+        "Changelog": {
+          "name": "更新日志",
+          "type": "pages",
+          "path": "/changelog",
+          "demo": "/"
         }
       }, {
         "name": "组件",
@@ -215,5 +221,9 @@
         ]
       }
     ]
+  },
+  "vapp-components": {
+    "name": "小程序",
+    "href": "http://beta-jmw.jd.com/lib/jm-design-vapp/"
   }
 }
