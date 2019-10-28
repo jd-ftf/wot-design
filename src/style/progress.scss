@@ -1,0 +1,37 @@
+@import './abstracts/variable';
+@import './abstracts/mixin';
+
+@include b(progress) {
+  position: relative;
+  width: 100%;
+  height: $-progress-height;
+
+  @include when(with-text) {
+    padding-top: 26px;
+  }
+  @include e(outer) {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: $-progress-height;
+    border-radius: $-progress-height / 2;
+    background: $-progress-bg;
+  }
+  @include e(inner) {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    border-radius: $-progress-height / 2;
+    background: $-color-theme;
+    transition: background .2s, width .3s;
+  }
+  @include e(label) {
+    position: absolute;
+    transform: translateX(-50%);
+    bottom: $-progress-height + 6px;
+    color: $-progress-label-color;
+    font-size: $-progress-label-fs;
+  }
+}

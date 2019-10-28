@@ -1,0 +1,6 @@
+@import './abstracts/variable';
+@import './abstracts/mixin';
+
+@include b(swipe-item) {
+  display: inline-block;
+}

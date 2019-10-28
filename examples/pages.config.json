@@ -18,9 +18,20 @@
           "path": "/quickUse",
           "demo": "/"
         },
+        "locale": {
+          "name": "国际化",
+          "path": "/locale",
+          "demo": "/"
+        },
         "CustomTheme": {
           "name": "自定义主题",
           "path": "/customTheme",
+          "demo": "/"
+        },
+        "Changelog": {
+          "name": "更新日志",
+          "type": "pages",
+          "path": "/changelog",
           "demo": "/"
         }
       }, {
@@ -29,6 +40,11 @@
           {
             "name": "基础",
             "list": {
+              "Badge": {
+                "name": "Badge 角标",
+                "path": "/badge",
+                "demo": "/badge"
+              },
               "Button": {
                 "name": "Button 按钮",
                 "path": "/button",
@@ -39,15 +55,98 @@
                 "path": "/icon",
                 "demo": "/icon"
               },
+              "popup": {
+                "name": "Popup 弹出层",
+                "path": "/popup",
+                "demo": "/popup"
+              }
+            }
+          }, {
+            "name": "导航",
+            "list": {
+              "Cell": {
+                "name": "Cell 单元格",
+                "path": "/cell",
+                "demo": "/cell"
+              },
               "Navbar": {
                 "name": "Navbar 导航栏",
                 "path": "/navbar",
                 "demo": "/navbar"
+              },
+              "Tabbar": {
+                "name": "Tabbar 标签栏",
+                "path": "/tabbar",
+                "demo": "/tabbar"
+              },
+              "Tab": {
+                "name": "Tabs 标签页",
+                "path": "/tabs",
+                "demo": "/tabs"
+              }
+            }
+          }, {
+            "name": "表单",
+            "list": {
+              "Checkbox": {
+                "name": "Checkbox 复选框",
+                "path": "/checkbox",
+                "demo": "/checkbox"
+              },
+              "DatetimePicker": {
+                "name": "DatetimePicker 时间选择器",
+                "path": "/datetimePicker",
+                "demo": "/datetimePicker"
+              },
+              "Input": {
+                "name": "Input 输入框",
+                "path": "/input",
+                "demo": "/input"
+              },
+              "InputNumber": {
+                "name": "InputNumber 计数器",
+                "path": "/inputNumber",
+                "demo": "/inputNumber"
+              },
+              "picker": {
+                "name": "Picker 选择器",
+                "path": "/picker",
+                "demo": "/picker"
+              },
+              "PickerView": {
+                "name": "PickerView 选择器视图",
+                "path": "/pickerView",
+                "demo": "/pickerView"
+              },
+              "Radio": {
+                "name": "Radio 单选框",
+                "path": "/radio",
+                "demo": "/radio"
+              },
+              "Rate": {
+                "name": "Rate 评分",
+                "path": "/rate",
+                "demo": "/rate"
+              },
+              "Search": {
+                "name": "Search 搜索框",
+                "path": "/search",
+                "demo": "/search"
+              },
+              "Switch": {
+                "name": "Switch 开关",
+                "path": "/switch",
+                "demo": "/switch"
               }
             }
           }, {
             "name": "交互",
             "list": {
+              "ActionSheet": {
+                "name": "ActionSheet 上拉菜单",
+                "path": "/actionSheet",
+                "demo": "/actionSheet"
+              },
               "InfiniteLoad": {
                 "name": "InfiniteLoad 无限加载",
                 "path": "/infiniteLoad",
@@ -68,15 +167,15 @@
                 "path": "/pullRefresh",
                 "demo": "/pullRefresh"
               },
-              "Search": {
-                "name": "Search 搜索框",
-                "path": "/search",
-                "demo": "/search"
-              },
               "Slider": {
                 "name": "Slider 滑块",
                 "path": "/slider",
                 "demo": "/slider"
+              },
+              "Swipe": {
+                "name": "Swipe 轮播图",
+                "path": "/swipe",
+                "demo": "/swipe"
               },
               "Toast": {
                 "name": "Toast 轻提示",
@@ -85,17 +184,46 @@
               }
             }
           }, {
-            "name": "表单",
+            "name": "展示",
             "list": {
-              "Rate": {
-                "name": "Rate 评分",
-                "path": "/rate",
-                "demo": "/rate"
+              "Collapse": {
+                "name": "Collapse 折叠面板",
+                "path": "/collapse",
+                "demo": "/collapse"
+              },
+              "Lazyload": {
+                "name": "Lazyload 图片懒加载",
+                "path": "/lazyload",
+                "demo": "/lazyload"
+              },
+              "NoticeBar": {
+                "name": "NoticeBar 通知栏",
+                "path": "/noticeBar",
+                "demo": "/noticeBar"
+              },
+              "Progress": {
+                "name": "Progress 进度条",
+                "path": "/progress",
+                "demo": "/progress"
+              },
+              "Steps": {
+                "name": "Steps 步骤条",
+                "path": "/steps",
+                "demo": "/steps"
+              },
+              "Tag": {
+                "name": "Tag 标签",
+                "path": "/tag",
+                "demo": "/tag"
               }
             }
           }
         ]
       }
     ]
+  },
+  "vapp-components": {
+    "name": "小程序",
+    "href": "http://beta-jmw.jd.com/lib/jm-design-vapp/"
   }
 }

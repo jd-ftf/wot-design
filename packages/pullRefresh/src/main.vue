@@ -1,14 +1,14 @@
 <template>
   <div class="jm-pull-refresh">
     <div class="jm-pull-refresh__container" :class="{ 'dropping': topDropped }" :style="{ 'transform': transform }">
-      <transition name="slice-down" v-if="showTip">
+      <transition name="jm-slice-down" v-if="tipText">
         <div class="jm-pull-refresh__tip" v-show="tipShow">
           {{ tipText }}
         </div>
       </transition>
       <slot name="top">
         <div class="jm-pull-refresh__top">
-          <jm-indicator v-if="topStatus == 'loading'" class="jm-pull-refresh__loading" type="spinner" size="20px" color="#a7a7a7" />
+          <jm-indicator v-if="topStatus == 'loading'" class="jm-pull-refresh__loading" type="spinner" size="16px" color="#a7a7a7" />
           <i
             class="jm-pull-refresh__arrow"
             :class="{
@@ -24,24 +24,18 @@
 </template>
 
 <script>
+import locale from '@/mixins/locale'
+import { getScrollTargetEvent } from '@/utils'
 import JmIndicator from '../../loading/src/indicator'
 
 export default {
   name: 'JmPullRefresh',
+  mixins: [locale],
   props: {
     value: Boolean,
-    topPullText: {
-      type: String,
-      default: '下拉刷新'
-    },
-    topDropText: {
-      type: String,
-      default: '释放刷新'
-    },
-    topLoadingText: {
-      type: String,
-      default: '正在刷新'
-    },
+    topPullText: String,
+    topDropText: String,
+    topLoadingText: String,
     distanceRatio: {
       type: Number,
       default: 2
@@ -53,10 +47,6 @@ export default {
     maxDistance: {
       type: Number,
       default: 0
-    },
-    showTip: {
-      type: Boolean,
-      default: false
     },
     tipText: String,
     disabled: {
@@ -84,14 +74,12 @@ export default {
       tipShow: false,
       tipShowTimer: '',
       tipHideTimer: '',
-      startTime: '',
-      endTime: '',
       fingerStatus: 'out'
     }
   },
   computed: {
     transform () {
-      return this.translate === 0 ? null : `translate3d(0, ${this.translate}px, 0)`
+      return this.translate === 0 ? null : `translate3d(0, ${this.ease(this.translate)}px, 0)`
     }
   },
   components: {
@@ -105,7 +93,7 @@ export default {
           this.topStatus = 'pull'
         }, 200)
 
-        if (this.showTip) {
+        if (this.tipText) {
           this.tipShowTimer = setTimeout(() => {
             this.tipShow = true
           }, 300)
@@ -120,33 +108,18 @@ export default {
 
       switch (val) {
         case 'pull':
-          this.topText = this.topPullText
+          this.topText = this.topPullText || this.t('jmd.pullRefresh.topPull')
           break
         case 'drop':
-          this.topText = this.topDropText
+          this.topText = this.topDropText || this.t('jmd.pullRefresh.topDrop')
           break
         case 'loading':
-          this.topText = this.topLoadingText
+          this.topText = this.topLoadingText || this.t('jmd.pullRefresh.topLoading')
           break
       }
     }
   },
   methods: {
-    getScrollTargetEvent (element) {
-      let currentNode = element
-
-      while (currentNode && currentNode.tagName !== 'HTML' && currentNode.tagName !== 'BODY' &&
-        currentNode.nodeType === 1) {
-        let overflowY = document.defaultView.getComputedStyle(currentNode).overflowY
-        if (overflowY === 'auto' || overflowY === 'scroll') {
-          return currentNode
-        }
-
-        currentNode = currentNode.parentNode
-      }
-
-      return window
-    },
     getScrollTop (element) {
       if (element === window) {
         return Math.max(window.pageYOffset || 0, document.documentElement.scrollTop)
@@ -161,18 +134,21 @@ export default {
       this.$el.removeEventListener('touchcancel', this.handleTouchEnd)
     },
     init () {
-      this.topText = this.topPullText
-      this.scrollEventTarget = this.getScrollTargetEvent(this.$el)
+      this.topText = this.topPullText || this.t('jmd.pullRefresh.topPull')
+      this.scrollEventTarget = getScrollTargetEvent(this.$el)
       this.bindTouchEvent()
     },
     handleTouchStart (event) {
+      if (this.fingerStatus === 'in' && event.touches.length > 1) {
+        this.handleTouchEnd()
+      }
+
       this.fingerStatus = 'in'
 
       if (this.topStatus === 'loading') {
         return
       }
 
-      this.startTime = new Date().getTime()
       this.startTouch = {
         x: event.touches[0].pageX,
         y: event.touches[0].pageY
@@ -189,7 +165,7 @@ export default {
         return
       }
 
-      if (this.showTip) {
+      if (this.tipText) {
         this.tipShowTimer && clearTimeout(this.tipShowTimer)
         this.tipHideTimer && clearTimeout(this.tipHideTimer)
         this.tipShow = false
@@ -200,7 +176,6 @@ export default {
         return
       }
 
-      this.endTime = new Date().getTime()
       this.endTouch = {
         x: event.touches[0].pageX,
         y: event.touches[0].pageY
@@ -264,6 +239,14 @@ export default {
       this.fingerStatus = 'out'
 
       this.$emit('drag-end', this.topStatus)
+    },
+    ease (height) {
+      const { topDistance } = this
+      return height < topDistance
+        ? height
+        : height < topDistance * 2
+          ? Math.round(topDistance + (height - topDistance) / 2)
+          : Math.round(topDistance * 1.5 + (height - topDistance * 2) / 4)
     }
   },
   mounted () {

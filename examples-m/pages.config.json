@@ -1,36 +1,129 @@
 [
   {
-    "name": "Button 按钮",
-    "path": "/button"
+    "module": "基础组件",
+    "icon": "//img10.360buyimg.com/jmadvertisement/jfs/t1/66588/29/14007/357/5db52ec2E8707b074/5c48948a4dbe08d0.png",
+    "list": [
+      {
+        "name": "Badge 角标",
+        "path": "/badge"
+      }, {
+        "name": "Button 按钮",
+        "path": "/button"
+      }, {
+        "name": "Icon 图标",
+        "path": "/icon"
+      }, {
+        "name": "Popup 弹出层",
+        "path": "/popup"
+      }
+    ]
   }, {
-    "name": "Icon 图标",
-    "path": "/icon"
+    "module": "导航组件",
+    "icon": "//img10.360buyimg.com/jmadvertisement/jfs/t1/57401/2/14433/579/5db52423Eb624b53d/5fdc9b3664a130c5.png",
+    "list": [
+      {
+        "name": "Cell 单元格",
+        "path": "/cell"
+      }, {
+        "name": "Navbar 导航栏",
+        "path": "/navbar"
+      }, {
+        "name": "Tabbar 标签栏",
+        "path": "/tabbar"
+      }, {
+        "name": "Tabs 标签页",
+        "path": "/tabs"
+      }
+    ]
   }, {
-    "name": "InfiniteLoad 无限加载",
-    "path": "/infiniteLoad"
+    "module": "表单组件",
+    "icon": "//img10.360buyimg.com/jmadvertisement/jfs/t1/95180/24/842/200/5db52eb0E1070b290/055da7b5938eff6e.png",
+    "list": [
+      {
+        "name": "Checkbox 复选框",
+        "path": "/checkbox"
+      }, {
+        "name": "DatetimePicker 时间选择器",
+        "path": "/datetimePicker"
+      }, {
+        "name": "Input 输入框",
+        "path": "/input"
+      }, {
+        "name": "InputNumber 计数器",
+        "path": "/inputNumber"
+      }, {
+        "name": "Picker 选择器",
+        "path": "/picker"
+      }, {
+        "name": "PickerView 选择器视图",
+        "path": "/pickerView"
+      }, {
+        "name": "Radio 单选框",
+        "path": "/radio"
+      }, {
+        "name": "Rate 评分",
+        "path": "/rate"
+      }, {
+        "name": "Search 搜索",
+        "path": "/search"
+      }, {
+        "name": "Switch 开关",
+        "path": "/switch"
+      }
+    ]
   }, {
-    "name": "Loading 加载指示器",
-    "path": "/loading"
+    "module": "交互组件",
+    "icon": "//img10.360buyimg.com/jmadvertisement/jfs/t1/61394/26/14003/924/5db5213aEebdbae4b/13a175a474dcf220.png",
+    "list": [
+      {
+        "name": "ActionSheet 上拉菜单",
+        "path": "/actionSheet"
+      }, {
+        "name": "InfiniteLoad 无限加载",
+        "path": "/infiniteLoad"
+      }, {
+        "name": "Loading 加载指示器",
+        "path": "/loading"
+      }, {
+        "name": "MessageBox 弹框",
+        "path": "/messageBox"
+      }, {
+        "name": "PullRefresh 下拉刷新",
+        "path": "/pullRefresh"
+      }, {
+        "name": "Slider 滑块",
+        "path": "/slider"
+      }, {
+        "name": "Swipe 轮播图",
+        "path": "/swipe"
+      }, {
+        "name": "Toast 轻提示",
+        "path": "/toast"
+      }
+    ]
   }, {
-    "name": "MessageBox 弹框",
-    "path": "/messageBox"
-  }, {
-    "name": "Navbar 导航栏",
-    "path": "/navbar"
-  }, {
-    "name": "PullRefresh 下拉刷新",
-    "path": "/pullRefresh"
-  }, {
-    "name": "Rate 评分",
-    "path": "/rate"
-  }, {
-    "name": "Search 搜索",
-    "path": "/search"
-  }, {
-    "name": "Slider 滑块",
-    "path": "/slider"
-  }, {
-    "name": "Toast 轻提示",
-    "path": "/toast"
+    "module": "展示组件",
+    "icon": "//img10.360buyimg.com/jmadvertisement/jfs/t1/64146/11/13923/495/5db52ed3Ea32effd5/f15411c2a37f5dc9.png",
+    "list": [
+      {
+        "name": "Collapse 折叠面板",
+        "path": "/collapse"
+      }, {
+        "name": "Lazyload 图片懒加载",
+        "path": "/lazyload"
+      }, {
+        "name": "NoticeBar 通知栏",
+        "path": "/noticeBar"
+      }, {
+        "name": "Progress 进度条",
+        "path": "/progress"
+      }, {
+        "name": "Steps 步骤条",
+        "path": "/steps"
+      }, {
+        "name": "Tag 标签",
+        "path": "/tag"
+      }
+    ]
   }
 ]

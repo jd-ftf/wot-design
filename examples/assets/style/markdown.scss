@@ -3,6 +3,7 @@
 .jm-markdown {
   line-height: 1.6;
   word-wrap: break-word;
+  color: #666;
 
   p {
     color: #666;
@@ -34,7 +35,7 @@
   }
   h3 {
     font-size: 19px;
-    margin: 50px 0 20px;
+    margin: 30px 0 15px;
   }
   h4 {
     font-size: 16px;
@@ -51,6 +52,7 @@
   }
   hr {
     height: 1px;
+    margin: 30px 0 20px 0;
     border: none;
     background: $color-line;
   }
@@ -109,7 +111,7 @@
   }
   p {
     line-height: 28px;
-    margin: 20px 0;
+    margin: 15px 0;
   }
   code {
     display: inline-block;
@@ -208,6 +210,39 @@
   .language-bash, .language-BASH {
     .hljs-built_in {
       color: $color-bash-built;
+    }
+  }
+  .info {
+    background: $color-theme-l9;
+    padding: 10px 20px;
+    margin: 20px 0;
+    border-radius: 3px;
+    border-left: 5px solid $color-theme-l4;
+
+    p {
+      margin: 0;
+    }
+  }
+  .warning {
+    background: $color-warn-l9;
+    padding: 10px 20px;
+    margin: 20px 0;
+    border-radius: 3px;
+    border-left: 5px solid $color-warn-l4;
+
+    p {
+      margin: 0;
+    }
+  }
+  .error {
+    background: $color-error-l9;
+    padding: 10px 20px;
+    margin: 20px 0;
+    border-radius: 3px;
+    border-left: 5px solid $color-error-l4;
+
+    p {
+      margin: 0;
     }
   }
 }

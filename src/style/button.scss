@@ -1,42 +1,255 @@
 @import './abstracts/variable';
 @import './abstracts/mixin';
+@import './loading.scss';
+@import './icon.scss';
 
-@include b(button) {
-  display: block;
-  outline: none;
-  text-align: center;
-  border: none;
-  -webkit-appearance: none;
+@mixin button-type-style ($normal, $active, $disabled) {
+  background: $normal;
+  color: #fff;
+  border-color: $normal;
 
-  @include m(primary) {
-    width: 100%;
-    height: 44px;
-    border-radius: 8px;
-    background: $-button-color-primary;
+  &:active {
+    background: $active;
+  }
+  @include when(disabled) {
+    &:active {
+      background: $disabled;
+      color: #fff;
+    }
+    
+    opacity: 0.6;
+    background: $disabled;
+    border-color: $disabled;
+  }
+  .jm-button__loading {
     color: #fff;
-    font-size: 16px;
+  }
+  @include when(loading) {
+    background: $disabled;
+    border-color: $disabled;
 
     &:active {
-      background: $-button-color-primary-active;
-    }
-    &.jm-button--disabled {
-      opacity: 0.6;
-      color: $-color-theme-light;
+      background: $disabled;
+      border-color: $disabled;
     }
   }
-  @include m(suck) {
-    width: 100%;
-    height: 50px;
-    font-size: 16px;
-    color: #fff;
-    background: $-button-color-primary;
+  @include when(suck) {
+    border: none;
+    border-radius: 0;
+  }
+}
+
+@mixin button-plain-style ($normal, $active, $disabled) {
+  color: $normal;
+  border-color: $normal;
+  background: transparent;
+
+  &:active {
+    color: $active;
+    border-color: $active;
+    background: transparent;
+  }
+  @include when(disabled) {
+    color: $disabled;
+    border-color: $disabled;
+    background: transparent;
+  }
+  .jm-button__loading {
+    color: $disabled;
+  }
+  @include when(loading) {
+    background: transparent;
+  }
+}
+
+@include b(button) {
+  outline: none;
+  text-align: center;
+  -webkit-appearance: none;
+  outline: none;
+  background: transparent;
+  border: 1px solid $-button-color-border;
+  color: $-button-color-normal;
+  box-sizing: border-box;
+  transition: all .2s;
+  user-select: none;
+
+  &:active {
+    color: $-button-color-normal-active;
+    background: $-button-color-normal-active-bg;
+    border-color: $-button-color-normal-active-border;
+  }
+  @include when(disabled) {
+    color: $-button-color-normal-disabled;
+    background: $-button-color-normal-disabled-bg;
+    border-color: $-button-color-normal-disabled-border;
+    
+    &:active {
+      color: $-button-color-normal-disabled;
+      background: $-button-color-normal-disabled-bg;
+      border-color: $-button-color-normal-disabled-border;
+    }
+  }
+
+  @include e(loading) {
+    display: inline-block;
+    margin-right: 2px;
+    vertical-align: middle;
+    color: $-button-color-normal-disabled;
+  }
+  @include when(loading) {
+    color: $-button-color-normal-disabled;
+    background: $-button-color-normal-disabled-bg;
+    border-color: $-button-color-normal-disabled-border;
+  }
+
+  @include when(primary) {
+    @include button-type-style($-button-color-primary, $-button-color-primary-active, $-button-color-primary-disabled);
+  }
+  @include when(success) {
+    @include button-type-style($-button-color-success, $-button-color-success-active, $-button-color-success-disabled);
+  }
+  @include when(info) {
+    @include button-type-style($-button-color-info, $-button-color-info-active, $-button-color-info-disabled);
+  }
+  @include when(warning) {
+    @include button-type-style($-button-color-warning, $-button-color-warning-active, $-button-color-warning-disabled);
+  }
+  @include when(error) {
+    @include button-type-style($-button-color-error, $-button-color-error-active, $-button-color-error-disabled);
+  }
+
+  @include when(small) {
+    height: $-button-small-height;
+    padding: $-button-small-padding;
+    border-radius: $-button-small-radius;
+    font-size: $-button-small-font-size;
+
+    @include when(round) {
+      border-radius: $-button-small-round-radius;
+    }
+    .jm-button__loading {
+      width: $-button-small-loading;
+      height: $-button-small-loading;
+    }
+  }
+  @include when(medium) {
+    height: $-button-medium-height;
+    padding: $-button-small-padding;
+    padding: $-button-medium-padding;
+    border-radius: $-button-medium-radius;
+    font-size: $-button-medium-font-size;
+
+    @include when(round) {
+      border-radius: $-button-medium-round-radius;
+    }
+    .jm-button__loading {
+      width: $-button-medium-loading;
+      height: $-button-medium-loading;
+    }
+  }
+  @include when(large) {
+    height: $-button-large-height;
+    padding: $-button-small-padding;
+    padding: $-button-large-padding;
+    border-radius: $-button-large-radius;
+    font-size: $-button-large-font-size;
+
+    @include when(round) {
+      border-radius: $-button-large-round-radius;
+    }
+    .jm-button__loading {
+      width: $-button-large-loading;
+      height: $-button-large-loading;
+    }
+  }
+
+  @include when(text) {
+    border: none;
+    color: $-button-color-primary;
+    padding: 4px 0;
 
     &:active {
-      background: $-button-color-primary-active;
+      color: $-button-color-primary-active;
+      background: transparent;
     }
-    &.jm-button--disabled {
-      opacity: 0.6;
-      color: $-color-theme-light;
+    @include when(disabled) {
+      color: $-button-color-normal-disabled;
+      background: transparent;
     }
+  }
+
+  @include when(plain) {
+    background: #fff;
+
+    @include when(primary) {
+      @include button-plain-style($-button-color-primary, $-button-color-primary-active, $-button-color-primary-disabled);
+    }
+    @include when(success) {
+      @include button-plain-style($-button-color-success, $-button-color-success-active, $-button-color-success-disabled);
+    }
+    @include when(info) {
+      @include button-plain-style($-button-color-info, $-button-color-info-active, $-button-color-info-disabled);
+    }
+    @include when(warning) {
+      @include button-plain-style($-button-color-warning, $-button-color-warning-active, $-button-color-warning-disabled);
+    }
+    @include when(error) {
+      @include button-plain-style($-button-color-error, $-button-color-error-active, $-button-color-error-disabled);
+    }
+    @include when(suck) {
+      &:active {
+        background: #eee;
+      }
+      @include when(disabled) {
+        background: #fff;
+      }
+    }
+  }
+  
+  @include when(suck) {
+    font-size: $-button-large-font-size;
+    height: $-button-suck-height;
+    width: 100%;
+    border: none;
+    border-radius: 0;
+  }
+
+  @include when(block) {
+    width: 100%;
+  }
+
+  @include when(icon) {
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    line-height: 40px;
+    text-align: center;
+    border: none;
+    border-radius: 50%;
+    font-size: 0;
+    color: $-button-color-icon;
+
+    &:active {
+      background: $-button-color-icon-active;
+    }
+    @include when(disabled) {
+      color: $-button-color-icon-disabled;
+      background: transparent;
+
+      &:active {
+        background: transparent;
+      }
+    }
+  }
+
+  @include e(icon) {
+    display: inline-block;
+    margin-right: 2px;
+    font-size: $-button-medium-font-size;
+  }
+
+  @include e(txt) {
+    user-select: none;
   }
 }

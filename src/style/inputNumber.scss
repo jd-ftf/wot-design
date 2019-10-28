@@ -1,0 +1,115 @@
+@import './abstracts/variable';
+@import './abstracts/mixin';
+
+@include b(input-number) {
+  display: inline-block;
+  font-size: 0;
+  user-select: none;
+
+  @include e(action) {
+    position: relative;
+    display: inline-block;
+    width: $-inputNumber-btn-width;
+    height: $-inputNumber-height;
+    vertical-align: middle;
+    color: $-inputNumber-color;
+
+    &::after {
+      position: absolute;
+      content: '';
+      width: calc(200% - 2px);
+      height: calc(200% - 2px);
+      left: 0;
+      top: 0;
+      border: 1px solid $-inputNumber-border-color;
+      border-top-left-radius: 4px;
+      border-bottom-left-radius: 4px;
+      transform: scale(0.5) translate(-50%, -50%);
+    }
+    &:last-child::after {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+      border-top-right-radius: 4px;
+      border-bottom-right-radius: 4px;
+    }
+    @include when(disabled) {
+      color: $-inputNumber-disabled-color;
+    }
+  }
+  @include e(inner) {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+  }
+  @include e(input) {
+    position: relative;
+    display: block;
+    width: $-inputNumber-input-width;
+    height: $-inputNumber-height;
+    padding: 0 2px;
+    box-sizing: border-box;
+    z-index: 1;
+    background: transparent;
+    border: none;
+    outline: none;
+    text-align: center;
+    color: $-inputNumber-color;
+    font-size: 12px;
+    -webkit-appearance: none;
+  }
+  @include e(input-border) {
+    position: absolute;
+    width: 200%;
+    height: calc(200% - 2px);
+    left: 0;
+    top: 0;
+    border-top: 1px solid $-inputNumber-border-color;
+    border-bottom: 1px solid $-inputNumber-border-color;
+    transform: scale(0.5) translate(-50%, -50%);
+    z-index: 0;
+  }
+  @include e(sub) {
+    position: absolute;
+    display: inline-block;
+    width: 13px;
+    height: 1px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background: currentColor;
+  }
+  @include e(add) {
+    position: absolute;
+    display: inline-block;
+    width: 13px;
+    height: 1px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background: currentColor;
+
+    &::after {
+      position: absolute;
+      content: '';
+      width: 13px;
+      height: 1px;
+      left: 0;
+      top: 0;
+      background: currentColor;
+      transform: rotate(-90deg);
+    }
+  }
+  
+  @include when(disabled) {
+    .jm-input-number__input {
+      color: $-inputNumber-disabled-color;
+      background: $-inputNumber-disabled-input-bg;
+      z-index: inherit;
+    }
+  }
+  @include when(without-input) {
+    .jm-input-number__action:last-child::after {
+      border-left: none;
+    }
+  }
+}

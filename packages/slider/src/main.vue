@@ -2,43 +2,43 @@
   <div
     :class="{
       'jm-slider': true,
-      'jm-slider--has-label': showLabel,
+      'jm-slider--has-label': !hideLabel,
       'jm-slider--disabled': disabled
     }">
     <div
       class="jm-slider__label-min"
-      v-show="showMinMax">
+      v-if="!hideMinMax">
       {{ minValue }}
     </div>
     <div
       ref="axle"
       :class="{
         'jm-slider__axle': true,
-        'jm-slider__axle--has-min-max': showMinMax
+        'jm-slider__axle--has-min-max': !hideMinMax
       }"
       @touchstart="slidingStart"
       @touchend="slidingEnd"
       @touchmove="sliding">
       <div
         ref="container"
-        v-show="!disabled"
+        v-if="!disabled"
         class="jm-slider__handle-container"
         :style="{ left: handlePosition[0] - handleRadius + 'px' }">
         <div class="jm-slider__handle"></div>
         <div
           class="jm-slider__label-cur"
-          v-show="showLabel">
+          v-if="!hideLabel">
           {{ typeof value === 'number' ? value : value[0] }}
         </div>
       </div>
       <div
-        v-show="!disabled && typeof value !== 'number'"
+        v-if="!disabled && typeof value !== 'number'"
         :style="{ left: handlePosition[1] - handleRadius + 'px' }"
         class="jm-slider__handle-container">
         <div class="jm-slider__handle"></div>
         <div
           class="jm-slider__label-cur"
-          v-show="showLabel">
+          v-if="!hideLabel">
           {{ value[1] }}
         </div>
       </div>
@@ -52,24 +52,21 @@
     </div>
     <div
       class="jm-slider__label-max"
-      v-show="showMinMax">
+      v-if="!hideMinMax">
       {{ maxValue }}
     </div>
   </div>
 </template>
 
 <script>
+/**
+ * Todo: 双滑块有bug，而且api的约定不太好，待优化
+ */
 export default {
   name: 'JmSlider',
   props: {
-    showMinMax: {
-      type: Boolean,
-      default: true
-    },
-    showLabel: {
-      type: Boolean,
-      default: true
-    },
+    hideMinMax: Boolean,
+    hideLabel: Boolean,
     disabled: {
       type: Boolean,
       default: false
@@ -105,7 +102,7 @@ export default {
     }
   },
   mounted () {
-    this.handleRadius = this.$refs.container.clientWidth / 2
+    this.handleRadius = this.$refs.container && this.$refs.container.clientWidth / 2
     this.axleWidth = this.$refs.axle.clientWidth
     window.onresize = () => {
       this.axleWidth = this.$refs.axle.clientWidth

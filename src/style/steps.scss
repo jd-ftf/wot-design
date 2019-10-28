@@ -1,0 +1,13 @@
+@import './abstracts/variable';
+@import './abstracts/mixin';
+@import './icon.scss';
+
+@include b(steps) {
+  display: flex;
+  align-items: flex-start;
+  font-size: 0;
+
+  @include when(vertical) {
+    display: block;
+  }
+}

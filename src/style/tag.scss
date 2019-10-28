@@ -1,0 +1,76 @@
+@import './abstracts/variable';
+@import './abstracts/mixin';
+@import './common/transition.scss';
+@import './icon.scss';
+
+@mixin tag-type-style ($normalColor, $lightColor, $darkColor: $normalColor) {
+  background: linear-gradient(to right, $normalColor, $lightColor);
+  border: 1px solid transparent;
+
+  @include when(plain) {
+    background: transparent;
+    color: $darkColor;
+    border-color: $darkColor;
+  }
+}
+@include b(tag) {
+  display: inline-block;
+  padding: $-tag-medium-padding;
+  color: #fff;
+  border-radius: 2px;
+  font-size: 0;
+  transition: opacity .3s;
+  @include tag-type-style($-tag-info-color, $-tag-info-color-light);
+
+  @include when(primary) {
+    @include tag-type-style($-tag-primary-color, $-tag-primary-color-light);
+  }
+  @include when(danger) {
+    @include tag-type-style($-tag-danger-color, $-tag-danger-color-light, $-tag-danger-color-dark);
+  }
+  @include when(warning) {
+    @include tag-type-style($-tag-warning-color, $-tag-warning-color-light);
+  }
+  @include when(success) {
+    @include tag-type-style($-tag-success-color, $-tag-success-color-light);
+  }
+  @include e(icon) {
+    display: inline-block;
+    margin-right: 3px;
+    margin-top: 1px;
+    font-size: $-tag-small-font-size;
+    vertical-align: middle;
+  }
+  @include e(text) {
+    display: inline-block;
+    font-size: $-tag-font-size;
+    vertical-align: middle;
+  }
+  @include e(close) {
+    display: inline-block;
+    width: $-tag-close-size;
+    height: $-tag-close-size;
+    margin-left: 10px;
+    font-size: $-tag-close-size;
+    vertical-align: middle;
+    color: $-tag-close-color;
+  }
+
+  @include when(small) {
+    .jm-tag__text {
+      font-size: $-tag-small-font-size;
+    }
+    .jm-tag__close {
+      transform: translateY(1px);
+      margin-left: 4px;
+      font-size: $-tag-font-size;
+    }
+  }
+  @include when(large) {
+    padding: $-tag-large-padding;
+
+    .jm-tag__close {
+      margin-left: 18px;
+    }
+  }
+}

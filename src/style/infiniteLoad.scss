@@ -12,12 +12,12 @@
     display: inline-block;
     width: 20px;
     height: 20px;
+    line-height: 1.1;
     margin-right: 4px;
     vertical-align: middle;
   }
   @include e(text) {
     display: inline-block;
-    font-size: 12px;
-    transform: scale(0.83);
+    font-size: 10px;
   }
 }

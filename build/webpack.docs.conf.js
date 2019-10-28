@@ -70,7 +70,7 @@ const webpackConf = {
         loader: 'url-loader',
         options: {
           limit: 20000,
-          name: 'img/[name].[hash:8].[ext]'
+          name: utils.assetsPath('img/[name].[hash:8].[ext]')
         }
       },
       {
@@ -78,7 +78,7 @@ const webpackConf = {
         loader: 'url-loader',
         options: {
           limit: 10000,
-          name: 'fonts/[name].[ext]'
+          name: utils.assetsPath('fonts/[name].[ext]')
         }
       }
     ]
@@ -101,7 +101,19 @@ const webpackConf = {
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify(isDev ? 'dev' : 'prod')
     }),
-    new VueLoaderPlugin()
+    new VueLoaderPlugin(),
+    new HtmlWebpackPlugin({
+      filename: isDev ? 'examples.html' : path.resolve(__dirname, '../docs/examples.html'),
+      template: path.resolve(__dirname, '../examples-m/index.html'),
+      chunks: ['examples'],
+      favicon: path.resolve(__dirname, '../examples-m/favicon.ico')
+    }),
+    new HtmlWebpackPlugin({
+      filename: isDev ? 'docs.html' : path.resolve(__dirname, '../docs/docs.html'),
+      template: path.resolve(__dirname, '../examples/index.html'),
+      chunks: ['docs'],
+      favicon: path.resolve(__dirname, '../examples/favicon.ico')
+    })
   ]
 }
 
@@ -128,17 +140,7 @@ if (isDev) {
       disableHostCheck: true
     },
     plugins: [
-      new webpack.HotModuleReplacementPlugin(),
-      new HtmlWebpackPlugin({
-        filename: 'examples.html',
-        template: path.resolve(__dirname, '../examples-m/index.html'),
-        chunks: ['examples']
-      }),
-      new HtmlWebpackPlugin({
-        filename: 'docs.html',
-        template: path.resolve(__dirname, '../examples/index.html'),
-        chunks: ['docs']
-      })
+      new webpack.HotModuleReplacementPlugin()
     ]
   })
   outputConfig = new Promise((resolve, reject) => {
@@ -173,8 +175,8 @@ if (isDev) {
     output: {
       publicPath: './',
       path: path.resolve(__dirname, '../docs'),
-      filename: 'js/[name].[chunkhash].js',
-      chunkFilename: 'js/[id].[chunkhash].js'
+      filename: utils.assetsPath('js/[name].[chunkhash].js'),
+      chunkFilename: utils.assetsPath('js/[id].[chunkhash].js')
     },
     optimization: {
       minimizer: [
@@ -182,23 +184,14 @@ if (isDev) {
           cache: true,
           parallel: true
         }),
+        new webpack.optimize.ModuleConcatenationPlugin(),
         new OptimizeCSSAssetsPlugin()
       ]
     },
     plugins: [
       new MiniCssExtractPlugin({
-        filename: '[name].[contenthash:8].css',
-        chunkFilename: '[name].[contenthash:8].css'
-      }),
-      new HtmlWebpackPlugin({
-        filename: path.resolve(__dirname, '../docs/examples.html'),
-        template: 'examples-m/index.html',
-        chunks: ['examples']
-      }),
-      new HtmlWebpackPlugin({
-        filename: path.resolve(__dirname, '../docs/docs.html'),
-        template: 'examples/index.html',
-        chunks: ['docs']
+        filename: utils.assetsPath('css/[name].[contenthash:8].css'),
+        chunkFilename: utils.assetsPath('css/[name].[contenthash:8].css')
       })
     ]
   })

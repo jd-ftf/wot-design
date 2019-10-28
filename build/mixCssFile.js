@@ -8,7 +8,7 @@ const components = require('../components.json')
 
 const basePath = path.resolve(__dirname, '../src/style')
 
-let indexContent = '@import "./common/transition.scss";\n'
+let indexContent = `@import './common/transition.scss';\n`
 
 const isFileExit = filepath => {
   try {

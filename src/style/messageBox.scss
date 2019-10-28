@@ -24,7 +24,14 @@
   }
   @include e(body) {
     background-color: #fff;    
-    padding: 25px 20px;
+    padding: 21px 25px 14px;
+
+    @include when(no-title) {
+      padding: 25px;
+    }
+    @include when(prompt) {
+      padding-bottom: 21px;
+    }
   }
   @include e(title) {
     text-align: center;
@@ -38,6 +45,15 @@
     font-size: 12px;
     text-align: center;
     overflow: auto;
+
+    &::-webkit-scrollbar {
+      width: 4px;
+    }
+    &::-webkit-scrollbar-thumb {
+      width: 4px;
+      background: #d8d8d8;
+      border-radius: 2px;
+    }
   }
   @include e(input-container) {
     position: relative;

@@ -1,12 +1,10 @@
 ## MessageBox 弹框
 
-弹框有三种：alert、confirm和prompt。
+弹框有三种：alert、confirm 和 prompt。
 
 弹框支持使用JS直接弹出弹框，也支持组件引用的方式。
 
-### 使用
-
-#### 按需引入
+### 按需引入
 
 ```javascript
 import Vue from 'vue'
@@ -15,23 +13,103 @@ import { MessageBox } from 'jm-design'
 Vue.use(MessageBox)
 ```
 
-#### 示例
+### Alert 弹框
+
+alert 弹框只有确定按钮，用于强提醒。
 
 ```html
-<!-- alert -->
-<jm-button @click="alert">alert</jm-button>
+<jm-button type="primary" plain @click="alert">alert</jm-button>
 
-<!-- confirm -->
-<jm-button @click="confirm">confirm</jm-button>
+<script>
+export default {
+  methods: {
+    alert () {
+      this.$messageBox.alert('操作成功')
+    }
+  }
+}
+</script>
+```
 
-<!-- prompt -->
-<jm-button @click="prompt">prompt</jm-button>
+显示标题的 alert 弹框。
 
-<!-- 如果文案过长，则会有滚动条 -->
-<jm-button @click="alert2">alert</jm-button>
+```html
+<jm-button type="primary" plain @click="alert">alert</jm-button>
 
-<!-- 使用组件引用的方式，使我们可以在弹框中使用其他组件 -->
-<jm-button @click="custom">custom</jm-button>
+<script>
+export default {
+  methods: {
+    alert () {
+      this.$messageBox.alert('提示文案', '标题')
+    }
+  }
+}
+</script>
+```
+
+如果内容文案过长，弹框高度不再增加，而是展示滚动条。
+
+```html
+<jm-button type="primary" plain @click="alert">alert</jm-button>
+
+<script>
+export default {
+  methods: {
+    alert () {
+      this.$messageBox.alert('以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文', '标题')
+    }
+  }
+}
+</script>
+```
+
+### Confirm 弹框
+
+用于提示用户操作。
+
+```html
+<jm-button type="primary" plain @click="confirm">confirm</jm-button>
+
+<script>
+export default {
+  methods: {
+    confirm () {
+      this.$messageBox.confirm('是否删除', '提示').then(() => {
+        this.$messageBox.alert('删除成功')
+      })
+    }
+  }
+}
+</script>
+```
+
+### Prompt 弹框
+
+prompt 会展示一个输入框，并可以进行输入校验。
+
+```html
+<jm-button type="primary" plain @click="prompt">prompt</jm-button>
+
+<script>
+export default {
+  methods: {
+    confirm () {
+      this.$messageBox.prompt('请输入邮箱', {
+        inputPattern: /.+@.+\..+/i
+      }).then(({ value }) => {
+        this.$messageBox.alert(`你输入的邮箱是： ${value}`)
+      })
+    }
+  }
+}
+</script>
+```
+
+### 组件引用
+
+如果提供的弹框内容不满足需求，可以使用 `jm-message-box` 组件，自定义弹框内容。
+
+```html
 <jm-message-box :show="isShow" show-cancel-button @action="handleAction" title="评分">
   <jm-rate v-model="rate" />
 </jm-message-box>
@@ -45,27 +123,6 @@ export default {
     }
   },
   methods: {
-    alert () {
-      this.$messageBox.alert('操作成功')
-    },
-    confirm () {
-      this.$messageBox.confirm('是否删除', '提示').then(() => {
-        this.$messageBox.alert('删除成功')
-      })
-    },
-    prompt () {
-      this.$messageBox.prompt('请输入邮箱', {
-        inputPattern: /.+@.+\..+/i
-      }).then(({ value }) => {
-        this.$messageBox.alert(`你输入的邮箱是： ${value}`)
-      })
-    },
-    alert2 () {
-      this.$messageBox.alert('以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文字是示意以上文', '标题')
-    },
-    custom () {
-      this.isShow = true
-    },
     handleAction (action) {
       this.isShow = false
       if (action === 'confirm') {
@@ -76,6 +133,8 @@ export default {
 }
 </script>
 ```
+
+---
 
 弹框在点击确定和取消按钮时，会触发回调函数callback，并传入action（'confirm'或'cancel')，你也可以使用 Promise，用 then 接收“确定”按钮事件，用 catch 接收“取消”按钮事件。
 
@@ -93,7 +152,7 @@ this.$messageBox.prompt(title, options) //  title 可以跳过不写，即支持
 
 ### MessageBox JS 调用
 
-#### Options Arrtibute
+#### Options Attributes
 
 | 参数      | 说明                                 | 类型      | 可选值       | 默认值   |
 |---------- |------------------------------------ |---------- |------------- |-------- |
@@ -111,7 +170,7 @@ this.$messageBox.prompt(title, options) //  title 可以跳过不写，即支持
 
 ### MessageBox 组件调用
 
-#### Arrtibute
+#### Attributes
 
 | 参数      | 说明                                 | 类型      | 可选值       | 默认值   |
 |---------- |------------------------------------ |---------- |------------- |-------- |

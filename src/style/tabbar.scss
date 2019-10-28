@@ -1,0 +1,21 @@
+@import './abstracts/variable';
+@import './abstracts/mixin';
+
+@include b(tabbar) {
+  display: flex;
+  background: #fff;
+
+  @include when(border) {
+    position: relative;
+
+    @include halfPixelBorder('top');
+  }
+  @include when(fixed) {
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+  }
+  .router-link-active {
+    color: $-tabbar-active-color;
+  }
+}

@@ -6,6 +6,31 @@
 
 请查看[快速上手](#/components/quickUse)文档。
 
+### 扫码体验
+
+<img style="width: 150px; height: 150px;" :src="codeImg" />
+
 ### 开源协议
 
 本项目遵循 MIT 协议。
+
+<script>
+import QRCode from 'qrcode'
+
+export default {
+  data () {
+    return {
+      codeImg: ''
+    }
+  },
+  mounted () {
+    let path = location.pathname.slice(0, location.pathname.lastIndexOf('/'))
+    let url = `${location.protocol}//${location.host}${path}/examples.html`
+    QRCode.toDataURL(url, {
+      margin: 0
+    }).then(url => {
+      this.codeImg = url
+    })
+  }
+}
+</script>

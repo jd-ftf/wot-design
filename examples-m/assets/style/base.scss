@@ -33,3 +33,11 @@ code {
   background-color: #f8f8f8;
   -webkit-font-smoothing: initial;
 }
+::-webkit-scrollbar {
+  width: 0;
+  background: transparent;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}

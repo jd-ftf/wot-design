@@ -2,7 +2,6 @@
  * toast组件
  * 使用：
  * Toast({
- *   single: Boolean,     // 是否只展示1个Toast，默认为false
  *   msg: String,         // toast信息
  *   duration: Number,    // 持续时间，默认2000
  *   iconName: String,    // icon图标，可选值：'success', 'warn', 'forbid'(即X)
@@ -11,29 +10,16 @@
  * })
  */
 
+/**
+ * Todo: 需要优化调用方法。
+ */
+
 import Vue from 'vue'
 import jmToast from './src/main.vue'
 
 const ToastConstructor = Vue.extend(jmToast)
 
-let toastList = []
-let toastSingleTon
-
-let getAnInstance = () => {
-  if (toastList.length > 0) {
-    return toastList.shift()
-  }
-
-  return new ToastConstructor({
-    el: document.createElement('div')
-  })
-}
-
-let reuturnAnInstance = instance => {
-  if (instance) {
-    toastList.push(instance)
-  }
-}
+let toast
 
 let removeDom = event => {
   if (event.target.parentNode) {
@@ -41,28 +27,14 @@ let removeDom = event => {
   }
 }
 
-ToastConstructor.prototype.close = function (save) {
+ToastConstructor.prototype.close = function () {
   this.show = false
   this.$el.addEventListener('transitionend', removeDom)
   this.closed = true
-
-  if (save) {
-    reuturnAnInstance(this)
-  }
 }
 
 const showToast = (instance, options) => {
-  let duration
-
-  if (options.iconName) {
-    if (options.iconName === 'success') {
-      duration = 1500
-    } else {
-      duration = 3000
-    }
-  }
-
-  duration = options.duration || duration || 3000
+  let duration = options.duration || 2000
   instance.closed = false
   clearTimeout(instance.timer)
   instance.msg = typeof options === 'string' ? options : options.msg
@@ -78,7 +50,7 @@ const showToast = (instance, options) => {
       if (instance.closed) {
         return
       }
-      instance.close(!options.single)
+      instance.close()
     }, duration)
   })
 
@@ -88,19 +60,63 @@ const showToast = (instance, options) => {
 let Toast = options => {
   options = options || {}
 
-  if (!options.single) {
-    let instance = getAnInstance()
-
-    return showToast(instance, options)
+  if (!toast) {
+    toast = new ToastConstructor({
+      el: document.createElement('div')
+    })
   }
 
-  if (!toastSingleTon) {
-    toastSingleTon = getAnInstance()
+  return showToast(toast, options)
+}
+
+Toast.success = options => {
+  if (typeof options === 'string') {
+    options = {
+      msg: options,
+      iconName: 'success',
+      duration: 1500
+    }
+  } else {
+    options = {
+      ...options,
+      iconName: 'success',
+      duration: options.duration || 1500
+    }
   }
 
-  if (toastSingleTon.show) return
+  return Toast(options)
+}
 
-  return showToast(toastSingleTon, options)
+Toast.error = options => {
+  if (typeof options === 'string') {
+    options = {
+      msg: options,
+      iconName: 'error'
+    }
+  } else {
+    options = {
+      ...options,
+      iconName: 'error'
+    }
+  }
+
+  return Toast(options)
+}
+
+Toast.warning = options => {
+  if (typeof options === 'string') {
+    options = {
+      msg: options,
+      iconName: 'warning'
+    }
+  } else {
+    options = {
+      ...options,
+      iconName: 'warning'
+    }
+  }
+
+  return Toast(options)
 }
 
 Toast.install = Vue => {
