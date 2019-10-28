@@ -48,7 +48,7 @@ npm i babel-plugin-import -D
 {
   "plugins": [
     ["import", {
-      "libraryName": "JMDesign",
+      "libraryName": "@jd/jm-design",
       "style": true
     }]
   ]
