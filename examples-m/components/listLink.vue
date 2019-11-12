@@ -46,5 +46,6 @@ export default {
   padding: 15px;
   background: #fff;
   justify-content: space-between;
+  -webkit-tap-highlight-color: transparent;
 }
 </style>

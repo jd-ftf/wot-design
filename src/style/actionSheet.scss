@@ -16,6 +16,7 @@
     border: none;
     background: #fff;
     outline: none;
+    -webkit-tap-highlight-color: transparent;
 
     &:active {
       background: $-action-sheet-active-color;
@@ -53,6 +54,7 @@
     border: none;
     background: #fff;
     outline: none;
+    -webkit-tap-highlight-color: transparent;
 
     &:active {
       background: $-action-sheet-active-color;
@@ -90,5 +92,6 @@
     font-size: 24px;
     transform: rotate(-45deg);
     line-height: 1.1;
+    -webkit-tap-highlight-color: transparent;
   }
 }

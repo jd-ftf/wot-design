@@ -1,25 +1,64 @@
 // This is the webpack config used for unit tests.
 
 const utils = require('./utils')
-const merge = require('webpack-merge')
-const baseWebpackConfig = require('./webpack.base.conf')
+const { VueLoaderPlugin } = require('vue-loader')
 
-const webpackConfig = merge(baseWebpackConfig, {
-  // use inline sourcemap for karma-sourcemap-loader
+module.exports = {
+  mode: 'development',
   module: {
-    rules: utils.styleLoaders()
+    rules: [
+      {
+        test: /\.vue$/,
+        loader: 'vue-loader'
+      },
+      {
+        test: /\.js$/,
+        loader: 'babel-loader',
+        exclude: /node_modules/
+      },
+      {
+        test: /\.css$/,
+        use: utils.cssLoader('css-loader', 'postcss-loader')
+      },
+      {
+        test: /\.scss$/,
+        use: utils.cssLoader('css-loader', 'postcss-loader', 'sass-loader')
+      },
+      {
+        test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
+        loader: 'url-loader',
+        options: {
+          limit: 20000,
+          name: utils.assetsPath('img/[name].[hash:8].[ext]')
+        }
+      },
+      {
+        test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
+        loader: 'url-loader',
+        options: {
+          limit: 10000,
+          name: utils.assetsPath('fonts/[name].[ext]')
+        }
+      }
+    ]
   },
-  devtool: '#inline-source-map',
-  resolveLoader: {
+  resolve: {
+    extensions: ['.js', '.vue', '.json'],
     alias: {
-      // necessary to to make lang="scss" work in test when using vue-loader's ?inject option
-      // see discussion at https://github.com/vuejs/vue-loader/issues/724
-      'scss-loader': 'sass-loader'
+      'vue$': 'vue/dist/vue.esm.js',
+      '@': utils.resolve('src'),
+      'jm-design': utils.resolve('packages')
     }
+  },
+  plugins: [
+    new VueLoaderPlugin()
+  ],
+  node: {
+    setImmediate: false,
+    dgram: 'empty',
+    fs: 'empty',
+    net: 'empty',
+    tls: 'empty',
+    child_process: 'empty'
   }
-})
-
-// no need for app entry during tests
-delete webpackConfig.entry
-
-module.exports = webpackConfig
+}

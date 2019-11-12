@@ -150,7 +150,7 @@ export default {
       this.$emit('blur')
     },
     formatValue (value) {
-      value = Number(this.value)
+      value = Number(value)
 
       if (isNaN(value)) {
         value = this.min

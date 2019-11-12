@@ -27,6 +27,7 @@
     color: #666;
     font-size: 24px;
     transform: rotate(-45deg);
+    -webkit-tap-highlight-color: transparent;
   }
   @include m(center) {
     left: 50%;

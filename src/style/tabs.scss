@@ -31,6 +31,7 @@
     font-size: 14px;
     color: #333;
     transition: color .3s;
+    -webkit-tap-highlight-color: transparent;
 
     @include when(active) {
       color: $-tabs-nav-active-color;

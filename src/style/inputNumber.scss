@@ -13,6 +13,7 @@
     height: $-inputNumber-height;
     vertical-align: middle;
     color: $-inputNumber-color;
+    -webkit-tap-highlight-color: transparent;
 
     &::after {
       position: absolute;
@@ -56,6 +57,7 @@
     color: $-inputNumber-color;
     font-size: 12px;
     -webkit-appearance: none;
+    -webkit-tap-highlight-color: transparent;
   }
   @include e(input-border) {
     position: absolute;

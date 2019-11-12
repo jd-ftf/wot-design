@@ -4,7 +4,6 @@
       <jm-navbar :title="$route.meta.pageName" light>
         <a class="return-back" slot="left" @click="goBack">
           <jm-icon name="arrow-left" />
-          <span>返回</span>
         </a>
       </jm-navbar>
     </div>
@@ -35,10 +34,7 @@ export default {
   .return-back {
     display: block;
     height: 100%;
-
-    span, i {
-      vertical-align: middle;
-    }
+    line-height: 44px;
   }
   &.is-no-fixed {
     position: relative;
