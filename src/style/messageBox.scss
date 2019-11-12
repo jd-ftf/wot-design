@@ -99,6 +99,8 @@
   @include e(button) {
     display: block;
     flex: 1;
+    margin: 0;
+    padding: 0;
     font-size: 16px;
     text-align: center;
     height: 45px;
@@ -107,6 +109,7 @@
     outline: none;
     -webkit-appearance: none;
     border: none;
+    -webkit-tap-highlight-color: transparent;
 
     @include m(cancel) {
       background-color: #fff;

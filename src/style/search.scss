@@ -26,6 +26,7 @@
     -webkit-appearance: none;
     outline: none;
     color: #333;
+    -webkit-tap-highlight-color: transparent;
 
     @include lineEllipsis;
 
@@ -69,6 +70,7 @@
     transform: translate(0, -50%);
     font-size: 14px;
     color: #a7a7a7;
+    -webkit-tap-highlight-color: transparent;
   }
   @include e(cancel) {
     padding: 0 15px 0 10px;
@@ -76,6 +78,7 @@
     line-height: 28px;
     font-size: 14px;
     color: $-color-theme;
+    -webkit-tap-highlight-color: transparent;
   }
   @include when(light) {
     background: #f4f4f4;

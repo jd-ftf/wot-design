@@ -164,6 +164,7 @@ this.$messageBox.prompt(title, options) //  title 可以跳过不写，即支持
 | inputValue      | 当type为prompt时，输入框初始值   | string / number    | -          | -   |
 | inputPlaceholder      | 当type为prompt时，输入框placeholder      | string    | -          | -   |
 | inputPattern      | 当type为prompt时，输入框正则校验，点击确定按钮时进行校验      | regex    | -          | -   |
+| inputError | 当type为prompt时，输入框检验不通过时的错误提示文案 | string | - | - |
 | inputValidate      | 当type为prompt时，输入框校验函数，点击确定按钮时进行校验      | function    | -          | -   |
 | confirmButtonText      | 确定按钮文案      | string    | -          | '确定'   |
 | cancelButtonText      | 取消按钮文案     | string    | -          | '取消'   |

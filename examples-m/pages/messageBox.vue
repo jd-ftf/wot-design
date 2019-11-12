@@ -52,7 +52,8 @@ export default {
     },
     prompt () {
       this.$messageBox.prompt('请输入邮箱', {
-        inputPattern: /.+@.+\..+/i
+        inputPattern: /.+@.+\..+/i,
+        inputError: '邮箱格式不正确，请重新输入'
       }).then(({ value }) => {
         this.$messageBox.alert(`你输入的邮箱是： ${value}`)
       })

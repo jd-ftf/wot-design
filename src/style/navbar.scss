@@ -23,6 +23,7 @@
     padding: 0 $-size-side-padding;
     font-size: $-navbar-fs-side;
     user-select: none;
+    -webkit-tap-highlight-color: transparent;
   }
   @include e(side-left) {
     text-align: left;
