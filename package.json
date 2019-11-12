@@ -1,6 +1,6 @@
 {
   "name": "@jd/jm-design",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "JM Mobile UI components for vue.js",
   "contributors": [
     "zhongzhijie <zhongzhijie@jd.com>"
@@ -14,7 +14,7 @@
     "build:locale": "cross-env BABEL_ENV=utils babel src/locale/lang --out-dir lib/locale/lang && node build/build-locale.js",
     "build:icon": "node build/iconInit.js",
     "build:dist": "rimraf lib && npm run build:lib && npm run build:components && npm run build:theme && npm run build:locale",
-    "unit": "cross-env BABEL_ENV=test karma start test/unit/karma.conf.js --single-run",
+    "unit": "cross-env BABEL_ENV=test NODE_ENV=development karma start test/unit/karma.conf.js --single-run",
     "e2e": "node test/e2e/runner.js",
     "test": "npm run unit && npm run e2e",
     "lint": "eslint --ext .js,.vue src test/unit test/e2e/specs"
