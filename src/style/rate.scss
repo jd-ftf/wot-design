@@ -10,6 +10,7 @@
   @include e(item) {
     position: relative;
     display: inline-block;
+    -webkit-tap-highlight-color: transparent;
   }
   @include e(item-star) {
     display: inline-block;

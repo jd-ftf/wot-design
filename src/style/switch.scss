@@ -10,6 +10,7 @@
   border: 1px solid $-switch-color-border;
   background: $-switch-color-inactive;
   transition: all .3s;
+  -webkit-tap-highlight-color: transparent;
 
   @include e(checkbox) {
     position: absolute;

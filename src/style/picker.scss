@@ -12,6 +12,7 @@
     text-decoration: none;
     color: $-cell-title-color;
     font-size: $-picker-cell-fs;
+    overflow: hidden;
 
     @include halfPixelBorder('bottom', 15px);
 
@@ -73,6 +74,7 @@
     font-size: $-picker-toolbar-fs;
     color: $-picker-toolbar-color;
     background: transparent;
+    -webkit-tap-highlight-color: transparent;
 
     @include m(cancel) {
       color: $-picker-toolbar-cancel-color;

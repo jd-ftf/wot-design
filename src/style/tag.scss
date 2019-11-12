@@ -20,6 +20,8 @@
   border-radius: 2px;
   font-size: 0;
   transition: opacity .3s;
+  -webkit-tap-highlight-color: transparent;
+
   @include tag-type-style($-tag-info-color, $-tag-info-color-light);
 
   @include when(primary) {

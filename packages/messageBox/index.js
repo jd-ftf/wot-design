@@ -19,7 +19,8 @@ let defaults = {
   inputPattern: '', // prompt中验证input数据的正则表达式
   inputValidate: '', // prompt中验证input数据的函数
   showConfirmButton: true,
-  showCancelButton: false
+  showCancelButton: false,
+  inputError: ''
 }
 
 const merge = (target, ...args) => {
