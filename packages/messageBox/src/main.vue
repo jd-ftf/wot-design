@@ -1,7 +1,7 @@
 <template>
   <div class="jm-message-box">
     <transition name="fade">
-      <div class="jm-message-box__modal-mask" v-if="show" @click="toggleModal"></div>
+      <div class="jm-message-box__modal-mask" v-if="show" @click="toggleModal('modal')"></div>
     </transition>
     <transition name="zoomIn">
       <div class="jm-message-box__container" v-if="show">
@@ -95,7 +95,7 @@ export default {
   },
   methods: {
     toggleModal (action) {
-      if (!action && !this.closeOnClickModal) {
+      if (action === 'modal' && !this.closeOnClickModal) {
         return
       }
 
