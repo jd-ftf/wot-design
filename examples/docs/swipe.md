@@ -4,7 +4,7 @@
 
 ```javascript
 import Vue from 'vue'
-import { Swipe, SwipeItem } from 'jm-design'
+import { Swipe, SwipeItem } from '@jd/jm-design'
 
 Vue.use(Swipe)
 Vue.use(SwipeItem)

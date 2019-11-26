@@ -8,8 +8,8 @@ JM Design 默认使用中文语言。
 
 ```javascript
 import Vue from 'vue'
-import JMDesign from 'jm-design'
-import enUS from 'jm-design/lib/locale/lang/en-US'
+import JMDesign from '@jd/jm-design'
+import enUS from '@jd/jm-design/lib/locale/lang/en-US'
 
 Vue.use(JMDesign, {
   locale: enUS
@@ -20,9 +20,9 @@ Vue.use(JMDesign, {
 
 ```javascript
 import Vue from 'vue'
-import { MessageBox, InfiniteLoad } from 'jm-design'
-import locale from 'jm-design/lib/locale'
-import enUS from 'jm-design/lib/locale/lang/en-US'
+import { MessageBox, InfiniteLoad } from '@jd/jm-design'
+import locale from '@jd/jm-design/lib/locale'
+import enUS from '@jd/jm-design/lib/locale/lang/en-US'
 
 Vue.use(MessageBox)
 Vue.use(InfiniteLoad)
@@ -35,10 +35,10 @@ locale.use(enUS)
 ```javascript
 import Vue from 'vue'
 import App from './App'
-import JMDesign from 'jm-design'
+import JMDesign from '@jd/jm-design'
 import VueI18n from 'vue-i18n'
-import zhCN from '@/locale/lang/zh-CN'
-import enUS from '@/locale/lang/en-US'
+import zhCN from '@jd/jm-design/lib/locale/lang/zh-CN'
+import enUS from '@jd/jm-design/lib/locale/lang/en-US'
 
 Vue.use(VueI18n)
 Vue.use(JMDesign)

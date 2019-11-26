@@ -4,7 +4,7 @@
 
 ```javascript
 import Vue from 'vue'
-import { PickerView } from 'jm-design'
+import { PickerView } from '@jd/jm-design'
 
 Vue.use(PickerView)
 ```

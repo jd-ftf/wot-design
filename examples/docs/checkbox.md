@@ -4,7 +4,7 @@
 
 ```javascript
 import Vue from 'vue'
-import { CheckboxGroup, Checkbox } from 'jm-design'
+import { CheckboxGroup, Checkbox } from '@jd/jm-design'
 
 Vue.use(CheckboxGroup)
 Vue.use(Checkbox)
