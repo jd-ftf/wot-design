@@ -52,7 +52,7 @@ this.$toast({
 | 参数      | 说明                                 | 类型      | 可选值       | 默认值   |
 |---------- |------------------------------------ |---------- |------------- |-------- |
 |msg        |	消息内容                             |	string   |	—           |	—       |
-|duration	  | 持续时间，单位 ms                     |	Number   |	—           |	2000 |
+|duration	  | 持续时间，单位 ms，为 0 时表示不自动关闭                     |	Number   |	—           |	2000 |
 |iconName   |	图标类型，选择 'success' 则 duration 自动设置为 1500 ms  |	string    |	'success', 'error', 'warning' |	—      |
 |iconClass  |	图标类目，自定义图标，可以使用 Icon 章节的那些图标类名，iconName 优先级更高  |	string   |	—	            | —   |
 |position   |	提示信息框的位置                      |	string   |	'top', 'middle', 'bottom'  |	'default'  |

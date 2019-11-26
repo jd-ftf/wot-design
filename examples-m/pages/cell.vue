@@ -49,6 +49,9 @@
         </jm-cell>
       </jm-cell-group>
     </space>
+    <space title="可点击的">
+      <jm-cell clickable title="标题文字" value="内容" @click="toast" />
+    </space>
   </div>
 </template>
 
@@ -58,6 +61,11 @@ export default {
     return {
       href: location.href.split('#')[0],
       value: true
+    }
+  },
+  methods: {
+    toast () {
+      this.$toast('点击')
     }
   }
 }
