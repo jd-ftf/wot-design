@@ -40,8 +40,6 @@ import Tag from 'jm-design/tag'
 import Toast from 'jm-design/toast'
 import locale from './locale'
 
-import lazyPlaceholder from './img/placeholder.png'
-
 const components = [
   ActionSheet,
   Badge,
@@ -94,10 +92,7 @@ const install = (Vue, config = {}) => {
   Vue.prototype.$loading = Loading.loading
   Vue.prototype.$messageBox = MessageBox.MessageBox
 
-  Vue.use(Lazyload, Object.assign({
-    loading: lazyPlaceholder,
-    attempt: 3
-  }, config.lazyload))
+  Vue.use(Lazyload, config.lazyload)
 }
 
 if (typeof window !== 'undefined' && window.Vue) {

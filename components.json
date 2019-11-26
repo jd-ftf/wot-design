@@ -13,6 +13,7 @@
   "infiniteLoad": "./packages/infiniteLoad/index.js",
   "input": "./packages/input/index.js",
   "inputNumber": "./packages/inputNumber/index.js",
+  "lazyload": "./packages/lazyload/index.js",
   "loading": "./packages/loading/index.js",
   "messageBox": "./packages/messageBox/index.js",
   "navbar": "./packages/navbar/index.js",
