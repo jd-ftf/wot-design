@@ -4,7 +4,7 @@
 
 ```javascript
 import Vue from 'vue'
-import { Button } from 'jm-design'
+import { Button } from '@jd/jm-design'
 
 Vue.use(Button)
 ```

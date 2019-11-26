@@ -4,7 +4,7 @@
 
 ```javascript
 import Vue from 'vue'
-import { Tab, Tabs } from 'jm-design'
+import { Tab, Tabs } from '@jd/jm-design'
 
 Vue.use(Tab)
 Vue.use(Tabs)

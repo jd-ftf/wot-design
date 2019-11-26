@@ -4,7 +4,7 @@
 
 ```javascript
 import Vue from 'vue'
-import { Progress } from 'jm-design'
+import { Progress } from '@jd/jm-design'
 
 Vue.use(Progress)
 ```

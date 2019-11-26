@@ -6,7 +6,7 @@
 
 ```javascript
 import Vue from 'vue'
-import { Navbar } from 'jm-design'
+import { Navbar } from '@jd/jm-design'
 
 Vue.use(Navbar)
 ```

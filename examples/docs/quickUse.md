@@ -8,10 +8,12 @@
 (sudo) npm install -g @vue/cli
 vue create example
 cd example
-npm i jm-design
+npm i @jd/jm-design 
 ```
 
-使用 vue-cli 脚手架快速创建一个 Vue 项目，并在该项目中安装 `jm-design`
+> 使用京东的npm私域，`npm config set @jd:registry=http://registry.m.jd.com`
+
+使用 vue-cli 脚手架快速创建一个 Vue 项目，并在该项目中安装 `@jd/jm-design`
 
 ### 引入 JMDesign
 
@@ -20,8 +22,8 @@ npm i jm-design
 ```javascript
 import Vue from 'vue'
 import App from './App.vue'
-import JMDesign from 'jm-design'
-import 'jm-design/lib/theme-default/index.css'
+import JMDesign from '@jd/jm-design'
+import '@jd/jm-design/lib/theme-default/index.css'
 
 Vue.use(JMDesign)
 
@@ -59,7 +61,7 @@ npm i babel-plugin-import -D
 
 ```javascript
 import Vue from 'vue'
-import { Button } from 'jm-design'
+import { Button } from '@jd/jm-design'
 
 Vue.use(Button)
 ```

@@ -6,7 +6,7 @@
 
 ```javascript
 import Vue from 'vue'
-import { DatetimePicker } from 'jm-design'
+import { DatetimePicker } from '@jd/jm-design'
 
 Vue.use(DatetimePicker)
 ```

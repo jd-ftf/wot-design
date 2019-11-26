@@ -6,7 +6,7 @@ Picker 组件为 popup 和 pickerView 的组合。
 
 ```javascript
 import Vue from 'vue'
-import { Picker } from 'jm-design'
+import { Picker } from '@jd/jm-design'
 
 Vue.use(Picker)
 ```

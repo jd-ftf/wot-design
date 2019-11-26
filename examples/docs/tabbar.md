@@ -4,7 +4,7 @@
 
 ```javascript
 import Vue from 'vue'
-import { Tabbar, TabbarItem } from 'jm-design'
+import { Tabbar, TabbarItem } from '@jd/jm-design'
 
 Vue.use(Tabbar)
 Vue.use(TabbarItem)

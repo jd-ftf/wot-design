@@ -9,7 +9,7 @@
 如果需要修改参数，修改方式如下：
 
 ```javascript
-import JMDesign from 'jm-design'
+import JMDesign from '@jd/jm-design'
 
 // lazyload 参数同 vue-lazyload 组件参数
 Vue.use(JMDesign, {
@@ -24,7 +24,7 @@ Vue.use(JMDesign, {
 
 ```javascript
 import Vue from 'vue'
-import { Lazyload } from 'jm-design'
+import { Lazyload } from '@jd/jm-design'
 
 Vue.use(Lazyload)
 

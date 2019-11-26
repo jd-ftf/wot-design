@@ -4,7 +4,7 @@
 
 ```javascript
 import Vue from 'vue'
-import { Badge } from 'jm-design'
+import { Badge } from '@jd/jm-design'
 
 Vue.use(Badge)
 ```

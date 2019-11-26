@@ -4,7 +4,7 @@
 
 ```javascript
 import Vue from 'vue'
-import { Collapse, CollapseItem } from 'jm-design'
+import { Collapse, CollapseItem } from '@jd/jm-design'
 
 Vue.use(Collapse)
 Vue.use(CollapseItem)
