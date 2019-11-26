@@ -1,5 +1,13 @@
 ## 更新日志
 
+### 0.6.0
+
+*2019-11-26*
+
+- cell: 修复文案过长样式错乱问题 [issue#1](http://git.jd.com/FTF/jm-design/issues/1)，添加 click 事件
+- lazyload: 修复按需加载bug
+- toast: 添加 duration 为0时不自动关闭
+
 ### 0.5.0
 
 *2019-11-13*
