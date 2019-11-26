@@ -4,7 +4,7 @@
 
 ```javascript
 import Vue from 'vue'
-import { ActionSheet } from 'jm-design'
+import { ActionSheet } from '@jd/jm-design'
 
 Vue.use(ActionSheet)
 ```

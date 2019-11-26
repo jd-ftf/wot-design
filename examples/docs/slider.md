@@ -6,7 +6,7 @@
 
 ```javascript
 import Vue from 'vue'
-import { Slider } from 'jm-design'
+import { Slider } from '@jd/jm-design'
 
 Vue.use(Slider)
 ```

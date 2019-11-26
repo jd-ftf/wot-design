@@ -4,7 +4,7 @@
 
 ```javascript
 import Vue from 'vue'
-import { RadioGroup, Radio } from 'jm-design'
+import { RadioGroup, Radio } from '@jd/jm-design'
 
 Vue.use(RadioGroup)
 Vue.use(Radio)

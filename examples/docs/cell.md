@@ -4,7 +4,7 @@
 
 ```javascript
 import Vue from 'vue'
-import { CellGroup, Cell } from 'jm-design'
+import { CellGroup, Cell } from '@jd/jm-design'
 
 Vue.use(CellGroup)
 Vue.use(Cell)
