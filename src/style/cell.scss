@@ -23,6 +23,8 @@
   @include e(title) {
     font-size: $-cell-title-size;
     vertical-align: middle;
+    flex-shrink: 0;
+    margin-right: 20px;
   }
   @include e(label) {
     margin-top: 3px;
@@ -32,8 +34,11 @@
   @include e(right) {
     position: relative;
     font-size: 0;
-    text-align: right;
-    vertical-align: middle;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    flex-wrap: nowrap;
+    align-items: center;
   }
   @include e(icon) {
     position: relative;
@@ -44,19 +49,17 @@
     font-size: $-cell-icon-size;
   }
   @include e(value) {
-    display: inline-block;
+    display: block;
     font-size: $-cell-value-size;
     color: $-cell-value-color;
-    vertical-align: middle;
   }
   @include e(arrow-right) {
-    display: inline-block;
+    display: block;
     margin-left: 5px;
     height: 22px;
     min-width: 14px;
     line-height: 22px;
     font-size: 14px;
-    vertical-align: middle;
     color: #c5c5c5;
   }
   &:last-child {
@@ -65,6 +68,11 @@
     }
   }
   @include when(link) {
+    transition: background .2s;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0.06);
+
+    &:active {
+      background: rgba(0, 0, 0, 0.06);
+    }
   }
 }

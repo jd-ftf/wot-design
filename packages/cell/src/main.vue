@@ -7,7 +7,8 @@ export default {
     title: String,
     label: String,
     isLink: Boolean,
-    value: {}
+    value: {},
+    clickable: Boolean
   },
   computed: {
     iconShow () {
@@ -15,6 +16,13 @@ export default {
     },
     valueShow () {
       return this.value || this.$slots.default
+    }
+  },
+  methods: {
+    handleClick () {
+      if (!this.clickable) return
+
+      this.$emit('click')
     }
   },
   render (h) {
@@ -65,7 +73,7 @@ export default {
         ? <router-link to={ this.to } class={rootClass}>{Icon}{Wrapper}</router-link>
         : <a class={rootClass} href={ this.to }>{Icon}{Wrapper}</a>
     } else {
-      return <a class="jm-cell">{Icon}{Wrapper}</a>
+      return <a class={{ 'jm-cell': true, 'is-link': this.clickable }} onClick={ this.handleClick }>{Icon}{Wrapper}</a>
     }
   }
 }

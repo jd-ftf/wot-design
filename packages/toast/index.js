@@ -34,7 +34,7 @@ ToastConstructor.prototype.close = function () {
 }
 
 const showToast = (instance, options) => {
-  let duration = options.duration || 2000
+  let duration = options.duration === 0 ? 0 : (options.duration || 2000)
   instance.closed = false
   clearTimeout(instance.timer)
   instance.msg = typeof options === 'string' ? options : options.msg
@@ -46,12 +46,14 @@ const showToast = (instance, options) => {
   Vue.nextTick(() => {
     instance.show = true
     instance.$el.removeEventListener('transitionend', removeDom)
-    instance.timer = setTimeout(() => {
-      if (instance.closed) {
-        return
-      }
-      instance.close()
-    }, duration)
+    if (duration > 0) {
+      instance.timer = setTimeout(() => {
+        if (instance.closed) {
+          return
+        }
+        instance.close()
+      }, duration)
+    }
   })
 
   return instance
