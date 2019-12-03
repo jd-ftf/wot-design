@@ -3,6 +3,9 @@ const path = require('path')
 const utils = require('./utils')
 const { VueLoaderPlugin } = require('vue-loader')
 const webpack = require('webpack')
+const packageConfig = require('../package')
+
+const banner = `${packageConfig.name} v${packageConfig.version} | (c) ${new Date().getFullYear()} by ftf`
 
 module.exports = {
   mode: 'production',
@@ -59,7 +62,8 @@ module.exports = {
   },
   plugins: [
     new webpack.optimize.ModuleConcatenationPlugin(),
-    new VueLoaderPlugin()
+    new VueLoaderPlugin(),
+    new webpack.BannerPlugin(banner)
   ],
   stats: {
     children: false,
