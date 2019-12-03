@@ -55,7 +55,12 @@ module.exports = {
     minimizer: [
       new TerserPlugin({
         cache: true,
-        parallel: true
+        parallel: true,
+        terserOptions: {
+          output: {
+            comments: new RegExp(packageConfig.name, 'i'),
+          }
+        }
       })
     ],
     splitChunks: {}
