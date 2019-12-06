@@ -14,7 +14,7 @@ export default Vue.extend({
   data () {
     return {
       direction: '',
-      accurateDirection: ''
+      accurateDirection: '' // 详细方向
     }
   },
   methods: {

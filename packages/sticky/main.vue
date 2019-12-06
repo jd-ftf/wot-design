@@ -1,5 +1,5 @@
 <template>
-  <div :style="shouldScroll ? { height: height + 'px' } : stickyStyle">
+  <div :class="{ 'jm-sticky': true, 'is-support-sticky': !shouldScroll }" :style="shouldScroll ? { height: height + 'px' } : stickyStyle">
     <div :style="shouldScroll && this.fixed ? stickyStyle : ''">
       <slot></slot>
     </div>
@@ -16,7 +16,7 @@ export default {
       fixed: false,
       scroller: null,
       height: null,
-      shouldScroll: !isSupportSticky(),
+      shouldScroll: !isSupportSticky,
       transformY: 0
     }
   },
@@ -33,15 +33,17 @@ export default {
   },
   computed: {
     stickyStyle () {
-      return {
+      let style = {
         position: this.shouldScroll
           ? 'fixed'
-          : 'sticky',
+          : '',
         top: (!this.shouldScroll || this.fixed) ? this.offsetTop + 'px' : 0,
         zIndex: this.zIndex,
         width: '100%',
         transform: `translate(0, ${this.transformY}px)`
       }
+
+      return style
     }
   },
   methods: {
@@ -55,7 +57,7 @@ export default {
 
         // if is in container
         if (this.height + this.offsetTop < containerHeight) {
-          if (stickyTop < this.offsetTop && containerBottom > this.offsetTop) {
+          if (stickyTop < this.offsetTop && containerBottom > 0) {
             this.fixed = true
             let distance = containerBottom - (this.height + this.offsetTop)
             distance < 0 && (this.transformY = distance)
