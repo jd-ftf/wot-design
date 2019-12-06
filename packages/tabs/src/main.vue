@@ -71,9 +71,12 @@ export default {
       return value
     },
     bodyStyle () {
+      let delta = ((this.activeIndex === this.tabLength - 1 && this.delta < 0) || (this.activeIndex === 0 && this.delta > 0))
+        ? this.delta / 4
+        : this.delta
       return {
         width: this.tabLength * this.clientWidth + 'px',
-        transform: `translate3d(${-1 * this.activeIndex * this.clientWidth + this.delta}px, 0, 0)`,
+        transform: `translate3d(${-1 * this.activeIndex * this.clientWidth + delta}px, 0, 0)`,
         transition: ((this.animated && this.ifAnimate) || (this.swipeable && !this.swiping)) ? 'transform 300ms' : ''
       }
     }
@@ -90,6 +93,8 @@ export default {
   },
   methods: {
     changeTab (index, isClick = false) {
+      if (index < 0 || index >= this.tabLength) return
+
       let name = this.items[index].name
       if (this.items[index].disabled) {
         this.$emit('disabled', index, name)
