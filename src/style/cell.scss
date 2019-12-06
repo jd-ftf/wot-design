@@ -22,6 +22,7 @@
   }
   @include e(title) {
     font-size: $-cell-title-size;
+    line-height: 1.375;
     vertical-align: middle;
     flex-shrink: 0;
     margin-right: 20px;

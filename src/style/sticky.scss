@@ -1,0 +1,8 @@
+@import './abstracts/mixin';
+
+@include b(sticky) {
+  @include when(support-sticky) {
+    position: -webkit-sticky;
+    position: sticky;
+  }
+}

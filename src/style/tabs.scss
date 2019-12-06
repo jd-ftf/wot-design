@@ -42,7 +42,7 @@
   }
   @include e(line) {
     position: absolute;
-    bottom: 15px;
+    bottom: 16px;
     left: 0;
     height: $-tabs-nav-line-height;
     background: $-tabs-nav-active-color;
@@ -69,12 +69,13 @@
     right: 0;
     top: 0;
     width: $-tabs-nav-height;
-    height: 40px;
+    height: $-tabs-nav-height;
     line-height: $-tabs-nav-height;
     text-align: center;
     color: #c5c5c5;
     z-index: 3;
     background: #fff;
+    -webkit-tap-highlight-color: transparent;
     @include halfPixelBorder;
 
     &::before {
@@ -125,16 +126,17 @@
   }
   @include e(map-nav-item) {
     display: inline-block;
-    width: 78px;
+    width: 98px;
     padding: 0 10px;
     height: 26px;
-    line-height: 26px;
     border: 1px solid #c5c5c5;
     margin-bottom: 10px;
     border-radius: 4px;
-    color: #333;
+    color: $-tabs-nav-map-color;
+    font-size: $-tabs-nav-map-fs;
     text-align: center;
     transition: color .3s, border-color .3s;
+    @include buttonClear;
     @include lineEllipsis;
 
     @include when(active) {
