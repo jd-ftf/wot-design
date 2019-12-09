@@ -35,10 +35,10 @@
 import touchMixin from '@/mixins/touch'
 import { range } from '@/utils'
 
-const SELECT_DURATION = 300
-const MOMENTUM_LIMIT_DURATION = 300
-const MOMENTUM_LIMIT_DISTANCE = 15
-const MOMENTUM_DURATION = 1000
+const SELECT_DURATION = 300 // 选择滑动持续时间
+const MOMENTUM_LIMIT_DURATION = 300 // 惯性滑动限制最大时间
+const MOMENTUM_LIMIT_DISTANCE = 15 // 惯性滑动限制最大距离
+const MOMENTUM_DURATION = 1000 // 惯性滑动持续时间
 
 export default {
   name: 'JmPickerViewColumn',
@@ -169,7 +169,7 @@ export default {
     onTouchEnd (event) {
       const distance = this.offset - this.momentumOffset
       const duration = Date.now() - this.startTime
-      const shouldMomentum = distance > MOMENTUM_LIMIT_DISTANCE && duration < MOMENTUM_LIMIT_DURATION
+      const shouldMomentum = Math.abs(distance) > MOMENTUM_LIMIT_DISTANCE && duration < MOMENTUM_LIMIT_DURATION
 
       if (shouldMomentum) {
         this.momentum(distance, duration)
