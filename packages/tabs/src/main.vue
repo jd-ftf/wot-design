@@ -65,7 +65,7 @@ export default {
         value = this.value
       } else if (this.items.length) {
         let activeItem = this.items.filter(item => item.name === this.value)
-        value = activeItem && this.items.indexOf(activeItem)
+        value = activeItem.length && this.items.indexOf(activeItem[0])
       }
 
       return value

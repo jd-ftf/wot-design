@@ -83,6 +83,7 @@ const components = [
 
 const install = (Vue, config = {}) => {
   locale.use(config.locale)
+  locale.i18n(config.i18n)
 
   components.forEach(component => {
     Vue.component(component.name, component)

@@ -50,7 +50,12 @@ export function use (langMessage) {
   message = langMessage || zhCN
 }
 
+export function i18n (fn) {
+  translate = fn || translate
+}
+
 export default {
   t,
-  use
+  use,
+  i18n
 }
