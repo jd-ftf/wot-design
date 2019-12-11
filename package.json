@@ -126,7 +126,7 @@
     "vue-router": "^3.0.2",
     "vue-style-loader": "^4.1.2",
     "vue-template-compiler": "^2.6.10",
-    "webpack": "^4.14.0",
+    "webpack": "^4.41.2",
     "webpack-cli": "^3.3.0",
     "webpack-dev-middleware": "^3.6.2",
     "webpack-dev-server": "^3.2.1",
