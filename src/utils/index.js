@@ -1,3 +1,7 @@
+import Vue from 'vue'
+
+export const isServer = Vue.prototype.$isServer
+
 /**
  * judge if the browser is support sticky
  */
