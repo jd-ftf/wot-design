@@ -16,7 +16,8 @@ export default {
     closeOnClickModal: {
       type: Boolean,
       default: true
-    }
+    },
+    zIndex: Number
   },
   watch: {
     value (val) {
@@ -28,8 +29,13 @@ export default {
   },
   methods: {
     open () {
-      if (this.$isServer) return
+      if (this.$isServer || this.opened) return
 
+      if (this.zIndex !== undefined) {
+        context.zIndex = this.zIndex
+      }
+
+      this.opened = true
       this.renderModal()
 
       if (this.lockScroll) {
@@ -40,6 +46,8 @@ export default {
       }
     },
     close () {
+      if (!this.opened) return
+
       if (this.lockScroll) {
         context.lockCount--
 
@@ -48,6 +56,7 @@ export default {
         }
       }
 
+      this.opened = false
       closeModal(this)
       this.$emit('input', false)
     },
