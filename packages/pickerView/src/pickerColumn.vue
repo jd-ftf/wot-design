@@ -2,7 +2,7 @@
   <ul
     class="jm-picker-view-column"
     :style="{
-      'transform': `translate3d(0, ${offset + baseOffset}px, 0)`,
+      'transform': `translate(0, ${offset + baseOffset}px)`,
       'transition-duration': `${duration}ms`
     }"
     @touchstart="onTouchStart"
@@ -16,7 +16,7 @@
       :key="index"
       :class="{
         'jm-picker-view-column__item': 1,
-        'jm-picker-view-column__item--active': index === activeIndex,
+        'jm-picker-view-column__item--active': index === selectedIndex,
         'jm-picker-view-column__item--disabled': typeof item === 'string' ? false : item.disabled
       }"
       :style="{
@@ -124,7 +124,6 @@ export default {
       this.offset = -index * this.itemHeight
 
       const trigger = () => {
-        this.activeIndex = index
         if (this.selectedIndex !== index) {
           this.selectedIndex = index
 
@@ -158,7 +157,6 @@ export default {
       }
 
       this.offset = range(this.startOffset + this.deltaY, -this.itemHeight * this.length, this.itemHeight)
-      this.activeIndex = this.getIndexByOffset(this.offset)
       const now = Date.now()
 
       if (now - this.startTime > MOMENTUM_LIMIT_DURATION) {
