@@ -13,7 +13,7 @@ import enUS from '@/locale/lang/en-US'
 
 Vue.use(VueI18n)
 const i18n = new VueI18n({
-  locale: 'en_US',
+  locale: 'zh_CN',
   messages: {
     'zh_CN': {
       hello: '你好',
