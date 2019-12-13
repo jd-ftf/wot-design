@@ -3,7 +3,8 @@
     class="jm-input"
     :class="{
       'is-textarea': type === 'textarea',
-      'is-disabled': disabled
+      'is-disabled': disabled,
+      'is-error': error
     }"
   >
     <template v-if="type === 'textarea' || (type === 'text' && autosize)">
@@ -132,7 +133,8 @@ export default {
       type: String,
       default: 'none'
     },
-    autofocus: Boolean
+    autofocus: Boolean,
+    error: Boolean
   },
   watch: {
     value () {

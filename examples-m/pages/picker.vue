@@ -1,11 +1,16 @@
 <template>
-  <div style="margin: 20px 0">
-    <jm-picker :columns="columns1" label="单列选项" v-model="value1" />
-    <jm-picker :columns="columns1" label="禁用" v-model="value2" disabled />
-    <jm-picker :columns="columns1" label="只读" v-model="value3" readonly />
-    <jm-picker :columns="columns1" label="loading" v-model="value4" loading />
-    <jm-picker :columns="columns2" label="多列" v-model="value5" />
-    <jm-picker :columns="columns3" label="多列联动" v-model="value6" :column-change="onChangeDistrict" :display-format="displayFormat" />
+  <div>
+    <div style="margin: 20px 0">
+      <jm-picker :columns="columns1" label="单列选项" v-model="value1" />
+      <jm-picker :columns="columns1" label="禁用" v-model="value2" disabled />
+      <jm-picker :columns="columns1" label="只读" v-model="value3" readonly />
+      <jm-picker :columns="columns1" label="loading" v-model="value4" loading />
+      <jm-picker :columns="columns2" label="多列" v-model="value5" />
+      <jm-picker :columns="columns3" label="多列联动" v-model="value6" :column-change="onChangeDistrict" :display-format="displayFormat" />
+    </div>
+    <space title="label不传">
+      <jm-picker :columns="columns1" v-model="value7" />
+    </space>
   </div>
 </template>
 
@@ -38,6 +43,7 @@ export default {
       value4: '',
       value5: ['中南大学', '软件工程'],
       value6: ['110000', '110100', '110102'],
+      value7: '',
       onChangeDistrict (pickerView, item, columnIndex) {
         if (columnIndex === 0) {
           pickerView.setColumnData(1, district[item.value])

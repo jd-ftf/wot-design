@@ -35,7 +35,7 @@
   @include e(label) {
     display: inline-block;
     margin-left: 10px;
-    vertical-align: top;
+    vertical-align: middle;
     font-size: $-radio-label-font-size;
     color: $-color-title;
   }

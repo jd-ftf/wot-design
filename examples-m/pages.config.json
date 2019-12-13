@@ -76,7 +76,7 @@
     "icon": "//img10.360buyimg.com/jmadvertisement/jfs/t1/61394/26/14003/924/5db5213aEebdbae4b/13a175a474dcf220.png",
     "list": [
       {
-        "name": "ActionSheet 上拉菜单",
+        "name": "ActionSheet 动态面板",
         "path": "/actionSheet"
       }, {
         "name": "InfiniteLoad 无限加载",

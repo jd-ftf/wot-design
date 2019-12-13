@@ -13,22 +13,24 @@
       {{ title }}
       <i class="jm-action-sheet__close jm-icon-add" @click="close"></i>
     </div>
-    <button
-      v-for="(item, index) in actions"
-      :key="index"
-      :class="{
-        'jm-action-sheet__action': true,
-        'jm-action-sheet__action--disabled': item.disabled
-      }"
-      :style="{ 'color': item.color }"
-      @click="select(index)"
-    >
-      <jm-loading v-if="item.loading" size="20px" style="display: inline-block;" :color="item.color" />
-      <template v-else>
-        <span class="jm-action-sheet__name">{{ item.name }}</span>
-        <span v-if="item.subname" class="jm-action-sheet__subname">{{ item.subname }}</span>
-      </template>
-    </button>
+    <div v-if="actions && actions.length" class="jm-action-sheet__actions">
+      <button
+        v-for="(item, index) in actions"
+        :key="index"
+        :class="{
+          'jm-action-sheet__action': true,
+          'jm-action-sheet__action--disabled': item.disabled
+        }"
+        :style="{ 'color': item.color }"
+        @click="select(index)"
+      >
+        <jm-loading v-if="item.loading" size="20px" style="display: inline-block;" :color="item.color" />
+        <template v-else>
+          <span class="jm-action-sheet__name">{{ item.name }}</span>
+          <span v-if="item.subname" class="jm-action-sheet__subname">{{ item.subname }}</span>
+        </template>
+      </button>
+    </div>
     <slot></slot>
     <button v-if="cancelText" class="jm-action-sheet__cancel" @click="handleCancel">{{ cancelText }}</button>
   </jm-popup>
