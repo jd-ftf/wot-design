@@ -3,7 +3,6 @@
     class="jm-radio"
     :class="{
       'is-checked': isChecked,
-      'is-dot': finalShape === 'dot',
       'is-button': finalShape === 'button',
       'is-disabled': finalDisabled
     }"
@@ -11,11 +10,8 @@
     <span class="jm-radio__shape" :style="{ 'color': isChecked && !finalDisabled ? finalCheckedColor : '' }">
       <i
         class="jm-radio__check"
-        :class="{
-          'jm-icon-check-round': finalShape === 'circle'
-        }"
         :style="{
-          'color': isChecked && finalShape !== 'circle' && !finalDisabled ? finalCheckedColor : ''
+          'color': isChecked && !finalDisabled ? finalCheckedColor : ''
         }"
       ></i>
       <input
