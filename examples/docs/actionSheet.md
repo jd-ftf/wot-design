@@ -1,4 +1,4 @@
-## ActionSheet 上拉菜单
+## ActionSheet 动态面板
 
 ### 按需引入
 
