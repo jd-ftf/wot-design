@@ -36,7 +36,11 @@ export default {
       type: Boolean,
       default: true
     },
-    zIndex: Number
+    zIndex: Number,
+    duration: {
+      type: Number,
+      default: 300
+    }
   },
   watch: {
     value (val) {

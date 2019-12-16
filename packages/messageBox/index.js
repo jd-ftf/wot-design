@@ -42,6 +42,7 @@ let msgQueue = []
 
 const defaultCallback = action => {
   if (currentMsg) {
+    instance.value = false
     let callback = currentMsg.callback
     if (typeof callback === 'function') {
       if (instance.showInput) {
@@ -87,7 +88,7 @@ let showNextMsg = () => {
     initInstance()
   }
 
-  if (!instance.show) {
+  if (!instance.value) {
     if (msgQueue.length > 0) {
       currentMsg = msgQueue.shift()
 
@@ -104,7 +105,7 @@ let showNextMsg = () => {
       document.body.appendChild(instance.$el)
 
       Vue.nextTick(() => {
-        instance.show = true
+        instance.value = true
       })
     }
   }
@@ -195,7 +196,7 @@ MessageBox.close = () => {
     return
   }
 
-  instance.show = false
+  instance.value = false
   msgQueue = []
   currentMsg = null
 }
