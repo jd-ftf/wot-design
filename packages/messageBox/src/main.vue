@@ -118,7 +118,6 @@ export default {
   },
   methods: {
     toggleModal (action) {
-      console.log(action, this.closeOnClickModal)
       if (action === 'modal' && !this.closeOnClickModal) {
         return
       }
