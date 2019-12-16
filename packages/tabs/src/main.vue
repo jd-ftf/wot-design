@@ -1,11 +1,12 @@
 <script>
 import animateScrollLeft from '@/utils/animateScrollLeft'
 import locale from '@/mixins/locale'
+import touchMixin from '@/mixins/touch'
 import Sticky from 'jm-design/sticky/main.vue'
 
 export default {
   name: 'JmTabs',
-  mixins: [locale],
+  mixins: [locale, touchMixin],
   provide () {
     return {
       tabs: this
@@ -18,10 +19,7 @@ export default {
       lineStyle: {},
       mapShow: false,
       animating: false,
-      startX: 0,
-      startY: 0,
       delta: 0,
-      direction: '',
       startTime: '',
       endTime: '',
       clientWidth: 0,
@@ -67,14 +65,18 @@ export default {
         value = this.value
       } else if (this.items.length) {
         let activeItem = this.items.filter(item => item.name === this.value)
-        value = activeItem && this.items.indexOf(activeItem)
+        value = activeItem.length && this.items.indexOf(activeItem[0])
       }
 
       return value
     },
     bodyStyle () {
+      let delta = ((this.activeIndex === this.tabLength - 1 && this.delta < 0) || (this.activeIndex === 0 && this.delta > 0))
+        ? this.delta / 4
+        : this.delta
       return {
-        transform: `translate3d(${-1 * this.activeIndex * this.clientWidth + this.delta}px, 0, 0)`,
+        width: this.tabLength * this.clientWidth + 'px',
+        transform: `translate3d(${-1 * this.activeIndex * this.clientWidth + delta}px, 0, 0)`,
         transition: ((this.animated && this.ifAnimate) || (this.swipeable && !this.swiping)) ? 'transform 300ms' : ''
       }
     }
@@ -91,6 +93,8 @@ export default {
   },
   methods: {
     changeTab (index, isClick = false) {
+      if (index < 0 || index >= this.tabLength) return
+
       let name = this.items[index].name
       if (this.items[index].disabled) {
         this.$emit('disabled', index, name)
@@ -154,17 +158,16 @@ export default {
         }, 10)
       }
     },
-    getNavDom (isMap = false) {
+    getNavDom () {
       return this.items.map((item, index) => {
         let title = item.$slots.title || item.title
         let key = item.name || index
         return (
           <div
             key={key}
-            ref={isMap ? '' : `navs_${index}`}
+            ref={`navs_${index}`}
             class={{
-              'jm-tabs__nav-item': !isMap,
-              'jm-tabs__map-nav-item': isMap,
+              'jm-tabs__nav-item': true,
               'is-active': this.activeIndex === index,
               'is-disabled': item.disabled
             }}
@@ -173,43 +176,51 @@ export default {
             }}
             onClick={() => {
               this.changeTab(index, true)
-              isMap && !item.disabled && this.toggleMap()
             }}>
             {title}
           </div>
         )
       })
     },
-    getDirection (deltaX, deltaY) {
-      let offsetX = Math.abs(deltaX)
-      let offsetY = Math.abs(deltaY)
-      let direction = ''
-
-      if (offsetX > 5 || offsetY > 5) {
-        direction = offsetX > offsetY ? 'horizontal' : 'vertical'
-      }
-
-      return direction
+    getNavMapDom () {
+      return this.items.map((item, index) => {
+        let title = item.$slots.title || item.title
+        let key = item.name || index
+        return (
+          <button
+            key={key}
+            class={{
+              'jm-tabs__map-nav-item': true,
+              'is-active': this.activeIndex === index,
+              'is-disabled': item.disabled
+            }}
+            style={{
+              color: this.activeIndex === index ? this.color : this.inactiveColor
+            }}
+            onClick={() => {
+              this.changeTab(index, true)
+              !item.disabled && this.toggleMap()
+            }}>
+            {title}
+          </button>
+        )
+      })
     },
     onTouchStart (event) {
       if (!this.swipeable) return
 
       this.startTime = Date.now()
-      this.startX = event.touches[0].clientX
-      this.startY = event.touches[0].clientY
+      this.touchStart(event)
       this.swiping = true
     },
     onTouchMove (event) {
       if (!this.swipeable) return
 
-      let deltaX = event.touches[0].clientX - this.startX
-      let deltaY = event.touches[0].clientY - this.startY
-
-      this.direction = this.direction || this.getDirection(deltaX, deltaY)
+      this.touchMove(event)
 
       if (this.direction === 'horizontal') {
         event.preventDefault()
-        this.delta = deltaX
+        this.delta = this.deltaX
       }
     },
     onTouchEnd (event) {
@@ -225,7 +236,6 @@ export default {
 
       this.swiping = false
       this.delta = 0
-      this.direction = ''
     }
   },
   mounted () {
@@ -244,7 +254,7 @@ export default {
     let NavMap
 
     if (this.mapNum < this.items.length && this.mapNum !== 0) {
-      const MapNavs = this.getNavDom(true)
+      const MapNavs = this.getNavMapDom()
 
       NavMap = (
         <div class="jm-tabs__map">

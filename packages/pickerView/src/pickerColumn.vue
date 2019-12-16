@@ -2,7 +2,7 @@
   <ul
     class="jm-picker-view-column"
     :style="{
-      'transform': `translate3d(0, ${offset + baseOffset}px, 0)`,
+      'transform': `translate(0, ${offset + baseOffset}px)`,
       'transition-duration': `${duration}ms`
     }"
     @touchstart="onTouchStart"
@@ -16,7 +16,7 @@
       :key="index"
       :class="{
         'jm-picker-view-column__item': 1,
-        'jm-picker-view-column__item--active': index === activeIndex,
+        'jm-picker-view-column__item--active': index === selectedIndex,
         'jm-picker-view-column__item--disabled': typeof item === 'string' ? false : item.disabled
       }"
       :style="{
@@ -35,10 +35,10 @@
 import touchMixin from '@/mixins/touch'
 import { range } from '@/utils'
 
-const SELECT_DURATION = 300
-const MOMENTUM_LIMIT_DURATION = 300
-const MOMENTUM_LIMIT_DISTANCE = 15
-const MOMENTUM_DURATION = 1000
+const SELECT_DURATION = 300 // 选择滑动持续时间
+const MOMENTUM_LIMIT_DURATION = 300 // 惯性滑动限制最大时间
+const MOMENTUM_LIMIT_DISTANCE = 15 // 惯性滑动限制最大距离
+const MOMENTUM_DURATION = 1000 // 惯性滑动持续时间
 
 export default {
   name: 'JmPickerViewColumn',
@@ -124,7 +124,6 @@ export default {
       this.offset = -index * this.itemHeight
 
       const trigger = () => {
-        this.activeIndex = index
         if (this.selectedIndex !== index) {
           this.selectedIndex = index
 
@@ -158,7 +157,6 @@ export default {
       }
 
       this.offset = range(this.startOffset + this.deltaY, -this.itemHeight * this.length, this.itemHeight)
-      this.activeIndex = this.getIndexByOffset(this.offset)
       const now = Date.now()
 
       if (now - this.startTime > MOMENTUM_LIMIT_DURATION) {
@@ -169,7 +167,7 @@ export default {
     onTouchEnd (event) {
       const distance = this.offset - this.momentumOffset
       const duration = Date.now() - this.startTime
-      const shouldMomentum = distance > MOMENTUM_LIMIT_DISTANCE && duration < MOMENTUM_LIMIT_DURATION
+      const shouldMomentum = Math.abs(distance) > MOMENTUM_LIMIT_DISTANCE && duration < MOMENTUM_LIMIT_DURATION
 
       if (shouldMomentum) {
         this.momentum(distance, duration)

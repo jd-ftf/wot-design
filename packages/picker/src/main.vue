@@ -7,7 +7,7 @@
       }"
       @click="showPopup"
     >
-      <div class="jm-picker__label">{{ label }}</div>
+      <div v-if="label" class="jm-picker__label">{{ label }}</div>
       <div class="jm-picker__value">{{ (value ? showValue : placeholder) || t('jmd.picker.placeholder') }}</div>
       <i v-if="!disabled && !readonly" class="jm-picker__arrow jm-icon-arrow-right"></i>
     </div>

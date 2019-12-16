@@ -26,6 +26,19 @@
       background: transparent;
     }
   }
+  @include when(error) {
+    &::after {
+      background: $-color-aid-red;
+    }
+    .jm-input__inner, .jm-input__textarea-inner {
+      color: $-color-aid-red;
+      background: transparent;
+
+      &::-webkit-input-placeholder {
+        color: $-color-aid-red;
+      }
+    }
+  }
   @include e(inner) {
     display: block;
     width: 100%;

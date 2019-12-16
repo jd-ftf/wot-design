@@ -1,8 +1,6 @@
 <template>
   <div class="jm-tab" :style="tabStyle">
-    <div class="jm-tab__body">
-      <slot v-if="shouldRender"></slot>
-    </div>
+    <slot v-if="shouldRender"></slot>
   </div>
 </template>
 
@@ -28,14 +26,9 @@ export default {
       return this.index === this.tabs.activeIndex
     },
     tabStyle () {
-      let sty
-      if (!this.isActive) {
-        sty = {
-          height: 0,
-          overflow: 'visible'
-        }
+      return {
+        width: this.tabs.clientWidth + 'px'
       }
-      return sty
     },
     shouldRender () {
       return this.init || !this.tabs.lazyRender

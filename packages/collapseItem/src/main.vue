@@ -52,17 +52,20 @@ export default {
   },
   watch: {
     isExpand () {
+      // 首次渲染时，默认打开时用 $nextTick 首次收起无动画
+      const nextTick = (this.isExpand || this.collapse.accordion) ? this.$nextTick : (callback) => { setTimeout(() => { callback.call(this) }, 16) }
+
       if (this.isExpand) {
         this.show = true
         this.height = 0
 
-        this.$nextTick(() => {
+        nextTick(() => {
           this.height = this.$refs.wrapper.scrollHeight
         })
       } else {
         this.height = this.$refs.wrapper.scrollHeight
 
-        this.$nextTick(() => {
+        nextTick(() => {
           this.height = 0
         })
       }

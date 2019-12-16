@@ -24,10 +24,15 @@ export default {
       default: 'center'
     },
     duration: Number,
-    closable: Boolean
+    closable: Boolean,
+    transition: String
   },
   computed: {
     transitionName () {
+      if (this.transition) {
+        return this.transition
+      }
+
       if (this.position === 'center') {
         return 'jm-fade'
       } else {

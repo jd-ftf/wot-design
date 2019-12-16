@@ -1,6 +1,6 @@
 {
   "name": "@jd/jm-design",
-  "version": "0.6.1",
+  "version": "0.7.0",
   "description": "JM Mobile UI components for vue.js",
   "contributors": [
     "zhongzhijie <zhongzhijie@jd.com>"
@@ -17,7 +17,8 @@
     "unit": "cross-env BABEL_ENV=test NODE_ENV=development karma start test/unit/karma.conf.js --single-run",
     "e2e": "node test/e2e/runner.js",
     "test": "npm run unit && npm run e2e",
-    "lint": "eslint --ext .js,.vue src test/unit test/e2e/specs"
+    "lint": "eslint --ext .js,.vue src test/unit test/e2e/specs",
+    "tag": "node build/build-tag.js"
   },
   "main": "./lib/index.js",
   "style": [],
@@ -126,7 +127,7 @@
     "vue-router": "^3.0.2",
     "vue-style-loader": "^4.1.2",
     "vue-template-compiler": "^2.6.10",
-    "webpack": "^4.14.0",
+    "webpack": "^4.41.2",
     "webpack-cli": "^3.3.0",
     "webpack-dev-middleware": "^3.6.2",
     "webpack-dev-server": "^3.2.1",

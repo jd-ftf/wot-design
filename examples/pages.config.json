@@ -143,7 +143,7 @@
             "name": "交互",
             "list": {
               "ActionSheet": {
-                "name": "ActionSheet 上拉菜单",
+                "name": "ActionSheet 动态面板",
                 "path": "/actionSheet",
                 "demo": "/actionSheet"
               },

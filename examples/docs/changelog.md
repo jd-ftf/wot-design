@@ -1,5 +1,36 @@
 ## 更新日志
 
+### 0.7.0
+
+*2019-12-16*
+
+- Picker 选择器组件添加支持不传入label的展示
+- Input 输入框组件添加错误状态属性 error
+- 修复 Radio 按钮组件在 iOS 上垂直居中问题 [issue#15](https://git.jd.com/FTF/jm-design/issues/15)
+- 修复 ActionSheet 动态面板组件取消按钮功能最后一条选项有边框的问题 [issue#16](https://git.jd.com/FTF/jm-design/issues/16)
+- 修复 MessageBox 弹窗组件在 iOS 上输入框点击时有阴影背景的问题 [issue#17](https://git.jd.com/FTF/jm-design/issues/17)
+- 修复 MessageBox 弹窗组件滚动穿透的问题 [iSSUE#18](https://git.jd.com/FTF/jm-design/issues/18)
+
+### 0.6.2
+
+*2019-12-12*
+
+- 修复 MessageBox 国际化问题
+- 修复 Tabs 导航地图的按钮真机不垂直居中 [issue#6](http://git.jd.com/FTF/jm-design/issues/6)
+- 修复 Cell 图标垂直居中在真机上有偏差 [issue#2](http://git.jd.com/FTF/jm-design/issues/2)
+- 修复 Tabs 导航地图的按钮在iOS上有点击背景问题 [issue#12](http://git.jd.com/FTF/jm-design/issues/12)
+- 修复 Tabs 高亮横线被灰色边框遮挡（iOS） [issue#11](http://git.jd.com/FTF/jm-design/issues/11)
+- 修复 Tabs 手势滑动，在第一页以后的滑动会导致上下滚动 [issue#19](http://git.jd.com/FTF/jm-design/issues/19)
+- 修复 PickerView 手势快速向上滑动时卡顿，向下滑动流畅 [issue#5](http://git.jd.com/FTF/jm-design/issues/5)
+- 修复 Collapse 第一次折叠起来时没有动画 [issue#8](http://git.jd.com/FTF/jm-design/issues/8)
+- 修复 PickerView 打开时，渐变蒙层出现一闪 [issue#13](http://git.jd.com/FTF/jm-design/issues/13)
+
+### 0.6.1
+
+*2019-12-6*
+
+- 修复 MessageBox 按需引用的问题
+
 ### 0.6.0
 
 *2019-11-26*

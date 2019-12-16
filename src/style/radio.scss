@@ -35,16 +35,20 @@
   @include e(label) {
     display: inline-block;
     margin-left: 10px;
-    vertical-align: top;
+    vertical-align: middle;
     font-size: $-radio-label-font-size;
     color: $-color-title;
   }
   @include e(check) {
     position: absolute;
     display: inline-block;
-    right: 0;
-    top: 1px;
-    color: #fff;
+    width: 10px;
+    height: 10px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background: currentColor;
+    border-radius: 50%;
     font-size: 13px;
     opacity: 0;
     transition: opacity .2s;
@@ -52,31 +56,11 @@
   @include when(checked) {
     .jm-radio__shape {
       color: $-radio-color-checked;
-      background: currentColor;
       border-color: currentColor;
     }
     .jm-radio__check {
+      color: $-radio-color-checked;
       opacity: 1;
-    }
-  }
-  @include when(dot) {
-    .jm-radio__check {
-      width: 10px;
-      height: 10px;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
-      background: currentColor;
-      border-radius: 50%;
-    }
-    @include when(checked) {
-      .jm-radio__check {
-        color: $-radio-color-checked;
-      }
-      .jm-radio__shape {
-        background: #fff;
-        border-color: currentColor;
-      }
     }
   }
 
@@ -121,10 +105,8 @@
       .jm-radio__shape {
         color: $-radio-color-disabled-label;
       }
-      @include when(dot) {
-        .jm-radio__check {
-          color: $-radio-color-disabled-label;
-        }
+      .jm-radio__check {
+        color: $-radio-color-disabled-label;
       }
       .jm-radio__label {
         color: $-radio-color-disabled-label;

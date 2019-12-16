@@ -33,25 +33,11 @@ export default {
 
 ### 修改图标形状
 
-修改 `shape` 属性，可选值为 'circle'、'dot'、'button'，默认为 'circle'。
+修改 `shape` 属性，可选值为 'dot'、'button'，默认为 'dot'。
 
 ```html
-<jm-radio-group v-model="radio1" shape="dot">
-  <jm-radio value="1">京麦</jm-radio>
-  <jm-radio value="2">商家后台</jm-radio>
-</jm-radio-group>
-
 <jm-radio-group v-model="radio2" shape="button">
   <jm-radio value="1">京麦</jm-radio>
-  <jm-radio value="2">商家后台</jm-radio>
-</jm-radio-group>
-```
-
-可以只修改其中某个radio的图标形状。
-
-```html
-<jm-radio-group v-model="radio">
-  <jm-radio value="1" shape="dot">京麦</jm-radio>
   <jm-radio value="2">商家后台</jm-radio>
 </jm-radio-group>
 ```
@@ -82,7 +68,7 @@ export default {
 | 参数      | 说明                                 | 类型      | 可选值       | 默认值   |
 |---------- |------------------------------------ |---------- |------------- |-------- |
 | value/v-model | 绑定值 | string / number / boolean | - | - |
-| shape | 单选框形状 | string | 'circle', 'dot', 'button' | 'circle' |
+| shape | 单选框形状 | string | 'dot', 'button' | 'dot' |
 | checked-color | 选中的颜色 | string | - | '#0083ff' |
 | disabled | 禁用 | boolean | - | false |
 
@@ -97,6 +83,6 @@ export default {
 | 参数      | 说明                                 | 类型      | 可选值       | 默认值   |
 |---------- |------------------------------------ |---------- |------------- |-------- |
 | value | 单选框选中时的值 | string / number / boolean | - | - |
-| shape | 单选框形状 | string | 'circle', 'dot', 'button' | 'circle' |
+| shape | 单选框形状 | string | 'dot', 'button' | 'dot' |
 | checked-color | 选中的颜色 | string | - | '#0083ff' |
 | disabled | 禁用 | boolean | - | false |

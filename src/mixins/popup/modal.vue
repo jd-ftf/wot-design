@@ -8,6 +8,7 @@
         'transition-duration': duration ? (duration + 'ms') : ''
       }"
       @click="handleClock"
+      @touchmove="preventMove"
     ></div>
   </transition>
 </template>
@@ -31,6 +32,9 @@ export default {
       if (this.closeOnClickModal) {
         this.$emit('click-modal')
       }
+    },
+    preventMove (event) {
+      event.preventDefault()
     }
   }
 }

@@ -2,26 +2,10 @@
 @import './abstracts/mixin';
 
 @include b(message-box) {
-  @include e(modal-mask) {
-    position: fixed;
-    left: 0;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 999;
-    background-color: rgba(0, 0, 0, 0.7);
-  }
-  @include e(container) {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate3d(-50%, -50%, 0);
-    width: 270px;
-    z-index: 1000;
-    border-radius: 8px;
-    box-sizing: border-box;
-    overflow: hidden;
-  }
+  width: 270px;
+  border-radius: 8px;
+  overflow: hidden;
+
   @include e(body) {
     background-color: #fff;    
     padding: 21px 25px 14px;
@@ -78,6 +62,7 @@
     font-size: 14px;
     box-sizing: border-box;
     outline: none;
+    -webkit-tap-highlight-color: transparent;
 
     &::-webkit-input-placeholder {
       color: #d2d2d2;
@@ -121,20 +106,12 @@
       color: #fff;
     }
   }
-}
-
-.zoomIn-enter-active, .zoomIn-leave-active{
-  opacity: 1;
-  transform: translate3d(-50%, -50%, 0) scale(1);
-  transition: all .2s;
-}
-.zoomIn-enter{
-  opacity: 0;
-  transform: translate3d(-50%, -50%, 0) scale(0.7);
-  transition: all .2s ease-out;
-}
-.zoomIn-leave-to{
-  opacity: 0;
-  transform: translate3d(-50%, -50%, 0) scale(0.9);
-  transition: all .2s ease-out;
+  &.jm-zoom-in-enter-active, &.jm-zoom-in-leave-active{
+    transition-property: opacity, transform;
+    transform-origin: center center;
+  }
+  &.jm-zoom-in-enter, &.jm-zoom-in-leave-to{
+    opacity: 0;
+    transform: translate3d(-50%, -50%, 0) scale(0.9);
+  }
 }
