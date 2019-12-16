@@ -23,7 +23,7 @@
     <white-space>
       <div slot="desc">使用<code>jm-message-box</code>组件，通过<code>slot</code>插入其他组件内容</div>
       <jm-button type="primary" @click="custom">custom</jm-button>
-      <jm-message-box :show="isShow" show-cancel-button @action="handleAction" title="评分">
+      <jm-message-box v-model="isShow" show-cancel-button @action="handleAction" title="评分">
         <jm-rate v-model="rate" />
       </jm-message-box>
     </white-space>
