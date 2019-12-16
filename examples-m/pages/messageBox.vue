@@ -47,7 +47,9 @@ export default {
     },
     confirm () {
       this.$messageBox.confirm('是否删除', '提示').then(() => {
-        this.$messageBox.alert('删除成功')
+        setTimeout(() => {
+          this.$messageBox.alert('删除成功')
+        }, 300)
       })
     },
     prompt () {

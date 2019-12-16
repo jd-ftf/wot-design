@@ -1,63 +1,70 @@
 <template>
-  <div class="jm-message-box">
-    <transition name="fade">
-      <div class="jm-message-box__modal-mask" v-if="show" @click="toggleModal('modal')"></div>
-    </transition>
-    <transition name="zoomIn">
-      <div class="jm-message-box__container" v-if="show">
-        <div
-          class="jm-message-box__body"
-          :class="{
-            'is-no-title': !title,
-            'is-prompt': type === 'prompt'
-          }"
-        >
-          <div v-if="title" class="jm-message-box__title">
-            {{ title }}
-          </div>
-          <div v-if="type !== 'prompt'" class="jm-message-box__content">
-            <slot>
-              <div v-html="msg"></div>
-            </slot>
-          </div>
-          <div v-else class="jm-message-box__content">
-            <div class="jm-message-box__input-container">
-              <input
-                :type="inputType"
-                v-model="inputValue"
-                :placeholder="inputPlaceholder || t('jmd.messageBox.inputPlaceholder')"
-                class="jm-message-box__input"
-              />
-            </div>
-            <div v-show="showErr" class="jm-message-box__input-error">
-              {{ inputError || t('jmd.messageBox.inputNoValidate') }}
-            </div>
-          </div>
-        </div>
-        <div class="jm-message-box__actions">
-          <button type="button"
-            v-if="showCancelButton"
-            class="jm-message-box__button jm-message-box__button--cancel"
-            @click="toggleModal('cancel')">
-            {{ cancelButtonText || t('jmd.messageBox.cancel') }}
-          </button>
-          <button type="button"
-            class="jm-message-box__button jm-message-box__button--confirm"
-            @click="toggleModal('confirm')">
-            {{ confirmButtonText || t('jmd.messageBox.confirm') }}
-          </button>
-        </div>
+  <jm-popup
+    class="jm-message-box"
+    :lock-scroll="lockScroll"
+    :value="value"
+    :close-on-click-modal="closeOnClickModal"
+    transition="jm-zoom-in"
+    @click-modal="toggleModal('modal')"
+    @opened="handleOpened"
+    @closed="handleClosed"
+    style="overflow: hidden;"
+  >
+    <div
+      class="jm-message-box__body"
+      :class="{
+        'is-no-title': !title,
+        'is-prompt': type === 'prompt'
+      }"
+    >
+      <div v-if="title" class="jm-message-box__title">
+        {{ title }}
       </div>
-    </transition>
-  </div>
+      <div class="jm-message-box__content">
+        <slot v-if="type !== 'prompt'">
+          <div v-html="msg"></div>
+        </slot>
+        <template v-else>
+          <div class="jm-message-box__input-container">
+            <input
+              :type="inputType"
+              v-model="inputValue"
+              :placeholder="inputPlaceholder || t('jmd.messageBox.inputPlaceholder')"
+              class="jm-message-box__input"
+            />
+          </div>
+          <div v-show="showErr" class="jm-message-box__input-error">
+            {{ inputError || t('jmd.messageBox.inputNoValidate') }}
+          </div>
+        </template>
+      </div>
+    </div>
+    <div class="jm-message-box__actions">
+      <button type="button"
+        v-if="showCancelButton"
+        class="jm-message-box__button jm-message-box__button--cancel"
+        @click="toggleModal('cancel')">
+        {{ cancelButtonText || t('jmd.messageBox.cancel') }}
+      </button>
+      <button type="button"
+        class="jm-message-box__button jm-message-box__button--confirm"
+        @click="toggleModal('confirm')">
+        {{ confirmButtonText || t('jmd.messageBox.confirm') }}
+      </button>
+    </div>
+  </jm-popup>
 </template>
 
 <script>
+import JmPopup from 'jm-design/popup'
 import locale from '@/mixins/locale'
 
 export default {
   name: 'JmMessageBox',
   mixins: [locale],
+  components: {
+    JmPopup
+  },
   data () {
     return {
       msg: '',
@@ -82,7 +89,7 @@ export default {
       type: Boolean,
       default: false
     },
-    show: {
+    value: {
       type: Boolean,
       default: false
     },
@@ -91,10 +98,27 @@ export default {
     closeOnClickModal: {
       type: Boolean,
       default: true
+    },
+    lockScroll: {
+      type: Boolean,
+      default: true
+    }
+  },
+  watch: {
+    inputValue (value, oldValue) {
+      if (this.type === 'prompt' && this.showErr && oldValue !== value) {
+        this.showErr = false
+      }
+    },
+    value (val) {
+      !this.value && (this.showErr = false)
+      const type = this.value ? 'open' : 'close'
+      this.$emit(type)
     }
   },
   methods: {
     toggleModal (action) {
+      console.log(action, this.closeOnClickModal)
       if (action === 'modal' && !this.closeOnClickModal) {
         return
       }
@@ -104,7 +128,7 @@ export default {
       }
 
       if (this.callback) {
-        this.show = !this.show
+        this.$emit('input', !this.value)
         this.callback(action)
       }
       this.$emit('action', action)
@@ -124,18 +148,12 @@ export default {
 
       this.showErr = false
       return true
-    }
-  },
-  watch: {
-    inputValue (value, oldValue) {
-      if (this.type === 'prompt' && this.showErr && oldValue !== value) {
-        this.showErr = false
-      }
     },
-    show (val) {
-      if (val === false) {
-        this.showErr = false
-      }
+    handleOpened () {
+      this.$emit('opened')
+    },
+    handleClosed () {
+      this.$emit('closed')
     }
   }
 }
