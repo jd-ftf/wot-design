@@ -13,7 +13,7 @@
 
 <script>
 import locale from 'jm-design/src/mixins/locale'
-import JmIcon from '../../icon'
+import JmIcon from 'jm-design/packages/icon'
 
 export default {
   name: 'JmInfiniteLoad',

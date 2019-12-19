@@ -66,9 +66,12 @@
 
 @include b(picker-view-column) {
   flex: 1;
+  margin: 0;
+  padding: 0;
   font-size: $-picker-column-fs;
   color: $-picker-column-color;
   text-align: center;
+  list-style: none;
   transition-timing-function: cubic-bezier(0.28, 0.8, 0.63, 1);
 
   @include e(item) {

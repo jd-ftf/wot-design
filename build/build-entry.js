@@ -7,15 +7,23 @@ const firstLetterToUpperCase = name => (name[0].toUpperCase() + name.slice(1))
 
 const outputPath = path.resolve(__dirname, '../src/index.js')
 const componentKeys = Object.keys(components)
-const componentsImport = componentKeys.map(component => {
-  return `import ${firstLetterToUpperCase(component)} from '../packages/${component}'`
+const camelCaseComponents = componentKeys.map(component => {
+  let name = component
+  if (name.indexOf('-') > -1) {
+    name = name.split('-').map(word => {
+      return firstLetterToUpperCase(word)
+    }).join('')
+  } else {
+    name = firstLetterToUpperCase(name)
+  }
+  return name
+})
+const componentsImport = componentKeys.map((component, index) => {
+  return `import ${camelCaseComponents[index]} from '../packages/${component}'`
 }).join('\n')
 
-const upperComponents = componentKeys.map(component => {
-  return firstLetterToUpperCase(component)
-})
-const componentsList = upperComponents.filter(component => {
-  return ['Loading', 'MessageBox'].indexOf(component) === -1
+const componentsList = camelCaseComponents.filter(component => {
+  return ['Loading', 'MessageBox', 'Lazyload', 'Toast'].indexOf(component) === -1
 })
 
 const outputContent = `
@@ -51,7 +59,9 @@ if (typeof window !== 'undefined' && window.Vue) {
 
 export default {
   version: '${packageConfig.version}',
-${upperComponents.map(component => `  ${component}`).join(',\n')}
+  install,
+  locale,
+${camelCaseComponents.map(component => `  ${component}`).join(',\n')}
 }
 `
 fs.writeFileSync(outputPath, outputContent, 'utf-8')

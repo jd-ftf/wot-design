@@ -4,6 +4,7 @@ const components = require('../components.json')
 const path = require('path')
 const utils = require('./utils')
 const { VueLoaderPlugin } = require('vue-loader')
+const config = require('./config')
 
 module.exports = {
   mode: 'production',
@@ -11,15 +12,8 @@ module.exports = {
   entry: components,
   output: {
     path: path.resolve(__dirname, '../lib'),
-    filename: ({ chunk }) => {
-      let returnName = chunk.name.replace(/([A-Z])/g, ($1, $2) => {
-        return '-' + $2.toLowerCase()
-      })
-
-      return `${returnName}/index.js`
-    },
-    library: ['JMDesign', '[name]'],
-    libraryTarget: 'umd'
+    filename: '[name]/index.js',
+    libraryTarget: 'commonjs2'
   },
   module: {
     rules: [
@@ -42,25 +36,13 @@ module.exports = {
       }
     ]
   },
-  externals: {
-    vue: 'vue'
-  },
+  externals: config.externals,
   resolve: {
     extensions: ['.js', '.vue'],
-    alias: {
-      'vue$': 'vue/dist/vue.esm.js',
-      '@': utils.resolve('src'),
-      'jm-design': utils.resolve('packages')
-    }
+    alias: config.alias
   },
   optimization: {
-    minimizer: [
-      new TerserPlugin({
-        cache: true,
-        parallel: true
-      })
-    ],
-    splitChunks: {}
+    minimize: false
   },
   plugins: [
     new webpack.optimize.ModuleConcatenationPlugin(),

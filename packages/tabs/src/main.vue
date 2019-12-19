@@ -2,7 +2,7 @@
 import animateScrollLeft from 'jm-design/src/utils/animateScrollLeft'
 import locale from 'jm-design/src/mixins/locale'
 import touchMixin from 'jm-design/src/mixins/touch'
-import Sticky from 'jm-design/packages/sticky/main.vue'
+import Sticky from 'jm-design/packages/sticky'
 
 export default {
   name: 'JmTabs',

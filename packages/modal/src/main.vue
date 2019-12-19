@@ -2,7 +2,7 @@
   <transition name="jm-fade">
     <div
       v-show="show"
-      class="jm-popup__modal"
+      class="jm-modal"
       :style="{
         'z-index': zIndex,
         'transition-duration': duration ? (duration + 'ms') : ''
@@ -15,6 +15,7 @@
 
 <script>
 export default {
+  name: 'JmModal',
   props: {
     show: Boolean,
     duration: Number,

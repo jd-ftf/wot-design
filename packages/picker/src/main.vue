@@ -36,7 +36,7 @@
 <script>
 import locale from 'jm-design/src/mixins/locale'
 import JmPopup from 'jm-design/packages/popup'
-import JmPickerView from 'jm-design/packages/pickerView'
+import JmPickerView from 'jm-design/packages/picker-view'
 import pickerProps from './pickerProps'
 
 export default {

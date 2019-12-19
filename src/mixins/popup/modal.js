@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import { context } from './context'
-import Modal from 'jm-design/packages/modal/index'
+import Modal from 'jm-design/packages/modal'
 
 let modal
 

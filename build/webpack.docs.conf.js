@@ -9,6 +9,7 @@ const merge = require('webpack-merge')
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 const portfinder = require('portfinder')
 const webpack = require('webpack')
+const config = require('./config')
 
 const isDev = process.env.NODE_ENV === 'development'
 let outputConfig
@@ -86,11 +87,7 @@ const webpackConf = {
   devtool: isDev ? 'cheap-module-eval-source-map' : false,
   resolve: {
     extensions: ['.js', '.vue', '.json', '.md'],
-    alias: {
-      'vue$': 'vue/dist/vue.esm.js',
-      'main': utils.resolve('src'),
-      'jm-design': utils.resolve('/')
-    }
+    alias: config.alias
   },
   stats: {
     children: false,

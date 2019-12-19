@@ -1,7 +1,6 @@
 @import './abstracts/variable';
 @import './abstracts/mixin';
 @import './icon.scss';
-@import './common/transition.scss';
 
 @include b(popup) {
   position: fixed;
@@ -11,15 +10,6 @@
   background: #fff;
   transition: transform .3s ease-out;
 
-  @include e(modal) {
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background: $-popup-modal-bg;
-    transition: opacity .3s;
-  }
   @include e(close) {
     position: absolute;
     top: 10px;
