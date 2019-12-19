@@ -34,9 +34,9 @@
 </template>
 
 <script>
-import locale from '@/mixins/locale'
-import JmPopup from 'jm-design/popup'
-import JmPickerView from 'jm-design/pickerView'
+import locale from 'jm-design/src/mixins/locale'
+import JmPopup from 'jm-design/packages/popup'
+import JmPickerView from 'jm-design/packages/pickerView'
 import pickerProps from './pickerProps'
 
 export default {

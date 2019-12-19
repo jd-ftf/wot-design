@@ -56,8 +56,8 @@
 </template>
 
 <script>
-import JmPopup from 'jm-design/popup'
-import locale from '@/mixins/locale'
+import JmPopup from 'jm-design/packages/popup'
+import locale from 'jm-design/src/mixins/locale'
 
 export default {
   name: 'JmMessageBox',

@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import popupMixin from '@/mixins/popup'
+import popupMixin from 'jm-design/src/mixins/popup'
 
 export default {
   name: 'JmPopup',

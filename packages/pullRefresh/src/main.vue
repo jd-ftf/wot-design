@@ -24,9 +24,9 @@
 </template>
 
 <script>
-import locale from '@/mixins/locale'
-import { getScrollTargetEvent } from '@/utils'
-import JmIndicator from '../../loading/src/indicator'
+import locale from 'jm-design/src/mixins/locale'
+import { getScrollTargetEvent } from 'jm-design/src/utils'
+import JmIndicator from 'jm-design/packages/loading/src/indicator'
 
 export default {
   name: 'JmPullRefresh',

@@ -1,5 +1,5 @@
 <script>
-import JmBadge from 'jm-design/badge'
+import JmBadge from 'jm-design/packages/badge'
 
 export default {
   name: 'JmTabbarItem',

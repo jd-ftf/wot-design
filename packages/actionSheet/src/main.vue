@@ -37,8 +37,8 @@
 </template>
 
 <script>
-import JmPopup from 'jm-design/popup'
-import JmLoading from 'jm-design/loading'
+import JmPopup from 'jm-design/packages/popup'
+import JmLoading from 'jm-design/packages/loading'
 
 export default {
   name: 'JmActionSheet',

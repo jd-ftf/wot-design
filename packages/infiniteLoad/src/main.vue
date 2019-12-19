@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import locale from '@/mixins/locale'
+import locale from 'jm-design/src/mixins/locale'
 import JmIcon from '../../icon'
 
 export default {

@@ -1,4 +1,4 @@
-import pickerProps from 'jm-design/picker/src/pickerProps'
+import pickerProps from '../../picker/src/pickerProps'
 
 export default {
   ...pickerProps,

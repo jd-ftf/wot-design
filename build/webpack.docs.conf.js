@@ -88,8 +88,8 @@ const webpackConf = {
     extensions: ['.js', '.vue', '.json', '.md'],
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
-      '@': utils.resolve('src'),
-      'jm-design': utils.resolve('packages')
+      'main': utils.resolve('src'),
+      'jm-design': utils.resolve('/')
     }
   },
   stats: {

@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import { isSupportSticky, getScrollTargetEvent } from '@/utils'
+import { isSupportSticky, getScrollTargetEvent } from 'jm-design/src/utils'
 
 export default {
   name: 'Sticky',

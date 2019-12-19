@@ -4,9 +4,9 @@
 const path = require('path')
 const fs = require('fs')
 const chalk = require('chalk')
-const components = require('../components.json')
+const components = require('../../components.json')
 
-const basePath = path.resolve(__dirname, '../src/style')
+const basePath = path.resolve(__dirname, '../../src/style')
 
 let indexContent = `@import './common/transition.scss';\n`
 

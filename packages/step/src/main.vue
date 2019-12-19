@@ -35,7 +35,7 @@
 </template>
 
 <script>
-import locale from '@/mixins/locale'
+import locale from 'jm-design/src/mixins/locale'
 
 export default {
   name: 'JmStep',

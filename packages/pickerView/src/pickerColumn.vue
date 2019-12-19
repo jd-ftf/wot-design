@@ -32,8 +32,8 @@
 </template>
 
 <script>
-import touchMixin from '@/mixins/touch'
-import { range } from '@/utils'
+import touchMixin from 'jm-design/src/mixins/touch'
+import { range } from 'jm-design/src/utils'
 
 const SELECT_DURATION = 300 // 选择滑动持续时间
 const MOMENTUM_LIMIT_DURATION = 300 // 惯性滑动限制最大时间
