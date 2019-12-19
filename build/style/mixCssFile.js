@@ -24,7 +24,7 @@ Object.keys(components).forEach(key => {
   
   if (!isFileExit(filepath)) {
     fs.writeFileSync(filepath, '', 'utf-8')
-    console.log(chalk.yellow(`创建遗漏的${key}.scss文件`))
+    console.log(chalk.yellow(` Create missing file: ${key}.scss`))
   }
 })
 

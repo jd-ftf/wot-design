@@ -1,7 +1,7 @@
 import DatetimePicker from './src/main.vue'
 
 DatetimePicker.install = Vue => {
-  Vue.install(DatetimePicker.name, DatetimePicker)
+  Vue.component(DatetimePicker.name, DatetimePicker)
 }
 
 export default DatetimePicker

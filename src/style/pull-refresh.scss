@@ -1,6 +1,7 @@
 @import './abstracts/variable';
 @import './abstracts/mixin';
 @import './icon.scss';
+@import './loading.scss';
 
 @include b(pull-refresh) {
   position: relative;

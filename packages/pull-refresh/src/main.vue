@@ -26,7 +26,7 @@
 <script>
 import locale from 'jm-design/src/mixins/locale'
 import { getScrollTargetEvent } from 'jm-design/src/utils'
-import JmIndicator from 'jm-design/packages/loading/src/indicator'
+import JmIndicator from 'jm-design/packages/loading'
 
 export default {
   name: 'JmPullRefresh',
@@ -83,7 +83,7 @@ export default {
     }
   },
   components: {
-    JmIndicator
+    JmIndicator: JmIndicator.Indicator
   },
   watch: {
     value (val) {

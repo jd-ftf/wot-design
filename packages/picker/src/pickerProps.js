@@ -1,4 +1,4 @@
-import pickerViewProps from '../../pickerView/src/pickerViewProps'
+import pickerViewProps from '../../picker-view/src/pickerViewProps'
 
 export default {
   ...pickerViewProps,
