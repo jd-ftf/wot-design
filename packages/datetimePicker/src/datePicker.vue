@@ -1,5 +1,5 @@
 <script>
-import DatetimePickerMixin from '@/mixins/datetimePicker'
+import DatetimePickerMixin from 'jm-design/src/mixins/datetimePicker'
 import props from './props'
 
 const currentYear = new Date().getFullYear()

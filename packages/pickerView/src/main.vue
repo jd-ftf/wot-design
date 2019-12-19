@@ -23,10 +23,10 @@
 </template>
 
 <script>
-import locale from '@/mixins/locale'
+import locale from 'jm-design/src/mixins/locale'
 import pickerViewProps from './pickerViewProps'
 import JmPickerViewColumn from './pickerColumn'
-import JmLoading from 'jm-design/loading'
+import JmLoading from 'jm-design/packages/loading'
 
 export default {
   name: 'JmPickerView',

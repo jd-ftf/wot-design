@@ -1,6 +1,6 @@
-import Picker from 'jm-design/picker'
-import pickerProps from 'jm-design/picker/src/pickerProps'
-import { padZero } from '@/utils'
+import Picker from 'jm-design/packages/picker'
+import pickerProps from 'jm-design/packages/picker/src/pickerProps'
+import { padZero } from 'jm-design/src/utils'
 
 const times = (num, formatter) => {
   let index = -1
