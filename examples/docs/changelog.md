@@ -1,5 +1,15 @@
 ## 更新日志
 
+### 0.7.1
+
+*2019-12-20*
+
+- 修复按需引入的问题 [issue#29](https://git.jd.com/FTF/jm-design/issues/29)
+- 修复 slider 双滑块问题 [issue#4](https://git.jd.com/FTF/jm-design/issues/4)
+- 修复 Tabs map 按钮展示问题 [issue#28](https://git.jd.com/FTF/jm-design/issues/28)
+- 修复 Tabs map 和 sticky 组合使用问题 [issue#21](https://git.jd.com/FTF/jm-design/issues/21)
+- 修复 Tabs 手势滑动和禁用tab的切换问题 [issue#20](https://git.jd.com/FTF/jm-design/issues/20)
+
 ### 0.7.0
 
 *2019-12-16*

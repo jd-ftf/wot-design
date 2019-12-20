@@ -3,7 +3,7 @@ const path = require('path')
 const version = require('../package').version
 
 const content = {
-  '0.7.0': '0.7'
+  '0.7.1': '0.7'
 }
 if (!content[version]) {
   content[version] = '0.7'
