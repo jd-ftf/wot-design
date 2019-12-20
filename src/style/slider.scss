@@ -56,10 +56,11 @@
   }
   @include m(disabled) {
     @include me(bar) {
-      background-color: $-slider-disable-line-color;
+      background-color: $-slider-disable-line-color ;
     }
     @include me(label-min, label-max) {
       color: $-slider-disable-font-color;
     }
   }
+  
 }
