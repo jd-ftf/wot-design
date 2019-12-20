@@ -4,6 +4,7 @@ const utils = require('./utils')
 const { VueLoaderPlugin } = require('vue-loader')
 const webpack = require('webpack')
 const packageConfig = require('../package')
+const config = require('./config')
 
 const banner = `${packageConfig.name} v${packageConfig.version} | (c) ${new Date().getFullYear()} by ftf`
 
@@ -45,11 +46,7 @@ module.exports = {
   },
   resolve: {
     extensions: ['.js', '.vue'],
-    alias: {
-      'vue$': 'vue/dist/vue.esm.js',
-      '@': utils.resolve('src'),
-      'jm-design': utils.resolve('packages')
-    }
+    alias: config.alias
   },
   optimization: {
     minimizer: [

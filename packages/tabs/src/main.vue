@@ -1,8 +1,8 @@
 <script>
-import animateScrollLeft from '@/utils/animateScrollLeft'
-import locale from '@/mixins/locale'
-import touchMixin from '@/mixins/touch'
-import Sticky from 'jm-design/sticky/main.vue'
+import animateScrollLeft from 'jm-design/src/utils/animateScrollLeft'
+import locale from 'jm-design/src/mixins/locale'
+import touchMixin from 'jm-design/src/mixins/touch'
+import Sticky from 'jm-design/packages/sticky'
 
 export default {
   name: 'JmTabs',

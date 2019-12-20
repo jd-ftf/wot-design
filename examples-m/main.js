@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import App from './App'
-import JMDesign from '@/index'
+import JMDesign from 'main/index'
 import '../src/style/index.scss'
 import router from './route'
 import './assets/style/base.scss'
@@ -8,8 +8,8 @@ import WhiteSpace from './components/whiteSpace.vue'
 import Space from './components/space.vue'
 import '@vant/doc/helper/touch-simulator'
 import VueI18n from 'vue-i18n'
-import zhCN from '@/locale/lang/zh-CN'
-import enUS from '@/locale/lang/en-US'
+import zhCN from 'main/locale/lang/zh-CN'
+import enUS from 'main/locale/lang/en-US'
 
 Vue.use(VueI18n)
 const i18n = new VueI18n({
@@ -37,6 +37,5 @@ new Vue({
   el: '#app',
   router,
   i18n,
-  template: '<App/>',
-  components: { App }
-})
+  render: h => h(App)
+}).$mount('#app')
