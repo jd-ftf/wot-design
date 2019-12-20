@@ -60,7 +60,8 @@ if (typeof window !== 'undefined' && window.Vue) {
 export default {
   version: '${packageConfig.version}',
   install,
-  locale,
+  locale: locale.use,
+  i18n: locale.i18n,
 ${camelCaseComponents.map(component => `  ${component}`).join(',\n')}
 }
 `
