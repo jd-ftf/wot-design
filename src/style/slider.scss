@@ -1,7 +1,7 @@
 @import './abstracts/variable';
 @import './abstracts/mixin';
 
-@include b(slider) {
+@include b(slider){
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
@@ -11,41 +11,42 @@
     font-size: $-slider-font-size;
     color: $-slider-font-color;
   }
-
-  @include e(label-cur) {
+  @include e(label) {
     text-align: center;
+    width: $-slider-handle-radius * 2;
     line-height: $-slider-handle-radius * 2;
     font-size: $-slider-font-size;
     color: $-slider-font-color;
     background-color: rgba($color: $-color-white, $alpha: 0.5);
     border-radius: 100%;
-  }
-
-  @include e(axle) {
-    flex-grow: 1;
-    position: relative;
-    height: $-slider-axie-height;
-    border-radius: $-slider-axie-height / 2;
-    background-color: $-slider-axie-bg-color;
-    margin: 0 $-slider-handle-radius;
-    z-index: 0;
-
-    @include m(has-min-max) {
-      margin: 0 $-slider-handle-radius * 1.5;
-    }
-  }
-
-  @include e(handle-container) {
     position: absolute;
-    top: $-slider-axie-height / 2 - $-slider-handle-radius * 3;
-    left: -$-slider-handle-radius;
-    display: flex;
-    flex-flow: column-reverse nowrap;
-    height: $-slider-handle-radius * 4;
-    z-index: 2;
+    top: -$-slider-handle-radius * 2;
   }
-
-  @include e(handle) {
+  @include e(bar-wrapper) {
+    flex: 1;
+    position: relative;
+    border-radius: 999px;
+    background-color: #e5e5e5;
+    margin: 20px 21px;
+  }
+  @include e(bar) {
+    position: relative;
+    border-radius: inherit;
+    height: $-slider-axie-height;
+    background-color: $-color-theme;
+  }
+  @include e(button-wrapper) {
+    width: $-slider-handle-radius * 2;
+    position: absolute;
+    right: 0;
+    top: 0;
+    -webkit-transform: translate3d(50%,-50%, 0);
+    transform: translate3d(50%,-50%, 0);
+  }
+  @include e(has-label)  {
+    padding-top: $-slider-handle-radius;
+  }
+  @include e(button) {
     height: $-slider-handle-radius * 2;
     width: $-slider-handle-radius * 2;
     background-color: $-color-white;
@@ -53,27 +54,12 @@
     border: 1px solid $-slider-axie-bg-color;
     box-shadow: 0 2px 4px 0 rgba($color: $-color-black, $alpha: 0.3);
   }
-
-  @include e(progress-bar) {
-    height: $-slider-axie-height;
-    border-radius: $-slider-axie-height / 2;
-    background-color: $-color-theme;
-    position: absolute;
-    z-index: 1;
-  }
-
-  @include m(has-label) {
-    padding-top: $-slider-handle-radius;
-  }
-
   @include m(disabled) {
-
-    @include me(progress-bar) {
+    @include me(bar) {
       background-color: $-slider-disable-line-color;
     }
-
     @include me(label-min, label-max) {
       color: $-slider-disable-font-color;
     }
   }
-} 
+}
