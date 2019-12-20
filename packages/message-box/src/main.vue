@@ -126,8 +126,8 @@ export default {
         return
       }
 
+      this.$emit('input', !this.value)
       if (this.callback) {
-        this.$emit('input', !this.value)
         this.callback(action)
       }
       this.$emit('action', action)
