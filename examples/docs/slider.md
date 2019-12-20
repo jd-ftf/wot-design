@@ -85,3 +85,5 @@ export default {
 | max-value      | 最大值        | number | - | 100 |
 | min-value       | 最小值  | number | - | 0 |
 | step           | 步进值        | number | - | 1 |
+| activeColor           | 进度条激活背景颜色        | string | - | '#0084ff' |
+| inactiveColor           | 进度条未激活背景颜色        | string | - | '#e5e5e5' |
