@@ -67,7 +67,6 @@ export default {
       this.isShow = true
     },
     handleAction (action) {
-      this.isShow = false
       if (action === 'confirm') {
         this.$messageBox.alert(`你的评分为：${this.rate}分`)
       }

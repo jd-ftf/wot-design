@@ -104,11 +104,11 @@ locale.i18n((key, value) => i18n.t(key, value))
 
 ```html
 <script src="//static.360buyimg.com/bus/lib/vue/2.5.17/vue.js"></script>
-<script src="//static.360buyimg.com/bus/lib/element-shop/index.js"></script>
-<script src="//static.360buyimg.com/bus/lib/element-shop/umd/locale/en.js"></script>
+<script src="//static.360buyimg.com/bus/lib/jm-design/index.js"></script>
+<script src="//static.360buyimg.com/bus/lib/jm-design/umd/locale/en-US.js"></script>
 
 <script>
-  ELEMENT.locale(ELEMENT.lang.en)
+  JMDesign.locale(JMDesign.lang.en)
 </script>
 ```
 
