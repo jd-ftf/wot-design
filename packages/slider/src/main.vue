@@ -105,16 +105,6 @@ export default {
   },
   watch: {
     value (newValue, oldValue) {
-      // 类型校验，支持所有值(除null、undefined。undefined建议统一写成void (0)防止全局undefined被覆盖)
-      if (newValue === null || newValue === undefined) {
-        this.setData({ value: oldValue })
-        console.warn('value can\'t be null or undefined')
-      } else if (this.checkType(newValue) === 'Array' && newValue.length !== 2) {
-        throw Error('value must be dyadic array')
-      } else if (this.checkType(newValue) !== 'Number' && this.checkType(newValue) !== 'Array') {
-        this.setData({ value: oldValue })
-        console.warn('value must be dyadic array Or Number')
-      }
       this.updateValue(newValue, oldValue)
     }
   },
@@ -219,6 +209,16 @@ export default {
       const condition = newValue && oldValue &&
               (this.checkType(newValue) === 'Array' ? !this.equal(newValue, oldValue) : (newValue === oldValue))
       if (condition) return
+      if (newValue && oldValue) {
+        // 类型校验，支持所有值(除null、undefined。undefined建议统一写成void (0)防止全局undefined被覆盖)
+        if (newValue === null || newValue === undefined) {
+          throw Error('value can\'t be null or undefined')
+        } else if (this.checkType(newValue) === 'Array' && newValue.length !== 2) {
+          throw Error('value must be dyadic array')
+        } else if (this.checkType(newValue) !== 'Number' && this.checkType(newValue) !== 'Array') {
+          throw Error('value must be dyadic array Or Number')
+        }
+      }
       const { value } = this
       // 动态传值后修改
       if (this.checkType(value) === 'Array') {
