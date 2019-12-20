@@ -1,0 +1,13 @@
+@import './abstracts/variable';
+@import './abstracts/mixin';
+@import './common/transition.scss';
+
+@include b(modal) {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: $-modal-bg;
+  transition: opacity .3s;
+}

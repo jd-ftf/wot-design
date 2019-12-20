@@ -6,5 +6,24 @@
   "plugins": [
     "@babel/plugin-transform-runtime",
     "@babel/plugin-syntax-dynamic-import"
-  ]
+  ],
+  "env": {
+    "utils": {
+      "presets": [
+        ["@babel/preset-env", {
+          "loose": true,
+          "modules": "commonjs"
+        }]
+      ],
+      "plugins": [
+        ["module-resolver", {
+          "root": ["jm-design"],
+          "alias": {
+            "jm-design/src": "@jd/jm-design/lib",
+            "jm-design/packages": "@jd/jm-design/lib"
+          }
+        }]
+      ]
+    }
+  }
 }

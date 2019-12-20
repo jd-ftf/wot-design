@@ -1,6 +1,8 @@
 @import './abstracts/variable';
 @import './abstracts/mixin';
-@import './pickerView.scss';
+@import './picker-view.scss';
+@import './icon.scss';
+@import './popup.scss';
 
 @include b(picker) {
   @include e(field) {

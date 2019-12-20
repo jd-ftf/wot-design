@@ -13,12 +13,12 @@
 </template>
 
 <script>
-import JmIndicator from '../../loading/src/indicator'
+import JmLoading from 'jm-design/packages/loading'
 
 export default {
   name: 'JmButton',
   components: {
-    JmIndicator
+    JmIndicator: JmLoading.Indicator
   },
   props: {
     type: String,
