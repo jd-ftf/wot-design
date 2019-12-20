@@ -54,7 +54,7 @@
 </template>
 
 <script>
-import touchMixin from '@/mixins/touch'
+import touchMixin from 'jm-design/src/mixins/touch'
 
 export default {
   name: 'JmSlider',
@@ -194,7 +194,6 @@ export default {
     // 样式控制
     styleControl () {
       const { leftNewValue, rightNewValue } = this
-      if (!leftNewValue || !rightNewValue) return
       const { leftBarPercent, rightBarPercent } = this
       // 左右滑轮距离左边最短为当前激活条所处位置
       const barLeft = leftBarPercent < rightBarPercent
