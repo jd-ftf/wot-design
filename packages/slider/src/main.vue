@@ -27,8 +27,8 @@
       <div
         class="jm-slider__button-wrapper"
         :style="{left:  leftBarPercent - 10 + '%', visibility: !disabled ? 'show' : 'hidden' }"
-        @touchstart="onTouchStart"
-        @touchmove="onTouchMove"
+        @touchstart="onTouchStart(true)"
+        @touchmove="onTouchMove(true)"
         @touchend="onTouchEnd"
       >
         <div class="jm-slider__label" v-if="!hideLabel">{{ leftNewValue }}</div>
@@ -39,9 +39,9 @@
         v-if="showRight"
         class="jm-slider__button-wrapper"
         :style="{ left: rightBarPercent - 10 + '%' , visibility: !disabled ? 'show' : 'hidden' } "
-        @touchstart="onTouchStartRight"
-        @touchmove="onTouchMoveRight"
-        @touchend="onTouchEndRight"
+        @touchstart="onTouchStart(false)"
+        @touchmove="onTouchMove(false)"
+        @touchend="onTouchEnd"
       >
         <div class="jm-slider__label" v-if="!hideLabel">{{ rightNewValue }}</div>
         <div class="jm-slider__button" />
@@ -86,7 +86,7 @@ export default {
     },
     activeColor: {
       type: String,
-      default: ''
+      default: '#0084ff'
     }
   },
   data () {
@@ -97,12 +97,24 @@ export default {
       barHeight: '6px',
       leftNewValue: 0,
       rightNewValue: 0,
+      // 右边滑轮距离右端点的百分比距离
       rightBarPercent: 0,
+      // 左边滑轮距离左顶点的百分比距离
       leftBarPercent: 0
     }
   },
   watch: {
     value (newValue, oldValue) {
+      // 类型校验，支持所有值(除null、undefined。undefined建议统一写成void (0)防止全局undefined被覆盖)
+      if (newValue === null || newValue === undefined) {
+        this.setData({ value: oldValue })
+        console.warn('value can\'t be null or undefined')
+      } else if (this.checkType(newValue) === 'Array' && newValue.length !== 2) {
+        throw Error('value must be dyadic array')
+      } else if (this.checkType(newValue) !== 'Number' && this.checkType(newValue) !== 'Array') {
+        this.setData({ value: oldValue })
+        console.warn('value must be dyadic array Or Number')
+      }
       this.updateValue(newValue, oldValue)
     }
   },
@@ -117,76 +129,46 @@ export default {
     }
   },
   methods: {
-    updateValue (newValue, oldValue) {
-      const condition = newValue && oldValue &&
-              (this.checkType(newValue) === 'Array' ? this.equal(newValue, oldValue) : (newValue === oldValue))
-      if (condition) return
-      const { value } = this
-      // 动态传值后修改
-      if (this.checkType(value) === 'Array') {
-        this.showRight = true
-        this.currentValue = this.value
-        const { leftBarPercent, rightBarPercent } = this
-        if (leftBarPercent < rightBarPercent) {
-          this.leftBarSlider(value[0])
-          this.rightBarSlider(value[1])
-        } else {
-          this.leftBarSlider(value[1])
-          this.rightBarSlider(value[0])
-        }
-      } else {
-        this.leftBarSlider(value)
-      }
-    },
-    onTouchStart (even) {
+    onTouchStart (left) {
       if (this.disabled) return
-      const { leftBarPercent, currentValue, rightBarPercent } = this
-      this.touchStart(event)
-      // 是左边滑轮
-      this.startValue = this.checkType(currentValue) !== 'Array' ? this.format(currentValue)
-        : (leftBarPercent < rightBarPercent ? this.format(currentValue[0]) : this.format(currentValue[1]))
+      this.touchStart(window.event)
+      if (left) {
+        // 是左边滑轮
+        this.startValue = this.checkType(this.currentValue) !== 'Array'
+          ? this.format(this.currentValue)
+          : (this.leftBarPercent < this.rightBarPercent
+            ? this.format(this.currentValue[0])
+            : this.format(this.currentValue[1]))
+      } else {
+        // 记录开始数据值
+        this.startValue = this.leftBarPercent < this.rightBarPercent
+          ? this.format(this.currentValue[1])
+          : this.format(this.currentValue[0])
+      }
+      this.$emit('slidingstart', this.currentValue)
     },
-    onTouchMove (event) {
+    /**
+     * 确定移动的是哪一个滑轮
+     * @param {Boolean} left true：左  false：右
+     */
+    onTouchMove (left) {
       if (this.disabled) return
       const { maxValue, minValue } = this
-      this.touchMove(event)
-      // 移动间距 this.deltaX 就是向左(-)向右(+)
+      this.touchMove(window.event)
       const diff = this.deltaX / this.trackWidth * (maxValue - minValue)
       this.newValue = this.startValue + diff
-      // 左滑轮滑动控制
-      this.leftBarSlider(this.newValue)
-      this.$emit('dragmove', this.currentValue)
+      if (left) {
+        this.leftBarSlider(this.newValue)
+      } else {
+        this.rightBarSlider(this.newValue)
+      }
+      this.$emit('sliding', this.currentValue)
+      this.$emit('input', this.currentValue)
     },
     onTouchEnd () {
-      /* eslint-disable no-useless-return */
       if (this.disabled) return
-      this.$emit('dragend', this.currentValue)
-    },
-    // 右边滑轮滑动状态监听
-    onTouchStartRight (event) {
-      if (this.disabled) return
-      const { leftBarPercent, rightBarPercent, currentValue } = this
-      // 右滑轮移动时数据绑定
-      this.touchStart(event)
-      // 记录开始数据值
-      this.startValue = leftBarPercent < rightBarPercent ? this.format(currentValue[1]) : this.format(currentValue[0])
-      this.$emit('dragstart', this.currentValue)
-    },
-    onTouchMoveRight (event) {
-      if (this.disabled) return
-      const { maxValue, minValue } = this
-      this.touchMove(event)
-      // 移动间距 this.deltaX 就是向左向右
-      const diff = this.deltaX / this.trackWidth * (maxValue - minValue)
-      this.newValue = this.format(this.startValue + diff)
-      // 右滑轮滑动控制
-      this.rightBarSlider(this.newValue)
-      this.$emit('dragmove', this.currentValue)
-    },
-    onTouchEndRight () {
-      if (this.disabled) return
-      console.log(this.currentValue)
-      this.$emit('dragend', this.currentValue)
+      this.$emit('slidingend', this.currentValue)
+      this.$emit('change', this.currentValue)
     },
     /**
      * 控制右侧滑轮滑动， value校验
@@ -228,9 +210,30 @@ export default {
         : [rightBarPercent, leftBarPercent]
       this.barWidth = barLeft[1] - barLeft[0]
       this.barLeft = barLeft[0]
+      // 更新当前绑定值
       this.currentValue = leftNewValue < rightNewValue
         ? [leftNewValue, rightNewValue]
         : [rightNewValue, leftNewValue]
+    },
+    updateValue (newValue, oldValue) {
+      const condition = newValue && oldValue &&
+              (this.checkType(newValue) === 'Array' ? !this.equal(newValue, oldValue) : (newValue === oldValue))
+      if (condition) return
+      const { value } = this
+      // 动态传值后修改
+      if (this.checkType(value) === 'Array') {
+        this.showRight = true
+        this.currentValue = this.value
+        if (this.leftBarPercent < this.rightBarPercent) {
+          this.leftBarSlider(value[0])
+          this.rightBarSlider(value[1])
+        } else {
+          this.leftBarSlider(value[1])
+          this.rightBarSlider(value[0])
+        }
+      } else {
+        this.leftBarSlider(value)
+      }
     },
     // 将pos转化为value
     pos2Value (pos) {
@@ -257,6 +260,3 @@ export default {
   }
 }
 </script>
-
-<style>
-</style>
