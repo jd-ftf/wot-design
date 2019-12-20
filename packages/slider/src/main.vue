@@ -13,7 +13,9 @@
       {{ minValue }}
     </div>
     <div
-      class="jm-slider__bar-wrapper"
+      :class="{
+        'jm-slider__bar-wrapper' : true
+      }"
       :style="{background: inactiveColor ? inactiveColor : '' } "
     >
       <div
@@ -86,7 +88,7 @@ export default {
     },
     activeColor: {
       type: String,
-      default: '#0084ff'
+      default: ''
     }
   },
   data () {
@@ -219,20 +221,19 @@ export default {
           throw Error('value must be dyadic array Or Number')
         }
       }
-      const { value } = this
       // 动态传值后修改
-      if (this.checkType(value) === 'Array') {
+      if (this.checkType(this.value) === 'Array') {
         this.showRight = true
         this.currentValue = this.value
         if (this.leftBarPercent < this.rightBarPercent) {
-          this.leftBarSlider(value[0])
-          this.rightBarSlider(value[1])
+          this.leftBarSlider(this.value[0])
+          this.rightBarSlider(this.value[1])
         } else {
-          this.leftBarSlider(value[1])
-          this.rightBarSlider(value[0])
+          this.leftBarSlider(this.value[1])
+          this.rightBarSlider(this.value[0])
         }
       } else {
-        this.leftBarSlider(value)
+        this.leftBarSlider(this.value)
       }
     },
     // 将pos转化为value
