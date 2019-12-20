@@ -10,6 +10,12 @@
 
 <img style="width: 150px; height: 150px;" :src="codeImg" />
 
+### 特性
+
+* 30+ 组件
+* 支持按需引入
+* 支持国际化
+
 ### 开源协议
 
 本项目遵循 MIT 协议。

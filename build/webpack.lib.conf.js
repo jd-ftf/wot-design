@@ -18,7 +18,8 @@ module.exports = {
     path: path.resolve(__dirname, '../lib'),
     filename: '[name].js',
     library: 'JMDesign',
-    libraryTarget: 'umd'
+    libraryTarget: 'umd',
+    libraryExport: 'default'
   },
   module: {
     rules: [
@@ -42,7 +43,7 @@ module.exports = {
     ]
   },
   externals: {
-    vue: 'vue'
+    vue: config.vue
   },
   resolve: {
     extensions: ['.js', '.vue'],

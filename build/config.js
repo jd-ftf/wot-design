@@ -26,3 +26,10 @@ exports.alias = {
   main: path.resolve(__dirname, '../src'),
   'jm-design': path.resolve(__dirname, '../')
 }
+
+exports.vue = {
+  root: 'Vue',
+  commonjs: 'vue',
+  commonjs2: 'vue',
+  amd: 'vue'
+}

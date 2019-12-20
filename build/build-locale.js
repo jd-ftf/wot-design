@@ -13,8 +13,9 @@ fileList.filter(file => {
 
   babel.transformFile(path.resolve(localePath, file), {
     plugins: [
-      'add-module-exports',
-      ['transform-es2015-modules-umd', {loose: true}]
+      ['@babel/plugin-transform-modules-umd', {
+        loose: true
+      }]
     ],
     moduleId: name
   }, (err, result) => {
@@ -22,8 +23,9 @@ fileList.filter(file => {
       console.log(err)
     } else {
       let code = result.code
-      .replace('define("', 'define("jmd/locale/')
-      .replace('global.', 'global.JMD.lang = global.JMD.lang || {}; \n    global.JMD.lang.')
+      .replace('define("', 'define("JMDesign/locale/')
+      .replace('global.', 'global.JMDesign.lang = global.JMDesign.lang || {}; \n    global.JMDesign.lang.')
+      .replace('mod.exports;', 'mod.exports.default;')
       saveFile(path.resolve(__dirname, '../lib/umd/locale'), file, code)
     }
   })
