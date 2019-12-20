@@ -14,7 +14,7 @@
         可以通过设定<code>:minValue</code>与<code>:maxValue</code>来设定最小值与最大值，
         注意，这两个值都是<code>Number</code>型的
       </div>
-      <jm-slider v-model="value2" :min-value="4" :max-value="677" />
+      <jm-slider v-model="value2" :min="4" :max="677" />
     </white-space>
     <white-space>
       <div slot="desc">

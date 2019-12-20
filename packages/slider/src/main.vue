@@ -10,7 +10,7 @@
     <div
       class="jm-slider__label-min"
       v-if="!hideMinMax">
-      {{ minValue }}
+      {{ min }}
     </div>
     <div
       :class="{
@@ -49,7 +49,7 @@
         <div class="jm-slider__button" />
       </div>
     </div>
-    <div class="jm-slider__label-max" v-if="!hideMinMax">{{ maxValue }}</div>
+    <div class="jm-slider__label-max" v-if="!hideMinMax">{{ max }}</div>
   </div>
 </template>
 
@@ -66,11 +66,11 @@ export default {
       type: Boolean,
       default: false
     },
-    maxValue: {
+    max: {
       type: Number,
       default: 100
     },
-    minValue: {
+    min: {
       type: Number,
       default: 0
     },
@@ -137,7 +137,7 @@ export default {
           ? this.format(this.currentValue[1])
           : this.format(this.currentValue[0])
       }
-      this.$emit('slidingstart', this.currentValue)
+      this.$emit('dragstart', this.currentValue)
     },
     /**
      * 确定移动的是哪一个滑轮
@@ -145,21 +145,21 @@ export default {
      */
     onTouchMove (left) {
       if (this.disabled) return
-      const { maxValue, minValue } = this
+      const { max, min } = this
       this.touchMove(window.event)
-      const diff = this.deltaX / this.trackWidth * (maxValue - minValue)
+      const diff = this.deltaX / this.trackWidth * (max - min)
       this.newValue = this.startValue + diff
       if (left) {
         this.leftBarSlider(this.newValue)
       } else {
         this.rightBarSlider(this.newValue)
       }
-      this.$emit('sliding', this.currentValue)
+      this.$emit('dragmove', this.currentValue)
       this.$emit('input', this.currentValue)
     },
     onTouchEnd () {
       if (this.disabled) return
-      this.$emit('slidingend', this.currentValue)
+      this.$emit('dragend', this.currentValue)
       this.$emit('change', this.currentValue)
     },
     /**
@@ -167,8 +167,8 @@ export default {
      * @param {Number} value 当前滑轮绑定值
      */
     rightBarSlider (value) {
-      const { minValue, maxValue } = this
-      const rightBarPercent = (value - minValue) / (maxValue - minValue) * 100
+      const { min, max } = this
+      const rightBarPercent = (value - min) / (max - min) * 100
       this.rightNewValue = this.format(value)
       this.rightBarPercent = this.format(rightBarPercent)
       this.styleControl()
@@ -178,10 +178,10 @@ export default {
      * @param {Number} value 当前滑轮绑定值
      */
     leftBarSlider (value) {
-      const { minValue, maxValue, showRight } = this
+      const { min, max, showRight } = this
       value = this.format(value)
       // 把 value 转换成百分比
-      const percent = this.format((value - minValue) / (maxValue - minValue) * 100)
+      const percent = this.format((value - min) / (max - min) * 100)
       this.leftNewValue = value
       this.leftBarPercent = this.format(percent)
       if (!showRight) {
@@ -237,10 +237,10 @@ export default {
     },
     // 将pos转化为value
     pos2Value (pos) {
-      const { maxValue, minValue, step } = this
+      const { max, min, step } = this
       const percent = pos / this.trackWidth
-      const value = percent * (maxValue - minValue) + minValue
-      const res = minValue + Math.floor((value - minValue) / step) * step
+      const value = percent * (max - min) + min
+      const res = min + Math.floor((value - min) / step) * step
       return res
     },
     checkType (value) {
@@ -254,8 +254,8 @@ export default {
       return (i === 2)
     },
     format (value) {
-      const { maxValue, minValue, step } = this
-      return Math.round(Math.max(minValue, Math.min(value, maxValue)) / step) * step
+      const { max, min, step } = this
+      return Math.round(Math.max(min, Math.min(value, max)) / step) * step
     }
   }
 }
