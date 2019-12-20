@@ -92,12 +92,17 @@ export default {
     }
   },
   methods: {
-    changeTab (index, isClick = false) {
+    changeTab (index, isClick, diff) {
       if (index < 0 || index >= this.tabLength) return
 
       let name = this.items[index].name
       if (this.items[index].disabled) {
         this.$emit('disabled', index, name)
+
+        // when swipe to the disabeld item, go to next or last
+        if (!isClick && diff) {
+          this.changeTab(index + diff, isClick, diff)
+        }
       } else {
         this.$emit('change', index, name)
         isClick && this.$emit('click', index, name)
@@ -187,22 +192,24 @@ export default {
         let title = item.$slots.title || item.title
         let key = item.name || index
         return (
-          <button
-            key={key}
-            class={{
-              'jm-tabs__map-nav-item': true,
-              'is-active': this.activeIndex === index,
-              'is-disabled': item.disabled
-            }}
-            style={{
-              color: this.activeIndex === index ? this.color : this.inactiveColor
-            }}
-            onClick={() => {
-              this.changeTab(index, true)
-              !item.disabled && this.toggleMap()
-            }}>
-            {title}
-          </button>
+          <div key={key} class='jm-tabs__map-nav-item'>
+            <button
+              key={key}
+              class={{
+                'jm-tabs__map-nav-btn': true,
+                'is-active': this.activeIndex === index,
+                'is-disabled': item.disabled
+              }}
+              style={{
+                color: this.activeIndex === index ? this.color : this.inactiveColor
+              }}
+              onClick={() => {
+                this.changeTab(index, true)
+                !item.disabled && this.toggleMap()
+              }}>
+              {title}
+            </button>
+          </div>
         )
       })
     },
@@ -231,7 +238,8 @@ export default {
       if (this.direction === 'horizontal' && this.delta) {
         // judge if should swipe to item
         let isEffectiveSwipe = Math.abs(this.delta) > this.clientWidth / 3 || Math.abs(this.delta) / (this.endTime - this.startTime) > 0.7
-        isEffectiveSwipe && this.changeTab(this.activeIndex + (this.delta < 0 ? 1 : -1))
+        const diff = this.delta < 0 ? 1 : -1
+        isEffectiveSwipe && this.changeTab(this.activeIndex + diff, false, diff)
       }
 
       this.swiping = false
@@ -298,7 +306,7 @@ export default {
       >
         {
           this.sticky
-            ? <Sticky offsetTop={this.offsetTop} container={this.$el}>{Nav}</Sticky>
+            ? <Sticky offsetTop={this.offsetTop} container={this.$el}>{Nav}{NavMap}</Sticky>
             : Nav
         }
         <div class="jm-tabs__container">
@@ -307,7 +315,7 @@ export default {
           </div>
         </div>
         {
-          NavMap
+          this.sticky ? '' : NavMap
         }
         {
           this.mapNum < this.items.length && this.mapNum !== 0

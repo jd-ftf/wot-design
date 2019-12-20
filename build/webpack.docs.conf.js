@@ -21,6 +21,10 @@ const webpackConf = {
     examples: './examples-m/main.js',
     docs: './examples/main.js'
   },
+  output: {
+    publicPath: '/',
+    filename: '[name].js'
+  },
   module: {
     rules: [
       {

@@ -110,7 +110,7 @@ export default {
 如果提供的弹框内容不满足需求，可以使用 `jm-message-box` 组件，自定义弹框内容。
 
 ```html
-<jm-message-box :show="isShow" show-cancel-button @action="handleAction" title="评分">
+<jm-message-box v-model="isShow" show-cancel-button @action="handleAction" title="评分">
   <jm-rate v-model="rate" />
 </jm-message-box>
 
@@ -124,7 +124,6 @@ export default {
   },
   methods: {
     handleAction (action) {
-      this.isShow = false
       if (action === 'confirm') {
         this.$messageBox.alert(`你的评分为：${this.rate}分`)
       }
