@@ -47,10 +47,10 @@ export default {
 
 ### 最大值最小值
 
-设置 `min-value` 最小值，`min-value` 最大值。
+设置 `min` 最小值，`max` 最大值。
 
 ```html
-<jm-slider :min-value="4" :max-value="677" v-model="value" />
+<jm-slider :min="4" :max="677" v-model="value" />
 ```
 
 ### 隐藏文案
@@ -82,8 +82,16 @@ export default {
 | hide-min-max	    | 是否显示左右的最大最小值                      |	boolean    |	-         |	false |
 | hide-label      | 是否显示当前滑块值                  | boolean | - | false |
 | disabled   | 是否禁用                  | boolean | - | false |
-| max-value      | 最大值        | number | - | 100 |
-| min-value       | 最小值  | number | - | 0 |
+| max      | 最大值        | number | - | 100 |
+| min       | 最小值  | number | - | 0 |
 | step           | 步进值        | number | - | 1 |
 | activeColor           | 进度条激活背景颜色        | string | - | '#0084ff' |
 | inactiveColor           | 进度条未激活背景颜色        | string | - | '#e5e5e5' |
+
+### Events
+
+| 事件名称      | 说明                                 | 参数     |
+|------------- |------------------------------------ |--------- |
+| dragstart        | 滑动开始事件                    | value       |
+| dragmove         | 滑动移动事件                     | value      |
+| dragend       | 滑动结束事件                      | value       |
