@@ -69,7 +69,7 @@
     </space>
     <space title="数量大于10时出现导航地图">
       <jm-tabs v-model="tab10">
-        <jm-tab v-for="item in 12" :key="item" :title="`标签${item}`" class="demo-tab2">
+        <jm-tab v-for="item in 11" :key="item" :title="`标签${item}`" class="demo-tab2">
           <p>内容{{ item }}</p>
         </jm-tab>
       </jm-tabs>

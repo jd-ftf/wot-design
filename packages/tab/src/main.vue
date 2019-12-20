@@ -1,6 +1,7 @@
 <template>
   <div class="jm-tab" :style="tabStyle">
     <slot v-if="shouldRender"></slot>
+    <div v-if="disabled" class="jm-tab__disabled-modal"></div>
   </div>
 </template>
 

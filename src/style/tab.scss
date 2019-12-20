@@ -2,5 +2,16 @@
 @import './abstracts/mixin';
 
 @include b(tab) {
+  position: relative;
   flex-shrink: 0;
+
+  @include e(disabled-modal) {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background: #fff;
+    z-index: 999;
+  }
 }
