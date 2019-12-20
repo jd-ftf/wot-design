@@ -113,7 +113,6 @@
   @include e(map-body) {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
     padding: 20px 15px 10px;
     background: #fff;
     transition: transform .3s;
@@ -125,6 +124,17 @@
     }
   }
   @include e(map-nav-item) {
+    flex-basis: 33%;
+
+    &:nth-child(3n + 2) {
+      text-align: center;
+    }
+    &:nth-child(3n + 3) {
+      text-align: right;
+    }
+  }
+
+  @include e(map-nav-btn) {
     display: inline-block;
     width: 98px;
     padding: 0 10px;
