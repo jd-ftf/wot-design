@@ -101,6 +101,11 @@ export default {
       leftBarPercent: 0
     }
   },
+  watch: {
+    value (newValue, oldValue) {
+      this.updateValue(newValue, oldValue)
+    }
+  },
   created () {
     this.updateValue()
   },
@@ -112,11 +117,15 @@ export default {
     }
   },
   methods: {
-    updateValue () {
+    updateValue (newValue, oldValue) {
+      const condition = newValue && oldValue &&
+              (this.checkType(newValue) === 'Array' ? this.equal(newValue, oldValue) : (newValue === oldValue))
+      if (condition) return
       const { value } = this
       // 动态传值后修改
       if (this.checkType(value) === 'Array') {
         this.showRight = true
+        this.currentValue = this.value
         const { leftBarPercent, rightBarPercent } = this
         if (leftBarPercent < rightBarPercent) {
           this.leftBarSlider(value[0])
@@ -131,11 +140,11 @@ export default {
     },
     onTouchStart (even) {
       if (this.disabled) return
-      const { leftBarPercent, value, rightBarPercent } = this
+      const { leftBarPercent, currentValue, rightBarPercent } = this
       this.touchStart(event)
       // 是左边滑轮
-      this.startValue = this.checkType(value) !== 'Array' ? this.format(value)
-        : (leftBarPercent < rightBarPercent ? this.format(value[0]) : this.format(value[1]))
+      this.startValue = this.checkType(currentValue) !== 'Array' ? this.format(currentValue)
+        : (leftBarPercent < rightBarPercent ? this.format(currentValue[0]) : this.format(currentValue[1]))
     },
     onTouchMove (event) {
       if (this.disabled) return
@@ -156,11 +165,11 @@ export default {
     // 右边滑轮滑动状态监听
     onTouchStartRight (event) {
       if (this.disabled) return
-      const { leftBarPercent, rightBarPercent, value } = this
+      const { leftBarPercent, rightBarPercent, currentValue } = this
       // 右滑轮移动时数据绑定
       this.touchStart(event)
       // 记录开始数据值
-      this.startValue = leftBarPercent < rightBarPercent ? this.format(value[1]) : this.format(value[0])
+      this.startValue = leftBarPercent < rightBarPercent ? this.format(currentValue[1]) : this.format(currentValue[0])
       this.$emit('dragstart', this.currentValue)
     },
     onTouchMoveRight (event) {
@@ -176,6 +185,7 @@ export default {
     },
     onTouchEndRight () {
       if (this.disabled) return
+      console.log(this.currentValue)
       this.$emit('dragend', this.currentValue)
     },
     /**
@@ -198,10 +208,10 @@ export default {
       value = this.format(value)
       // 把 value 转换成百分比
       const percent = this.format((value - minValue) / (maxValue - minValue) * 100)
-      console.log(percent)
       this.leftNewValue = value
       this.leftBarPercent = this.format(percent)
       if (!showRight) {
+        this.currentValue = value
         this.barWidth = percent
       } else {
         this.styleControl()
@@ -218,6 +228,9 @@ export default {
         : [rightBarPercent, leftBarPercent]
       this.barWidth = barLeft[1] - barLeft[0]
       this.barLeft = barLeft[0]
+      this.currentValue = leftNewValue < rightNewValue
+        ? [leftNewValue, rightNewValue]
+        : [rightNewValue, leftNewValue]
     },
     // 将pos转化为value
     pos2Value (pos) {
