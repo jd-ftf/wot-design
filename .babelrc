@@ -17,10 +17,10 @@
       ],
       "plugins": [
         ["module-resolver", {
-          "root": ["jm-design"],
+          "root": ["wot-design"],
           "alias": {
-            "jm-design/src": "@jd/jm-design/lib",
-            "jm-design/packages": "@jd/jm-design/lib"
+            "wot-design/src": "wot-design/lib",
+            "wot-design/packages": "wot-design/lib"
           }
         }]
       ]

@@ -3,7 +3,7 @@
     <ul class="icon-list">
       <li v-for="icon in icons" :key="icon">
         <div>
-          <jm-icon :name="icon" size="22px" />
+          <wd-icon :name="icon" size="22px" />
         </div>
         <p>{{ icon }}</p>
       </li>

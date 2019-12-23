@@ -21,7 +21,7 @@
     }
   }
   @include when(disabled) {
-    .jm-input__inner, .jm-input__textarea-inner {
+    .wd-input__inner, .wd-input__textarea-inner {
       color: $-color-tip;
       background: transparent;
     }
@@ -30,7 +30,7 @@
     &::after {
       background: $-color-aid-red;
     }
-    .jm-input__inner, .jm-input__textarea-inner {
+    .wd-input__inner, .wd-input__textarea-inner {
       color: $-color-aid-red;
       background: transparent;
 
@@ -58,21 +58,21 @@
     @include m(suffix-1) {
       padding-right: 24px;
 
-      &.jm-input__inner--count {
+      &.wd-input__inner--count {
         padding-right: 36px;
       }
     }
     @include m(suffix-2) {
       padding-right: 48px;
 
-      &.jm-input__inner--count {
+      &.wd-input__inner--count {
         padding-right: 66px;
       }
     }
     @include m(suffix-3) {
       padding-right: 72px;
 
-      &.jm-input__inner--count {
+      &.wd-input__inner--count {
         padding-right: 94px;
       }
     }
@@ -133,7 +133,7 @@
     @include when(text-auto) {
       padding: 10px 0;
 
-      .jm-input__textarea-suffix {
+      .wd-input__textarea-suffix {
         top: 10px;
         right: 0;
       }

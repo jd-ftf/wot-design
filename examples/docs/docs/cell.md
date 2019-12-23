@@ -4,7 +4,7 @@
 
 ```javascript
 import Vue from 'vue'
-import { CellGroup, Cell } from '@jd/jm-design'
+import { CellGroup, Cell } from 'wot-design'
 
 Vue.use(CellGroup)
 Vue.use(Cell)
@@ -15,12 +15,12 @@ Vue.use(Cell)
 `Cell` 可以单独使用，也可以和 `CellGroup` 组合使用。
 
 ```html
-<jm-cell title="标题文字" value="内容" />
+<wd-cell title="标题文字" value="内容" />
 
-<jm-cell-group>
-  <jm-cell title="标题文字" value="内容" />
-  <jm-cell title="标题文字" label="描述信息" value="内容" />
-</jm-cell-group>
+<wd-cell-group>
+  <wd-cell title="标题文字" value="内容" />
+  <wd-cell title="标题文字" label="描述信息" value="内容" />
+</wd-cell-group>
 ```
 
 ### 图标设置
@@ -30,15 +30,15 @@ Vue.use(Cell)
 > 自定义图标，如果有多个cell，需保证所有图标的宽度是一致的且垂直居中。如果使用 icon 属性且为 Icon 章节的字体图标，则宽度一致且垂直居中。
 
 ```html
-<jm-cell-group>
-  <jm-cell title="标题文字" value="内容" icon="jm-icon-setting" />
-  <jm-cell title="标题文字" value="内容" icon="jm-icon-collect" />
-  <jm-cell title="标题文字" value="内容">
+<wd-cell-group>
+  <wd-cell title="标题文字" value="内容" icon="wd-icon-setting" />
+  <wd-cell title="标题文字" value="内容" icon="wd-icon-collect" />
+  <wd-cell title="标题文字" value="内容">
     <div class="custom-icon" slot="icon">
       <i class="cell-icon"></i>
     </div>
-  </jm-cell>
-</jm-cell-group>
+  </wd-cell>
+</wd-cell-group>
 
 <style>
 .custom-icon {
@@ -65,14 +65,14 @@ Vue.use(Cell)
 可以在 `cell-group` 上设置 `title` 和 `value` 属性。也可以使用 slot 插槽。
 
 ```html
- <jm-cell-group title="交易管理" value="订购">
+ <wd-cell-group title="交易管理" value="订购">
   <div slot="value" class="custom-group-value">
-    <i class="jm-icon-cart"></i>
+    <i class="wd-icon-cart"></i>
     <span>订购</span>
   </div>
-  <jm-cell title="标题文字" value="内容" />
-  <jm-cell title="标题文字" label="描述信息" value="内容" />
-</jm-cell-group>
+  <wd-cell title="标题文字" value="内容" />
+  <wd-cell title="标题文字" label="描述信息" value="内容" />
+</wd-cell-group>
 ```
 
 ### 页面跳转
@@ -80,8 +80,8 @@ Vue.use(Cell)
 通过设置 `is-link` 属性显示导航箭头和点击态，设置 `to` 属性，指定跳转地址。`to` 属性可以为 `vue-router` 中的路由对象，也可以是普通链接。
 
 ```html
-<jm-cell title="帮助与反馈" is-link to="https://jmw.jd.com/lib/jm-design/examples.html" />
-<jm-cell title="设置" value="内容" is-link :to="{ path: '/button' }" />
+<wd-cell title="帮助与反馈" is-link to="https://m.jd.com" />
+<wd-cell title="设置" value="内容" is-link :to="{ path: '/button' }" />
 ```
 
 ### 自定义内容
@@ -89,20 +89,20 @@ Vue.use(Cell)
 `cell` 提供了 `icon`、`title`、`label`和默认value的插槽。
 
 ```html
-<jm-cell-group>
-  <jm-cell title="标题文字">
-    <jm-button class="custom-value" size="small" type="primary" plain>按钮</jm-button>
-  </jm-cell>
-  <jm-cell title="标题文字">
-    <jm-switch class="custom-value" v-model="value" />
-  </jm-cell>
-  <jm-cell>
+<wd-cell-group>
+  <wd-cell title="标题文字">
+    <wd-button class="custom-value" size="small" type="primary" plain>按钮</wd-button>
+  </wd-cell>
+  <wd-cell title="标题文字">
+    <wd-switch class="custom-value" v-model="value" />
+  </wd-cell>
+  <wd-cell>
     <div slot="title">
       <span>标题文字</span>
       <span class="end-time">25天后到期</span>
     </div>
-  </jm-cell>
-</jm-cell-group>
+  </wd-cell>
+</wd-cell-group>
 
 <style>
 .custom-value {

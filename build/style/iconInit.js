@@ -7,7 +7,7 @@ var classList = [];
 
 nodes.forEach((node) => {
   var selector = node.selector || '';
-  var reg = new RegExp(/\.jm-icon-([^:]+):before/);
+  var reg = new RegExp(/\.wd-icon-([^:]+):before/);
   var arr = selector.match(reg);
 
   if (arr && arr[1]) {

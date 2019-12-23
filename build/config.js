@@ -1,5 +1,6 @@
 const path = require('path')
 const fs = require('fs')
+const libName = require('../package').name
 const components = require('../components')
 
 const utilsList = fs.readdirSync(path.resolve(__dirname, '../src/utils'))
@@ -7,24 +8,24 @@ const mixinsList = fs.readdirSync(path.resolve(__dirname, '../src/mixins'))
 
 const externals = {
   vue: 'vue',
-  'jm-design/src/mixins/locale': '@jd/jm-design/lib/mixins/locale'
+  [`${libName}/src/mixins/locale`]: `${libName}/lib/mixins/locale`
 }
 
 Object.keys(components).forEach(component => {
-  externals[`jm-design/packages/${component}`] = `@jd/jm-design/lib/${component}`
+  externals[`${libName}/packages/${component}`] = `${libName}/lib/${component}`
 })
 utilsList.forEach(util => {
-  externals[`jm-design/src/utils/${util}`] = `@jd/jm-design/lib/utils/${util}`
+  externals[`${libName}/src/utils/${util}`] = `${libName}/lib/utils/${util}`
 })
 mixinsList.forEach(mixin => {
-  externals[`jm-design/src/mixins/${mixin}`] = `@jd/jm-design/lib/mixins/${mixin}`
+  externals[`${libName}//src/mixins/${mixin}`] = `${libName}/lib/mixins/${mixin}`
 })
 
 exports.externals = externals
 
 exports.alias = {
   main: path.resolve(__dirname, '../src'),
-  'jm-design': path.resolve(__dirname, '../')
+  [libName]: path.resolve(__dirname, '../')
 }
 
 exports.vue = {

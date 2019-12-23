@@ -1,6 +1,6 @@
 <script>
 export default {
-  name: 'JmCell',
+  name: 'WdCell',
   props: {
     to: [String, Object],
     icon: String,
@@ -27,15 +27,15 @@ export default {
   },
   render (h) {
     const Icon = this.iconShow ? (
-      <div class="jm-cell__icon">
+      <div class="wd-cell__icon">
         {
           this.$slots.icon ? this.$slots.icon : <i class={ this.icon }></i>
         }
       </div>
     ) : ''
     const Wrapper = (
-      <div class="jm-cell__wrapper">
-        <div class="jm-cell__title">
+      <div class="wd-cell__wrapper">
+        <div class="wd-cell__title">
           {
             this.$slots.title ? this.$slots.title : <div>{ this.title }</div>
           }
@@ -43,16 +43,16 @@ export default {
             this.$slots.label
               ? this.$slots.label
               : this.label
-                ? <div class="jm-cell__label">{ this.label }</div>
+                ? <div class="wd-cell__label">{ this.label }</div>
                 : ''
           }
         </div>
-        <div class="jm-cell__right">
+        <div class="wd-cell__right">
           {
-            this.valueShow ? <span class="jm-cell__value">{ this.$slots.default ? this.$slots.default : this.value }</span> : ''
+            this.valueShow ? <span class="wd-cell__value">{ this.$slots.default ? this.$slots.default : this.value }</span> : ''
           }
           {
-            this.isLink ? <i class="jm-cell__arrow-right jm-icon-arrow-right"></i> : ''
+            this.isLink ? <i class="wd-cell__arrow-right wd-icon-arrow-right"></i> : ''
           }
         </div>
       </div>
@@ -67,13 +67,13 @@ export default {
         }
       }
 
-      let rootClass = this.isLink ? 'jm-cell is-link' : 'jm-cell'
+      let rootClass = this.isLink ? 'wd-cell is-link' : 'wd-cell'
 
       return isRouterLink
         ? <router-link to={ this.to } class={rootClass}>{Icon}{Wrapper}</router-link>
         : <a class={rootClass} href={ this.to }>{Icon}{Wrapper}</a>
     } else {
-      return <a class={{ 'jm-cell': true, 'is-link': this.clickable }} onClick={ this.handleClick }>{Icon}{Wrapper}</a>
+      return <a class={{ 'wd-cell': true, 'is-link': this.clickable }} onClick={ this.handleClick }>{Icon}{Wrapper}</a>
     }
   }
 }

@@ -4,7 +4,7 @@
 
 ```javascript
 import Vue from 'vue'
-import { Rate } from '@jd/jm-design'
+import { Rate } from 'wot-design'
 
 Vue.use(Rate)
 ```
@@ -14,7 +14,7 @@ Vue.use(Rate)
 `v-model` 为绑定值，设置分数。
 
 ```html
-<jm-rate v-model="rate" />
+<wd-rate v-model="rate" />
 
 <script>
 export default {
@@ -32,7 +32,7 @@ export default {
 设置 `readonly` 属性。
 
 ```html
-<jm-rate v-model="rate" readonly />
+<wd-rate v-model="rate" readonly />
 ```
 
 ### 禁用
@@ -40,7 +40,7 @@ export default {
 设置 `disabled` 属性。
 
 ```html
-<jm-rate v-model="rate" disabled />
+<wd-rate v-model="rate" disabled />
 ```
 
 ### 修改颜色
@@ -48,7 +48,7 @@ export default {
 可以通过 `color` 属性修改未选中的颜色，`active-color` 修改选中的颜色。
 
 ```html
-<jm-rate v-model="rate" active-color="#FFAE16" />
+<wd-rate v-model="rate" active-color="#FFAE16" />
 ```
 
 ### 修改icon
@@ -56,7 +56,7 @@ export default {
 可以通过 `icon` 属性修改未选中的图标，`active-icon` 修改选中的图标。
 
 ```html
-<jm-rate v-model="rate" icon="jm-icon-good" active-icon="jm-icon-good" active-color="#0083ff" />
+<wd-rate v-model="rate" icon="wd-icon-good" active-icon="wd-icon-good" active-color="#0083ff" />
 ```
 
 ### Attributes
@@ -69,7 +69,7 @@ export default {
 | space      | 图标间距        | string | - | '4px' |
 | color       | 未选中的图标颜色  | string | - | '#c5c5c5' |
 | active-color           | 选中的图标颜色        | string | - | '#e2231a' |
-| icon           | 未选中的图标类名                  | string | - | 'jm-icon-star' |
-| active-icon    | 选中的图标类名                  | string | - | 'jm-icon-star-fill' |
+| icon           | 未选中的图标类名                  | string | - | 'wd-icon-star' |
+| active-icon    | 选中的图标类名                  | string | - | 'wd-icon-star-fill' |
 | disabled           | 是否禁用                  | boolean | - | false |
 | disabled-color    | 禁用的图标颜色                  | string | - | '#c5c5c5' |

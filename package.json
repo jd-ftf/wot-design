@@ -1,5 +1,5 @@
 {
-  "name": "@jd/jm-design",
+  "name": "wot-design",
   "version": "0.7.2",
   "description": "Mobile UI components built on vue.js",
   "scripts": {
@@ -17,7 +17,7 @@
   "main": "./lib/index.js",
   "keywords": [
     "vue",
-    "jm",
+    "wot",
     "component"
   ],
   "files": [
@@ -25,10 +25,6 @@
     "packages",
     "src"
   ],
-  "repository": {
-    "type": "git",
-    "url": "http://git.jd.com/JM-FE/jm-design.git"
-  },
   "unpkg": "lib/index.js",
   "style": "lib/theme-chalk/index.css",
   "peerDependencies": {

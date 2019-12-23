@@ -1,7 +1,7 @@
-import JmTag from './src/main.vue'
+import Tag from './src/main.vue'
 
-JmTag.install = Vue => {
-  Vue.component(JmTag.name, JmTag)
+Tag.install = Vue => {
+  Vue.component(Tag.name, Tag)
 }
 
-export default JmTag
+export default Tag

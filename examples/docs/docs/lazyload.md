@@ -4,15 +4,15 @@
 
 图片懒加载使用的是开源组件`vue-lazyload`，其用法同 [vue-lazyload](https://github.com/hilongjw/vue-lazyload)。
 
-`jm-design` 对`vue-lazyload`做了默认参数设置：`loading` 参数默认设置为 `JDM` 占位图，`attempt` 参数设置为 3。
+`wot-design` 对`vue-lazyload`做了默认参数设置：`loading` 参数默认设置为 `JDM` 占位图，`attempt` 参数设置为 3。
 
 如果需要修改参数，修改方式如下：
 
 ```javascript
-import JMDesign from '@jd/jm-design'
+import WotDesign from 'wot-design'
 
 // lazyload 参数同 vue-lazyload 组件参数
-Vue.use(JMDesign, {
+Vue.use(WotDesign, {
   lazyload: {
     loading: 'xxx',
     attempt: 1
@@ -24,7 +24,7 @@ Vue.use(JMDesign, {
 
 ```javascript
 import Vue from 'vue'
-import { Lazyload } from '@jd/jm-design'
+import { Lazyload } from 'wot-design'
 
 Vue.use(Lazyload)
 

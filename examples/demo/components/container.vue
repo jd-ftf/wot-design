@@ -1,11 +1,11 @@
 <template>
   <div class="page">
     <div class="header" :class="{ 'is-no-fixed': $route.meta.headerNoFix }">
-      <jm-navbar :title="$route.meta.pageName" light>
+      <wd-navbar :title="$route.meta.pageName" light>
         <a class="return-back" slot="left" @click="goBack">
-          <jm-icon name="arrow-left" />
+          <wd-icon name="arrow-left" />
         </a>
-      </jm-navbar>
+      </wd-navbar>
     </div>
     <div class="page-content" :class="{ 'is-no-fixed': $route.meta.headerNoFix }">
       <router-view></router-view>

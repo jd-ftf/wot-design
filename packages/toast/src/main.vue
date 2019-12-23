@@ -1,16 +1,16 @@
 <template>
-  <transition name="jm-fade">
-    <div v-show="show" class="jm-toast" :class="customClass">
-      <i v-if="iconName" class="jm-toast__icon" :class="[ iconNameToClass ]"></i>
-      <i v-else-if="iconClass" class="jm-toast__icon" :class="iconClass.split(' ')"></i>
-      <div class="jm-toast__msg">{{ msg }}</div>
+  <transition name="wd-fade">
+    <div v-show="show" class="wd-toast" :class="customClass">
+      <i v-if="iconName" class="wd-toast__icon" :class="[ iconNameToClass ]"></i>
+      <i v-else-if="iconClass" class="wd-toast__icon" :class="iconClass.split(' ')"></i>
+      <div class="wd-toast__msg">{{ msg }}</div>
     </div>
   </transition>
 </template>
 
 <script>
 export default {
-  name: 'JmToast',
+  name: 'WdToast',
   props: {
     iconName: String,
     iconClass: String,
@@ -27,17 +27,17 @@ export default {
 
       switch (this.position) {
         case 'top':
-          classList.push('jm-toast--top')
+          classList.push('wd-toast--top')
           break
         case 'bottom':
-          classList.push('jm-toast--bottom')
+          classList.push('wd-toast--bottom')
           break
         default:
-          classList.push('jm-toast--middle')
+          classList.push('wd-toast--middle')
       }
 
       if (this.iconName || this.iconClass) {
-        classList.push('jm-toast--with-icon')
+        classList.push('wd-toast--with-icon')
       }
 
       return classList
@@ -45,11 +45,11 @@ export default {
     iconNameToClass () {
       switch (this.iconName) {
         case 'success':
-          return 'jm-icon-success'
+          return 'wd-icon-success'
         case 'error':
-          return 'jm-icon-error'
+          return 'wd-icon-error'
         case 'warning':
-          return 'jm-icon-warning'
+          return 'wd-icon-warning'
         default:
           return ''
       }

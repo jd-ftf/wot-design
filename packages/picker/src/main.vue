@@ -1,23 +1,23 @@
 <template>
-  <div class="jm-picker jm-field">
+  <div class="wd-picker wd-field">
     <div
-      class="jm-picker__field"
+      class="wd-picker__field"
       :class="{
-        'jm-picker__field--disabled': disabled
+        'wd-picker__field--disabled': disabled
       }"
       @click="showPopup"
     >
-      <div v-if="label" class="jm-picker__label">{{ label }}</div>
-      <div class="jm-picker__value">{{ (value ? showValue : placeholder) || t('jmd.picker.placeholder') }}</div>
-      <i v-if="!disabled && !readonly" class="jm-picker__arrow jm-icon-arrow-right"></i>
+      <div v-if="label" class="wd-picker__label">{{ label }}</div>
+      <div class="wd-picker__value">{{ (value ? showValue : placeholder) || t('wd.picker.placeholder') }}</div>
+      <i v-if="!disabled && !readonly" class="wd-picker__arrow wd-icon-arrow-right"></i>
     </div>
-    <jm-popup v-model="popupShow" position="bottom" @click-modal="onCancel">
-      <div class="jm-picker__toolbar">
-        <button class="jm-picker__action jm-picker__action--cancel" @click="onCancel">{{ cancelButtonText || t('jmd.picker.cancel') }}</button>
-        <span v-if="title" class="jm-picker__title">{{ title }}</span>
-        <button class="jm-picker__action" @click="onConfirm">{{ confirmButtonText || t('jmd.picker.done') }}</button>
+    <wd-popup v-model="popupShow" position="bottom" @click-modal="onCancel">
+      <div class="wd-picker__toolbar">
+        <button class="wd-picker__action wd-picker__action--cancel" @click="onCancel">{{ cancelButtonText || t('wd.picker.cancel') }}</button>
+        <span v-if="title" class="wd-picker__title">{{ title }}</span>
+        <button class="wd-picker__action" @click="onConfirm">{{ confirmButtonText || t('wd.picker.done') }}</button>
       </div>
-      <jm-picker-view
+      <wd-picker-view
         ref="pickerView"
         v-model="pickerValue"
         :columns="columns"
@@ -29,22 +29,22 @@
         :label-key="labelKey"
         :column-change="columnChange"
       />
-    </jm-popup>
+    </wd-popup>
   </div>
 </template>
 
 <script>
-import locale from 'jm-design/src/mixins/locale'
-import JmPopup from 'jm-design/packages/popup'
-import JmPickerView from 'jm-design/packages/picker-view'
+import locale from 'wot-design/src/mixins/locale'
+import WdPopup from 'wot-design/packages/popup'
+import WdPickerView from 'wot-design/packages/picker-view'
 import pickerProps from './pickerProps'
 
 export default {
-  name: 'JmPicker',
+  name: 'WdPicker',
   mixins: [locale],
   components: {
-    JmPopup,
-    JmPickerView
+    WdPopup,
+    WdPickerView
   },
   data () {
     return {

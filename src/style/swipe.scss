@@ -28,18 +28,18 @@
     }
   }
   @include when(vertical) {
-    .jm-swipe__container {
+    .wd-swipe__container {
       white-space: normal;
     }
-    .jm-swipe-item {
+    .wd-swipe-item {
       display: block;
     }
-    .jm-swipe__indicators {
+    .wd-swipe__indicators {
       left: 10px;
       bottom: auto;
       top: 50%;
     }
-    .jm-swipe__indicator {
+    .wd-swipe__indicator {
       display: block;
       margin-right: 0;
       margin-bottom: 6px;

@@ -1,6 +1,6 @@
 ## 国际化
 
-JM Design 默认使用中文语言。
+Wot Design 默认使用中文语言。
 
 ### 使用其他语言
 
@@ -8,10 +8,10 @@ JM Design 默认使用中文语言。
 
 ```javascript
 import Vue from 'vue'
-import JMDesign from '@jd/jm-design'
-import enUS from '@jd/jm-design/lib/locale/lang/en-US'
+import WotDesign from 'wot-design'
+import enUS from 'wot-design/lib/locale/lang/en-US'
 
-Vue.use(JMDesign, {
+Vue.use(WotDesign, {
   locale: enUS
 })
 ```
@@ -20,9 +20,9 @@ Vue.use(JMDesign, {
 
 ```javascript
 import Vue from 'vue'
-import { MessageBox, InfiniteLoad } from '@jd/jm-design'
-import locale from '@jd/jm-design/lib/locale'
-import enUS from '@jd/jm-design/lib/locale/lang/en-US'
+import { MessageBox, InfiniteLoad } from 'wot-design'
+import locale from 'wot-design/lib/locale'
+import enUS from 'wot-design/lib/locale/lang/en-US'
 
 Vue.use(MessageBox)
 Vue.use(InfiniteLoad)
@@ -35,10 +35,10 @@ locale.use(enUS)
 ```javascript
 import Vue from 'vue'
 import App from './App'
-import JMDesign from '@jd/jm-design'
+import WotDesign from 'wot-design'
 import VueI18n from 'vue-i18n'
-import zhCN from '@jd/jm-design/lib/locale/lang/zh-CN'
-import enUS from '@jd/jm-design/lib/locale/lang/en-US'
+import zhCN from 'wot-design/lib/locale/lang/zh-CN'
+import enUS from 'wot-design/lib/locale/lang/en-US'
 
 Vue.use(VueI18n)
 
@@ -56,7 +56,7 @@ const i18n = new VueI18n({
   }
 })
 
-Vue.use(JMDesign, {
+Vue.use(WotDesign, {
   i18n: (key, value) => i18n.t(key, value)
 })
 
@@ -72,11 +72,11 @@ new Vue({
 
 ```javascript
 import Vue from 'vue'
-import { MessageBox, InfiniteLoad } from '@jd/jm-design'
+import { MessageBox, InfiniteLoad } from 'wot-design'
 import VueI18n from 'vue-i18n'
-import zhCN from '@jd/jm-design/lib/locale/lang/zh-CN'
-import enUS from '@jd/jm-design/lib/locale/lang/en-US'
-import locale from '@jd/jm-design/lib/locale'
+import zhCN from 'wot-design/lib/locale/lang/zh-CN'
+import enUS from 'wot-design/lib/locale/lang/en-US'
+import locale from 'wot-design/lib/locale'
 
 Vue.use(VueI18n)
 
@@ -104,11 +104,11 @@ locale.i18n((key, value) => i18n.t(key, value))
 
 ```html
 <script src="//static.360buyimg.com/bus/lib/vue/2.5.17/vue.js"></script>
-<script src="//static.360buyimg.com/bus/lib/jm-design/index.js"></script>
-<script src="//static.360buyimg.com/bus/lib/jm-design/umd/locale/en-US.js"></script>
+<script src="//static.360buyimg.com/bus/lib/wot-design/index.js"></script>
+<script src="//static.360buyimg.com/bus/lib/wot-design/umd/locale/en-US.js"></script>
 
 <script>
-  JMDesign.locale(JMDesign.lang.en)
+  WotDesign.locale(WotDesign.lang.en)
 </script>
 ```
 

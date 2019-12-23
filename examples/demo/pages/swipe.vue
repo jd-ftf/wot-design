@@ -1,44 +1,44 @@
 <template>
   <div class="page-swipe">
     <space title="基本用法">
-      <jm-swipe class="number-swipe">
-        <jm-swipe-item v-for="item in 4" :key="item">
+      <wd-swipe class="number-swipe">
+        <wd-swipe-item v-for="item in 4" :key="item">
           {{ item }}
-        </jm-swipe-item>
-      </jm-swipe>
+        </wd-swipe-item>
+      </wd-swipe>
     </space>
     <space title="禁止循环和自动轮播">
-      <jm-swipe class="number-swipe" :loop="false" :autoplay="false" @change="toastChange">
-        <jm-swipe-item v-for="item in 4" :key="item">
+      <wd-swipe class="number-swipe" :loop="false" :autoplay="false" @change="toastChange">
+        <wd-swipe-item v-for="item in 4" :key="item">
           {{ item }}
-        </jm-swipe-item>
-      </jm-swipe>
+        </wd-swipe-item>
+      </wd-swipe>
     </space>
     <space title="留白">
-      <jm-swipe hide-indicators :autoplay="false" :space="80/750">
-        <jm-swipe-item v-for="item in imgs" :key="item">
+      <wd-swipe hide-indicators :autoplay="false" :space="80/750">
+        <wd-swipe-item v-for="item in imgs" :key="item">
           <img :src="item" class="swipe-img" />
-        </jm-swipe-item>
-      </jm-swipe>
+        </wd-swipe-item>
+      </wd-swipe>
     </space>
     <space title="自定义指示器">
-      <jm-swipe class="number-swipe" @change="handleItemChange">
-        <jm-swipe-item v-for="item in 4" :key="item">
+      <wd-swipe class="number-swipe" @change="handleItemChange">
+        <wd-swipe-item v-for="item in 4" :key="item">
           {{ item }}
-        </jm-swipe-item>
+        </wd-swipe-item>
         <template #indicators>
           <div class="custom-indicators">
             {{ customIndex + 1 }}/4
           </div>
         </template>
-      </jm-swipe>
+      </wd-swipe>
     </space>
     <space title="纵向轮播">
-      <jm-swipe class="number-swipe" vertical height="150px">
-        <jm-swipe-item v-for="item in 4" :key="item">
+      <wd-swipe class="number-swipe" vertical height="150px">
+        <wd-swipe-item v-for="item in 4" :key="item">
           {{ item }}
-        </jm-swipe-item>
-      </jm-swipe>
+        </wd-swipe-item>
+      </wd-swipe>
     </space>
   </div>
 </template>
@@ -69,7 +69,7 @@ export default {
 <style lang="scss">
 .page-swipe {
   .number-swipe {
-    .jm-swipe-item {
+    .wd-swipe-item {
       line-height: 150px;
       background: #0083ff;
       text-align: center;

@@ -1,22 +1,22 @@
 <template>
   <div class="page-popup">
     <white-space title="基本用法">
-      <jm-button type="primary" @click="show1 = true">弹出层</jm-button>
-      <jm-popup v-model="show1" :style="{ 'padding': '30px 40px' }">内容</jm-popup>
+      <wd-button type="primary" @click="show1 = true">弹出层</wd-button>
+      <wd-popup v-model="show1" :style="{ 'padding': '30px 40px' }">内容</wd-popup>
     </white-space>
     <white-space title="弹出位置">
-      <jm-button type="primary" @click="show2 = true">顶部</jm-button>
-      <jm-popup v-model="show2" position="top" :style="{ 'height': '200px' }"></jm-popup>
-      <jm-button type="primary" @click="show3 = true">右侧</jm-button>
-      <jm-popup v-model="show3" position="right" :style="{ 'width': '200px' }"></jm-popup>
-      <jm-button type="primary" @click="show4 = true">底部</jm-button>
-      <jm-popup v-model="show4" position="bottom" :style="{ 'height': '200px' }"></jm-popup>
-      <jm-button type="primary" @click="show5 = true">左侧</jm-button>
-      <jm-popup v-model="show5" position="left" :style="{ 'width': '200px' }"></jm-popup>
+      <wd-button type="primary" @click="show2 = true">顶部</wd-button>
+      <wd-popup v-model="show2" position="top" :style="{ 'height': '200px' }"></wd-popup>
+      <wd-button type="primary" @click="show3 = true">右侧</wd-button>
+      <wd-popup v-model="show3" position="right" :style="{ 'width': '200px' }"></wd-popup>
+      <wd-button type="primary" @click="show4 = true">底部</wd-button>
+      <wd-popup v-model="show4" position="bottom" :style="{ 'height': '200px' }"></wd-popup>
+      <wd-button type="primary" @click="show5 = true">左侧</wd-button>
+      <wd-popup v-model="show5" position="left" :style="{ 'width': '200px' }"></wd-popup>
     </white-space>
     <white-space title="关闭按钮">
-      <jm-button type="primary" @click="show6 = true">关闭按钮</jm-button>
-      <jm-popup v-model="show6" position="bottom" :style="{ 'height': '200px' }" closable></jm-popup>
+      <wd-button type="primary" @click="show6 = true">关闭按钮</wd-button>
+      <wd-popup v-model="show6" position="bottom" :style="{ 'height': '200px' }" closable></wd-popup>
     </white-space>
   </div>
 </template>
@@ -38,7 +38,7 @@ export default {
 
 <style lang="scss">
 .page-popup {
-  .jm-button {
+  .wd-button {
     margin: 0 10px 0 0;
   }
 }

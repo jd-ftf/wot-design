@@ -1,8 +1,8 @@
 <template>
-  <transition name="jm-fade">
+  <transition name="wd-fade">
     <div
       v-show="show"
-      class="jm-modal"
+      class="wd-modal"
       :style="{
         'z-index': zIndex,
         'transition-duration': duration ? (duration + 'ms') : ''
@@ -15,7 +15,7 @@
 
 <script>
 export default {
-  name: 'JmModal',
+  name: 'WdModal',
   props: {
     show: Boolean,
     duration: Number,

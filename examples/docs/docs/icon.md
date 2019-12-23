@@ -1,12 +1,12 @@
 ## Icon 图标
 
-图标都是 icon font 字体，直接使用类名 `jm-icon-xxx` 即可使用；也提供了组件供调用。
+图标都是 icon font 字体，直接使用类名 `wd-icon-xxx` 即可使用；也提供了组件供调用。
 
 ### 按需引入
 
 ```javascript
 import Vue from 'vue'
-import { Icon } from '@jd/jm-design'
+import { Icon } from 'wot-design'
 
 Vue.use(Icon)
 ```
@@ -16,7 +16,7 @@ Vue.use(Icon)
 通过 `name` 属性设置使用哪个图标。
 
 ```html
-<jm-icon name="add-circle" />
+<wd-icon name="add-circle" />
 ```
 
 ### 图标颜色
@@ -24,7 +24,7 @@ Vue.use(Icon)
 设置 `color` 属性。
 
 ```html
-<jm-icon name="add-circle" color="#0083ff" />
+<wd-icon name="add-circle" color="#0083ff" />
 ```
 
 ### 图标大小
@@ -32,7 +32,7 @@ Vue.use(Icon)
 设置 `size` 属性。
 
 ```html
-<jm-icon name="add-circle" size="20px" />
+<wd-icon name="add-circle" size="20px" />
 ```
 
 ### 渲染的标签
@@ -40,7 +40,7 @@ Vue.use(Icon)
 通过设置 `tag` 属性，选择使用哪个标签来渲染图标。
 
 ```html
-<jm-icon name="add-circle" tag="div" />
+<wd-icon name="add-circle" tag="div" />
 ```
 
 ### 类名使用
@@ -48,7 +48,7 @@ Vue.use(Icon)
 只要引入了 icon 的样式文件，即可使用图标的类名。
 
 ```html
-<i class="jm-icon-add-circle"></i>
+<i class="wd-icon-add-circle"></i>
 ```
 
 ### Attributes

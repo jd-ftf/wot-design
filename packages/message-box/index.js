@@ -6,7 +6,7 @@
  * Message.prompt(message[, title, options])
  */
 import Vue from 'vue'
-import jmMessageBox from './src/main.vue'
+import wdMessageBox from './src/main.vue'
 
 let defaults = {
   title: '',
@@ -73,7 +73,7 @@ const defaultCallback = action => {
   }
 }
 
-const MessageBoxContructor = Vue.extend(jmMessageBox)
+const MessageBoxContructor = Vue.extend(wdMessageBox)
 
 let initInstance = () => {
   instance = new MessageBoxContructor({
@@ -203,9 +203,9 @@ MessageBox.close = () => {
 
 export default {
   install (Vue) {
-    Vue.component(jmMessageBox.name, jmMessageBox)
+    Vue.component(wdMessageBox.name, wdMessageBox)
     Vue.prototype.$messageBox = MessageBox
   },
-  jmMessageBox,
+  wdMessageBox,
   MessageBox
 }

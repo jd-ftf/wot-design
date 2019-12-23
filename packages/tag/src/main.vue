@@ -1,6 +1,6 @@
 <script>
 export default {
-  name: 'JmTag',
+  name: 'WdTag',
   props: {
     type: String,
     icon: String,
@@ -13,7 +13,7 @@ export default {
   },
   computed: {
     tagClass () {
-      let tagClass = ['jm-tag']
+      let tagClass = ['wd-tag']
 
       this.type && tagClass.push(`is-${this.type}`)
       this.plain && tagClass.push('is-plain')
@@ -35,7 +35,7 @@ export default {
     let Icon = this.$slots.icon
       ? this.$slots.icon
       : this.icon
-        ? <i class={[ 'jm-tag__icon', this.icon ]}></i>
+        ? <i class={[ 'wd-tag__icon', this.icon ]}></i>
         : ''
 
     let Tag = (
@@ -45,18 +45,18 @@ export default {
         onClick={ this.handleClick }
       >
         {Icon}
-        <span class="jm-tag__text" style={{ color: this.color }}>
+        <span class="wd-tag__text" style={{ color: this.color }}>
           { this.$slots.default }
         </span>
         {
           this.closable
-            ? <i class="jm-tag__close jm-icon-close-outline" onClick={ this.handleClose }></i>
+            ? <i class="wd-tag__close wd-icon-close-outline" onClick={ this.handleClose }></i>
             : ''
         }
       </div>
     )
 
-    return this.disableTransition ? Tag : (<transition name="jm-fade">{ Tag }</transition>)
+    return this.disableTransition ? Tag : (<transition name="wd-fade">{ Tag }</transition>)
   }
 }
 </script>

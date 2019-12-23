@@ -4,7 +4,7 @@
 
 ```javascript
 import Vue from 'vue'
-import { InfiniteLoad } from '@jd/jm-design'
+import { InfiniteLoad } from 'wot-design'
 
 Vue.use(InfiniteLoad)
 ```
@@ -24,7 +24,7 @@ Vue.use(InfiniteLoad)
         <div>{{ item.text }}</div>
       </div>
     </div>
-    <jm-infinite-load ref="loadmore" @loadmore="loadmore" :loading="loading" />
+    <wd-infinite-load ref="loadmore" @loadmore="loadmore" :loading="loading" />
   </div>
 </template>
 

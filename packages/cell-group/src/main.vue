@@ -1,18 +1,18 @@
 <template>
-  <div class="jm-cell-group">
-    <div v-if="showTitle" class="jm-cell-group__title">
-      <div class="jm-cell-group__left">
+  <div class="wd-cell-group">
+    <div v-if="showTitle" class="wd-cell-group__title">
+      <div class="wd-cell-group__left">
         <slot name="title">
           {{ title }}
         </slot>
       </div>
-      <div class="jm-cell-group__right">
+      <div class="wd-cell-group__right">
         <slot name="value">
           {{ value }}
         </slot>
       </div>
     </div>
-    <div class="jm-cell-group__body">
+    <div class="wd-cell-group__body">
       <slot></slot>
     </div>
   </div>
@@ -20,7 +20,7 @@
 
 <script>
 export default {
-  name: 'JmCellGroup',
+  name: 'WdCellGroup',
   props: {
     title: String,
     value: String

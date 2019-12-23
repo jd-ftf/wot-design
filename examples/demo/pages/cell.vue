@@ -1,56 +1,56 @@
 <template>
   <div class="page-cell">
     <space title="基本用法">
-      <jm-cell-group>
-        <jm-cell title="标题文字" value="内容" />
-        <jm-cell title="标题文字" label="描述信息" value="内容" />
-      </jm-cell-group>
+      <wd-cell-group>
+        <wd-cell title="标题文字" value="内容" />
+        <wd-cell title="标题文字" label="描述信息" value="内容" />
+      </wd-cell-group>
     </space>
     <space title="图标">
-      <jm-cell-group>
-        <jm-cell title="标题文字" value="内容" icon="jm-icon-setting" />
-        <jm-cell title="标题文字" value="内容" icon="jm-icon-collect" />
-        <jm-cell title="标题文字" value="内容">
+      <wd-cell-group>
+        <wd-cell title="标题文字" value="内容" icon="wd-icon-setting" />
+        <wd-cell title="标题文字" value="内容" icon="wd-icon-collect" />
+        <wd-cell title="标题文字" value="内容">
           <div class="custom-icon" slot="icon">
             <i class="cell-icon"></i>
           </div>
-        </jm-cell>
-      </jm-cell-group>
+        </wd-cell>
+      </wd-cell-group>
     </space>
     <space title="分组标题">
-      <jm-cell-group title="交易管理" value="订购">
+      <wd-cell-group title="交易管理" value="订购">
         <div slot="value" class="custom-group-value">
-          <i class="jm-icon-cart"></i>
+          <i class="wd-icon-cart"></i>
           <span>订购</span>
         </div>
-        <jm-cell title="标题文字" value="内容" />
-        <jm-cell title="标题文字" label="描述信息" value="内容" />
-      </jm-cell-group>
+        <wd-cell title="标题文字" value="内容" />
+        <wd-cell title="标题文字" label="描述信息" value="内容" />
+      </wd-cell-group>
     </space>
     <space title="页面跳转">
-      <jm-cell-group>
-        <jm-cell title="帮助与反馈" is-link :to="href" />
-        <jm-cell title="设置" value="内容" is-link :to="{ path: '/button' }" />
-      </jm-cell-group>
+      <wd-cell-group>
+        <wd-cell title="帮助与反馈" is-link :to="href" />
+        <wd-cell title="设置" value="内容" is-link :to="{ path: '/button' }" />
+      </wd-cell-group>
     </space>
     <space title="自定义slot">
-      <jm-cell-group>
-        <jm-cell title="标题文字">
-          <jm-button class="custom-value" size="small" type="primary" plain>按钮</jm-button>
-        </jm-cell>
-        <jm-cell title="标题文字">
-          <jm-switch class="custom-value" v-model="value" />
-        </jm-cell>
-        <jm-cell>
+      <wd-cell-group>
+        <wd-cell title="标题文字">
+          <wd-button class="custom-value" size="small" type="primary" plain>按钮</wd-button>
+        </wd-cell>
+        <wd-cell title="标题文字">
+          <wd-switch class="custom-value" v-model="value" />
+        </wd-cell>
+        <wd-cell>
           <div slot="title">
             <span>标题文字</span>
             <span class="end-time">25天后到期</span>
           </div>
-        </jm-cell>
-      </jm-cell-group>
+        </wd-cell>
+      </wd-cell-group>
     </space>
     <space title="可点击的">
-      <jm-cell clickable title="标题文字" value="内容" @click="toast" />
+      <wd-cell clickable title="标题文字" value="内容" @click="toast" />
     </space>
   </div>
 </template>

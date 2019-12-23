@@ -16,7 +16,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, '../lib'),
     filename: '[name].js',
-    library: 'JMDesign',
+    library: 'WotDesign',
     libraryTarget: 'umd',
     libraryExport: 'default'
   },

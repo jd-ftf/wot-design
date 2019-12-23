@@ -4,7 +4,7 @@
 
 ```javascript
 import Vue from 'vue'
-import { Tab, Tabs } from '@jd/jm-design'
+import { Tab, Tabs } from 'wot-design'
 
 Vue.use(Tab)
 Vue.use(Tabs)
@@ -15,11 +15,11 @@ Vue.use(Tabs)
 `v-model` 为绑定值，可以为 number 类型（下标）和 string 类型（标签名）。
 
 ```html
-<jm-tabs v-model="tab">
-  <jm-tab v-for="item in 4" :key="item" :title="`标签${item}`">
+<wd-tabs v-model="tab">
+  <wd-tab v-for="item in 4" :key="item" :title="`标签${item}`">
     <p>内容{{ item }}</p>
-  </jm-tab>
-</jm-tabs>
+  </wd-tab>
+</wd-tabs>
 
 <script>
 export default {
@@ -37,11 +37,11 @@ export default {
 设置 `animated` 属性，开启tab切换动画。
 
 ```html
-<jm-tabs v-model="tab" animated>
-  <jm-tab v-for="item in 4" :key="item" :title="`标签${item}`">
+<wd-tabs v-model="tab" animated>
+  <wd-tab v-for="item in 4" :key="item" :title="`标签${item}`">
     <p>内容{{ item }}</p>
-  </jm-tab>
-</jm-tabs>
+  </wd-tab>
+</wd-tabs>
 ```
 
 ### 粘性布局
@@ -49,23 +49,23 @@ export default {
 设置 `sticky` 属性，使用粘性布局。可以设置 `offset-top` 属性，当距离窗口顶部多少像素时，固定标签头。
 
 ```html
-<jm-tabs v-model="tab" sticky>
-  <jm-tab v-for="item in 4" :key="item" :title="`标签${item}`">
+<wd-tabs v-model="tab" sticky>
+  <wd-tab v-for="item in 4" :key="item" :title="`标签${item}`">
     <p>内容{{ item }}</p>
-  </jm-tab>
-</jm-tabs>
+  </wd-tab>
+</wd-tabs>
 ```
 
 ### 禁用Tab
 
-在 `jm-tab` 上设置 `disabled` 属性，禁用某个页签。
+在 `wd-tab` 上设置 `disabled` 属性，禁用某个页签。
 
 ```html
-<jm-tabs v-model="tab">
-  <jm-tab v-for="item in 4" :key="item" :title="`标签${item}`" :disabled="item === 2">
+<wd-tabs v-model="tab">
+  <wd-tab v-for="item in 4" :key="item" :title="`标签${item}`" :disabled="item === 2">
     <p>内容{{ item }}</p>
-  </jm-tab>
-</jm-tabs>
+  </wd-tab>
+</wd-tabs>
 ```
 
 ### 点击事件
@@ -73,11 +73,11 @@ export default {
 监听页签的点击事件.
 
 ```html
-<jm-tabs v-model="tab" @click="handleTabClick">
-  <jm-tab v-for="item in 4" :key="item" :title="`标签${item}`">
+<wd-tabs v-model="tab" @click="handleTabClick">
+  <wd-tab v-for="item in 4" :key="item" :title="`标签${item}`">
     <p>内容{{ item }}</p>
-  </jm-tab>
-</jm-tabs>
+  </wd-tab>
+</wd-tabs>
 
 <script>
 export default {
@@ -100,15 +100,15 @@ export default {
 通过 `title` 插槽自定义标题。
 
 ```html
-<jm-tabs v-model="tab">
-  <jm-tab v-for="item in 4" :key="item" :title="`标签${item}`">
+<wd-tabs v-model="tab">
+  <wd-tab v-for="item in 4" :key="item" :title="`标签${item}`">
     <div slot="title">
-      <i class="jm-icon-tickets"></i>
+      <i class="wd-icon-tickets"></i>
       <span>{{ `标签${item}` }}</span>
     </div>
     <p>内容{{ item }}</p>
-  </jm-tab>
-</jm-tabs>
+  </wd-tab>
+</wd-tabs>
 ```
 
 ### 延迟渲染
@@ -116,11 +116,11 @@ export default {
 设置 `lazy-render` 属性，只有切换到当前页签时，页签的内容才会渲染。
 
 ```html
-<jm-tabs v-model="tab" lazy-render>
-  <jm-tab v-for="item in 4" :key="item" :title="`标签${item}`">
+<wd-tabs v-model="tab" lazy-render>
+  <wd-tab v-for="item in 4" :key="item" :title="`标签${item}`">
     <p>内容{{ item }}</p>
-  </jm-tab>
-</jm-tabs>
+  </wd-tab>
+</wd-tabs>
 ```
 
 ### 手势滑动
@@ -128,11 +128,11 @@ export default {
 设置 `swipeable` 属性，支持手势滑动。
 
 ```html
-<jm-tabs v-model="tab" swipeable>
-  <jm-tab v-for="item in 4" :key="item" :title="`标签${item}`">
+<wd-tabs v-model="tab" swipeable>
+  <wd-tab v-for="item in 4" :key="item" :title="`标签${item}`">
     <p>内容{{ item }}</p>
-  </jm-tab>
-</jm-tabs>
+  </wd-tab>
+</wd-tabs>
 ```
 
 ---

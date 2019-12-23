@@ -1,7 +1,7 @@
 <script>
-import DatetimePickerMixin from 'jm-design/src/mixins/datetimePicker'
+import DatetimePickerMixin from 'wot-design/src/mixins/datetimePicker'
 import props from './props'
-import { padZero, range } from 'jm-design/src/utils'
+import { padZero, range } from 'wot-design/src/utils'
 
 export default {
   mixins: [DatetimePickerMixin],

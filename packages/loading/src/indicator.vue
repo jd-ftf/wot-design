@@ -1,19 +1,19 @@
 <template>
-  <div class="jm-loading-indicator" :style="{ 'width': size, 'height': size, 'color': color }">
-    <span v-if="type === 'circle'" class="jm-loading-indicator__spinner jm-loading-indicator--circle">
+  <div class="wd-loading-indicator" :style="{ 'width': size, 'height': size, 'color': color }">
+    <span v-if="type === 'circle'" class="wd-loading-indicator__spinner wd-loading-indicator--circle">
       <svg viewBox="25 25 50 50">
         <circle cx="50" cy="50" r="20" fill="none"></circle>
       </svg>
     </span>
-    <span v-else-if="type === 'spinner'" class="jm-loading-indicator__spinner jm-loading-indicator--spinner">
-      <i class="jm-loading-indicator__spinner-dot" v-for="item in 12" :key="item"></i>
+    <span v-else-if="type === 'spinner'" class="wd-loading-indicator__spinner wd-loading-indicator--spinner">
+      <i class="wd-loading-indicator__spinner-dot" v-for="item in 12" :key="item"></i>
     </span>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'JmLoading',
+  name: 'WdLoading',
   props: {
     type: {
       type: String,

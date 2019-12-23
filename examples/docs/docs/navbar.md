@@ -6,7 +6,7 @@
 
 ```javascript
 import Vue from 'vue'
-import { Navbar } from '@jd/jm-design'
+import { Navbar } from 'wot-design'
 
 Vue.use(Navbar)
 ```
@@ -14,49 +14,49 @@ Vue.use(Navbar)
 ### 基本用法
 
 ```html
-<jm-navbar title="标题"></jm-navbar>
+<wd-navbar title="标题"></wd-navbar>
 ```
 
 设置 `left` slot。
 
 ```html
-<jm-navbar title="左侧文字">
+<wd-navbar title="左侧文字">
   <div slot="left">
-    <jm-icon class="middle" name="arrow-left" />
+    <wd-icon class="middle" name="arrow-left" />
     <span class="middle">返回</span>
   </div>
-</jm-navbar>
+</wd-navbar>
 ```
 
 设置 `right` slot。
 
 ```html
-<jm-navbar title="右侧文字">
+<wd-navbar title="右侧文字">
   <span slot="right">菜单</span>
-</jm-navbar>
+</wd-navbar>
 ```
 
 同时设置。
 
 ```html
-<jm-navbar title="左右侧文字">
+<wd-navbar title="左右侧文字">
   <div slot="left">
-    <jm-icon class="middle" name="arrow-left" />
+    <wd-icon class="middle" name="arrow-left" />
     <span class="middle">返回</span>
   </div>
   <span slot="right">菜单</span>
-</jm-navbar>
+</wd-navbar>
 ```
 
 如果标题文案过长，则会省略号显示。
 
 ```html
-<jm-navbar title="标题的字数如果太多则超出隐藏">
+<wd-navbar title="标题的字数如果太多则超出隐藏">
   <div slot="left">
-    <jm-icon class="middle" name="arrow-left" />
+    <wd-icon class="middle" name="arrow-left" />
     <span class="middle">返回</span>
   </div>
-</jm-navbar>
+</wd-navbar>
 ```
 
 ### light 主题
@@ -64,7 +64,7 @@ Vue.use(Navbar)
 设置浅色主题。
 
 ```html
-<jm-navbar title="标题" light></jm-navbar>
+<wd-navbar title="标题" light></wd-navbar>
 ```
 
 ### Attributes

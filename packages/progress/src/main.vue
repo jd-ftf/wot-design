@@ -1,15 +1,15 @@
 <template>
-  <div class="jm-progress" :class="{ 'is-with-text': !hideText }">
-    <span class="jm-progress__outer">
-      <i class="jm-progress__inner" :style="{ background: showColor, width: percentage + '%' }"></i>
+  <div class="wd-progress" :class="{ 'is-with-text': !hideText }">
+    <span class="wd-progress__outer">
+      <i class="wd-progress__inner" :style="{ background: showColor, width: percentage + '%' }"></i>
     </span>
-    <span v-if="!hideText" class="jm-progress__label" :style="{ left: percentage + '%' }">{{ percentage }}%</span>
+    <span v-if="!hideText" class="wd-progress__label" :style="{ left: percentage + '%' }">{{ percentage }}%</span>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'JmProgress',
+  name: 'WdProgress',
   props: {
     percentage: {
       type: Number,

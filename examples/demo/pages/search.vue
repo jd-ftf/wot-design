@@ -1,19 +1,19 @@
 <template>
   <div>
     <space title="基本用法">
-      <jm-search v-model="search1" @search="handleSearch" @cancel="handleCancel" @clear="handleClear" />
+      <wd-search v-model="search1" @search="handleSearch" @cancel="handleCancel" @clear="handleClear" />
     </space>
     <space title="白色输入框">
-      <jm-search v-model="search2" light />
+      <wd-search v-model="search2" light />
     </space>
     <space title="搜索占位符居左">
-      <jm-search v-model="search3" placeholder-left />
+      <wd-search v-model="search3" placeholder-left />
     </space>
     <space title="禁用且隐藏取消按钮">
-      <jm-search v-model="search4" hide-cancel disabled />
+      <wd-search v-model="search4" hide-cancel disabled />
     </space>
     <space title="自定义">
-      <jm-search v-model="search5" placeholder="请输入订单号/订单名称" cancel-txt="搜索" />
+      <wd-search v-model="search5" placeholder="请输入订单号/订单名称" cancel-txt="搜索" />
     </space>
   </div>
 </template>

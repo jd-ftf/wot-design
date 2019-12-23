@@ -10,9 +10,9 @@
  */
 
 import Vue from 'vue'
-import jmLoading from './main.vue'
+import wdLoading from './main.vue'
 
-const LoadingConstructor = Vue.extend(jmLoading)
+const LoadingConstructor = Vue.extend(wdLoading)
 let instance
 
 const Loading = {

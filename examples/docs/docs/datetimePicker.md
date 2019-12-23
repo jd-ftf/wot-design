@@ -6,7 +6,7 @@
 
 ```javascript
 import Vue from 'vue'
-import { DatetimePicker } from '@jd/jm-design'
+import { DatetimePicker } from 'wot-design'
 
 Vue.use(DatetimePicker)
 ```
@@ -16,7 +16,7 @@ Vue.use(DatetimePicker)
 `v-model` 设置绑定值，默认为 'datetime' 类型，展示年月日时分，绑定值为 `Date` 类型，如果为 'time' 类型，绑定值为字符串。
 
 ```html
-<jm-datetime-picker v-model="value" label="日期选择" />
+<wd-datetime-picker v-model="value" label="日期选择" />
 
 <script>
 export default {
@@ -34,7 +34,7 @@ export default {
 'date' 类型只展示年月日。
 
 ```html
-<jm-datetime-picker type="date" v-model="value" label="年月日" />
+<wd-datetime-picker type="date" v-model="value" label="年月日" />
 
 <script>
 export default {
@@ -52,7 +52,7 @@ export default {
 'year-month' 类型只展示年月。
 
 ```html
-<jm-datetime-picker type="year-month" v-model="value" label="年月" />
+<wd-datetime-picker type="year-month" v-model="value" label="年月" />
 
 <script>
 export default {
@@ -70,7 +70,7 @@ export default {
 'time' 类型只展示时分。
 
 ```html
-<jm-datetime-picker type="time" v-model="value" label="时分" />
+<wd-datetime-picker type="time" v-model="value" label="时分" />
 
 <script>
 export default {
@@ -88,7 +88,7 @@ export default {
 给 `display-format` 属性传入一个函数，接收所有选中项数组，返回展示的文本内容。
 
 ```html
-<jm-datetime-picker v-model="value" label="展示格式" :display-format="displayFormat" />
+<wd-datetime-picker v-model="value" label="展示格式" :display-format="displayFormat" />
 
 <script>
 export default {
@@ -109,7 +109,7 @@ export default {
 给 `formatter` 属性传入一个函数，接收 `type` 和 `value` 值，返回展示的文本内容。`type` 有 `year`、`month`、`date`、`hour`、`minute` 类型，`value` 为 `number` 类型。
 
 ```html
-<jm-datetime-picker v-model="value" label="内部格式" :formatter="formatter" />
+<wd-datetime-picker v-model="value" label="内部格式" :formatter="formatter" />
 
 <script>
 export default {
@@ -143,7 +143,7 @@ export default {
 给 `filter` 属性传入一个函数，接收 `type` 和 `values` 值，返回列的选项列表。`type` 有 `year`、`month`、`date`、`hour`、`minute` 类型，`values` 为 number数组。
 
 ```html
-<jm-datetime-picker v-model="value" label="过滤选项" :filter="filter" />
+<wd-datetime-picker v-model="value" label="过滤选项" :filter="filter" />
 
 <script>
 export default {

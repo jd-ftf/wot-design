@@ -1,7 +1,7 @@
 /**
  * slider组件
  * 使用：
- * <jm-slider
+ * <wd-slider
  *   属性：
  *   type           // 类型，可选值"single"，"double"，默认值为"single"
  *   :value         // 初始值，类型是Array，默认值是[0, 0]
@@ -17,7 +17,7 @@
  *   @slidingend    // 滑动结束事件
  *   @change        // 值改变事件
  *   @input         // 操作滑块事件
- * ></jm-slider>
+ * ></wd-slider>
  */
 
 import Slider from './src/main'

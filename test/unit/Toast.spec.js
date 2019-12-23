@@ -1,7 +1,7 @@
-import Toast from 'jm-design/packages/toast/index'
+import Toast from 'wot-design/packages/toast/index'
 
 afterEach(() => {
-  const el = document.querySelectorAll('.jm-toast')
+  const el = document.querySelectorAll('.wd-toast')
 
   if (el) {
     for (var i of el) {
@@ -13,8 +13,8 @@ afterEach(() => {
 test('should render correct contents', done => {
   Toast('Test')
   setTimeout(() => {
-    const el = document.querySelector('.jm-toast')
-    expect(el.querySelector('.jm-toast__msg').textContent).toBe('Test')
+    const el = document.querySelector('.wd-toast')
+    expect(el.querySelector('.wd-toast__msg').textContent).toBe('Test')
     done()
   }, 200)
 })
@@ -37,14 +37,14 @@ test('should save Object when close with save', done => {
 test('should toast top and custonIcon', done => {
   Toast({
     msg: 'Test',
-    iconClass: 'jm-icon-test',
+    iconClass: 'wd-icon-test',
     position: 'top'
   })
 
   setTimeout(() => {
-    const dom = document.querySelector('.jm-toast')
-    expect(dom.classList.contains('jm-toast--top')).toBeTruthy()
-    expect(dom.querySelector('.jm-icon-test')).toBeTruthy()
+    const dom = document.querySelector('.wd-toast')
+    expect(dom.classList.contains('wd-toast--top')).toBeTruthy()
+    expect(dom.querySelector('.wd-icon-test')).toBeTruthy()
     done()
   }, 200)
 })
@@ -57,9 +57,9 @@ test('should toast bottom', done => {
   })
 
   setTimeout(() => {
-    const dom = document.querySelector('.jm-toast')
-    expect(dom.classList.contains('jm-toast--bottom')).toBeTruthy()
-    expect(dom.querySelector('.jm-icon-warning')).toBeTruthy()
+    const dom = document.querySelector('.wd-toast')
+    expect(dom.classList.contains('wd-toast--bottom')).toBeTruthy()
+    expect(dom.querySelector('.wd-icon-warning')).toBeTruthy()
     done()
   }, 200)
 })

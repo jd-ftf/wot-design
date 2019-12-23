@@ -23,7 +23,7 @@
     }
 
     @include m(disabled) {
-      .jm-picker__value {
+      .wd-picker__value {
         color: $-picker-column-disabled-color;
       }
     }
