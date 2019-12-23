@@ -31,7 +31,7 @@ let webpackConf = {
         enforce: 'pre',
         include: [utils.resolve('src'), utils.resolve('packages'), utils.resolve('test')],
         options: {
-          formatter: require('eslint-friendly-formatter'),
+          formatter: require('eslint-formatter-friendly'),
           emitWarning: true
         }
       },
