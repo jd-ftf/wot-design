@@ -1,6 +1,5 @@
 const TerserPlugin = require('terser-webpack-plugin')
 const path = require('path')
-const utils = require('./utils')
 const { VueLoaderPlugin } = require('vue-loader')
 const webpack = require('webpack')
 const packageConfig = require('../package')

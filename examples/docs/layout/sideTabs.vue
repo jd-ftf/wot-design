@@ -41,8 +41,8 @@ export default {
     demoLink () {
       let path = location.pathname.slice(0, location.pathname.lastIndexOf('/'))
       return location.protocol + '//' + location.host + (process.env.NODE_ENV === 'dev'
-        ? `/examples#${this.$route.meta.demo}`
-        : `${path}/examples.html#${this.$route.meta.demo}`)
+        ? `/demo#${this.$route.meta.demo}`
+        : `${path}/demo.html#${this.$route.meta.demo}`)
     }
   },
   methods: {
