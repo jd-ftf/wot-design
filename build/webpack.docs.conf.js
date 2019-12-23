@@ -7,14 +7,12 @@ const utils = require('./utils')
 const { VueLoaderPlugin } = require('vue-loader')
 const merge = require('webpack-merge')
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
-const portfinder = require('portfinder')
 const webpack = require('webpack')
 const config = require('./config')
 
 const isDev = process.env.NODE_ENV === 'development'
-let outputConfig
 
-const webpackConf = {
+let webpackConf = {
   mode: isDev ? 'development' : 'production',
   context: path.resolve(__dirname, '../'),
   entry: {
@@ -33,7 +31,7 @@ const webpackConf = {
         enforce: 'pre',
         include: [utils.resolve('src'), utils.resolve('packages'), utils.resolve('test')],
         options: {
-          formatter: require('eslint-friendly-formatter'),
+          formatter: require('eslint-formatter-friendly'),
           emitWarning: true
         }
       },
@@ -98,6 +96,26 @@ const webpackConf = {
     modules: false,
     entrypoints: false
   },
+  devServer: {
+    clientLogLevel: 'warning',
+    historyApiFallback: {
+      rewrites: [
+        { from: /\/docs/, to: '/docs.html' },
+        { from: /\/examples/, to: '/examples.html' },
+      ],
+    },
+    hot: true,
+    contentBase: false,
+    compress: true,
+    host: '0.0.0.0',
+    port: 8075,
+    overlay: {
+      warnings: false,
+      errors: true
+    },
+    quiet: true,
+    disableHostCheck: true
+  },
   plugins: [
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify(isDev ? 'dev' : 'prod')
@@ -114,70 +132,28 @@ const webpackConf = {
       template: path.resolve(__dirname, '../examples/index.html'),
       chunks: ['docs'],
       favicon: path.resolve(__dirname, '../examples/favicon.ico')
-    })
+    }),
+    new webpack.HotModuleReplacementPlugin(),
+    new FriendlyErrorsPlugin({
+      compilationSuccessInfo: {
+        // 页面入口，examples 路径和 docs 入口
+        messages: [
+`App running at:
+  
+  - Docs: http://0.0.0.0:8075/docs
+  - Mobile examples: http://0.0.0.0:8075/examples
+  
+`]}})
   ]
 }
 
-if (isDev) {
-  let devWebpackConf = merge(webpackConf, {
-    devServer: {
-      clientLogLevel: 'warning',
-      historyApiFallback: {
-        rewrites: [
-          { from: /\/docs/, to: '/docs.html' },
-          { from: /\/examples/, to: '/examples.html' },
-        ],
-      },
-      hot: true,
-      contentBase: false,
-      compress: true,
-      host: '0.0.0.0',
-      port: 8090,
-      overlay: {
-        warnings: false,
-        errors: true
-      },
-      quiet: true,
-      disableHostCheck: true
-    },
-    plugins: [
-      new webpack.HotModuleReplacementPlugin()
-    ]
-  })
-  outputConfig = new Promise((resolve, reject) => {
-    portfinder.basePort = 8090
-    portfinder.getPort((err, port) => {
-      if (err) {
-        reject(err)
-      } else {
-        process.env.PORT = port
-        devWebpackConf.devServer.port = port
-  
-        devWebpackConf.plugins.push(new FriendlyErrorsPlugin({
-          compilationSuccessInfo: {
-            // 页面入口，examples 路径和 docs 入口
-            messages: [
-    `App running at:
-      
-      - Docs: http://${devWebpackConf.devServer.host}:${port}/docs
-      - Mobile examples: http://${devWebpackConf.devServer.host}:${port}/examples
-      
-    `],
-          },
-          onErrors: utils.createNotifierCallback()
-        }))
-  
-        resolve(devWebpackConf)
-      }
-    })
-  })
-} else {
-  outputConfig = merge(webpackConf, {
+if (!isDev) {
+  webpackConf = merge(webpackConf, {
     output: {
       publicPath: './',
       path: path.resolve(__dirname, '../docs'),
-      filename: utils.assetsPath('js/[name].[chunkhash].js'),
-      chunkFilename: utils.assetsPath('js/[id].[chunkhash].js')
+      filename: utils.assetsPath('js/[name].[hash].js'),
+      chunkFilename: utils.assetsPath('js/[id].[hash].js')
     },
     optimization: {
       minimizer: [
@@ -198,4 +174,4 @@ if (isDev) {
   })
 }
 
-module.exports = outputConfig
+module.exports = webpackConf

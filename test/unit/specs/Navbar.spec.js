@@ -1,4 +1,4 @@
-import Navbar from 'jm-design/navbar/index.js'
+import Navbar from 'jm-design/packages/navbar/index.js'
 import { destroyVM, createComVM, createTplVM } from '../util'
 
 describe('Navbar', () => {
