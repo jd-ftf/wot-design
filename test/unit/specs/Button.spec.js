@@ -1,4 +1,4 @@
-import Button from 'jm-design/button/index.js'
+import Button from 'jm-design/packages/button/index.js'
 import { destroyVM, createTplVM } from '../util'
 
 describe('Button', () => {
@@ -11,7 +11,6 @@ describe('Button', () => {
     vm = createTplVM({
       template: '<jm-button>primary</jm-button>'
     })
-
     expect(vm.$el.querySelector('span').textContent).to.equal('primary')
   })
 })
