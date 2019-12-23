@@ -110,7 +110,7 @@ export default {
 如果提供的弹框内容不满足需求，可以使用 `jm-message-box` 组件，自定义弹框内容。
 
 ```html
-<jm-message-box v-model="isShow" show-cancel-button @action="handleAction" title="评分">
+<jm-message-box :show="isShow" show-cancel-button @action="handleAction" title="评分">
   <jm-rate v-model="rate" />
 </jm-message-box>
 
@@ -124,6 +124,7 @@ export default {
   },
   methods: {
     handleAction (action) {
+      this.isShow = false
       if (action === 'confirm') {
         this.$messageBox.alert(`你的评分为：${this.rate}分`)
       }
@@ -180,3 +181,13 @@ this.$messageBox.prompt(title, options) //  title 可以跳过不写，即支持
 | closeOnClickModal      | 是否支持点击蒙层进行关闭，点击蒙层回调传入的action是'modal'     | boolean    | -          | true   |
 | confirmButtonText      | 确定按钮文案      | string    | -          | '确定'   |
 | cancelButtonText      | 取消按钮文案     | string    | -          | '取消'   |
+
+#### Events
+
+| 事件名称      | 说明                                 | 参数     |
+|------------- |------------------------------------ |--------- |
+| open | 当弹窗打开时触发 | - |
+| opened | 当弹窗完全打开时触发 | - |
+| close | 当弹窗关闭时触发 | - |
+| closed | 当弹窗完全关闭时触发 | - |
+| action | 当点击蒙层（modal）、取消按钮（cancel）、确定按钮（confirm）时触发 | 'modal' / 'cancel' / 'confirm' |

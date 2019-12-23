@@ -2,7 +2,7 @@
   <jm-popup
     class="jm-message-box"
     :lock-scroll="lockScroll"
-    :value="value"
+    :value="show"
     :close-on-click-modal="closeOnClickModal"
     transition="jm-zoom-in"
     @click-modal="toggleModal('modal')"
@@ -89,7 +89,7 @@ export default {
       type: Boolean,
       default: false
     },
-    value: {
+    show: {
       type: Boolean,
       default: false
     },
@@ -110,8 +110,8 @@ export default {
         this.showErr = false
       }
     },
-    value (val) {
-      !this.value && (this.showErr = false)
+    show (val) {
+      !this.show && (this.showErr = false)
       const type = this.value ? 'open' : 'close'
       this.$emit(type)
     }
@@ -126,8 +126,8 @@ export default {
         return
       }
 
-      this.$emit('input', !this.value)
       if (this.callback) {
+        this.show = !this.show
         this.callback(action)
       }
       this.$emit('action', action)
