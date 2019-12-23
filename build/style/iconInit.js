@@ -15,4 +15,4 @@ nodes.forEach((node) => {
   }
 });
 
-fs.writeFile(path.resolve(__dirname, '../../examples-m/icon.json'), JSON.stringify(classList), () => {});
+fs.writeFile(path.resolve(__dirname, '../../examples/demo/icon.json'), JSON.stringify(classList), () => {});

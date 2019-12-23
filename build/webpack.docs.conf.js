@@ -47,8 +47,8 @@ let webpackConf = {
   mode: isDev ? 'development' : 'production',
   context: path.resolve(__dirname, '../'),
   entry: {
-    examples: './examples-m/main.js',
-    docs: './examples/main.js'
+    demo: './examples/demo/main.js',
+    docs: './examples/docs/main.js'
   },
   output: {
     publicPath: '/',
@@ -132,7 +132,7 @@ let webpackConf = {
     historyApiFallback: {
       rewrites: [
         { from: /\/docs/, to: '/docs.html' },
-        { from: /\/examples/, to: '/examples.html' },
+        { from: /\/demo/, to: '/demo.html' },
       ],
     },
     hot: true,
@@ -153,26 +153,26 @@ let webpackConf = {
     }),
     new VueLoaderPlugin(),
     new HtmlWebpackPlugin({
-      filename: isDev ? 'examples.html' : path.resolve(__dirname, '../docs/examples.html'),
-      template: path.resolve(__dirname, '../examples-m/index.html'),
-      chunks: ['examples'],
-      favicon: path.resolve(__dirname, '../examples-m/favicon.ico')
+      filename: isDev ? 'demo.html' : path.resolve(__dirname, '../examples/dist/demo.html'),
+      template: path.resolve(__dirname, '../examples/demo/index.html'),
+      chunks: ['demo'],
+      favicon: path.resolve(__dirname, '../examples/demo/favicon.ico')
     }),
     new HtmlWebpackPlugin({
-      filename: isDev ? 'docs.html' : path.resolve(__dirname, '../docs/docs.html'),
-      template: path.resolve(__dirname, '../examples/index.html'),
+      filename: isDev ? 'docs.html' : path.resolve(__dirname, '../examples/dist/docs.html'),
+      template: path.resolve(__dirname, '../examples/docs/index.html'),
       chunks: ['docs'],
-      favicon: path.resolve(__dirname, '../examples/favicon.ico')
+      favicon: path.resolve(__dirname, '../examples/docs/favicon.ico')
     }),
     new webpack.HotModuleReplacementPlugin(),
     new FriendlyErrorsPlugin({
       compilationSuccessInfo: {
-        // 页面入口，examples 路径和 docs 入口
+        // demo 路径和 docs 入口
         messages: [
 `App running at:
   
   - Docs: http://0.0.0.0:8075/docs
-  - Mobile examples: http://0.0.0.0:8075/examples
+  - Mobile demo: http://0.0.0.0:8075/demo
   
 `]}})
   ]
@@ -182,7 +182,7 @@ if (!isDev) {
   webpackConf = merge(webpackConf, {
     output: {
       publicPath: './',
-      path: path.resolve(__dirname, '../docs'),
+      path: path.resolve(__dirname, '../examples/dist'),
       filename: assetsPath('js/[name].[hash].js'),
       chunkFilename: assetsPath('js/[id].[hash].js')
     },
