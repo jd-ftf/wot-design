@@ -10,7 +10,7 @@ npm install wot-design
 
 ### CDN引用
 
-在页面上引入 `WotDesign` 的JS文件和CSS文件，即可使用 `WotDesign` 的组件
+在页面上引入 Wot Design 的JS文件和CSS文件，即可使用 Wot Design 的组件
 
 ```html
 <!-- 引入样式文件 -->

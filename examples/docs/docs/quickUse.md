@@ -1,6 +1,6 @@
 ## 快速上手
 
-本节介绍如何在单页面应用中使用 `WotDesign`
+本节介绍如何在单页面应用中使用 Wot Design
 
 ### 使用 vue-cli
 
@@ -15,9 +15,9 @@ npm i wot-design
 
 使用 vue-cli 脚手架快速创建一个 Vue 项目，并在该项目中安装 `wot-design`
 
-### 引入 WotDesign
+### 引入 Wot Design
 
-在项目的 src/main.js 文件中，引入 `WotDesign`
+在项目的 src/main.js 文件中，引入 Wot Design
 
 ```javascript
 import Vue from 'vue'
