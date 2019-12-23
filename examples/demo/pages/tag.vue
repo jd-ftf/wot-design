@@ -1,33 +1,33 @@
 <template>
   <div class="page-tag">
     <white-space title="基本用法">
-      <jm-tag>标签</jm-tag>
-      <jm-tag type="primary">标签</jm-tag>
-      <jm-tag type="danger">标签</jm-tag>
-      <jm-tag type="warning">标签</jm-tag>
-      <jm-tag type="success">标签</jm-tag>
+      <wd-tag>标签</wd-tag>
+      <wd-tag type="primary">标签</wd-tag>
+      <wd-tag type="danger">标签</wd-tag>
+      <wd-tag type="warning">标签</wd-tag>
+      <wd-tag type="success">标签</wd-tag>
     </white-space>
     <white-space title="幽灵标签">
-      <jm-tag plain>标签</jm-tag>
-      <jm-tag type="primary" plain>标签</jm-tag>
-      <jm-tag type="danger" plain>标签</jm-tag>
-      <jm-tag type="warning" plain>标签</jm-tag>
-      <jm-tag type="success" plain>标签</jm-tag>
+      <wd-tag plain>标签</wd-tag>
+      <wd-tag type="primary" plain>标签</wd-tag>
+      <wd-tag type="danger" plain>标签</wd-tag>
+      <wd-tag type="warning" plain>标签</wd-tag>
+      <wd-tag type="success" plain>标签</wd-tag>
     </white-space>
     <white-space title="标签大小">
-      <jm-tag size="small">标签</jm-tag>
-      <jm-tag>标签</jm-tag>
-      <jm-tag size="large">标签</jm-tag>
+      <wd-tag size="small">标签</wd-tag>
+      <wd-tag>标签</wd-tag>
+      <wd-tag size="large">标签</wd-tag>
     </white-space>
     <white-space title="自定义颜色">
-      <jm-tag color="#0083ff" bg-color="#d0e8ff">标签</jm-tag>
-      <jm-tag color="#faa21e" bg-color="#faa21e" plain>标签</jm-tag>
+      <wd-tag color="#0083ff" bg-color="#d0e8ff">标签</wd-tag>
+      <wd-tag color="#faa21e" bg-color="#faa21e" plain>标签</wd-tag>
     </white-space>
     <white-space title="设置图标">
-      <jm-tag icon="jm-icon-tickets">标签</jm-tag>
+      <wd-tag icon="wd-icon-tickets">标签</wd-tag>
     </white-space>
     <white-space title="可关闭">
-      <jm-tag v-for="tag in tags" :key="tag.name" type="primary" closable :size="tag.size" plain @close="handleClose(tag)">{{ tag.name }}</jm-tag>
+      <wd-tag v-for="tag in tags" :key="tag.name" type="primary" closable :size="tag.size" plain @close="handleClose(tag)">{{ tag.name }}</wd-tag>
     </white-space>
   </div>
 </template>
@@ -58,7 +58,7 @@ export default {
 
 <style lang="scss">
 .page-tag {
-  .jm-tag {
+  .wd-tag {
     margin-right: 15px;
 
     &:last-child {

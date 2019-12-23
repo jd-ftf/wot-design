@@ -1,6 +1,6 @@
 <template>
   <ul
-    class="jm-picker-view-column"
+    class="wd-picker-view-column"
     :style="{
       'transform': `translate(0, ${offset + baseOffset}px)`,
       'transition-duration': `${duration}ms`
@@ -15,9 +15,9 @@
       v-for="(item, index) in data"
       :key="index"
       :class="{
-        'jm-picker-view-column__item': 1,
-        'jm-picker-view-column__item--active': index === selectedIndex,
-        'jm-picker-view-column__item--disabled': typeof item === 'string' ? false : item.disabled
+        'wd-picker-view-column__item': 1,
+        'wd-picker-view-column__item--active': index === selectedIndex,
+        'wd-picker-view-column__item--disabled': typeof item === 'string' ? false : item.disabled
       }"
       :style="{
         'height': itemHeight + 'px',
@@ -32,8 +32,8 @@
 </template>
 
 <script>
-import touchMixin from 'jm-design/src/mixins/touch'
-import { range } from 'jm-design/src/utils'
+import touchMixin from 'wot-design/src/mixins/touch'
+import { range } from 'wot-design/src/utils'
 
 const SELECT_DURATION = 300 // 选择滑动持续时间
 const MOMENTUM_LIMIT_DURATION = 300 // 惯性滑动限制最大时间
@@ -41,7 +41,7 @@ const MOMENTUM_LIMIT_DISTANCE = 15 // 惯性滑动限制最大距离
 const MOMENTUM_DURATION = 1000 // 惯性滑动持续时间
 
 export default {
-  name: 'JmPickerViewColumn',
+  name: 'WdPickerViewColumn',
   mixins: [touchMixin],
   data () {
     return {

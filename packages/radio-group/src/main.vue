@@ -1,12 +1,12 @@
 <template>
-  <div class="jm-radio-group">
+  <div class="wd-radio-group">
     <slot></slot>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'JmRadioGroup',
+  name: 'WdRadioGroup',
   props: {
     value: [String, Number, Boolean],
     shape: {

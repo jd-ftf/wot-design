@@ -2,21 +2,21 @@
   <transition :name="transitionName" @after-enter="handleOpened" @after-leave="handleClosed">
     <div
       v-show="value"
-      class="jm-popup"
-      :class="[ `jm-popup--${position}` ]"
+      class="wd-popup"
+      :class="[ `wd-popup--${position}` ]"
       :style="{ 'transition-duration': duration ? (duration + 'ms') : '' }"
     >
       <slot></slot>
-      <i v-if="closable" class="jm-popup__close jm-icon-add" @click="close"></i>
+      <i v-if="closable" class="wd-popup__close wd-icon-add" @click="close"></i>
     </div>
   </transition>
 </template>
 
 <script>
-import popupMixin from 'jm-design/src/mixins/popup'
+import popupMixin from 'wot-design/src/mixins/popup'
 
 export default {
-  name: 'JmPopup',
+  name: 'WdPopup',
   mixins: [popupMixin],
   props: {
     position: {
@@ -34,9 +34,9 @@ export default {
       }
 
       if (this.position === 'center') {
-        return 'jm-fade'
+        return 'wd-fade'
       } else {
-        return `jm-popup-slide-${this.position}`
+        return `wd-popup-slide-${this.position}`
       }
     }
   },

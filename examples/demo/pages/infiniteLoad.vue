@@ -7,7 +7,7 @@
           <div>{{ item.text }}</div>
         </div>
       </div>
-      <jm-infinite-load ref="loadmore" @loadmore="loadmore" :loading="loading" />
+      <wd-infinite-load ref="loadmore" @loadmore="loadmore" :loading="loading" />
     </div>
   </div>
 </template>

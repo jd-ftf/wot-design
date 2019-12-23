@@ -1,11 +1,11 @@
 <template>
-  <div class="jm-search" :class="{ 'is-light': light, 'is-without-cancel': hideCancel }">
-    <div class="jm-search__block" @click="searchFocus">
+  <div class="wd-search" :class="{ 'is-light': light, 'is-without-cancel': hideCancel }">
+    <div class="wd-search__block" @click="searchFocus">
       <form action="#" @submit.prevent="preventSubmit">
         <input
           type="search"
           :value="value"
-          class="jm-search__input"
+          class="wd-search__input"
           autocomplete="off"
           ref="searchInput"
           @input="input"
@@ -18,25 +18,25 @@
           :autofocus="autofocus"
         />
       </form>
-      <div class="jm-search__placeholder" :class="{ 'is-focus': isFocus || (!typing && value) || placeholderLeft }">
-        <i class="jm-icon-search jm-search__search-icon"></i>
-        <span v-show="!typing && !value" class="jm-search__placeholder-txt">{{ placeholder || t('jmd.search.search') }}</span>
+      <div class="wd-search__placeholder" :class="{ 'is-focus': isFocus || (!typing && value) || placeholderLeft }">
+        <i class="wd-icon-search wd-search__search-icon"></i>
+        <span v-show="!typing && !value" class="wd-search__placeholder-txt">{{ placeholder || t('wd.search.search') }}</span>
       </div>
-      <i v-show="typing || value" class="jm-search__clear jm-icon-close-fill" @click="clearSearch"></i>
+      <i v-show="typing || value" class="wd-search__clear wd-icon-close-fill" @click="clearSearch"></i>
     </div>
     <slot name="action">
-      <div v-show="!hideCancel" class="jm-search__cancel" @click="handleCancel">
-        {{ cancelTxt || t('jmd.search.cancel') }}
+      <div v-show="!hideCancel" class="wd-search__cancel" @click="handleCancel">
+        {{ cancelTxt || t('wd.search.cancel') }}
       </div>
     </slot>
   </div>
 </template>
 
 <script>
-import locale from 'jm-design/src/mixins/locale'
+import locale from 'wot-design/src/mixins/locale'
 
 export default {
-  name: 'JmSearch',
+  name: 'WdSearch',
   mixins: [locale],
   props: {
     value: String,

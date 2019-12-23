@@ -1,7 +1,7 @@
 <template>
-  <div class="jm-picker-view">
-    <div class="jm-picker-view__columns" :style="{ 'height': itemHeight * visibleItemCount + 'px' }">
-      <jm-picker-view-column
+  <div class="wd-picker-view">
+    <div class="wd-picker-view__columns" :style="{ 'height': itemHeight * visibleItemCount + 'px' }">
+      <wd-picker-view-column
         v-for="(column, index) in formatColumns"
         :key="index"
         :visible-item-count="visibleItemCount"
@@ -13,27 +13,27 @@
         :label-key="labelKey"
         @change="onChange(index)"
       />
-      <div class="jm-picker-view__mask" :style="{ 'background-size': `100% ${itemHeight * (visibleItemCount - 1) / 2}px` }"></div>
-      <div class="jm-picker-view__select" :style="{ 'height': `${itemHeight}px` }"></div>
-      <div v-if="loading" class="jm-picker-view__loading">
-        <jm-loading size="30px" color="#0083ff" />
+      <div class="wd-picker-view__mask" :style="{ 'background-size': `100% ${itemHeight * (visibleItemCount - 1) / 2}px` }"></div>
+      <div class="wd-picker-view__select" :style="{ 'height': `${itemHeight}px` }"></div>
+      <div v-if="loading" class="wd-picker-view__loading">
+        <wd-loading size="30px" color="#0083ff" />
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import locale from 'jm-design/src/mixins/locale'
+import locale from 'wot-design/src/mixins/locale'
 import pickerViewProps from './pickerViewProps'
-import JmPickerViewColumn from './pickerColumn'
-import JmLoading from 'jm-design/packages/loading'
+import WdPickerViewColumn from './pickerColumn'
+import WdLoading from 'wot-design/packages/loading'
 
 export default {
-  name: 'JmPickerView',
+  name: 'WdPickerView',
   mixins: [locale],
   components: {
-    JmPickerViewColumn,
-    JmLoading: JmLoading.Indicator
+    WdPickerViewColumn,
+    WdLoading: WdLoading.Indicator
   },
   data () {
     return {

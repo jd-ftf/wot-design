@@ -54,11 +54,11 @@
     transition: opacity .2s;
   }
   @include when(checked) {
-    .jm-radio__shape {
+    .wd-radio__shape {
       color: $-radio-color-checked;
       border-color: currentColor;
     }
-    .jm-radio__check {
+    .wd-radio__check {
       color: $-radio-color-checked;
       opacity: 1;
     }
@@ -72,14 +72,14 @@
     &:last-child {
       margin-right: 0;
     }
-    .jm-radio__shape {
+    .wd-radio__shape {
       width: 0;
       height: 0;
       overflow: hidden;
       opacity: 0;
       border: none;
     }
-    .jm-radio__label {
+    .wd-radio__label {
       margin-left: 0;
       padding: 4px 28px;
       border: 1px solid $-radio-color-border;
@@ -87,7 +87,7 @@
       transition: all .2s;
     }
     @include when(checked) {
-      .jm-radio__label {
+      .wd-radio__label {
         color: $-radio-color-checked;
         border-color: currentColor;
       }
@@ -95,25 +95,25 @@
   }
 
   @include when(disabled) {
-    .jm-radio__shape {
+    .wd-radio__shape {
       border-color: $-radio-color-disabled-label;
     }
-    .jm-radio__label {
+    .wd-radio__label {
       color: $-radio-color-disabled-label;
     }
     @include when(checked) {
-      .jm-radio__shape {
+      .wd-radio__shape {
         color: $-radio-color-disabled-label;
       }
-      .jm-radio__check {
+      .wd-radio__check {
         color: $-radio-color-disabled-label;
       }
-      .jm-radio__label {
+      .wd-radio__label {
         color: $-radio-color-disabled-label;
       }
     }
     @include when(button) {
-      .jm-radio__label {
+      .wd-radio__label {
         border-color: $-radio-color-disabled;
       }
     }

@@ -15,9 +15,9 @@
  */
 
 import Vue from 'vue'
-import jmToast from './src/main.vue'
+import wdToast from './src/main.vue'
 
-const ToastConstructor = Vue.extend(jmToast)
+const ToastConstructor = Vue.extend(wdToast)
 
 let toast
 

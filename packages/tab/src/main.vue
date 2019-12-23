@@ -1,13 +1,13 @@
 <template>
-  <div class="jm-tab" :style="tabStyle">
+  <div class="wd-tab" :style="tabStyle">
     <slot v-if="shouldRender"></slot>
-    <div v-if="disabled" class="jm-tab__disabled-modal"></div>
+    <div v-if="disabled" class="wd-tab__disabled-modal"></div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'JmTab',
+  name: 'WdTab',
   inject: ['tabs'],
   data () {
     return {

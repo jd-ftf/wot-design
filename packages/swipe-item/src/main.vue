@@ -1,12 +1,12 @@
 <template>
-  <div class="jm-swipe-item" :style="computedSty">
+  <div class="wd-swipe-item" :style="computedSty">
     <slot></slot>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'JmSwipeItem',
+  name: 'WdSwipeItem',
   data () {
     return {
       offset: 0

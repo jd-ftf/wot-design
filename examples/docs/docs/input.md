@@ -4,7 +4,7 @@
 
 ```javascript
 import Vue from 'vue'
-import { Input } from '@jd/jm-design'
+import { Input } from 'wot-design'
 
 Vue.use(Input)
 ```
@@ -14,7 +14,7 @@ Vue.use(Input)
 `v-model` 为绑定值。
 
 ```html
-<jm-input v-model="input" placeholder="请输入用户名" />
+<wd-input v-model="input" placeholder="请输入用户名" />
 
 <script>
 export default {
@@ -32,7 +32,7 @@ export default {
 设置 `disabled` 属性。
 
 ```html
-<jm-input v-model="input" disabled />
+<wd-input v-model="input" disabled />
 ```
 
 ### 只读
@@ -40,7 +40,7 @@ export default {
 设置 `readonly` 属性。
 
 ```html
-<jm-input v-model="input" readonly />
+<wd-input v-model="input" readonly />
 ```
 
 ### 清空按钮
@@ -48,7 +48,7 @@ export default {
 设置 `clearable` 属性。
 
 ```html
-<jm-input v-model="input" clearable />
+<wd-input v-model="input" clearable />
 ```
 
 ### 密码输入框
@@ -56,7 +56,7 @@ export default {
 设置 `show-password` 属性。
 
 ```html
-<jm-input v-model="input" clearable show-password />
+<wd-input v-model="input" clearable show-password />
 ```
 
 ### 前后icon
@@ -64,7 +64,7 @@ export default {
 设置前置icon `prefix-icon`，设置后置icon `suffix-icon`。
 
 ```html
-<jm-input v-model="input" prefix-icon="jm-icon-person" suffix-icon="jm-icon-tickets" />
+<wd-input v-model="input" prefix-icon="wd-icon-person" suffix-icon="wd-icon-tickets" />
 ```
 
 ### 限制字数输入
@@ -72,7 +72,7 @@ export default {
 设置 `maxlength` 属性，如果要显示字数限制，设置 `show-word-limit` 属性。
 
 ```html
-<jm-input v-model="input" maxlength="20" show-word-limit />
+<wd-input v-model="input" maxlength="20" show-word-limit />
 ```
 
 ### 文本域
@@ -80,19 +80,19 @@ export default {
 设置 `type` 为 'textarea`。
 
 ```html
-<jm-input type="textarea" v-model="input" placeholder="请填写评价..." />
+<wd-input type="textarea" v-model="input" placeholder="请填写评价..." />
 ```
 
 设置清空，字数限制，设置 `rows` 行数。也可以设置 `autosize` ，使文本域高度自动增加。
 
 ```html
-<jm-input type="textarea" v-model="input" :rows="6" maxlength="120" clearable show-word-limit />
+<wd-input type="textarea" v-model="input" :rows="6" maxlength="120" clearable show-word-limit />
 ```
 
 ### 普通输入框高度自增加
 
 ```html
-<jm-input v-model="input" autosize clearable />
+<wd-input v-model="input" autosize clearable />
 ```
 
 ### Attributes

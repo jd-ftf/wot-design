@@ -1,24 +1,24 @@
 <template>
   <button
     :type="nativeType"
-    class="jm-button"
+    class="wd-button"
     :class="btnClass"
     :disabled="disabled"
     @click="handleClick"
   >
-    <jm-indicator v-if="loading" class="jm-button__loading" type="spinner" size="" color="" />
-    <i v-if="icon" class="jm-button__icon" :class="icon"></i>
-    <span class="jm-button__txt"><slot></slot></span>
+    <wd-indicator v-if="loading" class="wd-button__loading" type="spinner" size="" color="" />
+    <i v-if="icon" class="wd-button__icon" :class="icon"></i>
+    <span class="wd-button__txt"><slot></slot></span>
   </button>
 </template>
 
 <script>
-import JmLoading from 'jm-design/packages/loading'
+import WdLoading from 'wot-design/packages/loading'
 
 export default {
-  name: 'JmButton',
+  name: 'WdButton',
   components: {
-    JmIndicator: JmLoading.Indicator
+    WdIndicator: WdLoading.Indicator
   },
   props: {
     type: String,

@@ -53,16 +53,16 @@
     vertical-align: middle;
   }
 
-  .jm-slice-down-enter-active {
+  .wd-slice-down-enter-active {
     transform: translate3d(-50%, 10px, 0);
   }
-  .jm-slice-down-enter {
+  .wd-slice-down-enter {
     transform: translate3d(-50%, -34px, 0);
   }
-  .jm-slice-down-leave-active {
+  .wd-slice-down-leave-active {
     opacity: 1;
   }
-  .jm-slice-down-leave-to {
+  .wd-slice-down-leave-to {
     opacity: 0;
   }
 }

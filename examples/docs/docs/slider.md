@@ -6,7 +6,7 @@
 
 ```javascript
 import Vue from 'vue'
-import { Slider } from '@jd/jm-design'
+import { Slider } from 'wot-design'
 
 Vue.use(Slider)
 ```
@@ -16,7 +16,7 @@ Vue.use(Slider)
 `v-model` 为绑定值。如果为 number 类型则显示一个滑块，如果为 array 类型则显示两个滑块。
 
 ```html
-<jm-slider v-model="value" />
+<wd-slider v-model="value" />
 
 <script>
 export default {
@@ -32,7 +32,7 @@ export default {
 双滑块。
 
 ```html
-<jm-slider v-model="value" />
+<wd-slider v-model="value" />
 
 <script>
 export default {
@@ -50,7 +50,7 @@ export default {
 设置 `min` 最小值，`max` 最大值。
 
 ```html
-<jm-slider :min="4" :max="677" v-model="value" />
+<wd-slider :min="4" :max="677" v-model="value" />
 ```
 
 ### 隐藏文案
@@ -58,13 +58,13 @@ export default {
 设置 `hide-label` 隐藏滑块当前值。
 
 ```html
-<jm-slider v-model="value" hide-label />
+<wd-slider v-model="value" hide-label />
 ```
 
 设置 `hide-min-max` 隐藏最大最小值。
 
 ```html
-<jm-slider v-model="value" hide-min-max />
+<wd-slider v-model="value" hide-min-max />
 ```
 
 ### 禁用
@@ -72,7 +72,7 @@ export default {
 设置 `disabled` 属性。
 
 ```html
-<jm-slider v-model="value" disabled />
+<wd-slider v-model="value" disabled />
 ```
 
 ### Attributes

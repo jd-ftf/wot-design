@@ -66,7 +66,7 @@ export default {
         on(document, 'touchmove', this.onTouchMove)
 
         if (!context.lockCount) {
-          document.body.classList.add('jm-overflow-hidden')
+          document.body.classList.add('wd-overflow-hidden')
         }
         context.lockCount++
       }
@@ -80,7 +80,7 @@ export default {
         context.lockCount--
 
         if (!context.lockCount) {
-          document.body.classList.remove('jm-overflow-hidden')
+          document.body.classList.remove('wd-overflow-hidden')
         }
       }
 

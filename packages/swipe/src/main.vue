@@ -1,7 +1,7 @@
 <template>
-  <div class="jm-swipe" :class="{ 'is-vertical': vertical }" :style="{ height: height }">
+  <div class="wd-swipe" :class="{ 'is-vertical': vertical }" :style="{ height: height }">
     <div
-      class="jm-swipe__container"
+      class="wd-swipe__container"
       :style="containerStyle"
       @touchstart="onTouchStart"
       @touchmove="onTouchMove"
@@ -10,11 +10,11 @@
       <slot></slot>
     </div>
     <slot name="indicators">
-      <div v-if="!hideIndicators" class="jm-swipe__indicators">
+      <div v-if="!hideIndicators" class="wd-swipe__indicators">
         <i
           v-for="item in count"
           :key="item"
-          class="jm-swipe__indicator"
+          class="wd-swipe__indicator"
           :style="{
             'background': item - 1 === countIndex ? indicatorActiveColor : indicatorColor
           }"
@@ -26,7 +26,7 @@
 
 <script>
 export default {
-  name: 'JmSwipe',
+  name: 'WdSwipe',
   data () {
     return {
       index: 0,

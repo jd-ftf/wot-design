@@ -4,7 +4,7 @@
 
 ```javascript
 import Vue from 'vue'
-import { Popup } from '@jd/jm-design'
+import { Popup } from 'wot-design'
 
 Vue.use(Popup)
 ```
@@ -14,8 +14,8 @@ Vue.use(Popup)
 `v-model` 为绑定值，表示是否展示弹出层。
 
 ```html
-<jm-button type="primary" plain @click="show = true">弹出层</jm-button>
-<jm-popup v-model="show" :style="{ 'padding': '30px 40px' }">内容</jm-popup>
+<wd-button type="primary" plain @click="show = true">弹出层</wd-button>
+<wd-popup v-model="show" :style="{ 'padding': '30px 40px' }">内容</wd-popup>
 ```
 
 ### 弹出位置
@@ -23,7 +23,7 @@ Vue.use(Popup)
 设置 `position`，默认为 'center'，可选值 'top', 'right', 'bottom', 'left'。
 
 ```html
-<jm-popup v-model="show" position="top" :style="{ 'height': '200px' }"></jm-popup>
+<wd-popup v-model="show" position="top" :style="{ 'height': '200px' }"></wd-popup>
 ```
 
 ### 关闭按钮
@@ -31,7 +31,7 @@ Vue.use(Popup)
 设置 `closable` 属性。
 
 ```html
-<jm-popup v-model="show" position="bottom" :style="{ 'height': '200px' }" closable></jm-popup>
+<wd-popup v-model="show" position="bottom" :style="{ 'height': '200px' }" closable></wd-popup>
 ```
 
 ### Attributes

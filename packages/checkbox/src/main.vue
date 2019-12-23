@@ -1,6 +1,6 @@
 <template>
   <label
-    class="jm-checkbox"
+    class="wd-checkbox"
     :class="{
       'is-checked': isChecked,
       'is-button': finalShape === 'button',
@@ -8,16 +8,16 @@
     }"
   >
     <span
-      class="jm-checkbox__shape"
+      class="wd-checkbox__shape"
       :class="{
         'is-square': finalShape === 'square'
       }"
       :style="{ 'color': isChecked && !finalDisabled ? finalCheckedColor : '' }"
     >
       <i
-        class="jm-checkbox__check"
+        class="wd-checkbox__check"
         :class="{
-          'jm-icon-check-round': finalShape === 'circle' || finalShape === 'square'
+          'wd-icon-check-round': finalShape === 'circle' || finalShape === 'square'
         }"
         :style="{
           'color': isChecked && finalShape !== 'circle' && finalShape !== 'square' && !finalDisabled ? finalCheckedColor : ''
@@ -25,7 +25,7 @@
       ></i>
       <input
         type="checkbox"
-        class="jm-checkbox__input"
+        class="wd-checkbox__input"
         :value="value"
         :checked="isChecked"
         :disabled="finalDisabled"
@@ -33,11 +33,11 @@
       />
     </span>
     <div
-      class="jm-checkbox__label"
+      class="wd-checkbox__label"
       :style="{ 'color': isChecked && finalShape === 'button' && !finalDisabled ? finalCheckedColor : '' }"
     >
-      <i class="jm-checkbox__btn-check jm-icon-check" v-if="finalShape === 'button' && isChecked"></i>
-      <span class="jm-checkbox__txt">
+      <i class="wd-checkbox__btn-check wd-icon-check" v-if="finalShape === 'button' && isChecked"></i>
+      <span class="wd-checkbox__txt">
         <slot></slot>
       </span>
     </div>
@@ -46,7 +46,7 @@
 
 <script>
 export default {
-  name: 'JmCheckbox',
+  name: 'WdCheckbox',
   inject: {
     checkboxGroup: {
       default: ''

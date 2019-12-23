@@ -21,7 +21,7 @@
     background: $disabled;
     border-color: $disabled;
   }
-  .jm-button__loading {
+  .wd-button__loading {
     color: #fff;
   }
   @include when(loading) {
@@ -54,7 +54,7 @@
     border-color: $disabled;
     background: transparent;
   }
-  .jm-button__loading {
+  .wd-button__loading {
     color: $disabled;
   }
   @include when(loading) {
@@ -129,7 +129,7 @@
     @include when(round) {
       border-radius: $-button-small-round-radius;
     }
-    .jm-button__loading {
+    .wd-button__loading {
       width: $-button-small-loading;
       height: $-button-small-loading;
     }
@@ -144,7 +144,7 @@
     @include when(round) {
       border-radius: $-button-medium-round-radius;
     }
-    .jm-button__loading {
+    .wd-button__loading {
       width: $-button-medium-loading;
       height: $-button-medium-loading;
     }
@@ -159,7 +159,7 @@
     @include when(round) {
       border-radius: $-button-large-round-radius;
     }
-    .jm-button__loading {
+    .wd-button__loading {
       width: $-button-large-loading;
       height: $-button-large-loading;
     }

@@ -1,6 +1,6 @@
 <template>
   <div
-    class="jm-input"
+    class="wd-input"
     :class="{
       'is-textarea': type === 'textarea',
       'is-disabled': disabled,
@@ -9,14 +9,14 @@
   >
     <template v-if="type === 'textarea' || (type === 'text' && autosize)">
       <div
-        class="jm-input__textarea"
+        class="wd-input__textarea"
         :class="{
           'is-show-limit': showWordCount,
           'is-text-auto': type === 'text' && autosize
         }"
       >
         <textarea
-          class="jm-input__textarea-inner"
+          class="wd-input__textarea-inner"
           :class="{
             'is-suffix': showClear
           }"
@@ -35,25 +35,25 @@
           @blur="handleBlur"
           ref="textarea"
         ></textarea>
-        <div class="jm-input__textarea-suffix">
-          <i v-show="showClear" class="jm-input__textarea-icon jm-icon-close-outline" @click="clear"></i>
-          <span v-if="showWordCount" class="jm-input__textarea-count">
-            <span class="jm-input__textarea-count-current" :class="{ 'is-error': value.length > parseInt(maxlength) }">{{ value.length }}</span>/{{ maxlength }}
+        <div class="wd-input__textarea-suffix">
+          <i v-show="showClear" class="wd-input__textarea-icon wd-icon-close-outline" @click="clear"></i>
+          <span v-if="showWordCount" class="wd-input__textarea-count">
+            <span class="wd-input__textarea-count-current" :class="{ 'is-error': value.length > parseInt(maxlength) }">{{ value.length }}</span>/{{ maxlength }}
           </span>
         </div>
       </div>
     </template>
     <template v-else>
-      <div v-if="prefixIcon || $slots.prefix" class="jm-input__prefix">
+      <div v-if="prefixIcon || $slots.prefix" class="wd-input__prefix">
         <slot name="prefix"></slot>
-        <i v-if="prefixIcon" class="jm-input__icon" :class="prefixIcon"></i>
+        <i v-if="prefixIcon" class="wd-input__icon" :class="prefixIcon"></i>
       </div>
       <input
-        class="jm-input__inner"
+        class="wd-input__inner"
         :class="[
-          suffixCount > 0 ? `jm-input__inner--suffix-${suffixCount}` : '',
-          prefixIcon || $slots.prefix ? 'jm-input__inner--prefix' : '',
-          showWordCount ? 'jm-input__inner--count' : ''
+          suffixCount > 0 ? `wd-input__inner--suffix-${suffixCount}` : '',
+          prefixIcon || $slots.prefix ? 'wd-input__inner--prefix' : '',
+          showWordCount ? 'wd-input__inner--count' : ''
         ]"
         :type="showPwdVisible ? (isPwdVisible ? 'text' : 'password') : type"
         :value="value"
@@ -74,20 +74,20 @@
       />
       <div
         v-if="showClear || showPwdVisible || suffixIcon || $slots.suffix || showWordCount"
-        class="jm-input__suffix"
+        class="wd-input__suffix"
       >
-        <i v-show="showClear" class="jm-input__icon jm-icon-close-outline" @click="clear"></i>
+        <i v-show="showClear" class="wd-input__icon wd-icon-close-outline" @click="clear"></i>
         <i
           v-if="showPwdVisible"
-          class="jm-input__icon"
-          :class="isPwdVisible ? 'jm-icon-view' : 'jm-icon-eye-close'"
+          class="wd-input__icon"
+          :class="isPwdVisible ? 'wd-icon-view' : 'wd-icon-eye-close'"
           @click="togglePwdVisible"
         ></i>
-        <span v-if="showWordCount" class="jm-input__count">
-          <span class="jm-input__count-current" :class="{ 'is-error': value.length > maxlength }">{{ value.length }}</span>/{{ maxlength }}
+        <span v-if="showWordCount" class="wd-input__count">
+          <span class="wd-input__count-current" :class="{ 'is-error': value.length > maxlength }">{{ value.length }}</span>/{{ maxlength }}
         </span>
         <slot name="suffix"></slot>
-        <i v-if="suffixIcon" class="jm-input__icon" :class="suffixIcon"></i>
+        <i v-if="suffixIcon" class="wd-input__icon" :class="suffixIcon"></i>
       </div>
     </template>
   </div>
@@ -97,7 +97,7 @@
 import calcTextareaHeight from './calcTextareaHeight'
 
 export default {
-  name: 'JmInput',
+  name: 'WdInput',
   data () {
     return {
       focused: false,

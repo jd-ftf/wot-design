@@ -1,69 +1,69 @@
 <template>
-  <jm-popup
-    class="jm-message-box"
+  <wd-popup
+    class="wd-message-box"
     :lock-scroll="lockScroll"
     :value="show"
     :close-on-click-modal="closeOnClickModal"
-    transition="jm-zoom-in"
+    transition="wd-zoom-in"
     @click-modal="toggleModal('modal')"
     @opened="handleOpened"
     @closed="handleClosed"
     style="overflow: hidden;"
   >
     <div
-      class="jm-message-box__body"
+      class="wd-message-box__body"
       :class="{
         'is-no-title': !title,
         'is-prompt': type === 'prompt'
       }"
     >
-      <div v-if="title" class="jm-message-box__title">
+      <div v-if="title" class="wd-message-box__title">
         {{ title }}
       </div>
-      <div class="jm-message-box__content">
+      <div class="wd-message-box__content">
         <slot v-if="type !== 'prompt'">
           <div v-html="msg"></div>
         </slot>
         <template v-else>
-          <div class="jm-message-box__input-container">
+          <div class="wd-message-box__input-container">
             <input
               :type="inputType"
               v-model="inputValue"
-              :placeholder="inputPlaceholder || t('jmd.messageBox.inputPlaceholder')"
-              class="jm-message-box__input"
+              :placeholder="inputPlaceholder || t('wd.messageBox.inputPlaceholder')"
+              class="wd-message-box__input"
             />
           </div>
-          <div v-show="showErr" class="jm-message-box__input-error">
-            {{ inputError || t('jmd.messageBox.inputNoValidate') }}
+          <div v-show="showErr" class="wd-message-box__input-error">
+            {{ inputError || t('wd.messageBox.inputNoValidate') }}
           </div>
         </template>
       </div>
     </div>
-    <div class="jm-message-box__actions">
+    <div class="wd-message-box__actions">
       <button type="button"
         v-if="showCancelButton"
-        class="jm-message-box__button jm-message-box__button--cancel"
+        class="wd-message-box__button wd-message-box__button--cancel"
         @click="toggleModal('cancel')">
-        {{ cancelButtonText || t('jmd.messageBox.cancel') }}
+        {{ cancelButtonText || t('wd.messageBox.cancel') }}
       </button>
       <button type="button"
-        class="jm-message-box__button jm-message-box__button--confirm"
+        class="wd-message-box__button wd-message-box__button--confirm"
         @click="toggleModal('confirm')">
-        {{ confirmButtonText || t('jmd.messageBox.confirm') }}
+        {{ confirmButtonText || t('wd.messageBox.confirm') }}
       </button>
     </div>
-  </jm-popup>
+  </wd-popup>
 </template>
 
 <script>
-import JmPopup from 'jm-design/packages/popup'
-import locale from 'jm-design/src/mixins/locale'
+import WdPopup from 'wot-design/packages/popup'
+import locale from 'wot-design/src/mixins/locale'
 
 export default {
-  name: 'JmMessageBox',
+  name: 'WdMessageBox',
   mixins: [locale],
   components: {
-    JmPopup
+    WdPopup
   },
   data () {
     return {

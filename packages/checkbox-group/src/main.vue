@@ -1,12 +1,12 @@
 <template>
-  <div class="jm-checkbox-group">
+  <div class="wd-checkbox-group">
     <slot></slot>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'JmCheckboxGroup',
+  name: 'WdCheckboxGroup',
   props: {
     value: {
       type: Array,

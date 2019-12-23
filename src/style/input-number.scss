@@ -103,14 +103,14 @@
   }
   
   @include when(disabled) {
-    .jm-input-number__input {
+    .wd-input-number__input {
       color: $-inputNumber-disabled-color;
       background: $-inputNumber-disabled-input-bg;
       z-index: inherit;
     }
   }
   @include when(without-input) {
-    .jm-input-number__action:last-child::after {
+    .wd-input-number__action:last-child::after {
       border-left: none;
     }
   }

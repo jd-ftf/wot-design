@@ -6,7 +6,7 @@ Picker 组件为 popup 和 pickerView 的组合。
 
 ```javascript
 import Vue from 'vue'
-import { Picker } from '@jd/jm-design'
+import { Picker } from 'wot-design'
 
 Vue.use(Picker)
 ```
@@ -16,7 +16,7 @@ Vue.use(Picker)
 `columns` 设置数据源，`label` 设置左侧文本内容，`v-model` 设置选中项的值。
 
 ```html
-<jm-picker :columns="columns1" label="单列选项" v-model="value" />
+<wd-picker :columns="columns1" label="单列选项" v-model="value" />
 
 <script>
 export default {
@@ -35,7 +35,7 @@ export default {
 设置 `disabled` 属性。
 
 ```html
-<jm-picker :columns="columns" label="禁用" v-model="value" disabled />
+<wd-picker :columns="columns" label="禁用" v-model="value" disabled />
 
 <script>
 export default {
@@ -54,7 +54,7 @@ export default {
 设置 `readonly` 属性。
 
 ```html
-<jm-picker :columns="columns" label="只读" v-model="value" readonly />
+<wd-picker :columns="columns" label="只读" v-model="value" readonly />
 ```
 
 ### 加载中
@@ -62,7 +62,7 @@ export default {
 设置 `loading` 属性。
 
 ```html
-<jm-picker-view :columns="columns" loading />
+<wd-picker-view :columns="columns" loading />
 ```
 
 ### 多列
@@ -70,7 +70,7 @@ export default {
 `columns` 属性设置为二维数组，`v-model` 为数组。
 
 ```html
-<jm-picker :columns="columns" label="多列" v-model="value" />
+<wd-picker :columns="columns" label="多列" v-model="value" />
 
 <script>
 export default {
@@ -92,7 +92,7 @@ export default {
 传入 `column-change` 属性，其类型为 `function`，接收 pickerView 实例、选中项、当前修改列的下标 作为入参，根据选中项和列下标进行判断，通过 pickerView 实例暴露出来的 `setColumnData` 方法修改其他列的数据源。
 
 ```html
-<jm-picker :columns="columns" label="多列联动" v-model="value" :column-change="onChangeDistrict" :display-format="displayFormat" />
+<wd-picker :columns="columns" label="多列联动" v-model="value" :column-change="onChangeDistrict" :display-format="displayFormat" />
 
 <script>
 const district = {

@@ -1,4 +1,4 @@
-import Navbar from 'jm-design/packages/navbar/index.js'
+import Navbar from 'wot-design/packages/navbar/index.js'
 import { mount } from '@vue/test-utils'
 
 
@@ -13,7 +13,7 @@ test('should render correct content', () => {
     }
   })
 
-  expect(wrapper.element.querySelector('.jm-navbar__title').textContent).toBe('标题')
-  expect(wrapper.element.querySelector('.jm-navbar__side-left span').textContent).toBe('返回')
-  expect(wrapper.element.querySelector('.jm-navbar__side-right span').textContent).toBe('菜单')
+  expect(wrapper.element.querySelector('.wd-navbar__title').textContent).toBe('标题')
+  expect(wrapper.element.querySelector('.wd-navbar__side-left span').textContent).toBe('返回')
+  expect(wrapper.element.querySelector('.wd-navbar__side-right span').textContent).toBe('菜单')
 })

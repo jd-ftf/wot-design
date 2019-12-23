@@ -22,7 +22,7 @@
     @include when(with-msg) {
       padding-bottom: 15px;
     }
-    .jm-loading-indicator {
+    .wd-loading-indicator {
       display: inline-block;
     }
   }
@@ -61,7 +61,7 @@
     display: block;
     width: 100%;
     height: 100%;
-    animation: jm-rotate 0.8s linear infinite;
+    animation: wd-rotate 0.8s linear infinite;
   }
   @include m(circle) {
     animation-duration: 2s;
@@ -70,7 +70,7 @@
       stroke: currentColor;
       stroke-width: 3;
       stroke-linecap: round;
-      animation: jm-circular 1.5s ease-in-out infinite;
+      animation: wd-circular 1.5s ease-in-out infinite;
     }
   }
   @include m(spinner) {
@@ -96,13 +96,13 @@
 }
 
 @for $i from 1 through 12 {
-  .jm-loading-indicator__spinner-dot:nth-of-type(#{$i}) {
+  .wd-loading-indicator__spinner-dot:nth-of-type(#{$i}) {
     opacity: 1 - (0.75 / 12) * ($i - 1);
     transform: rotate($i * 30deg);
   }
 }
 
-@keyframes jm-circular {
+@keyframes wd-circular {
   0% {
     stroke-dasharray: 1, 200;
     stroke-dashoffset: 0;
@@ -119,7 +119,7 @@
   }
 }
 
-@keyframes jm-rotate {
+@keyframes wd-rotate {
   from {
     transform: rotate(0deg);
   }

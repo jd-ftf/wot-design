@@ -1,8 +1,8 @@
 <script>
-import JmBadge from 'jm-design/packages/badge'
+import WdBadge from 'wot-design/packages/badge'
 
 export default {
-  name: 'JmTabbarItem',
+  name: 'WdTabbarItem',
   inject: ['tabbar'],
   props: {
     name: String,
@@ -14,7 +14,7 @@ export default {
     replace: Boolean
   },
   components: {
-    JmBadge
+    WdBadge
   },
   computed: {
     index () {
@@ -40,18 +40,18 @@ export default {
   render (h) {
     let Icon = this.$slots.icon
       ? this.$slots.icon
-      : (<i class={` jm-tabbar-item__icon ${this.icon}` }></i>)
+      : (<i class={` wd-tabbar-item__icon ${this.icon}` }></i>)
 
     let Content = (
       <div>
-        <div class="jm-tabbar-item__icon-container">
+        <div class="wd-tabbar-item__icon-container">
           {
             this.renderBadge
-              ? <JmBadge value={this.value} is-dot={this.dot} value={this.value} max={this.max} bg-color={this.tabbar.badgeColor}>{Icon}</JmBadge>
+              ? <WdBadge value={this.value} is-dot={this.dot} value={this.value} max={this.max} bg-color={this.tabbar.badgeColor}>{Icon}</WdBadge>
               : Icon
           }
         </div>
-        <div class="jm-tabbar-item__label">
+        <div class="wd-tabbar-item__label">
           { this.$slots.default }
         </div>
       </div>
@@ -73,13 +73,13 @@ export default {
 
       return isRouterLink
         ? <router-link class={{
-          'jm-tabbar-item': true,
+          'wd-tabbar-item': true,
           'is-active': this.isActive
         }} style={{ 'color': color }} to={this.to} replace={this.replace} tag="div">
           {Content}
         </router-link>
         : <a class={{
-          'jm-tabbar-item': true,
+          'wd-tabbar-item': true,
           'is-active': this.isActive
         }} style={{ 'color': this.color }} href={this.to}>
           {Content}
@@ -87,7 +87,7 @@ export default {
     } else {
       return (
         <div class={{
-          'jm-tabbar-item': true,
+          'wd-tabbar-item': true,
           'is-active': this.isActive
         }} style={{ 'color': this.color }} onClick={() => { this.tabbar.changeTabbar(this.index) }}>
           {Content}

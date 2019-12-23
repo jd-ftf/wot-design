@@ -8,7 +8,7 @@
 
 ```javascript
 import Vue from 'vue'
-import { MessageBox } from '@jd/jm-design'
+import { MessageBox } from 'wot-design'
 
 Vue.use(MessageBox)
 ```
@@ -18,7 +18,7 @@ Vue.use(MessageBox)
 alert 弹框只有确定按钮，用于强提醒。
 
 ```html
-<jm-button type="primary" plain @click="alert">alert</jm-button>
+<wd-button type="primary" plain @click="alert">alert</wd-button>
 
 <script>
 export default {
@@ -34,7 +34,7 @@ export default {
 显示标题的 alert 弹框。
 
 ```html
-<jm-button type="primary" plain @click="alert">alert</jm-button>
+<wd-button type="primary" plain @click="alert">alert</wd-button>
 
 <script>
 export default {
@@ -50,7 +50,7 @@ export default {
 如果内容文案过长，弹框高度不再增加，而是展示滚动条。
 
 ```html
-<jm-button type="primary" plain @click="alert">alert</jm-button>
+<wd-button type="primary" plain @click="alert">alert</wd-button>
 
 <script>
 export default {
@@ -68,7 +68,7 @@ export default {
 用于提示用户操作。
 
 ```html
-<jm-button type="primary" plain @click="confirm">confirm</jm-button>
+<wd-button type="primary" plain @click="confirm">confirm</wd-button>
 
 <script>
 export default {
@@ -88,7 +88,7 @@ export default {
 prompt 会展示一个输入框，并可以进行输入校验。
 
 ```html
-<jm-button type="primary" plain @click="prompt">prompt</jm-button>
+<wd-button type="primary" plain @click="prompt">prompt</wd-button>
 
 <script>
 export default {
@@ -107,12 +107,12 @@ export default {
 
 ### 组件引用
 
-如果提供的弹框内容不满足需求，可以使用 `jm-message-box` 组件，自定义弹框内容。
+如果提供的弹框内容不满足需求，可以使用 `wd-message-box` 组件，自定义弹框内容。
 
 ```html
-<jm-message-box :show="isShow" show-cancel-button @action="handleAction" title="评分">
-  <jm-rate v-model="rate" />
-</jm-message-box>
+<wd-message-box :show="isShow" show-cancel-button @action="handleAction" title="评分">
+  <wd-rate v-model="rate" />
+</wd-message-box>
 
 <script>
 export default {

@@ -1,15 +1,15 @@
 <template>
-  <div class="jm-collapse-item" :class="{ 'is-disabled': disabled }">
-    <div class="jm-collapse-item__header" @click="toggle">
+  <div class="wd-collapse-item" :class="{ 'is-disabled': disabled }">
+    <div class="wd-collapse-item__header" @click="toggle">
       <div>
-        <span class="jm-collapse-item__title">{{ title }}</span>
+        <span class="wd-collapse-item__title">{{ title }}</span>
       </div>
       <div>
-        <i class="jm-collapse-item__arrow jm-icon-arrow-down" :class="{ 'is-retract': isExpand }"></i>
+        <i class="wd-collapse-item__arrow wd-icon-arrow-down" :class="{ 'is-retract': isExpand }"></i>
       </div>
     </div>
-    <div v-show="show" class="jm-collapse-item__wrapper" ref="wrapper" :style="{ 'height': height + 'px' }" @transitionend="onTransitionend">
-      <div class="jm-collapse-item__body">
+    <div v-show="show" class="wd-collapse-item__wrapper" ref="wrapper" :style="{ 'height': height + 'px' }" @transitionend="onTransitionend">
+      <div class="wd-collapse-item__body">
         <slot></slot>
       </div>
     </div>
@@ -18,7 +18,7 @@
 
 <script>
 export default {
-  name: 'JmCollapseItem',
+  name: 'WdCollapseItem',
   inject: ['collapse'],
   data () {
     return {
@@ -41,7 +41,7 @@ export default {
   computed: {
     isExpand () {
       if (!this.collapse.value) {
-        console.warn('[jm-design warning]there is no value with Collapse.')
+        console.warn('[wot-design warning]there is no value with Collapse.')
         return true
       }
 

@@ -1,6 +1,6 @@
 <template>
   <div
-    class="jm-switch"
+    class="wd-switch"
     :class="{
       'is-disabled': disabled,
       'is-checked': checked
@@ -10,20 +10,20 @@
   >
     <input
       type="checkbox"
-      class="jm-switch__checkbox"
+      class="wd-switch__checkbox"
       :disabled="disabled"
       :true-value="activeValue"
       :false-value="inactiveValue"
       @change="handleChange"
       ref="checkbox"
     />
-    <i class="jm-switch__circle" :style="circleSty"></i>
+    <i class="wd-switch__circle" :style="circleSty"></i>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'JmSwitch',
+  name: 'WdSwitch',
   props: {
     value: [Boolean, String, Number],
     disabled: Boolean,

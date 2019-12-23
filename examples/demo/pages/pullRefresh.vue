@@ -1,13 +1,13 @@
 <template>
   <div>
-    <jm-pull-refresh v-model="isLoading" @refresh="refresh" tip-text="刷新成功">
+    <wd-pull-refresh v-model="isLoading" @refresh="refresh" tip-text="刷新成功">
       <div class="refresh-list">
         <div v-for="(item, index) in list" :key="index" class="refresh-list-item">
           <img :src="item.img" />
           <div>{{ item.text }}</div>
         </div>
       </div>
-    </jm-pull-refresh>
+    </wd-pull-refresh>
   </div>
 </template>
 

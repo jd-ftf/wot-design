@@ -4,7 +4,7 @@
 
 ```javascript
 import Vue from 'vue'
-import { Swipe, SwipeItem } from '@jd/jm-design'
+import { Swipe, SwipeItem } from 'wot-design'
 
 Vue.use(Swipe)
 Vue.use(SwipeItem)
@@ -15,21 +15,21 @@ Vue.use(SwipeItem)
 默认自动轮播，并且循环轮播，轮播时间为 3000 ms。
 
 ```html
-<jm-swipe>
-  <jm-swipe-item v-for="item in 4" :key="item">
+<wd-swipe>
+  <wd-swipe-item v-for="item in 4" :key="item">
     {{ item }}
-  </jm-swipe-item>
-</jm-swipe>
+  </wd-swipe-item>
+</wd-swipe>
 ```
 
 设置 `autoplay` 为 `false`，`loop` 为 `false`，关闭自动轮播和循环轮播。
 
 ```html
-<jm-swipe :loop="false" :autoplay="false">
-  <jm-swipe-item v-for="item in 4" :key="item">
+<wd-swipe :loop="false" :autoplay="false">
+  <wd-swipe-item v-for="item in 4" :key="item">
     {{ item }}
-  </jm-swipe-item>
-</jm-swipe>
+  </wd-swipe-item>
+</wd-swipe>
 ```
 
 ### space 留白
@@ -38,11 +38,11 @@ Vue.use(SwipeItem)
 `space` 为 `80/750`，则是以 `iphone6` 尺寸的设计稿，左右各留 `20像素`（iphone6 物理像素为 375px）。
 
 ```html
-<jm-swipe hide-indicators :autoplay="false" :space="80/750">
-  <jm-swipe-item v-for="item in imgs" :key="item">
+<wd-swipe hide-indicators :autoplay="false" :space="80/750">
+  <wd-swipe-item v-for="item in imgs" :key="item">
     <img :src="item" class="swipe-img" />
-  </jm-swipe-item>
-</jm-swipe>
+  </wd-swipe-item>
+</wd-swipe>
 ```
 
 如果设置留白，则默认会将 `loop` 关闭，暂时没有补齐左右循环用的占位项。
@@ -54,16 +54,16 @@ Vue.use(SwipeItem)
 如果想要自定义指示器的样式，可以使用 `indicators` 的 `slot` 插槽，同时监听轮播图的 `change` 事件，来获取当前的轮播项下标。
 
 ```html
-<jm-swipe @change="handleItemChange">
-  <jm-swipe-item v-for="item in 4" :key="item">
+<wd-swipe @change="handleItemChange">
+  <wd-swipe-item v-for="item in 4" :key="item">
     {{ item }}
-  </jm-swipe-item>
+  </wd-swipe-item>
   <template #indicators>
     <div class="custom-indicators">
       {{ customIndex + 1 }}/4
     </div>
   </template>
-</jm-swipe>
+</wd-swipe>
 
 <script>
 export default {
@@ -86,11 +86,11 @@ export default {
 设置 `vertical` 属性，同时给轮播图设置高度 `height` 属性，如果是横向轮播，可以不用设置 `height` 属性。
 
 ```html
-<jm-swipe vertical height="150px">
-  <jm-swipe-item v-for="item in 4" :key="item">
+<wd-swipe vertical height="150px">
+  <wd-swipe-item v-for="item in 4" :key="item">
     {{ item }}
-  </jm-swipe-item>
-</jm-swipe>
+  </wd-swipe-item>
+</wd-swipe>
 ```
 
 ### Swipe Arrtibutes

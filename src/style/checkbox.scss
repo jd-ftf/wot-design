@@ -65,17 +65,17 @@
     transition: opacity .2s;
   }
   @include when(checked) {
-    .jm-checkbox__shape {
+    .wd-checkbox__shape {
       color: $-checkbox-color-checked;
       background: currentColor;
       border-color: currentColor;
     }
-    .jm-checkbox__check {
+    .wd-checkbox__check {
       opacity: 1;
     }
   }
   @include when(dot) {
-    .jm-checkbox__check {
+    .wd-checkbox__check {
       width: 10px;
       height: 10px;
       left: 50%;
@@ -85,10 +85,10 @@
       border-radius: 50%;
     }
     @include when(checked) {
-      .jm-checkbox__check {
+      .wd-checkbox__check {
         color: $-checkbox-color-checked;
       }
-      .jm-checkbox__shape {
+      .wd-checkbox__shape {
         background: #fff;
         border-color: currentColor;
       }
@@ -103,14 +103,14 @@
     &:last-child {
       margin-right: 0;
     }
-    .jm-checkbox__shape {
+    .wd-checkbox__shape {
       width: 0;
       height: 0;
       overflow: hidden;
       opacity: 0;
       border: none;
     }
-    .jm-checkbox__label {
+    .wd-checkbox__label {
       margin-left: 0;
       padding: 4px 28px;
       border: 1px solid $-checkbox-color-border;
@@ -118,7 +118,7 @@
       transition: color .2s, border .2s;
     }
     @include when(checked) {
-      .jm-checkbox__label {
+      .wd-checkbox__label {
         padding-left: 16px;
         padding-right: 16px;
         color: $-checkbox-color-checked;
@@ -128,27 +128,27 @@
   }
 
   @include when(disabled) {
-    .jm-checkbox__shape {
+    .wd-checkbox__shape {
       border-color: $-checkbox-color-disabled-label;
     }
-    .jm-checkbox__label {
+    .wd-checkbox__label {
       color: $-checkbox-color-disabled-label;
     }
     @include when(checked) {
-      .jm-checkbox__shape {
+      .wd-checkbox__shape {
         color: $-checkbox-color-disabled-label;
       }
       @include when(dot) {
-        .jm-checkbox__check {
+        .wd-checkbox__check {
           color: $-checkbox-color-disabled-label;
         }
       }
-      .jm-checkbox__label {
+      .wd-checkbox__label {
         color: $-checkbox-color-disabled-label;
       }
     }
     @include when(button) {
-      .jm-checkbox__label {
+      .wd-checkbox__label {
         border-color: $-checkbox-color-disabled;
       }
     }

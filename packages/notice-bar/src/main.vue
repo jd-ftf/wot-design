@@ -1,19 +1,19 @@
 <template>
   <div
     v-if="show"
-    class="jm-notice-bar"
+    class="wd-notice-bar"
     :class="{
-      'jm-notice-bar--ellipse': !wrapable && !scrollable,
-      'jm-notice-bar--wrap': wrapable && !scrollable
+      'wd-notice-bar--ellipse': !wrapable && !scrollable,
+      'wd-notice-bar--wrap': wrapable && !scrollable
     }"
     :style="{ 'background': backgroundColor, 'color': color }"
   >
     <slot name="left-icon">
-      <i v-if="leftIcon" :class="`jm-notice-bar__left-icon jm-icon-${leftIcon}`"></i>
+      <i v-if="leftIcon" :class="`wd-notice-bar__left-icon wd-icon-${leftIcon}`"></i>
     </slot>
-    <div class="jm-notice-bar__wrap" ref="wrap">
+    <div class="wd-notice-bar__wrap" ref="wrap">
       <div
-        class="jm-notice-bar__content"
+        class="wd-notice-bar__content"
         :class="[ animationClass ]"
         :style="{
           'padding-left': (firstPlay ? 0 : wrapWidth) + 'px',
@@ -30,14 +30,14 @@
       </div>
     </div>
     <slot name="right-icon">
-      <i v-if="closable" class="jm-notice-bar__right-icon jm-icon-close" @click="handleClick"></i>
+      <i v-if="closable" class="wd-notice-bar__right-icon wd-icon-close" @click="handleClick"></i>
     </slot>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'JmNoticeBar',
+  name: 'WdNoticeBar',
   data () {
     return {
       firstPlay: true,
@@ -82,7 +82,7 @@ export default {
             this.wrapWidth = wrapWidth
             this.contentWidth = contentWidth
             this.duration = contentWidth / this.speed
-            this.animationClass = 'jm-notice-bar__content--play'
+            this.animationClass = 'wd-notice-bar__content--play'
           }
         })
       }
@@ -97,7 +97,7 @@ export default {
       this.firstPlay = false
       this.$nextTick(() => {
         this.duration = (this.wrapWidth + this.contentWidth) / this.speed
-        this.animationClass = 'jm-notice-bar__content--play-infinite'
+        this.animationClass = 'wd-notice-bar__content--play-infinite'
       })
     }
   }

@@ -1,6 +1,6 @@
 <template>
-  <jm-popup
-    class="jm-action-sheet"
+  <wd-popup
+    class="wd-action-sheet"
     :lock-scroll="lockScroll"
     :duration="duration"
     :value="value"
@@ -9,42 +9,42 @@
     @opened="handleOpened"
     @closed="handleClosed"
   >
-    <div v-if="title" class="jm-action-sheet__header">
+    <div v-if="title" class="wd-action-sheet__header">
       {{ title }}
-      <i class="jm-action-sheet__close jm-icon-add" @click="close"></i>
+      <i class="wd-action-sheet__close wd-icon-add" @click="close"></i>
     </div>
-    <div v-if="actions && actions.length" class="jm-action-sheet__actions">
+    <div v-if="actions && actions.length" class="wd-action-sheet__actions">
       <button
         v-for="(item, index) in actions"
         :key="index"
         :class="{
-          'jm-action-sheet__action': true,
-          'jm-action-sheet__action--disabled': item.disabled
+          'wd-action-sheet__action': true,
+          'wd-action-sheet__action--disabled': item.disabled
         }"
         :style="{ 'color': item.color }"
         @click="select(index)"
       >
-        <jm-loading v-if="item.loading" size="20px" style="display: inline-block;" :color="item.color" />
+        <wd-loading v-if="item.loading" size="20px" style="display: inline-block;" :color="item.color" />
         <template v-else>
-          <span class="jm-action-sheet__name">{{ item.name }}</span>
-          <span v-if="item.subname" class="jm-action-sheet__subname">{{ item.subname }}</span>
+          <span class="wd-action-sheet__name">{{ item.name }}</span>
+          <span v-if="item.subname" class="wd-action-sheet__subname">{{ item.subname }}</span>
         </template>
       </button>
     </div>
     <slot></slot>
-    <button v-if="cancelText" class="jm-action-sheet__cancel" @click="handleCancel">{{ cancelText }}</button>
-  </jm-popup>
+    <button v-if="cancelText" class="wd-action-sheet__cancel" @click="handleCancel">{{ cancelText }}</button>
+  </wd-popup>
 </template>
 
 <script>
-import JmPopup from 'jm-design/packages/popup'
-import JmLoading from 'jm-design/packages/loading'
+import WdPopup from 'wot-design/packages/popup'
+import WdLoading from 'wot-design/packages/loading'
 
 export default {
-  name: 'JmActionSheet',
+  name: 'WdActionSheet',
   components: {
-    JmPopup,
-    JmLoading: JmLoading.Indicator
+    WdPopup,
+    WdLoading: WdLoading.Indicator
   },
   props: {
     value: Boolean,

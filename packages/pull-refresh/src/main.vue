@@ -1,21 +1,21 @@
 <template>
-  <div class="jm-pull-refresh">
-    <div class="jm-pull-refresh__container" :class="{ 'dropping': topDropped }" :style="{ 'transform': transform }">
-      <transition name="jm-slice-down" v-if="tipText">
-        <div class="jm-pull-refresh__tip" v-show="tipShow">
+  <div class="wd-pull-refresh">
+    <div class="wd-pull-refresh__container" :class="{ 'dropping': topDropped }" :style="{ 'transform': transform }">
+      <transition name="wd-slice-down" v-if="tipText">
+        <div class="wd-pull-refresh__tip" v-show="tipShow">
           {{ tipText }}
         </div>
       </transition>
       <slot name="top">
-        <div class="jm-pull-refresh__top">
-          <jm-indicator v-if="topStatus == 'loading'" class="jm-pull-refresh__loading" type="spinner" size="16px" color="#a7a7a7" />
+        <div class="wd-pull-refresh__top">
+          <wd-indicator v-if="topStatus == 'loading'" class="wd-pull-refresh__loading" type="spinner" size="16px" color="#a7a7a7" />
           <i
-            class="jm-pull-refresh__arrow"
+            class="wd-pull-refresh__arrow"
             :class="{
-            'jm-icon-arrow-thin-down': topStatus == 'pull' || topStatus == 'drop',
-            'jm-icon-arrow-thin-up': topStatus == 'drop'
+            'wd-icon-arrow-thin-down': topStatus == 'pull' || topStatus == 'drop',
+            'wd-icon-arrow-thin-up': topStatus == 'drop'
           }"></i>
-          <span class="jm-pull-refresh__text">{{ topText }}</span>
+          <span class="wd-pull-refresh__text">{{ topText }}</span>
         </div>
       </slot>
       <slot></slot>
@@ -24,12 +24,12 @@
 </template>
 
 <script>
-import locale from 'jm-design/src/mixins/locale'
-import { getScrollTargetEvent } from 'jm-design/src/utils'
-import JmIndicator from 'jm-design/packages/loading'
+import locale from 'wot-design/src/mixins/locale'
+import { getScrollTargetEvent } from 'wot-design/src/utils'
+import WdIndicator from 'wot-design/packages/loading'
 
 export default {
-  name: 'JmPullRefresh',
+  name: 'WdPullRefresh',
   mixins: [locale],
   props: {
     value: Boolean,
@@ -83,7 +83,7 @@ export default {
     }
   },
   components: {
-    JmIndicator: JmIndicator.Indicator
+    WdIndicator: WdIndicator.Indicator
   },
   watch: {
     value (val) {
@@ -108,13 +108,13 @@ export default {
 
       switch (val) {
         case 'pull':
-          this.topText = this.topPullText || this.t('jmd.pullRefresh.topPull')
+          this.topText = this.topPullText || this.t('wd.pullRefresh.topPull')
           break
         case 'drop':
-          this.topText = this.topDropText || this.t('jmd.pullRefresh.topDrop')
+          this.topText = this.topDropText || this.t('wd.pullRefresh.topDrop')
           break
         case 'loading':
-          this.topText = this.topLoadingText || this.t('jmd.pullRefresh.topLoading')
+          this.topText = this.topLoadingText || this.t('wd.pullRefresh.topLoading')
           break
       }
     }
@@ -134,7 +134,7 @@ export default {
       this.$el.removeEventListener('touchcancel', this.handleTouchEnd)
     },
     init () {
-      this.topText = this.topPullText || this.t('jmd.pullRefresh.topPull')
+      this.topText = this.topPullText || this.t('wd.pullRefresh.topPull')
       this.scrollEventTarget = getScrollTargetEvent(this.$el)
       this.bindTouchEvent()
     },

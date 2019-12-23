@@ -1,16 +1,16 @@
 <template>
   <div>
     <white-space title="基本用法">
-      <jm-progress :percentage="30" />
+      <wd-progress :percentage="30" />
     </white-space>
     <white-space title="不显示进度文字">
-      <jm-progress :percentage="60" hide-text />
+      <wd-progress :percentage="60" hide-text />
     </white-space>
     <white-space title="修改颜色">
-      <jm-progress :percentage="80" color="#00c740" />
+      <wd-progress :percentage="80" color="#00c740" />
     </white-space>
     <white-space title="颜色数组">
-      <jm-progress :percentage="percentage" :color="[ '#00c740', '#ffb300', '#e2231a', '#0083ff' ]" hide-text />
+      <wd-progress :percentage="percentage" :color="[ '#00c740', '#ffb300', '#e2231a', '#0083ff' ]" hide-text />
     </white-space>
   </div>
 </template>

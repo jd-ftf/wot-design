@@ -1,6 +1,6 @@
 ## 快速上手
 
-本节介绍如何在单页面应用中使用 `JMDesign`
+本节介绍如何在单页面应用中使用 `WotDesign`
 
 ### 使用 vue-cli
 
@@ -8,24 +8,24 @@
 (sudo) npm install -g @vue/cli
 vue create example
 cd example
-npm i @jd/jm-design 
+npm i wot-design 
 ```
 
 > 使用京东的npm私域，`npm config set @jd:registry=http://registry.m.jd.com`
 
-使用 vue-cli 脚手架快速创建一个 Vue 项目，并在该项目中安装 `@jd/jm-design`
+使用 vue-cli 脚手架快速创建一个 Vue 项目，并在该项目中安装 `wot-design`
 
-### 引入 JMDesign
+### 引入 WotDesign
 
-在项目的 src/main.js 文件中，引入 `JMDesign`
+在项目的 src/main.js 文件中，引入 `WotDesign`
 
 ```javascript
 import Vue from 'vue'
 import App from './App.vue'
-import JMDesign from '@jd/jm-design'
-import '@jd/jm-design/lib/theme-default/index.css'
+import WotDesign from 'wot-design'
+import 'wot-design/lib/theme-default/index.css'
 
-Vue.use(JMDesign)
+Vue.use(WotDesign)
 
 Vue.config.productionTip = false
 
@@ -50,7 +50,7 @@ npm i babel-plugin-import -D
 {
   "plugins": [
     ["import", {
-      "libraryName": "@jd/jm-design",
+      "libraryName": "wot-design",
       "style": true
     }]
   ]
@@ -61,7 +61,7 @@ npm i babel-plugin-import -D
 
 ```javascript
 import Vue from 'vue'
-import { Button } from '@jd/jm-design'
+import { Button } from 'wot-design'
 
 Vue.use(Button)
 ```

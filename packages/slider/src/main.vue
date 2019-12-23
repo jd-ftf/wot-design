@@ -2,24 +2,24 @@
   <div
     ref="track"
     :class="{
-      'jm-slider': true,
-      'jm-slider__has-label': !hideLabel,
-      'jm-slider--disabled': disabled
+      'wd-slider': true,
+      'wd-slider__has-label': !hideLabel,
+      'wd-slider--disabled': disabled
     }"
   >
     <div
-      class="jm-slider__label-min"
+      class="wd-slider__label-min"
       v-if="!hideMinMax">
       {{ min }}
     </div>
     <div
       :class="{
-        'jm-slider__bar-wrapper' : true
+        'wd-slider__bar-wrapper' : true
       }"
       :style="{background: inactiveColor ? inactiveColor : '' } "
     >
       <div
-        class="jm-slider__bar"
+        class="wd-slider__bar"
         :style="{ background: activeColor ? activeColor : '',
                   width: barWidth + '%',
                   left: barLeft + '%'
@@ -27,37 +27,37 @@
       ></div>
       <!-- 左边 -->
       <div
-        class="jm-slider__button-wrapper"
+        class="wd-slider__button-wrapper"
         :style="{left:  leftBarPercent - 10 + '%', visibility: !disabled ? 'show' : 'hidden' }"
         @touchstart="onTouchStart(true)"
         @touchmove="onTouchMove(true)"
         @touchend="onTouchEnd"
       >
-        <div class="jm-slider__label" v-if="!hideLabel">{{ leftNewValue }}</div>
-        <div class="jm-slider__button" />
+        <div class="wd-slider__label" v-if="!hideLabel">{{ leftNewValue }}</div>
+        <div class="wd-slider__button" />
       </div>
       <!-- 右边 -->
       <div
         v-if="showRight"
-        class="jm-slider__button-wrapper"
+        class="wd-slider__button-wrapper"
         :style="{ left: rightBarPercent - 10 + '%' , visibility: !disabled ? 'show' : 'hidden' } "
         @touchstart="onTouchStart(false)"
         @touchmove="onTouchMove(false)"
         @touchend="onTouchEnd"
       >
-        <div class="jm-slider__label" v-if="!hideLabel">{{ rightNewValue }}</div>
-        <div class="jm-slider__button" />
+        <div class="wd-slider__label" v-if="!hideLabel">{{ rightNewValue }}</div>
+        <div class="wd-slider__button" />
       </div>
     </div>
-    <div class="jm-slider__label-max" v-if="!hideMinMax">{{ max }}</div>
+    <div class="wd-slider__label-max" v-if="!hideMinMax">{{ max }}</div>
   </div>
 </template>
 
 <script>
-import touchMixin from 'jm-design/src/mixins/touch'
+import touchMixin from 'wot-design/src/mixins/touch'
 
 export default {
-  name: 'JmSlider',
+  name: 'WdSlider',
   mixins: [touchMixin],
   props: {
     hideMinMax: Boolean,

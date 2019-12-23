@@ -1,18 +1,18 @@
 <template>
-  <ul class="jm-rate">
+  <ul class="wd-rate">
     <li
       v-for="(item, index) in rateList"
       :key="index"
-      class="jm-rate__item"
+      class="wd-rate__item"
       :style="{ 'margin': '0 ' + space }"
       @click="changeRate(index)">
       <i
         :class="icon"
-        class="jm-rate__item-star"
+        class="wd-rate__item-star"
         :style="{ 'width': size, 'height': size, 'font-size': size, 'color': disabled ? disabledColor : color }"></i>
       <i
         :class="activeIcon"
-        class="jm-rate__item-star jm-rate__item-star--active"
+        class="wd-rate__item-star wd-rate__item-star--active"
         :style="{ 'width': item, 'height': size, 'font-size': size, 'color': disabled ? disabledColor : activeColor }"></i>
     </li>
   </ul>
@@ -20,7 +20,7 @@
 
 <script>
 export default {
-  name: 'JmRate',
+  name: 'WdRate',
   props: {
     num: {
       type: Number,
@@ -49,11 +49,11 @@ export default {
     },
     icon: {
       type: String,
-      default: 'jm-icon-star'
+      default: 'wd-icon-star'
     },
     activeIcon: {
       type: String,
-      default: 'jm-icon-star-fill'
+      default: 'wd-icon-star-fill'
     },
     disabled: {
       type: Boolean,

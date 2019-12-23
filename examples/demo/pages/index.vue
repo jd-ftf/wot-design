@@ -3,9 +3,9 @@
     <div class="page__hd">
       <div class="page__title">
         <i class="logo"></i>
-        <span class="inline">JM Design</span>
+        <span class="inline">Wot Design</span>
       </div>
-      <div class="page__desc">该组件库根据京麦APP设计规范进行开发，旨在给开发者提供统一的页面风格。</div>
+      <div class="page__desc">该组件库基于Vue.js构建，旨在给开发者提供统一的页面风格。</div>
     </div>
     <div class="page__bd">
       <div class="kind-list__item" v-for="(componentModule, index) in pagesConfig" :key="componentModule.name">
@@ -18,7 +18,7 @@
             <router-link class="kind-list__list-item-link" :to="item.path">
               <div>{{ item.name }}</div>
               <div>
-                <jm-icon name="arrow-right" color="#aaa" />
+                <wd-icon name="arrow-right" color="#aaa" />
               </div>
             </router-link>
           </li>
