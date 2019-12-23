@@ -1,4 +1,4 @@
-# JM Design
+# Wot Design
 
 > 基于 Vue 开发的移动端组件库
 
@@ -6,7 +6,7 @@
 
 在进行开发前请先阅读文档
 
-[文档地址](http://git.jd.com/JM-FE/jm-design/wikis/home)
+[文档地址](http://git.jd.com/JM-FE/wot-design/wikis/home)
 
 ## Build Setup
 

@@ -2,35 +2,35 @@
   <div>
     <white-space>
       <div slot="desc">基本用法</div>
-      <jm-radio-group v-model="radio1">
-        <jm-radio value="1">单选框1</jm-radio>
-        <jm-radio value="2">单选框2</jm-radio>
-      </jm-radio-group>
+      <wd-radio-group v-model="radio1">
+        <wd-radio value="1">单选框1</wd-radio>
+        <wd-radio value="2">单选框2</wd-radio>
+      </wd-radio-group>
     </white-space>
     <white-space>
       <div slot="desc">修改形状(在radioGroup上设置) <code>shape</code> 为 <code>'button'</code></div>
-      <jm-radio-group v-model="radio2" shape="button">
-        <jm-radio value="1">京麦</jm-radio>
-        <jm-radio value="2">商家后台</jm-radio>
-      </jm-radio-group>
+      <wd-radio-group v-model="radio2" shape="button">
+        <wd-radio value="1">京麦</wd-radio>
+        <wd-radio value="2">商家后台</wd-radio>
+      </wd-radio-group>
     </white-space>
     <white-space>
       <div slot="desc">修改选中颜色 <code>checked-color</code></div>
-      <jm-radio-group v-model="radio3" checked-color="#f00">
-        <jm-radio value="1">京麦</jm-radio>
-        <jm-radio value="2">商家后台</jm-radio>
-      </jm-radio-group>
+      <wd-radio-group v-model="radio3" checked-color="#f00">
+        <wd-radio value="1">京麦</wd-radio>
+        <wd-radio value="2">商家后台</wd-radio>
+      </wd-radio-group>
     </white-space>
     <white-space>
       <div slot="desc">禁用 <code>disabled</code></div>
-      <jm-radio-group v-model="radio4" disabled>
-        <jm-radio value="1">京麦</jm-radio>
-        <jm-radio value="2">商家后台</jm-radio>
-      </jm-radio-group>
-      <jm-radio-group v-model="radio5" shape="button" disabled>
-        <jm-radio value="1">京麦</jm-radio>
-        <jm-radio value="2">商家后台</jm-radio>
-      </jm-radio-group>
+      <wd-radio-group v-model="radio4" disabled>
+        <wd-radio value="1">京麦</wd-radio>
+        <wd-radio value="2">商家后台</wd-radio>
+      </wd-radio-group>
+      <wd-radio-group v-model="radio5" shape="button" disabled>
+        <wd-radio value="1">京麦</wd-radio>
+        <wd-radio value="2">商家后台</wd-radio>
+      </wd-radio-group>
     </white-space>
   </div>
 </template>

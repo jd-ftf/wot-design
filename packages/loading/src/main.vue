@@ -1,19 +1,19 @@
 <template>
   <transition name="loading">
-    <div class="jm-loading" v-show="show">
-      <div class="jm-loading__wrap" :class="{ 'is-with-msg': !!msg }">
-        <jm-loading :type="type" />
-        <div v-if="msg" class="jm-loading__msg">
+    <div class="wd-loading" v-show="show">
+      <div class="wd-loading__wrap" :class="{ 'is-with-msg': !!msg }">
+        <wd-loading :type="type" />
+        <div v-if="msg" class="wd-loading__msg">
           {{ msg }}
         </div>
       </div>
-      <div class="jm-loading__mask"></div>
+      <div class="wd-loading__mask"></div>
     </div>
   </transition>
 </template>
 
 <script>
-import JmLoading from './indicator'
+import WdLoading from './indicator'
 
 export default {
   props: {
@@ -22,7 +22,7 @@ export default {
     show: Boolean
   },
   components: {
-    JmLoading
+    WdLoading
   }
 }
 </script>

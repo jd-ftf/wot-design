@@ -1,16 +1,16 @@
 <template>
   <div class="page-toast">
     <white-space title="基本用法">
-      <jm-button type="primary" @click="handleToast1">toast</jm-button>
+      <wd-button type="primary" @click="handleToast1">toast</wd-button>
     </white-space>
     <white-space title="类型toast">
-      <jm-button type="primary" @click="handleToast2">成功toast</jm-button>
-      <jm-button type="primary" @click="handleToast3">错误toast</jm-button>
-      <jm-button type="primary" @click="handleToast4">警告toast</jm-button>
+      <wd-button type="primary" @click="handleToast2">成功toast</wd-button>
+      <wd-button type="primary" @click="handleToast3">错误toast</wd-button>
+      <wd-button type="primary" @click="handleToast4">警告toast</wd-button>
     </white-space>
     <white-space title="提示位置">
-      <jm-button type="primary" @click="handleToast5">顶部toast</jm-button>
-      <jm-button type="primary" @click="handleToast6">底部toast</jm-button>
+      <wd-button type="primary" @click="handleToast5">顶部toast</wd-button>
+      <wd-button type="primary" @click="handleToast6">底部toast</wd-button>
     </white-space>
   </div>
 </template>
@@ -55,7 +55,7 @@ export default {
 
 <style lang="scss">
 .page-toast {
-  .jm-button {
+  .wd-button {
     margin: 0 10px 10px 0;
   }
 }

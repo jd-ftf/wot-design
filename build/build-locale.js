@@ -23,8 +23,8 @@ fileList.filter(file => {
       console.log(err)
     } else {
       let code = result.code
-      .replace('define("', 'define("JMDesign/locale/')
-      .replace('global.', 'global.JMDesign.lang = global.JMDesign.lang || {}; \n    global.JMDesign.lang.')
+      .replace('define("', 'define("WotDesign/locale/')
+      .replace('global.', 'global.WotDesign.lang = global.WotDesign.lang || {}; \n    global.WotDesign.lang.')
       .replace('mod.exports;', 'mod.exports.default;')
       saveFile(path.resolve(__dirname, '../lib/umd/locale'), file, code)
     }

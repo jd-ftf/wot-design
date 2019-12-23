@@ -1,12 +1,12 @@
 <template>
-  <div class="jm-steps" :class="{ 'is-vertical': vertical }">
+  <div class="wd-steps" :class="{ 'is-vertical': vertical }">
     <slot></slot>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'JmSteps',
+  name: 'WdSteps',
   provide () {
     return {
       steps: this

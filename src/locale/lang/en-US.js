@@ -1,5 +1,5 @@
 export default {
-  jmd: {
+  wd: {
     collapse: {
       expand: 'Expand',
       retract: 'Retract'

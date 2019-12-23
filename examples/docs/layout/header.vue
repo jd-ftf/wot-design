@@ -2,8 +2,8 @@
   <header class="header">
     <div class="header-container">
       <router-link :to="{ path: '/' }" class="logo-block">
-        <i class="jm-design-logo"></i>
-        <span>JM Design</span>
+        <i class="wot-design-logo"></i>
+        <span>Wot Design</span>
       </router-link>
       <ul class="header-tab">
         <li class="header-tab__item" v-for="(page, key) in pages" :key="key">
@@ -64,12 +64,12 @@ export default {
     vertical-align: middle;
   }
 }
-.jm-design-logo {
+.wot-design-logo {
   display: inline-block;
   margin-right: 10px;
   width: 40px;
   height: 40px;
-  background: url('../assets/img/jm-design.png') no-repeat;
+  background: url('../assets/img/wot-design.png') no-repeat;
   background-size: cover;
   vertical-align: middle;
 }

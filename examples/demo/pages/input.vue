@@ -2,47 +2,47 @@
   <div>
     <white-space>
       <div slot="desc">基本用法</div>
-      <jm-input v-model="input1" placeholder="请输入用户名" />
+      <wd-input v-model="input1" placeholder="请输入用户名" />
     </white-space>
     <white-space>
       <div slot="desc">禁用状态 <code>disabled</code></div>
-      <jm-input v-model="input2" disabled />
+      <wd-input v-model="input2" disabled />
     </white-space>
     <white-space>
       <div slot="desc">只读状态 <code>readonly</code></div>
-      <jm-input v-model="input3" readonly />
+      <wd-input v-model="input3" readonly />
     </white-space>
     <white-space>
       <div slot="desc">错误状态 <code>error</code></div>
-      <jm-input v-model="input4" placeholder="请输入用户名" error />
+      <wd-input v-model="input4" placeholder="请输入用户名" error />
     </white-space>
     <white-space>
       <div slot="desc">清空按钮 <code>clearable</code></div>
-      <jm-input v-model="input5" clearable />
+      <wd-input v-model="input5" clearable />
     </white-space>
     <white-space>
       <div slot="desc">密码框 <code>show-password</code></div>
-      <jm-input v-model="input6" clearable show-password />
+      <wd-input v-model="input6" clearable show-password />
     </white-space>
     <white-space>
       <div slot="desc">设置前后Icon <code>prefix-icon</code> 、 <code>suffix-icon</code> 或者设置 <code>prefix/suffix</code> 的slot</div>
-      <jm-input v-model="input7" prefix-icon="jm-icon-person" suffix-icon="jm-icon-tickets" />
+      <wd-input v-model="input7" prefix-icon="wd-icon-person" suffix-icon="wd-icon-tickets" />
     </white-space>
     <white-space>
       <div slot="desc">字数限制 <code>show-word-limit</code></div>
-      <jm-input v-model="input8" maxlength="20" show-word-limit />
+      <wd-input v-model="input8" maxlength="20" show-word-limit />
     </white-space>
     <white-space :hor="0">
       <div slot="desc">textarea</div>
-      <jm-input type="textarea" v-model="input9" placeholder="请填写评价..." />
+      <wd-input type="textarea" v-model="input9" placeholder="请填写评价..." />
     </white-space>
     <white-space :hor="0">
       <div slot="desc">textarea 清空按钮 和 字数限制</div>
-      <jm-input type="textarea" v-model="input10" rows="6" maxlength="120" clearable show-word-limit />
+      <wd-input type="textarea" v-model="input10" rows="6" maxlength="120" clearable show-word-limit />
     </white-space>
     <white-space>
       <div slot="desc"><code>type</code> 为 <code>text</code> 且设置 <code>autosize</code></div>
-      <jm-input v-model="input11" autosize clearable />
+      <wd-input v-model="input11" autosize clearable />
     </white-space>
   </div>
 </template>

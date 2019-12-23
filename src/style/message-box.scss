@@ -106,11 +106,11 @@
       color: #fff;
     }
   }
-  &.jm-zoom-in-enter-active, &.jm-zoom-in-leave-active{
+  &.wd-zoom-in-enter-active, &.wd-zoom-in-leave-active{
     transition-property: opacity, transform;
     transform-origin: center center;
   }
-  &.jm-zoom-in-enter, &.jm-zoom-in-leave-to{
+  &.wd-zoom-in-enter, &.wd-zoom-in-leave-to{
     opacity: 0;
     transform: translate3d(-50%, -50%, 0) scale(0.9);
   }

@@ -1,48 +1,48 @@
 <template>
   <div>
     <space title="基本用法">
-      <jm-collapse v-model="value1">
-        <jm-collapse-item title="标签1" name="item1">
+      <wd-collapse v-model="value1">
+        <wd-collapse-item title="标签1" name="item1">
           这是一条简单的示例文字。
-        </jm-collapse-item>
-        <jm-collapse-item title="标签2" name="item2">
+        </wd-collapse-item>
+        <wd-collapse-item title="标签2" name="item2">
           这是一条简单的示例文字。
-        </jm-collapse-item>
-        <jm-collapse-item title="标签3" name="item3">
+        </wd-collapse-item>
+        <wd-collapse-item title="标签3" name="item3">
           这是一条简单的示例文字。
-        </jm-collapse-item>
-      </jm-collapse>
+        </wd-collapse-item>
+      </wd-collapse>
     </space>
     <space title="手风琴">
-      <jm-collapse v-model="value2" accordion>
-        <jm-collapse-item title="标签1" name="item1">
+      <wd-collapse v-model="value2" accordion>
+        <wd-collapse-item title="标签1" name="item1">
           这是一条简单的示例文字。
-        </jm-collapse-item>
-        <jm-collapse-item title="标签2" name="item2">
+        </wd-collapse-item>
+        <wd-collapse-item title="标签2" name="item2">
           这是一条简单的示例文字。
-        </jm-collapse-item>
-        <jm-collapse-item title="标签3" name="item3">
+        </wd-collapse-item>
+        <wd-collapse-item title="标签3" name="item3">
           这是一条简单的示例文字。
-        </jm-collapse-item>
-      </jm-collapse>
+        </wd-collapse-item>
+      </wd-collapse>
     </space>
     <space title="禁用某一项">
-      <jm-collapse v-model="value3">
-        <jm-collapse-item title="标签1" name="item1">
+      <wd-collapse v-model="value3">
+        <wd-collapse-item title="标签1" name="item1">
           这是一条简单的示例文字。
-        </jm-collapse-item>
-        <jm-collapse-item title="标签2" name="item2" disabled>
+        </wd-collapse-item>
+        <wd-collapse-item title="标签2" name="item2" disabled>
           这是一条简单的示例文字。
-        </jm-collapse-item>
-        <jm-collapse-item title="标签3" name="item3">
+        </wd-collapse-item>
+        <wd-collapse-item title="标签3" name="item3">
           这是一条简单的示例文字。
-        </jm-collapse-item>
-      </jm-collapse>
+        </wd-collapse-item>
+      </wd-collapse>
     </space>
     <space title="查看更多">
-      <jm-collapse viewmore v-model="value4">
+      <wd-collapse viewmore v-model="value4">
         这是一条简单的示例文字。这是一条简单的示例文字。这是一条简单的示例文字。这是一条简单的示例文字。这是一条简单的示例文字。这是一条简单的示例文字。这是一条简单的示例文字。这是一条简单的示例文字。
-      </jm-collapse>
+      </wd-collapse>
     </space>
   </div>
 </template>

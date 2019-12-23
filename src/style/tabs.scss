@@ -170,17 +170,17 @@
   }
 
   @include when(slide) {
-    .jm-tabs__nav-container {
+    .wd-tabs__nav-container {
       overflow-x: auto;
       -webkit-overflow-scrolling: touch;
     }
-    .jm-tabs__nav-item {
+    .wd-tabs__nav-item {
       flex: 0 0 auto;
       padding: 0 17px;
     }
   }
   @include when(map) {
-    .jm-tabs__nav {
+    .wd-tabs__nav {
       padding-right: 40px;
     }
   }

@@ -1,22 +1,22 @@
 <template>
-  <div class="jm-infinite-load" ref="loadmore" @click="reload">
+  <div class="wd-infinite-load" ref="loadmore" @click="reload">
     <slot>
-      <jm-icon
+      <wd-icon
         v-show="!isFinished && !isError"
         name="news"
         size="20px"
-        class="jm-infinite-load__indicator" />
-      <span class="jm-infinite-load__text">{{ showText }}</span>
+        class="wd-infinite-load__indicator" />
+      <span class="wd-infinite-load__text">{{ showText }}</span>
     </slot>
   </div>
 </template>
 
 <script>
-import locale from 'jm-design/src/mixins/locale'
-import JmIcon from 'jm-design/packages/icon'
+import locale from 'wot-design/src/mixins/locale'
+import WdIcon from 'wot-design/packages/icon'
 
 export default {
-  name: 'JmInfiniteLoad',
+  name: 'WdInfiniteLoad',
   mixins: [locale],
   data () {
     return {
@@ -41,7 +41,7 @@ export default {
     }
   },
   components: {
-    JmIcon
+    WdIcon
   },
   watch: {
     loading (val) {
@@ -53,10 +53,10 @@ export default {
   computed: {
     showText () {
       return this.isFinished
-        ? (this.finishedText || this.t('jmd.infiniteLoad.finished'))
+        ? (this.finishedText || this.t('wd.infiniteLoad.finished'))
         : this.isError
-          ? (this.errorText || this.t('jmd.infiniteLoad.error'))
-          : (this.loadingText || this.t('jmd.infiniteLoad.loading'))
+          ? (this.errorText || this.t('wd.infiniteLoad.error'))
+          : (this.loadingText || this.t('wd.infiniteLoad.loading'))
     }
   },
   methods: {

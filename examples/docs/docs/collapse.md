@@ -4,7 +4,7 @@
 
 ```javascript
 import Vue from 'vue'
-import { Collapse, CollapseItem } from '@jd/jm-design'
+import { Collapse, CollapseItem } from 'wot-design'
 
 Vue.use(Collapse)
 Vue.use(CollapseItem)
@@ -15,17 +15,17 @@ Vue.use(CollapseItem)
 `v-model` 为绑定值，可以为 array 类型（普通折叠）、 string 类型（手风琴）和 boolean 类型（收起展开查看更多）。CollapseItem 的 `title` 和 `name` 为必填。`name` 用于标识该折叠栏。
 
 ```html
-<jm-collapse v-model="value">
-  <jm-collapse-item title="标签1" name="item1">
+<wd-collapse v-model="value">
+  <wd-collapse-item title="标签1" name="item1">
     这是一条简单的示例文字。
-  </jm-collapse-item>
-  <jm-collapse-item title="标签2" name="item2">
+  </wd-collapse-item>
+  <wd-collapse-item title="标签2" name="item2">
     这是一条简单的示例文字。
-  </jm-collapse-item>
-  <jm-collapse-item title="标签3" name="item3">
+  </wd-collapse-item>
+  <wd-collapse-item title="标签3" name="item3">
     这是一条简单的示例文字。
-  </jm-collapse-item>
-</jm-collapse>
+  </wd-collapse-item>
+</wd-collapse>
 
 <script>
 export default {
@@ -43,17 +43,17 @@ export default {
 设置 `accordion` 属性。
 
 ```html
-<jm-collapse v-model="value" accordion>
-  <jm-collapse-item title="标签1" name="item1">
+<wd-collapse v-model="value" accordion>
+  <wd-collapse-item title="标签1" name="item1">
     这是一条简单的示例文字。
-  </jm-collapse-item>
-  <jm-collapse-item title="标签2" name="item2">
+  </wd-collapse-item>
+  <wd-collapse-item title="标签2" name="item2">
     这是一条简单的示例文字。
-  </jm-collapse-item>
-  <jm-collapse-item title="标签3" name="item3">
+  </wd-collapse-item>
+  <wd-collapse-item title="标签3" name="item3">
     这是一条简单的示例文字。
-  </jm-collapse-item>
-</jm-collapse>
+  </wd-collapse-item>
+</wd-collapse>
 ```
 
 ### 禁用
@@ -61,17 +61,17 @@ export default {
 给 CollapseItem 设置 `disabled` 属性，禁用某个折叠栏。
 
 ```html
-<jm-collapse v-model="value">
-  <jm-collapse-item title="标签1" name="item1">
+<wd-collapse v-model="value">
+  <wd-collapse-item title="标签1" name="item1">
     这是一条简单的示例文字。
-  </jm-collapse-item>
-  <jm-collapse-item title="标签2" name="item2" disabled>
+  </wd-collapse-item>
+  <wd-collapse-item title="标签2" name="item2" disabled>
     这是一条简单的示例文字。
-  </jm-collapse-item>
-  <jm-collapse-item title="标签3" name="item3">
+  </wd-collapse-item>
+  <wd-collapse-item title="标签3" name="item3">
     这是一条简单的示例文字。
-  </jm-collapse-item>
-</jm-collapse>
+  </wd-collapse-item>
+</wd-collapse>
 ```
 
 ### 查看更多
@@ -79,9 +79,9 @@ export default {
 Collapse 可以单独使用，通过设置 `viewmore` 属性，将其转化为查看更多的折叠类型，同时可以设置 `line-num` 修改收起时的显示行数。这时候的 `v-model` 为 boolean 类型。
 
 ```html
-<jm-collapse viewmore v-model="value">
+<wd-collapse viewmore v-model="value">
   这是一条简单的示例文字。这是一条简单的示例文字。这是一条简单的示例文字。这是一条简单的示例文字。这是一条简单的示例文字。这是一条简单的示例文字。这是一条简单的示例文字。这是一条简单的示例文字。
-</jm-collapse>
+</wd-collapse>
 ```
 
 ### Collapse Attributes

@@ -4,7 +4,7 @@
 
 ```javascript
 import Vue from 'vue'
-import { Search } from '@jd/jm-design'
+import { Search } from 'wot-design'
 
 Vue.use(Search)
 ```
@@ -14,7 +14,7 @@ Vue.use(Search)
 `v-model` 设置输入框绑定值，`search` 绑定搜索事件，`cancel` 绑定取消事件，`clear` 绑定清空事件。
 
 ```html
-<jm-search v-model="search" @search="handleSearch" @cancel="handleCancel" @clear="handleClear" />
+<wd-search v-model="search" @search="handleSearch" @cancel="handleCancel" @clear="handleClear" />
 
 <script>
 export default {
@@ -43,7 +43,7 @@ export default {
 设置 `light` 属性，将组件背景色和输入框背景色反转。
 
 ```html
-<jm-search v-model="search" light />
+<wd-search v-model="search" light />
 ```
 
 ### 输入框提示文案靠左
@@ -51,7 +51,7 @@ export default {
 设置 `placeholder-left` 属性。
 
 ```html
-<jm-search v-model="search" placeholder-left />
+<wd-search v-model="search" placeholder-left />
 ```
 
 ### 隐藏取消按钮
@@ -59,7 +59,7 @@ export default {
 设置 `hide-cancel` 属性。
 
 ```html
-<jm-search v-model="search" hide-cancel />
+<wd-search v-model="search" hide-cancel />
 ```
 
 ### 禁用
@@ -67,13 +67,13 @@ export default {
 设置 `disabled` 属性。
 
 ```html
-<jm-search v-model="search" disabled />
+<wd-search v-model="search" disabled />
 ```
 
 可以和 `hide-cancel` 结合使用，用于在本页只展示搜索框，当点击搜索框时，将页面路由切换进搜索页，在搜索页中再使用搜索功能。
 
 ```html
-<jm-search v-model="search" hide-cancel disabled />
+<wd-search v-model="search" hide-cancel disabled />
 ```
 
 ### 自定义
@@ -81,7 +81,7 @@ export default {
 通过设置 `placeholder` 修改输入框提示文案，`cancel-txt` 修改取消按钮文案。
 
 ```html
-<jm-search v-model="search" placeholder="请输入订单号/订单名称" cancel-txt="搜索" />
+<wd-search v-model="search" placeholder="请输入订单号/订单名称" cancel-txt="搜索" />
 ```
 
 ### Attributes

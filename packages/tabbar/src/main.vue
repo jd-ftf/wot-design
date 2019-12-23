@@ -1,6 +1,6 @@
 <template>
   <div
-    class="jm-tabbar"
+    class="wd-tabbar"
     :class="{
       'is-border': border,
       'is-fixed': fixed
@@ -11,7 +11,7 @@
 
 <script>
 export default {
-  name: 'JmTabbar',
+  name: 'WdTabbar',
   provide () {
     return {
       tabbar: this

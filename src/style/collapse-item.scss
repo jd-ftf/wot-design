@@ -3,7 +3,7 @@
 
 @include b(collapse-item) {
   &:first-child {
-    .jm-collapse-item__header::after {
+    .wd-collapse-item__header::after {
       display: none;
     }
   }
@@ -48,10 +48,10 @@
   }
 
   @include when(disabled) {
-    .jm-collapse-item__title {
+    .wd-collapse-item__title {
       color: $-collapse-disabled-color;
     }
-    .jm-collapse-item__arrow {
+    .wd-collapse-item__arrow {
       color: $-collapse-disabled-color;
     }
   }

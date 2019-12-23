@@ -39,7 +39,7 @@
     }
   }
   @include m(ellipse) {
-    .jm-notice-bar__content {
+    .wd-notice-bar__content {
       position: static;
       @include lineEllipsis;
     }
@@ -47,10 +47,10 @@
   @include m(wrap) {
     padding: 14px 15px;
 
-    .jm-notice-bar__wrap {
+    .wd-notice-bar__wrap {
       height: auto;
     }
-    .jm-notice-bar__content {
+    .wd-notice-bar__content {
       position: static;
       white-space: normal;
     }

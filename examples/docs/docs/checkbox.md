@@ -4,7 +4,7 @@
 
 ```javascript
 import Vue from 'vue'
-import { CheckboxGroup, Checkbox } from '@jd/jm-design'
+import { CheckboxGroup, Checkbox } from 'wot-design'
 
 Vue.use(CheckboxGroup)
 Vue.use(Checkbox)
@@ -15,7 +15,7 @@ Vue.use(Checkbox)
 `v-model` 为绑定值，是否选中，值为 `boolean` 类型。
 
 ```html
-<jm-checkbox v-model="value">单选框1</jm-checkbox>
+<wd-checkbox v-model="value">单选框1</wd-checkbox>
 
 <script>
 export default {
@@ -33,8 +33,8 @@ export default {
 修改 `shape` 属性，可选值为 'circle'、'square'、'button'，默认为 'circle'。
 
 ```html
-<jm-checkbox v-model="value1" shape="square">京麦</jm-checkbox>
-<jm-checkbox v-model="value2" shape="button">京麦</jm-checkbox>
+<wd-checkbox v-model="value1" shape="square">京麦</wd-checkbox>
+<wd-checkbox v-model="value2" shape="button">京麦</wd-checkbox>
 ```
 
 ### 修改选中的颜色
@@ -42,7 +42,7 @@ export default {
 设置 `checked-color` 属性。
 
 ```html
-<jm-checkbox v-model="value" checked-color="#f00">京麦</jm-checkbox>
+<wd-checkbox v-model="value" checked-color="#f00">京麦</wd-checkbox>
 ```
 
 ### 修改选中和非选中的值
@@ -50,7 +50,7 @@ export default {
 设置 `true-value` 和 `false-value` 修改选中值和非选中值。如果不设置，`v-model` 默认为 `true` 和 `false` 切换。
 
 ```html
-<jm-checkbox v-model="value" true-value="京麦" false-value="商家后台">复选框</jm-checkbox>
+<wd-checkbox v-model="value" true-value="京麦" false-value="商家后台">复选框</wd-checkbox>
 ```
 
 ### 复选框组
@@ -58,10 +58,10 @@ export default {
 `v-model` 为数组，单个复选框的值通过 `value` 进行设置。
 
 ```html
-<jm-checkbox-group v-model="value">
-  <jm-checkbox value="jingmai">京麦</jm-checkbox>
-  <jm-checkbox value="shop">商家后台</jm-checkbox>
-</jm-checkbox-group>
+<wd-checkbox-group v-model="value">
+  <wd-checkbox value="jingmai">京麦</wd-checkbox>
+  <wd-checkbox value="shop">商家后台</wd-checkbox>
+</wd-checkbox-group>
 
 <script>
 export default {
@@ -79,10 +79,10 @@ export default {
 可以在 `checkbox-group` 上面设置 `disabled`，禁用所有复选框，也可以在单个复选框上面设置 `disabled` 属性，禁用某个复选框。
 
 ```html
-<jm-checkbox-group v-model="value" disabled>
-  <jm-checkbox value="jingmai">京麦</jm-checkbox>
-  <jm-checkbox value="shop">商家后台</jm-checkbox>
-</jm-checkbox-group>
+<wd-checkbox-group v-model="value" disabled>
+  <wd-checkbox value="jingmai">京麦</wd-checkbox>
+  <wd-checkbox value="shop">商家后台</wd-checkbox>
+</wd-checkbox-group>
 ```
 
 ### 设置选中数量的上限和下限
@@ -90,12 +90,12 @@ export default {
 `min` 属性设置最小选中的数量，`max` 属性设置最大选中的数量。如果要默认设置某个选项固定被选中，则给该复选框设置 disabled，且 `v-model` 中有该选项的值。
 
 ```html
-<jm-checkbox-group v-model="value" :min="1" :max="3">
-  <jm-checkbox value="jd">京东</jm-checkbox>
-  <jm-checkbox value="jingmai">京麦</jm-checkbox>
-  <jm-checkbox value="shop">商家后台</jm-checkbox>
-  <jm-checkbox value="market">营销中心</jm-checkbox>
-</jm-checkbox-group>
+<wd-checkbox-group v-model="value" :min="1" :max="3">
+  <wd-checkbox value="jd">京东</wd-checkbox>
+  <wd-checkbox value="jingmai">京麦</wd-checkbox>
+  <wd-checkbox value="shop">商家后台</wd-checkbox>
+  <wd-checkbox value="market">营销中心</wd-checkbox>
+</wd-checkbox-group>
 
 <script>
 export default {

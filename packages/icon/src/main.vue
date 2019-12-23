@@ -1,6 +1,6 @@
 <script>
 export default {
-  name: 'JmIcon',
+  name: 'WdIcon',
   props: {
     name: String,
     color: String,
@@ -21,7 +21,7 @@ export default {
     return createElement(
       tag,
       {
-        class: `jm-icon-${name}`,
+        class: `wd-icon-${name}`,
         style: {
           color,
           fontSize: size

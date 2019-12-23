@@ -4,7 +4,7 @@
       <router-link class="examples-list__link" :to="item.path">
         <div>{{ item.name }}</div>
         <div>
-          <jm-icon name="arrow-right" color="#aaa" />
+          <wd-icon name="arrow-right" color="#aaa" />
         </div>
       </router-link>
     </li>

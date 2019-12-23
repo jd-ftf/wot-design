@@ -4,7 +4,7 @@
 
 ```javascript
 import Vue from 'vue'
-import { Badge } from '@jd/jm-design'
+import { Badge } from 'wot-design'
 
 Vue.use(Badge)
 ```
@@ -18,9 +18,9 @@ Vue.use(Badge)
 定义`value`属性，它接受`Number`或者`String`。
 
 ```html
-<jm-badge :value="12">
-  <jm-button size="small">评论</jm-button>
-</jm-badge>
+<wd-badge :value="12">
+  <wd-button size="small">评论</wd-button>
+</wd-badge>
 ```
 
 ### 修改背景色
@@ -28,20 +28,21 @@ Vue.use(Badge)
 设置 `type` 属性，也可以自定义背景色 `bg-color`。
 
 ```html
-<jm-badge :value="3" bg-color="pink">
-  <jm-button size="small">回复</jm-button>
-</jm-badge>
-<jm-badge :value="1" type="primary">
-  <jm-button size="small">评论</jm-button>
-</jm-badge>
-<jm-badge :value="2" type="warning">
-  <jm-button size="small">回复</jm-button>
-</jm-badge>
-<jm-badge :value="1" type="success">
-  <jm-button size="small">评论</jm-button>
-</jm-badge>
-<jm-badge :value="2" type="info">
-  <jm-button size="small">回复</jm-button>
+<wd-badge :value="3" bg-color="pink">
+  <wd-button size="small">回复</wd-button>
+</wd-badge>
+<wd-badge :value="1" type="primary">
+  <wd-button size="small">评论</wd-button>
+</wd-badge>
+<wd-badge :value="2" type="warning">
+  <wd-button size="small">回复</wd-button>
+</wd-badge>
+<wd-badge :value="1" type="success">
+  <wd-button size="small">评论</wd-button>
+</wd-badge>
+<wd-badge :value="2" type="info">
+  <wd-button size="small">回复</wd-button>
+</wd-badge>
 ```
 
 ### 最大值
@@ -51,12 +52,12 @@ Vue.use(Badge)
 由`max`属性定义，它接受一个`Number`，需要注意的是，只有当`value`为`Number`时，它才会生效。
 
 ```html
-<jm-badge :value="200" :max="99">
-  <jm-button size="small">评论</jm-button>
-</jm-badge>
-<jm-badge :value="100" :max="10">
-  <jm-button size="small">回复</jm-button>
-</jm-badge>
+<wd-badge :value="200" :max="99">
+  <wd-button size="small">评论</wd-button>
+</wd-badge>
+<wd-badge :value="100" :max="10">
+  <wd-button size="small">回复</wd-button>
+</wd-badge>
 ```
 
 
@@ -67,12 +68,12 @@ Vue.use(Badge)
  定义`value`为`String`类型是时可以用于显示自定义文本。
 
 ```html
-<jm-badge value="new">
-  <jm-button size="small">评论</jm-button>
-</jm-badge>
-<jm-badge value="hot">
-  <jm-button size="small">回复</jm-button>
-</jm-badge>
+<wd-badge value="new">
+  <wd-button size="small">评论</wd-button>
+</wd-badge>
+<wd-badge value="hot">
+  <wd-button size="small">回复</wd-button>
+</wd-badge>
 ```
 
 
@@ -83,10 +84,10 @@ Vue.use(Badge)
  除了数字外，设置`is-dot`属性，它接受一个`Boolean`。
 
 ```html
-<jm-badge is-dot>数据查询</jm-badge>
-<jm-badge is-dot>
-  <jm-button class="share-button"  type="primary"></jm-button>
-</jm-badge>
+<wd-badge is-dot>数据查询</wd-badge>
+<wd-badge is-dot>
+  <wd-button class="share-button"  type="primary"></wd-button>
+</wd-badge>
 ```
 
 

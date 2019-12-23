@@ -1,11 +1,11 @@
 <script>
-import animateScrollLeft from 'jm-design/src/utils/animateScrollLeft'
-import locale from 'jm-design/src/mixins/locale'
-import touchMixin from 'jm-design/src/mixins/touch'
-import Sticky from 'jm-design/packages/sticky'
+import animateScrollLeft from 'wot-design/src/utils/animateScrollLeft'
+import locale from 'wot-design/src/mixins/locale'
+import touchMixin from 'wot-design/src/mixins/touch'
+import Sticky from 'wot-design/packages/sticky'
 
 export default {
-  name: 'JmTabs',
+  name: 'WdTabs',
   mixins: [locale, touchMixin],
   provide () {
     return {
@@ -172,7 +172,7 @@ export default {
             key={key}
             ref={`navs_${index}`}
             class={{
-              'jm-tabs__nav-item': true,
+              'wd-tabs__nav-item': true,
               'is-active': this.activeIndex === index,
               'is-disabled': item.disabled
             }}
@@ -192,11 +192,11 @@ export default {
         let title = item.$slots.title || item.title
         let key = item.name || index
         return (
-          <div key={key} class='jm-tabs__map-nav-item'>
+          <div key={key} class='wd-tabs__map-nav-item'>
             <button
               key={key}
               class={{
-                'jm-tabs__map-nav-btn': true,
+                'wd-tabs__map-nav-btn': true,
                 'is-active': this.activeIndex === index,
                 'is-disabled': item.disabled
               }}
@@ -265,20 +265,20 @@ export default {
       const MapNavs = this.getNavMapDom()
 
       NavMap = (
-        <div class="jm-tabs__map">
-          <span class="jm-tabs__map-btn" on-click={this.toggleMap}>
+        <div class="wd-tabs__map">
+          <span class="wd-tabs__map-btn" on-click={this.toggleMap}>
             <i class={{
-              'jm-tabs__map-arrow': true,
-              'jm-icon-arrow-down': true,
+              'wd-tabs__map-arrow': true,
+              'wd-icon-arrow-down': true,
               'is-open': this.animating
             }}></i>
           </span>
           <div
-            class="jm-tabs__map-header"
+            class="wd-tabs__map-header"
             style={{ display: this.mapShow ? '' : 'none', opacity: this.animating ? 1 : '' }}
-          >{ this.t('jmd.tabs.all') }</div>
+          >{ this.t('wd.tabs.all') }</div>
           <div class={{
-            'jm-tabs__map-body': true,
+            'wd-tabs__map-body': true,
             'is-open': this.animating
           }} style={{ display: this.mapShow ? '' : 'none' }}>
             { MapNavs }
@@ -288,10 +288,10 @@ export default {
     }
 
     const Nav = (
-      <div class="jm-tabs__nav" ref="navVisible">
-        <div class="jm-tabs__nav-container" ref="navContainer">
+      <div class="wd-tabs__nav" ref="navVisible">
+        <div class="wd-tabs__nav-container" ref="navContainer">
           {Navs}
-          <i class="jm-tabs__line" style={this.lineStyle}></i>
+          <i class="wd-tabs__line" style={this.lineStyle}></i>
         </div>
       </div>
     )
@@ -299,7 +299,7 @@ export default {
     return (
       <div
         class={{
-          'jm-tabs': true,
+          'wd-tabs': true,
           'is-slide': this.slidableNum < this.items.length,
           'is-map': this.mapNum < this.items.length && this.mapNum !== 0
         }}
@@ -309,8 +309,8 @@ export default {
             ? <Sticky offsetTop={this.offsetTop} container={this.$el}>{Nav}{NavMap}</Sticky>
             : Nav
         }
-        <div class="jm-tabs__container">
-          <div class="jm-tabs__body" style={this.bodyStyle} ref="tabsBody">
+        <div class="wd-tabs__container">
+          <div class="wd-tabs__body" style={this.bodyStyle} ref="tabsBody">
             {this.$slots.default}
           </div>
         </div>
@@ -319,7 +319,7 @@ export default {
         }
         {
           this.mapNum < this.items.length && this.mapNum !== 0
-            ? <div class="jm-tabs__mask" style={{ display: this.mapShow ? '' : 'none', opacity: this.animating ? 1 : '' }} on-click={this.toggleMap}></div>
+            ? <div class="wd-tabs__mask" style={{ display: this.mapShow ? '' : 'none', opacity: this.animating ? 1 : '' }} on-click={this.toggleMap}></div>
             : ''
         }
       </div>

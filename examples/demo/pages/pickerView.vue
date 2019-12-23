@@ -2,23 +2,23 @@
   <div>
     <space>
       <div slot="title">基本用法，数值: {{ value1 }}</div>
-      <jm-picker-view :columns="columns1" v-model="value1" @change="onChange" />
+      <wd-picker-view :columns="columns1" v-model="value1" @change="onChange" />
     </space>
     <space>
       <div slot="title">禁用选项，数值: {{ value2 }}</div>
-      <jm-picker-view :columns="columns2" v-model="value2" />
+      <wd-picker-view :columns="columns2" v-model="value2" />
     </space>
     <space>
       <div slot="title">加载中，数值: {{ value3 }}</div>
-      <jm-picker-view :columns="columns1" v-model="value3" loading />
+      <wd-picker-view :columns="columns1" v-model="value3" loading />
     </space>
     <space >
       <div slot="title">多列，数值: {{ value4 }}</div>
-      <jm-picker-view :columns="columns3" v-model="value4" />
+      <wd-picker-view :columns="columns3" v-model="value4" />
     </space>
     <space>
       <div slot="title">多级联动，数值: {{ value5 }}</div>
-      <jm-picker-view :columns="columns4" v-model="value5" :column-change="onChangeDistrict" />
+      <wd-picker-view :columns="columns4" v-model="value5" :column-change="onChangeDistrict" />
     </space>
   </div>
 </template>

@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import App from './App'
-import JMDesign from 'main/index'
+import WotDesign from 'main/index'
 import '../../src/style/index.scss'
 import router from './route'
 import './assets/style/base.scss'
@@ -25,7 +25,7 @@ const i18n = new VueI18n({
     }
   }
 })
-Vue.use(JMDesign, {
+Vue.use(WotDesign, {
   i18n: (key, value) => i18n.t(key, value)
 })
 Vue.component(WhiteSpace.name, WhiteSpace)

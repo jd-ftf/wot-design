@@ -4,7 +4,7 @@
 
 ```javascript
 import Vue from 'vue'
-import { ActionSheet } from '@jd/jm-design'
+import { ActionSheet } from 'wot-design'
 
 Vue.use(ActionSheet)
 ```
@@ -14,8 +14,8 @@ Vue.use(ActionSheet)
 `v-model` 为绑定值，表示是否展示菜单。
 
 ```html
-<jm-button type="primary" plain @click="show = true">弹出菜单</jm-button>
-<jm-action-sheet v-model="show" :actions="actions" />
+<wd-button type="primary" plain @click="show = true">弹出菜单</wd-button>
+<wd-action-sheet v-model="show" :actions="actions" />
 
 <script>
 export default {
@@ -43,8 +43,8 @@ export default {
 可以设置 颜色、禁用、加载 等状态。
 
 ```html
-<jm-button type="primary" plain @click="show = true">弹出菜单</jm-button>
-<jm-action-sheet v-model="show" :actions="actions" />
+<wd-button type="primary" plain @click="show = true">弹出菜单</wd-button>
+<wd-action-sheet v-model="show" :actions="actions" />
 
 <script>
 export default {
@@ -73,7 +73,7 @@ export default {
 设置 `cancel-text` 取消按钮文案，展示取消按钮。
 
 ```html
-<jm-action-sheet v-model="show" :actions="actions" cancel-text="取消" />
+<wd-action-sheet v-model="show" :actions="actions" cancel-text="取消" />
 ```
 
 ### 标题
@@ -81,9 +81,9 @@ export default {
 设置 `title` 展示标题。
 
 ```html
-<jm-action-sheet v-model="show" title="标题">
+<wd-action-sheet v-model="show" title="标题">
   <p style="padding: 15px 15px 150px 15px;">内容</p>
-</jm-action-sheet>
+</wd-action-sheet>
 ```
 
 ### Attributes

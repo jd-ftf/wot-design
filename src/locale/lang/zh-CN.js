@@ -1,5 +1,5 @@
 export default {
-  jmd: {
+  wd: {
     collapse: {
       expand: '展开',
       retract: '收起'

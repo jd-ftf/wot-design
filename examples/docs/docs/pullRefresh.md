@@ -4,7 +4,7 @@
 
 ```javascript
 import Vue from 'vue'
-import { PullRefresh } from '@jd/jm-design'
+import { PullRefresh } from 'wot-design'
 
 Vue.use(PullRefresh)
 ```
@@ -13,14 +13,14 @@ Vue.use(PullRefresh)
 
 ```html
 <template>
-  <jm-pull-refresh v-model="isLoading" @refresh="refresh" tip-text="刷新成功">
+  <wd-pull-refresh v-model="isLoading" @refresh="refresh" tip-text="刷新成功">
     <div class="refresh-list">
       <div v-for="(item, index) in list" :key="index" class="refresh-list-item">
         <img :src="item.img" />
         <div>{{ item.text }}</div>
       </div>
     </div>
-  </jm-pull-refresh>
+  </wd-pull-refresh>
 </template>
 
 <script>

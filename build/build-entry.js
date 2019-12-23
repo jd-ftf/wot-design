@@ -35,7 +35,7 @@ import locale from './locale'
 const components = [
 ${componentsList.map(component => `  ${component}`).join(',\n')},
   Loading.Indicator,
-  MessageBox.jmMessageBox
+  MessageBox.wdMessageBox
 ]
 
 const install = (Vue, config = {}) => {

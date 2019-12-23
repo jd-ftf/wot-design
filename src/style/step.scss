@@ -5,7 +5,7 @@
   position: relative;
 
   &:last-child {
-    .jm-step__line {
+    .wd-step__line {
       display: none;
     }
   }
@@ -14,7 +14,7 @@
     font-size: 0;
 
     @include when(dot) {
-      .jm-step__line {
+      .wd-step__line {
         margin-top: -1px;
       }
     }
@@ -85,31 +85,31 @@
     padding: 0 2px 4px;
   }
   @include when(finished) {
-    .jm-step__icon-inner {
+    .wd-step__icon-inner {
       color: $-steps-finished-color;
     }
-    .jm-step__title {
+    .wd-step__title {
       color: $-steps-finished-color;
     }
-    .jm-step__dot {
+    .wd-step__dot {
       background: $-steps-finished-color;
     }
   }
   @include when(process) {
-    .jm-step__icon.is-icon {
-      .jm-step__icon-inner {
+    .wd-step__icon.is-icon {
+      .wd-step__icon-inner {
         color: $-steps-finished-color;
       }
     }
-    .jm-step__icon-outer {
+    .wd-step__icon-outer {
       color: #fff;
       background: $-steps-finished-color;
       border-color: $-steps-finished-color;
     }
-    .jm-step__title {
+    .wd-step__title {
       color: $-steps-finished-color;
     }
-    .jm-step__icon {
+    .wd-step__icon {
       border-color: $-steps-finished-color;
 
       &.is-dot {
@@ -126,28 +126,28 @@
         }
       }
     }
-    .jm-step__dot {
+    .wd-step__dot {
       background: $-steps-finished-color;
     }
   }
   @include when(error) {
-    .jm-step__icon-inner, .jm-step__title {
+    .wd-step__icon-inner, .wd-step__title {
       color: $-steps-error-color;
     }
-    .jm-step__dot {
+    .wd-step__dot {
       background: $-steps-error-color;
     }
   }
   @include when(center) {
     text-align: center;
 
-    .jm-step__line {
+    .wd-step__line {
       left: 50%;
       right: -50%;
     }
   }
   @include when(vertical) {
-    .jm-step__header {
+    .wd-step__header {
       position: absolute;
       left: 0;
       top: 0;
@@ -156,24 +156,24 @@
       &.is-dot {
         top: 6px;
 
-        .jm-step__line {
+        .wd-step__line {
           margin-left: -1px;
           margin-top: 0;
         }
       }
     }
-    .jm-step__content {
+    .wd-step__content {
       margin-left: 30px;
       margin-top: 0;
       min-height: 56px;
     }
-    .jm-step__line {
+    .wd-step__line {
       top: 0;
       left: 50%;
       width: 1px;
       height: 100%;
     }
-    .jm-step__icon.is-dot {
+    .wd-step__icon.is-dot {
       margin-left: 0;
       margin-top: -1px;
     }

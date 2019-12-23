@@ -1,29 +1,29 @@
 <template>
   <label
-    class="jm-radio"
+    class="wd-radio"
     :class="{
       'is-checked': isChecked,
       'is-button': finalShape === 'button',
       'is-disabled': finalDisabled
     }"
   >
-    <span class="jm-radio__shape" :style="{ 'color': isChecked && !finalDisabled ? finalCheckedColor : '' }">
+    <span class="wd-radio__shape" :style="{ 'color': isChecked && !finalDisabled ? finalCheckedColor : '' }">
       <i
-        class="jm-radio__check"
+        class="wd-radio__check"
         :style="{
           'color': isChecked && !finalDisabled ? finalCheckedColor : ''
         }"
       ></i>
       <input
         type="radio"
-        class="jm-radio__input"
+        class="wd-radio__input"
         :value="value"
         :checked="isChecked"
         :disabled="finalDisabled"
         @change="handleChange"
       />
     </span>
-    <div class="jm-radio__label" :style="{ 'color': isChecked && finalShape === 'button' && !finalDisabled ? finalCheckedColor : '' }">
+    <div class="wd-radio__label" :style="{ 'color': isChecked && finalShape === 'button' && !finalDisabled ? finalCheckedColor : '' }">
       <slot></slot>
     </div>
   </label>
@@ -31,7 +31,7 @@
 
 <script>
 export default {
-  name: 'JmRadio',
+  name: 'WdRadio',
   inject: ['radioGroup'],
   props: {
     value: [String, Number, Boolean],

@@ -1,10 +1,10 @@
 <template>
-  <header class="jm-navbar" :class="{ 'is-light': light }">
-    <div class="jm-navbar__side jm-navbar__side-left">
+  <header class="wd-navbar" :class="{ 'is-light': light }">
+    <div class="wd-navbar__side wd-navbar__side-left">
       <slot name="left"></slot>
     </div>
-    <div class="jm-navbar__title">{{ title }}</div>
-    <div class="jm-navbar__side jm-navbar__side-right">
+    <div class="wd-navbar__title">{{ title }}</div>
+    <div class="wd-navbar__side wd-navbar__side-right">
       <slot name="right"></slot>
     </div>
   </header>
@@ -12,7 +12,7 @@
 
 <script>
 export default {
-  name: 'JmNavbar',
+  name: 'WdNavbar',
   props: {
     title: {
       type: String,

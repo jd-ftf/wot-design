@@ -1,17 +1,17 @@
 <template>
   <div
-    class="jm-input-number"
+    class="wd-input-number"
     :class="{
       'is-disabled': disabled,
       'is-without-input': withoutInput
     }"
   >
-    <a class="jm-input-number__action" :class="{ 'is-disabled': minDisabled }" @click="sub">
-      <i class="jm-input-number__sub"></i>
+    <a class="wd-input-number__action" :class="{ 'is-disabled': minDisabled }" @click="sub">
+      <i class="wd-input-number__sub"></i>
     </a>
-    <div v-if="!withoutInput" class="jm-input-number__inner">
+    <div v-if="!withoutInput" class="wd-input-number__inner">
       <input
-        class="jm-input-number__input"
+        class="wd-input-number__input"
         :style="{
           'width': inputWidth
         }"
@@ -24,17 +24,17 @@
         @change="handleChange"
         @blur="handleBlur"
       />
-      <i class="jm-input-number__input-border"></i>
+      <i class="wd-input-number__input-border"></i>
     </div>
-    <a class="jm-input-number__action" :class="{ 'is-disabled': maxDisabled }" @click="add">
-      <i class="jm-input-number__add"></i>
+    <a class="wd-input-number__action" :class="{ 'is-disabled': maxDisabled }" @click="add">
+      <i class="wd-input-number__add"></i>
     </a>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'JmInputNumber',
+  name: 'WdInputNumber',
   data () {
     return {
       inputValue: null

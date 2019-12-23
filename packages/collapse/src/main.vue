@@ -1,14 +1,14 @@
 <template>
-  <div class="jm-collapse" :class="{ 'is-viewmore': viewmore }">
+  <div class="wd-collapse" :class="{ 'is-viewmore': viewmore }">
     <slot v-if="!viewmore"></slot>
     <template v-else>
-      <div class="jm-collapse__content" :class="{ 'is-retract': !value }" :style="{ '-webkit-line-clamp': contentLineNum }">
+      <div class="wd-collapse__content" :class="{ 'is-retract': !value }" :style="{ '-webkit-line-clamp': contentLineNum }">
         <slot></slot>
       </div>
-      <div class="jm-collapse__more" @click="switchValue(!value)">
+      <div class="wd-collapse__more" @click="switchValue(!value)">
         <slot name="more">
-          <span class="jm-collapse__more-txt">{{ t(!value ? 'jmd.collapse.expand' : 'jmd.collapse.retract') }}</span>
-          <i class="jm-collapse__arrow jm-icon-arrow-down" :class="{ 'is-retract': value }"></i>
+          <span class="wd-collapse__more-txt">{{ t(!value ? 'wd.collapse.expand' : 'wd.collapse.retract') }}</span>
+          <i class="wd-collapse__arrow wd-icon-arrow-down" :class="{ 'is-retract': value }"></i>
         </slot>
       </div>
     </template>
@@ -16,10 +16,10 @@
 </template>
 
 <script>
-import locale from 'jm-design/src/mixins/locale'
+import locale from 'wot-design/src/mixins/locale'
 
 export default {
-  name: 'JmCollapse',
+  name: 'WdCollapse',
   mixins: [locale],
   provide () {
     return {

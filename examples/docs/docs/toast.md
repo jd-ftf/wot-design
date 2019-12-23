@@ -4,7 +4,7 @@
 
 ```javascript
 import Vue from 'vue'
-import { Toast } from '@jd/jm-design'
+import { Toast } from 'wot-design'
 
 Vue.use(Toast)
 ```

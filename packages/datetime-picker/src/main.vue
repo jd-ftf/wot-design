@@ -3,7 +3,7 @@ import DatePicker from './datePicker'
 import TimePicker from './timePicker'
 
 export default {
-  name: 'JmDatetimePicker',
+  name: 'WdDatetimePicker',
   props: {
     ...TimePicker.props,
     ...DatePicker.props

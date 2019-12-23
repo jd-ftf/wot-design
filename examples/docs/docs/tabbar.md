@@ -4,7 +4,7 @@
 
 ```javascript
 import Vue from 'vue'
-import { Tabbar, TabbarItem } from '@jd/jm-design'
+import { Tabbar, TabbarItem } from 'wot-design'
 
 Vue.use(Tabbar)
 Vue.use(TabbarItem)
@@ -15,11 +15,11 @@ Vue.use(TabbarItem)
 `v-model` 为绑定值，可以为 number 类型（下标）和 string 类型（标签栏名）。
 
 ```html
-<jm-tabbar v-model="tabbar">
-  <jm-tabbar-item icon="jm-icon-cart">购物车</jm-tabbar-item>
-  <jm-tabbar-item icon="jm-icon-collect">收藏</jm-tabbar-item>
-  <jm-tabbar-item icon="jm-icon-person">我</jm-tabbar-item>
-</jm-tabbar>
+<wd-tabbar v-model="tabbar">
+  <wd-tabbar-item icon="wd-icon-cart">购物车</wd-tabbar-item>
+  <wd-tabbar-item icon="wd-icon-collect">收藏</wd-tabbar-item>
+  <wd-tabbar-item icon="wd-icon-person">我</wd-tabbar-item>
+</wd-tabbar>
 
 <script>
 export default {
@@ -37,11 +37,11 @@ export default {
 支持 dot 角标，字符串角标和数字角标。
 
 ```html
-<jm-tabbar v-model="tabbar">
-  <jm-tabbar-item icon="jm-icon-cart" dot>购物车</jm-tabbar-item>
-  <jm-tabbar-item icon="jm-icon-collect" value="new">收藏</jm-tabbar-item>
-  <jm-tabbar-item icon="jm-icon-person" :value="7">我</jm-tabbar-item>
-</jm-tabbar>
+<wd-tabbar v-model="tabbar">
+  <wd-tabbar-item icon="wd-icon-cart" dot>购物车</wd-tabbar-item>
+  <wd-tabbar-item icon="wd-icon-collect" value="new">收藏</wd-tabbar-item>
+  <wd-tabbar-item icon="wd-icon-person" :value="7">我</wd-tabbar-item>
+</wd-tabbar>
 ```
 
 ### 修改颜色
@@ -49,11 +49,11 @@ export default {
 支持修改标签栏颜色和角标颜色。
 
 ```html
-<jm-tabbar v-model="tabbar" active-color="#f00" badge-color="#0083ff">
-  <jm-tabbar-item icon="jm-icon-cart" dot>购物车</jm-tabbar-item>
-  <jm-tabbar-item icon="jm-icon-collect">收藏</jm-tabbar-item>
-  <jm-tabbar-item icon="jm-icon-person">我</jm-tabbar-item>
-</jm-tabbar>
+<wd-tabbar v-model="tabbar" active-color="#f00" badge-color="#0083ff">
+  <wd-tabbar-item icon="wd-icon-cart" dot>购物车</wd-tabbar-item>
+  <wd-tabbar-item icon="wd-icon-collect">收藏</wd-tabbar-item>
+  <wd-tabbar-item icon="wd-icon-person">我</wd-tabbar-item>
+</wd-tabbar>
 ```
 
 ### 路由模式
@@ -61,11 +61,11 @@ export default {
 支持路由模式，设置 to 属性，可以为链接、router的path字符串、router的路由对象。如果 to 的值不属于路由，则判定为链接。
 
 ```html
-<jm-tabbar>
-  <jm-tabbar-item icon="jm-icon-cart" to="/tabbar">标签栏</jm-tabbar-item>
-  <jm-tabbar-item icon="jm-icon-collect" to="/button">按钮</jm-tabbar-item>
-  <jm-tabbar-item icon="jm-icon-person" to="https://m.jd.com">京东</jm-tabbar-item>
-</jm-tabbar>
+<wd-tabbar>
+  <wd-tabbar-item icon="wd-icon-cart" to="/tabbar">标签栏</wd-tabbar-item>
+  <wd-tabbar-item icon="wd-icon-collect" to="/button">按钮</wd-tabbar-item>
+  <wd-tabbar-item icon="wd-icon-person" to="https://m.jd.com">京东</wd-tabbar-item>
+</wd-tabbar>
 ```
 
 ### fixed 定位和边框
@@ -73,11 +73,11 @@ export default {
 设置 `fixed` 属性和 `border` 边框属性。
 
 ```html
-<jm-tabbar v-model="tabbar" fixed border>
-  <jm-tabbar-item icon="jm-icon-cart">购物车</jm-tabbar-item>
-  <jm-tabbar-item icon="jm-icon-collect">收藏</jm-tabbar-item>
-  <jm-tabbar-item icon="jm-icon-person">我</jm-tabbar-item>
-</jm-tabbar>
+<wd-tabbar v-model="tabbar" fixed border>
+  <wd-tabbar-item icon="wd-icon-cart">购物车</wd-tabbar-item>
+  <wd-tabbar-item icon="wd-icon-collect">收藏</wd-tabbar-item>
+  <wd-tabbar-item icon="wd-icon-person">我</wd-tabbar-item>
+</wd-tabbar>
 ```
 
 ### Tabbar Attributes

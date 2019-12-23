@@ -1,5 +1,5 @@
 <template>
-  <div :class="{ 'jm-sticky': true, 'is-support-sticky': !shouldScroll }" :style="shouldScroll ? { height: height + 'px' } : stickyStyle">
+  <div :class="{ 'wd-sticky': true, 'is-support-sticky': !shouldScroll }" :style="shouldScroll ? { height: height + 'px' } : stickyStyle">
     <div :style="shouldScroll && this.fixed ? stickyStyle : ''">
       <slot></slot>
     </div>
@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import { isSupportSticky, getScrollTargetEvent } from 'jm-design/src/utils'
+import { isSupportSticky, getScrollTargetEvent } from 'wot-design/src/utils'
 
 export default {
   name: 'Sticky',

@@ -85,7 +85,7 @@ const components = [
   TabbarItem,
   Tag,
   Loading.Indicator,
-  MessageBox.jmMessageBox
+  MessageBox.wdMessageBox
 ]
 
 const install = (Vue, config = {}) => {
