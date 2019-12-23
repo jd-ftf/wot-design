@@ -13,10 +13,7 @@
     "build:files": "node build/style/iconInit.js & node build/build-entry.js & node build/build-versions.js",
     "dist": "rimraf lib && npm run build:files && npm run build:lib && npm run build:components && npm run build:theme && npm run build:utils && npm run build:locale",
     "unit": "cross-env BABEL_ENV=test NODE_ENV=development karma start test/unit/karma.conf.js --single-run",
-    "e2e": "node test/e2e/runner.js",
-    "test": "npm run unit",
-    "lint": "eslint --ext .js,.vue src test/unit",
-    "tag": "node build/build-tag.js"
+    "test": "npm run unit"
   },
   "main": "./lib/index.js",
   "keywords": [

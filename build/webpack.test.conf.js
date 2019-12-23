@@ -2,6 +2,7 @@
 
 const utils = require('./utils')
 const { VueLoaderPlugin } = require('vue-loader')
+const config = require('./config')
 
 module.exports = {
   mode: 'development',
@@ -44,11 +45,7 @@ module.exports = {
   },
   resolve: {
     extensions: ['.js', '.vue', '.json'],
-    alias: {
-      'vue$': 'vue/dist/vue.esm.js',
-      '@': utils.resolve('src'),
-      'jm-design': utils.resolve('packages')
-    }
+    alias: config.alias
   },
   plugins: [
     new VueLoaderPlugin()

@@ -1,4 +1,4 @@
-import Toast from 'jm-design/toast/index'
+import Toast from 'jm-design/packages/toast/index'
 
 describe('Toast', () => {
   afterEach(() => {

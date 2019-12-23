@@ -1,4 +1,4 @@
-import Slider from 'jm-design/slider/index.js'
+import Slider from 'jm-design/packages/slider/index.js'
 import { destroyVM, createTplVM } from '../util'
 
 describe('Slider', () => {
