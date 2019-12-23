@@ -1,6 +1,6 @@
 {
   "name": "@jd/jm-design",
-  "version": "0.7.1",
+  "version": "0.7.2",
   "description": "Mobile UI components built on vue.js",
   "scripts": {
     "dev": "npm run build:files & cross-env NODE_ENV=development webpack-dev-server --progress --config build/webpack.docs.conf.js",
