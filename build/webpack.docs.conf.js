@@ -3,7 +3,6 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const TerserPlugin = require('terser-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
-const utils = require('./utils')
 const { VueLoaderPlugin } = require('vue-loader')
 const merge = require('webpack-merge')
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
@@ -11,6 +10,38 @@ const webpack = require('webpack')
 const config = require('./config')
 
 const isDev = process.env.NODE_ENV === 'development'
+
+const cssLoader = (...loaders) => {
+  const formatLoaders = []
+  formatLoaders.push('vue-style-loader')
+  
+  if (!isDev) {
+    formatLoaders.push({
+      loader: MiniCssExtractPlugin.loader,
+      options: {
+        publicPath: '../../'
+      }
+    })
+  }
+  loaders.forEach(loader => {
+    formatLoaders.push({
+      loader: loader,
+      options: {
+        sourceMap: isDev
+      }
+    })
+  })
+
+  return formatLoaders
+}
+
+const resolve = dir => {
+  return path.join(__dirname, '..', dir)
+}
+
+const assetsPath = file => {
+  return path.posix.join('static', file)
+}
 
 let webpackConf = {
   mode: isDev ? 'development' : 'production',
@@ -29,7 +60,7 @@ let webpackConf = {
         test: /\.(js|vue)$/,
         loader: 'eslint-loader',
         enforce: 'pre',
-        include: [utils.resolve('src'), utils.resolve('packages'), utils.resolve('test')],
+        include: [resolve('src'), resolve('packages'), resolve('test')],
         options: {
           formatter: require('eslint-formatter-friendly'),
           emitWarning: true
@@ -62,18 +93,18 @@ let webpackConf = {
       },
       {
         test: /\.css$/,
-        use: utils.cssLoader('css-loader', 'postcss-loader')
+        use: cssLoader('css-loader', 'postcss-loader')
       },
       {
         test: /\.scss$/,
-        use: utils.cssLoader('css-loader', 'postcss-loader', 'sass-loader')
+        use: cssLoader('css-loader', 'postcss-loader', 'sass-loader')
       },
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
         loader: 'url-loader',
         options: {
           limit: 20000,
-          name: utils.assetsPath('img/[name].[hash:8].[ext]')
+          name: assetsPath('img/[name].[hash:8].[ext]')
         }
       },
       {
@@ -81,7 +112,7 @@ let webpackConf = {
         loader: 'url-loader',
         options: {
           limit: 10000,
-          name: utils.assetsPath('fonts/[name].[ext]')
+          name: assetsPath('fonts/[name].[ext]')
         }
       }
     ]
@@ -152,8 +183,8 @@ if (!isDev) {
     output: {
       publicPath: './',
       path: path.resolve(__dirname, '../docs'),
-      filename: utils.assetsPath('js/[name].[hash].js'),
-      chunkFilename: utils.assetsPath('js/[id].[hash].js')
+      filename: assetsPath('js/[name].[hash].js'),
+      chunkFilename: assetsPath('js/[id].[hash].js')
     },
     optimization: {
       minimizer: [
@@ -167,8 +198,8 @@ if (!isDev) {
     },
     plugins: [
       new MiniCssExtractPlugin({
-        filename: utils.assetsPath('css/[name].[contenthash:8].css'),
-        chunkFilename: utils.assetsPath('css/[name].[contenthash:8].css')
+        filename: assetsPath('css/[name].[contenthash:8].css'),
+        chunkFilename: assetsPath('css/[name].[contenthash:8].css')
       })
     ]
   })
