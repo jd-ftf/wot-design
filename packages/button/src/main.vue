@@ -43,7 +43,6 @@ export default {
       let btnClass = []
       this.type && btnClass.push(`is-${this.type}`)
       btnClass.push(`is-${this.size}`)
-      this.inline && btnClass.push('is-inline')
       this.disabled && btnClass.push('is-disabled')
       this.round && btnClass.push('is-round')
       this.plain && btnClass.push('is-plain')

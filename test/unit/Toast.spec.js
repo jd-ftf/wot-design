@@ -1,4 +1,5 @@
 import Toast from 'wot-design/packages/toast/index'
+import Vue from 'vue'
 
 afterEach(() => {
   const el = document.querySelectorAll('.wd-toast')
@@ -8,6 +9,11 @@ afterEach(() => {
       if (i.parentNode) i.parentNode.removeChild(i)
     }
   }
+})
+
+test('should install successfully', () => {
+  Vue.use(Toast)
+  expect(Vue.$toast).not.toBeNull()
 })
 
 test('should render correct contents', done => {
