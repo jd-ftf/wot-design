@@ -104,8 +104,8 @@ locale.i18n((key, value) => i18n.t(key, value))
 
 ```html
 <script src="//cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-<script src="//cdn.jsdelivr.net/npm//wot-design/lib/index.js"></script>
-<script src="//cdn.jsdelivr.net/npm//wot-design/lib/umd/locale/en-US.js"></script>
+<script src="//cdn.jsdelivr.net/npm/wot-design/lib/index.js"></script>
+<script src="//cdn.jsdelivr.net/npm/wot-design/lib/umd/locale/en-US.js"></script>
 
 <script>
   WotDesign.locale(WotDesign.lang.en)
