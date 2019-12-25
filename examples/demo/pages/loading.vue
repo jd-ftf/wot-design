@@ -54,7 +54,7 @@ export default {
 
 <style lang="scss">
 .demo {
-  .wd-loading-indicator {
+  .wd-loading {
     display: inline-block;
     margin: 10px 10px 10px 0;
   }

@@ -1,11 +1,7 @@
-import loading from './src/loading'
-import Indicator from './src/indicator'
+import Loading from './src/main.vue'
 
-export default {
-  install (Vue) {
-    Vue.component(Indicator.name, Indicator)
-    Vue.prototype.$loading = loading
-  },
-  Indicator,
-  loading
+Loading.install = Vue => {
+  Vue.component(Loading.name, Loading)
 }
+
+export default Loading
