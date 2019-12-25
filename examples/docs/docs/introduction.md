@@ -31,7 +31,7 @@ export default {
   },
   mounted () {
     let path = location.pathname.slice(0, location.pathname.lastIndexOf('/'))
-    let url = `${location.protocol}//${location.host}${path}/examples.html`
+    let url = `${location.protocol}//${location.host}${path}/demo.html`
     QRCode.toDataURL(url, {
       margin: 0
     }).then(url => {
