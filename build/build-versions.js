@@ -8,4 +8,4 @@ const content = {
 if (!content[version]) {
   content[version] = '0.7'
 }
-fs.writeFileSync(path.resolve(__dirname, '../examples/versions.json'), JSON.stringify(content))
+fs.writeFileSync(path.resolve(__dirname, '../examples/docs/versions.json'), JSON.stringify(content))

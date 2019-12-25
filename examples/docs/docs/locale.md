@@ -103,9 +103,9 @@ locale.i18n((key, value) => i18n.t(key, value))
 ### 通过 CDN 方式加载语言文件
 
 ```html
-<script src="//static.360buyimg.com/bus/lib/vue/2.5.17/vue.js"></script>
-<script src="//static.360buyimg.com/bus/lib/wot-design/index.js"></script>
-<script src="//static.360buyimg.com/bus/lib/wot-design/umd/locale/en-US.js"></script>
+<script src="//cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="//cdn.jsdelivr.net/npm//wot-design/lib/index.js"></script>
+<script src="//cdn.jsdelivr.net/npm//wot-design/lib/umd/locale/en-US.js"></script>
 
 <script>
   WotDesign.locale(WotDesign.lang.en)
