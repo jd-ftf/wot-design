@@ -12,6 +12,10 @@
       <wd-button type="primary" @click="handleToast5">顶部toast</wd-button>
       <wd-button type="primary" @click="handleToast6">底部toast</wd-button>
     </white-space>
+    <white-space title="loading">
+      <wd-button type="primary" @click="handleToast7">Loading加载</wd-button>
+       <wd-button type="primary" @click="handleToast8">Spinner类型loading</wd-button>
+    </white-space>
   </div>
 </template>
 
@@ -48,6 +52,21 @@ export default {
         msg: '底部信息',
         position: 'bottom'
       })
+    },
+    handleToast7 () {
+      this.$toast.loading('3s后调用close关闭')
+      setTimeout(() => {
+        this.$toast.close()
+      }, 3000)
+    },
+    handleToast8 () {
+      this.$toast.loading({
+        msg: '3s后调用close关闭',
+        loadingType: 'spinner'
+      })
+      setTimeout(() => {
+        this.$toast.close()
+      }, 3000)
     }
   }
 }

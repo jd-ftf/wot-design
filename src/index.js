@@ -60,6 +60,7 @@ const components = [
   InfiniteLoad,
   Input,
   InputNumber,
+  Loading,
   Modal,
   Navbar,
   NoticeBar,
@@ -84,7 +85,6 @@ const components = [
   Tabbar,
   TabbarItem,
   Tag,
-  Loading.Indicator,
   MessageBox.wdMessageBox
 ]
 
@@ -97,7 +97,6 @@ const install = (Vue, config = {}) => {
   })
 
   Vue.prototype.$toast = Toast
-  Vue.prototype.$loading = Loading.loading
   Vue.prototype.$messageBox = MessageBox.MessageBox
 
   Vue.use(Lazyload, config.lazyload)

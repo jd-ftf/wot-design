@@ -2,57 +2,6 @@
 @import './abstracts/mixin';
 
 @include b(loading) {
-  transition: all .2s;
-
-  @include e(wrap) {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate3d(-50%, -50%, 0);
-    padding: 22px 26px;
-    min-width: 108px;
-    background-color: rgba(0, 0, 0, 0.7);
-    border-radius: 4px;
-    color: #fff;
-    transition: all .2s;
-    text-align: center;
-    z-index: 1010;
-    box-sizing: border-box;
-
-    @include when(with-msg) {
-      padding-bottom: 15px;
-    }
-    .wd-loading-indicator {
-      display: inline-block;
-    }
-  }
-  @include e(mask) {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1000;
-  }
-  @include e(msg) {
-    margin-top: 19px;
-    font-size: 14px;
-  }
-}
-
-.loading-leave-active{
-  opacity: 0;
-}
-@keyframes rotate {
-  from{
-    transform: rotate(0);
-  }
-  to{
-    transform: rotate(360deg);
-  }
-}
-
-@include b(loading-indicator) {
   font-size: 0;
   line-height: 0;
   vertical-align: middle;
@@ -96,7 +45,7 @@
 }
 
 @for $i from 1 through 12 {
-  .wd-loading-indicator__spinner-dot:nth-of-type(#{$i}) {
+  .wd-loading__spinner-dot:nth-of-type(#{$i}) {
     opacity: 1 - (0.75 / 12) * ($i - 1);
     transform: rotate($i * 30deg);
   }

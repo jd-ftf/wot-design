@@ -2,18 +2,28 @@
 @import './abstracts/mixin';
 @import './icon.scss';
 @import './common/transition.scss';
+@import './loading.scss';
 
 @include b(toast) {
-  position: fixed;
-  padding: 8px 14px;
-  z-index: 1010;
-  background-color: rgba(0, 0, 0, 0.7);
-  border-radius: 8px;
-  color: #fff;
-  transition: all 0.2s;
-  text-align: center;
-  font-size: 14px;
-
+  @include e(modal) {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1009;
+  }
+  @include e(body) {
+    position: fixed;
+    padding: 8px 14px;
+    z-index: 1010;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 8px;
+    color: #fff;
+    transition: all 0.2s;
+    text-align: center;
+    font-size: 14px;
+  }
   @include e(msg) {
     line-height: 1.4285;
     white-space: nowrap;
