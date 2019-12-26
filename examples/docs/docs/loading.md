@@ -1,6 +1,6 @@
 ## Loading 加载指示器
 
-加载，支持单独使用加载指示器和js直接打开loading框
+加载提示，如果要使用JS调用，请查看 Toast 章节。
 
 ### 按需引入
 
@@ -53,40 +53,7 @@ Vue.use(Loading)
 <wd-loading size="50px" />
 ```
 
-### JS 打开 loading 弹窗
-
-该组件会在 Vue 上挂载 `$loading` 对象，通过该对象我们可以手动打开和关闭弹窗。
-
-```html
-<wd-button type="primary" plain @click="openLoading">打开loading弹窗</wd-button>
-<wd-button type="primary" plain @click="openSpinnerloading">打开Spinner类型的loading弹窗</wd-button>
-
-<script>
-export default {
-  methods: {
-    openLoading () {
-      this.$loading.open('3s后调用close关闭')
-      setTimeout(() => {
-        this.$loading.close()
-      }, 3000)
-    },
-    openSpinnerloading () {
-      this.$loading.open({
-        msg: '3s后调用close关闭',
-        type: 'spinner'
-      })
-      setTimeout(() => {
-        this.$loading.close()
-      }, 3000)
-    }
-  }
-}
-</script>
-```
-
-### Loading 加载指示器
-
-#### Attributes
+### Attributes
 
 | 参数      | 说明                                 | 类型      | 可选值       | 默认值   |
 |---------- |------------------------------------ |---------- |------------- |-------- |
@@ -94,22 +61,10 @@ export default {
 | color	    | 设置加载指示器颜色                      |	string    |	-         |	'#c5c5c5' |
 | size      | 设置加载指示器大小                      | string    | -          | '32px'   |
 
-### Loading 加载框
-
-Loading加载框只会同时存在一个
-
-#### Methods
-
-| 方法名     | 说明                                 | 参数     |
-|---------- |------------------------------------ |--------- |
-| open      | 打开加载提示框                         | options |
-| close     | 关闭加载提示框                         | -       |
-
-#### Options
+### Options
 
 options可以为Object也可以为String
 
 | 参数      | 说明                                 | 类型      | 可选值       | 默认值   |
 |---------- |------------------------------------ |---------- |------------- |-------- |
 | type      |	加载指示器类型                        |	string    |	'spinner'   |	'circle'  |
-| msg	      | 加载提示                             |	string    |	-         |	- |

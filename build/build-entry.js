@@ -23,7 +23,7 @@ const componentsImport = componentKeys.map((component, index) => {
 }).join('\n')
 
 const componentsList = camelCaseComponents.filter(component => {
-  return ['Loading', 'MessageBox', 'Lazyload', 'Toast'].indexOf(component) === -1
+  return ['MessageBox', 'Lazyload', 'Toast'].indexOf(component) === -1
 })
 
 const outputContent = `
@@ -34,7 +34,6 @@ import locale from './locale'
 
 const components = [
 ${componentsList.map(component => `  ${component}`).join(',\n')},
-  Loading.Indicator,
   MessageBox.wdMessageBox
 ]
 
@@ -47,7 +46,6 @@ const install = (Vue, config = {}) => {
   })
 
   Vue.prototype.$toast = Toast
-  Vue.prototype.$loading = Loading.loading
   Vue.prototype.$messageBox = MessageBox.MessageBox
 
   Vue.use(Lazyload, config.lazyload)

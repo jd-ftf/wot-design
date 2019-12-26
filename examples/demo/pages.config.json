@@ -46,6 +46,9 @@
         "name": "DatetimePicker 时间选择器",
         "path": "/datetimePicker"
       }, {
+        "name": "DatetimePickerView 时间选择器视图",
+        "path": "/datetimePickerView"
+      }, {
         "name": "Input 输入框",
         "path": "/input"
       }, {

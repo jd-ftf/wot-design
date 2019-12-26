@@ -159,7 +159,7 @@ let webpackConf = {
       favicon: path.resolve(__dirname, '../examples/demo/favicon.ico')
     }),
     new HtmlWebpackPlugin({
-      filename: isDev ? 'docs.html' : path.resolve(__dirname, '../examples/dist/docs.html'),
+      filename: isDev ? 'docs.html' : path.resolve(__dirname, '../examples/dist/index.html'),
       template: path.resolve(__dirname, '../examples/docs/index.html'),
       chunks: ['docs'],
       favicon: path.resolve(__dirname, '../examples/docs/favicon.ico')

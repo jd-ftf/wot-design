@@ -98,6 +98,11 @@
                 "path": "/datetimePicker",
                 "demo": "/datetimePicker"
               },
+              "DatetimePickerView": {
+                "name": "DatetimePickerView 时间选择器视图",
+                "path": "/datetimePickerView",
+                "demo": "/datetimePickerView"
+              },
               "Input": {
                 "name": "Input 输入框",
                 "path": "/input",
@@ -224,6 +229,6 @@
   },
   "vapp-components": {
     "name": "小程序",
-    "href": "http://beta-jmw.jd.com/lib/wot-design-vapp/"
+    "href": "http://jdftf.top/wot-design-mini/"
   }
 }

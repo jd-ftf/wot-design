@@ -9,6 +9,7 @@ Object.keys(components).forEach(component => {
   if (!fs.existsSync(entryPath)) {
     fs.mkdirSync(entryPath)
   }
+
   fs.writeFileSync(`${entryPath}/index.js`, `import '../../theme-default/${component}.css'`)
 })
 console.log(chalk.cyan('Create finish.'))
