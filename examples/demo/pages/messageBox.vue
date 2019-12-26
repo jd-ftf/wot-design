@@ -47,9 +47,7 @@ export default {
     },
     confirm () {
       this.$messageBox.confirm('是否删除', '提示').then(() => {
-        setTimeout(() => {
-          this.$messageBox.alert('删除成功')
-        }, 300)
+        this.$toast('删除成功')
       })
     },
     prompt () {
@@ -57,7 +55,7 @@ export default {
         inputPattern: /.+@.+\..+/i,
         inputError: '邮箱格式不正确，请重新输入'
       }).then(({ value }) => {
-        this.$messageBox.alert(`你输入的邮箱是： ${value}`)
+        this.$toast(`你输入的邮箱是： ${value}`)
       })
     },
     alert3 () {
