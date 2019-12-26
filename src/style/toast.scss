@@ -11,12 +11,12 @@
     top: 0;
     right: 0;
     bottom: 0;
-    z-index: 1009;
+    z-index: 3009;
   }
   @include e(body) {
     position: fixed;
     padding: 8px 14px;
-    z-index: 1010;
+    z-index: 3010;
     background-color: rgba(0, 0, 0, 0.7);
     border-radius: 8px;
     color: #fff;
