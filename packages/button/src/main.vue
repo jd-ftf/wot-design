@@ -6,7 +6,7 @@
     :disabled="disabled"
     @click="handleClick"
   >
-    <wd-indicator v-if="loading" class="wd-button__loading" type="spinner" size="" color="" />
+    <wd-loading v-if="loading" class="wd-button__loading" type="spinner" size="" color="" />
     <i v-if="icon" class="wd-button__icon" :class="icon"></i>
     <span class="wd-button__txt"><slot></slot></span>
   </button>
@@ -18,7 +18,7 @@ import WdLoading from 'wot-design/packages/loading'
 export default {
   name: 'WdButton',
   components: {
-    WdIndicator: WdLoading.Indicator
+    WdLoading
   },
   props: {
     type: String,

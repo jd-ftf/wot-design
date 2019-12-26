@@ -68,8 +68,8 @@ test('button loading', () => {
     }
   })
   expect(wrapper.classes()).toContain('is-loading')
-  const loading = wrapper.find(Loading.Indicator)
-  expect(loading.is(Loading.Indicator)).toBe(true)
+  const loading = wrapper.find(Loading)
+  expect(loading.is(Loading)).toBe(true)
 })
 
 test('button suck', () => {

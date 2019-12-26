@@ -37,6 +37,7 @@
 import locale from 'wot-design/src/mixins/locale'
 import WdPopup from 'wot-design/packages/popup'
 import WdPickerView from 'wot-design/packages/picker-view'
+import pickerViewProps from '../../picker-view/src/pickerViewProps'
 import pickerProps from './pickerProps'
 
 export default {
@@ -54,6 +55,7 @@ export default {
     }
   },
   props: {
+    ...pickerViewProps,
     ...pickerProps,
     value: [String, Array],
     columnChange: Function,
@@ -76,6 +78,9 @@ export default {
     value: {
       handler () {
         this.pickerValue = this.value
+        this.$nextTick(() => {
+          this.setShowValue()
+        })
       },
       immediate: true
     }
@@ -114,9 +119,6 @@ export default {
     getPickerView () {
       return this.$refs.pickerView
     }
-  },
-  mounted () {
-    this.setShowValue()
   }
 }
 </script>

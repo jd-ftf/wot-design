@@ -44,7 +44,7 @@ export default {
   name: 'WdActionSheet',
   components: {
     WdPopup,
-    WdLoading: WdLoading.Indicator
+    WdLoading
   },
   props: {
     value: Boolean,

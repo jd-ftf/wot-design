@@ -33,7 +33,7 @@ export default {
   mixins: [locale],
   components: {
     WdPickerViewColumn,
-    WdLoading: WdLoading.Indicator
+    WdLoading
   },
   data () {
     return {
