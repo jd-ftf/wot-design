@@ -15,11 +15,11 @@ Vue.use(Cell)
 `Cell` 可以单独使用，也可以和 `CellGroup` 组合使用。
 
 ```html
-<wd-cell title="标题文字" value="内容" />
+<wd-cell title="标题文字" value="内容"></wd-cell>
 
 <wd-cell-group>
-  <wd-cell title="标题文字" value="内容" />
-  <wd-cell title="标题文字" label="描述信息" value="内容" />
+  <wd-cell title="标题文字" value="内容"></wd-cell>
+  <wd-cell title="标题文字" label="描述信息" value="内容"></wd-cell>
 </wd-cell-group>
 ```
 
@@ -31,8 +31,8 @@ Vue.use(Cell)
 
 ```html
 <wd-cell-group>
-  <wd-cell title="标题文字" value="内容" icon="wd-icon-setting" />
-  <wd-cell title="标题文字" value="内容" icon="wd-icon-collect" />
+  <wd-cell title="标题文字" value="内容" icon="wd-icon-setting"></wd-cell>
+  <wd-cell title="标题文字" value="内容" icon="wd-icon-collect"></wd-cell>
   <wd-cell title="标题文字" value="内容">
     <div class="custom-icon" slot="icon">
       <i class="cell-icon"></i>
@@ -70,8 +70,8 @@ Vue.use(Cell)
     <i class="wd-icon-cart"></i>
     <span>订购</span>
   </div>
-  <wd-cell title="标题文字" value="内容" />
-  <wd-cell title="标题文字" label="描述信息" value="内容" />
+  <wd-cell title="标题文字" value="内容"></wd-cell>
+  <wd-cell title="标题文字" label="描述信息" value="内容"></wd-cell>
 </wd-cell-group>
 ```
 
@@ -80,8 +80,8 @@ Vue.use(Cell)
 通过设置 `is-link` 属性显示导航箭头和点击态，设置 `to` 属性，指定跳转地址。`to` 属性可以为 `vue-router` 中的路由对象，也可以是普通链接。
 
 ```html
-<wd-cell title="帮助与反馈" is-link to="https://m.jd.com" />
-<wd-cell title="设置" value="内容" is-link :to="{ path: '/button' }" />
+<wd-cell title="帮助与反馈" is-link to="https://m.jd.com"></wd-cell>
+<wd-cell title="设置" value="内容" is-link :to="{ path: '/button' }"></wd-cell>
 ```
 
 ### 自定义内容
@@ -94,7 +94,7 @@ Vue.use(Cell)
     <wd-button class="custom-value" size="small" type="primary" plain>按钮</wd-button>
   </wd-cell>
   <wd-cell title="标题文字">
-    <wd-switch class="custom-value" v-model="value" />
+    <wd-switch class="custom-value" v-model="value"></wd-switch>
   </wd-cell>
   <wd-cell>
     <div slot="title">

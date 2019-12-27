@@ -14,7 +14,7 @@ Vue.use(Input)
 `v-model` 为绑定值。
 
 ```html
-<wd-input v-model="input" placeholder="请输入用户名" />
+<wd-input v-model="input" placeholder="请输入用户名"></wd-input>
 
 <script>
 export default {
@@ -32,7 +32,7 @@ export default {
 设置 `disabled` 属性。
 
 ```html
-<wd-input v-model="input" disabled />
+<wd-input v-model="input" disabled></wd-input>
 ```
 
 ### 只读
@@ -40,7 +40,7 @@ export default {
 设置 `readonly` 属性。
 
 ```html
-<wd-input v-model="input" readonly />
+<wd-input v-model="input" readonly></wd-input>
 ```
 
 ### 清空按钮
@@ -48,7 +48,7 @@ export default {
 设置 `clearable` 属性。
 
 ```html
-<wd-input v-model="input" clearable />
+<wd-input v-model="input" clearable></wd-input>
 ```
 
 ### 密码输入框
@@ -56,7 +56,7 @@ export default {
 设置 `show-password` 属性。
 
 ```html
-<wd-input v-model="input" clearable show-password />
+<wd-input v-model="input" clearable show-password></wd-input>
 ```
 
 ### 前后icon
@@ -72,7 +72,7 @@ export default {
 设置 `maxlength` 属性，如果要显示字数限制，设置 `show-word-limit` 属性。
 
 ```html
-<wd-input v-model="input" maxlength="20" show-word-limit />
+<wd-input v-model="input" maxlength="20" show-word-limit></wd-input>
 ```
 
 ### 文本域
@@ -80,19 +80,19 @@ export default {
 设置 `type` 为 'textarea`。
 
 ```html
-<wd-input type="textarea" v-model="input" placeholder="请填写评价..." />
+<wd-input type="textarea" v-model="input" placeholder="请填写评价..."></wd-input>
 ```
 
 设置清空，字数限制，设置 `rows` 行数。也可以设置 `autosize` ，使文本域高度自动增加。
 
 ```html
-<wd-input type="textarea" v-model="input" :rows="6" maxlength="120" clearable show-word-limit />
+<wd-input type="textarea" v-model="input" :rows="6" maxlength="120" clearable show-word-limit></wd-input>
 ```
 
 ### 普通输入框高度自增加
 
 ```html
-<wd-input v-model="input" autosize clearable />
+<wd-input v-model="input" autosize clearable></wd-input>
 ```
 
 ### Attributes

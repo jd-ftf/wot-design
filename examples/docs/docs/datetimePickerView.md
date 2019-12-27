@@ -16,7 +16,7 @@ Vue.use(DatetimePickerView)
 `v-model` 设置绑定值，默认为 'datetime' 类型，展示年月日时分，绑定值为 `Date` 类型，如果为 'time' 类型，绑定值为字符串。
 
 ```html
-<wd-datetime-picker-view v-model="value" />
+<wd-datetime-picker-view v-model="value"></wd-datetime-picker-view>
 
 <script>
 export default {
@@ -34,7 +34,7 @@ export default {
 'date' 类型只展示年月日。
 
 ```html
-<wd-datetime-picker-view type="date" v-model="value" />
+<wd-datetime-picker-view type="date" v-model="value"></wd-datetime-picker-view>
 
 <script>
 export default {
@@ -52,7 +52,7 @@ export default {
 'year-month' 类型只展示年月。
 
 ```html
-<wd-datetime-picker-view type="year-month" v-model="value" />
+<wd-datetime-picker-view type="year-month" v-model="value"></wd-datetime-picker-view>
 
 <script>
 export default {
@@ -70,7 +70,7 @@ export default {
 'time' 类型只展示时分。
 
 ```html
-<wd-datetime-picker-view type="time" v-model="value" />
+<wd-datetime-picker-view type="time" v-model="value"></wd-datetime-picker-view>
 
 <script>
 export default {
@@ -88,7 +88,7 @@ export default {
 给 `formatter` 属性传入一个函数，接收 `type` 和 `value` 值，返回展示的文本内容。`type` 有 `year`、`month`、`date`、`hour`、`minute` 类型，`value` 为 `number` 类型。
 
 ```html
-<wd-datetime-picker-view v-model="value" :formatter="formatter" />
+<wd-datetime-picker-view v-model="value" :formatter="formatter"></wd-datetime-picker-view>
 
 <script>
 export default {
@@ -122,7 +122,7 @@ export default {
 给 `filter` 属性传入一个函数，接收 `type` 和 `values` 值，返回列的选项列表。`type` 有 `year`、`month`、`date`、`hour`、`minute` 类型，`values` 为 number数组。
 
 ```html
-<wd-datetime-picker-view v-model="value" :filter="filter" />
+<wd-datetime-picker-view v-model="value" :filter="filter"></wd-datetime-picker-view>
 
 <script>
 export default {
