@@ -12,7 +12,7 @@ export default {
   methods: {
     onConfirm () {
       this.$nextTick(() => {
-        this.$emit('input', this.transferToValue())
+        this.$emit('input', this.innerValue)
         this.$emit('confirm')
       })
     },
