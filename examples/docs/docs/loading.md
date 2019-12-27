@@ -16,7 +16,7 @@ Vue.use(Loading)
 默认为 `circle` 类型的加载指示器。
 
 ```html
-<wd-loading />
+<wd-loading></wd-loading>
 ```
 
 ### 修改颜色
@@ -24,7 +24,7 @@ Vue.use(Loading)
 通过 `color` 属性修改指示器的颜色。比如修改为白色，同时设置背景为黑色。
 
 ```html
-<wd-loading color="#fff" class="loading-black" />
+<wd-loading color="#fff" class="loading-black"></wd-loading>
 ```
 
 ```css
@@ -40,7 +40,7 @@ Vue.use(Loading)
 通过 `type` 修改指示器的类型，可选值为 'spinner' 和 'circle'，默认为 'circle'。
 
 ```html
-<wd-loading type="spinner" />
+<wd-loading type="spinner"></wd-loading>
 ```
 
 ### 修改指示器大小
@@ -48,9 +48,9 @@ Vue.use(Loading)
 通过 `size` 属性设置指示器的大小，默认为 '32px' 大小。
 
 ```html
-<wd-loading size="20px" />
-<wd-loading size="30px" />
-<wd-loading size="50px" />
+<wd-loading size="20px"></wd-loading>
+<wd-loading size="30px"></wd-loading>
+<wd-loading size="50px"></wd-loading>
 ```
 
 ### Attributes

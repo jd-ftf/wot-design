@@ -24,7 +24,7 @@ Vue.use(InfiniteLoad)
         <div>{{ item.text }}</div>
       </div>
     </div>
-    <wd-infinite-load ref="loadmore" @loadmore="loadmore" :loading="loading" />
+    <wd-infinite-load ref="loadmore" @loadmore="loadmore" :loading="loading"></wd-infinite-load>
   </div>
 </template>
 
