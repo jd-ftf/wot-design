@@ -1,6 +1,6 @@
 {
   "name": "wot-design",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Mobile UI components built on vue.js",
   "scripts": {
     "dev": "npm run build:files & node build/build-install.js && cross-env NODE_ENV=development webpack-dev-server --progress --config build/webpack.docs.conf.js",
@@ -27,6 +27,11 @@
   ],
   "unpkg": "lib/index.js",
   "style": "lib/theme-chalk/index.css",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:jd-ftf/wot-design.git"
+  },
+  "homepage": "http://jdftf.top/wot-design/",
   "peerDependencies": {
     "vue": "^2.5.2"
   },

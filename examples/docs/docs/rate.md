@@ -14,7 +14,7 @@ Vue.use(Rate)
 `v-model` 为绑定值，设置分数。
 
 ```html
-<wd-rate v-model="rate" />
+<wd-rate v-model="rate"></wd-rate>
 
 <script>
 export default {
@@ -32,7 +32,7 @@ export default {
 设置 `readonly` 属性。
 
 ```html
-<wd-rate v-model="rate" readonly />
+<wd-rate v-model="rate" readonly></wd-rate>
 ```
 
 ### 禁用
@@ -40,7 +40,7 @@ export default {
 设置 `disabled` 属性。
 
 ```html
-<wd-rate v-model="rate" disabled />
+<wd-rate v-model="rate" disabled></wd-rate>
 ```
 
 ### 修改颜色
@@ -48,7 +48,7 @@ export default {
 可以通过 `color` 属性修改未选中的颜色，`active-color` 修改选中的颜色。
 
 ```html
-<wd-rate v-model="rate" active-color="#FFAE16" />
+<wd-rate v-model="rate" active-color="#FFAE16"></wd-rate>
 ```
 
 ### 修改icon
@@ -56,7 +56,7 @@ export default {
 可以通过 `icon` 属性修改未选中的图标，`active-icon` 修改选中的图标。
 
 ```html
-<wd-rate v-model="rate" icon="wd-icon-good" active-icon="wd-icon-good" active-color="#0083ff" />
+<wd-rate v-model="rate" icon="wd-icon-good" active-icon="wd-icon-good" active-color="#0083ff"></wd-rate>
 ```
 
 ### Attributes

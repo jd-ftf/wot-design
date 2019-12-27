@@ -17,7 +17,7 @@ Vue.use(NoticeBar)
 <wd-notice-bar
   text="这是一条消息提示信息，这是一条消息提示信息，这是一条消息提示信息"
   left-icon="bell"
-/>
+></wd-notice-bar>
 ```
 
 ### 禁止滚动
@@ -28,7 +28,7 @@ Vue.use(NoticeBar)
 <wd-notice-bar
   text="这是一条消息提示信息，这是一条消息提示信息，这是一条消息提示信息"
   :scrollable="false"
-/>
+></wd-notice-bar>
 ```
 
 ### 多行展示
@@ -40,7 +40,7 @@ Vue.use(NoticeBar)
   text="这是一条消息提示信息，这是一条消息提示信息，这是一条消息提示信息"
   wrapable
   :scrollable="false"
-/>
+></wd-notice-bar>
 ```
 
 ### 可关闭的
@@ -51,7 +51,7 @@ Vue.use(NoticeBar)
 <wd-notice-bar
   text="这是一条消息提示信息，这是一条消息提示信息，这是一条消息提示信息"
   closable
-/>
+></wd-notice-bar>
 ```
 
 ### 自定义颜色
@@ -65,7 +65,7 @@ Vue.use(NoticeBar)
   closable
   color="#0083ff"
   background-color="#d9ebfd"
-/>
+></wd-notice-bar>
 ```
 
 ### Attributes

@@ -16,7 +16,7 @@ Vue.use(Icon)
 通过 `name` 属性设置使用哪个图标。
 
 ```html
-<wd-icon name="add-circle" />
+<wd-icon name="add-circle"></wd-icon>
 ```
 
 ### 图标颜色
@@ -24,7 +24,7 @@ Vue.use(Icon)
 设置 `color` 属性。
 
 ```html
-<wd-icon name="add-circle" color="#0083ff" />
+<wd-icon name="add-circle" color="#0083ff"></wd-icon>
 ```
 
 ### 图标大小
@@ -32,7 +32,7 @@ Vue.use(Icon)
 设置 `size` 属性。
 
 ```html
-<wd-icon name="add-circle" size="20px" />
+<wd-icon name="add-circle" size="20px"></wd-icon>
 ```
 
 ### 渲染的标签
@@ -40,7 +40,7 @@ Vue.use(Icon)
 通过设置 `tag` 属性，选择使用哪个标签来渲染图标。
 
 ```html
-<wd-icon name="add-circle" tag="div" />
+<wd-icon name="add-circle" tag="div"></wd-icon>
 ```
 
 ### 类名使用
