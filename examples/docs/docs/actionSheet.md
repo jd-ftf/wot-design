@@ -15,7 +15,7 @@ Vue.use(ActionSheet)
 
 ```html
 <wd-button type="primary" plain @click="show = true">弹出菜单</wd-button>
-<wd-action-sheet v-model="show" :actions="actions" />
+<wd-action-sheet v-model="show" :actions="actions"></wd-action-sheet>
 
 <script>
 export default {
@@ -44,7 +44,7 @@ export default {
 
 ```html
 <wd-button type="primary" plain @click="show = true">弹出菜单</wd-button>
-<wd-action-sheet v-model="show" :actions="actions" />
+<wd-action-sheet v-model="show" :actions="actions"></wd-action-sheet>
 
 <script>
 export default {
@@ -73,7 +73,7 @@ export default {
 设置 `cancel-text` 取消按钮文案，展示取消按钮。
 
 ```html
-<wd-action-sheet v-model="show" :actions="actions" cancel-text="取消" />
+<wd-action-sheet v-model="show" :actions="actions" cancel-text="取消"></wd-action-sheet>
 ```
 
 ### 标题

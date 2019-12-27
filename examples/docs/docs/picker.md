@@ -16,7 +16,7 @@ Vue.use(Picker)
 `columns` 设置数据源，`label` 设置左侧文本内容，`v-model` 设置选中项的值。
 
 ```html
-<wd-picker :columns="columns1" label="单列选项" v-model="value" />
+<wd-picker :columns="columns1" label="单列选项" v-model="value"></wd-picker>
 
 <script>
 export default {
@@ -35,7 +35,7 @@ export default {
 设置 `disabled` 属性。
 
 ```html
-<wd-picker :columns="columns" label="禁用" v-model="value" disabled />
+<wd-picker :columns="columns" label="禁用" v-model="value" disabled></wd-picker>
 
 <script>
 export default {
@@ -54,7 +54,7 @@ export default {
 设置 `readonly` 属性。
 
 ```html
-<wd-picker :columns="columns" label="只读" v-model="value" readonly />
+<wd-picker :columns="columns" label="只读" v-model="value" readonly></wd-picker>
 ```
 
 ### 加载中
@@ -62,7 +62,7 @@ export default {
 设置 `loading` 属性。
 
 ```html
-<wd-picker-view :columns="columns" loading />
+<wd-picker-view :columns="columns" loading></wd-picker-view>
 ```
 
 ### 多列
@@ -70,7 +70,7 @@ export default {
 `columns` 属性设置为二维数组，`v-model` 为数组。
 
 ```html
-<wd-picker :columns="columns" label="多列" v-model="value" />
+<wd-picker :columns="columns" label="多列" v-model="value"></wd-picker>
 
 <script>
 export default {

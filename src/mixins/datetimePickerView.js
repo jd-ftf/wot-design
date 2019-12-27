@@ -76,7 +76,6 @@ export default {
         ]
       }
 
-      console.log(1)
       const { maxYear, maxMonth, maxDate, maxHour, maxMinute } = this.getBoundary('max', this.innerValue)
       const { minYear, minMonth, minDate, minHour, minMinute } = this.getBoundary('min', this.innerValue)
 
@@ -131,12 +130,12 @@ export default {
     }
   },
   watch: {
-    value (val) {
-      if (val.valueOf() === this.innerValue.valueOf()) return
+    value (val, oldVal) {
+      if (oldVal && val.valueOf() === this.innerValue.valueOf()) return
 
+      val = this.formatValue(val)
       this.innerValue = val
       this.pickerValue = this.getPickerValue()
-      val = this.formatValue(val)
     },
     columns: 'updateColumnValues',
     maxDate: 'updateInnerValue',
@@ -285,20 +284,6 @@ export default {
       if (this.type === 'year-month') values.splice(2, 3)
 
       return values
-    },
-    transferToValue () {
-      if (this.type === 'time') return `${padZero(this.pickerValue[0])}:${padZero(this.pickerValue[1])}`
-
-      let date
-      if (this.type === 'date') {
-        date = new Date(this.pickerValue[0], this.pickerValue[1] - 1, this.pickerValue[2], 0, 0)
-      } else if (this.type === 'year-month') {
-        date = new Date(this.pickerValue[0], this.pickerValue[1] - 1, this.pickerValue[2], 0, 0)
-      } else {
-        date = new Date(this.pickerValue[0], this.pickerValue[1] - 1, this.pickerValue[2], this.pickerValue[3], this.pickerValue[4])
-      }
-
-      return date
     }
   }
 }

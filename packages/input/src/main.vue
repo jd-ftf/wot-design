@@ -38,7 +38,7 @@
         <div class="wd-input__textarea-suffix">
           <i v-show="showClear" class="wd-input__textarea-icon wd-icon-close-outline" @click="clear"></i>
           <span v-if="showWordCount" class="wd-input__textarea-count">
-            <span class="wd-input__textarea-count-current" :class="{ 'is-error': value.length > parseInt(maxlength) }">{{ value.length }}</span>/{{ maxlength }}
+            <span class="wd-input__textarea-count-current" :class="{ 'is-error': value && value.length > parseInt(maxlength) }">{{ (value && value.length) || 0 }}</span>/{{ maxlength }}
           </span>
         </div>
       </div>
@@ -84,7 +84,7 @@
           @click="togglePwdVisible"
         ></i>
         <span v-if="showWordCount" class="wd-input__count">
-          <span class="wd-input__count-current" :class="{ 'is-error': value.length > maxlength }">{{ value.length }}</span>/{{ maxlength }}
+          <span class="wd-input__count-current" :class="{ 'is-error': value && value.length > maxlength }">{{ (value && value.length) || 0 }}</span>/{{ maxlength }}
         </span>
         <slot name="suffix"></slot>
         <i v-if="suffixIcon" class="wd-input__icon" :class="suffixIcon"></i>
@@ -137,8 +137,11 @@ export default {
     error: Boolean
   },
   watch: {
-    value () {
-      this.$nextTick(this.resizeTextarea)
+    value: {
+      immediate: true,
+      handler (value) {
+        this.$nextTick(this.resizeTextarea)
+      }
     }
   },
   computed: {
@@ -219,9 +222,6 @@ export default {
         this.textareaCalcStyle = calcTextareaHeight(this.getInput(), minRows, maxRows)
       }
     }
-  },
-  mounted () {
-    this.resizeTextarea()
   }
 }
 </script>
