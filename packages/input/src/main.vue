@@ -138,7 +138,7 @@ export default {
   },
   watch: {
     value: {
-      immediate: '',
+      immediate: true,
       handler (value) {
         this.$nextTick(this.resizeTextarea)
       }
