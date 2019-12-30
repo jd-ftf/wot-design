@@ -11,6 +11,8 @@ before_script:
   export RELEASE_NAME=$TRAVIS_TAG
   export RELEASE_NOTE=$(node build/deploy/change-log.js --path=examples/docs/docs/changelog.md --version=$RELEASE_NAME)
 script:
+  - npm run unit
+  - npm run dist
   # build resource code
   - source build/deploy/script.sh
 after_success:
