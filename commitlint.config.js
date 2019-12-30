@@ -25,13 +25,15 @@ module.exports = {
     'type-case': [2, 'always',
       [
         'lower-case',
-        'camel-case'
+        'camel-case',
+        'kebab-case'
       ]
     ],
     'scope-case': [2, 'always',
       [
         'lower-case',
-        'camel-case'
+        'camel-case',
+        'kebab-case'
       ]
     ]
   }
