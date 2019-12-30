@@ -1,5 +1,7 @@
 #! /bin/sh
 
+npm run unit
+
 npm run dist
 
 if [ $RELEASE_NAME ]; then
