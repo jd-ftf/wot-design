@@ -60,9 +60,11 @@ export default {
     }
   },
   methods: {
-    resetListener () {
+    reset () {
       this.isFinished = false
+      this.isError = false
       this.scrollObj.addEventListener('scroll', this.loadmore)
+      this.immediateCheck && this.loadmore()
     },
     loadmore () {
       if (this.$refs.loadmore.getBoundingClientRect().top <= (this.scrollContainerHeight + this.offset) && !this.loading) {
@@ -104,8 +106,7 @@ export default {
   },
   mounted () {
     this.setContainer()
-    this.resetListener()
-    this.immediateCheck && this.loadmore()
+    this.reset()
   },
   beforeDestroy () {
     this.scrollObj.removeEventListener('scroll', this.loadmore)
