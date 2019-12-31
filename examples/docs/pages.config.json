@@ -216,6 +216,11 @@
                 "path": "/steps",
                 "demo": "/steps"
               },
+              "Sticky": {
+                "name": "Sticky 粘性布局",
+                "path": "/sticky",
+                "demo": "/sticky"
+              },
               "Tag": {
                 "name": "Tag 标签",
                 "path": "/tag",
