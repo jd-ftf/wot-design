@@ -1,6 +1,6 @@
 {
   "name": "wot-design",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "Mobile UI components built on vue.js",
   "scripts": {
     "dev": "npm run build:files & node build/build-install.js && cross-env NODE_ENV=development webpack-dev-server --progress --config build/webpack.docs.conf.js",
@@ -83,7 +83,7 @@
     "markdown-it": "^8.4.2",
     "markdown-it-container": "^2.0.0",
     "mini-css-extract-plugin": "^0.5.0",
-    "node-sass": "^4.11.0",
+    "node-sass": "^4.13.0",
     "optimize-css-assets-webpack-plugin": "^5.0.1",
     "postcss-import": "^12.0.1",
     "postcss-loader": "^3.0.0",

@@ -124,6 +124,9 @@
         "name": "Steps 步骤条",
         "path": "/steps"
       }, {
+        "name": "Sticky 粘性布局",
+        "path": "/sticky"
+      }, {
         "name": "Tag 标签",
         "path": "/tag"
       }

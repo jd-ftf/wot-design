@@ -60,7 +60,6 @@ export default {
     value: [String, Array],
     columnChange: Function,
     columns: {
-      type: Array,
       default () {
         return []
       }
