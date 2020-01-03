@@ -47,7 +47,6 @@ export default {
       this.setDynamicInput()
     },
     handleConfirm (event) {
-      console.log(event)
       if (event.keyCode === 13) {
         this.setDynamicInput()
         this.$emit('confirm', this.dynamicValue)
