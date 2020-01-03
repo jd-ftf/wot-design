@@ -29,6 +29,10 @@
     <white-space title="可关闭">
       <wd-tag v-for="tag in tags" :key="tag.name" type="primary" closable :size="tag.size" plain @close="handleClose(tag)">{{ tag.name }}</wd-tag>
     </white-space>
+    <white-space title="新增标签">
+      <wd-tag v-for="tag in dynamicTags" :key="tag.name" type="primary" closable :size="tag.size" plain @close="handleClose1(tag)">{{ tag.name }}</wd-tag>
+      <wd-tag plain type="dynamic" size="large" @confirm="handleConfirm"></wd-tag>  
+    </white-space>
   </div>
 </template>
 
@@ -45,12 +49,31 @@ export default {
       }, {
         name: '标签三',
         size: 'large'
+      }],
+      dynamicTags: [{
+        name: '标签一',
+        size: 'large'
+      },
+      {
+        name: '标签二',
+        size: 'large'
       }]
     }
   },
   methods: {
     handleClose (tag) {
       this.tags.splice(this.tags.indexOf(tag), 1)
+    },
+    handleClose1 (tag) {
+      this.dynamicTags.splice(this.dynamicTags.indexOf(tag), 1)
+    },
+    handleConfirm (detail) {
+      if (detail) {
+        this.dynamicTags.push({
+          name: detail,
+          size: 'large'
+        })
+      }
     }
   }
 }
@@ -60,6 +83,7 @@ export default {
 .page-tag {
   .wd-tag {
     margin-right: 15px;
+    margin-bottom: 10px;
 
     &:last-child {
       margin-right: 0;

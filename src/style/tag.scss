@@ -27,6 +27,9 @@
   @include when(primary) {
     @include tag-type-style($-tag-primary-color, $-tag-primary-color-light);
   }
+  @include when(dynamic) {
+    @include tag-type-style($-tag-primary-color, $-tag-primary-color-light);
+  }
   @include when(danger) {
     @include tag-type-style($-tag-danger-color, $-tag-danger-color-light, $-tag-danger-color-dark);
   }
@@ -48,6 +51,14 @@
     font-size: $-tag-font-size;
     vertical-align: middle;
   }
+  @include e(add-text) {
+    width: 60px;
+    display: inline-block;
+    font-size: $-tag-font-size;
+    vertical-align: middle;
+    outline: none;
+    border: none;
+  }
   @include e(close) {
     display: inline-block;
     width: $-tag-close-size;
@@ -60,6 +71,9 @@
 
   @include when(small) {
     .wd-tag__text {
+      font-size: $-tag-small-font-size;
+    }
+    .wd-tag__add-text {
       font-size: $-tag-small-font-size;
     }
     .wd-tag__close {
