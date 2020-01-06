@@ -23,7 +23,7 @@ npm install wot-design
 
 ```html
 <!-- 引入样式文件 -->
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/wot-design@1.1.0/lib/theme-default/index.css">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/wot-design@1.2.0/lib/theme-default/index.css">
 <!-- 引入JS文件 -->
-<script src="//cdn.jsdelivr.net/npm/wot-design@1.1.0/lib/index.js"></script>
+<script src="//cdn.jsdelivr.net/npm/wot-design@1.2.0/lib/index.js"></script>
 ```
