@@ -28,6 +28,7 @@ export default {
       props[key] = this[key]
     })
     props['columnChange'] = this.onColumnChange
+    props['beforeConfirm'] = this.beforeConfirm
 
     return (
       <Picker
