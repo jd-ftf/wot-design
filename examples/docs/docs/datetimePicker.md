@@ -189,6 +189,7 @@ export default {
 | maxHour | 最大小时 | number | - | 23 |
 | minMinute | 最小分钟 | number | - | 0 |
 | maxMinute | 最大分钟 | number | - | 59 |
+| before-confirm | 确定前校验函数，接收 (value, resolve) 参数，通过 resolve 继续执行 picker，resolve 接收1个boolean参数 | function | - | - |
 
 ### Events
 

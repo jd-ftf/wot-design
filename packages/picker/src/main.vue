@@ -96,6 +96,15 @@ export default {
       this.$emit('cancel')
     },
     onConfirm () {
+      if (this.beforeConfirm) {
+        this.beforeConfirm(this.pickerValue, isPass => {
+          isPass && this.handleConfirm()
+        })
+      } else {
+        this.handleConfirm()
+      }
+    },
+    handleConfirm () {
       this.$emit('input', this.pickerValue)
       this.popupShow = false
       this.$emit('confirm')

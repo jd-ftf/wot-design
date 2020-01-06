@@ -6,5 +6,6 @@ export default {
   placeholder: String,
   disabled: Boolean,
   readonly: Boolean,
-  displayFormat: Function
+  displayFormat: Function,
+  beforeConfirm: Function
 }
