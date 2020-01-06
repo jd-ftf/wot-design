@@ -1,5 +1,17 @@
 ## 更新日志
 
+### 1.2.0
+
+*2020-01-06*
+
+#### New features
+
+Picker
+- 添加 `before-confirm` 属性
+
+DatetimePicker
+- 添加 `before-confirm` 属性
+
 ### 1.1.0
 
 *2019-12-31*
