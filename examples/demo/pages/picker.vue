@@ -7,9 +7,10 @@
       <wd-picker :columns="columns1" label="loading" v-model="value4" loading />
       <wd-picker :columns="columns2" label="多列" v-model="value5" />
       <wd-picker :columns="columns3" label="多列联动" v-model="value6" :column-change="onChangeDistrict" :display-format="displayFormat" />
+      <wd-picker :columns="columns1" label="before-confirm" v-model="value7" :loading="isLoading" :before-confirm="beforeConfirm" />
     </div>
     <space title="label不传">
-      <wd-picker :columns="columns1" v-model="value7" />
+      <wd-picker :columns="columns1" v-model="value8" />
     </space>
   </div>
 </template>
@@ -44,21 +45,37 @@ export default {
       value5: ['中南大学', '软件工程'],
       value6: ['110000', '110100', '110102'],
       value7: '',
-      onChangeDistrict (pickerView, item, columnIndex) {
-        if (columnIndex === 0) {
-          pickerView.setColumnData(1, district[item.value])
-          pickerView.setColumnData(2, district[district[item.value][0].value])
-          return
-        }
-        if (columnIndex === 1) {
-          pickerView.setColumnData(2, district[item.value])
-        }
-      },
-      displayFormat (items) {
-        return items.map(item => {
-          return item.label
-        }).join('-')
+      value8: '',
+      isLoading: false
+    }
+  },
+  methods: {
+    onChangeDistrict (pickerView, item, columnIndex) {
+      if (columnIndex === 0) {
+        pickerView.setColumnData(1, district[item.value])
+        pickerView.setColumnData(2, district[district[item.value][0].value])
+        return
       }
+      if (columnIndex === 1) {
+        pickerView.setColumnData(2, district[item.value])
+      }
+    },
+    displayFormat (items) {
+      return items.map(item => {
+        return item.label
+      }).join('-')
+    },
+    beforeConfirm (value, resolve) {
+      this.isLoading = true
+      setTimeout(() => {
+        this.isLoading = false
+        if (['选项2', '选项3'].indexOf(value) > -1) {
+          resolve(false)
+          this.$toast('选项校验不通过，请重新选择')
+        } else {
+          resolve(true)
+        }
+      }, 2000)
     }
   }
 }
