@@ -6,6 +6,7 @@ export default {
     icon: String,
     closable: Boolean,
     plain: Boolean,
+    dynamic: Boolean,
     color: String,
     bgColor: String,
     size: String,
@@ -62,10 +63,10 @@ export default {
       : this.icon
         ? <i class={[ 'wd-tag__icon', this.icon ]}></i>
         : ''
-    let Content = this.type !== 'dynamic'
+    let Content = !this.dynamic
       ? <span class="wd-tag__text" style={{ color: this.color }}>{ this.$slots.default }</span>
       : this.dynamicInput
-        ? <input ref="addText" class="wd-tag__add-text" type="text" autofocus vModel={ this.dynamicValue } onBlur={ this.handleBlur } onKeydown={ this.handleConfirm }/>
+        ? <input ref="addText" class="wd-tag__add-text" type="text" autofocus vModel={ this.dynamicValue } onBlur={ this.handleBlur } onKeypress={ this.handleConfirm }/>
         : <span class="wd-tag__text" style={{ color: this.color }} onClick={ this.handleAdd } >+新增标签</span>
 
     let Tag = (

@@ -31,7 +31,7 @@
     </white-space>
     <white-space title="新增标签">
       <wd-tag v-for="tag in dynamicTags" :key="tag.name" type="primary" closable :size="tag.size" plain @close="handleClose1(tag)">{{ tag.name }}</wd-tag>
-      <wd-tag plain type="dynamic" size="large" @confirm="handleConfirm"></wd-tag>  
+      <wd-tag plain dynamic size="large" type="primary" @confirm="handleConfirm"></wd-tag>  
     </white-space>
   </div>
 </template>

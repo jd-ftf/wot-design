@@ -78,18 +78,18 @@ export default {
 </script>
 ```
 
-### 可添加
+### 新增标签
 
-设置 `dynamic` 类型，该标签为新增，输入内容确定后触发 `confirm` 事件。
+设置 `dynamic` 属性，该标签为新增，输入内容确定后触发 `confirm` 事件。
 ```html
-<wd-tag type="dynamic"></wd-tag>
+<wd-tag dynamic></wd-tag>
 ```
 
 ### Attributes
 
 | 参数      | 说明                                 | 类型      | 可选值       | 默认值   |
 |---------- |------------------------------------ |---------- |------------- |-------- |
-| type | 标签类型 | String | 'primary', 'danger', 'warning', 'success', 'dynamic' | - | - |
+| type | 标签类型 | String | 'primary', 'danger', 'warning', 'success' | - | - |
 | plain | 幽灵类型 | Boolean | - | false |
 | size | 标签大小 | String | 'small', 'large' | - |
 | icon | 左侧图标 | String | - | - |
@@ -97,6 +97,7 @@ export default {
 | bg-color | 背景色和边框色 | String | - | - |
 | closable | 可关闭 | Boolean | - | false |
 | disable-transition | 禁用动画 | Boolean | - | false |
+| dynamic | 新增标签 | Boolean | - | false |
 
 ### Events
 

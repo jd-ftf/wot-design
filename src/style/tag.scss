@@ -27,9 +27,6 @@
   @include when(primary) {
     @include tag-type-style($-tag-primary-color, $-tag-primary-color-light);
   }
-  @include when(dynamic) {
-    @include tag-type-style($-tag-primary-color, $-tag-primary-color-light);
-  }
   @include when(danger) {
     @include tag-type-style($-tag-danger-color, $-tag-danger-color-light, $-tag-danger-color-dark);
   }
