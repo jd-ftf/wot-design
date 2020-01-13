@@ -22,7 +22,6 @@ deploy:
     edge: true
     cleanup: false
     api_token: $NPM_API_TOKEN
-    dry_run: true
     on:
     tags: true
     condition: $(node build/deploy/check-deploy.js) = true
