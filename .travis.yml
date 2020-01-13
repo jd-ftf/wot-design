@@ -23,8 +23,8 @@ deploy:
     cleanup: false
     api_token: $NPM_API_TOKEN
     on:
-    tags: true
-    condition: $(node build/deploy/check-deploy.js) = true
+      tags: true
+      condition: $(node build/deploy/check-deploy.js) = true
   # ⋮
   - provider: releases
     edge: true
@@ -37,8 +37,8 @@ deploy:
     draft: false
     prerelease: false
     on:
-    tags: true
-    condition: $(node build/deploy/check-deploy.js) = true
+      tags: true
+      condition: $(node build/deploy/check-deploy.js) = true
   # ⋮
 after_deploy:
   - sh ./build/deploy/after-deploy.sh
