@@ -78,6 +78,13 @@ export default {
 </script>
 ```
 
+### 新增标签
+
+设置 `dynamic` 属性，该标签为新增，输入内容确定后触发 `confirm` 事件。
+```html
+<wd-tag dynamic></wd-tag>
+```
+
 ### Attributes
 
 | 参数      | 说明                                 | 类型      | 可选值       | 默认值   |
@@ -90,13 +97,15 @@ export default {
 | bg-color | 背景色和边框色 | String | - | - |
 | closable | 可关闭 | Boolean | - | false |
 | disable-transition | 禁用动画 | Boolean | - | false |
+| dynamic | 新增标签 | Boolean | - | false |
 
 ### Events
 
 | 事件名称      | 说明                                 | 参数     |
 |------------- |------------------------------------ |--------- |
 | click | 标签点击时触发 | - |
-| clsoe | 点击关闭按钮时触发 | - |
+| close | 点击关闭按钮时触发 | - |
+| confirm | 新增标签输入内容确定后触发 | - |
 
 ### Slot
 
