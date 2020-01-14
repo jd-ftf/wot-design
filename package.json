@@ -4,7 +4,7 @@
   "description": "Mobile UI components built on vue.js",
   "scripts": {
     "dev": "npm run build:files & node build/build-install.js && cross-env NODE_ENV=development webpack-dev-server --progress --config build/webpack.docs.conf.js",
-    "build:docs": "rimraf docs/dist && node build/build-install.js && webpack --progress --config build/webpack.docs.conf.js",
+    "build:docs": "rimraf examples/dist && node build/build-install.js && webpack --progress --config build/webpack.docs.conf.js",
     "build:lib": "webpack --progress --config build/webpack.lib.conf.js",
     "build:components": "webpack --progress --config build/webpack.components.conf.js",
     "build:utils": "cross-env BABEL_ENV=utils babel src --out-dir lib --ignore src/index.js",
