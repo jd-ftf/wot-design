@@ -2,8 +2,8 @@
   <header class="header">
     <div class="header-container">
       <router-link :to="{ path: '/' }" class="logo-block">
-        <i class="wot-design-logo"></i>
-        <span>Wot Design</span>
+        <img class="wot-design-logo" src="../assets/img/wot-design.png" alt="wot design" />
+        <h1 class="wot-design-title">Wot Design</h1>
       </router-link>
       <ul class="header-tab">
         <li class="header-tab__item" v-for="(page, key) in pages" :key="key">
@@ -146,9 +146,14 @@ export default {
   margin-right: 10px;
   width: 40px;
   height: 40px;
-  background: url('../assets/img/wot-design.png') no-repeat;
-  background-size: cover;
   vertical-align: middle;
+}
+.wot-design-title {
+  display: inline-block;
+  font-weight: normal;
+  font-size: 18px;
+  color: $color-theme;
+  margin: 0;
 }
 .header-tab {
   float: right;
