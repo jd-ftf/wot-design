@@ -16,6 +16,15 @@
 * 支持按需引入
 * 支持国际化
 
+### 浏览器支持
+
+Android 4.4+，iOS 8.0+
+
+### 链接
+
+* [意见反馈](https://github.com/jd-ftf/wot-design/issues)
+* [更新日志](#/components/changelog)
+
 ### 开源协议
 
 本项目遵循 MIT 协议。

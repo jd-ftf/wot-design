@@ -79,7 +79,7 @@ export default {
           })
         }
       })
-      return result.sort((a, b) => a - b)
+      return result.filter(item => item !== version).sort((a, b) => a - b)
     },
     switchVersion (selected) {
       this.isShowOption = !this.isShowOption
@@ -164,6 +164,8 @@ export default {
   line-height: 25px;
   color: $color-text-light;
   transition: color .3s;
+  cursor: pointer;
+  user-select: none;
 
   &:hover {
     color: $color-important;
