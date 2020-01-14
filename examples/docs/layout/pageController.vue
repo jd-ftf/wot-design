@@ -37,5 +37,38 @@ export default {
 </script>
 
 <style lang="scss">
-@import '../assets/style/layout/pageController.scss';
+@import '../assets/style/variable';
+@import '../assets/style/mixin';
+
+.page-controller {
+  margin: 80px 0 50px;
+  padding-top: 30px;
+  border-top: 2px solid $color-theme-l7;
+
+  @include clearFloat;
+
+  .page-controller__prev {
+    float: left;
+  }
+  .page-controller__next {
+    float: right;
+  }
+  .page-controller__link {
+    font-weight: 400;
+    color: #666;
+    transition: .2s;
+  
+    &:hover, &:active {
+      color: $color-theme-l2;
+    }
+    span {
+      display: inline-block;
+      margin: 0 4px;
+      vertical-align: middle;
+    }
+    .iconfont {
+      vertical-align: middle;
+    }
+  }
+}
 </style>

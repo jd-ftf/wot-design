@@ -83,6 +83,7 @@ export default {
     text-align: left;
     font-size: 20px;
     font-weight: 400;
+    color: #0083ff;
   }
   .logo {
     display: inline-block;
@@ -96,7 +97,6 @@ export default {
   .inline {
     display: inline-block;
     vertical-align: middle;
-    color: #0083ff;
   }
   .page__desc {
     margin-top: 20px;

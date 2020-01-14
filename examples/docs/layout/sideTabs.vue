@@ -132,6 +132,7 @@ export default {
     position: relative;
   }
   .wd-markdown {
+    padding-top: 10px;
     margin-top: 10px;
     margin-right: 410px;
 
