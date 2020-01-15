@@ -164,6 +164,7 @@ export default {
     .demo-iframe {
       right: 80px;
       width: 320px;
+      margin-top: 20px;
     }
   }
 }
