@@ -130,4 +130,9 @@ export default {
 .side-bar__item-listist-name {
   color: $color-black-l7;
 }
+@media (max-width: 1366px) {
+  .side-bar {
+    left: 30px;
+  }
+}
 </style>

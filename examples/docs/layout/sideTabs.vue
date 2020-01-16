@@ -7,12 +7,12 @@
           <router-view></router-view>
           <page-controller></page-controller>
         </div>
-        <div class="demo-iframe" v-show="$route.meta.demo" ref="phone" :style="phoneStyle">
+        <div class="demo-iframe" v-show="$route.meta.demo">
           <div class="phone-header">
             <img class="phone-title" src="../assets/img/phtitle.png" />
             <input readonly v-model="demoLink" class="phone-link" />
           </div>
-          <iframe frameborder="0" :src="demoLink" style="height: 597px" ref="iframe"></iframe>
+          <iframe frameborder="0" :src="demoLink" ref="iframe"></iframe>
         </div>
       </div>
     </div>
@@ -26,11 +26,7 @@ import PageController from './pageController'
 export default {
   data () {
     return {
-      phoneStyle: {
-        position: 'absolute',
-        right: '0',
-        top: '0'
-      }
+      bodyContent: null
     }
   },
   components: {
@@ -46,40 +42,13 @@ export default {
     }
   },
   methods: {
-    phoneListener () {
-      let phoneHeight = this.$refs.phone.clientHeight
-
-      if (this.$refs.demoBlock.clientHeight > phoneHeight) {
-        let demoBlockRect = this.$refs.demoBlock.getBoundingClientRect()
-
-        if (demoBlockRect.top - 60 < 0 && demoBlockRect.bottom - 60 > phoneHeight) {
-          this.phoneStyle = {
-            position: 'fixed',
-            right: '120px',
-            top: '60px'
-          }
-        } else if (demoBlockRect.top - 60 > 0) {
-          this.phoneStyle = {
-            position: 'absolute',
-            right: '0',
-            top: '0'
-          }
-        } else if (demoBlockRect.bottom - 60 < phoneHeight) {
-          this.phoneStyle = {
-            position: 'absolute',
-            right: '0',
-            bottom: '0'
-          }
-        }
-      }
-    },
     renderAnchorHref() {
       const anchors = document.querySelectorAll('h2 a,h3 a,h4 a,h5 a')
       const basePath = location.href.split('#').splice(0, 2).join('#')
 
       Array.prototype.slice.call(anchors).forEach(a => {
         const href = a.getAttribute('href')
-        a.href = basePath + href
+        a.href = href.indexOf(basePath) > -1 ? href : (basePath + href)
       })
     },
     goAnchor () {
@@ -90,43 +59,40 @@ export default {
         if (!elm) return
 
         setTimeout(() => {
-          document.documentElement.scrollTop = elm.offsetTop
-          document.body.scrollTop = elm.offsetTop
-        }, 500)
+          this.bodyContent.scrollTop = elm.offsetTop
+        }, 50)
       }
     }
   },
   mounted () {
-    window.addEventListener('scroll', this.phoneListener)
+    this.bodyContent = document.querySelector('.body-content')
     this.renderAnchorHref()
     this.goAnchor()
-  },
-  beforeDestroy () {
-    window.removeEventListener('scroll', this.phoneListener)
   },
   beforeRouteUpdate (to, from, next) {
     this.$refs.iframe.contentWindow.scrollTo(0, 0)
     next()
-    this.$nextTick(() => {
-      const toPath = to.path
-      const fromPath = from.path
+    const toPath = to.path
+    const fromPath = from.path
+    if (toPath !== fromPath) {
+      this.bodyContent.scrollTop = 0
+    }
+    setTimeout(() => {
       if (toPath === fromPath && to.hash) {
         this.goAnchor()
       }
 
       if (toPath !== fromPath) {
-        document.documentElement.scrollTop = 0
-        document.body.scrollTop = 0
         this.renderAnchorHref()
       }
-    })
+    }, 100)
   }
 }
 </script>
 
 <style lang="scss">
 .tab-content{
-  margin: 0 120px 100px 375px;
+  margin: 0 530px 100px 375px;
 
   .content-flex {
     position: relative;
@@ -134,7 +100,6 @@ export default {
   .wd-markdown {
     padding-top: 10px;
     margin-top: 10px;
-    margin-right: 410px;
 
     h1, h2, h3, h4, h5, h6 {
       position: relative;
@@ -177,14 +142,63 @@ export default {
     line-height: 1.1;
   }
   .demo-iframe {
+    position: fixed;
+    top: 60px;
+    right: 120px;
     width: 375px;
-    margin-left: 20px;
-    margin-top: 20px;
+    margin-top: 30px;
     box-shadow: 0 0 10px #cecece;
     font-size: 0;
 
     iframe {
       width: 100%;
+      height: 597px;
+    }
+  }
+}
+@media (max-width: 1366px) {
+  .tab-content {
+    margin-left: 275px;
+    margin-right: 420px;
+
+    .demo-iframe {
+      right: 80px;
+      width: 320px;
+      margin-top: 20px;
+    }
+  }
+}
+@media (max-width: 1000px) {
+  .tab-content {
+    margin-left: 275px;
+    margin-right: 30px;
+
+    .demo-iframe {
+      display: none;
+    }
+  }
+}
+@media (max-width: 773px) {
+  .tab-content {
+    margin: 0 15px 10px;
+  }
+  .side-bar {
+    position: static;
+    margin: 10px 15px 10px;
+    padding-bottom: 0;
+  }
+  // .wot-search-input {
+  //   display: none;
+  // }
+}
+@media (max-height: 750px) {
+  .tab-content {
+    margin-bottom: 0;
+
+    .demo-iframe {
+      iframe {
+        height: 460px;
+      }
     }
   }
 }
