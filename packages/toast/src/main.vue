@@ -24,7 +24,6 @@ export default {
   computed: {
     customClass () {
       let classList = []
-
       switch (this.position) {
         case 'top':
           classList.push('wd-toast--top')
