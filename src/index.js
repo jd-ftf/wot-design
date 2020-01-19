@@ -44,6 +44,7 @@ import Tabbar from '../packages/tabbar'
 import TabbarItem from '../packages/tabbar-item'
 import Tag from '../packages/tag'
 import Toast from '../packages/toast'
+import Tooltip from '../packages/tooltip'
 import locale from './locale'
 
 const components = [
@@ -87,6 +88,7 @@ const components = [
   Tabbar,
   TabbarItem,
   Tag,
+  Tooltip,
   MessageBox.wdMessageBox
 ]
 
@@ -155,5 +157,6 @@ export default {
   Tabbar,
   TabbarItem,
   Tag,
-  Toast
+  Toast,
+  Tooltip
 }
