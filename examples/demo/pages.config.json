@@ -102,6 +102,9 @@
       }, {
         "name": "Toast 轻提示",
         "path": "/toast"
+      }, {
+        "name": "Tooltip 文字提示",
+        "path": "/tooltip"
       }
     ]
   }, {

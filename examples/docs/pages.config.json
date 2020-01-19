@@ -186,6 +186,11 @@
                 "name": "Toast 轻提示",
                 "path": "/toast",
                 "demo": "/toast"
+              },
+              "Tooltip": {
+                "name": "Tooltip 文字提示",
+                "path": "/tooltip",
+                "demo": "/tooltip"
               }
             }
           }, {

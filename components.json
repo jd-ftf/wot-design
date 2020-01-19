@@ -41,5 +41,6 @@
   "tabbar": "./packages/tabbar/index.js",
   "tabbar-item": "./packages/tabbar-item/index.js",
   "tag": "./packages/tag/index.js",
-  "toast": "./packages/toast/index.js"
+  "toast": "./packages/toast/index.js",
+  "tooltip": "./packages/tooltip/index.js"
 }
