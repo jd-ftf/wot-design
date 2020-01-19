@@ -250,3 +250,11 @@ $-picker-cell-fs: 16px !default;
 $-picker-label-color: $-color-title !default;
 $-picker-value-color: $-color-text !default;
 $-picker-arrow-color: $-color-icon !default;
+
+/* tooltip */
+$-tooltip-bg-color: rgba(0, 0, 0, 0.7) !default;
+$-tooltip-color: $-color-white !default;
+$-tooltip-lineheight: 19px !default;
+$-tooltip-arrow-height: 3px !default;
+$-tooltip-fontsize: 14px !default;
+$-tooltip-blur: 10px !default;

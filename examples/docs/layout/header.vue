@@ -6,8 +6,17 @@
         <h1 class="wot-design-title">Wot Design</h1>
       </router-link>
       <ul class="header-tab">
+        <!-- 搜索 -->
+        <li class="header-tab__item">
+          <search />
+        </li>
         <li class="header-tab__item" v-for="(page, key) in pages" :key="key">
-          <a v-if="page.href" :href="page.href" class="header-tab__link" target="_blank">{{ page.name }}</a>
+          <a
+            v-if="page.href"
+            :href="page.href"
+            class="header-tab__link"
+            target="_blank"
+          >{{ page.name }}</a>
           <router-link
             v-else
             class="header-tab__link"
@@ -16,14 +25,18 @@
           >{{ page.name }}</router-link>
         </li>
         <!-- 版本控制 -->
-        <li class="header-tab__item version-control" v-show="isComponentPage" >
+        <li class="header-tab__item version-control" v-show="isComponentPage">
           <a class="header-tab__link header-tab__with-arrow" @click="showOption">{{ version }}</a>
           <transition name="drop-scale-in">
             <div class="wot-dropdown" v-show="isShowOption">
               <ul class="wot-dropdown-menu">
-                <li class="wot-dropdown-item" v-for="item in versions" :value="item" :key="item" @click="switchVersion(item)">
-                  {{ item }}
-                </li>
+                <li
+                  class="wot-dropdown-item"
+                  v-for="item in versions"
+                  :value="item"
+                  :key="item"
+                  @click="switchVersion(item)"
+                >{{ item }}</li>
               </ul>
               <i class="popper__arrow"></i>
             </div>
@@ -37,9 +50,10 @@
 <script>
 import pagesConfig from '../pages.config.json'
 import versions from '../versions.json'
+import search from './search.vue'
 const { version } = require('../../../package.json')
-
 export default {
+  components: { search },
   data () {
     return {
       pages: pagesConfig,
@@ -79,13 +93,13 @@ export default {
           })
         }
       })
-      return result.filter(item => item !== version).sort((a, b) => a - b)
+      return result.sort()
     },
     switchVersion (selected) {
       this.isShowOption = !this.isShowOption
       if (selected === this.version) return
       // location.hash
-      window.location.href = `${ location.origin }/wot-design/${ selected }/#/components/introduction`
+      window.location.href = `${location.origin}/wot-design/${selected}/#/components/introduction`
     },
     clickOutside (event) {
       let clickDom = event.target
@@ -169,7 +183,7 @@ export default {
   font-size: $fs-title;
   line-height: 25px;
   color: $color-text-light;
-  transition: color .3s;
+  transition: color 0.3s;
   cursor: pointer;
   user-select: none;
 
@@ -186,20 +200,20 @@ export default {
   top: 50%;
   margin-top: -3px;
   right: 0;
-  border: 6px solid rgba(0,0,0,0);
+  border: 6px solid rgba(0, 0, 0, 0);
   border-top-color: #ccc;
 }
-.header-tab__link--active{
+.header-tab__link--active {
   color: $color-theme;
 
   &:hover {
     color: $color-theme;
   }
 }
-.version-control{
-  &:before{
+.version-control {
+  &:before {
     position: absolute;
-    content: " ";
+    content: ' ';
     top: calc(50% - 8px);
     left: 0;
     width: 1px;
@@ -210,7 +224,7 @@ export default {
 .wot-dropdown {
   position: relative;
 }
-.wot-dropdown-menu{
+.wot-dropdown-menu {
   position: absolute;
   right: 0;
   top: 100%;
@@ -223,9 +237,9 @@ export default {
   background-color: #fff;
   border: 1px solid #ebeef5;
   border-radius: 2px;
-  box-shadow: 0 2px 12px 4px rgba(0,0,0,.1);
+  box-shadow: 0 2px 12px 4px rgba(0, 0, 0, 0.1);
 }
-.wot-dropdown-item{
+.wot-dropdown-item {
   list-style: none;
   height: 30px;
   line-height: 30px;
@@ -236,14 +250,14 @@ export default {
   cursor: pointer;
   font-size: 14px;
   outline: none;
-  transition: background .3s, color .3s;
+  transition: background 0.3s, color 0.3s;
 
-  &:hover{
+  &:hover {
     background-color: mix(#0083ff, #fff, 10%);
     color: #0083ff;
   }
 }
-.popper__arrow{
+.popper__arrow {
   border: 1px solid;
   display: inline-block;
   position: absolute;
@@ -254,11 +268,13 @@ export default {
   border-color: transparent;
   border-bottom-color: white;
 }
-.drop-scale-in-enter, .drop-scale-in-leave-to {
+.drop-scale-in-enter,
+.drop-scale-in-leave-to {
   transform: scaleY(0);
 }
-.drop-scale-in-enter-active, .drop-scale-in-leave-active {
-  transition: transform .2s;
+.drop-scale-in-enter-active,
+.drop-scale-in-leave-active {
+  transition: transform 0.2s;
 }
 @media (max-width: 1366px) {
   .header-container {
@@ -276,5 +292,54 @@ export default {
     padding: 6px 12px;
     font-size: 14px;
   }
+}
+.version-control {
+  &:before {
+    position: absolute;
+    content: ' ';
+    top: calc(50% - 8px);
+    width: 1px;
+    height: 16px;
+    background-color: #ebebeb;
+  }
+}
+.wot-dropdown-menu {
+  padding: 10px 5px;
+  margin: 0 10px;
+  border: none;
+  background-color: transparent;
+  font-size: 14px;
+  color: #666;
+  position: absolute;
+  background-color: #fff;
+  border: 1px solid #ebeef5;
+  border-radius: 2px;
+  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+}
+.wot-dropdown-item {
+  list-style: none;
+  height: 30px;
+  line-height: 32px;
+  padding: 0 10px;
+  margin: 0;
+  font-size: 12px;
+  color: #464c5b;
+  cursor: pointer;
+  font-size: 14px;
+  outline: none;
+  &:hover {
+    background-color: #f5f7f9;
+    color: #464c5b;
+  }
+}
+.popper__arrow {
+  border: 1px solid;
+  display: inline-block;
+  position: absolute;
+  left: 50%;
+  bottom: -2px;
+  border-width: 6px;
+  border-color: transparent;
+  border-bottom-color: white;
 }
 </style>
