@@ -1,16 +1,7 @@
- <template>
-  <div class="page-toast">
-    <white-space title="基本用法">
-      <wd-button type="primary" @click="handleToast1">toast</wd-button>
-    </white-space>
-    <white-space title="类型toast">
-      <wd-button type="primary" @click="handleToast2">成功toast</wd-button>
-      <wd-button type="primary" @click="handleToast3">错误toast</wd-button>
-      <wd-button type="primary" @click="handleToast4">警告toast</wd-button>
-    </white-space>
-    <white-space title="提示位置">
-      <wd-button type="primary" @click="handleToast5">顶部toast</wd-button>
-      <wd-button type="primary" @click="handleToast6">底部toast</wd-button>
+<template>
+  <div>
+    <white-space>
+      <wd-button @click="show"></wd-button>
     </white-space>
   </div>
 </template>
@@ -19,44 +10,40 @@
 export default {
   data () {
     return {
-      warnToast: ''
     }
   },
   methods: {
-    handleToast1 () {
-      this.$toast({
-        msg: '提示信息'
-      })
-    },
-    handleToast2 () {
-      this.$toast.success('操作成功')
-    },
-    handleToast3 () {
-      this.$toast.error('手机验证码输入错误，请重新输入')
-    },
-    handleToast4 () {
-      this.$toast.warning('提示信息')
-    },
-    handleToast5 () {
-      this.$toast({
-        msg: '顶部信息',
-        position: 'top'
-      })
-    },
-    handleToast6 () {
-      this.$toast({
-        msg: '底部信息',
-        position: 'bottom'
-      })
+    show () {
+      
     }
   }
 }
 </script>
 
 <style lang="scss">
-.page-toast {
-  .wd-button {
-    margin: 0 10px 10px 0;
-  }
+code {
+  color: #0083ff;
+  padding: 1px 2px;
+  margin: 0 2px;
+  border-radius: 2px;
+  white-space: nowrap;
+  font-size: 0.8em;
+  background-color: #f8f8f8;
+  -webkit-font-smoothing: initial;
+}
+.color-box {
+  box-sizing: border-box;
+  height: 50px;
+  width: 100%;
+  border: 2px solid #0083ff;
+  border-radius: 2px;
+  background-color: #fff;
+  line-height: 46px;
+  text-align: center;
+  color: #0083ff;
+  -webkit-font-smoothing: initial;
+}
+.demo .wd-button {
+  margin: 10px 0;
 }
 </style>

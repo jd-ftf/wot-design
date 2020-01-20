@@ -44,6 +44,7 @@
     "@vue/babel-preset-jsx": "^1.1.1",
     "@vue/test-utils": "^1.0.0-beta.30",
     "autoprefixer": "^9.5.1",
+    "docsearch.js": "^2.6.3",
     "babel-core": "^7.0.0-bridge.0",
     "babel-eslint": "^10.0.1",
     "babel-jest": "^24.9.0",
@@ -108,6 +109,7 @@
   "license": "MIT",
   "dependencies": {
     "@vue/babel-helper-vue-jsx-merge-props": "^1.0.0",
+    "throttle-debounce": "^2.1.0",
     "vue-lazyload": "^1.2.6"
   }
 }
