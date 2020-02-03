@@ -88,6 +88,7 @@ const components = [
   Tabbar,
   TabbarItem,
   Tag,
+  Tooltip,
   MessageBox.wdMessageBox
 ]
 

@@ -46,6 +46,7 @@
 <script>
 import pagesConfig from '../pages.config.json'
 import versions from '../versions.json'
+import search from './search.vue'
 const { version } = require('../../../package.json')
 
 export default {
