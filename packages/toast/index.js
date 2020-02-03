@@ -21,15 +21,8 @@ const ToastConstructor = Vue.extend(wdToast)
 
 let toast
 
-let removeDom = event => {
-  if (event.target.parentNode) {
-    event.target.parentNode.removeChild(event.target)
-  }
-}
-
 ToastConstructor.prototype.close = function () {
   this.show = false
-  this.$el.addEventListener('transitionend', removeDom)
   this.closed = true
 }
 
@@ -41,11 +34,16 @@ const showToast = (instance, options) => {
   instance.position = options.position || 'middle'
   instance.iconName = options.iconName || ''
   instance.iconClass = options.iconClass || ''
+  instance.loadingType = options.loadingType || 'circle'
+  instance.forbidClick = options.forbidClick || ''
 
-  document.body.appendChild(instance.$el)
+  if (!instance.inited) {
+    document.body.appendChild(instance.$el)
+    instance.inited = true
+  }
+
   Vue.nextTick(() => {
     instance.show = true
-    instance.$el.removeEventListener('transitionend', removeDom)
     if (duration > 0) {
       instance.timer = setTimeout(() => {
         if (instance.closed) {
@@ -69,6 +67,12 @@ let Toast = options => {
   }
 
   return showToast(toast, options)
+}
+
+Toast.close = () => {
+  if (toast) {
+    toast.close()
+  }
 }
 
 Toast.success = options => {
@@ -115,6 +119,26 @@ Toast.warning = options => {
     options = {
       ...options,
       iconName: 'warning'
+    }
+  }
+
+  return Toast(options)
+}
+
+Toast.loading = options => {
+  if (typeof options === 'string') {
+    options = {
+      forbidClick: true,
+      msg: options,
+      duration: 0,
+      iconName: 'loading'
+    }
+  } else {
+    options = {
+      forbidClick: true,
+      ...options,
+      duration: 0,
+      iconName: 'loading'
     }
   }
 

@@ -7,9 +7,24 @@ const { VueLoaderPlugin } = require('vue-loader')
 const merge = require('webpack-merge')
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 const webpack = require('webpack')
+const fs = require('fs')
 const config = require('./config')
 
 const isDev = process.env.NODE_ENV === 'development'
+
+const versions = require('../build/deploy/change-log')
+// 把 versions 对象转换为json格式字符串
+var content = JSON.stringify(versions)
+
+// 指定创建目录及文件名称，__dirname为执行当前js文件的目录
+var file = path.resolve(__dirname, '../examples/docs/versions.json')
+
+// 写入文件
+fs.writeFile(file, content, err => {
+  if (err) {
+    return console.error(err)
+  }
+})
 
 const cssLoader = (...loaders) => {
   const formatLoaders = []
@@ -82,7 +97,7 @@ let webpackConf = {
             }
           },
           {
-            loader: path.resolve(__dirname, './md-loader/index.js')
+            loader: path.resolve(__dirname, './md-loader.js')
           }
         ]
       },
@@ -159,7 +174,7 @@ let webpackConf = {
       favicon: path.resolve(__dirname, '../examples/demo/favicon.ico')
     }),
     new HtmlWebpackPlugin({
-      filename: isDev ? 'docs.html' : path.resolve(__dirname, '../examples/dist/docs.html'),
+      filename: isDev ? 'docs.html' : path.resolve(__dirname, '../examples/dist/index.html'),
       template: path.resolve(__dirname, '../examples/docs/index.html'),
       chunks: ['docs'],
       favicon: path.resolve(__dirname, '../examples/docs/favicon.ico')

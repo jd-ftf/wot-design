@@ -14,7 +14,7 @@ Vue.use(PickerView)
 单列选择器，给 `columns` 传入一个数值数组，设置 `v-model` 绑定值。选项可以为字符串，也可以为对象，如果为对象则默认取 `label` 属性为选项内容进行渲染，`v-model` 获取的值为 `value` 属性的值，如果 `value` 属性不存在，则取 `label` 的值。
 
 ```html
-<wd-picker-view :columns="columns" v-model="value" @change="onChange" />
+<wd-picker-view :columns="columns" v-model="value" @change="onChange"></wd-picker-view>
 
 <script>
 export default {
@@ -38,7 +38,7 @@ export default {
 选项可以为对象，设置 `disabled` 属性。
 
 ```html
-<wd-picker-view :columns="columns" v-model="value" />
+<wd-picker-view :columns="columns" v-model="value"></wd-picker-view>
 
 <script>
 export default {
@@ -74,7 +74,7 @@ export default {
 设置 `loading` 属性。
 
 ```html
-<wd-picker-view :columns="columns" loading />
+<wd-picker-view :columns="columns" loading></wd-picker-view>
 ```
 
 ### 多列
@@ -82,7 +82,7 @@ export default {
 `columns` 属性设置为二维数组，`v-model` 为数组。
 
 ```html
-<wd-picker-view :columns="columns" v-model="value" />
+<wd-picker-view :columns="columns" v-model="value"></wd-picker-view>
 
 <script>
 export default {
@@ -101,10 +101,10 @@ export default {
 
 ### 多级联动
 
-传入 `column-change` 属性，其类型为 `function`，接收 pickerView 实例、选中项、当前修改列的下标 作为入参，根据选中项和列下标进行判断，通过 pickerView 实例暴露出来的 `setColumnData` 方法修改其他列的数据源。
+传入 `column-change` 属性，其类型为 `function`，接收 pickerView 实例、当前选中项、当前修改列的下标 作为入参，根据选中项和列下标进行判断，通过 pickerView 实例暴露出来的 `setColumnData` 方法修改其他列的数据源。
 
 ```html
-<wd-picker-view :columns="columns" v-model="value" :column-change="onChangeDistrict" />
+<wd-picker-view :columns="columns" v-model="value" :column-change="onChangeDistrict"></wd-picker-view>
 
 <script>
 const district = {
@@ -155,6 +155,7 @@ export default {
 | item-height | 选项高度 | number | - | 33 |
 | value-key | 选项对象中，value对应的 key | string | - | 'label' |
 | label-key | 选项对象中，展示的文本对应的 key | string | - | 'value' |
+| column-change | 接收 pickerView 实例、选中项、当前修改列的下标 作为入参，根据选中项和列下标进行判断，通过 pickerView 实例暴露出来的 `setColumnData` 方法修改其他列的数据源。 | function | - | - |
 
 ### Events
 

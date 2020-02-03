@@ -33,7 +33,7 @@ export default {
   mixins: [locale],
   components: {
     WdPickerViewColumn,
-    WdLoading: WdLoading.Indicator
+    WdLoading
   },
   data () {
     return {
@@ -45,7 +45,6 @@ export default {
     value: [String, Number, Boolean, Array],
     columnChange: Function,
     columns: {
-      type: Array,
       default () {
         return []
       }

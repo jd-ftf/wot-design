@@ -37,6 +37,7 @@
 import locale from 'wot-design/src/mixins/locale'
 import WdPopup from 'wot-design/packages/popup'
 import WdPickerView from 'wot-design/packages/picker-view'
+import pickerViewProps from '../../picker-view/src/pickerViewProps'
 import pickerProps from './pickerProps'
 
 export default {
@@ -54,11 +55,11 @@ export default {
     }
   },
   props: {
+    ...pickerViewProps,
     ...pickerProps,
     value: [String, Array],
     columnChange: Function,
     columns: {
-      type: Array,
       default () {
         return []
       }
@@ -76,6 +77,9 @@ export default {
     value: {
       handler () {
         this.pickerValue = this.value
+        this.$nextTick(() => {
+          this.setShowValue()
+        })
       },
       immediate: true
     }
@@ -92,6 +96,15 @@ export default {
       this.$emit('cancel')
     },
     onConfirm () {
+      if (this.beforeConfirm) {
+        this.beforeConfirm(this.pickerValue, isPass => {
+          isPass && this.handleConfirm()
+        })
+      } else {
+        this.handleConfirm()
+      }
+    },
+    handleConfirm () {
       this.$emit('input', this.pickerValue)
       this.popupShow = false
       this.$emit('confirm')
@@ -114,9 +127,6 @@ export default {
     getPickerView () {
       return this.$refs.pickerView
     }
-  },
-  mounted () {
-    this.setShowValue()
   }
 }
 </script>

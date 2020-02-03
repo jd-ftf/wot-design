@@ -14,7 +14,7 @@ Vue.use(Switch)
 `v-model` 为绑定值，默认为 boolean 类型。
 
 ```html
-<wd-switch v-model="value" />
+<wd-switch v-model="value"></wd-switch>
 
 <script>
 export default {
@@ -32,7 +32,7 @@ export default {
 通过 `active-value` 属性修改开关打开时的值，`inactive-value` 属性修改开关关闭时的值。
 
 ```html
-<wd-switch v-model="value" active-value="京麦" inactive-value="商家后台" />
+<wd-switch v-model="value" active-value="京麦" inactive-value="商家后台"></wd-switch>
 
 <script>
 export default {
@@ -50,7 +50,7 @@ export default {
 通过 `active-color` 属性修改开关打开时的颜色，`inactive-color` 属性修改开关关闭时的颜色。
 
 ```html
-<wd-switch v-model="value" active-color="#13ce66" inactive-color="#f00" />
+<wd-switch v-model="value" active-color="#13ce66" inactive-color="#f00"></wd-switch>
 ```
 
 ### 修改大小
@@ -58,7 +58,7 @@ export default {
 设置 `size` 修改开关大小。
 
 ```html
-<wd-switch v-model="value" size="20px" />
+<wd-switch v-model="value" size="20px"></wd-switch>
 ```
 
 ### 禁用

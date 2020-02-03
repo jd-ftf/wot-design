@@ -9,6 +9,7 @@
   "collapse": "./packages/collapse/index.js",
   "collapse-item": "./packages/collapse-item/index.js",
   "datetime-picker": "./packages/datetime-picker/index.js",
+  "datetime-picker-view": "./packages/datetime-picker-view/index.js",
   "icon": "./packages/icon/index.js",
   "infinite-load": "./packages/infinite-load/index.js",
   "input": "./packages/input/index.js",

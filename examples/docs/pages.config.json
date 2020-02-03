@@ -98,6 +98,11 @@
                 "path": "/datetimePicker",
                 "demo": "/datetimePicker"
               },
+              "DatetimePickerView": {
+                "name": "DatetimePickerView 时间选择器视图",
+                "path": "/datetimePickerView",
+                "demo": "/datetimePickerView"
+              },
               "Input": {
                 "name": "Input 输入框",
                 "path": "/input",
@@ -210,6 +215,11 @@
                 "name": "Steps 步骤条",
                 "path": "/steps",
                 "demo": "/steps"
+              },
+              "Sticky": {
+                "name": "Sticky 粘性布局",
+                "path": "/sticky",
+                "demo": "/sticky"
               },
               "Tag": {
                 "name": "Tag 标签",

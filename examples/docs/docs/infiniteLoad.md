@@ -24,7 +24,7 @@ Vue.use(InfiniteLoad)
         <div>{{ item.text }}</div>
       </div>
     </div>
-    <wd-infinite-load ref="loadmore" @loadmore="loadmore" :loading="loading" />
+    <wd-infinite-load ref="loadmore" @loadmore="loadmore" :loading="loading"></wd-infinite-load>
   </div>
 </template>
 
@@ -68,6 +68,15 @@ export default {
 </script>
 ```
 
+### 重置状态
+
+将 `loading` 设置为 `false`，同时通过 `ref` 调用该组件上面的 `reset` 方法重置组件状态。
+
+```javascript
+this.loading = false
+this.$refs.loadmore.reset()
+```
+
 ### Attributes
 | 参数      | 说明                                 | 类型      | 可选值       | 默认值   |
 |---------- |------------------------------------ |---------- |------------- |-------- |
@@ -90,3 +99,4 @@ export default {
 |------------- |----------- |---------  |
 | loadEnd      | 加载结束，在没有更多数据时需要手动调用该事件 | —  |
 | loadError    | 加载失败，在请求数据失败时手动调用该事件 | -  |
+| reset | 重置加载状态 | - |

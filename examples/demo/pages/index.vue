@@ -5,7 +5,7 @@
         <i class="logo"></i>
         <span class="inline">Wot Design</span>
       </div>
-      <div class="page__desc">该组件库基于Vue.js构建，旨在给开发者提供统一的页面风格。</div>
+      <div class="page__desc">该组件库基于Vue.js构建，根据京东商家侧的UI设计规范（京麦移动端设计规范）开发，旨在给商家提供统一的UI交互，同时提高研发的开发效率。</div>
     </div>
     <div class="page__bd">
       <div class="kind-list__item" v-for="(componentModule, index) in pagesConfig" :key="componentModule.name">
@@ -72,19 +72,25 @@ export default {
 
 <style lang="scss" scoped>
 .page__hd {
-  padding: 40px;
+  padding: 40px 40px 30px;
+  margin-bottom: 30px;
+  background: #fff;
+  border-bottom-left-radius: 16px;
+  border-bottom-right-radius: 16px;
+  box-shadow: 0 2px 10px #ddd;
 
   .page__title {
     text-align: left;
     font-size: 20px;
     font-weight: 400;
+    color: #0083ff;
   }
   .logo {
     display: inline-block;
     width: 40px;
     height: 40px;
     margin-right: 10px;
-    background: url('//img10.360buyimg.com/jmadvertisement/jfs/t1/82922/30/10408/3741/5d80773eEdb7b4adc/146728fcc132a4e0.png') no-repeat;
+    background: url('../assets/img/wot-design.png') no-repeat;
     background-size: cover;
     vertical-align: middle;
   }
@@ -93,19 +99,22 @@ export default {
     vertical-align: middle;
   }
   .page__desc {
-    margin-top: 5px;
-    color: #888888;
+    margin-top: 20px;
+    color: #999;
     text-align: left;
-    font-size: 14px;
+    font-size: 12px;
   }
 }
 .page__bd {
-  padding: 0 15px 30px;
+  padding: 0 15px;
+  user-select: none;
 
   .kind-list__item {
-    margin: 10px 0;
-    border-radius: 2px;
+    margin: 15px 0;
+    border-radius: 12px;
     background: #fff;
+    box-shadow: 0 0 10px #ddd;
+    overflow: hidden;
 
     &:first-child {
       margin-top: 0;
@@ -113,7 +122,7 @@ export default {
   }
   .kind-list__item-hd {
     display: flex;
-    padding: 20px;
+    padding: 15px 20px;
     justify-content: space-between;
     align-items: center;
   }

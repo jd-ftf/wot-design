@@ -11,6 +11,7 @@ import CheckboxGroup from '../packages/checkbox-group'
 import Collapse from '../packages/collapse'
 import CollapseItem from '../packages/collapse-item'
 import DatetimePicker from '../packages/datetime-picker'
+import DatetimePickerView from '../packages/datetime-picker-view'
 import Icon from '../packages/icon'
 import InfiniteLoad from '../packages/infinite-load'
 import Input from '../packages/input'
@@ -57,10 +58,12 @@ const components = [
   Collapse,
   CollapseItem,
   DatetimePicker,
+  DatetimePickerView,
   Icon,
   InfiniteLoad,
   Input,
   InputNumber,
+  Loading,
   Modal,
   Navbar,
   NoticeBar,
@@ -85,8 +88,6 @@ const components = [
   Tabbar,
   TabbarItem,
   Tag,
-  Tooltip,
-  Loading.Indicator,
   MessageBox.wdMessageBox
 ]
 
@@ -99,7 +100,6 @@ const install = (Vue, config = {}) => {
   })
 
   Vue.prototype.$toast = Toast
-  Vue.prototype.$loading = Loading.loading
   Vue.prototype.$messageBox = MessageBox.MessageBox
 
   Vue.use(Lazyload, config.lazyload)
@@ -110,7 +110,7 @@ if (typeof window !== 'undefined' && window.Vue) {
 }
 
 export default {
-  version: '0.7.2',
+  version: '1.2.0',
   install,
   locale: locale.use,
   i18n: locale.i18n,
@@ -124,6 +124,7 @@ export default {
   Collapse,
   CollapseItem,
   DatetimePicker,
+  DatetimePickerView,
   Icon,
   InfiniteLoad,
   Input,

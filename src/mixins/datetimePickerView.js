@@ -1,6 +1,16 @@
-<script>
-import DatetimePickerMixin from 'wot-design/src/mixins/datetimePicker'
-import props from './props'
+import { padZero, range } from 'wot-design/src/utils'
+import pickerViewProps from '../../packages/picker-view/src/pickerViewProps'
+
+const times = (num, formatter) => {
+  let index = -1
+  let array = []
+
+  while (++index < num) {
+    array.push(formatter(index))
+  }
+
+  return array
+}
 
 const currentYear = new Date().getFullYear()
 
@@ -9,9 +19,40 @@ const getMonthEndDay = (year, month) => {
 }
 
 export default {
-  mixins: [DatetimePickerMixin],
+  data () {
+    return {
+      innerValue: this.formatValue(this.value),
+      pickerValue: this.getPickerValue()
+    }
+  },
   props: {
-    ...props,
+    ...pickerViewProps,
+    type: {
+      type: String,
+      default: 'datetime'
+    },
+    value: null,
+    filter: Function,
+    formatter: {
+      type: Function,
+      default: (type, value) => value
+    },
+    minHour: {
+      type: Number,
+      default: 0
+    },
+    maxHour: {
+      type: Number,
+      default: 23
+    },
+    minMinute: {
+      type: Number,
+      default: 0
+    },
+    maxMinute: {
+      type: Number,
+      default: 59
+    },
     minDate: {
       type: Date,
       default: () => new Date(currentYear - 10, 0, 1)
@@ -21,19 +62,20 @@ export default {
       default: () => new Date(currentYear + 10, 11, 31)
     }
   },
-  watch: {
-    value (val) {
-      val = this.formatValue(val)
-
-      if (val.valueOf() !== this.innerValue.valueOf()) {
-        this.innerValue = val
-      }
-    },
-    maxDate: 'updateInnerValue',
-    minDate: 'updateInnerValue'
-  },
   computed: {
     ranges () {
+      if (this.type === 'time') {
+        return [
+          {
+            type: 'hour',
+            range: [this.minHour, this.maxHour]
+          }, {
+            type: 'minute',
+            range: [this.minMinute, this.maxMinute]
+          }
+        ]
+      }
+
       const { maxYear, maxMonth, maxDate, maxHour, maxMinute } = this.getBoundary('max', this.innerValue)
       const { minYear, minMonth, minDate, minHour, minMinute } = this.getBoundary('min', this.innerValue)
 
@@ -61,10 +103,81 @@ export default {
       if (this.type === 'year-month') result.splice(2, 3)
 
       return result
+    },
+    originColumns () {
+      return this.ranges.map(({ type, range }) => {
+        let values = times(range[1] - range[0] + 1, index => {
+          return range[0] + index
+        })
+
+        if (this.filter) {
+          values = this.filter(type, values)
+        }
+
+        return {
+          type,
+          values
+        }
+      })
+    },
+    columns () {
+      return this.originColumns.map(column => {
+        return column.values.map(value => ({
+          label: this.formatter(column.type, padZero(value)),
+          value
+        }))
+      })
     }
   },
+  watch: {
+    value (val, oldVal) {
+      if (oldVal && val.valueOf() === this.innerValue.valueOf()) return
+
+      val = this.formatValue(val)
+      this.innerValue = val
+      this.pickerValue = this.getPickerValue()
+    },
+    columns: 'updateColumnValues',
+    maxDate: 'updateInnerValue',
+    minDate: 'updateInnerValue'
+  },
   methods: {
+    getPickerValue () {
+      if (this.value) {
+        let value = this.formatValue(this.value)
+        let result = this.getValueArray(value)
+
+        return result
+      }
+
+      return ''
+    },
+    formatDisplay (items) {
+      if (this.displayFormat) return this.displayFormat(items)
+
+      if (this.type !== 'time') {
+        return items.length === 2
+          ? `${items[0].value}-${padZero(items[1].value)}`
+          : items.length === 3
+            ? `${items[0].value}-${padZero(items[1].value)}-${padZero(items[2].value)}`
+            : `${items[0].value}-${padZero(items[1].value)}-${padZero(items[2].value)} ${padZero(items[3].value)}:${padZero(items[4].value)}`
+      }
+
+      return `${padZero(items[0].value)}:${padZero(items[1].value)}`
+    },
     formatValue (value) {
+      if (this.type === 'time') {
+        if (!value) {
+          value = `${padZero(this.minHour)}:${padZero(this.minMinute)}`
+        }
+
+        let [hour, minute] = value.split(':')
+        hour = padZero(range(hour, this.minHour, this.maxHour))
+        minute = padZero(range(minute, this.minMinute, this.maxMinute))
+
+        return `${hour}:${minute}`
+      }
+
       if (Object.prototype.toString.call(value) !== '[object Date]' || isNaN(value.getTime())) {
         value = this.minDate
       }
@@ -114,8 +227,14 @@ export default {
       }
     },
     updateInnerValue () {
-      const pickerView = this.$refs.picker.getPickerView()
+      const pickerView = this.$refs.pickerView || this.$refs.picker.getPickerView()
       const values = pickerView.getValues()
+
+      if (this.type === 'time') {
+        this.innerValue = `${padZero(values[0])}:${padZero(values[1])}`
+        return
+      }
+
       const year = values[0] && parseInt(values[0])
       const month = values[1] && parseInt(values[1])
 
@@ -141,11 +260,17 @@ export default {
       const values = this.getValueArray(this.innerValue)
 
       this.$nextTick(() => {
-        let pickerView = this.$refs.picker.getPickerView()
+        let pickerView = this.$refs.pickerView || this.$refs.picker.getPickerView()
         pickerView.setValues(values)
       })
     },
     getValueArray (value) {
+      if (this.type === 'time') {
+        let [hour, minute] = value.split(':')
+
+        return [parseInt(hour), parseInt(minute)]
+      }
+
       const values = [
         value.getFullYear(),
         value.getMonth() + 1,
@@ -159,19 +284,6 @@ export default {
       if (this.type === 'year-month') values.splice(2, 3)
 
       return values
-    },
-    transferToValue () {
-      let date
-      if (this.type === 'date') {
-        date = new Date(this.pickerValue[0], this.pickerValue[1] - 1, this.pickerValue[2], 0, 0)
-      } else if (this.type === 'year-month') {
-        date = new Date(this.pickerValue[0], this.pickerValue[1] - 1, this.pickerValue[2], 0, 0)
-      } else {
-        date = new Date(this.pickerValue[0], this.pickerValue[1] - 1, this.pickerValue[2], this.pickerValue[3], this.pickerValue[4])
-      }
-
-      return date
     }
   }
 }
-</script>

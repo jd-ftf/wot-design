@@ -16,7 +16,7 @@ Vue.use(Picker)
 `columns` 设置数据源，`label` 设置左侧文本内容，`v-model` 设置选中项的值。
 
 ```html
-<wd-picker :columns="columns1" label="单列选项" v-model="value" />
+<wd-picker :columns="columns1" label="单列选项" v-model="value"></wd-picker>
 
 <script>
 export default {
@@ -35,7 +35,7 @@ export default {
 设置 `disabled` 属性。
 
 ```html
-<wd-picker :columns="columns" label="禁用" v-model="value" disabled />
+<wd-picker :columns="columns" label="禁用" v-model="value" disabled></wd-picker>
 
 <script>
 export default {
@@ -54,7 +54,7 @@ export default {
 设置 `readonly` 属性。
 
 ```html
-<wd-picker :columns="columns" label="只读" v-model="value" readonly />
+<wd-picker :columns="columns" label="只读" v-model="value" readonly></wd-picker>
 ```
 
 ### 加载中
@@ -62,7 +62,7 @@ export default {
 设置 `loading` 属性。
 
 ```html
-<wd-picker-view :columns="columns" loading />
+<wd-picker-view :columns="columns" loading></wd-picker-view>
 ```
 
 ### 多列
@@ -70,7 +70,7 @@ export default {
 `columns` 属性设置为二维数组，`v-model` 为数组。
 
 ```html
-<wd-picker :columns="columns" label="多列" v-model="value" />
+<wd-picker :columns="columns" label="多列" v-model="value"></wd-picker>
 
 <script>
 export default {
@@ -89,7 +89,7 @@ export default {
 
 ### 多级联动
 
-传入 `column-change` 属性，其类型为 `function`，接收 pickerView 实例、选中项、当前修改列的下标 作为入参，根据选中项和列下标进行判断，通过 pickerView 实例暴露出来的 `setColumnData` 方法修改其他列的数据源。
+传入 `column-change` 属性，其类型为 `function`，接收 pickerView 实例、当前选中项、当前修改列的下标 作为入参，根据选中项和列下标进行判断，通过 pickerView 实例暴露出来的 `setColumnData` 方法修改其他列的数据源。
 
 ```html
 <wd-picker :columns="columns" label="多列联动" v-model="value" :column-change="onChangeDistrict" :display-format="displayFormat" />
@@ -112,15 +112,15 @@ export default {
         district[district[0][0].value],
         district[district[district[0][0].value][0].value]
       ],
-      value: ['110000', '110100', '110102'],
-      displayFormat (items) {
-        return items.map(item => {
-          return item.label
-        }).join('-')
-      }
+      value: ['110000', '110100', '110102']
     }
   },
   methods: {
+    displayFormat (items) {
+      return items.map(item => {
+        return item.label
+      }).join('-')
+    }
     onChangeDistrict (pickerView, item, columnIndex) {
       if (columnIndex === 0) {
         pickerView.setColumnData(1, district[item.value])
@@ -130,6 +130,40 @@ export default {
       if (columnIndex === 1) {
         pickerView.setColumnData(2, district[item.value])
       }
+    }
+  }
+}
+</script>
+```
+
+### 确定前校验
+
+设置 `before-confirm` 函数，在用户点击`确定`按钮时，会执行 `before-confirm` 函数，并传入 `value` 和 `resolve` 参数，可以对 `value` 进行校验，并通过 `resolve` 函数告知组件是否确定通过，`resolve` 接受1个 boolean 值，`resolve(true)` 表示选项通过，`resolve(false)` 表示选项不通过，不通过时不会关闭 `picker`弹窗。
+
+```html
+<wd-picker :columns="columns" label="before-confirm" v-model="value" :loading="isLoading" :before-confirm="beforeConfirm" />
+
+<script>
+export default {
+  data () {
+    return {
+      columns: ['选项1', '选项2', '选项3', '选项4', '选项5', '选项6', '选项7'],
+      value: '',
+      isLoading: false
+    }
+  },
+  methods: {
+    beforeConfirm (value, resolve) {
+      this.isLoading = true
+      setTimeout(() => {
+        this.isLoading = false
+        if (['选项2', '选项3'].indexOf(value) > -1) {
+          resolve(false)
+          this.$toast('选项校验不通过，请重新选择')
+        } else {
+          resolve(true)
+        }
+      }, 2000)
     }
   }
 }
@@ -156,6 +190,8 @@ export default {
 | disabled | 禁用 | boolean | - | fasle |
 | readonly | 只读 | boolean | - | false |
 | display-format | 自定义展示文案的格式化函数，返回一个字符串 | function | - | - |
+| column-change | 接收 pickerView 实例、选中项、当前修改列的下标 作为入参，根据选中项和列下标进行判断，通过 pickerView 实例暴露出来的 `setColumnData` 方法修改其他列的数据源。 | function | - | - |
+| before-confirm | 确定前校验函数，接收 (value, resolve) 参数，通过 resolve 继续执行 picker，resolve 接收1个boolean参数 | function | - | - |
 
 ### Events
 

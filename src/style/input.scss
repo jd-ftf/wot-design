@@ -126,6 +126,7 @@
     position: relative;
     padding: 17px 14px;
     font-size: 0;
+    background: #fff;
     
     @include when(show-limit) {
       padding-bottom: 25px;

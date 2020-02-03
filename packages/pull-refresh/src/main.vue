@@ -8,7 +8,7 @@
       </transition>
       <slot name="top">
         <div class="wd-pull-refresh__top">
-          <wd-indicator v-if="topStatus == 'loading'" class="wd-pull-refresh__loading" type="spinner" size="16px" color="#a7a7a7" />
+          <wd-loading v-if="topStatus == 'loading'" class="wd-pull-refresh__loading" type="spinner" size="16px" color="#a7a7a7" />
           <i
             class="wd-pull-refresh__arrow"
             :class="{
@@ -26,7 +26,7 @@
 <script>
 import locale from 'wot-design/src/mixins/locale'
 import { getScrollTargetEvent } from 'wot-design/src/utils'
-import WdIndicator from 'wot-design/packages/loading'
+import WdLoading from 'wot-design/packages/loading'
 
 export default {
   name: 'WdPullRefresh',
@@ -83,7 +83,7 @@ export default {
     }
   },
   components: {
-    WdIndicator: WdIndicator.Indicator
+    WdLoading
   },
   watch: {
     value (val) {

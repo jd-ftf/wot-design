@@ -30,5 +30,8 @@ export default {
   p {
     margin: 4px 0;
   }
+  .header-anchor {
+    display: none;
+  }
 }
 </style>
