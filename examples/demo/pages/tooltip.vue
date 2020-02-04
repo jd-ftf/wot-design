@@ -1,8 +1,14 @@
 <template>
   <div>
     <white-space>
-      <wd-button @click="show"></wd-button>
+      <wd-tooltip class="item" effect="dark" content="Top Left 提示文字" placement="top-start">
+        <wd-button>上左</wd-button>
+      </wd-tooltip>
     </white-space>
+    <wd-tooltip placement="top" @on-show="onShow" @on-hide="onHide">
+      <div slot="content" class="popover-demo-content">hello world</div>
+      <wd-button class="btn btn-default">Popover on top</wd-button>
+    </wd-tooltip>
   </div>
 </template>
 
@@ -13,8 +19,11 @@ export default {
     }
   },
   methods: {
-    show () {
-      
+    onShow () {
+      console.log('on show')
+    },
+    onHide () {
+      console.log('on hide')
     }
   }
 }
