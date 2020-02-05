@@ -5,12 +5,36 @@
   position: absolute;
   left: 0;
   top: 0;
-  border-radius: 3px;
   z-index: 500;
-  padding: 5px;
+
+  line-height: $-tooltip-lineheight;
+  font-size: $-tooltip-fontsize;
+  backdrop-filter: blur($-tooltip-blur);
+  background-clip: padding-box; 
+  box-shadow: 0 2px 8px rgba(0,0,0,.15);
+  border-radius: 2px;
+ 
+  text-align: center;
+  box-sizing: border-box;
+
   @include when(dark) {
     background: $-tooltip-bg-color;
     color: $-tooltip-color;
+  }
+  @include e(inner) {
+    padding: 5px 10px;
+    white-space: nowrap;
+  }
+  @include e(menu-inner) {
+    padding: 5px 0;
+  }
+  @include e(menu) {
+    display: inline-block;
+    padding: 5px 10px;
+    white-space: nowrap;
+  }
+  @include e(icon) {
+    vertical-align: middle;
   }
   @include e(arrow) {
     position: absolute;
@@ -70,10 +94,10 @@
       &::after{
         content: " ";
         position: absolute;
-        top: -4px;
+        top: - $-tooltip-arrow-height - 1;
         border-bottom-width: 0;
-        margin-left: -3px;
-        height: 3px;
+        margin-left: - $-tooltip-arrow-height;
+        height: $-tooltip-arrow-height;
         border-color: transparent;
         border-top-color: #fff;
         border-style: solid;
@@ -83,10 +107,10 @@
       &::after{
         content: " ";
         position: absolute;
-        top: -3px;
+        top: - $-tooltip-arrow-height;
         border-left-width: 0;
-        margin-left: -2px;
-        width: 3px;
+        margin-left: - $-tooltip-arrow-height + 1;
+        width: $-tooltip-arrow-height;
         border-color: transparent;
         border-right-color: #fff;
         border-style: solid;
@@ -96,10 +120,10 @@
       &::after{
         content: " ";
         position: absolute;
-        top: -3px;
+        top: - $-tooltip-arrow-height;
         border-right-width: 0;
-        margin-left: -4px;
-        width: 3px;
+        margin-left: - $-tooltip-arrow-height - 1;
+        width: $-tooltip-arrow-height;
         border-color: transparent;
         border-left-color: #fff;
         border-style: solid;

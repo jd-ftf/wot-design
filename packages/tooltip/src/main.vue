@@ -10,22 +10,22 @@
         class="wd-tooltip"
         :class="'is-' + effect"
         ref="tooltip"
-        :style="tooltipStyle"
-        v-show="show"
+        :style="popStyle"
+        v-show="showPop"
       >
-        <div :class="arrowClass"></div>
-        <div @click="$emit('on-click-content')">
+        <div :class="arrowClass" v-if="visibleArrow"></div>
+        <div>
           <!-- 普通模式传入文字 mode = "normal" -->
-          <div v-if="showText === 'normal'">{{content}}</div>
+          <div v-if="showText === 'normal'" class="wd-tooltip__inner">{{content}}</div>
           <!-- 列表模式 mode = "menu" -->
-          <div v-if="showText === 'menu'">
+          <div v-if="showText === 'menu'" class="wd-tooltip__menu">
             <div
               v-for="(item,index) in content"
               :key="index"
-              class="wd-tooltip__menu"
+              class="wd-tooltip__menu-inner"
               :style="{'border-top':index === 0 ? 'none' : '1px solid ' + lineColor }"
             >
-              <wd-icon :name="item.name" class="tooltip__icon"></wd-icon>
+              <wd-icon :name="item.name" class="wd-tooltip__icon"></wd-icon>
               <span>{{item.content}}</span>
             </div>
           </div>
@@ -46,14 +46,17 @@ export default {
         top: 0,
         left: 0
       },
-      show: true,
-      tooltipStyle: {},
+      showPop: true,
+      popStyle: {},
       lineColor: 'rgba(255, 255, 255, .5)'
     }
   },
   props: {
-    placement: String,
-    arrowOffset: {
+    placement: {
+      type: String,
+      default: 'bottom'
+    },
+    offset: {
       type: Number,
       default: 5
     },
@@ -66,10 +69,14 @@ export default {
       type: String,
       default: 'dark'
     },
-    popperClass: String,
     content: [String, Array],
     visibleArrow: {
+      type: Boolean,
       default: true
+    },
+    manual: {
+      type: Boolean,
+      default: false
     },
     transition: {
       type: String,
@@ -82,7 +89,7 @@ export default {
   },
   computed: {
     arrowClass () {
-      return {
+      return this.visibleArrow && {
         'wd-tooltip__arrow': true,
         'wd-tooltip__arrow-up': this.placement === 'bottom' || this.placement === 'bottom-start' || this.placement === 'bottom-end',
         'wd-tooltip__arrow-right': this.placement === 'left' || this.placement === 'left-start' || this.placement === 'left-end',
@@ -106,7 +113,7 @@ export default {
   },
   methods: {
     reset () {
-      if (this.show) {
+      if (this.showPop) {
         this.init(true)
       }
     },
@@ -125,74 +132,74 @@ export default {
       switch (this.placement) {
         case 'top':
           this.position.left = trigger.offsetLeft - tooltip.offsetWidth / 2 + trigger.offsetWidth / 2
-          this.position.top = scrollTop + trigger.getBoundingClientRect().top - tooltip.offsetHeight - this.arrowOffset
+          this.position.top = scrollTop + trigger.getBoundingClientRect().top - tooltip.offsetHeight - this.offset
           break
         case 'top-start':
           this.position.left = trigger.offsetLeft
-          this.position.top = scrollTop + trigger.getBoundingClientRect().top - tooltip.offsetHeight - this.arrowOffset
+          this.position.top = scrollTop + trigger.getBoundingClientRect().top - tooltip.offsetHeight - this.offset
           break
         case 'top-end':
           this.position.left = trigger.offsetLeft + trigger.offsetWidth - tooltip.offsetWidth
-          this.position.top = scrollTop + trigger.getBoundingClientRect().top - tooltip.offsetHeight - this.arrowOffset
+          this.position.top = scrollTop + trigger.getBoundingClientRect().top - tooltip.offsetHeight - this.offset
           break
         case 'bottom':
           this.position.left = trigger.offsetLeft - tooltip.offsetWidth / 2 + trigger.offsetWidth / 2
-          this.position.top = scrollTop + trigger.getBoundingClientRect().top + trigger.offsetHeight + this.arrowOffset
+          this.position.top = scrollTop + trigger.getBoundingClientRect().top + trigger.offsetHeight + this.offset
           break
         case 'bottom-start':
           this.position.left = trigger.offsetLeft
-          this.position.top = scrollTop + trigger.getBoundingClientRect().top + trigger.offsetHeight + this.arrowOffset
+          this.position.top = scrollTop + trigger.getBoundingClientRect().top + trigger.offsetHeight + this.offset
           break
         case 'bottom-end':
           this.position.left = trigger.offsetLeft + trigger.offsetWidth - tooltip.offsetWidth
-          this.position.top = scrollTop + trigger.getBoundingClientRect().top + trigger.offsetHeight + this.arrowOffset
+          this.position.top = scrollTop + trigger.getBoundingClientRect().top + trigger.offsetHeight + this.offset
           break
         case 'left':
-          this.position.left = trigger.offsetLeft - tooltip.offsetWidth - this.arrowOffset
+          this.position.left = trigger.offsetLeft - tooltip.offsetWidth - this.offset
           this.position.top = scrollTop + trigger.getBoundingClientRect().top + trigger.offsetHeight / 2 - tooltip.offsetHeight / 2
           break
         case 'left-start':
-          this.position.left = trigger.offsetLeft - tooltip.offsetWidth - this.arrowOffset
+          this.position.left = trigger.offsetLeft - tooltip.offsetWidth - this.offset
           this.position.top = scrollTop + trigger.getBoundingClientRect().top
           break
         case 'left-end':
-          this.position.left = trigger.offsetLeft - tooltip.offsetWidth - this.arrowOffset
+          this.position.left = trigger.offsetLeft - tooltip.offsetWidth - this.offset
           this.position.top = scrollTop + trigger.getBoundingClientRect().top + trigger.offsetHeight - tooltip.offsetHeight
           break
         case 'right':
-          this.position.left = trigger.offsetLeft + trigger.offsetWidth + this.arrowOffset
+          this.position.left = trigger.offsetLeft + trigger.offsetWidth + this.offset
           this.position.top = scrollTop + trigger.getBoundingClientRect().top + trigger.offsetHeight / 2 - tooltip.offsetHeight / 2
           break
         case 'right-start':
-          this.position.left = trigger.offsetLeft + trigger.offsetWidth + this.arrowOffset
+          this.position.left = trigger.offsetLeft + trigger.offsetWidth + this.offset
           this.position.top = scrollTop + trigger.getBoundingClientRect().top
           break
         case 'right-end':
-          this.position.left = trigger.offsetLeft + trigger.offsetWidth + this.arrowOffset
+          this.position.left = trigger.offsetLeft + trigger.offsetWidth + this.offset
           this.position.top = scrollTop + trigger.getBoundingClientRect().top + trigger.offsetHeight - tooltip.offsetHeight
           break
         default:
           console.warn('Wrong placement prop')
       }
       if (!isReset) {
-        this.show = false
+        this.showPop = false
       }
-
-      this.tooltipStyle = {
+      this.popStyle = {
         top: this.position.top + 'px',
         left: this.position.left + 'px',
         'transition-duration': this.openDelay ? (this.openDelay + 'ms') : '',
-        display: isReset ? this.tooltipStyle.display : 'none'
+        display: isReset ? this.popStyle.display : 'none'
       }
     },
     toggle () {
-      this.show = !this.show
-      if (this.show) {
+      if (this.disabled) return
+      this.showPop = !this.showPop
+      if (this.showPop) {
         this.$nextTick(() => {
           this.init(true)
         })
       }
-      this.$emit(`on-${this.show === true ? 'show' : 'hide'}`)
+      this.$emit(`${this.show === true ? 'show' : 'hide'}`)
     }
   }
 }
