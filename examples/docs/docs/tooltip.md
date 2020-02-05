@@ -1,122 +1,194 @@
-## Tooltip 动态面板
+## Tooltip 文字提示
+常用于展示提示信息。
+### 引入
 
-### 按需引入
-
-```javascript
-import Vue from 'vue'
-import { ActionSheet } from 'wot-design'
-
-Vue.use(ActionSheet)
+```json
+{
+  "usingComponents": {
+    "wd-tooltip": "/wot-design/tooltip/index"
+  }
+}
 ```
-
 ### 基本用法
 
-`v-model` 为绑定值，表示是否展示菜单。
+在这里我们提供 12 种不同方向的展示方式，可以通过以下完整示例来理解，选择你要的效果。
+
+使用`content`属性来决定显示时的提示信息。
+由`placement`属性决定展示效果：`placement`属性值为：`方向-对齐位置`；四个方向：`top`、`left`、`right`、`bottom`；三种对齐位置：`start`, `end`，默认为空。如`placement="left-end"`，则提示信息出现在目标元素的左侧，且提示信息的底部与目标元素的底部对齐。
 
 ```html
-<wd-button type="primary" plain @click="show = true">弹出菜单</wd-button>
-<wd-action-sheet v-model="show" :actions="actions"></wd-action-sheet>
-
-<script>
-export default {
-  data () {
-    return {
-      show: false,
-      actions: [
-        {
-          name: '选项1'
-        }, {
-          name: '选项2'
-        }, {
-          name: '选项3',
-          subname: '描述信息'
-        }
-      ]
-    }
-  }
+<view>
+  <view class="top">
+    <wd-tooltip placement="top" content="top 提示文字">
+      <wd-button>top</wd-button>
+    </wd-tooltip>
+  </view>
+  <view class="top">
+    <wd-tooltip placement="top-start" content="top-start 提示文字">
+      <wd-button>top-start</wd-button>
+    </wd-tooltip>
+  </view>
+</demo-block>
+  <view class="top">
+    <wd-tooltip placement="top-end" content="top-end 提示文字">
+      <wd-button >top-end</wd-button>
+    </wd-tooltip>
+  </view>
+  <view class="bottom">
+    <wd-tooltip placement="bottom" content="bottom 提示文字">
+      <wd-button >bottom</wd-button>
+    </wd-tooltip>
+  </view>
+  <view class="bottom">
+    <wd-tooltip placement="bottom-start" content="bottom-start 提示文字">
+      <wd-button >bottom-start</wd-button>
+    </wd-tooltip>
+  </view>
+  <view class="bottom">
+    <wd-tooltip placement="bottom-end" content="bottom-end 提示文字">
+      <wd-button >bottom-end</wd-button>
+    </wd-tooltip>
+  </view>
+</demo-block>
+  <view class="left">
+    <wd-tooltip placement="left" content="left 提示文字">
+      <wd-button >left</wd-button>
+    </wd-tooltip>
+  </view>
+  <view class="left">
+    <wd-tooltip placement="left-start" content="left-start 提示文字">
+      <wd-button >left-start</wd-button>
+    </wd-tooltip>
+  </view>
+  <view class="left">
+    <wd-tooltip placement="left-end" content="left-end 提示文字">
+      <wd-button >left-end</wd-button>
+    </wd-tooltip>
+  </view>
+  <view class="right">
+    <wd-tooltip placement="right" content="right 提示文字">
+      <wd-button >right</wd-button>
+    </wd-tooltip>
+  </view>
+  <view class="right">
+    <wd-tooltip placement="right-start" content="right-start 提示文字">
+      <wd-button >right-start</wd-button>
+    </wd-tooltip>
+  </view>
+  <view class="right">
+    <wd-tooltip placement="right-end" content="right-end 提示文字">
+      <wd-button >right-end</wd-button>
+    </wd-tooltip>
+  </view>
+</view>
+```
+```css
+.top{
+  margin: 40px auto 0;
+  width: 80%;
+  text-align: center;
 }
-</script>
-```
-
-### 选项状态
-
-可以设置 颜色、禁用、加载 等状态。
-
-```html
-<wd-button type="primary" plain @click="show = true">弹出菜单</wd-button>
-<wd-action-sheet v-model="show" :actions="actions"></wd-action-sheet>
-
-<script>
-export default {
-  data () {
-    return {
-      show: false,
-      actions: [
-        {
-          name: '颜色',
-          color: '#0083ff'
-        }, {
-          name: '禁用',
-          disabled: true
-        }, {
-          loading: true
-        }
-      ]
-    }
-  }
+.bottom {
+  width: 80%;
+  text-align: center;
+  margin: 0 auto 90px;
 }
-</script>
+.left,
+.right{
+  width: 80%;
+  text-align: center;
+  margin: 40px;
+}
 ```
+### 主题
 
-### 取消按钮
+Tooltip 组件提供了两个不同的主题：`dark`和`light`。
 
-设置 `cancel-text` 取消按钮文案，展示取消按钮。
-
+通过设置`effect`属性来改变主题，默认为`dark`。
 ```html
-<wd-action-sheet v-model="show" :actions="actions" cancel-text="取消"></wd-action-sheet>
+<wd-tooltip content="dark 默认风格">
+  <wd-button >dark</wd-button>
+</wd-tooltip>
+<wd-tooltip effect="light" content="light 风格">
+  <wd-button >light</wd-button>
+</wd-tooltip>
 ```
 
-### 标题
+### 更多 Content
 
-设置 `title` 展示标题。
+展示多行文本或者是设置文本内容的格式
 
+用具名 slot 分发`content`，替代 `tooltip` 中的 `content` 属性。
+使用插槽时，请使用 `useContentSlot` 属性，确定 `content` 插槽开启。
 ```html
-<wd-action-sheet v-model="show" title="标题">
-  <p style="padding: 15px 15px 150px 15px;">内容</p>
-</wd-action-sheet>
+<wd-tooltip placement="right" useContentSlot="{{ true }}">
+  <wd-button >多行文本</wd-button>
+  <view slot="content" style="color: red; padding: 5px; width: 90px">
+    <view>多行文本1</view>
+    <view>多行文本2</view>
+    <view>多行文本3</view>
+  </view>
+</wd-tooltip>
 ```
 
-### Attributes
+### 模式 mode
 
-| 参数      | 说明                                 | 类型      | 可选值       | 默认值   |
-|---------- |------------------------------------ |---------- |------------- |-------- |
-| value/v-model | 绑定值，展示/关闭菜单 | boolean | - | - |
-| actions | 菜单选项 | array | - | [] |
-| title | 标题 | string | - | - |
-| cancel-text | 取消按钮文案 | string | - | - |
-| close-on-click-action | 点击选项后是否关闭菜单 | boolean | - | true |
-| lock-scroll | 锁定背景滚动 | boolean | - | true |
-| close-on-click-modal | 点击遮罩是否关闭 | boolean | - | true | 
-| duration | 动画持续时间 | number | - | 300(ms) |
+使用 `mode` 属性控制当前文字提示的模式。
+`mode` 有两个值，一种是 `normal` 普通文字模式，另一种是 `menu` 列表模式。
+`mode` 默认值为 `normal`，当 `mode` 处于默认状态，`content` 属性传入要显示的 `String` 字符串。
+当 `mode` 为 `menu` ，文字提示框会展示成列表形式，此时 `content` 属性传入 `Array` 类型，数组中每一个对象以 `[{ name: 'person', content: '内容' }]` 命名。如果不需要icon，那么传入 `[{ content: '内容' }]`。
+```html
+<wd-tooltip placement="right" useContentSlot="{{ true }}">
+  <wd-button >多行文本</wd-button>
+  <view slot="content" style="color: red; padding: 5px; width: 90px">
+    <view>多行文本1</view>
+    <view>多行文本2</view>
+    <view>多行文本3</view>
+  </view>
+</wd-tooltip>
+```
+### 控制位置
+**注意：由于微信小程序无法动态插入节点，因此文字气泡位置会根据传入定位的节点最外层位置对齐，如果文字提示位置不在您想要渲染的位置上，可以通过控制组件整体位置达到想要的效果。**
+错误用法示例：
+```html
+<wd-tooltip placement="top" content="top 提示文字" >
+  <wd-button style="margin-left: 100px">top</wd-button>
+</wd-tooltip>
+<wd-tooltip placement="top" content="top 提示文字" >
+  <wd-button style="position: absolute; left: 100px;">top</wd-button>
+</wd-tooltip>
+```
+正确用法：
+```html
+<wd-tooltip placement="top" content="top 提示文字" style="margin-left: 100px">
+  <wd-button>top</wd-button>
+</wd-tooltip>
+<wd-tooltip placement="top" content="top 提示文字" style="position: absolute; left: 100px;">
+  <wd-button>top</wd-button>
+</wd-tooltip>
+```
 
-### Events
+### Tooltip Attributes
 
-| 事件名称      | 说明                                 | 参数     |
-|------------- |------------------------------------ |--------- |
-| select | 点击选项时触发 | item: 选项对象, index: 选项下标 |
-| open | 弹出层打开时触发 | - |
-| opened | 弹出层打开动画结束时触发 | - |
-| close | 弹出层关闭时触发 | - |
-| closed | 弹出层关闭动画结束时触发 | - |
-| click-modal | 点击遮罩时触发 | - |
-| cancel | 点击取消按钮时触发 | - |
+| 参数               | 说明                                                     | 类型              | 可选值      | 默认值 |
+|--------------------|----------------------------------------------------------|-------------------|-------------|--------|
+|  effect        |  默认提供的主题  | String            | dark/light | dark  |
+|  content        |  显示的内容，也可以通过 `slot#content` 传入  | String/Array            | — | — |
+|  placement        |  Tooltip 的出现位置  | String           |  top/top-start/top-end/bottom/bottom-start/bottom-end/left/left-start/left-end/right/right-start/right-end |  bottom |
+|  show |  状态是否可见  | Boolean           | — |  false |
+|  visible-arrow   |  是否显示 Tooltip 箭头 | Boolean | — | true |
+| open-delay | 延迟出现，单位毫秒 | Number | — | 0 |
 
-### Action 数据结构
+### Slot
 
-| 键名 | 说明 | 类型 |
-|----- |----- |----- |
-| name | 选项名称 | string |
-| subname | 描述信息 | string |
-| color | 颜色 | string |
-| disabled | 禁用 | boolean |
-| loading | 加载中状态 | boolean |
+| name      | 说明       |
+|------------- |----------- |
+| content | 多行内容或用户自定义样式 |
+
+### Tooltip 外部样式类
+| 类名     | 说明                |
+|---------|---------------------|
+| custom-class | 根结点样式 |
+| custom-arrow | 尖角样式 |
+| custom-pop | 文字提示样式 |
+

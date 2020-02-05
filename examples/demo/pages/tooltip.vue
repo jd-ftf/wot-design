@@ -1,14 +1,39 @@
 <template>
   <div>
     <white-space>
-      <wd-tooltip class="item" effect="dark" content="Top Left 提示文字" placement="top-start">
-        <wd-button>上左</wd-button>
+      <wd-tooltip placement="top" @on-show="onShow" @on-hide="onHide">
+        <div slot="content" class="popover-demo-content">hello world</div>
+        <wd-button class="btn btn-default">Popover on top</wd-button>
       </wd-tooltip>
     </white-space>
-    <wd-tooltip placement="top" @on-show="onShow" @on-hide="onHide">
-      <div slot="content" class="popover-demo-content">hello world</div>
-      <wd-button class="btn btn-default">Popover on top</wd-button>
-    </wd-tooltip>
+    <white-space>
+      <wd-tooltip placement="top-end" @on-show="onShow" @on-hide="onHide" content="这是一段文字">
+        <wd-button class="btn btn-default">Popover on top</wd-button>
+      </wd-tooltip>
+    </white-space>
+    <white-space>
+      <wd-tooltip placement="top-end" @on-show="onShow" @on-hide="onHide">
+        <div slot="content" class="popover-demo-content">hello world</div>
+        <wd-button class="btn btn-default">Popover on top</wd-button>
+      </wd-tooltip>
+    </white-space>
+    <white-space style="padding-left: 100px">
+      <wd-tooltip placement="right" @on-show="onShow" @on-hide="onHide">
+        <div slot="content" class="popover-demo-content">hello world</div>
+        <wd-button class="btn btn-default">Popover on top</wd-button>
+      </wd-tooltip>
+    </white-space>
+    <white-space style="padding-left: 100px">
+      <wd-tooltip placement="right-start" @on-show="onShow" @on-hide="onHide">
+        <div slot="content" class="popover-demo-content">hello world</div>
+        <wd-button class="btn btn-default">Popover on top</wd-button>
+      </wd-tooltip>
+    </white-space>
+    <white-space style="padding-left: 100px">
+      <wd-tooltip placement="right-start" mode="menu" :content="menu">
+        <wd-button class="btn btn-default">menu</wd-button>
+      </wd-tooltip>
+    </white-space>
   </div>
 </template>
 
@@ -16,6 +41,16 @@
 export default {
   data () {
     return {
+      menu: [
+        {
+          name: 'person',
+          content: '全部标记已读'
+        },
+        {
+          name: 'close-fill',
+          content: '清空最近会话'
+        }
+      ]
     }
   },
   methods: {
