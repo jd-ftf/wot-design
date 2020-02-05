@@ -17,12 +17,12 @@
     flex: 1;
     padding: 12px 15px 12px 0;
     justify-content: space-between;
+    align-items: flex-start;
 
     @include halfPixelBorder;
   }
   @include e(title) {
     font-size: $-cell-title-size;
-    line-height: 1.375;
     vertical-align: middle;
     flex-shrink: 0;
     margin-right: 20px;
@@ -74,6 +74,16 @@
 
     &:active {
       background: rgba(0, 0, 0, 0.06);
+    }
+  }
+  @include when(large) {
+    .wd-cell__title {
+      font-size: $-cell-title-size-large;
+    }
+  }
+  @include when(center) {
+    .wd-cell__wrapper {
+      align-items: center;
     }
   }
 }
