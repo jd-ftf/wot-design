@@ -6,7 +6,13 @@
     </span>
     <!-- 文字提示 -->
     <transition :name="transition">
-      <div class="wd-tooltip" ref="tooltip" :style="tooltipStyle" v-show="show">
+      <div
+        class="wd-tooltip"
+        :class="'is-' + effect"
+        ref="tooltip"
+        :style="tooltipStyle"
+        v-show="show"
+      >
         <div :class="arrowClass"></div>
         <div @click="$emit('on-click-content')">
           <!-- 普通模式传入文字 mode = "normal" -->
@@ -61,7 +67,7 @@ export default {
       default: 'dark'
     },
     popperClass: String,
-    content: String,
+    content: [String, Array],
     visibleArrow: {
       default: true
     },

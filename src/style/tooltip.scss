@@ -1,55 +1,109 @@
 @import './abstracts/variable';
 @import './abstracts/mixin';
-// @import './common/transition.scss';
-
-$color-gray: #35495e;
-$tooltip-border-width: 5px;
-$font-color: black;
 
 @include b(tooltip){
   position: absolute;
   left: 0;
   top: 0;
-  background-color: $color-gray;
-  color: $font-color;
-  border-radius: 5px;
+  border-radius: 3px;
   z-index: 500;
   padding: 5px;
-}
-.wd-tooltip__arrow {
-  position: absolute;
-  width: 0;
-  height: 0;
-}
-.wd-tooltip__arrow-up {
-  border-left: $tooltip-border-width solid transparent;
-  border-right: $tooltip-border-width solid transparent;
-  border-bottom: $tooltip-border-width solid $color-gray;
-  left: 50%;
-  transform: translateX(-50%);
-  top: -$tooltip-border-width;
-}
-.wd-tooltip__arrow-down {
-  border-left: $tooltip-border-width solid transparent;
-  border-right: $tooltip-border-width solid transparent;
-  border-top: $tooltip-border-width solid $color-gray;
-  left: 50%; 
-  transform: translateX(-50%);
-  bottom: -$tooltip-border-width;
-}
-.wd-tooltip__arrow-left {
-  border-top: $tooltip-border-width solid transparent;
-  border-bottom: $tooltip-border-width solid transparent;
-  border-right: $tooltip-border-width solid $color-gray;
-  top: 50%;
-  transform: translateY(-50%);
-  left: -$tooltip-border-width;
-}
-.wd-tooltip__arrow-right {
-  border-top: $tooltip-border-width solid transparent;
-  border-bottom: $tooltip-border-width solid transparent;
-  border-left: $tooltip-border-width solid $color-gray;
-  top: 50%;
-  transform: translateY(-50%);
-  right: -$tooltip-border-width;
+  @include when(dark) {
+    background: $-tooltip-bg-color;
+    color: $-tooltip-color;
+  }
+  @include e(arrow) {
+    position: absolute;
+    width: 0;
+    height: 0;
+  }
+  @include e(arrow-down) {
+    border-left: $-tooltip-arrow-height solid transparent;
+    border-right: $-tooltip-arrow-height solid transparent;
+    border-top: $-tooltip-arrow-height solid $-tooltip-bg-color;
+    left: 50%; 
+    transform: translateX(-50%);
+    bottom: -$-tooltip-arrow-height;
+  }
+  @include e(arrow-up) {
+    border-left: $-tooltip-arrow-height solid transparent;
+    border-right: $-tooltip-arrow-height solid transparent;
+    border-bottom: $-tooltip-arrow-height solid $-tooltip-bg-color;
+    left: 50%;
+    transform: translateX(-50%);
+    top: -$-tooltip-arrow-height;
+  }
+  @include e(arrow-left) {
+    border-top: $-tooltip-arrow-height solid transparent;
+    border-bottom: $-tooltip-arrow-height solid transparent;
+    border-right: $-tooltip-arrow-height solid $-tooltip-bg-color;
+    top: 50%;
+    transform: translateY(-50%);
+    left: -$-tooltip-arrow-height;
+  }
+  @include e(arrow-right) {
+    border-top: $-tooltip-arrow-height solid transparent;
+    border-bottom: $-tooltip-arrow-height solid transparent;
+    border-left: $-tooltip-arrow-height solid $-tooltip-bg-color;
+    top: 50%;
+    transform: translateY(-50%);
+    right: -$-tooltip-arrow-height;
+  }
+  @include when(light) {
+    background: $-tooltip-color;
+    color: $-color-text;
+    border: 1px solid $-tooltip-bg-color;
+    .wd-tooltip__arrow-up{
+      &::after{
+        content: " ";
+        position: absolute;
+        top: -2px;
+        border-top-width: 0;
+        margin-left: -3px;
+        height: 3px;
+        border-color: transparent;
+        border-bottom-color: #fff;
+        border-style: solid;
+      }
+    }
+    .wd-tooltip__arrow-down{
+      &::after{
+        content: " ";
+        position: absolute;
+        top: -4px;
+        border-bottom-width: 0;
+        margin-left: -3px;
+        height: 3px;
+        border-color: transparent;
+        border-top-color: #fff;
+        border-style: solid;
+      }
+    }
+    .wd-tooltip__arrow-left{
+      &::after{
+        content: " ";
+        position: absolute;
+        top: -3px;
+        border-left-width: 0;
+        margin-left: -2px;
+        width: 3px;
+        border-color: transparent;
+        border-right-color: #fff;
+        border-style: solid;
+      }
+    }
+    .wd-tooltip__arrow-right{
+      &::after{
+        content: " ";
+        position: absolute;
+        top: -3px;
+        border-right-width: 0;
+        margin-left: -4px;
+        width: 3px;
+        border-color: transparent;
+        border-left-color: #fff;
+        border-style: solid;
+      }
+    }
+  }
 }

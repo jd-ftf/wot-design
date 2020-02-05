@@ -1,36 +1,47 @@
 <template>
   <div>
-    <white-space>
-      <wd-tooltip placement="top" @on-show="onShow" @on-hide="onHide">
-        <div slot="content" class="popover-demo-content">hello world</div>
-        <wd-button class="btn btn-default">Popover on top</wd-button>
+    <white-space title="基本用法">
+      <wd-tooltip placement="top" content="top 提示文字">
+        <wd-button class="btn btn-default">top</wd-button>
       </wd-tooltip>
     </white-space>
-    <white-space>
-      <wd-tooltip placement="top-end" @on-show="onShow" @on-hide="onHide" content="这是一段文字">
-        <wd-button class="btn btn-default">Popover on top</wd-button>
+    <white-space title="基本用法">
+      <wd-tooltip placement="top-start" content="top-start 提示文字">
+        <wd-button class="btn btn-default">top-start</wd-button>
       </wd-tooltip>
     </white-space>
-    <white-space>
-      <wd-tooltip placement="top-end" @on-show="onShow" @on-hide="onHide">
-        <div slot="content" class="popover-demo-content">hello world</div>
-        <wd-button class="btn btn-default">Popover on top</wd-button>
+    <white-space title="基本用法">
+      <wd-tooltip placement="top-end" content="top-end 提示文字">
+        <wd-button class="btn btn-default">top-end</wd-button>
       </wd-tooltip>
     </white-space>
-    <white-space style="padding-left: 100px">
+    <white-space title="基本用法" style="text-align: center;">
+      <div style="display: inline-block;">
+        <wd-tooltip placement="right" @on-show="onShow" @on-hide="onHide">
+          <div slot="content" class="popover-demo-content">hello world</div>
+          <wd-button class="btn btn-default">Popover on top</wd-button>
+        </wd-tooltip>
+      </div>
+    </white-space>
+    <white-space title="基本用法" style="padding-left: 100px">
       <wd-tooltip placement="right" @on-show="onShow" @on-hide="onHide">
         <div slot="content" class="popover-demo-content">hello world</div>
         <wd-button class="btn btn-default">Popover on top</wd-button>
       </wd-tooltip>
     </white-space>
-    <white-space style="padding-left: 100px">
+    <white-space title="基本用法" style="padding-left: 100px">
       <wd-tooltip placement="right-start" @on-show="onShow" @on-hide="onHide">
         <div slot="content" class="popover-demo-content">hello world</div>
         <wd-button class="btn btn-default">Popover on top</wd-button>
       </wd-tooltip>
     </white-space>
-    <white-space style="padding-left: 100px">
+    <white-space title="基本用法" style="padding-left: 100px">
       <wd-tooltip placement="right-start" mode="menu" :content="menu">
+        <wd-button class="btn btn-default">menu</wd-button>
+      </wd-tooltip>
+    </white-space>
+    <white-space title="基本用法" style="padding-left: 100px">
+      <wd-tooltip placement="right" effect="light" mode="menu" :content="menu">
         <wd-button class="btn btn-default">menu</wd-button>
       </wd-tooltip>
     </white-space>
