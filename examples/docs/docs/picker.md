@@ -92,7 +92,7 @@ export default {
 传入 `column-change` 属性，其类型为 `function`，接收 pickerView 实例、当前选中项、当前修改列的下标 作为入参，根据选中项和列下标进行判断，通过 pickerView 实例暴露出来的 `setColumnData` 方法修改其他列的数据源。
 
 ```html
-<wd-picker :columns="columns" label="多列联动" v-model="value" :column-change="onChangeDistrict" :display-format="displayFormat" />
+<wd-picker :columns="columns" label="多列联动" v-model="value" :column-change="onChangeDistrict" />
 
 <script>
 const district = {
@@ -116,11 +116,6 @@ export default {
     }
   },
   methods: {
-    displayFormat (items) {
-      return items.map(item => {
-        return item.label
-      }).join('-')
-    }
     onChangeDistrict (pickerView, item, columnIndex) {
       if (columnIndex === 0) {
         pickerView.setColumnData(1, district[item.value])
@@ -134,6 +129,57 @@ export default {
   }
 }
 </script>
+```
+
+### 值展示格式化
+
+设置 `display-format` 属性，其类型为 `function`，接收当前选中项（数组，单项选择也是数组，数组成员的格式同columns数组成员的格式），返回要展示的字符串。
+
+```html
+<wd-picker :columns="columns" label="展示格式化" v-model="value" :display-format="displayFormat"></wd-picker>
+
+<script>
+export default {
+  data () {
+    return {
+      columns: [
+        ['中山大学', '中南大学', '华南理工大学'],
+        ['计算机科学与技术', '软件工程', '通信工程', '法学', '经济学']
+      ],
+      value: ['中南大学', '软件工程']
+    }
+  },
+  methods: {
+    displayFormat (items) {
+      return items.join('-')
+    }
+  }
+}
+</script>
+```
+
+### 选择器大小
+
+通过设置 `size` 修改选择器大小，将 `size` 设置为 'large' 时字号为 16px。
+
+```html
+<wd-picker label="单列选项" size="large" v-model="value" :columns="columns" />
+```
+
+### 错误状态
+
+设置 `error` 属性，选择器的值显示为红色。
+
+```html
+<wd-picker label="单列选项" error v-model="value" :columns="columns" />
+```
+
+### 值靠右展示
+
+设置 `align-right` 属性，选择器的值靠右展示。
+
+```html
+<wd-picker label="单列选项" align-right v-model="value" :columns="columns" />
 ```
 
 ### 确定前校验
@@ -191,6 +237,10 @@ export default {
 | readonly | 只读 | boolean | - | false |
 | display-format | 自定义展示文案的格式化函数，返回一个字符串 | function | - | - |
 | column-change | 接收 pickerView 实例、选中项、当前修改列的下标 作为入参，根据选中项和列下标进行判断，通过 pickerView 实例暴露出来的 `setColumnData` 方法修改其他列的数据源。 | function | - | - |
+| size | 设置选择器大小 | string | 'large' | - |
+| label-width | 设置左侧标题宽度 | string | - | '33%' |
+| error | 是否为错误状态，错误状态时右侧内容为红色 | boolean | - | false |
+| align-right | 选择器的值靠右展示 | boolean | - | false |
 | before-confirm | 确定前校验函数，接收 (value, resolve) 参数，通过 resolve 继续执行 picker，resolve 接收1个boolean参数 | function | - | - |
 
 ### Events
