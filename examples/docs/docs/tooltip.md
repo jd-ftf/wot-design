@@ -1,5 +1,7 @@
 ## Tooltip 文字提示
+
 常用于展示提示信息。
+
 ### 按需引入
 
 ```javascript
@@ -16,6 +18,7 @@ Vue.use(Tooltip)
 使用`content`属性来决定显示时的提示信息。
 
 由`placement`属性决定展示效果：`placement`属性值为：`方向-对齐位置`；四个方向：`top`、`left`、`right`、`bottom`；三种对齐位置：`start`, `end`，默认为空。如`placement="left-end"`，则提示信息出现在目标元素的左侧，且提示信息的底部与目标元素的底部对齐。
+
 ```html
 <div>
   <wd-tooltip placement="top" content="top 提示文字">
@@ -56,11 +59,13 @@ Vue.use(Tooltip)
   </wd-tooltip>
 </div>
 ```
+
 ### 主题
 
 Tooltip 组件提供了两个不同的主题：`dark`和`light`。
 
 通过设置`effect`属性来改变主题，默认为`dark`。
+
 ```html
 <wd-tooltip content="dark 默认主题">
   <wd-button >dark</wd-button>
@@ -75,6 +80,7 @@ Tooltip 组件提供了两个不同的主题：`dark`和`light`。
 展示多行文本或者是设置文本内容的格式
 
 用具名 slot 分发`content`，替代 `tooltip` 中的 `content` 属性。
+
 ```html
 <wd-tooltip placement="right">
   <div slot="content" style="color: red; padding: 5px; width: 90px">
@@ -94,6 +100,7 @@ Tooltip 组件提供了两个不同的主题：`dark`和`light`。
 * **normal**: 当 `mode` 处于默认状态，`content` 属性传入要显示的 `String` 字符串。
 
 * **menu**: 文字提示框会展示成列表形式，此时 `content` 属性传入 `Array` 类型，数组中每一个对象以 `[{ name: 'person', content: '内容' }]` 命名。如果不需要icon，那么传入 `[{ content: '内容' }]`。
+
 ```html
 <template>
   <wd-tooltip mode="menu" :content="menu">
@@ -120,6 +127,7 @@ export default {
 }
 </script>
 ```
+
 ### 高级扩展
 
 除了这些基本设置外，还有一些属性可以让使用者更好的定制自己的效果：
@@ -127,6 +135,7 @@ export default {
 `transition` 属性可以定制显隐的动画效果，默认为`wd-fade`。
 
 如果需要关闭 `tooltip` 功能，`disabled` 属性可以满足这个需求，它接受一个`Boolean`，设置为`true`即可。
+
 ```html
 <template>
   <wd-tooltip :disabled="disabled" content="点击关闭 tooltip 功能" placement="right" effect="light">
@@ -143,6 +152,7 @@ export default {
   }
 </script>
 ```
+
 ### Tooltip Attributes
 
 | 参数               | 说明                                                     | 类型              | 可选值      | 默认值 |
@@ -162,6 +172,7 @@ export default {
 | content | 多行内容或用户自定义样式 |
 
 ### Events
+
 | 事件名称           | 说明             | 回调参数                                     |
 | -------------- | -------------- | ---------------------------------------- |
 | show     |显示时触发       | - |
