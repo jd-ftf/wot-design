@@ -47,8 +47,7 @@ export default {
         left: 0
       },
       showPop: true,
-      popStyle: {},
-      lineColor: 'rgba(255, 255, 255, .5)'
+      popStyle: {}
     }
   },
   props: {
@@ -62,7 +61,7 @@ export default {
     },
     openDelay: {
       type: Number,
-      default: 100
+      default: 300
     },
     disabled: Boolean,
     effect: {
@@ -100,6 +99,9 @@ export default {
     showText () {
       return !this.$slots.content &&
         (this.mode === 'normal' ? 'normal' : (this.mode === 'menu' ? 'menu' : 'normal'))
+    },
+    lineColor () {
+      return this.effect === 'light' ? 'rgba(255, 255, 255, .5)' : '#ebeef5'
     }
   },
   mounted () {
