@@ -81,7 +81,7 @@
     <white-space>
       <div slot="desc">plain 的吸顶按钮</div>
     </white-space>
-    <wd-button type="primary" plain suck>主要按钮</wd-button>
+    <wd-button type="primary" plain suck style="margin-right: 0;">主要按钮</wd-button>
     <white-space>
       <div slot="desc">块状按钮，宽度100% <code>block</code></div>
       <div style="width: 315px; margin: 0 auto">
