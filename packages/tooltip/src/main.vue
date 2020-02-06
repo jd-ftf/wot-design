@@ -107,7 +107,6 @@ export default {
   },
   watch: {
     value (newVal) {
-      console.log('控制', newVal)
       if (newVal === this.showPop) {
         // eslint-disable-next-line no-useless-return
         return
