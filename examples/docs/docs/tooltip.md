@@ -132,8 +132,6 @@ export default {
 
 除了这些基本设置外，还有一些属性可以让使用者更好的定制自己的效果：
 
-`transition` 属性可以定制显隐的动画效果，默认为`wd-fade`。
-
 如果需要关闭 `tooltip` 功能，`disabled` 属性可以满足这个需求，它接受一个`Boolean`，设置为`true`即可。
 
 ```html
@@ -157,6 +155,7 @@ export default {
 
 | 参数               | 说明                                                     | 类型              | 可选值      | 默认值 |
 |--------------------|----------------------------------------------------------|-------------------|-------------|--------|
+|  value / v-model |  手动状态是否可见  | Boolean           | — |  false |
 |  effect        |  默认提供的主题  | String            | dark/light | dark  |
 |  content        |  显示的内容，也可以通过 `slot#content` 传入  | String/Array            | — | — |
 |  placement        |  Tooltip 的出现位置  | String           |  top/top-start/top-end/bottom/bottom-start/bottom-end/left/left-start/left-end/right/right-start/right-end |  bottom |
@@ -164,6 +163,7 @@ export default {
 | open-delay | 延迟出现，单位毫秒 | Number | — | 0 |
 |  disabled       |  Tooltip 是否可用  | Boolean           | — |  false |
 |  offset        |  出现位置的偏移量  | Number           | — |  5 |
+| close-outside | 是否可以通过点击其他位置 关闭 tooltip | boolean    | — | true |
 
 ### Slot
 
@@ -175,5 +175,5 @@ export default {
 
 | 事件名称           | 说明             | 回调参数                                     |
 | -------------- | -------------- | ---------------------------------------- |
-| show     |显示时触发       | - |
-| hide | 隐藏时触发 | - |
+| on-show     |显示时触发       | - |
+| on-hide | 隐藏时触发 | - |

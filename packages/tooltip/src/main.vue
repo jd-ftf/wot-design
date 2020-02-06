@@ -1,11 +1,11 @@
 <template>
-  <div>
+  <div v-clickoutside="handleOutsideClick" style="display: inline-block;">
     <!-- 控制对象 -->
     <span ref="trigger" @click="toggle">
       <slot></slot>
     </span>
     <!-- 文字提示 -->
-    <transition :name="transition">
+    <transition name="wd-fade">
       <div
         class="wd-tooltip"
         :class="'is-' + effect"
@@ -22,6 +22,7 @@
             <div
               v-for="(item,index) in content"
               :key="index"
+              @click="linkTo(item,index)"
               class="wd-tooltip__menu-inner"
               :style="{'border-top':index === 0 ? 'none' : '1px solid ' + lineColor }"
             >
@@ -38,6 +39,8 @@
 </template>
 
 <script>
+import Clickoutside from '../../../src/utils/clickoutside'
+
 export default {
   name: 'WdTooltip',
   data () {
@@ -59,6 +62,7 @@ export default {
       type: Number,
       default: 5
     },
+    value: Boolean,
     openDelay: {
       type: Number,
       default: 300
@@ -73,19 +77,16 @@ export default {
       type: Boolean,
       default: true
     },
-    manual: {
+    closeOutside: {
       type: Boolean,
-      default: false
-    },
-    transition: {
-      type: String,
-      default: 'wd-fade'
+      default: true
     },
     mode: {
       type: String,
       default: 'normal'
     }
   },
+  directives: { Clickoutside },
   computed: {
     arrowClass () {
       return this.visibleArrow && {
@@ -104,6 +105,25 @@ export default {
       return this.effect === 'light' ? 'rgba(255, 255, 255, .5)' : '#ebeef5'
     }
   },
+  watch: {
+    value (newVal) {
+      console.log('控制', newVal)
+      if (newVal === this.showPop) {
+        // eslint-disable-next-line no-useless-return
+        return
+      } else {
+        this.showPop = this.value
+        if (this.showPop) {
+          this.$nextTick(() => {
+            this.init(true)
+          })
+        }
+      }
+    },
+    showPop () {
+      this.$emit(`${this.showPop === true ? 'on-show' : 'on-hide'}`)
+    }
+  },
   mounted () {
     this.$nextTick(() => {
       this.init()
@@ -119,8 +139,13 @@ export default {
         this.init(true)
       }
     },
-    // 每次打开重新计算位置
+    /**
+     * @param isReset 判定是否是点开时重定位调用，否则为初始化(窗口重设)调用（避免初始位置变更时出现滑动）
+     */
     init (isReset) {
+      if (!isReset) {
+        this.showPop = false
+      }
       // 目标对象 dom（被跟随）
       const trigger = this.$refs.trigger.children[0]
       // 文字提示 dom
@@ -183,9 +208,6 @@ export default {
         default:
           console.warn('Wrong placement prop')
       }
-      if (!isReset) {
-        this.showPop = false
-      }
       this.popStyle = {
         top: this.position.top + 'px',
         left: this.position.left + 'px',
@@ -201,7 +223,16 @@ export default {
           this.init(true)
         })
       }
-      this.$emit(`${this.show === true ? 'show' : 'hide'}`)
+    },
+    // 菜单模式，跳转关闭
+    linkTo (item, index) {
+      this.showPop = false
+      this.$emit('link', item, index)
+    },
+    // 点击外部关闭
+    handleOutsideClick () {
+      if (!this.closeOutside) return
+      this.showPop = (this.value && this.showPop)
     }
   }
 }

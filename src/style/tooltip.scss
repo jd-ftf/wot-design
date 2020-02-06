@@ -1,5 +1,6 @@
 @import './abstracts/variable';
 @import './abstracts/mixin';
+@import './common/transition.scss';
 
 @include b(tooltip){
   position: absolute;
