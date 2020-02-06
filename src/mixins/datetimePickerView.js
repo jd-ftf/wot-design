@@ -33,10 +33,7 @@ export default {
     },
     value: null,
     filter: Function,
-    formatter: {
-      type: Function,
-      default: (type, value) => value
-    },
+    formatter: Function,
     minHour: {
       type: Number,
       default: 0
@@ -123,7 +120,7 @@ export default {
     columns () {
       return this.originColumns.map(column => {
         return column.values.map(value => ({
-          label: this.formatter(column.type, padZero(value)),
+          label: this.formatter ? this.formatter(column.type, padZero(value)) : padZero(value),
           value
         }))
       })
