@@ -30,17 +30,19 @@
     color: $-cell-title-color;
     font-size: $-picker-cell-fs;
     overflow: hidden;
-
-    @include halfPixelBorder('bottom', 15px);
-
-    &:last-child::after {
-      display: none;
+  }
+  @include when(cell) {
+    .wd-picker__field {
+      @include halfPixelBorder('bottom', 15px);
     }
 
-    @include m(disabled) {
-      .wd-picker__value {
-        color: $-picker-column-disabled-color;
-      }
+    &:last-child .wd-picker__field::after {
+      display: none;
+    }
+  }
+  @include when(disabled) {
+    .wd-picker__value {
+      color: $-picker-column-disabled-color;
     }
   }
   @include e(label) {

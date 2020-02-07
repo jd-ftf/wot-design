@@ -72,6 +72,9 @@
       }, {
         "name": "Switch 开关",
         "path": "/switch"
+      }, {
+        "name": "Form 表单组合",
+        "path": "/form"
       }
     ]
   }, {
