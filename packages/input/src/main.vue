@@ -1,12 +1,28 @@
 <template>
   <div
     class="wd-input"
-    :class="{
-      'is-textarea': type === 'textarea',
-      'is-disabled': disabled,
-      'is-error': error
-    }"
+    :class="[
+      {
+        'is-textarea': type === 'textarea',
+        'is-disabled': disabled,
+        'is-error': error,
+        'is-cell': label || $slots.label,
+        'is-center': center
+      },
+      size ? `is-${size}` : ''
+    ]"
   >
+    <div v-if="label || $slots.label" class="wd-input__label" :style="labelWidth ? `min-width: ${labelWidth};max-width: ${labelWidth}` : ''">
+      <div v-if="prefixIcon || $slots.prefix" class="wd-input__prefix">
+        <slot name="prefix"></slot>
+        <i v-if="prefixIcon" class="wd-input__icon" :class="prefixIcon"></i>
+      </div>
+      <div class="wd-input__label-inner">
+        <slot name="label">
+          {{ label }}
+        </slot>
+      </div>
+    </div>
     <template v-if="type === 'textarea' || (type === 'text' && autosize)">
       <div
         class="wd-input__textarea"
@@ -43,18 +59,13 @@
         </div>
       </div>
     </template>
-    <template v-else>
-      <div v-if="prefixIcon || $slots.prefix" class="wd-input__prefix">
+    <div v-else class="wd-input__block">
+      <div v-if="(prefixIcon || $slots.prefix) && !label && !$slots.label" class="wd-input__prefix">
         <slot name="prefix"></slot>
         <i v-if="prefixIcon" class="wd-input__icon" :class="prefixIcon"></i>
       </div>
       <input
         class="wd-input__inner"
-        :class="[
-          suffixCount > 0 ? `wd-input__inner--suffix-${suffixCount}` : '',
-          prefixIcon || $slots.prefix ? 'wd-input__inner--prefix' : '',
-          showWordCount ? 'wd-input__inner--count' : ''
-        ]"
         :type="showPwdVisible ? (isPwdVisible ? 'text' : 'password') : type"
         :value="value"
         ref="input"
@@ -76,7 +87,7 @@
         v-if="showClear || showPwdVisible || suffixIcon || $slots.suffix || showWordCount"
         class="wd-input__suffix"
       >
-        <i v-show="showClear" class="wd-input__icon wd-icon-close-outline" @click="clear"></i>
+        <i v-if="showClear" class="wd-input__icon wd-icon-close-outline" @click="clear"></i>
         <i
           v-if="showPwdVisible"
           class="wd-input__icon"
@@ -86,10 +97,10 @@
         <span v-if="showWordCount" class="wd-input__count">
           <span class="wd-input__count-current" :class="{ 'is-error': value && value.length > maxlength }">{{ (value && value.length) || 0 }}</span>/{{ maxlength }}
         </span>
-        <slot name="suffix"></slot>
         <i v-if="suffixIcon" class="wd-input__icon" :class="suffixIcon"></i>
+        <slot name="suffix"></slot>
       </div>
-    </template>
+    </div>
   </div>
 </template>
 
@@ -134,7 +145,11 @@ export default {
       default: 'none'
     },
     autofocus: Boolean,
-    error: Boolean
+    error: Boolean,
+    label: String,
+    labelWidth: String,
+    size: String,
+    center: Boolean
   },
   watch: {
     value: {
