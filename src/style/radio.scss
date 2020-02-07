@@ -9,7 +9,7 @@
   -webkit-tap-highlight-color: transparent;
 
   &:last-child {
-    margin-bottom: 10px;
+    margin-bottom: 0;
   }
 
   @include e(shape) {
@@ -91,6 +91,15 @@
         color: $-radio-color-checked;
         border-color: currentColor;
       }
+    }
+  }
+  @include when(inline) {
+    display: inline-block;
+    margin-right: 10px;
+    margin-bottom: 0;
+
+    &:last-child {
+      margin-right: 0;
     }
   }
 
