@@ -27,7 +27,8 @@ export default {
     max: {
       type: Number,
       default: 0
-    }
+    },
+    inline: Boolean
   },
   provide () {
     return {
