@@ -66,7 +66,7 @@
     align-items: flex-start;
     padding: 0 15px;
     background-color: #fff;
-    @include halfPixelBorder('top', 15px);
+    @include halfPixelBorder('bottom', 15px);
 
     &.is-error::after {
       background: $-color-line;
@@ -86,6 +86,9 @@
     }
     @include when(center) {
       align-items: center;
+    }
+    &:last-child::after {
+      display: none;
     }
   }
   @include when(large) {

@@ -11,6 +11,7 @@
   color: $-cell-title-color;
   -webkit-tap-highlight-color: transparent;
 
+  
   @include e(wrapper) {
     position: relative;
     display: flex;
@@ -18,8 +19,14 @@
     padding: 12px 15px 12px 0;
     justify-content: space-between;
     align-items: flex-start;
-
-    @include halfPixelBorder;
+  }
+  @include when(cell) {
+    .wd-cell__wrapper {
+      @include halfPixelBorder;
+    }
+    &:last-child .wd-cell__wrapper::after {
+      display: none;
+    }
   }
   @include e(title) {
     font-size: $-cell-title-size;
@@ -62,11 +69,6 @@
     line-height: 22px;
     font-size: 14px;
     color: #c5c5c5;
-  }
-  &:last-child {
-    .wd-cell__wrapper::after {
-      display: none;
-    }
   }
   @include when(link) {
     transition: background .2s;

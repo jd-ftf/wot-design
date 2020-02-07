@@ -1,10 +1,18 @@
 <template>
-  <div class="wd-picker wd-field" :class="[ size ? `is-${size}` : '', error ? 'is-error' : '', alignRight ? 'is-align-right' : '' ]">
+  <div
+    class="wd-picker"
+    :class="[
+      {
+        'is-cell': label || $slots.label,
+        'is-error': error,
+        'is-align-right': alignRight,
+        'is-disabled': disabled
+      },
+      size ? `is-${size}` : ''
+    ]"
+  >
     <div
       class="wd-picker__field"
-      :class="{
-        'wd-picker__field--disabled': disabled
-      }"
       @click="showPopup"
     >
       <div v-if="label || $slots.label" class="wd-picker__label" :style="labelWidth ? `min-width: ${labelWidth}; max-width: ${labelWidth}` : ''">
@@ -61,7 +69,7 @@ export default {
   props: {
     ...pickerViewProps,
     ...pickerProps,
-    value: [String, Array],
+    value: [String, Number, Boolean, Array],
     columnChange: Function,
     columns: {
       default () {

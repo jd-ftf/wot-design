@@ -73,7 +73,7 @@ export default {
         }
       }
 
-      let rootClass = ['wd-cell']
+      let rootClass = ['wd-cell is-cell']
       isLink && rootClass.push('is-link')
       size && rootClass.push(`is-${size}`)
       center && rootClass.push('is-center')
@@ -84,7 +84,7 @@ export default {
         ? <router-link to={ to } class={rootClass} replace={replace}>{Icon}{Wrapper}</router-link>
         : <a class={rootClass} href={ to }>{Icon}{Wrapper}</a>
     } else {
-      let rootClass = ['wd-cell']
+      let rootClass = ['wd-cell is-cell']
       clickable && rootClass.push('is-link')
       size && rootClass.push(`is-${size}`)
       center && rootClass.push('is-center')
