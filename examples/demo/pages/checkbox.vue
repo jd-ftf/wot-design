@@ -28,23 +28,30 @@
       </wd-checkbox-group>
     </white-space>
     <white-space>
+      <div slot="desc">同行展示</div>
+      <wd-checkbox-group v-model="value7" inline>
+        <wd-checkbox value="jingmai">京麦</wd-checkbox>
+        <wd-checkbox value="shop">商家后台</wd-checkbox>
+      </wd-checkbox-group>
+    </white-space>
+    <white-space>
       <div slot="desc">禁用状态</div>
-      <wd-checkbox-group v-model="value7" disabled>
+      <wd-checkbox-group v-model="value8" disabled style="margin-bottom: 10px;">
         <wd-checkbox value="jingmai">京麦</wd-checkbox>
         <wd-checkbox value="shop">商家后台</wd-checkbox>
       </wd-checkbox-group>
-      <wd-checkbox-group v-model="value8" disabled shape="square">
+      <wd-checkbox-group v-model="value9" disabled shape="square" style="margin-bottom: 10px;">
         <wd-checkbox value="jingmai">京麦</wd-checkbox>
         <wd-checkbox value="shop">商家后台</wd-checkbox>
       </wd-checkbox-group>
-      <wd-checkbox-group v-model="value9" disabled shape="button">
+      <wd-checkbox-group v-model="value10" disabled shape="button">
         <wd-checkbox value="jingmai">京麦</wd-checkbox>
         <wd-checkbox value="shop">商家后台</wd-checkbox>
       </wd-checkbox-group>
     </white-space>
     <white-space>
       <div slot="desc">设置最小选中数量 <code>min</code> 为1 和最大选中数量 <code>max</code> 为3（也可以将其中一项设置为disabled，剩下3项最多选2项）</div>
-      <wd-checkbox-group v-model="value10" :min="1" :max="3">
+      <wd-checkbox-group v-model="value11" :min="1" :max="3">
         <wd-checkbox value="jd">京东</wd-checkbox>
         <wd-checkbox value="jingmai">京麦</wd-checkbox>
         <wd-checkbox value="shop">商家后台</wd-checkbox>
@@ -67,7 +74,8 @@ export default {
       value7: ['jingmai'],
       value8: ['jingmai'],
       value9: ['jingmai'],
-      value10: ['jd']
+      value10: ['jingmai'],
+      value11: ['jd']
     }
   }
 }
