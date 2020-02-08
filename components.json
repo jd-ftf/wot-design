@@ -36,6 +36,7 @@
   "switch": "./packages/switch/index.js",
   "swipe": "./packages/swipe/index.js",
   "swipe-item": "./packages/swipe-item/index.js",
+  "swipe-action": "./packages/swipe-action/index.js",
   "tab": "./packages/tab/index.js",
   "tabs": "./packages/tabs/index.js",
   "tabbar": "./packages/tabbar/index.js",
