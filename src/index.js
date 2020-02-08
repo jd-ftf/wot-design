@@ -38,6 +38,7 @@ import Sticky from '../packages/sticky'
 import Switch from '../packages/switch'
 import Swipe from '../packages/swipe'
 import SwipeItem from '../packages/swipe-item'
+import SwipeAction from '../packages/swipe-action'
 import Tab from '../packages/tab'
 import Tabs from '../packages/tabs'
 import Tabbar from '../packages/tabbar'
@@ -83,6 +84,7 @@ const components = [
   Switch,
   Swipe,
   SwipeItem,
+  SwipeAction,
   Tab,
   Tabs,
   Tabbar,
@@ -152,6 +154,7 @@ export default {
   Switch,
   Swipe,
   SwipeItem,
+  SwipeAction,
   Tab,
   Tabs,
   Tabbar,
