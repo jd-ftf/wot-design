@@ -1,15 +1,17 @@
 <template>
-  <div class="wd-swipe-action" @click.stop="onClick($event)">
+  <div class="wd-swipe-action">
     <!--滑动操作容器-->
     <div class="wd-swipe-action__wrapper" :style="wrapperStyle">
       <!--左侧滑动按钮容器-->
-      <div class="wd-swipe-action__left" ref="left" @click.stop="onClick($event,'left')">
+      <div class="wd-swipe-action__left" ref="left" @touchstart.capture="onClick($event,'left')">
         <slot name="left"></slot>
       </div>
       <!--自定义内容-->
-      <slot></slot>
+      <div class="wd-swipe-action__content" @touchstart.capture="onClick($event,'inside')">
+        <slot></slot>
+      </div>
       <!--右侧滑动按钮容器-->
-      <div class="wd-swipe-action__right" ref="right" @click.stop="onClick($event,'right')">
+      <div class="wd-swipe-action__right" ref="right" @touchstart.capture="onClick($event,'right')">
         <slot name="right"></slot>
       </div>
     </div>
@@ -18,6 +20,7 @@
 
 <script>
 import Touch from 'main/mixins/touch'
+import { on, off } from 'main/utils/event'
 
 export default {
   name: 'WdSwipeAction',
@@ -33,7 +36,11 @@ export default {
     },
     disabled: {
       type: Boolean,
-      value: false
+      default: false
+    },
+    autoClose: {
+      type: Boolean,
+      default: true
     }
   },
   watch: {
@@ -73,13 +80,16 @@ export default {
      * @param {String} state 切换之前的状态
      */
     changeState (state, old) {
-      if (this.disabled) return
       const { leftWidth, rightWidth } = this
-      if (leftWidth === 0 && rightWidth === 0) return
+      // disabled 状态、左右按钮都为空时此方法无任何意义
+      if (
+        this.disabled ||
+        (leftWidth === 0 && rightWidth === 0)
+      ) {
+        return
+      }
       switch (state) {
         case 'close':
-          // 调用此函数时，偏移量本就是0
-          if (this.wrapperOffset === 0) return
           this.close('state', old)
           break
         case 'left':
@@ -94,6 +104,9 @@ export default {
      * @description 关闭操过按钮，并在合适的时候调用 beforeClose
      */
     close (reason, position) {
+      // 现在的偏移量为 0 ,close函数没必要使用
+      if (this.wrapperOffset === 0) return
+      // 原来的偏移量——>现在的偏移量
       if (reason === 'swipe' && this.originOffset === 0) {
         // offset：0 ——> offset：0
         this.wrapperOffset = 0
@@ -112,6 +125,7 @@ export default {
 
       this.wrapperOffset = 0
 
+      // 同步给父组件
       this.$emit('input', 'close')
     },
     /**
@@ -134,6 +148,7 @@ export default {
      */
     onTouchStart (event) {
       if (this.disabled) return
+      // 记录触摸开始时的偏移量，以备后用
       this.originOffset = this.wrapperOffset
 
       this.touchStart(event)
@@ -148,6 +163,7 @@ export default {
       if (this.direction !== 'horizontal') {
         return
       }
+      // 有横向滚动时，句柄才会生效。同时阻止一下事件穿透。
       event.stopPropagation()
       const { leftWidth, rightWidth } = this
       const offset = this.originOffset + this.deltaX
@@ -222,7 +238,7 @@ export default {
     /**
      * @description 滑动结束的事件句柄
      */
-    onClick (event, position = 'inside') {
+    onClick (event, position) {
       if (
         this.disabled ||
         this.wrapperOffset === 0
@@ -231,23 +247,44 @@ export default {
       }
       // 点击外部，关闭滑动操作
       if (!this.$el.contains(event.target)) {
+        if (!this.autoClose) return
         position = 'outside'
       }
+
+      // click 了 position 导致了 close 滑动操作
       this.close('click', position)
+      // 触发父组件的click时间
       this.$emit('click', position)
     },
     /**
-     * @description Vue 2.6 模板绑定滑动事件有毛病(参考官方issue)，此处手动绑定
+     * @description 初始化事件绑定
      */
     bindTouchEvent (el) {
       const { onTouchStart, onTouchMove, onTouchEnd, onClick } = this
+      // Vue 2.6 模板绑定touch事件有毛病(参考官方issue)，此处手动绑定
 
-      el.addEventListener('touchstart', onTouchStart)
-      el.addEventListener('touchmove', onTouchMove)
+      on(el, 'touchstart', onTouchStart)
+      on(el, 'touchmove', onTouchMove)
 
-      el.addEventListener('touchend', onTouchEnd)
-      el.addEventListener('touchcancel', onTouchEnd)
-      document.addEventListener('click', onClick)
+      on(el, 'touchend', onTouchEnd)
+      on(el, 'touchcancel', onTouchEnd)
+
+      // 组件以外的 click 会导致滑动操作关闭
+      on(document, 'touchstart', onClick)
+    },
+    /**
+     * @description addEventListener 对 el 保持引用，此处需要手动移除事件
+     */
+    removeTouchEvent (el) {
+      const { onTouchStart, onTouchMove, onTouchEnd, onClick } = this
+      // Vue 2.6 模板绑定touch事件有毛病(参考官方issue)，此处手动绑定
+
+      off(el, 'touchstart', onTouchStart)
+      off(el, 'touchmove', onTouchMove)
+
+      off(el, 'touchend', onTouchEnd)
+      off(el, 'touchcancel', onTouchEnd)
+      off(document, 'click', onClick)
     },
     /**
      * @description 时时刻刻监听左/右滑动按钮的尺寸，并保留更新记录
@@ -279,6 +316,7 @@ export default {
     this.observerList.forEach(observer => {
       observer.disconnect()
     })
+    this.removeTouchEvent(this.$el)
   }
 }
 </script>
