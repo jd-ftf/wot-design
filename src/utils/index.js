@@ -55,3 +55,5 @@ export const padZero = (number, length = 2) => {
 export const range = (value, min, max) => {
   return Math.min(Math.max(value, min), max)
 }
+
+export const bus = new Vue()
