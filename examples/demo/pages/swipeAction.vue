@@ -120,11 +120,10 @@ export default {
   }
   .button{
     display: inline-block;
-    width: 40px;
+    padding: 0 11px;
     height: 100%;
     color: white;
-    line-height: 46px;
-    text-align: center;
+    line-height: 42px;
   }
   .button-group{
     padding: 10px;
