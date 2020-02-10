@@ -20,7 +20,10 @@ git clone https://$ACCESS_TOKENS@github.com/jd-ftf/jd-ftf.github.io.git
 mkdir -p jd-ftf.github.io/wot-design/
 VERSION=$(node build/deploy/delete-old.js --version=$RELEASE_NAME --dir=jd-ftf.github.io/wot-design)
 cd jd-ftf.github.io/wot-design
+# remove all files except directory
 rm -f *
+# remove directory named static
+rm -rf static
 cp -r ../../examples/dist/* ./
 mv ../../examples/dist $VERSION
 git add -A .
