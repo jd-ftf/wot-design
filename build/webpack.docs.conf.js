@@ -6,6 +6,7 @@ const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const { VueLoaderPlugin } = require('vue-loader')
 const merge = require('webpack-merge')
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 const webpack = require('webpack')
 const fs = require('fs')
 const config = require('./config')
@@ -17,7 +18,7 @@ const versions = require('../build/deploy/change-log')
 var content = JSON.stringify(versions)
 
 // 指定创建目录及文件名称，__dirname为执行当前js文件的目录
-var file = path.resolve(__dirname, '../examples/docs/versions.json')
+var file = path.resolve(__dirname, '../examples/docs/public/versions.json')
 
 // 写入文件
 fs.writeFile(file, content, err => {
@@ -179,6 +180,16 @@ let webpackConf = {
       chunks: ['docs'],
       favicon: path.resolve(__dirname, '../examples/docs/favicon.ico')
     }),
+    new CopyWebpackPlugin([
+      {
+        from: path.resolve(__dirname, '../examples/docs/public'),
+        to: assetsPath('public'),
+        toType: 'dir',
+        ignore: [
+          '.DS_Store'
+        ]
+      }
+    ]),
     new webpack.HotModuleReplacementPlugin(),
     new FriendlyErrorsPlugin({
       compilationSuccessInfo: {
