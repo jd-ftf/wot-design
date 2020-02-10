@@ -26,11 +26,20 @@
         </li>
         <!-- 版本控制 -->
         <li class="header-tab__item version-control" v-show="isComponentPage" >
-          <a class="header-tab__link header-tab__with-arrow" @click="showOption">{{ version }}</a>
+          <a class="header-tab__link" :class="{ 'header-tab__with-arrow':  formatVersions && formatVersions.length}" @click="showOption">{{ version }}</a>
           <transition name="drop-scale-in">
             <div class="wot-dropdown" v-show="isShowOption">
               <ul class="wot-dropdown-menu">
-                <li class="wot-dropdown-item" v-for="item in versions" :value="item" :key="item" @click="switchVersion(item)">
+                <li
+                  class="wot-dropdown-item"
+                  :class="{
+                    'is-active': item === version
+                  }"
+                  v-for="item in formatVersions"
+                  :value="item"
+                  :key="item"
+                  @click="switchVersion(item)"
+                >
                   {{ item }}
                 </li>
               </ul>
@@ -45,25 +54,38 @@
 
 <script>
 import pagesConfig from '../pages.config.json'
-import versions from '../versions.json'
 import search from './search.vue'
+import axios from 'axios'
+
 const { version } = require('../../../package.json')
 export default {
   components: { search },
   data () {
     return {
       pages: pagesConfig,
-      versions: this.filter(),
+      versions: [],
       isComponentPage: true,
       isShowOption: false,
       version
+    }
+  },
+  computed: {
+    formatVersions () {
+      return this.filter(this.versions)
     }
   },
   methods: {
     showOption () {
       this.isShowOption = !this.isShowOption
     },
-    filter () {
+    getVersions () {
+      const requestUrl = process.env.NODE_ENV === 'dev' ? '/static/public/versions.json' : '/wot-design/static/public/versions.json'
+
+      axios.get(requestUrl).then(res => {
+        this.versions = res.data
+      })
+    },
+    filter (versions) {
       const keys = versions
       let result = []
       let preVersionList = []
@@ -89,9 +111,11 @@ export default {
           })
         }
       })
-      return result.filter(item => item !== version).sort((a, b) => a - b)
+      return result.sort((a, b) => a - b)
     },
     switchVersion (selected) {
+      if (selected == this.version) return
+
       this.isShowOption = !this.isShowOption
       if (selected === this.version) return
       // location.hash
@@ -115,6 +139,9 @@ export default {
   },
   beforeDestroy () {
     document.body.removeEventListener('click', this.clickOutside)
+  },
+  created () {
+    this.getVersions()
   }
 }
 </script>
@@ -248,7 +275,7 @@ export default {
   outline: none;
   transition: background 0.3s, color 0.3s;
 
-  &:hover {
+  &:hover, &.is-active, &.is-active:hover {
     background-color: mix(#0083ff, #fff, 10%);
     color: #0083ff;
   }
@@ -288,54 +315,5 @@ export default {
     padding: 6px 12px;
     font-size: 14px;
   }
-}
-.version-control {
-  &:before {
-    position: absolute;
-    content: ' ';
-    top: calc(50% - 8px);
-    width: 1px;
-    height: 16px;
-    background-color: #ebebeb;
-  }
-}
-.wot-dropdown-menu {
-  padding: 10px 5px;
-  margin: 0 10px;
-  border: none;
-  background-color: transparent;
-  font-size: 14px;
-  color: #666;
-  position: absolute;
-  background-color: #fff;
-  border: 1px solid #ebeef5;
-  border-radius: 2px;
-  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
-}
-.wot-dropdown-item {
-  list-style: none;
-  height: 30px;
-  line-height: 32px;
-  padding: 0 10px;
-  margin: 0;
-  font-size: 12px;
-  color: #464c5b;
-  cursor: pointer;
-  font-size: 14px;
-  outline: none;
-  &:hover {
-    background-color: #f5f7f9;
-    color: #464c5b;
-  }
-}
-.popper__arrow {
-  border: 1px solid;
-  display: inline-block;
-  position: absolute;
-  left: 50%;
-  bottom: -2px;
-  border-width: 6px;
-  border-color: transparent;
-  border-bottom-color: white;
 }
 </style>
