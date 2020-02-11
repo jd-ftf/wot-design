@@ -36,7 +36,6 @@
                     'is-active': item === version
                   }"
                   v-for="item in formatVersions"
-                  :value="item"
                   :key="item"
                   @click="switchVersion(item)"
                 >
@@ -253,6 +252,8 @@ export default {
   top: 100%;
   padding: 10px 0;
   width: 90px;
+  max-height: 300px;
+  overflow: auto;
   border: none;
   background-color: transparent;
   font-size: 14px;
@@ -260,7 +261,24 @@ export default {
   background-color: #fff;
   border: 1px solid #ebeef5;
   border-radius: 2px;
-  box-shadow: 0 2px 12px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 12px 4px rgba(0,0,0,.1);
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.3) #fefefe;
+
+  &::-webkit-scrollbar-track-piece {
+    background-color: transparent;
+  }
+  &::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  &::-webkit-scrollbar-thumb {
+    width: 6px;
+    height: 6px;
+    opacity: 0.5;
+    border-radius: 3px;
+    background-color: rgba(0, 0, 0, 0.3);
+  }
 }
 .wot-dropdown-item {
   list-style: none;

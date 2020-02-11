@@ -184,12 +184,12 @@ export default {
   }
   .side-bar {
     position: static;
-    margin: 10px 15px 10px;
+    margin: 60px 15px 10px;
     padding-bottom: 0;
   }
-  // .wot-search-input {
-  //   display: none;
-  // }
+  .wot-search-input {
+    display: none;
+  }
 }
 @media (max-height: 750px) {
   .tab-content {
