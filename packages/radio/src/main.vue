@@ -4,7 +4,8 @@
     :class="{
       'is-checked': isChecked,
       'is-button': finalShape === 'button',
-      'is-disabled': finalDisabled
+      'is-disabled': finalDisabled,
+      'is-inline': inline
     }"
   >
     <span class="wd-radio__shape" :style="{ 'color': isChecked && !finalDisabled ? finalCheckedColor : '' }">
@@ -50,7 +51,10 @@ export default {
       return this.checkedColor || this.radioGroup.checkedColor
     },
     finalDisabled () {
-      return this.disabled || this.radioGroup.disabled || false
+      return this.disabled || this.radioGroup.disabled
+    },
+    inline () {
+      return this.radioGroup.inline
     }
   },
   methods: {

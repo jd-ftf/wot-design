@@ -11,18 +11,25 @@
   color: $-cell-title-color;
   -webkit-tap-highlight-color: transparent;
 
+  
   @include e(wrapper) {
     position: relative;
     display: flex;
     flex: 1;
     padding: 12px 15px 12px 0;
     justify-content: space-between;
-
-    @include halfPixelBorder;
+    align-items: flex-start;
+  }
+  @include when(cell) {
+    .wd-cell__wrapper {
+      @include halfPixelBorder;
+    }
+    &:last-child .wd-cell__wrapper::after {
+      display: none;
+    }
   }
   @include e(title) {
     font-size: $-cell-title-size;
-    line-height: 1.375;
     vertical-align: middle;
     flex-shrink: 0;
     margin-right: 20px;
@@ -63,17 +70,22 @@
     font-size: 14px;
     color: #c5c5c5;
   }
-  &:last-child {
-    .wd-cell__wrapper::after {
-      display: none;
-    }
-  }
   @include when(link) {
     transition: background .2s;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0.06);
 
     &:active {
       background: rgba(0, 0, 0, 0.06);
+    }
+  }
+  @include when(large) {
+    .wd-cell__title {
+      font-size: $-cell-title-size-large;
+    }
+  }
+  @include when(center) {
+    .wd-cell__wrapper {
+      align-items: center;
     }
   }
 }

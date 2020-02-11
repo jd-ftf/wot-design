@@ -17,6 +17,12 @@
         </wd-cell>
       </wd-cell-group>
     </space>
+    <space title="大小">
+      <wd-cell-group>
+        <wd-cell title="标题文字" value="内容" size="large" />
+        <wd-cell title="标题文字" label="描述信息" value="内容" size="large" />
+      </wd-cell-group>
+    </space>
     <space title="分组标题">
       <wd-cell-group title="交易管理" value="订购">
         <div slot="value" class="custom-group-value">
@@ -27,18 +33,21 @@
         <wd-cell title="标题文字" label="描述信息" value="内容" />
       </wd-cell-group>
     </space>
+    <space title="可点击的">
+      <wd-cell clickable title="标题文字" value="内容" @click="toast" />
+    </space>
     <space title="页面跳转">
       <wd-cell-group>
         <wd-cell title="帮助与反馈" is-link :to="href" />
-        <wd-cell title="设置" value="内容" is-link :to="{ path: '/button' }" />
+        <wd-cell title="设置" value="内容" is-link :to="{ path: '/button' }" replace />
       </wd-cell-group>
     </space>
     <space title="自定义slot">
       <wd-cell-group>
-        <wd-cell title="标题文字">
+        <wd-cell title="标题文字" center>
           <wd-button class="custom-value" size="small" type="primary" plain>按钮</wd-button>
         </wd-cell>
-        <wd-cell title="标题文字">
+        <wd-cell title="标题文字" center>
           <wd-switch class="custom-value" v-model="value" />
         </wd-cell>
         <wd-cell>
@@ -48,9 +57,6 @@
           </div>
         </wd-cell>
       </wd-cell-group>
-    </space>
-    <space title="可点击的">
-      <wd-cell clickable title="标题文字" value="内容" @click="toast" />
     </space>
   </div>
 </template>

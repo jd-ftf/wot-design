@@ -1,4 +1,4 @@
-sudo: false
+os: linux
 language: node_js
 node_js:
   - "12"
@@ -18,15 +18,26 @@ script:
 after_success:
   - echo $(node build/deploy/check-deploy.js)
 deploy:
-  provider: npm
-  # ⋮
-  edge: true
-  skip_cleanup: true
-  api_token: $NPM_API_TOKEN
-#  api_key:
-#    secure: IYbllklBK3N4BhsqAHPON21nz7k8nyRP5d6z+lic27UlONiPZ0xvaN1JxnzbEuKMkIhEXQd6m8v1Ry9hCMf4hSmcZ2QWtSvm/dwXP+mvlbv7S+eXl1jbsZgTx4zo60U+D6SMphMkH4hCjJqpEk5YxfX82cXpJwWRoWQpzQknE1dGlrfcgmyXGoR4rsAUp0VGo2mubWtY/TtOoNRNP2KjOoU5y2D0pPdjp783Hlr0T6oRKM06K0+Pdfw5MhoUqryuGGQdzMefpSUgh2sRW4UaBacoWel8ygYKH1pewRo4rx+hFbP8Ynhy8JjBFq19EHn9GHBucnSaeplkHJP2r95xSmE5DHprSe/TtfhQjD+TQQqqjVnB4+wh4y30bxPCGPkZk5Qy5cfHLhANpHYbVjfba1oy8DM+qcrYB0r787GvF0qO6q2Igj0W3XL5+KAl4WTwn3fcmhafQLhgiF2LXI55JR9iDUj9B2m9vet32IeHA4XvmRRmBB2wL+oCyAc46erxLFK+gsAkZ0YzixqJJZ0HUJ1R58mmnYOtvsbJL7wyoxrgYIJp+JHL190Ofb8j4WYwnzA7s92hn4hEOim6FhAYYfdKceBSLjfA0f2bK/L4PjuWdowFFmXDO7KrxVh9yEOeOGTXbvMEdkJ0zqfoMnd7Kn93Ig1FQFcej715rlZsVaY=
-  on:
-    tags: true
-    condition: $(node build/deploy/check-deploy.js) = true
-after_deploy:
+  - provider: npm
+    edge: true
+    cleanup: false
+    api_token: $NPM_API_TOKEN
+    on:
+      tags: true
+      condition: $(node build/deploy/check-deploy.js) = true
+  - provider: releases
+    edge: true
+    cleanup: false
+    overwrite: true
+    token:
+      secure: VdSChF0TgPluO5wg/+HYcJTH0k+yYlmzN4kU1aZbMlZR7Yvhvlj8OLiXu1VcltzOPnESNw9NiilGo0nuXD/vh0b2mQ2yxoliMWKBi7qSYIuJfbYoWXYsVZmWQAeUXosKMY94ApPKBcRVUEJd4ntUx1Kftl1p65G7Q37uJvGKTu1ZEkypjh/tDaLxC6YdMmLsEh2J2o+BJ6lmEHJzlDuJzqDcWh+faaIsRC6x52IPDF+SWLlxu1BL/d0t60JBF6FzRNSoYTzYcYFaqsPT6EmOEJYYoKhqKg78A48M4qCHlhC/43QUuLaUdFZuSPJmNP4YGcmJBnXhROB0KvHpRMGrul2b8d2RyrBkvBZAoUrSA0McwDduAlDxCKzQPpPnPXVyJ04A6iFUfYcPDiHUtms2H+SZCN0xBFCtSYFwqM76XT4SjpJEJDpn8FW0sU4/sqCa6LIbcfXVL3HQqIk/jaGhmsqbzdkzJK5tHjKxdIF8cuIPeAGi4cKl5C7H5Ray7SMEgKZQidwwcBgsZAsi92Giv2AfPiOQdmqh/qSowF+XmkQPTCJqCAJ3bi7S9WtnsDoFJzjhTieY9VnyBgYSLBHIhStmqyqIXWGLYvZsq5/LKm3pI8Z2cCWVTCg18KM8ERtsY7SIGtH+ZqMAcdEXF6lQ4u5mQ52OJv1ED7Dkf0fRKcI=
+    name: $RELEASE_NAME
+    release_notes: $RELEASE_NOTE
+    draft: false
+    prerelease: false
+    file: LICENSE
+    on:
+      tags: true
+      condition: $(node build/deploy/check-deploy.js) = true
+after_script:
   - sh ./build/deploy/after-deploy.sh

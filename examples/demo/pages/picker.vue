@@ -6,11 +6,22 @@
       <wd-picker :columns="columns1" label="只读" v-model="value3" readonly />
       <wd-picker :columns="columns1" label="loading" v-model="value4" loading />
       <wd-picker :columns="columns2" label="多列" v-model="value5" />
-      <wd-picker :columns="columns3" label="多列联动" v-model="value6" :column-change="onChangeDistrict" :display-format="displayFormat" />
-      <wd-picker :columns="columns1" label="before-confirm" v-model="value7" :loading="isLoading" :before-confirm="beforeConfirm" />
+      <wd-picker :columns="columns3" label="多列联动" v-model="value6" :column-change="onChangeDistrict" />
+      <wd-picker :columns="columns2" label="展示格式化" v-model="value7" :display-format="displayFormat" />
+      <wd-picker :columns="columns1" label="标题" v-model="value8" title="文案标题" />
+      <wd-picker :columns="columns1" label="before-confirm" v-model="value9" :loading="isLoading" :before-confirm="beforeConfirm" />
     </div>
     <space title="label不传">
-      <wd-picker :columns="columns1" v-model="value8" />
+      <wd-picker :columns="columns1" v-model="value10" />
+    </space>
+    <space title="大小">
+      <wd-picker :columns="columns1" label="单列选择" v-model="value11" size="large" />
+    </space>
+    <space title="错误">
+      <wd-picker :columns="columns1" label="单列选择" v-model="value11" error />
+    </space>
+    <space title="值靠右显示">
+      <wd-picker :columns="columns1" label="单列选择" v-model="value12" align-right />
     </space>
   </div>
 </template>
@@ -44,8 +55,12 @@ export default {
       value4: '',
       value5: ['中南大学', '软件工程'],
       value6: ['110000', '110100', '110102'],
-      value7: '',
+      value7: ['中南大学', '软件工程'],
       value8: '',
+      value9: '',
+      value10: '',
+      value11: '',
+      value12: '',
       isLoading: false
     }
   },
@@ -61,9 +76,7 @@ export default {
       }
     },
     displayFormat (items) {
-      return items.map(item => {
-        return item.label
-      }).join('-')
+      return items.join('-')
     },
     beforeConfirm (value, resolve) {
       this.isLoading = true
@@ -71,7 +84,7 @@ export default {
         this.isLoading = false
         if (['选项2', '选项3'].indexOf(value) > -1) {
           resolve(false)
-          this.$toast('选项校验不通过，请重新选择')
+          this.$toast.error('选项校验不通过，请重新选择')
         } else {
           resolve(true)
         }

@@ -38,12 +38,14 @@ import Sticky from '../packages/sticky'
 import Switch from '../packages/switch'
 import Swipe from '../packages/swipe'
 import SwipeItem from '../packages/swipe-item'
+import SwipeAction from '../packages/swipe-action'
 import Tab from '../packages/tab'
 import Tabs from '../packages/tabs'
 import Tabbar from '../packages/tabbar'
 import TabbarItem from '../packages/tabbar-item'
 import Tag from '../packages/tag'
 import Toast from '../packages/toast'
+import Tooltip from '../packages/tooltip'
 import locale from './locale'
 
 const components = [
@@ -82,11 +84,13 @@ const components = [
   Switch,
   Swipe,
   SwipeItem,
+  SwipeAction,
   Tab,
   Tabs,
   Tabbar,
   TabbarItem,
   Tag,
+  Tooltip,
   MessageBox.wdMessageBox
 ]
 
@@ -109,7 +113,7 @@ if (typeof window !== 'undefined' && window.Vue) {
 }
 
 export default {
-  version: '1.2.0',
+  version: '1.3.0',
   install,
   locale: locale.use,
   i18n: locale.i18n,
@@ -150,10 +154,12 @@ export default {
   Switch,
   Swipe,
   SwipeItem,
+  SwipeAction,
   Tab,
   Tabs,
   Tabbar,
   TabbarItem,
   Tag,
-  Toast
+  Toast,
+  Tooltip
 }

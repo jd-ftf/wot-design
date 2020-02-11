@@ -72,6 +72,16 @@ export default {
       formatColumns.forEach((data, index) => {
         this.setColumnData(index, data)
       })
+    },
+    value: {
+      handler () {
+        if (!this.value || (this.value instanceof Array && !this.value.length)) {
+          this.$nextTick(() => {
+            this.onChange(0)
+          })
+        }
+      },
+      immediate: true
     }
   },
   methods: {

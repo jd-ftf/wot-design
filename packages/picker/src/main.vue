@@ -1,14 +1,26 @@
 <template>
-  <div class="wd-picker wd-field">
+  <div
+    class="wd-picker"
+    :class="[
+      {
+        'is-cell': label || $slots.label,
+        'is-error': error,
+        'is-align-right': alignRight,
+        'is-disabled': disabled
+      },
+      size ? `is-${size}` : ''
+    ]"
+  >
     <div
       class="wd-picker__field"
-      :class="{
-        'wd-picker__field--disabled': disabled
-      }"
       @click="showPopup"
     >
-      <div v-if="label" class="wd-picker__label">{{ label }}</div>
-      <div class="wd-picker__value">{{ (value ? showValue : placeholder) || t('wd.picker.placeholder') }}</div>
+      <div v-if="label || $slots.label" class="wd-picker__label" :style="labelWidth ? `min-width: ${labelWidth}; max-width: ${labelWidth}` : ''">
+        <slot name="label">
+          {{ label }}
+        </slot>
+      </div>
+      <div class="wd-picker__value">{{ ((!value || (value instanceof Array && !value.length)) ? placeholder : showValue) || t('wd.picker.placeholder') }}</div>
       <i v-if="!disabled && !readonly" class="wd-picker__arrow wd-icon-arrow-right"></i>
     </div>
     <wd-popup v-model="popupShow" position="bottom" @click-modal="onCancel">
@@ -51,13 +63,13 @@ export default {
     return {
       showValue: '',
       popupShow: false,
-      pickerValue: this.value
+      pickerValue: ''
     }
   },
   props: {
     ...pickerViewProps,
     ...pickerProps,
-    value: [String, Array],
+    value: [String, Number, Boolean, Array],
     columnChange: Function,
     columns: {
       default () {
@@ -77,6 +89,7 @@ export default {
     value: {
       handler () {
         this.pickerValue = this.value
+
         this.$nextTick(() => {
           this.setShowValue()
         })
@@ -96,6 +109,12 @@ export default {
       this.$emit('cancel')
     },
     onConfirm () {
+      if (this.loading) {
+        this.popupShow = false
+        this.$emit('confirm')
+        return
+      }
+
       if (this.beforeConfirm) {
         this.beforeConfirm(this.pickerValue, isPass => {
           isPass && this.handleConfirm()
@@ -108,9 +127,6 @@ export default {
       this.$emit('input', this.pickerValue)
       this.popupShow = false
       this.$emit('confirm')
-      this.$nextTick(() => {
-        this.setShowValue()
-      })
     },
     setShowValue () {
       if (this.displayFormat) {

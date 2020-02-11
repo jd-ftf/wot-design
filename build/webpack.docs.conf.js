@@ -6,10 +6,31 @@ const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const { VueLoaderPlugin } = require('vue-loader')
 const merge = require('webpack-merge')
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 const webpack = require('webpack')
+const fs = require('fs')
 const config = require('./config')
 
 const isDev = process.env.NODE_ENV === 'development'
+
+const versions = require('../build/deploy/change-log')
+// 把 versions 对象转换为json格式字符串
+const content = JSON.stringify(versions)
+
+// 指定创建目录及文件名称，__dirname为执行当前js文件的目录
+const versionDir = path.resolve(__dirname, '../examples/docs/public')
+const file = path.resolve(__dirname, '../examples/docs/public/versions.json')
+
+if (!fs.existsSync(versionDir)) {
+  fs.mkdirSync(versionDir, { recursive: true })
+}
+
+// 写入文件
+fs.writeFile(file, content, err => {
+  if (err) {
+    return console.error(err)
+  }
+})
 
 const cssLoader = (...loaders) => {
   const formatLoaders = []
@@ -82,7 +103,7 @@ let webpackConf = {
             }
           },
           {
-            loader: path.resolve(__dirname, './md-loader/index.js')
+            loader: path.resolve(__dirname, './md-loader.js')
           }
         ]
       },
@@ -164,6 +185,16 @@ let webpackConf = {
       chunks: ['docs'],
       favicon: path.resolve(__dirname, '../examples/docs/favicon.ico')
     }),
+    new CopyWebpackPlugin([
+      {
+        from: path.resolve(__dirname, '../examples/docs/public'),
+        to: assetsPath('public'),
+        toType: 'dir',
+        ignore: [
+          '.DS_Store'
+        ]
+      }
+    ]),
     new webpack.HotModuleReplacementPlugin(),
     new FriendlyErrorsPlugin({
       compilationSuccessInfo: {

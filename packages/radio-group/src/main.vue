@@ -14,7 +14,8 @@ export default {
       default: 'dot'
     },
     checkedColor: String,
-    disabled: Boolean
+    disabled: Boolean,
+    inline: Boolean
   },
   provide () {
     return {

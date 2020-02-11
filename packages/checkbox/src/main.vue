@@ -4,7 +4,8 @@
     :class="{
       'is-checked': isChecked,
       'is-button': finalShape === 'button',
-      'is-disabled': finalDisabled
+      'is-disabled': finalDisabled,
+      'is-inline': inline
     }"
   >
     <span
@@ -89,6 +90,9 @@ export default {
       } else {
         return this.disabled || false
       }
+    },
+    inline () {
+      return this.checkboxGroup.inline
     }
   },
   methods: {

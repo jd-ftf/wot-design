@@ -9,6 +9,8 @@ yarn-error.log*
 /test/e2e/reports/
 selenium-debug.log
 coverage
+/examples/docs/public/versions.json
+/examples/docs/docs/install.md
 
 # Editor directories and files
 .idea

@@ -1,12 +1,27 @@
 <template>
   <div style="margin: 20px 0">
-    <wd-datetime-picker v-model="value1" label="日期选择" />
-    <wd-datetime-picker type="date" v-model="value2" label="年月日" />
-    <wd-datetime-picker type="year-month" v-model="value3" label="年月" />
-    <wd-datetime-picker type="time" v-model="value4" label="时分" />
-    <wd-datetime-picker v-model="value5" label="展示格式" :display-format="displayFormat" />
-    <wd-datetime-picker v-model="value6" label="内部格式" :formatter="formatter" />
-    <wd-datetime-picker v-model="value7" label="过滤选项" :filter="filter" />
+    <div>
+      <wd-datetime-picker v-model="value1" label="日期选择" />
+      <wd-datetime-picker type="date" v-model="value2" label="年月日" />
+      <wd-datetime-picker type="year-month" v-model="value3" label="年月" />
+      <wd-datetime-picker type="time" v-model="value4" label="时分" />
+      <wd-datetime-picker v-model="value5" label="展示格式" :display-format="displayFormat" />
+      <wd-datetime-picker v-model="value6" label="内部格式" :formatter="formatter" />
+      <wd-datetime-picker v-model="value7" label="过滤选项" :filter="filter" />
+      <wd-datetime-picker v-model="value8" label="before-confirm" :before-confirm="beforeConfirm" />
+    </div>
+    <space title="label 不传">
+      <wd-datetime-picker v-model="value9" />
+    </space>
+    <space title="大小">
+      <wd-datetime-picker v-model="value10" label="日期选择" size="large" />
+    </space>
+    <space title="错误">
+      <wd-datetime-picker v-model="value11" label="日期选择" error />
+    </space>
+    <space title="值靠右展示">
+      <wd-datetime-picker v-model="value12" label="日期选择" align-right />
+    </space>
   </div>
 </template>
 
@@ -20,7 +35,12 @@ export default {
       value4: '09:20',
       value5: new Date(),
       value6: new Date(),
-      value7: ''
+      value7: '',
+      value8: new Date(),
+      value9: new Date(),
+      value10: new Date(),
+      value11: '',
+      value12: new Date()
     }
   },
   methods: {
@@ -49,6 +69,14 @@ export default {
       }
 
       return values
+    },
+    beforeConfirm (value, resolve) {
+      if (value.getTime() > Date.now()) {
+        resolve(false)
+        this.$toast.error('不能选择大于今天的日期')
+      } else {
+        resolve(true)
+      }
     }
   }
 }

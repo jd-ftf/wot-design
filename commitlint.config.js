@@ -35,6 +35,7 @@ module.exports = {
         'camel-case',
         'kebab-case'
       ]
-    ]
+    ],
+    'header-max-length': [0, 'always', 100]
   }
 }

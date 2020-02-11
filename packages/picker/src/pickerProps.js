@@ -7,5 +7,9 @@ export default {
   disabled: Boolean,
   readonly: Boolean,
   displayFormat: Function,
-  beforeConfirm: Function
+  beforeConfirm: Function,
+  size: String,
+  labelWidth: String,
+  error: Boolean,
+  alignRight: Boolean
 }

@@ -72,6 +72,9 @@
       }, {
         "name": "Switch 开关",
         "path": "/switch"
+      }, {
+        "name": "Form 表单组合",
+        "path": "/form"
       }
     ]
   }, {
@@ -102,6 +105,12 @@
       }, {
         "name": "Toast 轻提示",
         "path": "/toast"
+      }, {
+        "name": "Tooltip 文字提示",
+        "path": "/tooltip"
+      }, {
+        "name": "SwipeAction 滑动操作",
+        "path": "/swipeAction"
       }
     ]
   }, {

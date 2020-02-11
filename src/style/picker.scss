@@ -5,6 +5,21 @@
 @import './popup.scss';
 
 @include b(picker) {
+  @include when(large) {
+    .wd-picker__field {
+      font-size: $-picker-cell-fs-large;
+    }
+  }
+  @include when(error) {
+    .wd-picker__value {
+      color: $-color-aid-red;
+    }
+  }
+  @include when(align-right) {
+    .wd-picker__value {
+      text-align: right;
+    }
+  }
   @include e(field) {
     position: relative;
     display: flex;
@@ -15,17 +30,19 @@
     color: $-cell-title-color;
     font-size: $-picker-cell-fs;
     overflow: hidden;
-
-    @include halfPixelBorder('bottom', 15px);
-
-    &:last-child::after {
-      display: none;
+  }
+  @include when(cell) {
+    .wd-picker__field {
+      @include halfPixelBorder('bottom', 15px);
     }
 
-    @include m(disabled) {
-      .wd-picker__value {
-        color: $-picker-column-disabled-color;
-      }
+    &:last-child .wd-picker__field::after {
+      display: none;
+    }
+  }
+  @include when(disabled) {
+    .wd-picker__value {
+      color: $-picker-column-disabled-color;
     }
   }
   @include e(label) {
@@ -33,11 +50,10 @@
     padding: 11px 10px 11px 0;
     color: $-picker-label-color;
     box-sizing: border-box;
-    @include lineEllipsis;
   }
   @include e(value) {
     flex: 1;
-    padding: 11px 0;
+    padding: 11px 10px 11px 0;
     color: $-picker-value-color;
     @include lineEllipsis;
   }

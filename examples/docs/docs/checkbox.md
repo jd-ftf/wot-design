@@ -74,6 +74,17 @@ export default {
 </script>
 ```
 
+### 同行展示
+
+设置 `inline` 属性，使复选框在同一行展示。
+
+```html
+<wd-checkbox-group v-model="value" inline>
+  <wd-checkbox value="jingmai">京麦</wd-checkbox>
+  <wd-checkbox value="shop">商家后台</wd-checkbox>
+</wd-checkbox-group>
+```
+
 ### 禁用
 
 可以在 `checkbox-group` 上面设置 `disabled`，禁用所有复选框，也可以在单个复选框上面设置 `disabled` 属性，禁用某个复选框。
@@ -117,6 +128,7 @@ export default {
 | disabled | 禁用 | boolean | - | false |
 | min | 最小选中的数量 | number | - | 0 |
 | max | 最大选中的数量，0 为无限数量，默认为 0 | number | - | 0 |
+| inline | 同行展示 | boolean | - | false |
 
 ### CheckboxGroup Events
 
