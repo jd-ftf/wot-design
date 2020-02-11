@@ -240,6 +240,11 @@
                 "name": "Tag 标签",
                 "path": "/tag",
                 "demo": "/tag"
+              },
+              "SortButton": {
+                "name": "SortButton 排序按钮",
+                "path": "/sortButton",
+                "demo": "/sortButton"
               }
             }
           }

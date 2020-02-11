@@ -43,5 +43,6 @@
   "tabbar-item": "./packages/tabbar-item/index.js",
   "tag": "./packages/tag/index.js",
   "toast": "./packages/toast/index.js",
-  "tooltip": "./packages/tooltip/index.js"
+  "tooltip": "./packages/tooltip/index.js",
+  "sort-button": "./packages/sort-button/index.js"
 }
