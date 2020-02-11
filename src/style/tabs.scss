@@ -137,7 +137,6 @@
   @include e(map-nav-btn) {
     display: inline-block;
     width: 98px;
-    padding: 0 10px;
     height: 26px;
     border: 1px solid #c5c5c5;
     margin-bottom: 10px;
@@ -183,5 +182,10 @@
     .wd-tabs__nav {
       padding-right: 40px;
     }
+  }
+}
+@media (max-width: 330px) {
+  .wd-tabs__map-nav-btn {
+    width: 90px;
   }
 }
