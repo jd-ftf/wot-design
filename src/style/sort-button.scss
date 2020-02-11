@@ -1,0 +1,45 @@
+@import './abstracts/variable';
+@import './abstracts/mixin';
+
+@include b(sort-button){
+  display: inline-block;
+
+  @include e(wrapper){
+    height: 34px;
+    font-size: 14px;
+    word-break: break-all;
+    white-space:nowrap;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  @include e(right){
+    margin-left: 2px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    @include when(only){
+      justify-content: center;
+
+      .wd-sort-button__icon--top,
+      .wd-sort-button__icon--bottom{
+        margin: 0;
+      }
+    }
+  }
+
+  @include e(icon){
+    display: block;
+    transform: scale((4/7));
+
+    @include m(top){
+      margin-bottom: -4px;
+    }
+    @include m(bottom){
+      margin-top: -4px;
+    }
+  }
+}
+

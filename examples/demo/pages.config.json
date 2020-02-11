@@ -138,6 +138,9 @@
       }, {
         "name": "Tag 标签",
         "path": "/tag"
+      }, {
+        "name": "SortButton 排序按钮",
+        "path": "/sortButton"
       }
     ]
   }
