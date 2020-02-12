@@ -84,16 +84,16 @@ export default {
      * @return {String} direction 方向
      */
     getDirection (value) {
-      // -1 升序，0 无序，1 降序
+      // 1 升序，0 无序，-1 降序
       const target = [-1, 0, 1]
       // 类型检测
       if (target.indexOf(value) === -1) {
         throw Error(`value must be one of ${target}`)
       }
       let direction = ''
-      if (value === -1) {
+      if (value === 1) {
         direction = 'top'
-      } else if (value === 1) {
+      } else if (value === -1) {
         direction = 'bottom'
       }
       return direction
@@ -103,13 +103,13 @@ export default {
      * @param {Number} value
      */
     changeState (value = 0) {
-      // 如果在oneArrow状态设置 value 只能为：-1或1，非法参数自动修正为-1
+      // 如果在oneArrow状态设置 value 只能为：-1或1，非法参数自动修正为1
       if (
         this.oneArrow &&
         (value !== 1 && value !== -1)
       ) {
         console.warn('v-model can\'t be 0 when use oneArrow')
-        return this.$emit('input', -1)
+        return this.$emit('input', 1)
       }
       // 根据数值对方要展示的方向
       const direction = this.getDirection(value)
@@ -163,18 +163,18 @@ export default {
     },
     handleClick () {
       let { value, allowReset, oneArrow } = this
-      if (value === -1) {
+      if (value === 1) {
         // 无论单价头还是双箭头，只要点击就应该由升序切换到降序
-        value = 1
-      } else if (!oneArrow && allowReset && value === 1) {
+        value = -1
+      } else if (!oneArrow && allowReset && value === -1) {
         // 双箭头并且允许重置时，只要点击就应该由降序切换到重置状态
         value = 0
-      } else if (value === 1) {
+      } else if (value === -1) {
         // 不允许重置，只要点击就应该由降序切换到升序
-        value = -1
+        value = 1
       } else {
         // 不管是否允许重置，只要点击就应该由 重置状态 切换到升序
-        value = -1
+        value = 1
       }
       this.changeState(value)
     }
