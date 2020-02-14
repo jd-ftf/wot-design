@@ -85,6 +85,9 @@
         "name": "ActionSheet 动态面板",
         "path": "/actionSheet"
       }, {
+        "name": "DropMenu 下拉菜单",
+        "path": "/dropMenu"
+      }, {
         "name": "InfiniteLoad 无限加载",
         "path": "/infiniteLoad"
       }, {

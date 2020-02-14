@@ -86,13 +86,7 @@
     <white-space title="控制显隐">
       <wd-button @click="control">{{show ? '关' : '开'}}</wd-button>
       <div style="text-align: center;">
-        <wd-tooltip
-          v-model="show"
-          placement="top"
-          content="top 提示文字"
-          @show="onShow"
-          @hide="onHide"
-        >
+        <wd-tooltip v-model="show" placement="top" content="top 提示文字" @show="onShow" @hide="onHide">
           <wd-button class="btn btn-default">控制显隐</wd-button>
         </wd-tooltip>
       </div>

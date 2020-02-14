@@ -47,6 +47,8 @@ import Tag from '../packages/tag'
 import Toast from '../packages/toast'
 import Tooltip from '../packages/tooltip'
 import SortButton from '../packages/sort-button'
+import DropMenu from '../packages/drop-menu'
+import DropMenuItem from '../packages/drop-menu-item'
 import locale from './locale'
 
 const components = [
@@ -93,6 +95,8 @@ const components = [
   Tag,
   Tooltip,
   SortButton,
+  DropMenu,
+  DropMenuItem,
   MessageBox.wdMessageBox
 ]
 
@@ -164,5 +168,7 @@ export default {
   Tag,
   Toast,
   Tooltip,
-  SortButton
+  SortButton,
+  DropMenu,
+  DropMenuItem
 }

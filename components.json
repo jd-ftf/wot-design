@@ -44,5 +44,7 @@
   "tag": "./packages/tag/index.js",
   "toast": "./packages/toast/index.js",
   "tooltip": "./packages/tooltip/index.js",
-  "sort-button": "./packages/sort-button/index.js"
+  "sort-button": "./packages/sort-button/index.js",
+  "drop-menu": "./packages/drop-menu/index.js",
+  "drop-menu-item": "./packages/drop-menu-item/index.js"
 }

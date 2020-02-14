@@ -157,6 +157,11 @@
                 "path": "/actionSheet",
                 "demo": "/actionSheet"
               },
+              "DropMenu": {
+                "name": "DropMenu 下拉菜单",
+                "path": "/dropMenu",
+                "demo": "/dropMenu"
+              },
               "InfiniteLoad": {
                 "name": "InfiniteLoad 无限加载",
                 "path": "/infiniteLoad",

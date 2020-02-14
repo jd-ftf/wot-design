@@ -1,0 +1,60 @@
+@import './abstracts/variable';
+@import './abstracts/mixin';
+
+@include b(drop-menu) {
+  display: flex;
+  background-color: $-color-white;
+  box-sizing: border-box;
+  color: $-color-title;
+  font-size: 14px;
+  position: relative;
+
+  @include e(title) {
+    flex: 1;
+    padding: 0px 15px;
+    height: $-drop-menu-height;
+    line-height: $-drop-menu-height;
+    position: relative;
+    @include lineEllipsis;
+
+    @include when(disabled) {
+      color: $-color-tip;
+    }
+
+    &::before{
+      position: absolute;
+      content: "";
+      width: 200%;
+      height: 0;
+      left: 0;
+      top: 0;
+      border-top: 1px solid $-color-line;
+      transform: scale(.5);
+      transform-origin: left top;
+      z-index: 100;
+    }
+    &::after{
+      position: absolute;
+      content: "";
+      width: 200%;
+      height: 0;
+      left: 0;
+      top: $-drop-menu-height - 1;
+      border-bottom: 1px solid $-color-line;
+      transform: scale(.5);
+      transform-origin: left bottom;
+      z-index: 100;
+    }
+  }
+
+  @include e(arrow) {
+    display: inline-block;
+    transition: transform .3s;
+    transform: scale(.6);
+
+    @include when(retract) {
+      transform: scale(.6) rotate(-180deg);
+      transform-origin: center center;
+    }
+  }
+}

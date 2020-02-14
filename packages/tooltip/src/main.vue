@@ -39,7 +39,7 @@
 </template>
 
 <script>
-import Clickoutside from '../../../src/utils/clickoutside'
+import Clickoutside from 'wot-design/src/utils/clickoutside'
 
 export default {
   name: 'WdTooltip',
