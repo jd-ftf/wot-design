@@ -1,6 +1,6 @@
 <template>
   <div class="wd-badge">
-    <span><slot></slot></span>
+    <slot></slot>
     <transition name="wd-zoom-in-center">
       <sup
         v-show="!hidden && (content || content === 0 || isDot)"

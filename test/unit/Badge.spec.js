@@ -7,7 +7,7 @@ testInstall(Badge)
 test('should render correct contents', () => {
   let wrapper = mount(Badge, {
     slots: {
-      default: 'primary'
+      default: '<span>primary</span>'
     }
   })
   expect(wrapper.element.querySelector('span').textContent).toBe('primary')
