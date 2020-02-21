@@ -6,8 +6,8 @@
   right: 0;
   left: 0;
   overflow: hidden;
-  font-size: 12px;
-  color: $-color-title;
+  font-size: $-drop-menu-item-fs;
+  color: $-drop-menu-item-color;
   width: 100%;
   z-index: 101;
   transition: all .3s;
@@ -18,7 +18,7 @@
     right: 0;
     top: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.7);
+    background: $-drop-menu-item-modal-bg;
     height: 100%;
     z-index: 100;
     transition: opacity .3s;
@@ -29,7 +29,7 @@
     position: absolute;
     z-index: 101;
     width: 100%;
-    background-color: $-color-white;
+    background-color: #fff;
   }
 
   @include e(title){
@@ -37,7 +37,7 @@
     box-sizing: border-box;
     height: $-drop-menu-item-height;
     line-height: $-drop-menu-item-height;
-    padding: 0 15px;
+    padding: 0 $-drop-menu-side-padding;
   }
 
   @include e(icon){
@@ -45,7 +45,7 @@
     float: right;
     height: $-drop-menu-item-height;
     line-height: $-drop-menu-item-height;
-    padding: 0 15px;
+    padding: 0 $-drop-menu-side-padding;
     transform: scale(.6);
   }
 }

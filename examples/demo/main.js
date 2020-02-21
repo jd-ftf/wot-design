@@ -4,8 +4,7 @@ import WotDesign from 'main/index'
 import '../../src/style/index.scss'
 import router from './route'
 import './assets/style/base.scss'
-import WhiteSpace from './components/whiteSpace.vue'
-import Space from './components/space.vue'
+import DemoBlock from './components/demoBlock.vue'
 import TouchEmulator from './utils/touch-emulator'
 import VueI18n from 'vue-i18n'
 import zhCN from 'main/locale/lang/zh-CN'
@@ -32,8 +31,7 @@ const i18n = new VueI18n({
 Vue.use(WotDesign, {
   i18n: (key, value) => i18n.t(key, value)
 })
-Vue.component(WhiteSpace.name, WhiteSpace)
-Vue.component(Space.name, Space)
+Vue.component(DemoBlock.name, DemoBlock)
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */

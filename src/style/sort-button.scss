@@ -5,8 +5,8 @@
   display: inline-block;
 
   @include e(wrapper){
-    height: 34px;
-    font-size: 14px;
+    height: $-sort-button-height;
+    font-size: $-sort-button-fs;
     word-break: break-all;
     white-space:nowrap;
     display: flex;

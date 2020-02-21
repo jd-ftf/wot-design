@@ -43,7 +43,7 @@ flex-direction: row;
   width: 40px;
   height: 100%;
   color: white;
-  line-height: 46px;
+  line-height: 44px;
   text-align: center;
 }
 ```

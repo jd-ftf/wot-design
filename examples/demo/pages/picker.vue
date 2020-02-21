@@ -11,18 +11,18 @@
       <wd-picker :columns="columns1" label="标题" v-model="value8" title="文案标题" />
       <wd-picker :columns="columns1" label="before-confirm" v-model="value9" :loading="isLoading" :before-confirm="beforeConfirm" />
     </div>
-    <space title="label不传">
+    <demo-block title="label不传" transparent>
       <wd-picker :columns="columns1" v-model="value10" />
-    </space>
-    <space title="大小">
+    </demo-block>
+    <demo-block title="大小" transparent>
       <wd-picker :columns="columns1" label="单列选择" v-model="value11" size="large" />
-    </space>
-    <space title="错误">
+    </demo-block>
+    <demo-block title="错误" transparent>
       <wd-picker :columns="columns1" label="单列选择" v-model="value11" error />
-    </space>
-    <space title="值靠右显示">
+    </demo-block>
+    <demo-block title="值靠右显示" transparent>
       <wd-picker :columns="columns1" label="单列选择" v-model="value12" align-right />
-    </space>
+    </demo-block>
   </div>
 </template>
 

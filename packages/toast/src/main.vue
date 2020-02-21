@@ -3,8 +3,8 @@
     <div v-show="forbidClick && show" class="wd-toast__modal"></div>
     <transition name="wd-fade">
       <div v-show="show" class="wd-toast__body" :class="customClass">
-        <wd-loading v-if="iconName === 'loading'" class="wd-toast__icon" :type="loadingType" color="#fff" />
-        <i v-if="iconName" class="wd-toast__icon" :class="[ iconNameToClass ]"></i>
+        <wd-loading v-if="iconName === 'loading'" :class="msg ? 'wd-toast__loading' : ''" :type="loadingType" color="#fff" />
+        <i v-if="iconName && iconName !== 'loading'" class="wd-toast__icon" :class="[ iconNameToClass ]"></i>
         <i v-else-if="iconClass" class="wd-toast__icon" :class="iconClass.split(' ')"></i>
         <div class="wd-toast__msg">{{ msg }}</div>
       </div>
@@ -49,7 +49,9 @@ export default {
           classList.push('wd-toast--middle')
       }
 
-      if (this.iconName || this.iconClass) {
+      if (this.iconName === 'loading' && !this.msg) {
+        classList.push('wd-toast--loading')
+      } else if (this.iconName || this.iconClass) {
         classList.push('wd-toast--with-icon')
       }
 

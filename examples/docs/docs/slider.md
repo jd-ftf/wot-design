@@ -53,7 +53,15 @@ export default {
 <wd-slider :min="4" :max="677" v-model="value"></wd-slider>
 ```
 
-### 隐藏文案
+### 设置步长
+
+设置 `step` 属性。
+
+```html
+<wd-slider v-model="value" :step="10"></wd-slider>
+```
+
+### 隐藏滑块值
 
 设置 `hide-label` 隐藏滑块当前值。
 
@@ -85,7 +93,7 @@ export default {
 | max      | 最大值        | number | - | 100 |
 | min       | 最小值  | number | - | 0 |
 | step           | 步进值        | number | - | 1 |
-| activeColor           | 进度条激活背景颜色        | string | - | '#0084ff' |
+| activeColor           | 进度条激活背景颜色        | string | - | '#0083ff' |
 | inactiveColor           | 进度条未激活背景颜色        | string | - | '#e5e5e5' |
 
 ### Events

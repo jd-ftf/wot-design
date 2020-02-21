@@ -1,12 +1,12 @@
 <template>
   <div class="page-cell">
-    <space title="基本用法">
+    <demo-block title="基本用法" transparent>
       <wd-cell-group>
         <wd-cell title="标题文字" value="内容" />
         <wd-cell title="标题文字" label="描述信息" value="内容" />
       </wd-cell-group>
-    </space>
-    <space title="图标">
+    </demo-block>
+    <demo-block title="图标" transparent>
       <wd-cell-group>
         <wd-cell title="标题文字" value="内容" icon="wd-icon-setting" />
         <wd-cell title="标题文字" value="内容" icon="wd-icon-collect" />
@@ -16,14 +16,14 @@
           </div>
         </wd-cell>
       </wd-cell-group>
-    </space>
-    <space title="大小">
+    </demo-block>
+    <demo-block title="大小" transparent>
       <wd-cell-group>
         <wd-cell title="标题文字" value="内容" size="large" />
         <wd-cell title="标题文字" label="描述信息" value="内容" size="large" />
       </wd-cell-group>
-    </space>
-    <space title="分组标题">
+    </demo-block>
+    <demo-block title="分组标题" transparent>
       <wd-cell-group title="交易管理" value="订购">
         <div slot="value" class="custom-group-value">
           <i class="wd-icon-cart"></i>
@@ -32,17 +32,17 @@
         <wd-cell title="标题文字" value="内容" />
         <wd-cell title="标题文字" label="描述信息" value="内容" />
       </wd-cell-group>
-    </space>
-    <space title="可点击的">
+    </demo-block>
+    <demo-block title="可点击的" transparent>
       <wd-cell clickable title="标题文字" value="内容" @click="toast" />
-    </space>
-    <space title="页面跳转">
+    </demo-block>
+    <demo-block title="页面跳转" transparent>
       <wd-cell-group>
         <wd-cell title="帮助与反馈" is-link :to="href" />
         <wd-cell title="设置" value="内容" is-link :to="{ path: '/button' }" replace />
       </wd-cell-group>
-    </space>
-    <space title="自定义slot">
+    </demo-block>
+    <demo-block title="自定义slot" transparent>
       <wd-cell-group>
         <wd-cell title="标题文字" center>
           <wd-button class="custom-value" size="small" type="primary" plain>按钮</wd-button>
@@ -57,7 +57,7 @@
           </div>
         </wd-cell>
       </wd-cell-group>
-    </space>
+    </demo-block>
   </div>
 </template>
 

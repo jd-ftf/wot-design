@@ -1,6 +1,6 @@
 <template>
   <div>
-    <space title="Form 表单组件组合使用">
+    <demo-block title="Form 表单组件组合使用" transparent>
       <wd-cell-group>
         <wd-input label="用户名" v-model="username" placeholder="请输入用户名" clearable :error="usernameError" />
         <wd-input label="密码" v-model="password" placeholder="请输入密码" show-password clearable :error="passwordError" />
@@ -11,7 +11,7 @@
           </wd-radio-group>
         </wd-cell>
         <wd-cell title="是否订阅">
-          <wd-switch v-model="subscribe" size="20px" />
+          <wd-switch v-model="subscribe" size="20px" style="display: block;" />
         </wd-cell>
         <wd-picker :columns="typeList" v-model="userType" label="注册类型" align-right :error="userTypeError" />
         <wd-datetime-picker v-model="birthday" label="生日" align-right :error="birthdayError" />
@@ -19,8 +19,8 @@
       <div style="padding: 15px">
         <wd-button type="primary" block size="large" @click="handleClick">提交</wd-button>
       </div>
-    </space>
-    <space title="表单数据">
+    </demo-block>
+    <demo-block title="表单数据" transparent>
       <div class="display-item">
         用户名: {{ username }}
       </div>
@@ -36,7 +36,7 @@
       <div class="display-item">
         生日: {{ birthday }}
       </div>
-    </space>
+    </demo-block>
   </div>
 </template>
 

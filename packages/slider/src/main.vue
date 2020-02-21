@@ -28,7 +28,7 @@
       <!-- 左边 -->
       <div
         class="wd-slider__button-wrapper"
-        :style="{left:  leftBarPercent - 10 + '%', visibility: !disabled ? 'show' : 'hidden' }"
+        :style="{left:  leftBarPercent  + '%', visibility: !disabled ? 'show' : 'hidden' }"
         @touchstart="onTouchStart(true)"
         @touchmove="onTouchMove(true)"
         @touchend="onTouchEnd"
@@ -40,7 +40,7 @@
       <div
         v-if="showRight"
         class="wd-slider__button-wrapper"
-        :style="{ left: rightBarPercent - 10 + '%' , visibility: !disabled ? 'show' : 'hidden' } "
+        :style="{ left: rightBarPercent + '%' , visibility: !disabled ? 'show' : 'hidden' } "
         @touchstart="onTouchStart(false)"
         @touchmove="onTouchMove(false)"
         @touchend="onTouchEnd"
@@ -147,6 +147,12 @@ export default {
       if (this.disabled) return
       const { max, min } = this
       this.touchMove(window.event)
+
+      // 禁止页面滚动
+      if (this.direction) {
+        window.event.preventDefault()
+      }
+
       const diff = this.deltaX / this.trackWidth * (max - min)
       this.newValue = this.startValue + diff
       if (left) {
@@ -181,9 +187,9 @@ export default {
       const { min, max, showRight } = this
       value = this.format(value)
       // 把 value 转换成百分比
-      const percent = this.format((value - min) / (max - min) * 100)
+      const percent = (value - min) / (max - min) * 100
       this.leftNewValue = value
-      this.leftBarPercent = this.format(percent)
+      this.leftBarPercent = percent
       if (!showRight) {
         this.currentValue = value
         this.barWidth = percent

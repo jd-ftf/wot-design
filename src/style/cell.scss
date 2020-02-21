@@ -5,18 +5,18 @@
 @include b(cell) {
   position: relative;
   display: flex;
-  padding-left: 15px;
+  padding-left: $-cell-padding;
   background-color: #fff;
   text-decoration: none;
   color: $-cell-title-color;
+  line-height: 1.43;
   -webkit-tap-highlight-color: transparent;
-
   
   @include e(wrapper) {
     position: relative;
     display: flex;
     flex: 1;
-    padding: 12px 15px 12px 0;
+    padding: $-cell-wrapper-padding;
     justify-content: space-between;
     align-items: flex-start;
   }
@@ -29,14 +29,14 @@
     }
   }
   @include e(title) {
-    font-size: $-cell-title-size;
+    font-size: $-cell-title-fs;
     vertical-align: middle;
     flex-shrink: 0;
     margin-right: 20px;
   }
   @include e(label) {
     margin-top: 3px;
-    font-size: $-cell-label-size;
+    font-size: $-cell-label-fs;
     color: $-cell-label-color;
   }
   @include e(right) {
@@ -58,29 +58,37 @@
   }
   @include e(value) {
     display: block;
-    font-size: $-cell-value-size;
+    font-size: $-cell-value-fs;
     color: $-cell-value-color;
   }
   @include e(arrow-right) {
     display: block;
     margin-left: 5px;
-    height: 22px;
-    min-width: 14px;
-    line-height: 22px;
-    font-size: 14px;
-    color: #c5c5c5;
+    height: 20px;
+    min-width: $-cell-arrow-size;
+    line-height: 20px;
+    font-size: $-cell-arrow-size;
+    color: $-cell-arrow-color;
   }
   @include when(link) {
     transition: background .2s;
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0.06);
+    -webkit-tap-highlight-color: $-cell-tap-bg;
 
     &:active {
-      background: rgba(0, 0, 0, 0.06);
+      background: $-cell-tap-bg;
     }
   }
   @include when(large) {
     .wd-cell__title {
-      font-size: $-cell-title-size-large;
+      font-size: $-cell-title-fs-large;
+    }
+    .wd-cell__arrow-right {
+      height: 22px;
+      line-height: 22px;
+    }
+    .wd-cell__icon {
+      height: $-cell-icon-height-large;
+      line-height: $-cell-icon-height-large;
     }
   }
   @include when(center) {

@@ -1,12 +1,12 @@
 <template>
   <div>
-    <space title="基本用法">
+    <demo-block title="基本用法" transparent>
       <wd-drop-menu>
         <wd-drop-menu-item value="0" :options="option1"></wd-drop-menu-item>
         <wd-drop-menu-item value="1" :options="option2"></wd-drop-menu-item>
       </wd-drop-menu>
-    </space>
-    <space title="外部控制">
+    </demo-block>
+    <demo-block title="外部控制" transparent>
       <wd-drop-menu>
         <wd-drop-menu-item v-model="value1" :options="option1"></wd-drop-menu-item>
         <wd-drop-menu-item v-model="value2" :options="option2"></wd-drop-menu-item>
@@ -17,8 +17,8 @@
         size="small"
         style="margin: 10px;display: block;"
       >选中第一个</wd-button>
-    </space>
-    <space title="自定义菜单内容">
+    </demo-block>
+    <demo-block title="自定义菜单内容" transparent>
       <wd-drop-menu>
         <wd-drop-menu-item value="0" :options="option1" />
         <wd-drop-menu-item options="筛选" ref="dropMenu">
@@ -29,34 +29,34 @@
           </div>
         </wd-drop-menu-item>
       </wd-drop-menu>
-    </space>
-    <space title="自定义菜单选项">
+    </demo-block>
+    <demo-block title="自定义菜单选项" transparent>
       <wd-drop-menu>
         <wd-drop-menu-item value="0" :options="option1" />
         <div slot="menu" style="line-height: 14px;">
           <wd-sort-button v-model="value3" title="价格" />
         </div>
       </wd-drop-menu>
-    </space>
-    <space title="自定义激活颜色">
+    </demo-block>
+    <demo-block title="自定义激活颜色" transparent>
       <wd-drop-menu active-color="red">
         <wd-drop-menu-item value="0" :options="option1" />
         <wd-drop-menu-item value="1" :options="option2" />
         <wd-drop-menu-item value="2" :options="option1" />
       </wd-drop-menu>
-    </space>
-    <space title="向上弹出">
+    </demo-block>
+    <demo-block title="向上弹出" transparent>
       <wd-drop-menu direction="up">
         <wd-drop-menu-item value="0" :options="option1" />
         <wd-drop-menu-item value="1" :options="option2" />
       </wd-drop-menu>
-    </space>
-    <space title="禁用">
+    </demo-block>
+    <demo-block title="禁用" transparent>
       <wd-drop-menu direction="up">
         <wd-drop-menu-item value="0" disabled :options="option1" />
         <wd-drop-menu-item value="1" :options="option2" />
       </wd-drop-menu>
-    </space>
+    </demo-block>
   </div>
 </template>
 

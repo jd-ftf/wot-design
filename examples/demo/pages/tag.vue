@@ -1,38 +1,38 @@
 <template>
   <div class="page-tag">
-    <white-space title="基本用法">
+    <demo-block title="基本用法">
       <wd-tag>标签</wd-tag>
       <wd-tag type="primary">标签</wd-tag>
       <wd-tag type="danger">标签</wd-tag>
       <wd-tag type="warning">标签</wd-tag>
       <wd-tag type="success">标签</wd-tag>
-    </white-space>
-    <white-space title="幽灵标签">
+    </demo-block>
+    <demo-block title="幽灵标签">
       <wd-tag plain>标签</wd-tag>
       <wd-tag type="primary" plain>标签</wd-tag>
       <wd-tag type="danger" plain>标签</wd-tag>
       <wd-tag type="warning" plain>标签</wd-tag>
       <wd-tag type="success" plain>标签</wd-tag>
-    </white-space>
-    <white-space title="标签大小">
+    </demo-block>
+    <demo-block title="标签大小">
       <wd-tag size="small">标签</wd-tag>
       <wd-tag>标签</wd-tag>
       <wd-tag size="large">标签</wd-tag>
-    </white-space>
-    <white-space title="自定义颜色">
+    </demo-block>
+    <demo-block title="自定义颜色">
       <wd-tag color="#0083ff" bg-color="#d0e8ff">标签</wd-tag>
       <wd-tag color="#faa21e" bg-color="#faa21e" plain>标签</wd-tag>
-    </white-space>
-    <white-space title="设置图标">
+    </demo-block>
+    <demo-block title="设置图标">
       <wd-tag icon="wd-icon-tickets">标签</wd-tag>
-    </white-space>
-    <white-space title="可关闭">
+    </demo-block>
+    <demo-block title="可关闭">
       <wd-tag v-for="tag in tags" :key="tag.name" type="primary" closable :size="tag.size" plain @close="handleClose(tag)">{{ tag.name }}</wd-tag>
-    </white-space>
-    <white-space title="新增标签">
+    </demo-block>
+    <demo-block title="新增标签">
       <wd-tag v-for="tag in dynamicTags" :key="tag.name" type="primary" closable :size="tag.size" plain @close="handleClose1(tag)">{{ tag.name }}</wd-tag>
       <wd-tag plain dynamic size="large" type="primary" @confirm="handleConfirm"></wd-tag>  
-    </white-space>
+    </demo-block>
   </div>
 </template>
 

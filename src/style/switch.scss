@@ -4,11 +4,11 @@
 @include b(switch) {
   display: inline-block;
   position: relative;
-  width: 1.8em;
-  height: 1em;
-  border-radius: 1em;
-  border: 1px solid $-switch-color-border;
-  background: $-switch-color-inactive;
+  width: $-switch-width;
+  height: $-switch-circle-size;
+  border-radius: $-switch-circle-size;
+  border: 1px solid $-switch-border-color;
+  background: $-switch-inactive-color;
   transition: all .3s;
   -webkit-tap-highlight-color: transparent;
 
@@ -22,22 +22,22 @@
   @include e(circle) {
     position: absolute;
     display: inline-block;
-    width: 1em;
-    height: 1em;
+    width: $-switch-circle-size;
+    height: $-switch-circle-size;
     top: 0;
     left: 0;
     background: #fff;
     border-radius: 50%;
     transition: left .3s ease-out;
-    box-shadow: 0 2px 4px $-switch-color-inactive-shadow;
+    box-shadow: 0 2px 4px $-switch-inactive-shadow-color;
   }
   @include when(checked) {
-    background: $-switch-color-active;
-    border-color: $-switch-color-active;
+    background: $-switch-active-color;
+    border-color: $-switch-active-color;
 
     .wd-switch__circle {
-      left: 0.82em;
-      box-shadow: 0 2px 4px $-switch-color-active-shadow
+      left: calc(#{$-switch-width - $-switch-circle-size} + 1px);
+      box-shadow: 0 2px 4px $-switch-active-shadow-color
     }
   }
   @include when(disabled) {

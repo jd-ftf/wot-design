@@ -70,6 +70,9 @@
         "name": "Search 搜索",
         "path": "/search"
       }, {
+        "name": "Slider 滑块",
+        "path": "/slider"
+      }, {
         "name": "Switch 开关",
         "path": "/switch"
       }, {
@@ -99,9 +102,6 @@
       }, {
         "name": "PullRefresh 下拉刷新",
         "path": "/pullRefresh"
-      }, {
-        "name": "Slider 滑块",
-        "path": "/slider"
       }, {
         "name": "Swipe 轮播图",
         "path": "/swipe"
@@ -133,6 +133,9 @@
         "name": "Progress 进度条",
         "path": "/progress"
       }, {
+        "name": "SortButton 排序按钮",
+        "path": "/sortButton"
+      }, {
         "name": "Steps 步骤条",
         "path": "/steps"
       }, {
@@ -141,9 +144,6 @@
       }, {
         "name": "Tag 标签",
         "path": "/tag"
-      }, {
-        "name": "SortButton 排序按钮",
-        "path": "/sortButton"
       }
     ]
   }
