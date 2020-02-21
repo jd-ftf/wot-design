@@ -4,29 +4,29 @@
 
 @include b(search) {
   display: flex;
-  padding: 10px 0 10px 15px;
+  padding: $-search-padding;
   align-items: center;
   background: #fff;
 
   @include e(block) {
     position: relative;
     flex: 1;
-    background-color: #f4f4f4;
-    border-radius: 4px;
+    background-color: $-search-input-bg;
+    border-radius: $-search-input-radius;
   }
   @include e(input) {
     width: 100%;
-    height: 28px;
-    border-radius: 4px;
+    height: $-search-input-height;
+    border-radius: $-search-input-radius;
     box-sizing: border-box;
-    padding: 5px 32px;
+    padding: $-search-input-padding;
     border: none;
-    line-height: 14px;
+    line-height: $-search-input-height;
     background: transparent;
-    font-size: 14px;
+    font-size: $-search-input-fs;
     -webkit-appearance: none;
     outline: none;
-    color: #333;
+    color: $-search-input-color;
     -webkit-tap-highlight-color: transparent;
 
     @include lineEllipsis;
@@ -39,7 +39,7 @@
     position: absolute;
     width: 100%;
     height: 100%;
-    line-height: 28px;
+    line-height: $-search-input-height;
     left: 0;
     top: 0;
     text-align: center;
@@ -52,15 +52,15 @@
   }
   @include e(search-icon) {
     display: inline-block;
-    color: #c5c5c5;
+    color: $-search-icon-color;
     vertical-align: middle;
-    font-size: 14px;
+    font-size: $-search-input-fs;
   }
   @include e(placeholder-txt) {
     display: inline-block;
     margin-left: 10px;
-    color: #a7a7a7;
-    font-size: 14px;
+    color: $-search-placeholder-color;
+    font-size: $-search-input-fs;
     vertical-align: middle;
   }
   @include e(clear) {
@@ -69,26 +69,26 @@
     right: 12px;
     top: 50%;
     transform: translate(0, -50%);
-    font-size: 14px;
-    color: #a7a7a7;
+    font-size: $-search-input-fs;
+    color: $-search-icon-color;
     -webkit-tap-highlight-color: transparent;
   }
   @include e(cancel) {
-    padding: 0 15px 0 10px;
-    height: 28px;
-    line-height: 28px;
-    font-size: 14px;
-    color: $-color-theme;
+    padding: $-search-cancel-padding;
+    height: $-search-input-height;
+    line-height: $-search-input-height;
+    font-size: $-search-input-fs;
+    color: $-search-cancel-color;
     -webkit-tap-highlight-color: transparent;
   }
   @include when(light) {
-    background: #f4f4f4;
+    background: $-search-light-bg;
 
     .wd-search__block {
       background: #fff;
     }
   }
   @include when(without-cancel) {
-    padding-right: 15px;
+    padding-right: $-search-side-padding;
   }
 }

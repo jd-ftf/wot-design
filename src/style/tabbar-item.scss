@@ -5,7 +5,7 @@
 @include b(tabbar-item) {
   display: block;
   flex: 1;
-  padding: 10px 0 4px;
+  padding: $-tabbar-item-padding;
   text-align: center;
   color: $-tabbar-color;
   user-select: none;
@@ -17,13 +17,15 @@
   @include e(icon) {
     display: block;
     margin: 0 auto;
-    width: 18px;
-    height: 18px;
-    font-size: 18px;
+    width: $-tabbar-icon-size;
+    height: $-tabbar-icon-size;
+    font-size: $-tabbar-icon-size;
+    line-height: initial;
   }
   @include e(label) {
     margin-top: 3px;
-    font-size: 10px;
+    font-size: $-tabbar-label-fs;
+    line-height: $-tabbar-label-line-height;
   }
 
   @include when(active) {

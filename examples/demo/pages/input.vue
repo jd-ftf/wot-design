@@ -1,50 +1,39 @@
 <template>
   <div>
-    <white-space>
-      <div slot="desc">基本用法</div>
+    <demo-block title="基本用法">
       <wd-input v-model="value1" placeholder="请输入用户名" />
-    </white-space>
-    <white-space>
-      <div slot="desc">禁用状态 <code>disabled</code></div>
+    </demo-block>
+    <demo-block title="禁用状态">
       <wd-input v-model="value2" disabled />
-    </white-space>
-    <white-space>
-      <div slot="desc">只读状态 <code>readonly</code></div>
+    </demo-block>
+    <demo-block title="只读状态">
       <wd-input v-model="value3" readonly />
-    </white-space>
-    <white-space>
-      <div slot="desc">错误状态 <code>error</code></div>
+    </demo-block>
+    <demo-block title="错误状态">
       <wd-input v-model="value4" placeholder="请输入用户名" error />
-    </white-space>
-    <white-space>
-      <div slot="desc">清空按钮 <code>clearable</code></div>
+    </demo-block>
+    <demo-block title="清空按钮">
       <wd-input v-model="value5" clearable />
-    </white-space>
-    <white-space>
-      <div slot="desc">密码框 <code>show-password</code></div>
+    </demo-block>
+    <demo-block title="密码框">
       <wd-input v-model="value6" clearable show-password />
-    </white-space>
-    <white-space>
-      <div slot="desc">设置前后Icon <code>prefix-icon</code> 、 <code>suffix-icon</code> 或者设置 <code>prefix/suffix</code> 的slot</div>
+    </demo-block>
+    <demo-block title="设置前后Icon">
       <wd-input v-model="value7" prefix-icon="wd-icon-person" suffix-icon="wd-icon-tickets" />
-    </white-space>
-    <white-space>
-      <div slot="desc">字数限制 <code>show-word-limit</code></div>
+    </demo-block>
+    <demo-block title="字数限制">
       <wd-input v-model="value8" maxlength="20" show-word-limit />
-    </white-space>
-    <white-space :hor="0">
-      <div slot="desc">textarea</div>
+    </demo-block>
+    <demo-block title="textarea" transparent>
       <wd-input type="textarea" v-model="value9" placeholder="请填写评价..." />
-    </white-space>
-    <white-space :hor="0">
-      <div slot="desc">textarea 清空按钮 和 字数限制</div>
+    </demo-block>
+    <demo-block title="textarea 清空按钮 和 字数限制" transparent>
       <wd-input type="textarea" v-model="value10" rows="6" maxlength="120" clearable show-word-limit />
-    </white-space>
-    <white-space>
-      <div slot="desc"><code>type</code> 为 <code>text</code> 且设置 <code>autosize</code></div>
+    </demo-block>
+    <demo-block title="自适应高度">
       <wd-input v-model="value11" autosize clearable />
-    </white-space>
-    <space title="cell类型">
+    </demo-block>
+    <demo-block title="cell类型" transparent>
       <wd-input v-model="value12" placeholder="请输入..." label="基本用法" />
       <wd-input v-model="value13" placeholder="请输入..." label="禁用" disabled />
       <wd-input v-model="value14" placeholder="请输入..." label="清除、密码" show-password clearable />
@@ -54,7 +43,7 @@
         <wd-button slot="suffix" type="primary" size="small" class="custom-button">获取验证码</wd-button>
       </wd-input>
       <wd-input v-model="value18" placeholder="请输入..." label="大尺寸" size="large" />
-    </space>
+    </demo-block>
   </div>
 </template>
 

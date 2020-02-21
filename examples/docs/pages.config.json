@@ -138,6 +138,11 @@
                 "path": "/search",
                 "demo": "/search"
               },
+              "Slider": {
+                "name": "Slider 滑块",
+                "path": "/slider",
+                "demo": "/slider"
+              },
               "Switch": {
                 "name": "Switch 开关",
                 "path": "/switch",
@@ -181,11 +186,6 @@
                 "name": "PullRefresh 下拉刷新",
                 "path": "/pullRefresh",
                 "demo": "/pullRefresh"
-              },
-              "Slider": {
-                "name": "Slider 滑块",
-                "path": "/slider",
-                "demo": "/slider"
               },
               "Swipe": {
                 "name": "Swipe 轮播图",
@@ -231,6 +231,11 @@
                 "path": "/progress",
                 "demo": "/progress"
               },
+              "SortButton": {
+                "name": "SortButton 排序按钮",
+                "path": "/sortButton",
+                "demo": "/sortButton"
+              },
               "Steps": {
                 "name": "Steps 步骤条",
                 "path": "/steps",
@@ -245,11 +250,6 @@
                 "name": "Tag 标签",
                 "path": "/tag",
                 "demo": "/tag"
-              },
-              "SortButton": {
-                "name": "SortButton 排序按钮",
-                "path": "/sortButton",
-                "demo": "/sortButton"
               }
             }
           }

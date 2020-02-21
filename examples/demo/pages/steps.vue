@@ -1,20 +1,20 @@
 <template>
   <div>
-    <white-space title="基本用法">
+    <demo-block title="基本用法">
       <wd-steps :active="0">
         <wd-step />
         <wd-step />
         <wd-step />
       </wd-steps>
-    </white-space>
-    <white-space title="水平居中">
+    </demo-block>
+    <demo-block title="水平居中">
       <wd-steps :active="1" align-center>
         <wd-step />
         <wd-step />
         <wd-step />
       </wd-steps>
-    </white-space>
-    <white-space title="标题和描述信息">
+    </demo-block>
+    <demo-block title="标题和描述信息">
       <wd-steps :active="value1" align-center>
         <wd-step title="步骤1" description="注册1个账号" />
         <wd-step title="步骤2" description="登录账号并绑定手机" />
@@ -23,35 +23,35 @@
       <div style="margin-top: 15px; text-align: center;">
         <wd-button @click="nextStep" type="primary" size="small">下一步</wd-button>
       </div>
-    </white-space>
-    <white-space title="修改图标">
+    </demo-block>
+    <demo-block title="修改图标">
       <wd-steps :active="1" align-center>
         <wd-step icon="wd-icon-invite" />
         <wd-step icon="wd-icon-link" />
         <wd-step icon="wd-icon-clock" />
       </wd-steps>
-    </white-space>
-    <white-space title="竖向步骤条">
+    </demo-block>
+    <demo-block title="竖向步骤条">
       <wd-steps :active="1" vertical>
         <wd-step description="注册1个账号" />
         <wd-step description="登录账号并绑定手机" />
         <wd-step description="完善个人信息" />
       </wd-steps>
-    </white-space>
-    <white-space title="点状步骤和垂直方向">
+    </demo-block>
+    <demo-block title="点状步骤和垂直方向">
       <wd-steps :active="1" vertical dot>
         <wd-step description="注册1个账号" />
         <wd-step description="登录账号并绑定手机" />
         <wd-step description="完善个人信息" />
       </wd-steps>
-    </white-space>
-    <white-space title="修改状态">
+    </demo-block>
+    <demo-block title="修改状态">
       <wd-steps :active="1" align-center>
         <wd-step title="绑定手机" status="error" />
         <wd-step title="重新绑定手机" />
         <wd-step title="步骤3" />
       </wd-steps>
-    </white-space>
+    </demo-block>
   </div>
 </template>
 

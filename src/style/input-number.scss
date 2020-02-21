@@ -5,14 +5,15 @@
   display: inline-block;
   font-size: 0;
   user-select: none;
+  line-height: 1.15;
 
   @include e(action) {
     position: relative;
     display: inline-block;
-    width: $-inputNumber-btn-width;
-    height: $-inputNumber-height;
+    width: $-input-number-btn-width;
+    height: $-input-number-height;
     vertical-align: middle;
-    color: $-inputNumber-color;
+    color: $-input-number-color;
     -webkit-tap-highlight-color: transparent;
 
     &::after {
@@ -22,19 +23,19 @@
       height: calc(200% - 2px);
       left: 0;
       top: 0;
-      border: 1px solid $-inputNumber-border-color;
-      border-top-left-radius: 4px;
-      border-bottom-left-radius: 4px;
+      border: 1px solid $-input-number-border-color;
+      border-top-left-radius: $-input-number-radius;
+      border-bottom-left-radius: $-input-number-radius;
       transform: scale(0.5) translate(-50%, -50%);
     }
     &:last-child::after {
       border-top-left-radius: 0;
       border-bottom-left-radius: 0;
-      border-top-right-radius: 4px;
-      border-bottom-right-radius: 4px;
+      border-top-right-radius: $-input-number-radius;
+      border-bottom-right-radius: $-input-number-radius;
     }
     @include when(disabled) {
-      color: $-inputNumber-disabled-color;
+      color: $-input-number-disabled-color;
     }
   }
   @include e(inner) {
@@ -45,8 +46,8 @@
   @include e(input) {
     position: relative;
     display: block;
-    width: $-inputNumber-input-width;
-    height: $-inputNumber-height;
+    width: $-input-number-input-width;
+    height: $-input-number-height;
     padding: 0 2px;
     box-sizing: border-box;
     z-index: 1;
@@ -54,8 +55,8 @@
     border: none;
     outline: none;
     text-align: center;
-    color: $-inputNumber-color;
-    font-size: 12px;
+    color: $-input-number-color;
+    font-size: $-input-number-fs;
     -webkit-appearance: none;
     -webkit-tap-highlight-color: transparent;
   }
@@ -65,15 +66,15 @@
     height: calc(200% - 2px);
     left: 0;
     top: 0;
-    border-top: 1px solid $-inputNumber-border-color;
-    border-bottom: 1px solid $-inputNumber-border-color;
+    border-top: 1px solid $-input-number-border-color;
+    border-bottom: 1px solid $-input-number-border-color;
     transform: scale(0.5) translate(-50%, -50%);
     z-index: 0;
   }
   @include e(sub) {
     position: absolute;
     display: inline-block;
-    width: 13px;
+    width: $-input-number-icon-size;
     height: 1px;
     left: 50%;
     top: 50%;
@@ -83,7 +84,7 @@
   @include e(add) {
     position: absolute;
     display: inline-block;
-    width: 13px;
+    width: $-input-number-icon-size;
     height: 1px;
     left: 50%;
     top: 50%;
@@ -93,7 +94,7 @@
     &::after {
       position: absolute;
       content: '';
-      width: 13px;
+      width: $-input-number-icon-size;
       height: 1px;
       left: 0;
       top: 0;
@@ -104,9 +105,12 @@
   
   @include when(disabled) {
     .wd-input-number__input {
-      color: $-inputNumber-disabled-color;
-      background: $-inputNumber-disabled-input-bg;
+      color: $-input-number-disabled-color;
+      background: $-input-number-disabled-input-bg;
       z-index: inherit;
+    }
+    .wd-input-number__sub, .wd-input-number__add {
+      color: $-input-number-disabled-color;
     }
   }
   @include when(without-input) {

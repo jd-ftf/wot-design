@@ -76,3 +76,18 @@
      scrollbar-color: rgba(0, 0, 0, 0.2) #fefefe;
    }
  }
+
+ .style-block {
+  display: inline-block;
+  width: 180px;
+  padding: 15px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  border-radius: 4px;
+  color: #fff;
+
+  p {
+    margin: 0;
+    color: #fff;
+  }
+}

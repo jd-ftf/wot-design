@@ -1,10 +1,10 @@
 import Lazyload from 'vue-lazyload'
-import lazyPlaceholder from './img/placeholder.png'
+import lazyLoading from './img/loading.svg'
 
 export default {
   install (Vue, options) {
     Vue.use(Lazyload, Object.assign({
-      loading: lazyPlaceholder,
+      loading: lazyLoading,
       attempt: 3
     }, options))
   }

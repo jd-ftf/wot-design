@@ -1,10 +1,10 @@
 <template>
   <div class="page-popup">
-    <white-space title="基本用法">
+    <demo-block title="基本用法">
       <wd-button type="primary" @click="show1 = true">弹出层</wd-button>
       <wd-popup v-model="show1" :style="{ 'padding': '30px 40px' }">内容</wd-popup>
-    </white-space>
-    <white-space title="弹出位置">
+    </demo-block>
+    <demo-block title="弹出位置">
       <wd-button type="primary" @click="show2 = true">顶部</wd-button>
       <wd-popup v-model="show2" position="top" :style="{ 'height': '200px' }"></wd-popup>
       <wd-button type="primary" @click="show3 = true">右侧</wd-button>
@@ -13,11 +13,11 @@
       <wd-popup v-model="show4" position="bottom" :style="{ 'height': '200px' }"></wd-popup>
       <wd-button type="primary" @click="show5 = true">左侧</wd-button>
       <wd-popup v-model="show5" position="left" :style="{ 'width': '200px' }"></wd-popup>
-    </white-space>
-    <white-space title="关闭按钮">
+    </demo-block>
+    <demo-block title="关闭按钮">
       <wd-button type="primary" @click="show6 = true">关闭按钮</wd-button>
       <wd-popup v-model="show6" position="bottom" :style="{ 'height': '200px' }" closable></wd-popup>
-    </white-space>
+    </demo-block>
   </div>
 </template>
 

@@ -1,7 +1,6 @@
 <template>
   <div class="page-badge">
-    <white-space>
-      <div slot="desc">展示消息数量<code>value</code></div>
+    <demo-block title="展示消息数量">
       <wd-badge :value="12" class="item">
         <wd-button size="small">评论</wd-button>
       </wd-badge>
@@ -20,32 +19,29 @@
       <wd-badge :value="2" class="item" type="info">
         <wd-button size="small">回复</wd-button>
       </wd-badge>
-    </white-space>
-    <white-space>
-      <div slot="desc">可定义消息最大值<code>max</code></div>
+    </demo-block>
+    <demo-block title="定义消息最大值">
       <wd-badge :value="200" :max="99" class="item">
         <wd-button size="small">评论</wd-button>
       </wd-badge>
       <wd-badge :value="100" :max="10" class="item ">
         <wd-button size="small">回复</wd-button>
       </wd-badge>
-    </white-space>
-    <white-space>
-      <div slot="desc">可自己定制内容<code>value</code>，value 设置为字符串</div>
+    </demo-block>
+    <demo-block title="自定义内容">
       <wd-badge value="new" class="item">
         <wd-button size="small">评论</wd-button>
       </wd-badge>
       <wd-badge value="hot" class="item">
         <wd-button size="small">回复</wd-button>
       </wd-badge>
-    </white-space>
-    <white-space>
-      <div slot="desc">小红点<code>is-dot</code></div>
+    </demo-block>
+    <demo-block title="点状类型">
       <wd-badge is-dot class="item ">数据查询</wd-badge>
       <wd-badge is-dot class="item">
         <wd-button class="share-button">数据查询</wd-button>
       </wd-badge>
-    </white-space>
+    </demo-block>
   </div>
 </template>
 

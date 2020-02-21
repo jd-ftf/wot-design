@@ -1,17 +1,17 @@
 <template>
   <div>
-    <white-space title="基本用法">
+    <demo-block title="基本用法">
       <wd-progress :percentage="30" />
-    </white-space>
-    <white-space title="不显示进度文字">
+    </demo-block>
+    <demo-block title="不显示进度文字">
       <wd-progress :percentage="60" hide-text />
-    </white-space>
-    <white-space title="修改颜色">
+    </demo-block>
+    <demo-block title="修改颜色">
       <wd-progress :percentage="80" color="#00c740" />
-    </white-space>
-    <white-space title="颜色数组">
+    </demo-block>
+    <demo-block title="颜色数组">
       <wd-progress :percentage="percentage" :color="[ '#00c740', '#ffb300', '#e2231a', '#0083ff' ]" hide-text />
-    </white-space>
+    </demo-block>
   </div>
 </template>
 

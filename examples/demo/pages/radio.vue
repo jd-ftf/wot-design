@@ -1,36 +1,31 @@
 <template>
   <div>
-    <white-space>
-      <div slot="desc">基本用法</div>
+    <demo-block title="基本用法">
       <wd-radio-group v-model="value1">
         <wd-radio value="1">单选框1</wd-radio>
         <wd-radio value="2">单选框2</wd-radio>
       </wd-radio-group>
-    </white-space>
-    <white-space>
-      <div slot="desc">同行展示</div>
+    </demo-block>
+    <demo-block title="同行展示">
       <wd-radio-group v-model="value2" inline>
         <wd-radio value="1">单选框1</wd-radio>
         <wd-radio value="2">单选框2</wd-radio>
       </wd-radio-group>
-    </white-space>
-    <white-space>
-      <div slot="desc">修改形状(在radioGroup上设置) <code>shape</code> 为 <code>'button'</code></div>
+    </demo-block>
+    <demo-block title="修改形状">
       <wd-radio-group v-model="value3" shape="button">
         <wd-radio value="1">京麦</wd-radio>
         <wd-radio value="2">商家后台</wd-radio>
       </wd-radio-group>
-    </white-space>
-    <white-space>
-      <div slot="desc">修改选中颜色 <code>checked-color</code></div>
+    </demo-block>
+    <demo-block title="修改选中颜色">
       <wd-radio-group v-model="value4" checked-color="#f00">
         <wd-radio value="1">京麦</wd-radio>
         <wd-radio value="2">商家后台</wd-radio>
       </wd-radio-group>
-    </white-space>
-    <white-space>
-      <div slot="desc">禁用 <code>disabled</code></div>
-      <wd-radio-group v-model="value5" disabled>
+    </demo-block>
+    <demo-block title="禁用">
+      <wd-radio-group v-model="value5" disabled style="margin-bottom: 10px;">
         <wd-radio value="1">京麦</wd-radio>
         <wd-radio value="2">商家后台</wd-radio>
       </wd-radio-group>
@@ -38,7 +33,7 @@
         <wd-radio value="1">京麦</wd-radio>
         <wd-radio value="2">商家后台</wd-radio>
       </wd-radio-group>
-    </white-space>
+    </demo-block>
   </div>
 </template>
 

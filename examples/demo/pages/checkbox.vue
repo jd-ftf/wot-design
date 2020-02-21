@@ -1,41 +1,33 @@
 <template>
   <div>
-    <white-space>
-      <div slot="desc">基本用法</div>
+    <demo-block title="基本用法">
       <wd-checkbox v-model="value1">单选框1</wd-checkbox>
-    </white-space>
-    <white-space>
-      <div slot="desc">修改形状 shape 为 'square'</div>
+    </demo-block>
+    <demo-block title="修改形状: square">
       <wd-checkbox v-model="value2" shape="square">京麦</wd-checkbox>
-    </white-space>
-    <white-space>
-      <div slot="desc">修改形状 shape 为 'button'</div>
+    </demo-block>
+    <demo-block title="修改形状: button">
       <wd-checkbox v-model="value3" shape="button">京麦</wd-checkbox>
-    </white-space>
-    <white-space>
-      <div slot="desc">修改选中颜色 <code>checked-color</code></div>
+    </demo-block>
+    <demo-block title="修改选中颜色">
       <wd-checkbox v-model="value4" checked-color="#f00">京麦</wd-checkbox>
-    </white-space>
-    <white-space>
-      <div slot="desc">修改 <code>true-value</code> 和 <code>false-value</code> {{ value5 }}</div>
+    </demo-block>
+    <demo-block :title="'修改 true-value 和 false-value ' + value5">
       <wd-checkbox v-model="value5" true-value="京麦" false-value="商家后台">复选框</wd-checkbox>
-    </white-space>
-    <white-space>
-      <div slot="desc">复选框组</div>
+    </demo-block>
+    <demo-block title="复选框组">
       <wd-checkbox-group v-model="value6">
         <wd-checkbox value="jingmai">京麦</wd-checkbox>
         <wd-checkbox value="shop">商家后台</wd-checkbox>
       </wd-checkbox-group>
-    </white-space>
-    <white-space>
-      <div slot="desc">同行展示</div>
+    </demo-block>
+    <demo-block title="同行展示">
       <wd-checkbox-group v-model="value7" inline>
         <wd-checkbox value="jingmai">京麦</wd-checkbox>
         <wd-checkbox value="shop">商家后台</wd-checkbox>
       </wd-checkbox-group>
-    </white-space>
-    <white-space>
-      <div slot="desc">禁用状态</div>
+    </demo-block>
+    <demo-block title="禁用状态">
       <wd-checkbox-group v-model="value8" disabled style="margin-bottom: 10px;">
         <wd-checkbox value="jingmai">京麦</wd-checkbox>
         <wd-checkbox value="shop">商家后台</wd-checkbox>
@@ -48,16 +40,15 @@
         <wd-checkbox value="jingmai">京麦</wd-checkbox>
         <wd-checkbox value="shop">商家后台</wd-checkbox>
       </wd-checkbox-group>
-    </white-space>
-    <white-space>
-      <div slot="desc">设置最小选中数量 <code>min</code> 为1 和最大选中数量 <code>max</code> 为3（也可以将其中一项设置为disabled，剩下3项最多选2项）</div>
+    </demo-block>
+    <demo-block title="设置最小选中数量和最大选中数量">
       <wd-checkbox-group v-model="value11" :min="1" :max="3">
         <wd-checkbox value="jd">京东</wd-checkbox>
         <wd-checkbox value="jingmai">京麦</wd-checkbox>
         <wd-checkbox value="shop">商家后台</wd-checkbox>
         <wd-checkbox value="market">营销中心</wd-checkbox>
       </wd-checkbox-group>
-    </white-space>
+    </demo-block>
   </div>
 </template>
 

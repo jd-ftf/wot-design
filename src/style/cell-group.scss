@@ -8,16 +8,16 @@
     position: relative;
     display: flex;
     justify-content: space-between;
-    padding: 15px;
+    padding: $-cell-padding;
     background: #fff;
-    font-size: $-cell-group-title-size;
+    font-size: $-cell-group-title-fs;
     color: $-cell-group-title-color;
     
     @include halfPixelBorder;
   }
   @include e(right) {
     color: $-cell-group-value-color;
-    font-size: $-cell-group-value-size;
+    font-size: $-cell-group-value-fs;
   }
   @include e(body) {
     background: #fff;

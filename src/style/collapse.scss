@@ -9,7 +9,7 @@
     padding: $-collapse-body-padding;
   }
   @include e(content) {
-    font-size: $-collapse-body-size;
+    font-size: $-collapse-body-fs;
     color: $-collapse-body-color;
 
     @include when(retract) {
@@ -20,7 +20,7 @@
   }
   @include e(more) {
     margin-top: 4px;
-    font-size: $-collapse-more-size;
+    font-size: $-collapse-more-fs;
     color: $-collapse-more-color;
     user-select: none;
   }

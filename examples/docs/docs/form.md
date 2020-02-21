@@ -21,7 +21,8 @@
         </wd-radio-group>
       </wd-cell>
       <wd-cell title="是否订阅">
-        <wd-switch v-model="subscribe" size="20px" />
+        <!-- 设置为block展示，避免空格导致单元格高度被空格撑开 -->
+        <wd-switch v-model="subscribe" size="20px" style="display: block;" />
       </wd-cell>
       <wd-picker :columns="typeList" v-model="userType" label="注册类型" align-right :error="userTypeError" />
       <wd-datetime-picker v-model="birthday" label="生日" align-right :error="birthdayError" />
