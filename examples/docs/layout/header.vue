@@ -5,6 +5,7 @@
         <img class="wot-design-logo" src="../assets/img/wot-design.png" alt="wot design" />
         <h1 class="wot-design-title">京麦 Wot Design</h1>
       </router-link>
+      <survey></survey>
       <ul class="header-tab">
         <!-- 搜索 -->
         <li class="header-tab__item">
@@ -54,6 +55,7 @@
 <script>
 import pagesConfig from '../pages.config.json'
 import search from './search.vue'
+import survey from './survey'
 import axios from 'axios'
 
 const { version } = require('../../../package.json')
