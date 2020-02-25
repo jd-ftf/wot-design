@@ -30,7 +30,7 @@
     <demo-block title="禁用状态">
       <wd-checkbox-group v-model="value8" disabled style="margin-bottom: 10px;">
         <wd-checkbox value="jingmai">京麦</wd-checkbox>
-        <wd-checkbox value="shop">商家后台</wd-checkbox>
+        <wd-checkbox value="shop" :disabled="false">商家后台</wd-checkbox>
       </wd-checkbox-group>
       <wd-checkbox-group v-model="value9" disabled shape="square" style="margin-bottom: 10px;">
         <wd-checkbox value="jingmai">京麦</wd-checkbox>
