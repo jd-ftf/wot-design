@@ -163,6 +163,58 @@ export default {
 </script>
 ```
 
+### 选择器大小
+
+通过设置 `size` 修改选择器大小，将 `size` 设置为 'large' 时字号为 16px。
+
+```html
+<wd-datetime-picker label="日期选择" size="large" v-model="value" />
+```
+
+### 错误状态
+
+设置 `error` 属性，选择器的值显示为红色。
+
+```html
+<wd-datetime-picker label="日期选择" error v-model="value" />
+```
+
+### 值靠右展示
+
+设置 `align-right` 属性，选择器的值靠右展示。
+
+```html
+<wd-datetime-picker label="日期选择" align-right v-model="value" />
+```
+
+### 确定前校验
+
+设置 `before-confirm` 函数，在用户点击`确定`按钮时，会执行 `before-confirm` 函数，并传入 `value`(time 类型为字符串，其他为 Date 类型) 和 `resolve` 参数，可以对 `value` 进行校验，并通过 `resolve` 函数告知组件是否确定通过，`resolve` 接受1个 boolean 值，`resolve(true)` 表示选项通过，`resolve(false)` 表示选项不通过，不通过时不会关闭 `datetimePicker`弹窗。
+
+```html
+<wd-datetime-picker v-model="value" label="before-confirm" :before-confirm="beforeConfirm" />
+
+<script>
+export default {
+  data () {
+    return {
+      value: new Date()
+    }
+  },
+  methods: {
+    beforeConfirm (value, resolve) {
+      if (value.getTime() > Date.now()) {
+        resolve(false)
+        this.$toast.error('不能选择大于今天的日期')
+      } else {
+        resolve(true)
+      }
+    }
+  }
+}
+</script>
+```
+
 ### Attributes
 
 | 参数      | 说明                                 | 类型      | 可选值       | 默认值   |
@@ -189,6 +241,11 @@ export default {
 | maxHour | 最大小时 | number | - | 23 |
 | minMinute | 最小分钟 | number | - | 0 |
 | maxMinute | 最大分钟 | number | - | 59 |
+| size | 设置选择器大小 | string | 'large' | - |
+| label-width | 设置左侧标题宽度 | string | - | '33%' |
+| error | 是否为错误状态，错误状态时右侧内容为红色 | boolean | - | false |
+| align-right | 选择器的值靠右展示 | boolean | - | false |
+| before-confirm | 确定前校验函数，接收 (value, resolve) 参数，通过 resolve 继续执行 picker，resolve 接收1个boolean参数 | function | - | - |
 
 ### Events
 
@@ -197,3 +254,8 @@ export default {
 | confirm | 点击右侧按钮触发 | - |
 | cancel | 点击左侧按钮触发 | - |
 
+### Slot
+
+| name      | 说明       |
+|------------- |----------- |
+| label | 左侧标题插槽 |

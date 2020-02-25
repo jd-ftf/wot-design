@@ -1,26 +1,21 @@
 <template>
   <div>
-    <white-space>
-      <div slot="desc">基本用法</div>
+    <demo-block title="基本用法">
       <wd-switch v-model="value1" />
-    </white-space>
-    <white-space>
-      <div slot="desc">修改值 <code>active-value</code>、<code>inactive-value</code></div>
+    </demo-block>
+    <demo-block title="修改值 active-value、inactive-value">
       <p>{{ value2 }}</p>
       <wd-switch v-model="value2" active-value="京麦" inactive-value="商家后台" />
-    </white-space>
-    <white-space>
-      <div slot="desc">自定义颜色 <code>active-color</code>、<code>inactive-color</code></div>
+    </demo-block>
+    <demo-block title="自定义颜色">
       <wd-switch v-model="value3" active-color="#13ce66" inactive-color="#f00" />
-    </white-space>
-    <white-space>
-      <div slot="desc">修改大小 <code>size</code></div>
+    </demo-block>
+    <demo-block title="修改大小">
       <wd-switch v-model="value4" size="20px" />
-    </white-space>
-    <white-space>
-      <div slot="desc">禁用 <code>disabled</code></div>
+    </demo-block>
+    <demo-block title="禁用">
       <wd-switch v-model="value5" disabled />
-    </white-space>
+    </demo-block>
   </div>
 </template>
 

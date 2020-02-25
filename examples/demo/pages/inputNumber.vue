@@ -1,40 +1,32 @@
 <template>
   <div class="page-input-number">
-    <white-space>
-      <div slot="desc">基本用法</div>
+    <demo-block title="基本用法">
       <wd-input-number v-model="value1" />
-    </white-space>
-    <white-space>
-      <div slot="desc">设置步长<code>step</code></div>
+    </demo-block>
+    <demo-block title="设置步长">
       <wd-input-number v-model="value2" :step="2" />
-    </white-space>
-    <white-space>
-      <div slot="desc">限制最小最大值<code>min</code>、<code>max</code></div>
+    </demo-block>
+    <demo-block title="设置最小最大值">
       <wd-input-number v-model="value3" :min="3" :max="10" />
-    </white-space>
-    <white-space>
-      <div slot="desc">禁用<code>disabled</code></div>
+    </demo-block>
+    <demo-block title="禁用">
       <wd-input-number v-model="value4" disabled />
-    </white-space>
-    <white-space>
-      <div slot="desc">无输入框<code>without-input</code></div>
+    </demo-block>
+    <demo-block title="无输入框">
       <div class="flex">
         <div>数量：{{ value5 }}</div>
         <wd-input-number class="input-number-inline" v-model="value5" without-input />
       </div>
-    </white-space>
-    <white-space>
-      <div slot="desc">设置精度<code>precision</code></div>
+    </demo-block>
+    <demo-block title="设置精度">
       <wd-input-number v-model="value6" :precision="2" :step="0.1" />
-    </white-space>
-    <white-space>
-      <div slot="desc">输入严格为步数的倍数<code>step-strictly</code></div>
+    </demo-block>
+    <demo-block title="输入严格为步数的倍数">
       <wd-input-number v-model="value7" step-strictly :step="2" />
-    </white-space>
-    <white-space>
-      <div slot="desc">修改输入框宽度<code>input-width</code></div>
+    </demo-block>
+    <demo-block title="修改输入框宽度">
       <wd-input-number v-model="value8" input-width="70px" />
-    </white-space>
+    </demo-block>
   </div>
 </template>
 

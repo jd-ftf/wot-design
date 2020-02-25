@@ -138,10 +138,20 @@
                 "path": "/search",
                 "demo": "/search"
               },
+              "Slider": {
+                "name": "Slider 滑块",
+                "path": "/slider",
+                "demo": "/slider"
+              },
               "Switch": {
                 "name": "Switch 开关",
                 "path": "/switch",
                 "demo": "/switch"
+              },
+              "Form": {
+                "name": "Form 表单组合",
+                "path": "/form",
+                "demo": "/form"
               }
             }
           }, {
@@ -151,6 +161,11 @@
                 "name": "ActionSheet 动态面板",
                 "path": "/actionSheet",
                 "demo": "/actionSheet"
+              },
+              "DropMenu": {
+                "name": "DropMenu 下拉菜单",
+                "path": "/dropMenu",
+                "demo": "/dropMenu"
               },
               "InfiniteLoad": {
                 "name": "InfiniteLoad 无限加载",
@@ -172,20 +187,25 @@
                 "path": "/pullRefresh",
                 "demo": "/pullRefresh"
               },
-              "Slider": {
-                "name": "Slider 滑块",
-                "path": "/slider",
-                "demo": "/slider"
-              },
               "Swipe": {
                 "name": "Swipe 轮播图",
                 "path": "/swipe",
                 "demo": "/swipe"
               },
+              "SwipeAction": {
+                "name": "SwipeAction 滑动操作",
+                "path": "/swipeAction",
+                "demo": "/swipeAction"
+              },
               "Toast": {
                 "name": "Toast 轻提示",
                 "path": "/toast",
                 "demo": "/toast"
+              },
+              "Tooltip": {
+                "name": "Tooltip 文字提示",
+                "path": "/tooltip",
+                "demo": "/tooltip"
               }
             }
           }, {
@@ -210,6 +230,11 @@
                 "name": "Progress 进度条",
                 "path": "/progress",
                 "demo": "/progress"
+              },
+              "SortButton": {
+                "name": "SortButton 排序按钮",
+                "path": "/sortButton",
+                "demo": "/sortButton"
               },
               "Steps": {
                 "name": "Steps 步骤条",

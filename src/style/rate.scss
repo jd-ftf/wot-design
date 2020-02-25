@@ -6,6 +6,7 @@
   display: inline-block;
   list-style: none;
   vertical-align: middle;
+  line-height: 1;
 
   @include e(item) {
     position: relative;

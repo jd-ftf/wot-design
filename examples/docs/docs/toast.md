@@ -51,7 +51,7 @@ this.$toast.close()
 ### loading 提示
 
 ```javascript
-this.$toast.loading('加载中')
+this.$toast.loading('加载中...')
 ```
 
 修改 loading 指示器类型：
@@ -59,7 +59,7 @@ this.$toast.loading('加载中')
 ```javascript
 this.$toast.loading({
   loadingType: 'spinner',
-  msg: '加载中'
+  msg: '加载中...'
 })
 ```
 

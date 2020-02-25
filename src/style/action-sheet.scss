@@ -68,10 +68,10 @@
   }
   @include e(header) {
     position: relative;
-    height: 45px;
-    line-height: 45px;
+    height: $-action-sheet-title-height;
+    line-height: $-action-sheet-title-height;
     text-align: center;
-    font-size: 16px;
+    font-size: $-action-sheet-title-fs;
 
     &::after {
       position: absolute;
@@ -86,10 +86,10 @@
   }
   @include e(close) {
     position: absolute;
-    top: 10px;
-    right: 10px;
-    color: #666;
-    font-size: 24px;
+    top: $-action-sheet-close-top;
+    right: $-action-sheet-close-right;
+    color: $-action-sheet-close-color;
+    font-size: $-action-sheet-close-fs;
     transform: rotate(-45deg);
     line-height: 1.1;
     -webkit-tap-highlight-color: transparent;

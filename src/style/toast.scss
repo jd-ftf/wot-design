@@ -15,14 +15,14 @@
   }
   @include e(body) {
     position: fixed;
-    padding: 8px 14px;
+    padding: $-toast-padding;
     z-index: 3010;
-    background-color: rgba(0, 0, 0, 0.7);
-    border-radius: 8px;
+    background-color: $-toast-bg;
+    border-radius: $-toast-radius;
     color: #fff;
-    transition: all 0.2s;
+    transition: opacity 0.2s;
     text-align: center;
-    font-size: 14px;
+    font-size: $-toast-fs;
   }
   @include e(msg) {
     line-height: 1.4285;
@@ -31,7 +31,11 @@
   @include e(icon) {
     display: inline-block;
     margin-bottom: 16px;
-    font-size: 39px;
+    font-size: $-toast-icon-size;
+  }
+  @include e(loading) {
+    display: inline-block;
+    margin-bottom: 16px;
   }
   @include m(middle) {
     top: 50%;
@@ -49,8 +53,12 @@
     transform: translate3d(-50%, 0, 0);
   }
   @include m(with-icon) {
-    min-width: 150px;
-    padding: 18px 15px 15px;
+    min-width: $-toast-with-icon-min-width;
+    padding: $-toast-with-icon-padding;
     box-sizing: border-box;
+  }
+  @include m(loading) {
+    min-width: auto;
+    padding: $-toast-loading-padding;
   }
 }

@@ -60,6 +60,16 @@ Vue.use(Cell)
 </style>
 ```
 
+### 单元格大小
+
+通过设置 `size` 修改单元格大小，将 `size` 设置为 'large' 时左侧标题字号为 16px。
+
+```html
+<wd-cell title="标题文字" value="内容" size="large" />
+```
+
+### 
+
 ### 分组标题
 
 可以在 `cell-group` 上设置 `title` 和 `value` 属性。也可以使用 slot 插槽。
@@ -73,6 +83,24 @@ Vue.use(Cell)
   <wd-cell title="标题文字" value="内容"></wd-cell>
   <wd-cell title="标题文字" label="描述信息" value="内容"></wd-cell>
 </wd-cell-group>
+```
+
+### 点击反馈
+
+通过设置 `clickable` 开启点击反馈，并添加点击事件。
+
+```html
+<wd-cell clickable title="标题文字" value="内容" @click="toast" />
+
+<script>
+export default {
+  methods: {
+    toast () {
+      this.$toast('点击')
+    }
+  }
+}
+</script>
 ```
 
 ### 页面跳转
@@ -115,8 +143,6 @@ Vue.use(Cell)
 </style>
 ```
 
-> 自定义内容如果超出了默认的46px高度，可能需要你自己通过绝对定位使其保持样式一致。
-
 ### CellGroup Attributes
 
 | 参数      | 说明                                 | 类型      | 可选值       | 默认值   |
@@ -134,6 +160,10 @@ Vue.use(Cell)
 | label | 描述信息 | string | - | - |
 | is-link | 是否为跳转链接 | boolean | - | false |
 | to | 跳转地址 | string / object | - | - |
+| replace | 跳转时是否替换栈顶页面，只对`vue-router` 中的路由对象有效，普通链接无效 | boolean | - | false |
+| size | 设置单元格大小 | string | 'large' | - |
+| title-width | 设置左侧标题宽度 | string | - | - |
+| center | 是否垂直居中，默认顶部居中 | boolean | - | false |
 
 ### CellGroup Slot
 | name      | 说明       |

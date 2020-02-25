@@ -4,7 +4,8 @@
     :class="{
       'is-checked': isChecked,
       'is-button': finalShape === 'button',
-      'is-disabled': finalDisabled
+      'is-disabled': finalDisabled,
+      'is-inline': inline
     }"
   >
     <span
@@ -89,18 +90,25 @@ export default {
       } else {
         return this.disabled || false
       }
+    },
+    inline () {
+      return this.checkboxGroup.inline
     }
   },
   methods: {
     toggle () {
       if (this.checkboxGroup) {
         this.checkboxGroup.changeValue(this.value)
-      } else if (this.trueValue && this.falseValue) {
-        this.$emit('input', this.isChecked ? this.falseValue : this.trueValue)
       } else {
-        this.$emit('input', !this.value)
+        let newValue
+        if (this.trueValue && this.falseValue) {
+          newValue = this.isChecked ? this.falseValue : this.trueValue
+        } else {
+          newValue = !this.value
+        }
+        this.$emit('input', newValue)
+        this.$emit('change', newValue)
       }
-      this.$emit('change', this.value)
     }
   }
 }

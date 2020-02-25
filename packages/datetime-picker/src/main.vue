@@ -17,7 +17,29 @@ export default {
       })
     },
     onCancel () {
+      // reset innerValue
+      this.innerValue = this.formatValue(this.value)
       this.$emit('cancel')
+    },
+    defaultDisplayFormat (items) {
+      if (items.length === 0) return ''
+      // 如果使用了自定义的的formatter，defaultDisplayFormat无效
+      if (this.formatter) {
+        return this.$refs.picker.getPickerView().getLabels().join('')
+      }
+      switch (this.type) {
+        case 'date':
+          return `${items[0].label}-${items[1].label}-${items[2].label}`
+        case 'year-month':
+          return `${items[0].label}-${items[1].label}`
+        case 'time':
+          return `${items[0].label}:${items[1].label}`
+        case 'datetime':
+          return `${items[0].label}-${items[1].label}-${items[2].label} ${items[3].label}:${items[4].label}`
+      }
+    },
+    handleBeforeConfirm (value, resolve) {
+      this.beforeConfirm(this.innerValue, resolve)
     }
   },
   render () {
@@ -28,6 +50,8 @@ export default {
       props[key] = this[key]
     })
     props['columnChange'] = this.onColumnChange
+    this.beforeConfirm && (props['beforeConfirm'] = this.handleBeforeConfirm)
+    !props['displayFormat'] && (props['displayFormat'] = this.defaultDisplayFormat)
 
     return (
       <Picker

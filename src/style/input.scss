@@ -4,6 +4,7 @@
 @include b(input) {
   position: relative;
   -webkit-tap-highlight-color: transparent;
+  overflow: hidden;
   
   &::after {
     position: absolute;
@@ -12,7 +13,7 @@
     left: 0;
     right: 0;
     height: 1px;
-    background: $-color-border;
+    background: $-input-border-color;
     transform: scaleY(0.5);
   }
   @include when(textarea) {
@@ -20,85 +21,126 @@
       display: none;
     }
   }
+  @include e(label) {
+    width: $-input-cell-label-width;
+    color: $-cell-title-color;
+    box-sizing: border-box;
+    font-size: $-cell-title-fs;
+    flex-shrink: 0;
+    line-height: 1.43;
+  }
+  @include e(label-inner) {
+    display: inline-block;
+    padding: $-input-label-padding;
+  }
+  @include e(prefix) {
+    margin-right: $-input-icon-margin;
+  }
+  @include e(suffix) {
+    flex-shrink: 0;
+    margin-left: $-input-icon-margin;
+  }
+  @include e(block) {
+    position: relative;
+    display: flex;
+  }
   @include when(disabled) {
     .wd-input__inner, .wd-input__textarea-inner {
-      color: $-color-tip;
+      color: $-input-disabled-color;
       background: transparent;
     }
   }
   @include when(error) {
     &::after {
-      background: $-color-aid-red;
+      background: $-input-error-color;
     }
     .wd-input__inner, .wd-input__textarea-inner {
-      color: $-color-aid-red;
+      color: $-input-error-color;
       background: transparent;
 
       &::-webkit-input-placeholder {
-        color: $-color-aid-red;
+        color: $-input-error-color;
       }
+    }
+  }
+  @include when(cell) {
+    display: flex;
+    align-items: flex-start;
+    padding: 0 $-input-cell-padding;
+    background-color: #fff;
+    @include halfPixelBorder('bottom', $-input-cell-padding);
+
+    &.is-error::after {
+      background: $-input-cell-border-color;
+    }
+    .wd-input__textarea, .wd-input__block {
+      flex: 1;
+    }
+    .wd-input__icon {
+      height: $-input-cell-height;
+      line-height: $-input-cell-height;
+    }
+    .wd-input__prefix {
+      display: inline-block;
+    }
+    .wd-input__inner {
+      height: $-input-cell-height;
+    }
+    @include when(center) {
+      align-items: center;
+    }
+    &:last-child::after {
+      display: none;
+    }
+  }
+  @include when(large) {
+    .wd-input__label {
+      font-size: $-cell-title-fs-large;
+    }
+    .wd-input__inner {
+      font-size: $-input-fs-large;
+      height: $-input-cell-height-large;
+    }
+    .wd-input__textarea-inner {
+      font-size: $-input-fs-large;
+    }
+    .wd-input__count {
+      font-size: $-input-count-fs-large;
+    }
+    .wd-input__textarea-count {
+      font-size: $-input-count-fs-large;
+    }
+    .wd-input__icon {
+      height: $-input-cell-height-large;
+      font-size: $-input-icon-size-large;
+      line-height: $-input-cell-height-large;
+    }
+    .wd-input__textarea-icon {
+      font-size: $-input-icon-size-large;
     }
   }
   @include e(inner) {
-    display: block;
-    width: 100%;
-    padding: 10px 0;
-    font-size: 14px;
-    color: $-color-title;
-    box-sizing: border-box;
+    flex: 1;
+    height: $-input-inner-height;
+    padding: $-input-inner-padding;
+    font-size: $-input-fs;
+    color: $-input-color;
     outline: none;
     border: none;
+    box-sizing: border-box;
 
     &::-webkit-input-placeholder {
-      color: $-color-tip;
+      color: $-input-placeholder-color;
     }
-    @include m(prefix) {
-      padding-left: 24px;
-    }
-    @include m(suffix-1) {
-      padding-right: 24px;
-
-      &.wd-input__inner--count {
-        padding-right: 36px;
-      }
-    }
-    @include m(suffix-2) {
-      padding-right: 48px;
-
-      &.wd-input__inner--count {
-        padding-right: 66px;
-      }
-    }
-    @include m(suffix-3) {
-      padding-right: 72px;
-
-      &.wd-input__inner--count {
-        padding-right: 94px;
-      }
-    }
-    @include m(suffix-4) {
-      padding-right: 122px;
-    }
-  }
-  @include e(prefix) {
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 1;
-  }
-  @include e(suffix) {
-    position: absolute;
-    right: 0;
-    top: 0;
-    z-index: 1;
   }
   @include e(icon) {
+    display: inline-block;
     margin-left: 8px;
-    font-size: 16px;
-    color: $-color-icon;
+    font-size: $-input-icon-size;
+    color: $-input-icon-color;
     vertical-align: middle;
-    height: 37px;
-    line-height: 37px;
+    height: $-input-inner-height;
+    line-height: $-input-inner-height;
     background: #fff;
 
     &:first-child {
@@ -107,24 +149,24 @@
   }
   @include e(count) {
     margin-left: 8px;
-    font-size: 12px;
-    color: $-color-secondary;
+    font-size: $-input-count-fs;
+    color: $-input-count-color;
     vertical-align: middle;
-    height: 37px;
-    line-height: 37px;
+    height: $-input-inner-height;
+    line-height: $-input-inner-height;
     background: #fff;
   }
   @include e(count-current) {
-    color: $-color-title;
+    color: $-input-count-current-color;
 
     @include when(error) {
-      color: $-color-aid-red;
+      color: $-input-error-color;
     }
   }
 
   @include e(textarea) {
     position: relative;
-    padding: 17px 14px;
+    padding: $-input-textarea-padding;
     font-size: 0;
     background: #fff;
     
@@ -132,7 +174,7 @@
       padding-bottom: 25px;
     }
     @include when(text-auto) {
-      padding: 10px 0;
+      padding: $-input-inner-padding;
 
       .wd-input__textarea-suffix {
         top: 10px;
@@ -143,16 +185,16 @@
   @include e(textarea-inner) {
     width: 100%;
     padding: 0;
-    font-size: 14px;
-    line-height: 17px;
-    color: $-color-title;
+    font-size: $-input-fs;
+    line-height: 1.214;
+    color: $-input-color;
     overflow: auto;
     outline: none;
     box-sizing: border-box;
     border: none;
 
     &::-webkit-input-placeholder {
-      color: $-color-tip;
+      color: $-input-placeholder-color;
     }
     @include when(suffix) {
       padding-right: 20px;
@@ -161,30 +203,30 @@
   @include e(textarea-suffix) {
     position: absolute;
     right: 14px;
-    top: 17px;
+    top: 15px;
     bottom: 0;
     z-index: 1;
   }
   @include e(textarea-icon) {
     margin-left: 8px;
-    font-size: 16px;
+    font-size: $-input-icon-size;
     line-height: 20px;
-    color: $-color-icon;
+    color: $-input-icon-color;
     background: #fff;
   }
   @include e(textarea-count) {
     position: absolute;
     bottom: 6px;
     right: 0;
-    font-size: 12px;
-    color: $-color-secondary;
+    font-size: $-input-count-fs;
+    color: $-input-count-color;
     background: #fff;
   }
   @include e(textarea-count-current) {
-    color: $-color-title;
+    color: $-input-count-current-color;
 
     @include when(error) {
-      color: $-color-aid-red;
+      color: $-input-error-color;
     }
   }
 }

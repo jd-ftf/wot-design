@@ -1,6 +1,6 @@
 <template>
   <div class="page-navbar">
-    <space title="默认深色Navbar">
+    <demo-block title="默认深色Navbar" transparent>
       <wd-navbar title="标题"></wd-navbar>
       <wd-navbar title="左侧文字">
         <div slot="left">
@@ -24,8 +24,8 @@
           <span class="middle">返回</span>
         </div>
       </wd-navbar>
-    </space>
-    <space title="淡色Navbar">
+    </demo-block>
+    <demo-block title="淡色Navbar" transparent>
       <wd-navbar title="标题" light></wd-navbar>
       <wd-navbar title="左侧文字" light>
         <div slot="left">
@@ -49,7 +49,7 @@
           <span class="middle">返回</span>
         </div>
       </wd-navbar>
-    </space>
+    </demo-block>
   </div>
 </template>
 

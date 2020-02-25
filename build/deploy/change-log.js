@@ -14,7 +14,7 @@ const html = md.render(
   fs.readFileSync(
     args.hasOwnProperty('path')
       ? path.resolve(args.path)
-      : path.resolve(__dirname, '../../docs/docs/changelog.md')
+      : path.resolve(__dirname, '../../examples/docs/docs/changelog.md')
     , { encoding: 'utf-8' })
 )
   .split('\n')

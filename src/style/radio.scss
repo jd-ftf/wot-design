@@ -4,12 +4,13 @@
 
 @include b(radio) {
   display: block;
-  margin-bottom: 10px;
+  margin-bottom: $-radio-margin;
   font-size: 0;
   -webkit-tap-highlight-color: transparent;
+  vertical-align: top;
 
   &:last-child {
-    margin-bottom: 10px;
+    margin-bottom: 0;
   }
 
   @include e(shape) {
@@ -17,7 +18,7 @@
     display: inline-block;
     width: $-radio-size;
     height: $-radio-size;
-    border: 1px solid $-radio-color-border;
+    border: 1px solid $-radio-border-color;
     border-radius: 50%;
     color: #fff;
     background: #fff;
@@ -34,32 +35,32 @@
   }
   @include e(label) {
     display: inline-block;
-    margin-left: 10px;
+    margin-left: $-radio-label-margin;
     vertical-align: middle;
-    font-size: $-radio-label-font-size;
-    color: $-color-title;
+    font-size: $-radio-label-fs;
+    color: $-radio-label-color;
+    line-height: 1.43;
   }
   @include e(check) {
     position: absolute;
     display: inline-block;
-    width: 10px;
-    height: 10px;
+    width: $-radio-check-size;
+    height: $-radio-check-size;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
     background: currentColor;
     border-radius: 50%;
-    font-size: 13px;
     opacity: 0;
     transition: opacity .2s;
   }
   @include when(checked) {
     .wd-radio__shape {
-      color: $-radio-color-checked;
+      color: $-radio-checked-color;
       border-color: currentColor;
     }
     .wd-radio__check {
-      color: $-radio-color-checked;
+      color: $-radio-checked-color;
       opacity: 1;
     }
   }
@@ -67,7 +68,7 @@
   @include when(button) {
     display: inline-block;
     margin-bottom: 0;
-    margin-right: 8px;
+    margin-right: $-radio-margin;
 
     &:last-child {
       margin-right: 0;
@@ -82,39 +83,48 @@
     .wd-radio__label {
       margin-left: 0;
       padding: 4px 28px;
-      border: 1px solid $-radio-color-border;
-      border-radius: 4px;
+      border: 1px solid $-radio-border-color;
+      border-radius: $-radio-button-radius;
       transition: all .2s;
     }
     @include when(checked) {
       .wd-radio__label {
-        color: $-radio-color-checked;
+        color: $-radio-checked-color;
         border-color: currentColor;
       }
+    }
+  }
+  @include when(inline) {
+    display: inline-block;
+    margin-right: $-radio-margin;
+    margin-bottom: 0;
+
+    &:last-child {
+      margin-right: 0;
     }
   }
 
   @include when(disabled) {
     .wd-radio__shape {
-      border-color: $-radio-color-disabled-label;
+      border-color: $-radio-disabled-label-color;
     }
     .wd-radio__label {
-      color: $-radio-color-disabled-label;
+      color: $-radio-disabled-label-color;
     }
     @include when(checked) {
       .wd-radio__shape {
-        color: $-radio-color-disabled-label;
+        color: $-radio-disabled-label-color;
       }
       .wd-radio__check {
-        color: $-radio-color-disabled-label;
+        color: $-radio-disabled-label-color;
       }
       .wd-radio__label {
-        color: $-radio-color-disabled-label;
+        color: $-radio-disabled-label-color;
       }
     }
     @include when(button) {
       .wd-radio__label {
-        border-color: $-radio-color-disabled;
+        border-color: $-radio-disabled-color;
       }
     }
   }

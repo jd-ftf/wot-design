@@ -33,6 +33,12 @@ const router = new Router({
       children: [
         ...pagesRouter
       ]
+    },
+    {
+      path: '*',
+      redirect: {
+        name: 'Index'
+      }
     }
   ]
 })

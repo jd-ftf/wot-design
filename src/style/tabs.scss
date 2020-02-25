@@ -28,8 +28,8 @@
     text-align: center;
     height: $-tabs-nav-height;
     line-height: $-tabs-nav-height;
-    font-size: 14px;
-    color: #333;
+    font-size: $-tabs-nav-fs;
+    color: $-tabs-nav-color;
     transition: color .3s;
     -webkit-tap-highlight-color: transparent;
 
@@ -37,7 +37,7 @@
       color: $-tabs-nav-active-color;
     }
     @include when(disabled) {
-      color: #dedede;
+      color: $-tabs-nav-disabled-color;
     }
   }
   @include e(line) {
@@ -72,7 +72,7 @@
     height: $-tabs-nav-height;
     line-height: $-tabs-nav-height;
     text-align: center;
-    color: #c5c5c5;
+    color: $-tabs-nav-map-arrow-color;
     z-index: 3;
     background: #fff;
     -webkit-tap-highlight-color: transparent;
@@ -86,7 +86,7 @@
       left: 0;
       width: 1px;
       transform: scaleX(0.5);
-      background: #eee;
+      background: $-color-border-light;
     }
   }
   @include e(map-arrow) {
@@ -102,8 +102,8 @@
     padding-left: 17px;
     height: $-tabs-nav-height;
     line-height: $-tabs-nav-height;
-    font-size: 14px;
-    color: #333;
+    font-size: $-tabs-nav-map-fs;
+    color: $-tabs-nav-map-color;
     transition: opacity .3s;
     background: #fff;
     opacity: 0;
@@ -137,11 +137,10 @@
   @include e(map-nav-btn) {
     display: inline-block;
     width: 98px;
-    padding: 0 10px;
     height: 26px;
-    border: 1px solid #c5c5c5;
+    border: 1px solid $-tabs-nav-map-button-border-color;
     margin-bottom: 10px;
-    border-radius: 4px;
+    border-radius: $-tabs-nav-map-button-radius;
     color: $-tabs-nav-map-color;
     font-size: $-tabs-nav-map-fs;
     text-align: center;
@@ -150,11 +149,11 @@
     @include lineEllipsis;
 
     @include when(active) {
-      color: #0083ff;
-      border-color: #0083ff;
+      color: $-tabs-nav-active-color;
+      border-color: $-tabs-nav-active-color;
     }
     @include when(disabled) {
-      color: #dedede;
+      color: $-tabs-nav-disabled-color;
       border-color: #f4f4f4;
     }
   }
@@ -164,7 +163,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.7);
+    background: $-tabs-nav-map-modal-bg;
     opacity: 0;
     transition: opacity .3s;
   }
@@ -183,5 +182,10 @@
     .wd-tabs__nav {
       padding-right: 40px;
     }
+  }
+}
+@media (max-width: 330px) {
+  .wd-tabs__map-nav-btn {
+    width: 90px;
   }
 }

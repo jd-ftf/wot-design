@@ -1,76 +1,93 @@
 /**
  * 初始化
  */
-@import 'variable';
-@import 'markdown';
+ @import 'variable';
+ @import 'markdown';
+ 
+ html, body {
+   margin: 0;
+   padding: 0;
+   height: 100%;
+   overflow: hidden;
+   font-family: $font-family;
+   font-size: $fs-text;
+   color: $color-text;
+   background: $color-bg;
+   -webkit-font-smoothing: antialiased;
+   -moz-osx-font-smoothing: grayscale;
+ }
+ ul {
+   margin: 0;
+   padding: 0;
+   list-style: none;
+ }
+ a {
+   text-decoration: none;
+   color: $color-text;
+ 
+   &:active {
+     color: $color-text;
+   }
+ }
+ 
+ .body-scrollbar {
+   overflow-y: auto;
+   overflow-y: overlay;
+   scrollbar-width: thin;
+   scrollbar-color: rgba(0, 0, 0, 0.3) #fefefe;
+ 
+   &::-webkit-scrollbar-track-piece {
+     background-color: transparent;
+   }
+   &::-webkit-scrollbar {
+     width: 7px;
+     height: 7px;
+   }
+   &::-webkit-scrollbar-thumb {
+     width: 7px;
+     height: 7px;
+     opacity: 0.5;
+     border-radius: 4px;
+     background-color: rgba(0, 0, 0, 0.3);
+   }
+ }
+ .win-scrollbar {
+   overflow-y: auto;
+   overflow-y: overlay;
+   scrollbar-width: thin;
+   scrollbar-color: rgba(0, 0, 0, 0) #fefefe;
+ 
+   &::-webkit-scrollbar-track-piece {
+     background-color: transparent;
+   }
+   &::-webkit-scrollbar {
+     width: 6px;
+   }
+   &::-webkit-scrollbar-thumb {
+     width: 6px;
+     opacity: 0.5;
+     border-radius: 3px;
+     background-color: transparent;
+   }
+   &:hover{
+     &::-webkit-scrollbar-thumb {
+       background-color: rgba(0, 0, 0, 0.2);
+     }
+     scrollbar-color: rgba(0, 0, 0, 0.2) #fefefe;
+   }
+ }
 
-html, body {
-  margin: 0;
-  padding: 0;
-  font-family: $font-family;
-  font-size: $fs-text;
-  color: 14px;
-  background: $color-bg;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-ul {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-a {
-  text-decoration: none;
-  color: $color-text;
+ .style-block {
+  display: inline-block;
+  width: 180px;
+  padding: 15px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  border-radius: 4px;
+  color: #fff;
 
-  &:active {
-    color: $color-text;
-  }
-}
-
-.body-scrollbar {
-  overflow-y: auto;
-  overflow-y: overlay;
-  scrollbar-width: thin;
-  scrollbar-color: rgba(0, 0, 0, 0.2) #fefefe;
-
-  &::-webkit-scrollbar-track-piece {
-    background-color: transparent;
-  }
-  &::-webkit-scrollbar {
-    width: 5px;
-  }
-  &::-webkit-scrollbar-thumb {
-    width: 5px;
-    opacity: 0.5;
-    border-radius: 3px;
-    background-color: rgba(0, 0, 0, 0.2);
-  }
-}
-.win-scrollbar {
-  overflow-y: auto;
-  overflow-y: overlay;
-  scrollbar-width: thin;
-  scrollbar-color: rgba(0, 0, 0, 0) #fefefe;
-  transition: all .3s;
-
-  &::-webkit-scrollbar-track-piece {
-    background-color: transparent;
-  }
-  &::-webkit-scrollbar {
-    width: 5px;
-  }
-  &::-webkit-scrollbar-thumb {
-    width: 5px;
-    opacity: 0.5;
-    border-radius: 3px;
-    background-color: transparent;
-    transition: background-color .3s;
-  }
-  &:hover{
-    &::-webkit-scrollbar-thumb {
-      background-color: rgba(0, 0, 0, 0.2);
-    }
-    scrollbar-color: rgba(0, 0, 0, 0.2) #fefefe;
+  p {
+    margin: 0;
+    color: #fff;
   }
 }

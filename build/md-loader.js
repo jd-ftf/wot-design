@@ -1,6 +1,8 @@
 const hljs = require('highlight.js')
 const MarkdownIt = require('markdown-it')
 const markdownItContainer = require('markdown-it-container')
+const markdownItAnchor = require('markdown-it-anchor')
+const slugify = require('transliteration').slugify
 
 const md = new MarkdownIt({
   html: true,
@@ -20,6 +22,12 @@ const md = new MarkdownIt({
 }).use(markdownItContainer, 'warning')
   .use(markdownItContainer, 'error')
   .use(markdownItContainer, 'info')
+  .use(markdownItAnchor, {
+    level: 2,
+    slugify,
+    permalink: true,
+    permalinkBefore: true
+  })
 
 module.exports = source => {
   const content = md.render(source)

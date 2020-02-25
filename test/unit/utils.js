@@ -10,6 +10,13 @@ const testInstall = component => {
   })
 }
 
+const later = delay => {
+  return new Promise(resolve => {
+    setTimeout(resolve, delay)
+  })
+}
+
 export {
-  testInstall
+  testInstall,
+  later
 }

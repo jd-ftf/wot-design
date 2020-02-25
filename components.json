@@ -36,10 +36,15 @@
   "switch": "./packages/switch/index.js",
   "swipe": "./packages/swipe/index.js",
   "swipe-item": "./packages/swipe-item/index.js",
+  "swipe-action": "./packages/swipe-action/index.js",
   "tab": "./packages/tab/index.js",
   "tabs": "./packages/tabs/index.js",
   "tabbar": "./packages/tabbar/index.js",
   "tabbar-item": "./packages/tabbar-item/index.js",
   "tag": "./packages/tag/index.js",
-  "toast": "./packages/toast/index.js"
+  "toast": "./packages/toast/index.js",
+  "tooltip": "./packages/tooltip/index.js",
+  "sort-button": "./packages/sort-button/index.js",
+  "drop-menu": "./packages/drop-menu/index.js",
+  "drop-menu-item": "./packages/drop-menu-item/index.js"
 }

@@ -6,11 +6,23 @@
       <wd-picker :columns="columns1" label="只读" v-model="value3" readonly />
       <wd-picker :columns="columns1" label="loading" v-model="value4" loading />
       <wd-picker :columns="columns2" label="多列" v-model="value5" />
-      <wd-picker :columns="columns3" label="多列联动" v-model="value6" :column-change="onChangeDistrict" :display-format="displayFormat" />
+      <wd-picker :columns="columns3" label="多列联动" v-model="value6" :column-change="onChangeDistrict" />
+      <wd-picker :columns="columns2" label="展示格式化" v-model="value7" :display-format="displayFormat" />
+      <wd-picker :columns="columns1" label="标题" v-model="value8" title="文案标题" />
+      <wd-picker :columns="columns1" label="before-confirm" v-model="value9" :loading="isLoading" :before-confirm="beforeConfirm" />
     </div>
-    <space title="label不传">
-      <wd-picker :columns="columns1" v-model="value7" />
-    </space>
+    <demo-block title="label不传" transparent>
+      <wd-picker :columns="columns1" v-model="value10" />
+    </demo-block>
+    <demo-block title="大小" transparent>
+      <wd-picker :columns="columns1" label="单列选择" v-model="value11" size="large" />
+    </demo-block>
+    <demo-block title="错误" transparent>
+      <wd-picker :columns="columns1" label="单列选择" v-model="value11" error />
+    </demo-block>
+    <demo-block title="值靠右显示" transparent>
+      <wd-picker :columns="columns1" label="单列选择" v-model="value12" align-right />
+    </demo-block>
   </div>
 </template>
 
@@ -43,22 +55,40 @@ export default {
       value4: '',
       value5: ['中南大学', '软件工程'],
       value6: ['110000', '110100', '110102'],
-      value7: '',
-      onChangeDistrict (pickerView, item, columnIndex) {
-        if (columnIndex === 0) {
-          pickerView.setColumnData(1, district[item.value])
-          pickerView.setColumnData(2, district[district[item.value][0].value])
-          return
-        }
-        if (columnIndex === 1) {
-          pickerView.setColumnData(2, district[item.value])
-        }
-      },
-      displayFormat (items) {
-        return items.map(item => {
-          return item.label
-        }).join('-')
+      value7: ['中南大学', '软件工程'],
+      value8: '',
+      value9: '',
+      value10: '',
+      value11: '',
+      value12: '',
+      isLoading: false
+    }
+  },
+  methods: {
+    onChangeDistrict (pickerView, item, columnIndex) {
+      if (columnIndex === 0) {
+        pickerView.setColumnData(1, district[item.value])
+        pickerView.setColumnData(2, district[district[item.value][0].value])
+        return
       }
+      if (columnIndex === 1) {
+        pickerView.setColumnData(2, district[item.value])
+      }
+    },
+    displayFormat (items) {
+      return items.join('-')
+    },
+    beforeConfirm (value, resolve) {
+      this.isLoading = true
+      setTimeout(() => {
+        this.isLoading = false
+        if (['选项2', '选项3'].indexOf(value) > -1) {
+          resolve(false)
+          this.$toast.error('选项校验不通过，请重新选择')
+        } else {
+          resolve(true)
+        }
+      }, 2000)
     }
   }
 }

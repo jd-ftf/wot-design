@@ -4,20 +4,20 @@
 
 @include b(notice-bar) {
   display: flex;
-  padding: 5px 15px;
+  padding: $-notice-bar-padding;
   align-items: center;
   background: $-notice-bar-bg;
   color: $-notice-bar-color;
   font-size: $-notice-bar-fs;
 
   @include e(left-icon) {
-    min-width: 30px;
-    font-size: 16px;
+    min-width: $-notice-bar-icon-min-width;
+    font-size: $-notice-bar-icon-size;
   }
   @include e(right-icon) {
     min-width: 25px;
     text-align: right;
-    font-size: 10px;
+    font-size: $-notice-bar-close-size;
     -webkit-tap-highlight-color: transparent;
   }
   @include e(wrap) {
@@ -45,7 +45,7 @@
     }
   }
   @include m(wrap) {
-    padding: 14px 15px;
+    padding: $-notice-bar-wrap-padding;
 
     .wd-notice-bar__wrap {
       height: auto;

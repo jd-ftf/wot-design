@@ -28,28 +28,28 @@
     position: absolute;
     top: 0;
     left: 50%;
-    height: 30px;
+    height: $-pull-refresh-tip-height;
     padding: 0 25px;
     transform: translate3d(-50%, 10px, 0);
     z-index: 99;
-    line-height: 30px;    
-    background-color: $-color-theme;
-    border-radius: 15px;
+    line-height: $-pull-refresh-tip-height;    
+    background-color: $-pull-refresh-tip-bg;
+    border-radius: $-pull-refresh-tip-height / 2;
     color: #fff;
-    font-size: 12px;
+    font-size: $-pull-refresh-tip-fs;
     transition: .3s;
     box-shadow: 0 0 6px #666;
   }
   @include e(arrow) {
-    font-size: 12px;
+    font-size: $-pull-refresh-fs;
     display: inline-block;
     margin-right: 6px;
-    color: #a7a7a7;
+    color: $-pull-refresh-color;
     vertical-align: middle;
   }
   @include e(text) {
-    font-size: 12px;
-    color: #a7a7a7;
+    font-size: $-pull-refresh-fs;
+    color: $-pull-refresh-color;
     vertical-align: middle;
   }
 

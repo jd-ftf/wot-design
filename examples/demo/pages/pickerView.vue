@@ -1,25 +1,25 @@
 <template>
   <div>
-    <space>
+    <demo-block transparent>
       <div slot="title">基本用法，数值: {{ value1 }}</div>
       <wd-picker-view :columns="columns1" v-model="value1" @change="onChange" />
-    </space>
-    <space>
+    </demo-block>
+    <demo-block transparent>
       <div slot="title">禁用选项，数值: {{ value2 }}</div>
       <wd-picker-view :columns="columns2" v-model="value2" />
-    </space>
-    <space>
+    </demo-block>
+    <demo-block transparent>
       <div slot="title">加载中，数值: {{ value3 }}</div>
       <wd-picker-view :columns="columns1" v-model="value3" loading />
-    </space>
-    <space >
+    </demo-block>
+    <demo-block transparent>
       <div slot="title">多列，数值: {{ value4 }}</div>
       <wd-picker-view :columns="columns3" v-model="value4" />
-    </space>
-    <space>
+    </demo-block>
+    <demo-block transparent>
       <div slot="title">多级联动，数值: {{ value5 }}</div>
       <wd-picker-view :columns="columns4" v-model="value5" :column-change="onChangeDistrict" />
-    </space>
+    </demo-block>
   </div>
 </template>
 

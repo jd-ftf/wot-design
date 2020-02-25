@@ -6,5 +6,10 @@ export default {
   placeholder: String,
   disabled: Boolean,
   readonly: Boolean,
-  displayFormat: Function
+  displayFormat: Function,
+  beforeConfirm: Function,
+  size: String,
+  labelWidth: String,
+  error: Boolean,
+  alignRight: Boolean
 }

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <space title="基本用法">
+    <demo-block title="基本用法" transparent>
       <wd-collapse v-model="value1">
         <wd-collapse-item title="标签1" name="item1">
           这是一条简单的示例文字。
@@ -12,8 +12,8 @@
           这是一条简单的示例文字。
         </wd-collapse-item>
       </wd-collapse>
-    </space>
-    <space title="手风琴">
+    </demo-block>
+    <demo-block title="手风琴" transparent>
       <wd-collapse v-model="value2" accordion>
         <wd-collapse-item title="标签1" name="item1">
           这是一条简单的示例文字。
@@ -25,8 +25,8 @@
           这是一条简单的示例文字。
         </wd-collapse-item>
       </wd-collapse>
-    </space>
-    <space title="禁用某一项">
+    </demo-block>
+    <demo-block title="禁用某一项" transparent>
       <wd-collapse v-model="value3">
         <wd-collapse-item title="标签1" name="item1">
           这是一条简单的示例文字。
@@ -38,12 +38,18 @@
           这是一条简单的示例文字。
         </wd-collapse-item>
       </wd-collapse>
-    </space>
-    <space title="查看更多">
+    </demo-block>
+    <demo-block title="查看更多" transparent>
       <wd-collapse viewmore v-model="value4">
         这是一条简单的示例文字。这是一条简单的示例文字。这是一条简单的示例文字。这是一条简单的示例文字。这是一条简单的示例文字。这是一条简单的示例文字。这是一条简单的示例文字。这是一条简单的示例文字。
       </wd-collapse>
-    </space>
+    </demo-block>
+    <demo-block title="查看更多自定义展开样式" transparent>
+      <wd-collapse viewmore v-model="value4">
+        这是一条简单的示例文字。这是一条简单的示例文字。这是一条简单的示例文字。这是一条简单的示例文字。这是一条简单的示例文字。这是一条简单的示例文字。这是一条简单的示例文字。这是一条简单的示例文字。
+        <div slot="more" style="color: red;">自定义{{ value4 ? '折叠' : '展开' }}</div>
+      </wd-collapse>
+    </demo-block>
   </div>
 </template>
 

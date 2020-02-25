@@ -74,7 +74,6 @@ export default {
   methods: {
     toggle () {
       if (this.disabled) return
-
       this.collapse.switchValue(this.name, !this.isExpand)
     },
     onTransitionend () {
