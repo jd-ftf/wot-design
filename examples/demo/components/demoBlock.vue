@@ -25,6 +25,7 @@ export default {
   padding: 0 15px;
   color: #666;
   background: #fff;
+  overflow: auto;
 
   .demo-block__title {
     margin: 10px 0;
