@@ -28,7 +28,7 @@
       display: none;
     }
   }
-  @include e(title) {
+  @include e(left) {
     font-size: $-cell-title-fs;
     vertical-align: middle;
     flex-shrink: 0;

@@ -41,13 +41,13 @@ export default {
     ) : ''
     const Wrapper = (
       <div class="wd-cell__wrapper">
-        <div class="wd-cell__title" style={ titleWidth ? `min-width: ${titleWidth}; max-width: ${titleWidth}` : '' }>
+        <div class="wd-cell__left" style={ titleWidth ? `min-width: ${titleWidth}; max-width: ${titleWidth}` : '' }>
           {
-            this.$slots.title ? this.$slots.title : <div>{ title }</div>
+            this.$slots.title ? <div class="wd-cell__title">{ this.$slots.title }</div> : <div class="wd-cell__title">{ title }</div>
           }
           {
             this.$slots.label
-              ? this.$slots.label
+              ? <div class="wd-cell__label">{ this.$slots.label }</div>
               : label
                 ? <div class="wd-cell__label">{ label }</div>
                 : ''
@@ -65,11 +65,11 @@ export default {
     )
 
     if (to) {
-      let isRouterLink = true
+      let isRouterLink = false
       if (to && this.$router) {
         const resolved = this.$router.match(to)
-        if (!resolved.matched.length) {
-          isRouterLink = false
+        if (resolved.matched.length) {
+          isRouterLink = true
         }
       }
 
