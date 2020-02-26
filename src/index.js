@@ -16,6 +16,7 @@ import Icon from '../packages/icon'
 import InfiniteLoad from '../packages/infinite-load'
 import Input from '../packages/input'
 import InputNumber from '../packages/input-number'
+import Img from '../packages/img'
 import Lazyload from '../packages/lazyload'
 import Loading from '../packages/loading'
 import MessageBox from '../packages/message-box'
@@ -67,6 +68,7 @@ const components = [
   InfiniteLoad,
   Input,
   InputNumber,
+  Img,
   Loading,
   Modal,
   Navbar,
@@ -138,6 +140,7 @@ export default {
   InfiniteLoad,
   Input,
   InputNumber,
+  Img,
   Lazyload,
   Loading,
   MessageBox,

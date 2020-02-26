@@ -15,6 +15,9 @@
       }, {
         "name": "Popup 弹出层",
         "path": "/popup"
+      }, {
+        "name": "Img 图片",
+        "path": "/img"
       }
     ]
   }, {
