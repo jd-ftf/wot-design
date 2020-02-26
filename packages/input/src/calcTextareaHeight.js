@@ -40,10 +40,8 @@ const calculateNodeStyling = element => {
 }
 
 export default function calcTextareaHeight (element, minRows = 1, maxRows = null) {
-  if (!hiddenTextarea) {
-    hiddenTextarea = document.createElement('textarea')
-    document.body.appendChild(hiddenTextarea)
-  }
+  hiddenTextarea = document.createElement('textarea')
+  document.body.appendChild(hiddenTextarea)
 
   let {
     paddingSize,
@@ -67,14 +65,13 @@ export default function calcTextareaHeight (element, minRows = 1, maxRows = null
   hiddenTextarea.value = ''
   let singleRowHeight = hiddenTextarea.scrollHeight - paddingSize
 
-  if (minRows !== null) {
-    let minHeight = singleRowHeight * minRows
-    if (boxSizing === 'border-box') {
-      minHeight = minHeight + paddingSize + borderSize
-    }
-    height = Math.max(minHeight, height)
-    result.minHeight = `${minHeight}px`
+  let minHeight = singleRowHeight * minRows
+  if (boxSizing === 'border-box') {
+    minHeight = minHeight + paddingSize + borderSize
   }
+  height = Math.max(minHeight, height)
+  result.minHeight = `${minHeight}px`
+
   if (maxRows !== null) {
     let maxHeight = singleRowHeight * maxRows
     if (boxSizing === 'border-box') {
