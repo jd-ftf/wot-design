@@ -51,7 +51,7 @@ export default {
       duration: 0,
       moving: false,
       transitionEndTrigger: '',
-      data: this.initialData
+      data: this.initialData || []
     }
   },
   props: {
@@ -93,6 +93,9 @@ export default {
         this.setIndex(selectedIndex, false)
       },
       immediate: true
+    },
+    initialData () {
+      this.data = this.initialData || []
     }
   },
   methods: {
@@ -200,7 +203,11 @@ export default {
       return range(Math.round(-offset / this.itemHeight), 0, this.length - 1)
     },
     getValue () {
-      return this.getItemValue(this.data[this.selectedIndex])
+      let item = this.data[this.selectedIndex]
+
+      if (item) {
+        return this.getItemValue(this.data[this.selectedIndex])
+      }
     },
     getLabel () {
       return this.getItemLabel(this.data[this.selectedIndex])
