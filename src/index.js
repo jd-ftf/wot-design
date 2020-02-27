@@ -50,6 +50,8 @@ import Tooltip from '../packages/tooltip'
 import SortButton from '../packages/sort-button'
 import DropMenu from '../packages/drop-menu'
 import DropMenuItem from '../packages/drop-menu-item'
+import Grid from '../packages/grid'
+import GridItem from '../packages/grid-item'
 import locale from './locale'
 
 const components = [
@@ -99,6 +101,8 @@ const components = [
   SortButton,
   DropMenu,
   DropMenuItem,
+  Grid,
+  GridItem,
   MessageBox.wdMessageBox
 ]
 
@@ -173,5 +177,7 @@ export default {
   Tooltip,
   SortButton,
   DropMenu,
-  DropMenuItem
+  DropMenuItem,
+  Grid,
+  GridItem
 }

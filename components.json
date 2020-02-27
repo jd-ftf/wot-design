@@ -47,5 +47,7 @@
   "tooltip": "./packages/tooltip/index.js",
   "sort-button": "./packages/sort-button/index.js",
   "drop-menu": "./packages/drop-menu/index.js",
-  "drop-menu-item": "./packages/drop-menu-item/index.js"
+  "drop-menu-item": "./packages/drop-menu-item/index.js",
+  "grid": "./packages/grid/index.js",
+  "grid-item": "./packages/grid-item/index.js"
 }
