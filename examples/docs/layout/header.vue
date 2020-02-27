@@ -60,7 +60,7 @@ import axios from 'axios'
 
 const { version } = require('../../../package.json')
 export default {
-  components: { search },
+  components: { search, survey },
   data () {
     return {
       pages: pagesConfig,

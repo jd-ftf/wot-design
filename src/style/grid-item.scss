@@ -1,0 +1,145 @@
+@import './abstracts/variable';
+@import './abstracts/mixin';
+
+@include b(grid-item) {
+  height: 100%;
+  font-size: $-grid-item-fs;;
+  box-sizing: border-box;
+  background-color: #fff;
+  
+  position: relative;
+  float: left;
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+
+  @include when(border){
+    &::before{
+      content: " ";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 200%;
+      height: 200%;
+      border: 1px solid $-grid-item-border-color;
+      transform-origin: bottom left;
+      transform: scale(.5);
+      z-index: 100;
+    }
+  }
+
+  // 第一行元素
+  @include when(first-line){
+    &::before{
+      content: " ";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 200%;
+      height: 200%;
+      border: 1px solid $-grid-item-border-color;
+      transform-origin: bottom left;
+      transform: scale(.5);
+      z-index: 100;
+    }
+    &::after{
+      content: " ";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: $-grid-item-border-color;
+      height: 1px;
+      transform-origin: 0;
+      transform: scaleY(.5);
+      z-index: 100;
+    }
+  }
+
+  // 最后面的元素
+  @include when(right){
+    &::after{
+      content: " ";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 200%;
+      height: 200%;
+      border: 1px solid $-grid-item-border-color;
+      transform-origin: top left;
+      transform: scale(0.5);
+      z-index: 100;
+    }
+    &::before{
+      content: " ";
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 1px;
+      height: 100%;
+      background-color: $-grid-item-border-color;
+      transform-origin: top right;
+      transform: scaleX(0.5);
+      z-index: 100;
+    }
+  }
+
+  // 最后一个元素
+  @include when(last){
+    &::before{
+      content: " ";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 200%;
+      height: 200%;
+      border: 1px solid $-grid-item-border-color;
+      transform-origin: bottom left;
+      transform: scale(.5);      
+      z-index: 100;
+      box-sizing: border-box;
+    }
+  }
+  
+  @include e(content){
+    height: 100%;
+    padding: $-grid-item-padding;
+    background-color: #fff;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+    @include when(square){
+      box-sizing: border-box;
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+    }
+
+    @include when(round){
+      &::after{
+        content: " ";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 200%;
+        height: 200%;
+        border: 1px solid $-grid-item-border-color;
+        transform-origin: top left;
+        transform: scale(0.5);
+        z-index: 100;
+        box-sizing: border-box;
+      }
+    }
+  }
+  
+  @include e(text){
+    margin-top: 5px;
+    @include lineEllipsis;
+  }
+}

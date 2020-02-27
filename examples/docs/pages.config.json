@@ -74,6 +74,11 @@
                 "path": "/cell",
                 "demo": "/cell"
               },
+              "Grid": {
+                "name": "Grid 宫格",
+                "path": "/grid",
+                "demo": "/grid"
+              },
               "Navbar": {
                 "name": "Navbar 导航栏",
                 "path": "/navbar",
