@@ -52,6 +52,8 @@ import DropMenu from '../packages/drop-menu'
 import DropMenuItem from '../packages/drop-menu-item'
 import Grid from '../packages/grid'
 import GridItem from '../packages/grid-item'
+import Row from '../packages/row'
+import Col from '../packages/col'
 import locale from './locale'
 
 const components = [
@@ -103,6 +105,8 @@ const components = [
   DropMenuItem,
   Grid,
   GridItem,
+  Row,
+  Col,
   MessageBox.wdMessageBox
 ]
 
@@ -179,5 +183,7 @@ export default {
   DropMenu,
   DropMenuItem,
   Grid,
-  GridItem
+  GridItem,
+  Row,
+  Col
 }

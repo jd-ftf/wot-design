@@ -79,6 +79,11 @@
                 "path": "/grid",
                 "demo": "/grid"
               },
+              "Layout": {
+                "name": "Layout 布局",
+                "path": "/layout",
+                "demo": "/layout"
+              },
               "Navbar": {
                 "name": "Navbar 导航栏",
                 "path": "/navbar",
