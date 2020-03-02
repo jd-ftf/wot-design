@@ -28,6 +28,9 @@
         "name": "Cell 单元格",
         "path": "/cell"
       }, {
+        "name": "Layout 布局",
+        "path": "/layout"
+      }, {
         "name": "Grid 宫格",
         "path": "/grid"
       }, {

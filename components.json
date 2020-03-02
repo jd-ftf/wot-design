@@ -49,5 +49,7 @@
   "drop-menu": "./packages/drop-menu/index.js",
   "drop-menu-item": "./packages/drop-menu-item/index.js",
   "grid": "./packages/grid/index.js",
-  "grid-item": "./packages/grid-item/index.js"
+  "grid-item": "./packages/grid-item/index.js",
+  "row": "./packages/row/index.js",
+  "col": "./packages/col/index.js"
 }
