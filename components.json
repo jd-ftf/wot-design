@@ -14,6 +14,7 @@
   "infinite-load": "./packages/infinite-load/index.js",
   "input": "./packages/input/index.js",
   "input-number": "./packages/input-number/index.js",
+  "img": "./packages/img/index.js",
   "lazyload": "./packages/lazyload/index.js",
   "loading": "./packages/loading/index.js",
   "message-box": "./packages/message-box/index.js",
@@ -46,5 +47,9 @@
   "tooltip": "./packages/tooltip/index.js",
   "sort-button": "./packages/sort-button/index.js",
   "drop-menu": "./packages/drop-menu/index.js",
-  "drop-menu-item": "./packages/drop-menu-item/index.js"
+  "drop-menu-item": "./packages/drop-menu-item/index.js",
+  "grid": "./packages/grid/index.js",
+  "grid-item": "./packages/grid-item/index.js",
+  "row": "./packages/row/index.js",
+  "col": "./packages/col/index.js"
 }

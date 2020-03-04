@@ -1,0 +1,42 @@
+@import './abstracts/variable';
+@import './abstracts/mixin';
+
+@include b(row) {
+  
+  &::after {
+    display: table;
+    clear: both;
+    content: "";
+  }
+
+  @include e(flex){
+    display: flex;
+    &::after {
+      display: none;
+    }
+  }
+
+  @include e(justify-center) {
+    justify-content: center;
+  }
+
+  @include e(justify-end) {
+    justify-content: flex-end;
+  }
+
+  @include e(justify-space-between) {
+    justify-content: space-between;
+  }
+
+  @include e(justify-space-around) {
+    justify-content: space-around;
+  }
+
+  @include e(align-center) {
+    align-items: center;
+  }
+
+  @include e(align-end) {
+    align-items: flex-end;
+  }
+}

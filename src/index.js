@@ -16,6 +16,7 @@ import Icon from '../packages/icon'
 import InfiniteLoad from '../packages/infinite-load'
 import Input from '../packages/input'
 import InputNumber from '../packages/input-number'
+import Img from '../packages/img'
 import Lazyload from '../packages/lazyload'
 import Loading from '../packages/loading'
 import MessageBox from '../packages/message-box'
@@ -49,6 +50,10 @@ import Tooltip from '../packages/tooltip'
 import SortButton from '../packages/sort-button'
 import DropMenu from '../packages/drop-menu'
 import DropMenuItem from '../packages/drop-menu-item'
+import Grid from '../packages/grid'
+import GridItem from '../packages/grid-item'
+import Row from '../packages/row'
+import Col from '../packages/col'
 import locale from './locale'
 
 const components = [
@@ -67,6 +72,7 @@ const components = [
   InfiniteLoad,
   Input,
   InputNumber,
+  Img,
   Loading,
   Modal,
   Navbar,
@@ -97,6 +103,10 @@ const components = [
   SortButton,
   DropMenu,
   DropMenuItem,
+  Grid,
+  GridItem,
+  Row,
+  Col,
   MessageBox.wdMessageBox
 ]
 
@@ -138,6 +148,7 @@ export default {
   InfiniteLoad,
   Input,
   InputNumber,
+  Img,
   Lazyload,
   Loading,
   MessageBox,
@@ -170,5 +181,9 @@ export default {
   Tooltip,
   SortButton,
   DropMenu,
-  DropMenuItem
+  DropMenuItem,
+  Grid,
+  GridItem,
+  Row,
+  Col
 }

@@ -15,6 +15,9 @@
       }, {
         "name": "Popup 弹出层",
         "path": "/popup"
+      }, {
+        "name": "Img 图片",
+        "path": "/img"
       }
     ]
   }, {
@@ -24,6 +27,12 @@
       {
         "name": "Cell 单元格",
         "path": "/cell"
+      }, {
+        "name": "Layout 布局",
+        "path": "/layout"
+      }, {
+        "name": "Grid 宫格",
+        "path": "/grid"
       }, {
         "name": "Navbar 导航栏",
         "path": "/navbar"
