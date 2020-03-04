@@ -153,6 +153,9 @@
       }, {
         "name": "Tag 标签",
         "path": "/tag"
+      }, {
+        "name": "StatusTip 缺省提示",
+        "path": "/statusTip"
       }
     ]
   }
