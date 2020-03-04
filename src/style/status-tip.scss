@@ -1,0 +1,27 @@
+@import './abstracts/variable';
+@import './abstracts/mixin';
+
+
+@include b(status-tip) {
+  padding: $-statustip-padding;
+  width: 100%;
+  margin: 0 auto;
+  color: $-statustip-color;
+  font-size: $-statustip-fs;
+  box-sizing: border-box;
+
+  @include e(img) {
+    margin: 0 auto;
+    display: block;
+    width: 134px;
+    height: 134px;
+  }
+  @include e(text) {
+    margin: 12px auto 0;
+    font-size: $-statustip-fs;
+    line-height: $-statustip-line-height;
+    color: $-statustip-color;
+    text-align: center;
+    word-break: break-all;
+  }
+}
