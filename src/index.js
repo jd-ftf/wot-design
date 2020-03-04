@@ -54,6 +54,7 @@ import Grid from '../packages/grid'
 import GridItem from '../packages/grid-item'
 import Row from '../packages/row'
 import Col from '../packages/col'
+import StatusTip from '../packages/status-tip'
 import locale from './locale'
 
 const components = [
@@ -107,6 +108,7 @@ const components = [
   GridItem,
   Row,
   Col,
+  StatusTip,
   MessageBox.wdMessageBox
 ]
 
@@ -185,5 +187,6 @@ export default {
   Grid,
   GridItem,
   Row,
-  Col
+  Col,
+  StatusTip
 }
