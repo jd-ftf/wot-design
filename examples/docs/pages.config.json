@@ -265,6 +265,11 @@
                 "name": "Tag 标签",
                 "path": "/tag",
                 "demo": "/tag"
+              },
+              "StatusTip": {
+                "name": "StatusTip 缺省提示",
+                "path": "/statusTip",
+                "demo": "/statusTip"
               }
             }
           }

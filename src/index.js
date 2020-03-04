@@ -50,10 +50,14 @@ import Tooltip from '../packages/tooltip'
 import SortButton from '../packages/sort-button'
 import DropMenu from '../packages/drop-menu'
 import DropMenuItem from '../packages/drop-menu-item'
+<<<<<<< Updated upstream
 import Grid from '../packages/grid'
 import GridItem from '../packages/grid-item'
 import Row from '../packages/row'
 import Col from '../packages/col'
+=======
+import StatusTip from '../packages/status-tip'
+>>>>>>> Stashed changes
 import locale from './locale'
 
 const components = [
@@ -103,10 +107,14 @@ const components = [
   SortButton,
   DropMenu,
   DropMenuItem,
+<<<<<<< Updated upstream
   Grid,
   GridItem,
   Row,
   Col,
+=======
+  StatusTip,
+>>>>>>> Stashed changes
   MessageBox.wdMessageBox
 ]
 
@@ -185,5 +193,6 @@ export default {
   Grid,
   GridItem,
   Row,
-  Col
+  Col,
+  StatusTip
 }
