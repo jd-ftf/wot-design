@@ -120,6 +120,7 @@
     }
   }
   @include e(inner) {
+    display: block;
     flex: 1;
     height: $-input-inner-height;
     padding: $-input-inner-padding;
