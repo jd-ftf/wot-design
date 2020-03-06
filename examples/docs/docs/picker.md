@@ -89,7 +89,9 @@ export default {
 
 ### 多级联动
 
-传入 `column-change` 属性，其类型为 `function`，接收 pickerView 实例、当前选中项、当前修改列的下标 作为入参，根据选中项和列下标进行判断，通过 pickerView 实例暴露出来的 `setColumnData` 方法修改其他列的数据源。
+传入 `column-change` 属性，其类型为 `function`，接收 pickerView 实例、当前选中项、当前修改列的下标、resolve 作为入参，根据选中项和列下标进行判断，通过 pickerView 实例暴露出来的 `setColumnData` 方法修改其他列的数据源，当修改完成后需要执行 `resolve()` 告知组件修改完成以继续执行，如果 `column-change` 包含异步操作，也可以使组件按照异步顺序进行执行。
+
+> resolve 参数为 1.4.0 添加，每次修改完后都需要调用 resolve() 通知组件。
 
 ```html
 <wd-picker :columns="columns" label="多列联动" v-model="value" :column-change="onChangeDistrict" />
@@ -98,10 +100,13 @@ export default {
 const district = {
   '0': [{ label: '北京', value: '110000' }, { label: '广东省', value: '440000' }],
   '110000': [{ label: '北京', value: '110100' }],
-  '440000': [{ label: '广州市', value: '440100' }, { label: '深圳市', value: '440300' }],
-  '110100': [{ label: '东城区', value: '110101' }, { label: '西城区', value: '110102' }],
-  '440100': [{ label: '荔湾区', value: '440103' }, { label: '越秀区', value: '440104' }],
-  '440300': [{ label: '罗湖区', value: '440303' }, { label: '福田区', value: '440304' }]
+  '440000': [{ label: '广州市', value: '440100' }, { label: '韶关市', value: '440200' }, { label: '深圳市', value: '440300' }, { label: '珠海市', value: '440400' }, { label: '汕头市', value: '440500' }],
+  '110100': [{ label: '东城区', value: '110101' }, { label: '西城区', value: '110102' }, { label: '朝阳区', value: '110105' }, { label: '丰台区', value: '110106' }, { label: '石景山区', value: '110107' }],
+  '440100': [{ label: '荔湾区', value: '440103' }, { label: '越秀区', value: '440104' }, { label: '海珠区', value: '440105'}],
+  '440200': [{ label: '武江区', value: '440203'}],
+  '440300': [{ label: '罗湖区', value: '440303' }, { label: '福田区', value: '440304' }],
+  '440400': [{ label: '香洲区', value: '440402' }, { label: '斗门区', value: '440403' }, { label: '金湾区', value: '440404' }],
+  '440500': [{ label: '龙湖区', value: '440507' }, { label: '金平区', value: '440511' }]
 }
 
 export default {
@@ -116,7 +121,7 @@ export default {
     }
   },
   methods: {
-    onChangeDistrict (pickerView, item, columnIndex) {
+    onChangeDistrict (pickerView, item, columnIndex, resolve) {
       if (columnIndex === 0) {
         pickerView.setColumnData(1, district[item.value])
         pickerView.setColumnData(2, district[district[item.value][0].value])
@@ -125,6 +130,7 @@ export default {
       if (columnIndex === 1) {
         pickerView.setColumnData(2, district[item.value])
       }
+      resolve()
     }
   }
 }
@@ -236,7 +242,7 @@ export default {
 | disabled | 禁用 | boolean | - | fasle |
 | readonly | 只读 | boolean | - | false |
 | display-format | 自定义展示文案的格式化函数，返回一个字符串 | function | - | - |
-| column-change | 接收 pickerView 实例、选中项、当前修改列的下标 作为入参，根据选中项和列下标进行判断，通过 pickerView 实例暴露出来的 `setColumnData` 方法修改其他列的数据源。 | function | - | - |
+| column-change | 接收 pickerView 实例、选中项、当前修改列的下标、resolve 作为入参，根据选中项和列下标进行判断，通过 pickerView 实例暴露出来的 `setColumnData` 方法修改其他列的数据源。 | function | - | - |
 | size | 设置选择器大小 | string | 'large' | - |
 | label-width | 设置左侧标题宽度 | string | - | '33%' |
 | error | 是否为错误状态，错误状态时右侧内容为红色 | boolean | - | false |

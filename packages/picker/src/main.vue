@@ -32,7 +32,7 @@
       <wd-picker-view
         ref="pickerView"
         v-model="pickerValue"
-        :columns="columns"
+        :columns="displayColumns"
         :loading="loading"
         :arrow-html="arrowHtml"
         :visible-item-count="visibleItemCount"
@@ -63,7 +63,9 @@ export default {
     return {
       showValue: '',
       popupShow: false,
-      pickerValue: ''
+      pickerValue: '',
+      lastColumns: [],
+      displayColumns: []
     }
   },
   props: {
@@ -95,15 +97,23 @@ export default {
         })
       },
       immediate: true
+    },
+    columns: {
+      handler () {
+        this.displayColumns = this.columns
+      },
+      immediate: true
     }
   },
   methods: {
     showPopup () {
       if (this.disabled || this.readonly) return
 
+      this.lastColumns = this.$refs.pickerView.getColumnsData()
       this.popupShow = true
     },
     onCancel () {
+      this.displayColumns = this.lastColumns
       this.pickerValue = this.value
       this.popupShow = false
       this.$emit('cancel')
