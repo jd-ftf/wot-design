@@ -86,7 +86,15 @@ export default {
   },
   methods: {
     onChange (columnIndex) {
-      this.columnChange && this.columnChange(this, this.getColumnItem(columnIndex), columnIndex)
+      if (this.columnChange) {
+        this.columnChange(this, this.getColumnItem(columnIndex) || {}, columnIndex, () => {
+          this.handleChange(columnIndex)
+        })
+      } else {
+        this.handleChange(columnIndex)
+      }
+    },
+    handleChange (columnIndex) {
       if (this.isSingle) {
         let value = this.getColumnValue(columnIndex)
         this.$emit('input', value)
@@ -140,6 +148,11 @@ export default {
         column.data = data
         column.setIndex(0, false)
       }
+    },
+    getColumnsData () {
+      return this.children.map(column => {
+        return column.data
+      })
     },
     onCancel () {
       this.$emit('cancel')

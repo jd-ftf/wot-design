@@ -250,8 +250,9 @@ export default {
 
       this.innerValue = this.formatValue(value)
     },
-    onColumnChange (pickerView) {
+    onColumnChange (pickerView, item, columnIndex, resolve) {
       this.updateInnerValue()
+      resolve()
     },
     updateColumnValues () {
       const values = this.getValueArray(this.innerValue)
