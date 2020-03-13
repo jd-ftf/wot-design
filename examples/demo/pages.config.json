@@ -13,11 +13,11 @@
         "name": "Icon 图标",
         "path": "/icon"
       }, {
-        "name": "Popup 弹出层",
-        "path": "/popup"
-      }, {
         "name": "Img 图片",
         "path": "/img"
+      }, {
+        "name": "Popup 弹出层",
+        "path": "/popup"
       }
     ]
   }, {
@@ -28,11 +28,11 @@
         "name": "Cell 单元格",
         "path": "/cell"
       }, {
-        "name": "Layout 布局",
-        "path": "/layout"
-      }, {
         "name": "Grid 宫格",
         "path": "/grid"
+      }, {
+        "name": "Layout 布局",
+        "path": "/layout"
       }, {
         "name": "Navbar 导航栏",
         "path": "/navbar"
@@ -57,6 +57,9 @@
       }, {
         "name": "DatetimePickerView 时间选择器视图",
         "path": "/datetimePickerView"
+      }, {
+        "name": "Form 表单组合",
+        "path": "/form"
       }, {
         "name": "Input 输入框",
         "path": "/input"
@@ -84,9 +87,6 @@
       }, {
         "name": "Switch 开关",
         "path": "/switch"
-      }, {
-        "name": "Form 表单组合",
-        "path": "/form"
       }
     ]
   }, {
@@ -115,14 +115,11 @@
         "name": "Swipe 轮播图",
         "path": "/swipe"
       }, {
-        "name": "Toast 轻提示",
-        "path": "/toast"
-      }, {
-        "name": "Tooltip 文字提示",
-        "path": "/tooltip"
-      }, {
         "name": "SwipeAction 滑动操作",
         "path": "/swipeAction"
+      }, {
+        "name": "Toast 轻提示",
+        "path": "/toast"
       }
     ]
   }, {
@@ -153,6 +150,9 @@
       }, {
         "name": "Tag 标签",
         "path": "/tag"
+      }, {
+        "name": "Tooltip 文字提示",
+        "path": "/tooltip"
       }
     ]
   }

@@ -55,15 +55,15 @@
                 "path": "/icon",
                 "demo": "/icon"
               },
-              "popup": {
-                "name": "Popup 弹出层",
-                "path": "/popup",
-                "demo": "/popup"
-              },
               "img": {
                 "name": "Img 图片",
                 "path": "/img",
                 "demo": "/img"
+              },
+              "popup": {
+                "name": "Popup 弹出层",
+                "path": "/popup",
+                "demo": "/popup"
               }
             }
           }, {
@@ -89,15 +89,15 @@
                 "path": "/navbar",
                 "demo": "/navbar"
               },
-              "Tabbar": {
-                "name": "Tabbar 标签栏",
-                "path": "/tabbar",
-                "demo": "/tabbar"
-              },
               "Tab": {
                 "name": "Tabs 标签页",
                 "path": "/tabs",
                 "demo": "/tabs"
+              },
+              "Tabbar": {
+                "name": "Tabbar 标签栏",
+                "path": "/tabbar",
+                "demo": "/tabbar"
               }
             }
           }, {
@@ -117,6 +117,11 @@
                 "name": "DatetimePickerView 时间选择器视图",
                 "path": "/datetimePickerView",
                 "demo": "/datetimePickerView"
+              },
+              "Form": {
+                "name": "Form 表单组合",
+                "path": "/form",
+                "demo": "/form"
               },
               "Input": {
                 "name": "Input 输入框",
@@ -162,11 +167,6 @@
                 "name": "Switch 开关",
                 "path": "/switch",
                 "demo": "/switch"
-              },
-              "Form": {
-                "name": "Form 表单组合",
-                "path": "/form",
-                "demo": "/form"
               }
             }
           }, {
@@ -216,11 +216,6 @@
                 "name": "Toast 轻提示",
                 "path": "/toast",
                 "demo": "/toast"
-              },
-              "Tooltip": {
-                "name": "Tooltip 文字提示",
-                "path": "/tooltip",
-                "demo": "/tooltip"
               }
             }
           }, {
@@ -265,6 +260,11 @@
                 "name": "Tag 标签",
                 "path": "/tag",
                 "demo": "/tag"
+              },
+              "Tooltip": {
+                "name": "Tooltip 文字提示",
+                "path": "/tooltip",
+                "demo": "/tooltip"
               }
             }
           }
