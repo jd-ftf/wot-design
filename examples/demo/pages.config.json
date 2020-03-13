@@ -13,6 +13,9 @@
         "name": "Icon 图标",
         "path": "/icon"
       }, {
+        "name": "Img 图片",
+        "path": "/img"
+      }, {
         "name": "Popup 弹出层",
         "path": "/popup"
       }
@@ -24,6 +27,12 @@
       {
         "name": "Cell 单元格",
         "path": "/cell"
+      }, {
+        "name": "Grid 宫格",
+        "path": "/grid"
+      }, {
+        "name": "Layout 布局",
+        "path": "/layout"
       }, {
         "name": "Navbar 导航栏",
         "path": "/navbar"
@@ -49,6 +58,9 @@
         "name": "DatetimePickerView 时间选择器视图",
         "path": "/datetimePickerView"
       }, {
+        "name": "Form 表单组合",
+        "path": "/form"
+      }, {
         "name": "Input 输入框",
         "path": "/input"
       }, {
@@ -70,11 +82,11 @@
         "name": "Search 搜索",
         "path": "/search"
       }, {
+        "name": "Slider 滑块",
+        "path": "/slider"
+      }, {
         "name": "Switch 开关",
         "path": "/switch"
-      }, {
-        "name": "Form 表单组合",
-        "path": "/form"
       }
     ]
   }, {
@@ -84,6 +96,9 @@
       {
         "name": "ActionSheet 动态面板",
         "path": "/actionSheet"
+      }, {
+        "name": "DropMenu 下拉菜单",
+        "path": "/dropMenu"
       }, {
         "name": "InfiniteLoad 无限加载",
         "path": "/infiniteLoad"
@@ -97,20 +112,14 @@
         "name": "PullRefresh 下拉刷新",
         "path": "/pullRefresh"
       }, {
-        "name": "Slider 滑块",
-        "path": "/slider"
-      }, {
         "name": "Swipe 轮播图",
         "path": "/swipe"
       }, {
-        "name": "Toast 轻提示",
-        "path": "/toast"
-      }, {
-        "name": "Tooltip 文字提示",
-        "path": "/tooltip"
-      }, {
         "name": "SwipeAction 滑动操作",
         "path": "/swipeAction"
+      }, {
+        "name": "Toast 轻提示",
+        "path": "/toast"
       }
     ]
   }, {
@@ -130,6 +139,9 @@
         "name": "Progress 进度条",
         "path": "/progress"
       }, {
+        "name": "SortButton 排序按钮",
+        "path": "/sortButton"
+      }, {
         "name": "Steps 步骤条",
         "path": "/steps"
       }, {
@@ -138,6 +150,12 @@
       }, {
         "name": "Tag 标签",
         "path": "/tag"
+      }, {
+        "name": "Tooltip 文字提示",
+        "path": "/tooltip"
+      }, {
+        "name": "StatusTip 缺省提示",
+        "path": "/statusTip"
       }
     ]
   }

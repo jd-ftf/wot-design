@@ -7,7 +7,7 @@
   height: $-progress-height;
 
   @include when(with-text) {
-    padding-top: 26px;
+    padding-top: $-progress-txt-height;
   }
   @include e(outer) {
     display: block;
@@ -24,7 +24,7 @@
     left: 0;
     height: 100%;
     border-radius: $-progress-height / 2;
-    background: $-color-theme;
+    background: $-progress-color;
     transition: background .2s, width .3s;
   }
   @include e(label) {

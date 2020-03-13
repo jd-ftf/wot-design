@@ -143,8 +143,6 @@ export default {
 </style>
 ```
 
-> 自定义内容如果超出了默认的46px高度，可能需要你自己通过绝对定位使其保持样式一致。
-
 ### CellGroup Attributes
 
 | 参数      | 说明                                 | 类型      | 可选值       | 默认值   |

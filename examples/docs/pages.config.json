@@ -55,6 +55,11 @@
                 "path": "/icon",
                 "demo": "/icon"
               },
+              "img": {
+                "name": "Img 图片",
+                "path": "/img",
+                "demo": "/img"
+              },
               "popup": {
                 "name": "Popup 弹出层",
                 "path": "/popup",
@@ -69,20 +74,30 @@
                 "path": "/cell",
                 "demo": "/cell"
               },
+              "Grid": {
+                "name": "Grid 宫格",
+                "path": "/grid",
+                "demo": "/grid"
+              },
+              "Layout": {
+                "name": "Layout 布局",
+                "path": "/layout",
+                "demo": "/layout"
+              },
               "Navbar": {
                 "name": "Navbar 导航栏",
                 "path": "/navbar",
                 "demo": "/navbar"
               },
-              "Tabbar": {
-                "name": "Tabbar 标签栏",
-                "path": "/tabbar",
-                "demo": "/tabbar"
-              },
               "Tab": {
                 "name": "Tabs 标签页",
                 "path": "/tabs",
                 "demo": "/tabs"
+              },
+              "Tabbar": {
+                "name": "Tabbar 标签栏",
+                "path": "/tabbar",
+                "demo": "/tabbar"
               }
             }
           }, {
@@ -102,6 +117,11 @@
                 "name": "DatetimePickerView 时间选择器视图",
                 "path": "/datetimePickerView",
                 "demo": "/datetimePickerView"
+              },
+              "Form": {
+                "name": "Form 表单组合",
+                "path": "/form",
+                "demo": "/form"
               },
               "Input": {
                 "name": "Input 输入框",
@@ -138,15 +158,15 @@
                 "path": "/search",
                 "demo": "/search"
               },
+              "Slider": {
+                "name": "Slider 滑块",
+                "path": "/slider",
+                "demo": "/slider"
+              },
               "Switch": {
                 "name": "Switch 开关",
                 "path": "/switch",
                 "demo": "/switch"
-              },
-              "Form": {
-                "name": "Form 表单组合",
-                "path": "/form",
-                "demo": "/form"
               }
             }
           }, {
@@ -156,6 +176,11 @@
                 "name": "ActionSheet 动态面板",
                 "path": "/actionSheet",
                 "demo": "/actionSheet"
+              },
+              "DropMenu": {
+                "name": "DropMenu 下拉菜单",
+                "path": "/dropMenu",
+                "demo": "/dropMenu"
               },
               "InfiniteLoad": {
                 "name": "InfiniteLoad 无限加载",
@@ -177,11 +202,6 @@
                 "path": "/pullRefresh",
                 "demo": "/pullRefresh"
               },
-              "Slider": {
-                "name": "Slider 滑块",
-                "path": "/slider",
-                "demo": "/slider"
-              },
               "Swipe": {
                 "name": "Swipe 轮播图",
                 "path": "/swipe",
@@ -196,11 +216,6 @@
                 "name": "Toast 轻提示",
                 "path": "/toast",
                 "demo": "/toast"
-              },
-              "Tooltip": {
-                "name": "Tooltip 文字提示",
-                "path": "/tooltip",
-                "demo": "/tooltip"
               }
             }
           }, {
@@ -226,6 +241,11 @@
                 "path": "/progress",
                 "demo": "/progress"
               },
+              "SortButton": {
+                "name": "SortButton 排序按钮",
+                "path": "/sortButton",
+                "demo": "/sortButton"
+              },
               "Steps": {
                 "name": "Steps 步骤条",
                 "path": "/steps",
@@ -240,6 +260,16 @@
                 "name": "Tag 标签",
                 "path": "/tag",
                 "demo": "/tag"
+              },
+              "Tooltip": {
+                "name": "Tooltip 文字提示",
+                "path": "/tooltip",
+                "demo": "/tooltip"
+              },
+              "StatusTip": {
+                "name": "StatusTip 缺省提示",
+                "path": "/statusTip",
+                "demo": "/statusTip"
               }
             }
           }

@@ -5,7 +5,7 @@
         <i class="logo"></i>
         <span class="inline">Wot Design</span>
       </div>
-      <div class="page__desc">该组件库基于Vue.js构建，根据京东商家侧的UI设计规范（京麦移动端设计规范）开发，旨在给商家提供统一的UI交互，同时提高研发的开发效率。</div>
+      <div class="page__desc">该组件库根据京东商家侧的UI设计规范（京麦移动端设计规范）开发，旨在给商家提供统一的UI交互，同时提高研发的开发效率。</div>
     </div>
     <div class="page__bd">
       <div class="kind-list__item" v-for="(componentModule, index) in pagesConfig" :key="componentModule.name">
@@ -103,6 +103,7 @@ export default {
     color: #999;
     text-align: left;
     font-size: 12px;
+    line-height: 1.42;
   }
 }
 .page__bd {

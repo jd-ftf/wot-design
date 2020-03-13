@@ -1,20 +1,20 @@
 <template>
   <div>
-    <space title="基本用法">
+    <demo-block title="基本用法" transparent>
       <wd-search v-model="search1" @search="handleSearch" @cancel="handleCancel" @clear="handleClear" />
-    </space>
-    <space title="白色输入框">
+    </demo-block>
+    <demo-block title="白色输入框" transparent>
       <wd-search v-model="search2" light />
-    </space>
-    <space title="搜索占位符居左">
+    </demo-block>
+    <demo-block title="搜索占位符居左" transparent>
       <wd-search v-model="search3" placeholder-left />
-    </space>
-    <space title="禁用且隐藏取消按钮">
+    </demo-block>
+    <demo-block title="禁用且隐藏取消按钮" transparent>
       <wd-search v-model="search4" hide-cancel disabled />
-    </space>
-    <space title="自定义">
+    </demo-block>
+    <demo-block title="自定义" transparent>
       <wd-search v-model="search5" placeholder="请输入订单号/订单名称" cancel-txt="搜索" />
-    </space>
+    </demo-block>
   </div>
 </template>
 

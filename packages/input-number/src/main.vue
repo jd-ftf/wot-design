@@ -91,7 +91,6 @@ export default {
       return parseFloat(Math.round(value * Math.pow(10, this.precision)) / Math.pow(10, this.precision))
     },
     getPrecision (value) {
-      if (value === undefined) return 0
       const valueString = value.toString()
       const dotPosition = valueString.indexOf('.')
       let precision = 0
@@ -109,9 +108,7 @@ export default {
       if (this.stepStrictly) {
         value = this.toStrictlyStep(value)
       }
-      if (value !== undefined && this.precision !== undefined) {
-        value = this.toPrecision(value)
-      }
+      value = this.toPrecision(value)
       if (value > this.max) value = this.max
       if (value < this.min) value = this.min
       this.$emit('input', value)

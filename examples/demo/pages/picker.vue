@@ -11,18 +11,18 @@
       <wd-picker :columns="columns1" label="标题" v-model="value8" title="文案标题" />
       <wd-picker :columns="columns1" label="before-confirm" v-model="value9" :loading="isLoading" :before-confirm="beforeConfirm" />
     </div>
-    <space title="label不传">
+    <demo-block title="label不传" transparent>
       <wd-picker :columns="columns1" v-model="value10" />
-    </space>
-    <space title="大小">
+    </demo-block>
+    <demo-block title="大小" transparent>
       <wd-picker :columns="columns1" label="单列选择" v-model="value11" size="large" />
-    </space>
-    <space title="错误">
+    </demo-block>
+    <demo-block title="错误" transparent>
       <wd-picker :columns="columns1" label="单列选择" v-model="value11" error />
-    </space>
-    <space title="值靠右显示">
+    </demo-block>
+    <demo-block title="值靠右显示" transparent>
       <wd-picker :columns="columns1" label="单列选择" v-model="value12" align-right />
-    </space>
+    </demo-block>
   </div>
 </template>
 
@@ -30,10 +30,13 @@
 const district = {
   '0': [{ label: '北京', value: '110000' }, { label: '广东省', value: '440000' }],
   '110000': [{ label: '北京', value: '110100' }],
-  '440000': [{ label: '广州市', value: '440100' }, { label: '深圳市', value: '440300' }],
-  '110100': [{ label: '东城区', value: '110101' }, { label: '西城区', value: '110102' }],
-  '440100': [{ label: '荔湾区', value: '440103' }, { label: '越秀区', value: '440104' }],
-  '440300': [{ label: '罗湖区', value: '440303' }, { label: '福田区', value: '440304' }]
+  '440000': [{ label: '广州市', value: '440100' }, { label: '韶关市', value: '440200' }, { label: '深圳市', value: '440300' }, { label: '珠海市', value: '440400' }, { label: '汕头市', value: '440500' }],
+  '110100': [{ label: '东城区', value: '110101' }, { label: '西城区', value: '110102' }, { label: '朝阳区', value: '110105' }, { label: '丰台区', value: '110106' }, { label: '石景山区', value: '110107' }],
+  '440100': [{ label: '荔湾区', value: '440103' }, { label: '越秀区', value: '440104' }, { label: '海珠区', value: '440105'}],
+  '440200': [{ label: '武江区', value: '440203'}],
+  '440300': [{ label: '罗湖区', value: '440303' }, { label: '福田区', value: '440304' }],
+  '440400': [{ label: '香洲区', value: '440402' }, { label: '斗门区', value: '440403' }, { label: '金湾区', value: '440404' }],
+  '440500': [{ label: '龙湖区', value: '440507' }, { label: '金平区', value: '440511' }]
 }
 
 export default {
@@ -65,7 +68,7 @@ export default {
     }
   },
   methods: {
-    onChangeDistrict (pickerView, item, columnIndex) {
+    onChangeDistrict (pickerView, item, columnIndex, resolve) {
       if (columnIndex === 0) {
         pickerView.setColumnData(1, district[item.value])
         pickerView.setColumnData(2, district[district[item.value][0].value])
@@ -74,6 +77,7 @@ export default {
       if (columnIndex === 1) {
         pickerView.setColumnData(2, district[item.value])
       }
+      resolve()
     },
     displayFormat (items) {
       return items.join('-')

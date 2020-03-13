@@ -52,7 +52,7 @@
     text-align: center;
     line-height: $-steps-icon-size - 2px;
     border-radius: 50%;
-    font-size: $-steps-icon-text-size;
+    font-size: $-steps-icon-text-fs;
   }
   @include e(line) {
     position: absolute;
@@ -73,16 +73,19 @@
   @include e(content){
     margin-top: 7px;
     color: $-steps-inactive-color;
-    font-size: $-steps-label-size;
+    font-size: $-steps-label-fs;
   }
   @include e(title) {
+    line-height: 1.43;
+
     @include when(description) {
-      font-size: $-steps-title-size;
+      font-size: $-steps-title-fs;
     }
   }
   @include e(description) {
     margin-top: 4px;
     padding: 0 2px 4px;
+    line-height: 1.43;
   }
   @include when(finished) {
     .wd-step__icon-inner {
@@ -121,7 +124,7 @@
           left: -5px;
           top: -5px;
           border-radius: 50%;
-          background: $-color-theme;
+          background: $-steps-finished-color;
           opacity: 0.2;
         }
       }

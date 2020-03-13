@@ -1,29 +1,29 @@
 <template>
   <div>
-    <space>
+    <demo-block transparent>
       <div slot="title">基本用法，数值: {{ value1 }}</div>
       <wd-datetime-picker-view v-model="value1" />
-    </space>
-    <space>
+    </demo-block>
+    <demo-block transparent>
       <div slot="title">年月日，数值: {{ value2 }}</div>
       <wd-datetime-picker-view type="date" v-model="value2" />
-    </space>
-    <space>
+    </demo-block>
+    <demo-block transparent>
       <div slot="title">年月，数值: {{ value3 }}</div>
       <wd-datetime-picker-view type="year-month" v-model="value3" />
-    </space>
-    <space >
+    </demo-block>
+    <demo-block transparent>
       <div slot="title">时分，数值: {{ value4 }}</div>
       <wd-datetime-picker-view type="time" v-model="value4" />
-    </space>
-    <space>
+    </demo-block>
+    <demo-block transparent>
       <div slot="title">内部格式，数值: {{ value5 }}</div>
       <wd-datetime-picker-view :formatter="formatter"  v-model="value5" />
-    </space>
-    <space>
+    </demo-block>
+    <demo-block transparent>
       <div slot="title">过滤选项，数值: {{ value6 }}</div>
       <wd-datetime-picker-view :filter="filter"  v-model="value6" />
-    </space>
+    </demo-block>
   </div>
 </template>
 

@@ -3,14 +3,14 @@
 @import './common/transition.scss';
 @import './icon.scss';
 
-@mixin tag-type-style ($normalColor, $lightColor, $darkColor: $normalColor) {
-  background: linear-gradient(to right, $normalColor, $lightColor);
+@mixin tag-type-style ($normalColor) {
+  background: $normalColor;
   border: 1px solid transparent;
 
   @include when(plain) {
     background: transparent;
-    color: $darkColor;
-    border-color: $darkColor;
+    color: $normalColor;
+    border-color: $normalColor;
   }
 }
 @include b(tag) {
@@ -22,44 +22,44 @@
   transition: opacity .3s;
   -webkit-tap-highlight-color: transparent;
 
-  @include tag-type-style($-tag-info-color, $-tag-info-color-light);
+  @include tag-type-style($-tag-info-color);
 
   @include when(primary) {
-    @include tag-type-style($-tag-primary-color, $-tag-primary-color-light);
+    @include tag-type-style($-tag-primary-color);
   }
   @include when(danger) {
-    @include tag-type-style($-tag-danger-color, $-tag-danger-color-light, $-tag-danger-color-dark);
+    @include tag-type-style($-tag-danger-color);
   }
   @include when(warning) {
-    @include tag-type-style($-tag-warning-color, $-tag-warning-color-light);
+    @include tag-type-style($-tag-warning-color);
   }
   @include when(success) {
-    @include tag-type-style($-tag-success-color, $-tag-success-color-light);
+    @include tag-type-style($-tag-success-color);
   }
   @include e(icon) {
     display: inline-block;
     margin-right: 3px;
     margin-top: 1px;
-    font-size: $-tag-small-font-size;
+    font-size: $-tag-small-fs;
+    line-height: 1;
     vertical-align: middle;
   }
   @include e(text) {
     display: inline-block;
-    font-size: $-tag-font-size;
+    font-size: $-tag-fs;
+    line-height: 1.43;
     vertical-align: middle;
   }
   @include e(add-text) {
-    width: 60px;
+    width: 55px;
     display: inline-block;
-    font-size: $-tag-font-size;
+    font-size: $-tag-fs;
     vertical-align: middle;
     outline: none;
     border: none;
   }
   @include e(close) {
     display: inline-block;
-    width: $-tag-close-size;
-    height: $-tag-close-size;
     margin-left: 10px;
     font-size: $-tag-close-size;
     vertical-align: middle;
@@ -68,15 +68,15 @@
 
   @include when(small) {
     .wd-tag__text {
-      font-size: $-tag-small-font-size;
+      font-size: $-tag-small-fs;
     }
     .wd-tag__add-text {
-      font-size: $-tag-small-font-size;
+      font-size: $-tag-small-fs;
     }
     .wd-tag__close {
       transform: translateY(1px);
       margin-left: 4px;
-      font-size: $-tag-font-size;
+      font-size: $-tag-fs;
     }
   }
   @include when(large) {

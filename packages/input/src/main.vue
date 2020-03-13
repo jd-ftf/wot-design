@@ -66,7 +66,7 @@
       </div>
       <input
         class="wd-input__inner"
-        :type="showPwdVisible ? (isPwdVisible ? 'text' : 'password') : type"
+        :type="showPassword ? (isPwdVisible ? 'text' : 'password') : type"
         :value="value"
         ref="input"
         @input="handleInput"
@@ -168,15 +168,6 @@ export default {
     },
     showWordCount () {
       return !this.disabled && !this.readonly && this.maxlength && this.showWordLimit
-    },
-    suffixCount () {
-      let count = 0
-      this.showClear && count++
-      this.showPwdVisible && count++
-      (this.suffixIcon || this.$slots.suffix) && count++
-      this.showWordCount && count++
-
-      return count
     },
     textareaStyle () {
       return Object.assign({}, this.textareaCalcStyle, {

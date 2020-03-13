@@ -12,14 +12,14 @@
     position: absolute;
     display: inline-block;
     left: 50%;
-    bottom: 6px;
+    bottom: $-swipe-indicators-bottom;
     transform: translate(-50%, -50%);
     font-size: 0;
   }
   @include e(indicator) {
     display: inline-block;
-    width: 5px;
-    height: 5px;
+    width: $-swipe-indicator-size;
+    height: $-swipe-indicator-size;
     border-radius: 50%;
     margin-right: 6px;
 
@@ -35,7 +35,7 @@
       display: block;
     }
     .wd-swipe__indicators {
-      left: 10px;
+      left: $-swipe-indicators-vertical-left;
       bottom: auto;
       top: 50%;
     }

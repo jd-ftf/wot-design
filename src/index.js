@@ -16,6 +16,7 @@ import Icon from '../packages/icon'
 import InfiniteLoad from '../packages/infinite-load'
 import Input from '../packages/input'
 import InputNumber from '../packages/input-number'
+import Img from '../packages/img'
 import Lazyload from '../packages/lazyload'
 import Loading from '../packages/loading'
 import MessageBox from '../packages/message-box'
@@ -46,6 +47,14 @@ import TabbarItem from '../packages/tabbar-item'
 import Tag from '../packages/tag'
 import Toast from '../packages/toast'
 import Tooltip from '../packages/tooltip'
+import SortButton from '../packages/sort-button'
+import DropMenu from '../packages/drop-menu'
+import DropMenuItem from '../packages/drop-menu-item'
+import Grid from '../packages/grid'
+import GridItem from '../packages/grid-item'
+import Row from '../packages/row'
+import Col from '../packages/col'
+import StatusTip from '../packages/status-tip'
 import locale from './locale'
 
 const components = [
@@ -64,6 +73,7 @@ const components = [
   InfiniteLoad,
   Input,
   InputNumber,
+  Img,
   Loading,
   Modal,
   Navbar,
@@ -91,6 +101,14 @@ const components = [
   TabbarItem,
   Tag,
   Tooltip,
+  SortButton,
+  DropMenu,
+  DropMenuItem,
+  Grid,
+  GridItem,
+  Row,
+  Col,
+  StatusTip,
   MessageBox.wdMessageBox
 ]
 
@@ -113,7 +131,7 @@ if (typeof window !== 'undefined' && window.Vue) {
 }
 
 export default {
-  version: '1.3.0',
+  version: '1.4.0',
   install,
   locale: locale.use,
   i18n: locale.i18n,
@@ -132,6 +150,7 @@ export default {
   InfiniteLoad,
   Input,
   InputNumber,
+  Img,
   Lazyload,
   Loading,
   MessageBox,
@@ -161,5 +180,13 @@ export default {
   TabbarItem,
   Tag,
   Toast,
-  Tooltip
+  Tooltip,
+  SortButton,
+  DropMenu,
+  DropMenuItem,
+  Grid,
+  GridItem,
+  Row,
+  Col,
+  StatusTip
 }

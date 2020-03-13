@@ -1,14 +1,27 @@
 <template>
-  <div class="wd-collapse" :class="{ 'is-viewmore': viewmore }">
+  <div
+    class="wd-collapse"
+    :class="{ 'is-viewmore': viewmore }"
+  >
     <slot v-if="!viewmore"></slot>
     <template v-else>
-      <div class="wd-collapse__content" :class="{ 'is-retract': !value }" :style="{ '-webkit-line-clamp': contentLineNum }">
+      <div
+        class="wd-collapse__content"
+        :class="{ 'is-retract': !value }"
+        :style="{ '-webkit-line-clamp': contentLineNum }"
+      >
         <slot></slot>
       </div>
-      <div class="wd-collapse__more" @click="switchValue(!value)">
+      <div
+        class="wd-collapse__more"
+        @click="switchValue(!value)"
+      >
         <slot name="more">
           <span class="wd-collapse__more-txt">{{ t(!value ? 'wd.collapse.expand' : 'wd.collapse.retract') }}</span>
-          <i class="wd-collapse__arrow wd-icon-arrow-down" :class="{ 'is-retract': value }"></i>
+          <i
+            class="wd-collapse__arrow wd-icon-arrow-down"
+            :class="{ 'is-retract': value }"
+          ></i>
         </slot>
       </div>
     </template>

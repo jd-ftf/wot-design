@@ -1,13 +1,12 @@
 <template>
   <div>
-    <white-space>
-      <div slot="desc">图片懒加载，引用<code>vue-lazyload</code>组件，并做了默认加载图设置</div>
+    <demo-block title="图片懒加载，引用 vue-lazyload 组件，并做了默认加载图设置">
       <div>
         <div class="lazyload-item" v-for="item in imgs" :key="item">
           <img v-lazy="item" class="lazyload-img" />
         </div>
       </div>
-    </white-space>
+    </demo-block>
   </div>
 </template>
 

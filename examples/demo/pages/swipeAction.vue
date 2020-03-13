@@ -1,6 +1,6 @@
 <template>
   <div>
-    <space title="基本用法">
+    <demo-block title="基本用法" transparent>
       <wd-swipe-action>
         <wd-cell title="标题文字" value="内容"/>
         <div slot="right" class="action">
@@ -9,9 +9,9 @@
           <div class="button" style="background: #E2231A;" @click="handleAction('操作3')">操作3</div>
         </div>
       </wd-swipe-action>
-    </space>
+    </demo-block>
 
-    <space title="取消自动关闭">
+    <demo-block title="取消自动关闭" transparent>
       <wd-swipe-action :auto-close="false">
         <wd-cell title="标题文字" value="内容"/>
         <div slot="right" class="action">
@@ -20,9 +20,9 @@
           <div class="button" style="background: #E2231A;">操作3</div>
         </div>
       </wd-swipe-action>
-    </space>
+    </demo-block>
 
-    <space title="左右滑动">
+    <demo-block title="左右滑动" transparent>
       <wd-swipe-action>
         <div slot="left" class="action">
           <div class="button" style="background: #C8C7CD;" @click="handleAction('操作1')">操作1</div>
@@ -36,9 +36,9 @@
           <div class="button" style="background: #383fe2;">操作6</div>
         </div>
       </wd-swipe-action>
-    </space>
+    </demo-block>
 
-    <space title="切换按钮">
+    <demo-block title="切换按钮" transparent>
       <wd-swipe-action v-model="value" :before-close="beforeClose">
         <div slot="left" class="action">
           <div class="button" style="background: #C8C7CD;">操作1</div>
@@ -52,14 +52,14 @@
           <div class="button" style="background: #383fe2;">操作6</div>
         </div>
       </wd-swipe-action>
-    </space>
+    </demo-block>
     <div class="button-group">
       <wd-button type="primary" @touchstart.native.capture.stop="changeState('left',$event)">打开左边</wd-button>
       <wd-button type="primary" @touchstart.native.capture.stop="changeState('close',$event)">关闭所有</wd-button>
       <wd-button type="primary" @touchstart.native.capture.stop="changeState('right',$event)">打开右边</wd-button>
     </div>
 
-    <space title="点击事件">
+    <demo-block title="点击事件" transparent>
       <wd-swipe-action @click="handleClick">
         <wd-cell title="标题文字" value="内容"/>
         <div slot="right" class="action">
@@ -68,9 +68,9 @@
           <div class="button" style="background: #E2231A;">操作3</div>
         </div>
       </wd-swipe-action>
-    </space>
+    </demo-block>
 
-    <space title="禁用滑动按钮">
+    <demo-block title="禁用滑动按钮" transparent>
       <wd-swipe-action disabled>
         <wd-cell title="标题文字" value="内容"/>
         <div slot="right" class="action">
@@ -79,7 +79,7 @@
           <div class="button" style="background: #E2231A;">操作3</div>
         </div>
       </wd-swipe-action>
-    </space>
+    </demo-block>
   </div>
 </template>
 

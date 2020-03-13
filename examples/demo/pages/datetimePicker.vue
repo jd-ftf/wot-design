@@ -10,18 +10,18 @@
       <wd-datetime-picker v-model="value7" label="过滤选项" :filter="filter" />
       <wd-datetime-picker v-model="value8" label="before-confirm" :before-confirm="beforeConfirm" />
     </div>
-    <space title="label 不传">
+    <demo-block title="label 不传" transparent>
       <wd-datetime-picker v-model="value9" />
-    </space>
-    <space title="大小">
+    </demo-block>
+    <demo-block title="大小" transparent>
       <wd-datetime-picker v-model="value10" label="日期选择" size="large" />
-    </space>
-    <space title="错误">
+    </demo-block>
+    <demo-block title="错误" transparent>
       <wd-datetime-picker v-model="value11" label="日期选择" error />
-    </space>
-    <space title="值靠右展示">
+    </demo-block>
+    <demo-block title="值靠右展示" transparent>
       <wd-datetime-picker v-model="value12" label="日期选择" align-right />
-    </space>
+    </demo-block>
   </div>
 </template>
 

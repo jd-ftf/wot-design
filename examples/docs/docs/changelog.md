@@ -1,5 +1,48 @@
 ## 更新日志
 
+### 1.4.0
+
+*2020-03-13*
+
+#### 新特性
+
+- Col
+  - 新增组件 (by @HXCStudio123 )
+- DropMenu
+  - 新增组件 (by @HXCStudio123 )
+- Grid
+  - 新增组件 (by @HXCStudio123 )
+- Img
+  - 新增组件 (by @houtianfu )
+- Row
+  - 新增组件 (by @HXCStudio123 )
+- SortButton
+  - 新增组件 (by @Gkxie )
+- StatusTip
+  - 新增组件 (by @Ren Jing )
+
+#### Bug 修复
+
+- Cell
+  - 修复标签包裹问题 (by @yawuling )
+- Checkbox
+  - 修正单个复选框下的change事件触发和入参 (by @yawuling )
+- Picker
+  - 修复多级联动，修改内部值后取消恢复数据源； (by @yawuling )
+  - 修复 column-change 异步情况下无法准确获取值的问题 (by @yawuling )
+- PickerView
+  - 修复columns为空数组情况下的内存溢出 (by @yawuling )
+- Slider
+  - 修正slider样式 (by @yawuling )
+- Search
+  - 高度问题修复 (by @HXCStudio123 )
+
+#### 优化
+
+- Doc
+  - 自定义主题 (by @yawuling )
+  - 新增Col/Row组合使用Layout文档 (by @HXCStudio123 )
+
 ### 1.3.0
 
 *2020-02-11*
@@ -26,16 +69,22 @@
   - 新增组件 (by @Gkxie )
 - Tag
   - 新增属性`dynamic`，支持新增标签操作 (by @awjing )
-- Tooltip
-  - 新增组件 (by @HXCStudio123 )
+
 #### Bug 修复
-- DatetimePicker
+
+- Search
   - 修复关闭时内部值未还原的问题 (by @yawuling )
 - Picker
   - 修复value为空时选择第一项失败的问题 (by @yawuling )
-- Tabs
+- PickerView
+  - 修复value为空时选择第一项失败的问题 (by @yawuling )
+- Checkbox
   - 修复map功能的样式在不同屏幕尺寸的展示问题 (by @yawuling )
+- Tooltip
+  - 修复map功能的样式在不同屏幕尺寸的展示问题 (by @yawuling )
+
 #### 优化
+
 - Checkbox
   - 优化 button 类型复选框选中样式 (by @yawuling )
 - Doc
@@ -50,9 +99,11 @@
 #### New features
 
 Picker
+
 - 添加 `before-confirm` 属性
 
 DatetimePicker
+
 - 添加 `before-confirm` 属性
 
 ### 1.1.0
