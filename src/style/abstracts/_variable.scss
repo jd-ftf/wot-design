@@ -433,3 +433,10 @@ $-tooltip-light-color: $-color-content !default; // light 下的文字颜色
 $-grid-item-fs: 12px !default; // 字号
 $-grid-item-padding: 15px 10px !default; // 内容的 padding
 $-grid-item-border-color: $-color-border-light !default; // 边框颜色
+
+/* statustip */
+$-statustip-bg: $-modal-bg !default; // 背景色
+$-statustip-fs: $-fs-title !default; // 字号
+$-statustip-color: $-color-title !default; // 文字颜色
+$-statustip-line-height: 22px !default; // 文字颜色
+$-statustip-padding: 5px 10px !default; // 间距

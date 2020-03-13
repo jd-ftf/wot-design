@@ -51,5 +51,6 @@
   "grid": "./packages/grid/index.js",
   "grid-item": "./packages/grid-item/index.js",
   "row": "./packages/row/index.js",
-  "col": "./packages/col/index.js"
+  "col": "./packages/col/index.js",
+  "status-tip": "./packages/status-tip/index.js"
 }
