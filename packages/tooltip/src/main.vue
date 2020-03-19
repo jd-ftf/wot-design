@@ -24,7 +24,7 @@
               :key="index"
               @click="menuClick(item,index)"
               class="wd-tooltip__menu-inner"
-              :style="{'border-top':index === 0 ? 'none' : '1px solid ' + lineColor }"
+              :style="{'border-top':index === 0 ? 'none' : '1px solid ' + effect === 'light' ? 'rgba(255, 255, 255, .5)' : '#ebeef5' }"
             >
               <wd-icon :name="item.name" class="wd-tooltip__icon"></wd-icon>
               <span>{{item.content}}</span>
@@ -49,7 +49,7 @@ export default {
         top: 0,
         left: 0
       },
-      showPop: true,
+      showPop: false,
       popStyle: {}
     }
   },
@@ -96,105 +96,84 @@ export default {
     showText () {
       return !this.$slots.content &&
         (this.mode === 'normal' ? 'normal' : (this.mode === 'menu' ? 'menu' : 'normal'))
-    },
-    lineColor () {
-      return this.effect === 'light' ? 'rgba(255, 255, 255, .5)' : '#ebeef5'
     }
   },
   watch: {
-    value (newVal) {
-      if (newVal === this.showPop) return
-      this.toggle(true)
+    'value': {
+      immediate: true, // immediate选项可以开启首次赋值监听
+      handler (newVal) {
+        if (newVal === this.showPop) return
+        this.toggle(true)
+      }
     }
   },
-  mounted () {
-    this.$nextTick(() => {
-      this.init()
-      window.addEventListener('resize', this.reset)
-    })
-  },
-  beforeDestroy () {
-    window.removeEventListener('resize', this.reset)
-  },
   methods: {
-    reset () {
-      if (this.showPop) {
-        this.init(true)
-      }
-    },
-    /**
-     * @param {Boolean} isReset 判定是否是点开时重定位调用，否则为初始化(窗口重设)调用（避免初始位置变更时出现滑动）
-     */
-    init (isReset) {
-      if (!isReset) {
-        this.showPop && this.toggle()
-      }
+    init () {
       // 目标对象 dom（被跟随）
       const trigger = this.$refs.trigger.children[0]
+      const { top } = trigger.getBoundingClientRect()
       // 文字提示 dom
       const tooltip = this.$refs.tooltip
       // 顶部相对屏幕位置
       const scrollTop = window.pageYOffset ||
         document.documentElement.scrollTop ||
         document.body.scrollTop
-
       // 定位元素，考虑滚动该高度，当前参照对象的距离顶部高度，左侧相对屏幕距离
       switch (this.placement) {
         case 'top':
           this.position.left = trigger.offsetLeft - tooltip.offsetWidth / 2 + trigger.offsetWidth / 2
-          this.position.top = scrollTop + trigger.getBoundingClientRect().top - tooltip.offsetHeight - this.offset
+          this.position.top = scrollTop + top - tooltip.offsetHeight - this.offset
           break
         case 'top-start':
           this.position.left = trigger.offsetLeft
-          this.position.top = scrollTop + trigger.getBoundingClientRect().top - tooltip.offsetHeight - this.offset
+          this.position.top = scrollTop + top - tooltip.offsetHeight - this.offset
           break
         case 'top-end':
           this.position.left = trigger.offsetLeft + trigger.offsetWidth - tooltip.offsetWidth
-          this.position.top = scrollTop + trigger.getBoundingClientRect().top - tooltip.offsetHeight - this.offset
+          this.position.top = scrollTop + top - tooltip.offsetHeight - this.offset
           break
         case 'bottom':
           this.position.left = trigger.offsetLeft - tooltip.offsetWidth / 2 + trigger.offsetWidth / 2
-          this.position.top = scrollTop + trigger.getBoundingClientRect().top + trigger.offsetHeight + this.offset
+          this.position.top = scrollTop + top + trigger.offsetHeight + this.offset
           break
         case 'bottom-start':
           this.position.left = trigger.offsetLeft
-          this.position.top = scrollTop + trigger.getBoundingClientRect().top + trigger.offsetHeight + this.offset
+          this.position.top = scrollTop + top + trigger.offsetHeight + this.offset
           break
         case 'bottom-end':
           this.position.left = trigger.offsetLeft + trigger.offsetWidth - tooltip.offsetWidth
-          this.position.top = scrollTop + trigger.getBoundingClientRect().top + trigger.offsetHeight + this.offset
+          this.position.top = scrollTop + top + trigger.offsetHeight + this.offset
           break
         case 'left':
           this.position.left = trigger.offsetLeft - tooltip.offsetWidth - this.offset
-          this.position.top = scrollTop + trigger.getBoundingClientRect().top + trigger.offsetHeight / 2 - tooltip.offsetHeight / 2
+          this.position.top = scrollTop + top + trigger.offsetHeight / 2 - tooltip.offsetHeight / 2
           break
         case 'left-start':
           this.position.left = trigger.offsetLeft - tooltip.offsetWidth - this.offset
-          this.position.top = scrollTop + trigger.getBoundingClientRect().top
+          this.position.top = scrollTop + top
           break
         case 'left-end':
           this.position.left = trigger.offsetLeft - tooltip.offsetWidth - this.offset
-          this.position.top = scrollTop + trigger.getBoundingClientRect().top + trigger.offsetHeight - tooltip.offsetHeight
+          this.position.top = scrollTop + top + trigger.offsetHeight - tooltip.offsetHeight
           break
         case 'right':
           this.position.left = trigger.offsetLeft + trigger.offsetWidth + this.offset
-          this.position.top = scrollTop + trigger.getBoundingClientRect().top + trigger.offsetHeight / 2 - tooltip.offsetHeight / 2
+          this.position.top = scrollTop + top + trigger.offsetHeight / 2 - tooltip.offsetHeight / 2
           break
         case 'right-start':
           this.position.left = trigger.offsetLeft + trigger.offsetWidth + this.offset
-          this.position.top = scrollTop + trigger.getBoundingClientRect().top
+          this.position.top = scrollTop + top
           break
         case 'right-end':
           this.position.left = trigger.offsetLeft + trigger.offsetWidth + this.offset
-          this.position.top = scrollTop + trigger.getBoundingClientRect().top + trigger.offsetHeight - tooltip.offsetHeight
+          this.position.top = scrollTop + top + trigger.offsetHeight - tooltip.offsetHeight
           break
         default:
           console.warn('Wrong placement prop')
       }
       this.popStyle = {
         top: this.position.top + 'px',
-        left: this.position.left + 'px',
-        display: isReset ? this.popStyle.display : 'none'
+        left: this.position.left + 'px'
       }
     },
     /**
@@ -205,7 +184,7 @@ export default {
       this.showPop = isOutsideControl ? this.value : !this.showPop
       if (this.showPop) {
         this.$nextTick(() => {
-          this.init(true)
+          this.init()
         })
       }
       this.$emit(`${this.showPop === true ? 'show' : 'hide'}`)
