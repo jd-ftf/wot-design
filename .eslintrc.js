@@ -5,7 +5,8 @@ module.exports = {
     browser: true,
     es6: true,
     commonjs: true,
-    amd: true
+    amd: true,
+    jest: true
   },
   extends: [
     'plugin:vue/essential',
