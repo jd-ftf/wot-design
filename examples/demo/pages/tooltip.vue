@@ -91,6 +91,13 @@
         </wd-tooltip>
       </div>
     </demo-block>
+    <demo-block title="禁用">
+      <div style="text-align: center;">
+        <wd-tooltip placement="top" disabled content="top 提示文字" style="margin: 10px;">
+          <wd-button class="btn btn-default">top</wd-button>
+        </wd-tooltip>
+      </div>
+    </demo-block>
   </div>
 </template>
 
@@ -99,7 +106,6 @@ export default {
   data () {
     return {
       show: false,
-      disabled: false,
       menu: [
         {
           name: 'person',
