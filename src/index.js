@@ -8,10 +8,15 @@ import Cell from '../packages/cell'
 import CellGroup from '../packages/cell-group'
 import Checkbox from '../packages/checkbox'
 import CheckboxGroup from '../packages/checkbox-group'
+import Col from '../packages/col'
 import Collapse from '../packages/collapse'
 import CollapseItem from '../packages/collapse-item'
 import DatetimePicker from '../packages/datetime-picker'
 import DatetimePickerView from '../packages/datetime-picker-view'
+import DropMenu from '../packages/drop-menu'
+import DropMenuItem from '../packages/drop-menu-item'
+import Grid from '../packages/grid'
+import GridItem from '../packages/grid-item'
 import Icon from '../packages/icon'
 import InfiniteLoad from '../packages/infinite-load'
 import Input from '../packages/input'
@@ -31,8 +36,11 @@ import PullRefresh from '../packages/pull-refresh'
 import Radio from '../packages/radio'
 import RadioGroup from '../packages/radio-group'
 import Rate from '../packages/rate'
+import Row from '../packages/row'
 import Search from '../packages/search'
 import Slider from '../packages/slider'
+import SortButton from '../packages/sort-button'
+import StatusTip from '../packages/status-tip'
 import Step from '../packages/step'
 import Steps from '../packages/steps'
 import Sticky from '../packages/sticky'
@@ -47,14 +55,6 @@ import TabbarItem from '../packages/tabbar-item'
 import Tag from '../packages/tag'
 import Toast from '../packages/toast'
 import Tooltip from '../packages/tooltip'
-import SortButton from '../packages/sort-button'
-import DropMenu from '../packages/drop-menu'
-import DropMenuItem from '../packages/drop-menu-item'
-import Grid from '../packages/grid'
-import GridItem from '../packages/grid-item'
-import Row from '../packages/row'
-import Col from '../packages/col'
-import StatusTip from '../packages/status-tip'
 import locale from './locale'
 
 const components = [
@@ -65,10 +65,15 @@ const components = [
   CellGroup,
   Checkbox,
   CheckboxGroup,
+  Col,
   Collapse,
   CollapseItem,
   DatetimePicker,
   DatetimePickerView,
+  DropMenu,
+  DropMenuItem,
+  Grid,
+  GridItem,
   Icon,
   InfiniteLoad,
   Input,
@@ -86,8 +91,11 @@ const components = [
   Radio,
   RadioGroup,
   Rate,
+  Row,
   Search,
   Slider,
+  SortButton,
+  StatusTip,
   Step,
   Steps,
   Sticky,
@@ -101,14 +109,6 @@ const components = [
   TabbarItem,
   Tag,
   Tooltip,
-  SortButton,
-  DropMenu,
-  DropMenuItem,
-  Grid,
-  GridItem,
-  Row,
-  Col,
-  StatusTip,
   MessageBox.wdMessageBox
 ]
 
@@ -142,10 +142,15 @@ export default {
   CellGroup,
   Checkbox,
   CheckboxGroup,
+  Col,
   Collapse,
   CollapseItem,
   DatetimePicker,
   DatetimePickerView,
+  DropMenu,
+  DropMenuItem,
+  Grid,
+  GridItem,
   Icon,
   InfiniteLoad,
   Input,
@@ -165,8 +170,11 @@ export default {
   Radio,
   RadioGroup,
   Rate,
+  Row,
   Search,
   Slider,
+  SortButton,
+  StatusTip,
   Step,
   Steps,
   Sticky,
@@ -180,13 +188,5 @@ export default {
   TabbarItem,
   Tag,
   Toast,
-  Tooltip,
-  SortButton,
-  DropMenu,
-  DropMenuItem,
-  Grid,
-  GridItem,
-  Row,
-  Col,
-  StatusTip
+  Tooltip
 }
