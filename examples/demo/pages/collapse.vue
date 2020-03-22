@@ -45,7 +45,7 @@
       </wd-collapse>
     </demo-block>
     <demo-block title="查看更多自定义展开样式" transparent>
-      <wd-collapse viewmore v-model="value4">
+      <wd-collapse viewmore v-model="value5">
         这是一条简单的示例文字。这是一条简单的示例文字。这是一条简单的示例文字。这是一条简单的示例文字。这是一条简单的示例文字。这是一条简单的示例文字。这是一条简单的示例文字。这是一条简单的示例文字。
         <div slot="more" style="color: red;">自定义{{ value4 ? '折叠' : '展开' }}</div>
       </wd-collapse>
@@ -60,7 +60,8 @@ export default {
       value1: [ 'item1' ],
       value2: 'item1',
       value3: [ 'item1' ],
-      value4: false
+      value4: false,
+      value5: false
     }
   }
 }

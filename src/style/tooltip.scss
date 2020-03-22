@@ -1,6 +1,5 @@
 @import './abstracts/variable';
 @import './abstracts/mixin';
-@import './common/transition.scss';
 
 @include b(tooltip){
   position: absolute;
@@ -15,7 +14,7 @@
   border-radius: $-tooltip-radius;
   text-align: center;
   box-sizing: border-box;
-  transition-duration: 200ms;
+  transition: opacity 0.2s;
 
   @include when(dark) {
     background: $-tooltip-bg;

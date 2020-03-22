@@ -6,5 +6,9 @@ module.exports = {
   'src/**/*.js': [
     'cross-env EFF_ABSOLUTE_PATHS=true eslint --fix --format friendly',
     'git add'
+  ],
+  'test/**/*.js': [
+    'cross-env EFF_ABSOLUTE_PATHS=true eslint --fix --format friendly',
+    'git add'
   ]
 }
