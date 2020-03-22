@@ -22,10 +22,9 @@ export default {
 <style lang="scss">
 .demo-block {
   margin: 15px 0;
-  padding: 0 15px;
+  padding: 1px 15px;
   color: #666;
   background: #fff;
-  overflow: auto;
 
   .demo-block__title {
     margin: 10px 0;

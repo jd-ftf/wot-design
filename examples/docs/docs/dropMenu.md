@@ -19,10 +19,10 @@ Vue.use(DropMenuItem)
  `options` 属性一般格式为 `[{ text:'', value: '0' }]`, 如果开启内容插槽,应当使用 `string` 类型, 使用说明见后文。
 
 ```html
-<wd-drop-menu-menu>
+<wd-drop-menu>
   <wd-drop-menu-item value="0" :options="option1" />
   <wd-drop-menu-item value="a" :options="option2" />
-</wd-drop-menu-menu>
+</wd-drop-menu>
 ```
 
 ### 外部控制选项
@@ -30,10 +30,10 @@ Vue.use(DropMenuItem)
 `value` 值可以绑定静态数据, 也可以绑定变量，通过控制绑定的 `value` 或 `v-model` 设置绑定值去控制其显示。
 
 ```html
-<wd-drop-menu-menu>
+<wd-drop-menu>
   <wd-drop-menu-item v-model="value1" :options="option1"/>
   <wd-drop-menu-item v-model="value2" :options="option2"/>
-</wd-drop-menu-menu>
+</wd-drop-menu>
 ```
 
 ```JavaScript
@@ -115,10 +115,10 @@ export default {
 通过`active-color`属性可以自定义菜单标题和选项的选中态颜色
 
 ```html
-<wd-drop-menu-menu active-color="#ee0a24">
+<wd-drop-menu active-color="#ee0a24">
   <wd-drop-menu-item value="0" :options="option1" />
   <wd-drop-menu-item value="1" :options="option2" />
-</wd-drop-menu-menu>
+</wd-drop-menu>
 ```
 
 ### 向上展开
@@ -126,10 +126,10 @@ export default {
 将`direction`属性值设置为`up`，菜单即可向上展开
 
 ```html
-<wd-drop-menu-menu direction="up">
+<wd-drop-menu direction="up">
   <wd-drop-menu-item value="0" :options="option1" />
   <wd-drop-menu-item value="1" :options="option2" />
-</wd-drop-menu-menu>
+</wd-drop-menu>
 ```
 
 ### 禁用菜单
