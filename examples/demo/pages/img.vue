@@ -4,15 +4,19 @@
       <wd-img width="100" height="100" :src="joy" alt="joy" />
     </demo-block>
     <demo-block title="填充">
-      <div class="col" v-for="fit in fits">
-        <wd-img width="100%" height="27vw" :src="joy" :fit="fit" />
-        <div class="center">{{fit}}</div>
+      <div style="overflow: hidden;">
+        <div class="col" v-for="fit in fits">
+          <wd-img width="100%" height="27vw" :src="joy" :fit="fit" />
+          <div class="center">{{fit}}</div>
+        </div>
       </div>
     </demo-block>
     <demo-block title="圆形">
-      <div class="col" v-for="fit in fits">
-        <wd-img round width="100%" height="27vw" :src="joy" :fit="fit" />
-        <div class="center">{{fit}}</div>
+      <div style="overflow: hidden;">
+        <div class="col" v-for="fit in fits">
+          <wd-img round width="100%" height="27vw" :src="joy" :fit="fit" />
+          <div class="center">{{fit}}</div>
+        </div>
       </div>
     </demo-block>
   </div>
