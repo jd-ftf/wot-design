@@ -31,7 +31,7 @@
     "type": "git",
     "url": "git@github.com:jd-ftf/wot-design.git"
   },
-  "homepage": "http://jdftf.top/wot-design/",
+  "homepage": "http://ftf.jd.com/wot-design/",
   "peerDependencies": {
     "vue": "^2.5.2"
   },
