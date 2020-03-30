@@ -2,7 +2,7 @@
 
 An ui component library built on vue.js.
 
-[Documentation](http://jdftf.top/wot-design/)
+[Documentation](http://ftf.jd.com/wot-design/)
 
 ## Install
 
@@ -28,7 +28,7 @@ Vue.use(Button)
 Vue.use(Swipe)
 ```
 
-For more information, please refer to [Quick Start](http://jdftf.top/wot-design/#/components/quickUse) in our documentation.
+For more information, please refer to [Quick Start](http://ftf.jd.com/wot-design/#/components/quickUse) in our documentation.
 
 ## LICENSE
 
