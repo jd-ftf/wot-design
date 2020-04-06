@@ -98,6 +98,7 @@ export default {
   methods: {
     toggle () {
       if (this.checkboxGroup) {
+        this.$emit('change', !this.isChecked)
         this.checkboxGroup.changeValue(this.value)
       } else {
         let newValue
