@@ -118,7 +118,7 @@ Vue.use(GridItem)
 
 ```html
 <template>
-  <wd-grid>
+  <wd-grid clickable>
     <wd-grid-item :to="href" @item-click="click" icon="person" text="location to ..." />
     <wd-grid-item :to="{ path: '/button' }" @item-click="click" icon="link" text="RouterLink to ..." />
   </wd-grid>
@@ -129,6 +129,11 @@ export default {
   data () {
     return {
       href: location.href.split('#')[0]
+    }
+  },
+  methods: {
+    click (event) {
+      console.log('点击', event)
     }
   }
 }
