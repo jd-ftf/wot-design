@@ -15,6 +15,7 @@
     height: $-drop-menu-height;
     line-height: $-drop-menu-height;
     position: relative;
+    text-align: center;
     @include lineEllipsis;
 
     &::before{
