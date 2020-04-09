@@ -8,34 +8,20 @@ const merge = require('webpack-merge')
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const webpack = require('webpack')
-const fs = require('fs')
 const config = require('./config')
-
+const {
+  sitemapWriter,
+  versionWriter
+} = require('./file-writer')
 const isDev = process.env.NODE_ENV === 'development'
 
-const versions = require('../build/deploy/change-log')
-// 把 versions 对象转换为json格式字符串
-const content = JSON.stringify(versions)
-
-// 指定创建目录及文件名称，__dirname为执行当前js文件的目录
-const versionDir = path.resolve(__dirname, '../examples/docs/public')
-const file = path.resolve(__dirname, '../examples/docs/public/versions.json')
-
-if (!fs.existsSync(versionDir)) {
-  fs.mkdirSync(versionDir, { recursive: true })
-}
-
-// 写入文件
-fs.writeFile(file, content, err => {
-  if (err) {
-    return console.error(err)
-  }
-})
+sitemapWriter()
+versionWriter()
 
 const cssLoader = (...loaders) => {
   const formatLoaders = []
   formatLoaders.push('vue-style-loader')
-  
+
   if (!isDev) {
     formatLoaders.push({
       loader: MiniCssExtractPlugin.loader,
@@ -153,8 +139,8 @@ let webpackConf = {
     historyApiFallback: {
       rewrites: [
         { from: /\/docs/, to: '/docs.html' },
-        { from: /\/demo/, to: '/demo.html' },
-      ],
+        { from: /\/demo/, to: '/demo.html' }
+      ]
     },
     hot: true,
     contentBase: false,
@@ -193,6 +179,10 @@ let webpackConf = {
         ignore: [
           '.DS_Store'
         ]
+      },
+      {
+        from: path.resolve(__dirname, '../examples/docs/sitemap.xml'),
+        to: assetsPath('../sitemap.xml')
       }
     ]),
     new webpack.HotModuleReplacementPlugin(),
