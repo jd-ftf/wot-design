@@ -57,7 +57,7 @@ export default {
     color: #7f7f7f;
   }
 }
-@media (max-width: 1366px) {
+@media (max-width: 1536px) {
   .scroll-top {
     right: 20px;
   }
