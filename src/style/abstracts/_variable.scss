@@ -411,6 +411,7 @@ $-tag-close-color: $-color-icon !default; // 关闭按钮颜色
 
 /* toast */
 $-toast-padding: 8px 14px !default; // 无图标的padding
+$-toast-side-padding: $-size-side-padding !default; //左右两边最小留白宽度
 $-toast-radius: 8px !default; // 圆角大小
 $-toast-bg: $-modal-bg !default; // 背景色
 $-toast-fs: $-fs-content !default; // 字号

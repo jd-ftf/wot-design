@@ -81,6 +81,18 @@ export default {
 </script>
 ```
 
+### 关闭动画效果
+
+轮播图默认开启动画效果，通过设置 `animate` 属性为 false 可以关闭动画效果,
+
+```html
+<wd-swipe :animate="false">
+  <wd-swipe-item v-for="item in 4" :key="item">
+    {{ item }}
+  </wd-swipe-item>
+</wd-swipe>
+```
+
 ### 纵向轮播
 
 设置 `vertical` 属性，同时给轮播图设置高度 `height` 属性，如果是横向轮播，可以不用设置 `height` 属性。
@@ -109,3 +121,12 @@ export default {
 | vertical | 纵向轮播 | boolean | - | false |
 | height | 轮播高度 | string | - | - |
 | space | 留白率，轮播子项左右留白总和 / 轮播宽度 得出 | number | - | - |
+| animate | 是否开启动画效果 | boolean | - | true |
+
+### Swipe Methods
+
+| 方法名称      | 说明       | 参数   |
+|------------- |----------- |---------  |
+| prev    | 轮播到上一张 | —  |
+| next    | 轮播到下一张 | -  |
+| swipeTo | 跳转到index下标 | index |

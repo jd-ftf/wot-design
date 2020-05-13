@@ -156,15 +156,37 @@ export default {
     }
   }
 }
-@media (max-width: 1366px) {
+@media (max-width: 1536px) and (max-height: 750px) {
+  .tab-content {
+    margin-left: 275px;
+    margin-right: 460px;
+    margin-bottom: 0;
+
+    .demo-iframe {
+      right: 80px;
+      width: 360px;
+      margin-top: 20px;
+
+      iframe {
+        height: 550px;
+      }
+    }
+  }
+}
+@media (max-width: 1366px) and (max-height: 670px) {
   .tab-content {
     margin-left: 275px;
     margin-right: 420px;
+    margin-bottom: 0;
 
     .demo-iframe {
       right: 80px;
       width: 320px;
       margin-top: 20px;
+
+      iframe {
+        height: 460px;
+      }
     }
   }
 }
@@ -189,17 +211,6 @@ export default {
   }
   .wot-search-input {
     display: none;
-  }
-}
-@media (max-height: 750px) {
-  .tab-content {
-    margin-bottom: 0;
-
-    .demo-iframe {
-      iframe {
-        height: 460px;
-      }
-    }
   }
 }
 </style>
