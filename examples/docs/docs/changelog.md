@@ -6,6 +6,8 @@
 
 #### 新特性
 
+- Checkbox
+  - 支持复选框组下的单个复选框触发 `change` 事件 (by [@yawuling](https://github.com/yawuling) )
 - Swipe
   - 新增属性 `animate` (by [@yawuling](https://github.com/yawuling) )
 
@@ -16,9 +18,13 @@
 
 #### 优化
 
+- DropMenu
+  - 标题修改为水平居中 (by [@yawuling](https://github.com/yawuling) )
 - Doc
+  - Grid 文档补全页面导航 (by [@yawuling](https://github.com/yawuling) )
   - Swipe 文档暴露 `prev`，`next`，`swipeTo` 方法 (by [@yawuling](https://github.com/yawuling) )
   - 优化文档的响应式 (by [@yawuling](https://github.com/yawuling) )
+  - 添加爬虫文件sitemap，优化搜索功能 (by [@HXCStudio123](https://github.com/HXCStudio123) )
 
 ### 1.4.1
 
