@@ -83,6 +83,10 @@ export default {
     space: {
       type: Number,
       default: 0
+    },
+    animate: {
+      type: Boolean,
+      default: true
     }
   },
   watch: {
@@ -107,8 +111,8 @@ export default {
       return {
         [size]: this.size * this.count + 'px',
         'padding-left': spaceLeft + 'px',
-        transform: `translate${this.vertical ? 'Y' : 'X'}(${-((this.size + spaceLeft) * this.index - delta)}px)`,
-        transition: `transform ${this.swiping ? 0 : this.duration}ms`
+        transform: `translate${this.vertical ? 'Y' : 'X'}(${-((this.size + spaceLeft) * this.index - (this.animate ? delta : 0))}px)`,
+        transition: `transform ${(this.swiping || !this.animate) ? 0 : this.duration}ms`
       }
     },
     size () {
