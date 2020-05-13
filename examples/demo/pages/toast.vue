@@ -2,6 +2,7 @@
   <div class="page-toast">
     <demo-block title="基本用法">
       <wd-button type="primary" @click="handleToast1">toast</wd-button>
+      <wd-button type="primary" @click="handleToast9">长文案</wd-button>
     </demo-block>
     <demo-block title="类型toast">
       <wd-button type="primary" @click="handleToast2">成功toast</wd-button>
@@ -67,6 +68,9 @@ export default {
       setTimeout(() => {
         this.$toast.close()
       }, 3000)
+    },
+    handleToast9 () {
+      this.$toast('这是一段很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长的文案')
     }
   }
 }
