@@ -1,20 +1,40 @@
 ## 更新日志
 
+### 1.5.0
+
+*2020-05-13*
+
+#### 新特性
+
+- Swipe
+  - 新增属性 `animate` (by [@yawuling](https://github.com/yawuling) )
+
+#### Bug 修复
+
+- Toast
+  - 修复文案过长不换行导致超出页面的问题 (by [@yawuling](https://github.com/yawuling) )
+
+#### 优化
+
+- Doc
+  - Swipe 文档暴露 `prev`，`next`，`swipeTo` 方法 (by [@yawuling](https://github.com/yawuling) )
+  - 优化文档的响应式 (by [@yawuling](https://github.com/yawuling) )
+
 ### 1.4.1
 
 *2020-03-22*
 
 #### Bug 修复
 
-- 修复新组件入口文件未引入注册问题
+- 修复新组件入口文件未引入注册问题 (by [@yawuling](https://github.com/yawuling) )
 
 #### 优化
 
 - Doc
-  - 修复 DropMenu 文档组件名错误问题
-  - 修复 Tabs 文档组件名错误问题
+  - 修复 DropMenu 文档组件名错误问题 (by [@yawuling](https://github.com/yawuling) )
+  - 修复 Tabs 文档组件名错误问题 (by [@yawuling](https://github.com/yawuling) )
 - Demo
-  - 修复 DropMenu demo 的展示
+  - 修复 DropMenu demo 的展示 (by [@yawuling](https://github.com/yawuling) )
 
 ### 1.4.0
 
