@@ -33,6 +33,13 @@
         </template>
       </wd-swipe>
     </demo-block>
+    <demo-block title="关闭动画效果" transparent>
+      <wd-swipe class="number-swipe" :animate="false">
+        <wd-swipe-item v-for="item in 4" :key="item">
+          {{ item }}
+        </wd-swipe-item>
+      </wd-swipe>
+    </demo-block>
     <demo-block title="纵向轮播" transparent>
       <wd-swipe class="number-swipe" vertical height="150px">
         <wd-swipe-item v-for="item in 4" :key="item">
