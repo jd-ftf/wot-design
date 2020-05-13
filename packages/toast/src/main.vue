@@ -2,11 +2,13 @@
   <div class="wd-toast" @touchmove="preventMove">
     <div v-show="forbidClick && show" class="wd-toast__modal"></div>
     <transition name="wd-fade">
-      <div v-show="show" class="wd-toast__body" :class="customClass">
-        <wd-loading v-if="iconName === 'loading'" :class="msg ? 'wd-toast__loading' : ''" :type="loadingType" color="#fff" />
-        <i v-if="iconName && iconName !== 'loading'" class="wd-toast__icon" :class="[ iconNameToClass ]"></i>
-        <i v-else-if="iconClass" class="wd-toast__icon" :class="iconClass.split(' ')"></i>
-        <div class="wd-toast__msg">{{ msg }}</div>
+      <div v-show="show" class="wd-toast__container" :class="customClass">
+        <div class="wd-toast__body">
+          <wd-loading v-if="iconName === 'loading'" :class="msg ? 'wd-toast__loading' : ''" :type="loadingType" color="#fff" />
+          <i v-if="iconName && iconName !== 'loading'" class="wd-toast__icon" :class="[ iconNameToClass ]"></i>
+          <i v-else-if="iconClass" class="wd-toast__icon" :class="iconClass.split(' ')"></i>
+          <div class="wd-toast__msg">{{ msg }}</div>
+        </div>
       </div>
     </transition>
   </div>

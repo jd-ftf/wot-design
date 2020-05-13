@@ -13,20 +13,27 @@
     bottom: 0;
     z-index: 3009;
   }
-  @include e(body) {
+  @include e(container) {
     position: fixed;
-    padding: $-toast-padding;
+    left: 0;
+    width: 100%;
     z-index: 3010;
+    text-align: center;
+    transition: opacity 0.2s;
+  }
+  @include e(body) {
+    display: inline-block;
+    max-width: calc(100% - #{$-toast-side-padding * 2});
+    padding: $-toast-padding;
     background-color: $-toast-bg;
     border-radius: $-toast-radius;
     color: #fff;
-    transition: opacity 0.2s;
     text-align: center;
     font-size: $-toast-fs;
+    box-sizing: border-box;
   }
   @include e(msg) {
     line-height: 1.4285;
-    white-space: nowrap;
   }
   @include e(icon) {
     display: inline-block;
@@ -39,26 +46,24 @@
   }
   @include m(middle) {
     top: 50%;
-    left: 50%;
-    transform: translate3d(-50%, -50%, 0);
+    transform: translate3d(0%, -50%, 0);
   }
   @include m(top) {
-    left: 50%;
     top: 50px;
-    transform: translate3d(-50%, 0, 0);
   }
   @include m(bottom) {
-    left: 50%;
     bottom: 50px;
-    transform: translate3d(-50%, 0, 0);
   }
   @include m(with-icon) {
-    min-width: $-toast-with-icon-min-width;
-    padding: $-toast-with-icon-padding;
-    box-sizing: border-box;
+    .wd-toast__body {
+      min-width: $-toast-with-icon-min-width;
+      padding: $-toast-with-icon-padding;
+    }
   }
   @include m(loading) {
-    min-width: auto;
-    padding: $-toast-loading-padding;
+    .wd-toast__body {
+      min-width: auto;
+      padding: $-toast-loading-padding;
+    }
   }
 }
