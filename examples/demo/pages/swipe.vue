@@ -64,7 +64,7 @@ export default {
   },
   methods: {
     toastChange (index) {
-      this.$toast(`轮播到第${index}张`)
+      this.$toast(`轮播到第${index + 1}张`)
     },
     handleItemChange (index) {
       this.customIndex = index
