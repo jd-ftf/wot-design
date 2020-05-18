@@ -1,5 +1,19 @@
 ## 更新日志
 
+### 1.5.1
+
+*2020-05-18*
+
+#### Bug 修复
+
+- Swipe
+  - 修复只有1项时的滑动异常 (by [@yawuling](https://github.com/yawuling) )
+
+#### 优化
+
+- Doc
+  - 优化文档的响应式 (by [@yawuling](https://github.com/yawuling) )
+
 ### 1.5.0
 
 *2020-05-13*
