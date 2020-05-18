@@ -11,6 +11,7 @@ selenium-debug.log
 coverage
 /examples/docs/public/versions.json
 /examples/docs/docs/install.md
+/examples/docs/sitemap.xml
 
 # Editor directories and files
 .idea
