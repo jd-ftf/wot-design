@@ -1,7 +1,7 @@
 <template>
   <div>
     <header-layout></header-layout>
-    <div class="body-content" :class="isMac ? '' : 'body-scrollbar'">
+    <div class="body-content" :class="isWindows ? 'body-scrollbar' : ''">
       <router-view></router-view>
     </div>
     <scroll-top></scroll-top>
@@ -11,7 +11,7 @@
 <script>
 import HeaderLayout from './header'
 import ScrollTop from './scrollTop'
-import { isMac } from '../utils/index'
+import { isWindows } from '../utils/index'
 
 export default {
   components: {
@@ -20,7 +20,7 @@ export default {
   },
   data () {
     return {
-      isMac
+      isWindows
     }
   }
 }
@@ -33,5 +33,6 @@ export default {
   padding-top: $layout-header-height;
   height: calc(100vh - #{$layout-header-height});
   overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
 </style>

@@ -3,11 +3,11 @@ import router from './route'
 import App from './App'
 import './assets/style/base.scss'
 import './assets/fonts/iconfont.css'
-import { isMac } from './utils/index'
+import { isWindows } from './utils/index'
 
 Vue.config.productionTip = false
 
-if (!isMac) {
+if (isWindows) {
   document.body.classList.add('body-scrollbar')
 }
 

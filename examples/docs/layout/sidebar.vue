@@ -1,5 +1,5 @@
 <template>
-  <ul class="side-bar" :class="isMac ? '' : 'win-scrollbar'">
+  <ul class="side-bar" :class="isWindows ? 'win-scrollbar' : ''">
     <li>
       <div class="side-bar__link">关于我们</div>
       <div class="side-bar__github-info">
@@ -57,7 +57,7 @@
 
 <script>
 import pageConfig from '../pages.config.json'
-import { isMac } from '../utils/index'
+import { isWindows } from '../utils/index'
 import GithubButton from 'vue-github-button'
 
 export default {
@@ -68,7 +68,7 @@ export default {
     return {
       pages: pageConfig,
       parentKey: '',
-      isMac: isMac
+      isWindows
     }
   },
   created () {
