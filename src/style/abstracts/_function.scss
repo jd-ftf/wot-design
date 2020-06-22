@@ -1,34 +1,84 @@
 /**
  * 辅助函数
  */
-@import 'config';
+ @import "config";
 
-/* 转换成字符串 */
-@function selectorToString($selector) {
-  $selector: inspect($selector);
-  $selector: str-slice($selector, 2, -2);
-
-  @return $selector;
-}
-
-/* 判断是否存在 Modifier */
-@function containsModifier($selector) {
-  $selector: selectorToString($selector);
-
-  @if str-index($selector, $modifierSeparator) {
-    @return true;
-  } @else {
-    @return false;
-  }
-}
-
-/* 判断是否存在伪类 */
-@function containsPseudo($selector) {
-  $selector: selectorToString($selector);
-
-  @if str-index($selector, ':') {
-    @return true;
-  } @else {
-    @return false;
-  }
-}
+ /* 转换成字符串 */
+ @function selectorToString($selector) {
+   $selector: inspect($selector);
+   $selector: str-slice($selector, 2, -2);
+ 
+   @return $selector;
+ }
+ 
+ /* 判断是否存在 Modifier */
+ @function containsModifier($selector) {
+   $selector: selectorToString($selector);
+ 
+   @if str-index($selector, $modifierSeparator) {
+     @return true;
+   } @else {
+     @return false;
+   }
+ }
+ 
+ /* 判断是否存在伪类 */
+ @function containsPseudo($selector) {
+   $selector: selectorToString($selector);
+ 
+   @if str-index($selector, ":") {
+     @return true;
+   } @else {
+     @return false;
+   }
+ }
+ // 指数计算
+ @function exponential($number, $n) {
+ 
+   @for $i from 1 through $n {
+     $number: $number * $i;
+     @if ($i == 0) {
+       $number: 1;
+     } @else if ($n == 1) {
+       $number: $number;
+     } @else {
+       $number: $number * $number;
+     }
+   }
+   @return $number;
+ }
+ 
+ /* 渐进色hex mix 转换， 16进制转10进制，10进制计算比例，再转换成16进制 */
+ @function mixColor($start) {
+   $maps: (
+     "0": 0,
+     "1": 1,
+     "2": 2,
+     "3": 3,
+     "4": 4,
+     "5": 5,
+     "6": 6,
+     "7": 7,
+     "8": 8,
+     "9": 9,
+     "a": 10,
+     "b": 11,
+     "c": 12,
+     "d": 13,
+     "e": 14,
+     "f": 15,
+   );
+   $str: quote($start);
+   $len: str-length($str);
+   $colorList: str-slice($str, 2, $len);
+   $result: 1;
+   $value: 1;
+   $a: 1;
+   @for $i from 1 through $len {
+     $a: str-slice($colorList, $i, $i);
+     $value: map-get($maps, $a);
+     $result: $result + $value * $i;
+   }
+   @return $result;
+ }
+ 

@@ -1,30 +1,84 @@
 /**
  * UI规范基础变量
  */
-
+/*----------------------------------------- Theme color. start ----------------------------------------*/
 /* 主题颜色 */
-$-color-theme: #0083ff !default; // 正常色
+$-color-theme: #4D80F0 !default;                  // 正常色 5079280
+$-color-white: #ffffff !default;                     // 用于mix的白色
+$-color-black: #000000 !default;                     // 用于mix的黑色
+
+/* 辅助色 */
+$-color-success: #34D19D !default;                // 成功色
+$-color-warning: #F0883A !default;                // 警告色
+$-color-danger: #FA4350 !default;                 // 危险出错色
+$-color-purple: #8268DE !default;                 // 紫色
+$-color-yellow: #F0CD1D !default;                 // 黄色
+$-color-blue: #2BB3ED !default;                   // 蓝色
+
+/* 渐变基础色 */
+$-color-theme-a: #668DF8 !default;                  // 正常色 6721016
+$-color-theme-b: #4F7CF8 !default;                  // 正常色 5209336
+$-color-theme-a-large: #517CF0 !default;                 // 正常色 6721016
+$-color-theme-b-large: #769EF5 !default;                 // 正常色 5209336
+$-color-success-a: #20B080 !default;                // 成功色
+$-color-success-b: #2BD69D !default;                // 成功色
+$-color-warning-a: #E67137 !default;                // 警告色
+$-color-warning-b: #FF974C !default;                // 警告色
+$-color-danger-a: #E04350 !default;                 // 危险出错色
+$-color-danger-b: #FF5964 !default;                 // 危险出错色
+$-color-purple-a: #6F56CC !default;                 // 紫色
+$-color-purple-b: #9578FF !default;                 // 紫色
+$-color-yellow-a: #E6B52E !default;                 // 黄色
+$-color-yellow-b: #F5D63B !default;                 // 黄色
+$-color-blue-a: #1A95DB !default;                   // 蓝色
+$-color-blue-b: #33C2FF !default;                   // 蓝色
+
+// 不确定
+$-color-info: #909399 !default;
 $-color-theme-light: mix(#fff, $-color-theme, 42%) !default; // 弱化色
 $-color-theme-emph: mix(#000, $-color-theme, 18%) !default; // 强调色
 
-/* 辅助色 */
-$-color-success: #00c740 !default;
-$-color-warning: #ffb300 !default;
-$-color-danger: #e2231a !default;
-$-color-info: #909399 !default;
+/* 渐变色 */
+$-color-theme-gradient:  linear-gradient(to bottom right, $-color-theme-a , $-color-theme-b)!default;
+$-color-theme-large-gradient:  linear-gradient(to top right, $-color-theme-a-large , $-color-theme-b-large)!default;
+$-color-success-gradient:  linear-gradient(to top right, $-color-success-a , $-color-success-b)!default;
+$-color-warning-gradient:  linear-gradient(to top right, $-color-warning-a , $-color-warning-b)!default;
+$-color-danger-gradient:  linear-gradient(to top right, $-color-danger-a , $-color-danger-b)!default;
+$-color-purple-gradient:  linear-gradient(to top right, $-color-purple-a , $-color-purple-b)!default;
+$-color-yellow-gradient:  linear-gradient(to top right, $-color-yellow-a , $-color-yellow-b)!default;
+$-color-blue-gradient:  linear-gradient(to top right, $-color-blue-a , $-color-blue-b)!default;
 
+/* 文字颜色（默认浅色背景下） */
+$-color-title: rgba($-color-black, 100%) !default;               // 模块标题/重要正文 000
+$-color-content: rgba($-color-black, 85%) !default;              // 普通正文 262626
+$-color-secondary: rgba($-color-black, 65%) !default;            // 次要信息，注释/补充/正文 595959
+$-color-aid: rgba($-color-black, 45%) !default;                  // 辅助文字字号，弱化信息，引导性/不可点文字 8c8c8c
+$-color-tip: rgba($-color-black, 25%) !default;                  // 失效、默认提示文字 bfbfbf
+$-color-border: rgba($-color-black, 15%) !default;               // 控件边框线 d9d9d9
+$-color-border-light: rgba($-color-black, 9%) !default;          // 分割线颜色 e8e8e8
+$-color-bg: rgba($-color-black, 4%) !default;                    // 背景色、禁用填充色 f5f5f5
+$-color-table-bg: rgba($-color-black, 2%) !default;              // 表头填充 fafafa
+
+/* 文字颜色-深背景 */
+$-color-title-indark: rgba($-color-white, 100%) !default;       // 模块标题/重要正文 fff
+$-color-text-indark: rgba($-color-white, 85%) !default;         // 普通正文 d9d9d9
+$-color-secondary-indark: rgba($-color-white, 65%) !default;    // 次要信息，注释/补充/正文 a6a6a6
+$-color-aid-indark: rgba($-color-white, 45%) !default;          // 次级按钮边框线 737373
+$-color-tip-indark: rgba($-color-white, 25%) !default;          // 失效、默认提示文字 404040
+$-color-border-indark: rgba($-color-white, 15%) !default;       // 控件边框线 262626
+$-color-border-light-indark: rgba($-color-white, 9%) !default;  // 分割线颜色 171717
+$-color-bg-indark: rgba($-color-white, 4%) !default;            // 背景色、禁用填充色 0a0a0a
+$-color-table-bg-indark: rgba($-color-white, 2%) !default;      // 表头填充 fafafa
+
+// 待替换
+/* 透明度 */
+$-color-inlight-title-mask: mix($-color-black, $-color-white, 100%) !default;        // 模块标题/重要正文 000
 /* 图形颜色 */
-$-color-icon: #c5c5c5 !default; // icon颜色
-$-color-bg: #f4f4f4 !default; // 背景色
-$-color-border: #c5c5c5 !default; // 边框颜色
-$-color-border-light: #eee !default; // 浅边框颜色
+$-color-icon: $-color-border !default; // icon颜色
 
-/* 文字颜色 */
-$-color-title: #333 !default; // 模块标题/重要正文
-$-color-content: #666 !default; // 普通正文
-$-color-secondary: #a7a7a7 !default; // 次要信息，注释/补充/正文
-$-color-aid: #d2d2d2 !default; // 辅助文字字号，弱化信息，引导性/不可点文字
+/*----------------------------------------- Theme color. end -------------------------------------------*/
 
+/*-------------------------------- Theme color application size.  start --------------------------------*/
 /* 文字字号 */
 $-fs-title: 16px !default; // 标题字号/重要正文字号
 $-fs-content: 14px !default; // 普通正文
@@ -34,8 +88,10 @@ $-fs-aid: 10px !default; // 辅助文字字号，弱化信息，引导性/不可
 /* 尺寸 */
 $-size-side-padding: 15px !default; // 屏幕两边留白
 
+/*-------------------------------- Theme color application size.  end --------------------------------*/
+
 /* modal */
-$-modal-bg: rgba(0, 0, 0, 0.7) !default;
+$-modal-bg: $-color-secondary !default;
 
 /* action-sheet */
 $-action-sheet-action-height: 50px !default; // 单条菜单高度
