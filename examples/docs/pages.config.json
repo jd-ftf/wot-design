@@ -28,6 +28,11 @@
           "path": "/customTheme",
           "demo": "/"
         },
+        "Typography": {
+          "name": "字体",
+          "path": "/typography",
+          "demo": "/"
+        },
         "Changelog": {
           "name": "更新日志",
           "type": "pages",
