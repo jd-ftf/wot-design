@@ -1,4 +1,19 @@
 @import './variable';
+$--font-path: 'https://static.360buyimg.com/bus/fonts/JDZhengHT';
+@font-face {
+  font-family: 'JDZhengHT-Bold';
+  src: url('#{$--font-path}/JDZhengHT-Bold.woff') format('woff'), /* chrome, firefox */
+       url('#{$--font-path}/JDZhengHT-Bold.ttf') format('truetype'); /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+  font-weight: normal;
+  font-style: normal
+}
+@font-face {
+  font-family: 'JDZhengHT-Light';
+  src: url('#{$--font-path}/JDZhengHT-Light.woff') format('woff'), /* chrome, firefox */
+       url('#{$--font-path}/JDZhengHT-Light.ttf') format('truetype'); /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+  font-weight: normal;
+  font-style: normal
+}
 
 .wd-markdown {
   line-height: 1.6;
@@ -243,6 +258,80 @@
 
     p {
       margin: 0;
+    }
+  }
+  .typo-content {
+
+    td {
+      vertical-align: top;
+      line-height: 30px;
+      
+      & > div {
+        vertical-align: top;
+        display: inline-block;
+      }
+
+      .typo-content-demo {
+        width: 200px;
+      }
+    }
+    .typo-content-title {
+      width: 30px;
+    }
+    .typo-PingFang-Medium-text {
+      width: 150px;
+      font-family: PingFang SC;
+      font-weight: 500;
+    }
+
+    .typo-PingFang, .typo-PingFang-Semibold, .typo-PingFang-Medium {
+      font-family: PingFang SC;
+    }
+    .typo-PingFang-Semibold {
+      font-weight: 600;
+    }
+    .typo-PingFang-Medium {
+      font-weight: 500;
+    }
+
+    .typo-Source, .typo-Source-Medium, .typo-Source-Normal {
+      font-family: Noto SansCJK;
+    }
+    .typo-Source-Medium {
+      font-weight: 600;
+    }
+    .typo-Source-Normal {
+      font-weight: 500;
+    }
+
+    .typo-SanFrancisco, .typo-SanFrancisco-Semibold, .typo-SanFrancisco-Regular {
+      font-family: San Francisco;
+    }
+    .typo-SanFrancisco-Semibold {
+      font-weight: 600;
+    }
+    .typo-SanFrancisco-Regular {
+      font-weight: 500;
+    }
+
+    .typo-Roboto, .typo-Roboto-Normal, .typo-Roboto-Normal {
+      font-family: Roboto;
+    }
+    .typo-Roboto-Medium {
+      font-weight: 600;
+    }
+    .typo-Roboto-Normal {
+      font-weight: 500;
+    }
+
+    .typo-JDZhengHT-Semibold {
+      font-family: 'JDZhengHT-Bold';
+    }
+    .typo-JDZhengHT-Light, .typo-JDZhengHT-Medium {
+      font-family: 'JDZhengHT-Light';
+    }
+    .typo-JDZhengHT-Medium {
+      font-weight: 700;
     }
   }
 }

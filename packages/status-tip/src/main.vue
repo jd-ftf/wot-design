@@ -24,11 +24,11 @@ export default {
   },
   computed: {
     imgName () {
-      const imgFiles = require.context('../img', false, /.svg$/)
+      const imgFiles = require.context('../img', false, /.png$/)
       try {
-        return imgFiles(`./default-${this.type}.svg`)
+        return imgFiles(`./default-${this.type}.png`)
       } catch (e) {
-        return imgFiles(`./default-network.svg`)
+        return imgFiles(`./default-network.png`)
       }
     }
   },

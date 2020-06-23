@@ -18,7 +18,7 @@ Vue.use(StatusTip)
 <wd-status-tip type="network" tip="该页面暂时无法访问"/>
 <wd-status-tip type="content" tip="暂无内容"/>
 <wd-status-tip type="collect" tip="暂无收藏"/>
-<wd-status-tip type="comment" tip="暂无评论"/>
+<wd-status-tip type="comment" tip="当前没有联系人名单哦～"/>
 <wd-status-tip type="halo" tip="支付失败，请重新订购"/>
 <wd-status-tip type="message" tip="已订阅全部消息"/>
 ```
@@ -29,4 +29,5 @@ Vue.use(StatusTip)
 |---------- |------------------------------------ |---------- |------------- |-------- |
 | type | 缺省类型 | String | 'search',  'network', 'content', 'collect', 'comment', 'halo', 'message' | 'network' |
 | tip | 提示文案 | String | - | - |
+
 
