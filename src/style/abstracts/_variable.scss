@@ -1,30 +1,79 @@
+@import 'function';
 /**
  * UI规范基础变量
  */
-
+/*----------------------------------------- Theme color. start ----------------------------------------*/
 /* 主题颜色 */
-$-color-theme: #0083ff !default; // 正常色
+$-color-theme: #4D80F0 !default;                  // 正常色 5079280
+$-color-white: #ffffff !default;                     // 用于mix的白色
+$-color-black: #000000 !default;                     // 用于mix的黑色
+
+/* 辅助色 */
+$-color-success: #34D19D !default;                // 成功色
+$-color-warning: #F0883A !default;                // 警告色
+$-color-danger: #FA4350 !default;                 // 危险出错色
+$-color-purple: #8268DE !default;                 // 紫色
+$-color-yellow: #F0CD1D !default;                 // 黄色
+$-color-blue: #2BB3ED !default;                   // 蓝色
+
+// TODO 全部替换后如果不用此处就删除
+$-color-info: #909399 !default;
 $-color-theme-light: mix(#fff, $-color-theme, 42%) !default; // 弱化色
 $-color-theme-emph: mix(#000, $-color-theme, 18%) !default; // 强调色
 
-/* 辅助色 */
-$-color-success: #00c740 !default;
-$-color-warning: #ffb300 !default;
-$-color-danger: #e2231a !default;
-$-color-info: #909399 !default;
+/**
+ * 渐变色映射列表
+ * #668DF8 mixColor($-color-white, $-color-theme, 0.14034408637079962)
+ * #4F7CF8 mixColor($-color-white, $-color-theme, 0.01111785969062061)
+ * #517CF0 mixColor($-color-white, $-color-theme, 0.022321888435864964)
+ * #769EF5 mixColor($-color-white, $-color-theme, 0.23035356240225305)
+ * #20b080 mixColor($-color-black, $-color-success, 0.3811019568497541))
+ * #2bd69d mixColor($-color-black, $-color-success, 0.17002409048245387))
+ * #E67137 mixColor($-color-black, $-color-warning, 0.041948197590968614))
+ * #FF974C mixColor($-color-white, $-color-warning, 0.9735592645168546))
+ * #E04350 mixColor($-color-black, $-color-danger, 0.10389073211085606))
+ * #FF5964 mixColor($-color-white, $-color-danger, 0.8865613604870433))
+ * #6F56CC mixColor($-color-black, $-color-purple, 0.14623602619356685))
+ * #9578FF mixColor($-color-white, $-color-purple, 0.15178717115906093))
+ * #E6B52E mixColor($-color-black, $-color-yellow, 0.04191627618495966))
+ * #F5D63B mixColor($-color-white, $-color-yellow, 0.3313174026620726))
+ * #1A95DB mixColor($-color-black, $-color-blue, 0.391678528994532))
+ * #33C2FF mixColor($-color-white, $-color-blue, 0.037960323165797775))
+ */
 
+/* 文字颜色（默认浅色背景下） */
+$-color-title: rgba($-color-black, 100%) !default;               // 模块标题/重要正文 000
+$-color-content: rgba($-color-black, 85%) !default;              // 普通正文 262626
+$-color-secondary: rgba($-color-black, 65%) !default;            // 次要信息，注释/补充/正文 595959
+$-color-aid: rgba($-color-black, 45%) !default;                  // 辅助文字字号，弱化信息，引导性/不可点文字 8c8c8c
+$-color-tip: rgba($-color-black, 25%) !default;                  // 失效、默认提示文字 bfbfbf
+$-color-border: rgba($-color-black, 15%) !default;               // 控件边框线 d9d9d9
+$-color-border-light: rgba($-color-black, 9%) !default;          // 分割线颜色 e8e8e8
+$-color-bg: rgba($-color-black, 4%) !default;                    // 背景色、禁用填充色 f5f5f5
+$-color-table-bg: rgba($-color-black, 2%) !default;              // 表头填充 fafafa
+
+/* 文字颜色-深背景 */
+$-color-title-indark: rgba($-color-white, 100%) !default;       // 模块标题/重要正文 fff
+$-color-text-indark: rgba($-color-white, 85%) !default;         // 普通正文 d9d9d9
+$-color-secondary-indark: rgba($-color-white, 65%) !default;    // 次要信息，注释/补充/正文 a6a6a6
+$-color-aid-indark: rgba($-color-white, 45%) !default;          // 次级按钮边框线 737373
+$-color-tip-indark: rgba($-color-white, 25%) !default;          // 失效、默认提示文字 404040
+$-color-border-indark: rgba($-color-white, 15%) !default;       // 控件边框线 262626
+$-color-border-light-indark: rgba($-color-white, 9%) !default;  // 分割线颜色 171717
+$-color-bg-indark: rgba($-color-white, 4%) !default;            // 背景色、禁用填充色 0a0a0a
+$-color-table-bg-indark: rgba($-color-white, 2%) !default;      // 表头填充 fafafa
+
+// TODO 待替换
+/* 透明度 */
+$-color-inlight-title-mask: mix($-color-black, $-color-white, 100%) !default;        // 模块标题/重要正文 000
 /* 图形颜色 */
-$-color-icon: #c5c5c5 !default; // icon颜色
-$-color-bg: #f4f4f4 !default; // 背景色
-$-color-border: #c5c5c5 !default; // 边框颜色
-$-color-border-light: #eee !default; // 浅边框颜色
+$-color-icon: $-color-border !default; // icon颜色
+/* modal */
+$-modal-bg: $-color-secondary !default;
 
-/* 文字颜色 */
-$-color-title: #333 !default; // 模块标题/重要正文
-$-color-content: #666 !default; // 普通正文
-$-color-secondary: #a7a7a7 !default; // 次要信息，注释/补充/正文
-$-color-aid: #d2d2d2 !default; // 辅助文字字号，弱化信息，引导性/不可点文字
+/*----------------------------------------- Theme color. end -------------------------------------------*/
 
+/*-------------------------------- Theme color application size.  start --------------------------------*/
 /* 文字字号 */
 $-fs-title: 16px !default; // 标题字号/重要正文字号
 $-fs-content: 14px !default; // 普通正文
@@ -34,8 +83,7 @@ $-fs-aid: 10px !default; // 辅助文字字号，弱化信息，引导性/不可
 /* 尺寸 */
 $-size-side-padding: 15px !default; // 屏幕两边留白
 
-/* modal */
-$-modal-bg: rgba(0, 0, 0, 0.7) !default;
+/*-------------------------------- Theme color application size.  end --------------------------------*/
 
 /* action-sheet */
 $-action-sheet-action-height: 50px !default; // 单条菜单高度
@@ -75,21 +123,27 @@ $-button-normal-border-active-color: #cbcbcb !default; // 默认按钮点击态�
 $-button-normal-disabled-color: #dedede !default; // 默认按钮禁用文字色
 $-button-normal-disabled-bg: #ffffff !default; // 默认按钮禁用背景色
 $-button-normal-border-disabled-color: $-color-bg !default; // 默认按钮禁用边框色
+
 $-button-primary-color: $-color-theme !default; // 主要按钮颜色
 $-button-primary-active-color: $-color-theme-emph !default; // 主要按钮点击态颜色
 $-button-primary-disabled-color: $-color-theme-light !default; // 主要按钮禁用颜色
+
 $-button-success-color: $-color-success !default; // 成功按钮颜色
 $-button-success-active-color: mix(#000, $-button-success-color, 18%) !default; // 成功按钮点击态颜色
 $-button-success-disabled-color: mix(#fff, $-button-success-color, 42%) !default; // 成功按钮禁用颜色
+
 $-button-info-color: $-color-info !default; // 信息按钮颜色
 $-button-info-active-color: mix(#000, $-button-info-color, 18%) !default; // 信息按钮点击态颜色
 $-button-info-disabled-color: mix(#fff, $-button-info-color, 42%) !default; // 信息按钮禁用颜色
+
 $-button-warning-color: $-color-warning !default; // 警告按钮颜色
 $-button-warning-active-color: mix(#000, $-button-warning-color, 18%) !default; // 警告按钮点击颜色
 $-button-warning-disabled-color: mix(#fff, $-button-warning-color, 42%) !default; // 警告按钮禁用颜色
+
 $-button-error-color: $-color-danger !default; // 错误按钮颜色
 $-button-error-active-color: mix(#000, $-button-error-color, 18%) !default; // 错误按钮点击颜色
 $-button-error-disabled-color: mix(#fff, $-button-error-color, 42%) !default; // 错误按钮禁用颜色
+
 $-button-border-color: $-color-secondary !default; // 默认按钮边框色
 $-button-small-height: 26px !default; // 小型按钮高度
 $-button-small-padding: 0 10px !default; // 小型按钮padding
