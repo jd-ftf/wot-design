@@ -42,26 +42,26 @@ $-color-theme-emph: mix(#000, $-color-theme, 18%) !default; // 强调色
  */
 
 /* 文字颜色（默认浅色背景下） */
-$-color-title: rgba($-color-black, 100%) !default;               // 模块标题/重要正文 000
-$-color-content: rgba($-color-black, 85%) !default;              // 普通正文 262626
-$-color-secondary: rgba($-color-black, 65%) !default;            // 次要信息，注释/补充/正文 595959
-$-color-aid: rgba($-color-black, 45%) !default;                  // 辅助文字字号，弱化信息，引导性/不可点文字 8c8c8c
-$-color-tip: rgba($-color-black, 25%) !default;                  // 失效、默认提示文字 bfbfbf
-$-color-border: rgba($-color-black, 15%) !default;               // 控件边框线 d9d9d9
-$-color-border-light: rgba($-color-black, 9%) !default;          // 分割线颜色 e8e8e8
-$-color-bg: rgba($-color-black, 4%) !default;                    // 背景色、禁用填充色 f5f5f5
-$-color-table-bg: rgba($-color-black, 2%) !default;              // 表头填充 fafafa
+$-color-title: rgba($-color-black, 1) !default;               // 模块标题/重要正文 000
+$-color-content: rgba($-color-black, 0.85) !default;              // 普通正文 262626
+$-color-secondary: rgba($-color-black, 0.65) !default;            // 次要信息，注释/补充/正文 595959
+$-color-aid: rgba($-color-black, 0.45) !default;                  // 辅助文字字号，弱化信息，引导性/不可点文字 8c8c8c
+$-color-tip: rgba($-color-black, 0.25) !default;                  // 失效、默认提示文字 bfbfbf
+$-color-border: rgba($-color-black, 0.15) !default;               // 控件边框线 d9d9d9
+$-color-border-light: rgba($-color-black, 0.09) !default;          // 分割线颜色 e8e8e8
+$-color-bg: rgba($-color-black, 0.04) !default;                    // 背景色、禁用填充色 f5f5f5
+$-color-table-bg: rgba($-color-black, 0.02) !default;              // 表头填充 fafafa
 
 /* 文字颜色-深背景 */
-$-color-title-indark: rgba($-color-white, 100%) !default;       // 模块标题/重要正文 fff
-$-color-text-indark: rgba($-color-white, 85%) !default;         // 普通正文 d9d9d9
-$-color-secondary-indark: rgba($-color-white, 65%) !default;    // 次要信息，注释/补充/正文 a6a6a6
-$-color-aid-indark: rgba($-color-white, 45%) !default;          // 次级按钮边框线 737373
-$-color-tip-indark: rgba($-color-white, 25%) !default;          // 失效、默认提示文字 404040
-$-color-border-indark: rgba($-color-white, 15%) !default;       // 控件边框线 262626
-$-color-border-light-indark: rgba($-color-white, 9%) !default;  // 分割线颜色 171717
-$-color-bg-indark: rgba($-color-white, 4%) !default;            // 背景色、禁用填充色 0a0a0a
-$-color-table-bg-indark: rgba($-color-white, 2%) !default;      // 表头填充 fafafa
+$-color-title-indark: rgba($-color-white, 1) !default;       // 模块标题/重要正文 fff
+$-color-text-indark: rgba($-color-white, 0.85) !default;         // 普通正文 d9d9d9
+$-color-secondary-indark: rgba($-color-white, 0.65) !default;    // 次要信息，注释/补充/正文 a6a6a6
+$-color-aid-indark: rgba($-color-white, 0.45) !default;          // 次级按钮边框线 737373
+$-color-tip-indark: rgba($-color-white, 0.25) !default;          // 失效、默认提示文字 404040
+$-color-border-indark: rgba($-color-white, 0.15) !default;       // 控件边框线 262626
+$-color-border-light-indark: rgba($-color-white, 0.09) !default;  // 分割线颜色 171717
+$-color-bg-indark: rgba($-color-white, 0.04) !default;            // 背景色、禁用填充色 0a0a0a
+$-color-table-bg-indark: rgba($-color-white, 0.02) !default;      // 表头填充 fafafa
 
 // TODO 待替换
 /* 透明度 */
@@ -75,6 +75,8 @@ $-modal-bg: $-color-secondary !default;
 
 /*-------------------------------- Theme color application size.  start --------------------------------*/
 /* 文字字号 */
+$-fs-big: 24px !default; // 大型标题
+$-fs-important: 19px !default; // 重要数据
 $-fs-title: 16px !default; // 标题字号/重要正文字号
 $-fs-content: 14px !default; // 普通正文
 $-fs-secondary: 12px !default; // 次要信息，注释/补充/正文
@@ -490,8 +492,7 @@ $-grid-item-padding: 15px 10px !default; // 内容的 padding
 $-grid-item-border-color: $-color-border-light !default; // 边框颜色
 
 /* statustip */
-$-statustip-bg: $-modal-bg !default; // 背景色
-$-statustip-fs: $-fs-title !default; // 字号
-$-statustip-color: $-color-title !default; // 文字颜色
-$-statustip-line-height: 22px !default; // 文字颜色
+$-statustip-fs: $-fs-content !default; // 字号
+$-statustip-color: $-color-aid !default; // 文字颜色
+$-statustip-line-height: 16px !default; // 文字行高
 $-statustip-padding: 5px 10px !default; // 间距
