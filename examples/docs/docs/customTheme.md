@@ -55,50 +55,6 @@ Wot Design 使用 BEM 格式进行 CSS 类名的定义，大部分的样式只�
   <p style="color: #666;">$-color-border-light: #eee</p>
 </div>
 
-**文字相关变量**：
-
-<table>
-  <thead>
-    <tr>
-      <th>层级</th>
-      <th>字体大小</th>
-      <th>字号变量</th>
-      <th>字体颜色</th>
-      <th>字体颜色变量</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr style="font-size: 10px;">
-      <td>辅助文字，弱化信息，引导性/不可点文字</td>
-      <td>10px</td>
-      <td>$-fs-aid</td>
-      <td style="color: #d2d2d2;">#d2d2d2</td>
-      <td>$-color-aid</td>
-    </tr>
-    <tr style="font-size: 12px;">
-      <td>次要信息，注释/补充/正文</td>
-      <td>12px</td>
-      <td>$-fs-secondary</td>
-      <td style="color: #a7a7a7;">#a7a7a7</td>
-      <td>$-color-secondary</td>
-    </tr>
-    <tr style="font-size: 14px;">
-      <td>普通正文</td>
-      <td>14px</td>
-      <td>$-fs-content</td>
-      <td style="color: #666;">#666</td>
-      <td>$-color-content</td>
-    </tr>
-    <tr style="font-size: 16px;">
-      <td>标题字号/重要正文字号</td>
-      <td>16px</td>
-      <td>$-fs-title</td>
-      <td style="color: #333;">#333</td>
-      <td>$-color-title</td>
-    </tr>
-  </tbody>
-</table>
-
 **左右留白间距**：
 
 $-size-side-padding: 15px;

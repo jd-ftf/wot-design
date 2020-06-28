@@ -13,11 +13,11 @@
   @include e(img) {
     margin: 0 auto;
     display: block;
-    width: 134px;
-    height: 134px;
+    width: 300px;
+    height: 200px;
   }
   @include e(text) {
-    margin: 12px auto 0;
+    margin: 20px auto 0;
     font-size: $-statustip-fs;
     line-height: $-statustip-line-height;
     color: $-statustip-color;
