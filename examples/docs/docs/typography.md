@@ -34,9 +34,9 @@
           <div class="typo-SanFrancisco">San Francisco</div>
         </div>
         <div>
-          <div class="typo-SanFrancisco-Semibold">SF Pro Display(font-weight:600)</div>
-          <div class="typo-SanFrancisco-Regular">SF Pro Display(font-weight:500)</div>
-          <div class="typo-SanFrancisco">SF Pro Display</div>
+          <div class="typo-SanFrancisco-Semibold">San Francisco(font-weight:600)</div>
+          <div class="typo-SanFrancisco-Regular">San Francisco(font-weight:500)</div>
+          <div class="typo-SanFrancisco">San Francisco</div>
         </div>
       </td>
     </tr>
@@ -77,9 +77,9 @@
           <div class="typo-Source">思源黑体</div>
         </div>
         <div>
-          <div class="typo-Source-Medium">Noto Sans Han(font-weight:600)</div>
-          <div class="typo-Source-Normal">Noto Sans Han(font-weight:500)</div>
-          <div class="typo-Source">Noto Sans Han</div>
+          <div class="typo-Source-Medium">Noto SansCJK(font-weight:600)</div>
+          <div class="typo-Source-Normal">Noto SansCJK(font-weight:500)</div>
+          <div class="typo-Source">Noto SansCJK</div>
         </div>
       </td>
     </tr>
@@ -120,7 +120,7 @@
 
 ### Font-family 代码
 ```css
-font-family: -apple-system, BlinkMacSystemFont, "PingFang SC","Helvetica Neue",STHeiti,"Microsoft Yahei",Tahoma,Simsun,sans-serif;
+font-family: "San Francisco", Rotobo, arial, "PingFang SC", "Noto SansCJK", "Microsoft Yahei", sans-serif;
 ```
 
 
