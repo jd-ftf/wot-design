@@ -1,36 +1,36 @@
-@import './abstracts/variable';
-@import './abstracts/mixin';
-@import './loading.scss';
-@import './icon.scss';
+@import "./abstracts/variable";
+@import "./abstracts/mixin";
+@import "./loading.scss";
+@import "./icon.scss";
 
-@mixin button-type-style ($normal, $active, $disabled) {
+@mixin button-type-style($color, $normal, $active, $disabled, $disabledcolor) {
   background: $normal;
-  color: #fff;
+  color: $color;
   border-color: $normal;
-
+  font-weight: 500;
   &:active {
     background: $active;
   }
   @include when(disabled) {
     &:active {
       background: $disabled;
-      color: #fff;
+      color: $disabledcolor;
     }
-    
+
     opacity: 0.6;
     background: $disabled;
     border-color: $disabled;
+    color: $disabledcolor;
   }
   .wd-button__loading {
-    color: #fff;
+    color: $-color-white;
   }
   @include when(loading) {
-    background: $disabled;
-    border-color: $disabled;
-
+    background: $normal;
+    border-color: $normal;
     &:active {
-      background: $disabled;
-      border-color: $disabled;
+      background: $normal;
+      border-color: $normal;
     }
   }
   @include when(suck) {
@@ -39,8 +39,8 @@
   }
 }
 
-@mixin button-plain-style ($normal, $active, $disabled) {
-  color: $normal;
+@mixin button-plain-style($color, $normal, $active, $disabled) {
+  color: $color;
   border-color: $normal;
   background: transparent;
 
@@ -53,6 +53,10 @@
     color: $disabled;
     border-color: $disabled;
     background: transparent;
+    &:active {
+      background: transparent;
+      border-color: $disabled;
+    }
   }
   .wd-button__loading {
     color: $disabled;
@@ -71,7 +75,7 @@
   border: 1px solid $-button-border-color;
   color: $-button-normal-color;
   box-sizing: border-box;
-  transition: all .2s;
+  transition: all 0.2s;
   user-select: none;
   -webkit-tap-highlight-color: transparent;
 
@@ -84,7 +88,7 @@
     color: $-button-normal-disabled-color;
     background: $-button-normal-disabled-bg;
     border-color: $-button-normal-border-disabled-color;
-    
+
     &:active {
       color: $-button-normal-disabled-color;
       background: $-button-normal-disabled-bg;
@@ -105,19 +109,51 @@
   }
 
   @include when(primary) {
-    @include button-type-style($-button-primary-color, $-button-primary-active-color, $-button-primary-disabled-color);
+    box-shadow: $-button-primary-box-shadow;
+    @include button-type-style(
+      $-color-white,
+      $-button-primary-bg-color,
+      $-button-primary-active-color,
+      $-button-primary-disabled-color,
+      $-color-white
+    );
+    border: none;
   }
   @include when(success) {
-    @include button-type-style($-button-success-color, $-button-success-active-color, $-button-success-disabled-color);
+    @include button-type-style(
+      $-color-white,
+      $-button-success-color,
+      $-button-success-active-color,
+      $-button-success-disabled-color,
+      $-color-white
+    );
   }
   @include when(info) {
-    @include button-type-style($-button-info-color, $-button-info-active-color, $-button-info-disabled-color);
+    @include button-type-style(
+      $-button-info-color,
+      $-button-info-bg-color,
+      $-button-info-active-bg-color,
+      $-button-info-disabled-bg-color,
+      $-button-info-disabled-color
+    );
   }
   @include when(warning) {
-    @include button-type-style($-button-warning-color, $-button-warning-active-color, $-button-warning-disabled-color);
+    @include button-type-style(
+      $-color-white,
+      $-button-warning-color,
+      $-button-warning-active-color,
+      $-button-warning-disabled-color,
+      $-color-white
+    );
   }
   @include when(error) {
-    @include button-type-style($-button-error-color, $-button-error-active-color, $-button-error-disabled-color);
+    @include button-type-style(
+      $-color-white,
+      $-button-error-color,
+      $-button-error-active-color,
+      $-button-error-disabled-color,
+      $-color-white
+    );
   }
 
   @include when(small) {
@@ -125,7 +161,7 @@
     padding: $-button-small-padding;
     border-radius: $-button-small-radius;
     font-size: $-button-small-fs;
-
+    font-weight: normal;
     @include when(round) {
       border-radius: $-button-small-round-radius;
     }
@@ -142,12 +178,17 @@
     font-size: $-button-medium-fs;
 
     @include when(round) {
+      min-width: 118px;
       border-radius: $-button-medium-round-radius;
     }
     .wd-button__loading {
       width: $-button-medium-loading;
       height: $-button-medium-loading;
     }
+    // TODO 图标确认后替换更改
+    // i {
+    //   font-size: 18px;
+    // }
   }
   @include when(large) {
     height: $-button-large-height;
@@ -180,33 +221,81 @@
   }
 
   @include when(plain) {
-    background: #fff;
+    background: $-color-white;
 
     @include when(primary) {
-      @include button-plain-style($-button-primary-color, $-button-primary-active-color, $-button-primary-disabled-color);
+      @include button-plain-style(
+        $-button-primary-color,
+        $-button-primary-color,
+        $-button-primary-active-color,
+        $-button-primary-disabled-color
+      );
+      border: 1px solid;
+      box-shadow: none;
+      &:active {
+        background-color: $-button-primary-plain-active-color;
+      }
+      @include when(disabled) {
+        &:active {
+          background-color: $-button-primary-plain-active-color;
+        }
+        opacity: 1;
+        background-color: $-button-primary-plain-active-color;
+      }
     }
     @include when(success) {
-      @include button-plain-style($-button-success-color, $-button-success-active-color, $-button-success-disabled-color);
+      @include button-plain-style(
+        $-button-success-color,
+        $-button-success-color,
+        $-button-success-active-color,
+        $-button-success-disabled-color
+      );
     }
     @include when(info) {
-      @include button-plain-style($-button-info-color, $-button-info-active-color, $-button-info-disabled-color);
+      @include button-plain-style(
+        $-button-info-color,
+        $-button-info-bg-color,
+        $-button-info-active-color,
+        $-button-info-disabled-color
+      );
+      border-color: $-button-info-plain-color;
+      &:active {
+        background-color: $-button-info-plain-active-bg-color;
+        border-color: $-button-info-plain-active-color;
+      }
+      @include when(disabled) {
+        &,
+        &:active {
+          background-color: $-button-info-plain-disabled-bg-color;
+        }
+      }
     }
     @include when(warning) {
-      @include button-plain-style($-button-warning-color, $-button-warning-active-color, $-button-warning-disabled-color);
+      @include button-plain-style(
+        $-button-warning-color,
+        $-button-warning-color,
+        $-button-warning-active-color,
+        $-button-warning-disabled-color
+      );
     }
     @include when(error) {
-      @include button-plain-style($-button-error-color, $-button-error-active-color, $-button-error-disabled-color);
+      @include button-plain-style(
+        $-button-error-color,
+        $-button-error-color,
+        $-button-error-active-color,
+        $-button-error-disabled-color
+      );
     }
     @include when(suck) {
       &:active {
-        background: #eee;
+        background: $-button-suck-active-color;
       }
       @include when(disabled) {
-        background: #fff;
+        background: $-color-white;
       }
     }
   }
-  
+
   @include when(suck) {
     font-size: $-button-large-fs;
     height: $-button-suck-height;

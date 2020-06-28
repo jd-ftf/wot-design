@@ -80,12 +80,45 @@
         <wd-button type="error" size="large" block>危险按钮</wd-button>
       </div>
     </demo-block>
+    <demo-block title="圆角按钮2.0">
+      <div style="width: 315px; margin: 0 auto">
+        <wd-button type="primary" size="large" block disabled round>主要按钮</wd-button>
+        <wd-button type="primary" size="large" block round>主要按钮</wd-button>
+        <wd-button type="primary" size="large" block round loading>主要按钮</wd-button>
+        <wd-button type="info" size="large" block round disabled>信息按钮</wd-button>
+        <wd-button type="info" size="large" block round>信息按钮</wd-button>
+      </div>
+    </demo-block>
+    <demo-block title="圆角按钮2.0 中小尺寸">
+      <wd-button type="primary" disabled round>主操作</wd-button>
+      <wd-button type="primary" size="small" disabled round>主操作</wd-button>
+      <br />
+      <wd-button type="primary" round>主操作</wd-button>
+      <wd-button type="primary" size="small" round>主操作</wd-button>
+      <br />
+      <wd-button type="info" round disabled>次操作</wd-button>
+      <wd-button type="info" size="small" round disabled>次操作</wd-button>
+      <br />
+      <wd-button type="info" round>次操作</wd-button>
+      <wd-button type="info" size="small" round>次操作</wd-button>
+      <br />
+      <wd-button type="primary" plain disabled round>幽灵按钮</wd-button>
+      <wd-button type="primary" size="small" plain disabled round>幽灵按钮</wd-button>
+      <br />
+      <wd-button type="primary" plain round>幽灵按钮</wd-button>
+      <wd-button type="primary" size="small" plain round>幽灵按钮</wd-button>
+      <br />
+      <wd-button type="info" plain disabled round>次操作</wd-button>
+      <wd-button type="info" size="small" plain disabled round>次操作</wd-button>
+      <br />
+      <wd-button type="info" plain round>次操作</wd-button>
+      <wd-button type="info" size="small" plain round>次操作</wd-button>
+    </demo-block>
   </div>
 </template>
 
 <script>
-export default {
-}
+export default {}
 </script>
 
 <style lang="scss">
