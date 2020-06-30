@@ -46,7 +46,7 @@ $-color-theme-emph: mix($-color-black, $-color-theme, 18%) !default; // 强调�
  * #33C2FF mixColor($-color-white, $-color-blue, 0.037960323165797775))
  */
 
-/* 文字颜色（默认浅色背景下） */
+ /* 文字颜色（默认浅色背景下） */
 $-color-title:  $-color-black !default;               // 模块标题/重要正文 000
 $-color-content:  mix($-color-black,$-color-white, 85%) !default;              // 普通正文 262626
 $-color-secondary:  mix($-color-black,$-color-white, 65%) !default;            // 次要信息，注释/补充/正文 595959
@@ -72,9 +72,11 @@ $-color-table-bg-indark: mix($-color-white,$-color-black, 2%) !default;      // 
 /* 透明度 */
 $-color-inlight-title-mask: mix($-color-black, $-color-white, 100%) !default;        // 模块标题/重要正文 000
 /* 图形颜色 */
-$-color-icon: $-color-border !default; // icon颜色
+$-color-icon: mix($-color-black, $-color-white, 15%) !default; // icon颜色
+$-color-icon-active: #eee !default; // icon颜色hover
+$-color-icon-disabled: #a7a7a7 !default; // icon颜色disabled
 /* modal */
-$-modal-bg: $-color-secondary !default;
+$-modal-bg: rgba($-color-black, 0.65) !default;
 
 /*----------------------------------------- Theme color. end -------------------------------------------*/
 
@@ -134,7 +136,7 @@ $-button-normal-border-disabled-color: $-color-bg !default; // 默认按钮禁�
 
 $-button-primary-color: $-color-theme !default; // 主要按钮颜色
 $-button-primary-box-shadow: 0px 2px 4px 0px rgba($-color-theme,0.25) !default; // 主要按钮颜色
-$-button-primary-bg-color: linear-gradient(315deg, mixColor($-color-white, $-color-theme, 0.01111785969062061),rgba(102,141,248,1) 100%,mixColor($-color-white, $-color-theme, 0.14034408637079962))!default; // 主要按钮背景颜色
+$-button-primary-bg-color: linear-gradient(315deg, mixColor($-color-white, $-color-theme, 0.01111785969062061),mixColor($-color-white, $-color-theme, 0.14034408637079962),mixColor($-color-white, $-color-theme, 0.14034408637079962))!default; // 主要按钮背景颜色
 $-button-primary-active-color: linear-gradient(315deg, mixColor($-color-black, $-color-theme, 0.15589315808539794),mixColor($-color-white, $-color-theme, 0.0054489959125264414)) !default; // 主要按钮点击态颜色
 $-button-primary-plain-active-color: mixColor($-color-white, $-color-black, 0.9373320899803692) !default; // 主要按钮点击态颜色
 $-button-primary-disabled-color: $-color-theme-light !default; // 主要按钮禁用颜色
@@ -164,7 +166,7 @@ $-button-error-active-color: mix($-color-black, $-button-error-color, 18%) !defa
 $-button-error-disabled-color: mix($-color-white, $-button-error-color, 42%) !default; // 错误按钮禁用颜色
 $-button-suck-active-color: $-button-primary-plain-active-color !default; // 错误按钮禁用颜色
 
-$-button-border-color: $-color-secondary !default; // 默认按钮边框色
+$-button-border-color: mix($-color-black,$-color-white, 65%) !default; // 默认按钮边框色
 $-button-small-height: 28px !default; // 小型按钮高度
 $-button-small-padding: 0 12px !default; // 小型按钮padding
 $-button-small-fs: $-fs-secondary !default; // 小型按钮字号
@@ -185,9 +187,9 @@ $-button-large-round-radius: 22px !default; // 大型按钮round类型圆角大�
 $-button-large-loading: 18px !default; // 大小按钮loading图标大小
 $-button-suck-height: 50px !default; // suck 类型按钮高度
 $-button-icon-size: 40px !default; // icon 类型按钮尺寸
-$-button-icon-color: $-color-secondary !default; // icon 类型按钮颜色
-$-button-icon-active-color: $-color-border-light !default; // icon 类型按钮点击态颜色
-$-button-icon-disabled-color: $-color-tip !default; // icon 类型按钮禁用颜色
+$-button-icon-color: $-color-icon !default; // icon 类型按钮颜色
+$-button-icon-active-color: $-color-icon-active !default; // icon 类型按钮点击态颜色
+$-button-icon-disabled-color: $-color-icon-disabled !default; // icon 类型按钮禁用颜色
 
 /* cell */
 $-cell-group-title-fs: $-fs-title !default; // 组标题字号
