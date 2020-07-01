@@ -1,5 +1,5 @@
-@import './abstracts/variable';
-@import './abstracts/mixin';
+@import "./abstracts/variable";
+@import "./abstracts/mixin";
 
 @include b(loading) {
   font-size: 0;
@@ -14,13 +14,17 @@
   }
   @include m(circle) {
     animation-duration: 2s;
-    
+
     circle {
       stroke: currentColor;
       stroke-width: 3;
       stroke-linecap: round;
       animation: wd-circular 1.5s ease-in-out infinite;
     }
+  }
+  @include m(circle-outline) {
+    animation: wd-rotate-turn 0.8s linear infinite;
+    animation-duration: 2s;
   }
   @include m(spinner) {
     animation-timing-function: steps(12);
@@ -34,7 +38,7 @@
 
     &::before {
       display: block;
-      content: '';
+      content: "";
       width: 2px;
       height: 25%;
       border-radius: 1px;
@@ -75,5 +79,14 @@
 
   to {
     transform: rotate(360deg);
+  }
+}
+@keyframes wd-rotate-turn {
+  from {
+    transform: rotate(360deg);
+  }
+
+  to {
+    transform: rotate(0deg);
   }
 }
