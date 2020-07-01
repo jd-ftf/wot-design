@@ -5,9 +5,8 @@
   display: inline-block;
   position: relative;
   width: $-switch-width;
-  height: $-switch-circle-size;
+  height: $-switch-height;
   border-radius: $-switch-circle-size;
-  border: 1px solid $-switch-border-color;
   background: $-switch-inactive-color;
   transition: all .3s;
   -webkit-tap-highlight-color: transparent;
@@ -20,27 +19,29 @@
     margin: 0;
   }
   @include e(circle) {
+    box-sizing: border-box;
     position: absolute;
     display: inline-block;
     width: $-switch-circle-size;
     height: $-switch-circle-size;
-    top: 0;
-    left: 0;
+    top: 2px;
+    left: 2px;
     background: #fff;
+    border: 1px solid $-switch-border-color;
     border-radius: 50%;
     transition: left .3s ease-out;
-    box-shadow: 0 2px 4px $-switch-inactive-shadow-color;
+    box-shadow: 0 2px 4px 0 $-switch-inactive-shadow-color;
   }
   @include when(checked) {
     background: $-switch-active-color;
     border-color: $-switch-active-color;
 
     .wd-switch__circle {
-      left: calc(#{$-switch-width - $-switch-circle-size} + 1px);
-      box-shadow: 0 2px 4px $-switch-active-shadow-color
+      left: calc(#{$-switch-width - $-switch-circle-size} - 2px);
+      box-shadow: 0 2px 4px 0 $-switch-active-shadow-color
     }
   }
   @include when(disabled) {
-    opacity: 0.4;
+    opacity: 0.5;
   }
 }

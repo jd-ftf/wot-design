@@ -22,7 +22,8 @@
         <i class="wd-icon-search wd-search__search-icon"></i>
         <span v-show="!typing && !value" class="wd-search__placeholder-txt">{{ placeholder || t('wd.search.search') }}</span>
       </div>
-      <i v-show="typing || value" class="wd-search__clear wd-icon-close-fill" @click="clearSearch"></i>
+      <!-- todo 图片更换 -->
+      <i v-show="typing || value" class="wd-search__clear wd-icon-add-circle" @click="clearSearch"></i>
     </div>
     <slot name="action">
       <div v-show="!hideCancel" class="wd-search__cancel" @click="handleCancel">
