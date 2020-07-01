@@ -24,6 +24,11 @@ $-color-theme-emph: mix($-color-black, $-color-theme, 18%) !default; // 强调�
 /**
  * 渐变色映射列表
  * #eff4fe mixColor($-color-white, $-color-black, 0.9373320899803692)
+ * #F2F2F2 mixColor($-color-white, $-color-black, 0.9490196078431372)
+ * #DADADA mixColor($-color-white, $-color-black, 0.8549019607843137)
+ * #E5E5E5 mixColor($-color-white, $-color-black, 0.8980392156862745)
+ * #D2D2D2 mixColor($-color-white, $-color-black, 0.8235294117647058)
+ * #9b9b9b mixColor($-color-white, $-color-black, 0.6078431372549019)
  * #668DF8 mixColor($-color-white, $-color-theme, 0.14034408637079962)
  * #4F7CF8 mixColor($-color-white, $-color-theme, 0.01111785969062061)
  * #517CF0 mixColor($-color-white, $-color-theme, 0.022321888435864964)
@@ -32,6 +37,7 @@ $-color-theme-emph: mix($-color-black, $-color-theme, 18%) !default; // 强调�
  * #8FADFF mixColor($-color-white, $-color-theme, 0.37074158815209696) disabled
  * #416BDF mixColor($-color-black, $-color-theme, 0.15589315808539794) dark
  * #4E79EE mixColor($-color-white, $-color-theme, 0.0054489959125264414) dark
+ * #0053a2 mixColor($-color-black, $-color-theme, 0.00421516435400293)
  * #20b080 mixColor($-color-black, $-color-success, 0.3811019568497541))
  * #2bd69d mixColor($-color-black, $-color-success, 0.17002409048245387))
  * #E67137 mixColor($-color-black, $-color-warning, 0.041948197590968614))
@@ -396,16 +402,20 @@ $-radio-check-size: 10px !default; // 选中圆点大小
 /* search */
 $-search-side-padding: $-size-side-padding !default; // 左右间距
 $-search-padding: 10px 0 10px $-search-side-padding !default; // 不包含取消按钮的间距
-$-search-input-radius: 4px !default; // 输入框圆角大小
-$-search-input-bg: $-color-bg !default; // 输入框背景色
-$-search-input-height: 28px !default; // 输入框高度
-$-search-input-padding: 0 32px !default; // 输入框间距
+$-search-input-radius: 15px !default; // 输入框圆角大小
+$-search-input-bg: rgba($-color-black, 0.04) !default; // 输入框背景色
+$-search-input-height: 30px !default; // 输入框高度
+$-search-input-padding: 0 32px 0 42px !default; // 输入框间距
 $-search-input-fs: $-fs-content !default; // 输入框字号
-$-search-input-color: $-color-title !default; // 输入框文字颜色
-$-search-icon-color: $-color-icon !default; // 图标颜色
-$-search-placeholder-color: $-color-secondary !default; // placeholder 颜色
-$-search-cancel-padding: 0 $-search-side-padding 0 10px !default; // 取消按钮间距
-$-search-cancel-color: $-color-theme !default; // 取消按钮颜色
+$-search-input-search-fs: 18px !default; // 搜索icon大小
+$-search-input-close-fs: $-fs-title !default; // 关闭icon大小
+$-search-input-color: rgba($-color-black, 0.85) !default; // 输入框文字颜色
+$-search-icon-search-color: mixColor($-color-white, $-color-black, 0.8235294117647058) !default; // 搜索图标颜色
+$-search-icon-close-color: rgba($-color-black, 0.65) !default; // 关闭图标颜色
+$-search-placeholder-color: rgba($-color-black, 0.25) !default; // placeholder 颜色
+$-search-cancel-padding: 0 $-search-side-padding !default; // 取消按钮间距
+$-search-cancel-fs: $-fs-title !default; // 取消按钮字号
+$-search-cancel-color: rgba($-color-black, 0.65) !default; // 取消按钮颜色
 $-search-light-bg: $-color-bg !default; // light 类型的容器背景色
 
 /* slider */
@@ -441,13 +451,14 @@ $-swipe-indicators-vertical-left: 10px !default; // 点状指示器竖直滑动�
 $-swipe-indicator-size: 5px !default; // 点状指示器大小
 
 /* switch */
-$-switch-width: 1.8em !default; // 宽度
-$-switch-circle-size: 1em !default; // 圆点大小
-$-switch-active-color: $-color-theme !default; // 选中状态背景颜色
-$-switch-active-shadow-color: rgba($-color-theme, .8) !default; // 选中状态shadow颜色
-$-switch-inactive-color: $-color-white !default; // 非选中背景颜色
-$-switch-inactive-shadow-color: rgba(0, 0, 0, 0.3) !default; // 非选中状态shadow颜色
-$-switch-border-color: #e5e5e5 !default; // 边框颜色
+$-switch-width: 51px !default; // 宽度
+$-switch-height: 32px !default; // 高度
+$-switch-circle-size: 28px !default; // 圆点大小
+$-switch-border-color: mixColor($-color-white, $-color-black, 0.8980392156862745) !default; // 边框颜色
+$-switch-active-color: linear-gradient(315deg, mixColor($-color-white, $-color-theme, 0.01111785969062061) 0%,mixColor($-color-white, $-color-theme, 0.14034408637079962) 100%,mixColor($-color-white, $-color-theme, 0.14034408637079962) 100%) !default; // 选中状态背景颜色
+$-switch-active-shadow-color: rgba(0,83,162,0.5) !default; // 选中状态shadow颜色 - mixColor($-color-black, $-color-theme, 0.00421516435400293)
+$-switch-inactive-color: linear-gradient(315deg, mixColor($-color-white, $-color-black, 0.9490196078431372) 0%,mixColor($-color-white, $-color-black, 0.8549019607843137) 100%,mixColor($-color-white, $-color-black, 0.8549019607843137) 100%) !default; // 非选中背景颜色
+$-switch-inactive-shadow-color: rgba(155,155,155,0.5) !default; // 非选中状态shadow颜色
 
 /* tabbar */
 $-tabbar-color: $-color-secondary !default; // 默认颜色

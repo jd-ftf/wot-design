@@ -13,8 +13,11 @@
     <demo-block title="修改大小">
       <wd-switch v-model="value4" size="20px" />
     </demo-block>
-    <demo-block title="禁用">
+    <demo-block title="选中禁用">
       <wd-switch v-model="value5" disabled />
+    </demo-block>
+    <demo-block title="非选中禁用">
+      <wd-switch v-model="value6" disabled />
     </demo-block>
   </div>
 </template>
@@ -27,7 +30,8 @@ export default {
       value2: '京麦',
       value3: true,
       value4: false,
-      value5: true
+      value5: true,
+      value6: false
     }
   }
 }

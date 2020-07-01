@@ -47,38 +47,37 @@
     font-size: 0;
 
     @include when(focus) {
-      left: 10px;
+      left: 16px;
       text-align: left;
     }
   }
   @include e(search-icon) {
     display: inline-block;
-    color: $-search-icon-color;
+    color: $-search-icon-search-color;
     vertical-align: middle;
-    font-size: $-search-input-fs;
+    font-size: $-search-input-search-fs;
   }
   @include e(placeholder-txt) {
     display: inline-block;
-    margin-left: 10px;
+    margin-left: 8px;
     color: $-search-placeholder-color;
     font-size: $-search-input-fs;
     vertical-align: middle;
   }
   @include e(clear) {
     position: absolute;
-    padding: 4px;
-    right: 12px;
+    right: 9px;
     top: 50%;
     transform: translate(0, -50%);
-    font-size: $-search-input-fs;
-    color: $-search-icon-color;
+    font-size: $-search-input-close-fs;
+    color: $-search-icon-close-color;
     -webkit-tap-highlight-color: transparent;
   }
   @include e(cancel) {
     padding: $-search-cancel-padding;
     height: $-search-input-height;
     line-height: $-search-input-height;
-    font-size: $-search-input-fs;
+    font-size: $-search-cancel-fs;
     color: $-search-cancel-color;
     -webkit-tap-highlight-color: transparent;
   }
