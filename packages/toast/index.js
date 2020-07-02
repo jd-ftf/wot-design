@@ -34,8 +34,9 @@ const showToast = (instance, options) => {
   instance.position = options.position || 'middle'
   instance.iconName = options.iconName || ''
   instance.iconClass = options.iconClass || ''
-  instance.loadingType = options.loadingType || 'circle'
-  instance.forbidClick = options.forbidClick || ''
+  instance.iconSize = options.iconSize || '42px'
+  instance.loadingType = options.loadingType || 'circle-outline'
+  instance.loadingColor = options.loadingColor || '#4D80F0'
 
   if (!instance.inited) {
     document.body.appendChild(instance.$el)
@@ -87,6 +88,22 @@ Toast.success = options => {
       ...options,
       iconName: 'success',
       duration: options.duration || 1500
+    }
+  }
+
+  return Toast(options)
+}
+
+Toast.info = options => {
+  if (typeof options === 'string') {
+    options = {
+      msg: options,
+      iconName: 'info'
+    }
+  } else {
+    options = {
+      ...options,
+      iconName: 'info'
     }
   }
 

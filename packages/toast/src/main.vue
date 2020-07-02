@@ -4,8 +4,16 @@
     <transition name="wd-fade">
       <div v-show="show" class="wd-toast__container" :class="customClass">
         <div class="wd-toast__body">
-          <wd-loading v-if="iconName === 'loading'" :class="msg ? 'wd-toast__loading' : ''" :type="loadingType" color="#fff" />
-          <i v-if="iconName && iconName !== 'loading'" class="wd-toast__icon" :class="[ iconNameToClass ]"></i>
+          <!-- loading -->
+          <wd-loading
+            v-if="iconName === 'loading'"
+            class="wd-toast__icon"
+            :type="loadingType"
+            :color="loadingColor"
+            :size="iconSize"
+          />
+          <!-- success | warning | info | error -->
+          <icon v-if="iconName && iconName !== 'loading'" :type="iconName" :size="iconSize" class="wd-toast__icon"></icon>
           <i v-else-if="iconClass" class="wd-toast__icon" :class="iconClass.split(' ')"></i>
           <div class="wd-toast__msg">{{ msg }}</div>
         </div>
@@ -16,11 +24,18 @@
 
 <script>
 import WdLoading from 'wot-design/packages/loading'
+import Icon from './icon'
 
 export default {
   name: 'WdToast',
   components: {
-    WdLoading
+    WdLoading,
+    Icon
+  },
+  data () {
+    return {
+      forbidClick: false
+    }
   },
   props: {
     iconName: String,
@@ -33,9 +48,16 @@ export default {
     show: Boolean,
     loadingType: {
       type: String,
-      default: 'circle'
+      default: 'circle-outline'
     },
-    forbidClick: Boolean
+    loadingColor: {
+      type: String,
+      default: '#4D80F0'
+    },
+    iconSize: {
+      type: String,
+      default: '42px'
+    }
   },
   computed: {
     customClass () {
@@ -58,18 +80,6 @@ export default {
       }
 
       return classList
-    },
-    iconNameToClass () {
-      switch (this.iconName) {
-        case 'success':
-          return 'wd-icon-success'
-        case 'error':
-          return 'wd-icon-error'
-        case 'warning':
-          return 'wd-icon-warning'
-        default:
-          return ''
-      }
     }
   },
   methods: {
