@@ -4,8 +4,8 @@
       <svg viewBox="0 0 42 42">
         <defs>
           <linearGradient x1="100%" y1="0%" x2="0%" y2="0%" id="a">
-            <stop stop-color="#FFF" offset="0%" />
-            <stop stop-color="#FFF" stop-opacity="0" offset="100%" />
+            <stop stop-color="#FFF" stop-opacity="0" offset="0%" />
+            <stop stop-color="#FFF" offset="100%" />
           </linearGradient>
         </defs>
         <g fill="none" fill-rule="evenodd">

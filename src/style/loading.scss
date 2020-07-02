@@ -23,7 +23,7 @@
     }
   }
   @include m(circle-outline) {
-    animation: wd-rotate-turn 0.8s linear infinite;
+    animation: wd-rotate 0.8s linear infinite;
     animation-duration: 2s;
   }
   @include m(spinner) {
@@ -79,14 +79,5 @@
 
   to {
     transform: rotate(360deg);
-  }
-}
-@keyframes wd-rotate-turn {
-  from {
-    transform: rotate(360deg);
-  }
-
-  to {
-    transform: rotate(0deg);
   }
 }

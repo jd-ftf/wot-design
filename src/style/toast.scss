@@ -1,9 +1,10 @@
-@import './abstracts/variable';
-@import './abstracts/mixin';
-@import './icon.scss';
-@import './common/transition.scss';
-@import './loading.scss';
+@import "./abstracts/variable";
+@import "./abstracts/mixin";
+@import "./icon.scss";
+@import "./common/transition.scss";
+@import "./loading.scss";
 
+// TODO 待添加 图标情况下的padding和最大宽度的限制
 @include b(toast) {
   @include e(modal) {
     position: fixed;
@@ -27,25 +28,26 @@
     padding: $-toast-padding;
     background-color: $-toast-bg;
     border-radius: $-toast-radius;
-    color: #fff;
+    color: $-color-white;
     text-align: center;
     font-size: $-toast-fs;
     box-sizing: border-box;
+    box-shadow: $-toast-box-shadow;
   }
   @include e(msg) {
-    line-height: 1.4285;
+    line-height: 20px;
+    text-align: left;
   }
   @include e(icon) {
     display: inline-block;
-    margin-bottom: 16px;
-    font-size: $-toast-icon-size;
+    margin-right: 16px;
   }
   @include e(loading) {
     display: inline-block;
     margin-bottom: 16px;
   }
   @include m(middle) {
-    top: 50%;
+    top: 31.2%;
     transform: translate3d(0%, -50%, 0);
   }
   @include m(top) {
@@ -57,7 +59,10 @@
   @include m(with-icon) {
     .wd-toast__body {
       min-width: $-toast-with-icon-min-width;
+      max-width: $-toast-with-icon-max-width;
       padding: $-toast-with-icon-padding;
+      display: inline-flex;
+      align-items: center;
     }
   }
   @include m(loading) {

@@ -8,6 +8,7 @@
       <wd-button type="primary" @click="handleToast2">成功toast</wd-button>
       <wd-button type="primary" @click="handleToast3">错误toast</wd-button>
       <wd-button type="primary" @click="handleToast4">警告toast</wd-button>
+      <wd-button type="primary" @click="handleToast11">常规toast</wd-button>
     </demo-block>
     <demo-block title="提示位置">
       <wd-button type="primary" @click="handleToast5">顶部toast</wd-button>
@@ -15,7 +16,8 @@
     </demo-block>
     <demo-block title="loading">
       <wd-button type="primary" @click="handleToast7">Loading加载</wd-button>
-       <wd-button type="primary" @click="handleToast8">Spinner类型loading</wd-button>
+      <wd-button type="primary" @click="handleToast8">Circle类型loading</wd-button>
+      <wd-button type="primary" @click="handleToast10">Spinner类型loading</wd-button>
     </demo-block>
   </div>
 </template>
@@ -37,7 +39,7 @@ export default {
       this.$toast.success('操作成功')
     },
     handleToast3 () {
-      this.$toast.error('手机验证码输入错误，请重新输入')
+      this.$toast.error('错误提示错误提示')
     },
     handleToast4 () {
       this.$toast.warning('提示信息')
@@ -63,7 +65,8 @@ export default {
     handleToast8 () {
       this.$toast.loading({
         msg: '3s后调用close关闭',
-        loadingType: 'spinner'
+        loadingType: 'circle',
+        loadingColor: '#fff'
       })
       setTimeout(() => {
         this.$toast.close()
@@ -71,6 +74,19 @@ export default {
     },
     handleToast9 () {
       this.$toast('这是一段很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长的文案')
+    },
+    handleToast10 () {
+      this.$toast.loading({
+        msg: '3s后调用close关闭',
+        loadingType: 'spinner',
+        loadingColor: '#c7c7c7'
+      })
+      setTimeout(() => {
+        this.$toast.close()
+      }, 3000)
+    },
+    handleToast11 () {
+      this.$toast.info('常规提示常规提示')
     }
   }
 }
