@@ -1,95 +1,52 @@
-import pageConfig from '../pages.config.json'
+import routesConfig from '../routes.yml'
 
 const pageArrCache = {}
 const pageObjCache = {}
 
-for (let [pageKey, page] of Object.entries(pageConfig)) {
-  if (!page.sideTabs) {
-    continue
-  }
-
-  pageArrCache[pageKey] = []
-  pageObjCache[pageKey] = {}
-  let sideTabs = page.sideTabs
-
-  if (sideTabs instanceof Array) {
-    let totalPage = 0
-    for (let i = 0, len = sideTabs.length; i < len; i++) {
-      let groupList = sideTabs[i].list
-
-      if (!groupList) {
-        let list = Object.keys(sideTabs[i])
-        for (let m = 0, groupLen = list.length; m < groupLen; m++) {
-          pageObjCache[pageKey][list[m]] = totalPage
-          pageArrCache[pageKey].push({
-            routeName: list[m],
-            name: sideTabs[i][list[m]].name
-          })
-          totalPage++
-        }
-        continue
-      }
-
-      if (groupList instanceof Array) {
-        for (let m = 0, groupLen = groupList.length; m < groupLen; m++) {
-          let tabs = Object.keys(groupList[m].list)
-
-          for (let j = 0, tabsLen = tabs.length; j < tabsLen; j++) {
-            pageObjCache[pageKey][tabs[j]] = totalPage
-            pageArrCache[pageKey].push({
-              routeName: tabs[j],
-              name: groupList[m].list[tabs[j]].name
-            })
-            totalPage++
-          }
-        }
-        continue
-      }
-
-      if (groupList instanceof Object) {
-        let tabs = Object.keys(groupList)
-
-        for (let j = 0, tabsLen = tabs.length; j < tabsLen; j++) {
-          pageObjCache[pageKey][tabs[j]] = totalPage
-          pageArrCache[pageKey].push({
-            routeName: tabs[j],
-            name: groupList[tabs[j]].name
-          })
-          totalPage++
-        }
-      }
-    }
-  } else if (sideTabs instanceof Object) {
-    let tabs = Object.keys(sideTabs)
-
-    for (let j = 0, tabsLen = tabs.length; j < tabsLen; j++) {
-      pageObjCache[pageKey][tabs[j]] = j
-      pageArrCache[pageKey].push({
-        routeName: tabs[j],
-        name: sideTabs[tabs[j]].name
+function setPageCache (menu, parentName, pageArrCache, pageObjCache, totalPage = 0) {
+  menu.children.forEach(item => {
+    if (item.type === 'module' || item.type === 'group') {
+      totalPage = setPageCache(item, parentName, pageArrCache, pageObjCache, totalPage)
+    } else {
+      pageObjCache[`${parentName}-${item.name}`] = totalPage
+      pageArrCache.push({
+        name: `${parentName}-${item.name}`,
+        title: item.title
       })
+      totalPage++
     }
-  }
+  })
+
+  return totalPage
 }
 
-const prevPage = (pageKey, pageName) => {
-  let prevIndex = pageObjCache[pageKey][pageName] - 1
+routesConfig.forEach(menu => {
+  if (menu.type === 'link' || !menu.children) return
+
+  pageArrCache[menu.name] = []
+  pageObjCache[menu.name] = {}
+
+  setPageCache(menu, menu.name, pageArrCache[menu.name], pageObjCache[menu.name])
+})
+
+const prevPage = (parentName, pageName) => {
+  let prevIndex = pageObjCache[parentName][pageName] - 1
 
   if (prevIndex < 0) {
     return ''
   }
 
-  return pageArrCache[pageKey][prevIndex]
+  return pageArrCache[parentName][prevIndex]
 }
 
-const nextPage = (pageKey, pageName) => {
-  let nextIndex = pageObjCache[pageKey][pageName] + 1
+const nextPage = (parentName, pageName) => {
+  let nextIndex = pageObjCache[parentName][pageName] + 1
 
-  if (nextIndex > pageArrCache[pageKey].length - 1) {
+  if (nextIndex > pageArrCache[parentName].length - 1) {
     return ''
   }
 
-  return pageArrCache[pageKey][nextIndex]
+  return pageArrCache[parentName][nextIndex]
 }
 
 export {

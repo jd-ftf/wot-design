@@ -1,14 +1,14 @@
 <template>
   <div class="page-controller">
     <div v-if="prevPage" class="page-controller__prev">
-      <router-link class="page-controller__link" :to="{ name: prevPage.routeName }">
+      <router-link class="page-controller__link" :to="{ name: prevPage.name }">
         <i class="iconfont icon-arrow-left"></i>
-        <span>{{ prevPage.name }}</span>
+        <span>{{ prevPage.title }}</span>
       </router-link>
     </div>
     <div v-if="nextPage" class="page-controller__next">
-      <router-link class="page-controller__link" :to="{ name: nextPage.routeName }">
-        <span>{{ nextPage.name }}</span>
+      <router-link class="page-controller__link" :to="{ name: nextPage.name }">
+        <span>{{ nextPage.title }}</span>
         <i class="iconfont icon-arrow-right"></i>
       </router-link>
     </div>
@@ -21,16 +21,16 @@ import { prevPage, nextPage } from '../utils/pageCache'
 export default {
   computed: {
     prevPage () {
-      let parentKey = this.$route.path.split('/')[1]
+      let parentName = this.$route.meta.parentName
       let routeName = this.$route.name
 
-      return prevPage(parentKey, routeName)
+      return prevPage(parentName, routeName)
     },
     nextPage () {
-      let parentKey = this.$route.path.split('/')[1]
+      let parentName = this.$route.meta.parentName
       let routeName = this.$route.name
 
-      return nextPage(parentKey, routeName)
+      return nextPage(parentName, routeName)
     }
   }
 }

@@ -1,19 +1,19 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Index from './pages/index.vue'
-import pagesConfig from './pages.config.json'
+import routesConfig from './routes.yml'
 import Container from './components/container.vue'
 
 Vue.use(Router)
 
 let pagesRouter = []
-pagesConfig.forEach(componentModule => {
-  componentModule.list.forEach(page => {
+routesConfig.forEach(componentModule => {
+  componentModule.children.forEach(page => {
     pagesRouter.push({
-      path: page.path,
-      component: () => import(`./pages${page.path}`),
+      path: `/${page.name}`,
+      component: () => import(`./pages/${page.name}`),
       meta: {
-        pageName: page.name,
+        title: page.title,
         ...page.meta
       }
     })

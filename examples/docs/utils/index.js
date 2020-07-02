@@ -1,4 +1,6 @@
-export const isWindows = navigator.userAgent.indexOf('win32') > -1 ||
-  navigator.userAgent.indexOf('wow32') > -1 ||
-  navigator.userAgent.indexOf('win64') > -1 ||
-  navigator.userAgent.indexOf('wow64') > -1
+const ua = navigator.userAgent.toLowerCase()
+
+export const isWindows = ua.indexOf('win32') > -1 ||
+  ua.indexOf('wow32') > -1 ||
+  ua.indexOf('win64') > -1 ||
+  ua.indexOf('wow64') > -1

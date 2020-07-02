@@ -1,4 +1,4 @@
-## ActionSheet 动态面板
+## ActionSheet 动作面板
 
 ### 按需引入
 
