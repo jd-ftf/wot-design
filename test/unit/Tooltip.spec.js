@@ -30,38 +30,6 @@ placements.forEach(placement => {
   })
 })
 
-// 测试菜单模式
-test('Tooltip menu', done => {
-  const wrapper = mount({
-    data () {
-      return {
-        menu: [{ name: 'person', content: '全部标记已读' }]
-      }
-    },
-    template: `
-    <wd-tooltip mode="menu" placement="right" effect="light" v-bind:content="menu" @menu-click="()=>{}" ref="tooltip">
-      <button>click</button>
-    </wd-tooltip>`
-  })
-  const { vm } = wrapper
-  const { tooltip } = vm.$refs
-
-  vm.$nextTick(() => {
-    tooltip.$refs.trigger.click()
-    expect(tooltip.effect).toBe('light')
-
-    vm.$nextTick(() => {
-      expect(tooltip.showPop).toBe(true)
-      // 测试菜单关闭
-      tooltip.$el.querySelector('.wd-tooltip__menu-inner').click()
-      vm.$nextTick(() => {
-        expect(tooltip.showPop).toBe(false)
-        done()
-      })
-    })
-  })
-})
-
 // 测试外部控制
 test('Tooltip control', done => {
   const wrapper = mount({

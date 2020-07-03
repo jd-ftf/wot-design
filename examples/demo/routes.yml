@@ -85,6 +85,8 @@
       title: Lazyload 图片懒加载
     - name: noticeBar
       title: NoticeBar 通知栏
+    - name: popover
+      title: Popover 气泡
     - name: progress
       title: Progress 进度条
     - name: sortButton

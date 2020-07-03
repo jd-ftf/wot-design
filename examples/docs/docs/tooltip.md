@@ -60,18 +60,13 @@ Vue.use(Tooltip)
 </div>
 ```
 
-### 主题
+### 显示关闭按钮
 
-Tooltip 组件提供了两个不同的主题：`dark`和`light`。
-
-通过设置`effect`属性来改变主题，默认为`dark`。
+Tooltip 组件通过属性`show-close` 控制是否显示关闭按钮。
 
 ```html
-<wd-tooltip content="dark 默认主题">
-  <wd-button >dark</wd-button>
-</wd-tooltip>
-<wd-tooltip effect="light" content="light 主题">
-  <wd-button >light</wd-button>
+<wd-tooltip content="显示关闭按钮" show-close>
+  <wd-button >显示关闭按钮</wd-button>
 </wd-tooltip>
 ```
 
@@ -83,54 +78,13 @@ Tooltip 组件提供了两个不同的主题：`dark`和`light`。
 
 ```html
 <wd-tooltip placement="right">
-  <div slot="content" style="color: red; padding: 5px; width: 90px">
+  <div slot="content" style="padding: 5px; width: 90px">
     <div>多行文本1</div>
     <div>多行文本2</div>
+    <div>多行文本3</div>
   </div>
   <wd-button class="btn btn-default">多行文本</wd-button>
 </wd-tooltip>
-```
-
-### 模式 mode
-
-使用 `mode` 属性控制当前文字提示的模式。
-
-`mode` 有两个值，一种是 `normal` 普通文字模式，另一种是 `menu` 列表模式:
-
-* **normal**: 当 `mode` 处于默认状态，`content` 属性传入要显示的 `String` 字符串。
-
-* **menu**: 文字提示框会展示成列表形式，此时 `content` 属性传入 `Array` 类型，数组中每一个对象以 `[{ name: 'person', content: '内容' }]` 命名。如果不需要icon，那么传入 `[{ content: '内容' }]`。绑定事件 `menu-click` ，在选择结束后，执行操作，列表关闭。
-
-```html
-<template>
-  <wd-tooltip mode="menu" :content="menu" @menu-click="linkTo">
-    <wd-button class="btn btn-default">列表</wd-button>
-  </wd-tooltip>
-</template>
-
-<script>
-export default {
-  data () {
-    return {
-      menu: [
-        {
-          name: 'person',
-          content: '全部标记已读'
-        },
-        {
-          name: 'close-fill',
-          content: '清空最近会话'
-        }
-      ]
-    }
-  },
-  methods: {
-    linkTo (item, index) {
-      console.log('调用', item, index)
-    }
-  }
-}
-</script>
 ```
 
 ### 高级扩展
@@ -158,7 +112,7 @@ export default {
 
 ## 注意
 
-如果想用 `外部开关按钮` 控制 tooltip 弹框的显隐，需要阻止 `事件冒泡`，在控制开关的函数内部添加阻止冒泡事件。
+组件默认点击外部关闭，因此如果想用 `外部开关按钮` 控制 tooltip 弹框的显隐，需要阻止 `事件冒泡`，防止点击外部关闭造成的干扰，在控制开关的函数内部添加阻止冒泡事件。
 
 ```html
 <template>
@@ -184,16 +138,15 @@ export default {
 </script>
 ```
 
-
 ### Tooltip Attributes
 
 | 参数               | 说明                                                     | 类型              | 可选值      | 默认值 |
 |--------------------|----------------------------------------------------------|-------------------|-------------|--------|
 |  value / v-model |  手动状态是否可见  | Boolean           | — |  false |
-|  effect        |  默认提供的主题  | String            | dark/light | dark  |
-|  content        |  显示的内容，也可以通过 `slot#content` 传入  | String/Array            | — | — |
+|  content        |  显示的内容，也可以通过 `slot#content` 传入  | String            | — | — |
 |  placement        |  Tooltip 的出现位置  | String           |  top/top-start/top-end/bottom/bottom-start/bottom-end/left/left-start/left-end/right/right-start/right-end |  bottom |
 |  visible-arrow   |  是否显示 Tooltip 箭头 | Boolean | — | true |
+|  show-close   |  是否显示 Tooltip 内部的关闭按钮 | Boolean | — | true |
 |  disabled       |  Tooltip 是否可用  | Boolean           | — |  false |
 |  offset        |  出现位置的偏移量  | Number           | — |  5 |
 | close-outside | 是否可以通过点击其他位置 关闭 tooltip | boolean    | — | true |
@@ -210,4 +163,3 @@ export default {
 | -------------- | -------------- | ---------------------------------------- |
 | show     |显示时触发       | - |
 | hide | 隐藏时触发 | - |
-| menu-click | menu 模式下点击某一选项触发 | 当前选项内容{name,content}, 当前选项索引index |

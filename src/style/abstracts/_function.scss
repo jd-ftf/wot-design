@@ -32,6 +32,7 @@
     @return false;
   }
 }
+
 // 字符串翻转，添加#
 @function reverseString($string) {
   $result: "";
@@ -131,7 +132,7 @@
   }
   @return reverseString($list);
 }
-
+// TODO 目前返回类型是 string 类型，需要返回color类型的转换函数
 @function mixColor($color1, $color2, $percent) {
   $c1: hexToDec($color1);
   $c2: hexToDec($color2);

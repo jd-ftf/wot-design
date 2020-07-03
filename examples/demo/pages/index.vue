@@ -8,10 +8,17 @@
       <div class="page__desc">该组件库根据京东商家侧的UI设计规范（京麦移动端设计规范）开发，旨在给商家提供统一的UI交互，同时提高研发的开发效率。</div>
     </div>
     <div class="page__bd">
-      <div class="kind-list__item" v-for="(componentModule, index) in pagesConfig" :key="componentModule.name">
+      <div
+        class="kind-list__item"
+        v-for="(componentModule, index) in pagesConfig"
+        :key="componentModule.name"
+      >
         <div class="kind-list__item-hd" @click="toggleList(index)">
           <div class="kind-list__item-title">{{ componentModule.title }}</div>
-          <i class="kind-list__item-icon" :style="{ 'background-image': `url(${componentModule.icon})` }"></i>
+          <i
+            class="kind-list__item-icon"
+            :style="{ 'background-image': `url(${componentModule.icon})` }"
+          ></i>
         </div>
         <ul class="kind-list__item-bd" ref="moduleList" @transitionend="onTransitionend">
           <li class="kind-list__list-item" v-for="(item, index) in componentModule.children" :key="index">
@@ -141,13 +148,13 @@ export default {
   .kind-list__item-bd {
     display: none;
     width: 100%;
-    transition: height .3s;
+    transition: height 0.3s;
     overflow: hidden;
   }
   .kind-list__list-item {
     position: relative;
 
-    &::after{
+    &::after {
       position: absolute;
       content: '';
       height: 1px;

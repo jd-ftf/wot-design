@@ -29,6 +29,7 @@ $-color-theme-emph: mix($-color-black, $-color-theme, 18%) !default; // 强调�
  * #E5E5E5 mixColor($-color-white, $-color-black, 0.8980392156862745)
  * #D2D2D2 mixColor($-color-white, $-color-black, 0.8235294117647058)
  * #9b9b9b mixColor($-color-white, $-color-black, 0.6078431372549019)
+ * #262728 mixColor($-color-white, $-color-black, 0.1490349858424059)
  * #668DF8 mixColor($-color-white, $-color-theme, 0.14034408637079962)
  * #4F7CF8 mixColor($-color-white, $-color-theme, 0.01111785969062061)
  * #517CF0 mixColor($-color-white, $-color-theme, 0.022321888435864964)
@@ -497,7 +498,6 @@ $-tag-close-size: 14px !default; // 关闭按钮字号
 $-tag-close-color: $-color-icon !default; // 关闭按钮颜色
 
 /* toast */
-/* toast */
 $-toast-padding: 8px 14px !default; // 无图标的padding
 $-toast-side-padding: $-size-side-padding !default; //左右两边最小留白宽度
 $-toast-radius: 8px !default; // 圆角大小
@@ -511,14 +511,29 @@ $-toast-loading-padding: 10px !default; // loading 下的padding
 $-toast-box-shadow: 0px 6px 16px 0px rgba($-color-black, 0.08) !default; // 外部阴影
 
 /* tooltip */
-$-tooltip-bg: $-modal-bg !default; // 背景色
+$-tooltip-bg: rgba(38,39,40, 0.8) !default; // 背景色
 $-tooltip-color: $-color-white !default; // 文字颜色
-$-tooltip-radius: 2px !default; // 圆角大小
-$-tooltip-arrow-size: 3px !default; // 箭头大小
-$-tooltip-fs: $-fs-content !default; // 字号
+$-tooltip-radius: 8px !default; // 圆角大小
+$-tooltip-arrow-size: 9px !default; // 箭头大小
+$-tooltip-fs: $-fs-content !default; // 字号 
 $-tooltip-blur: 10px !default; // 背景高斯模糊效果
-$-tooltip-padding: 5px 10px !default; // 间距
-$-tooltip-light-color: $-color-content !default; // light 下的文字颜色
+$-tooltip-padding: 9px 20px !default; // 间距
+$-tooltip-close-size: 6px !default; // 背景高斯模糊效果
+$-tooltip-z-index: 500 !default;
+$-tooltip-line-height: 18px !default; // 行高
+
+/* popover */
+$-popover-bg: $-color-white !default; // 背景色
+$-popover-color: rgba($-color-black, 0.85) !default; // 文字颜色
+$-popover-box-shadow: 0px 2px 10px 0px rgba($-color-black, 0.1) !default; // 阴影颜色
+$-popover-arrow-box-shadow: 0px 2px 10px 0px rgba($-color-black, 0.2) !default; // 阴影颜色
+$-popover-border-color: rgba($-color-black,0.09) !default; // 阴影颜色
+$-popover-radius: 4px !default; // 圆角大小
+$-popover-arrow-size: 6px !default; // 箭头大小
+$-popover-fs: $-fs-content !default; // 字号
+$-popover-padding: 15px !default; // 间距
+$-popover-line-height: 18px !default; // 行高
+$-popover-z-index: $-tooltip-z-index !default;
 
 /* grid-item */
 $-grid-item-fs: 12px !default; // 字号
