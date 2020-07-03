@@ -14,7 +14,7 @@
           <i class="kind-list__item-icon" :style="{ 'background-image': `url(${componentModule.icon})` }"></i>
         </div>
         <ul class="kind-list__item-bd" ref="moduleList" @transitionend="onTransitionend">
-          <li class="kind-list__list-item" v-for="(item, index) in componentModule.list" :key="index">
+          <li class="kind-list__list-item" v-for="(item, index) in componentModule.children" :key="index">
             <router-link class="kind-list__list-item-link" :to="`/${item.name}`">
               <div>{{ item.title }}</div>
               <div>
@@ -32,6 +32,7 @@
 import routesConfig from '../routes.yml'
 
 export default {
+  name: 'index',
   data () {
     return {
       pagesConfig: routesConfig,
