@@ -10,13 +10,13 @@
     <div class="page__bd">
       <div class="kind-list__item" v-for="(componentModule, index) in pagesConfig" :key="componentModule.name">
         <div class="kind-list__item-hd" @click="toggleList(index)">
-          <div class="kind-list__item-title">{{ componentModule.module }}</div>
+          <div class="kind-list__item-title">{{ componentModule.title }}</div>
           <i class="kind-list__item-icon" :style="{ 'background-image': `url(${componentModule.icon})` }"></i>
         </div>
         <ul class="kind-list__item-bd" ref="moduleList" @transitionend="onTransitionend">
           <li class="kind-list__list-item" v-for="(item, index) in componentModule.list" :key="index">
-            <router-link class="kind-list__list-item-link" :to="item.path">
-              <div>{{ item.name }}</div>
+            <router-link class="kind-list__list-item-link" :to="`/${item.name}`">
+              <div>{{ item.title }}</div>
               <div>
                 <wd-icon name="arrow-right" color="#aaa" />
               </div>
@@ -29,12 +29,12 @@
 </template>
 
 <script>
-import pagesConfig from '../pages.config.json'
+import routesConfig from '../routes.yml'
 
 export default {
   data () {
     return {
-      pagesConfig: pagesConfig,
+      pagesConfig: routesConfig,
       scrollTop: 0
     }
   },

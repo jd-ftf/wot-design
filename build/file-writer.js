@@ -1,9 +1,16 @@
 const fs = require('fs')
 const path = require('path')
+const readYaml = require('read-yaml')
+const routesConfig = readYaml.sync(path.resolve(__dirname, '../examples/docs/routes.yml'))
+const {
+  siteMapUrls,
+  createSitemapXml
+} = require('./sitemap')
+const versions = require('../build/deploy/change-log')
+const pkg = require('../package.json')
 
 // 写入 version.json 文件
 const versionWriter = () => {
-  const versions = require('../build/deploy/change-log')
   // 把 versions 对象转换为json格式字符串
   const content = JSON.stringify(versions)
 
@@ -25,11 +32,8 @@ const versionWriter = () => {
 
 // 写入 sitemap.xml 文件
 const sitemapWriter = () => {
-  const currentVersion = require('../package.json').version
-  const { siteMapUrls, createSitemapXml } = require('./sitemap')
-  const pages = require('../examples/docs/pages.config.json')
-  const originUrl = 'http://ftf.jd.com/wot-design/' + currentVersion + '/#'
-  const sitemapUrl = siteMapUrls(pages.components.sideTabs, originUrl)
+  const originUrl = 'http://ftf.jd.com/wot-design/' + pkg.version + '/#'
+  const sitemapUrl = siteMapUrls(routesConfig, originUrl)
   const sitemapXml = createSitemapXml(sitemapUrl)
 
   // 创建sitemap操作

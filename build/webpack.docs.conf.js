@@ -99,6 +99,10 @@ let webpackConf = {
         exclude: /node_modules/
       },
       {
+        test: /\.yml$/,
+        loader: 'yml-loader'
+      },
+      {
         test: /\.css$/,
         use: cssLoader('css-loader', 'postcss-loader')
       },

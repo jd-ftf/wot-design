@@ -5,48 +5,11 @@
  */
 const siteMapUrls = (routes, pre) => {
   return routes.reduce((array, route) => {
-    if (route.list instanceof Array) {
-      array.push(...siteMapUrls(route.list, pre))
-    } else {
-      if (route.list) {
-        array.push(...siteMapUrls([route.list], pre))
-      } else {
-        // list下未含内容
-        const keys = Object.keys(route) || []
-        keys.forEach(key => {
-          const path = `${pre}/components${route[key].path}`
-          array.push(path)
-        })
-      }
-    }
-
-    return array
-  }, [])
-}
-
-/**
- * 路由获取地址列表
- * @param {Vue Router} routes 路由对象
- * @param {*} pre 路由拼接前缀
- */
-const siteMapRouterUrls = (routes, pre) => {
-  return routes.reduce((array, route) => {
-    let path
-
-    if (route.path !== '/') {
-      path = `${pre}${route.path}`
-    } else {
-      path = pre
-    }
-
-    path = path.replace('//components', '/#')
-
-    if (route.path !== '*') {
-      array.push(path)
-    }
-
     if (route.children) {
-      array.push(...siteMapUrls(route.children, `${path}`))
+      array.push(...siteMapUrls(route.children, pre))
+    } else if (route.type !== 'link') {
+      const path = `${pre}/components/${route.name}`
+      array.push(path)
     }
 
     return array
@@ -73,6 +36,5 @@ const createSitemapXml = (routeList) => {
 
 module.exports = {
   siteMapUrls,
-  siteMapRouterUrls,
   createSitemapXml
 }

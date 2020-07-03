@@ -1,7 +1,7 @@
 <template>
   <div class="page">
     <div class="header" :class="{ 'is-no-fixed': $route.meta.headerNoFix }">
-      <wd-navbar :title="$route.meta.pageName" light>
+      <wd-navbar :title="$route.meta.title" light>
         <a class="return-back" slot="left" @click="goBack">
           <wd-icon name="arrow-left" />
         </a>

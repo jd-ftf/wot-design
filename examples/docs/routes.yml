@@ -1,0 +1,141 @@
+# Top level navigation
+# children: left menu
+# type:
+#   - link: outer link type，should have "link" property which shows the outer link
+#   - page: .vue single component type, will find the page file in ./pages
+#   - module: module title type, not route
+#   - group: group title type, not route
+# demo: string|boolean, if demo is false, will not display demo, if null, will use "name" property as demo path, if string, will use the value as demo path
+- name: components
+  title: Vue组件
+  children:
+    - name: introduction
+      title: 介绍
+      demo: /
+    - name: install
+      title: 安装
+      demo: /
+    - name: quickUse
+      title: 快速上手
+      demo: /
+    - name: locale
+      title: 国际化
+      demo: /
+    - name: customTheme
+      title: 自定义主题
+      demo: /
+    - name: typography
+      title: 字体
+      demo: /
+    - type: page
+      name: changelog
+      title: 更新日志
+      demo: /
+    - type: module
+      title: 组件
+      children:
+        - type: group
+          title: 基础
+          children:
+            - name: badge
+              title: Badge 角标
+            - name: button
+              title: Button 按钮
+            - name: icon
+              title: Icon 图标
+            - name: img
+              title: Img 图片
+            - name: popup
+              title: Popup 弹出层
+        - type: group
+          title: 导航
+          children:
+            - name: cell
+              title: Cell 单元格
+            - name: grid
+              title: Grid 宫格
+            - name: layout
+              title: Layout 布局
+            - name: navbar
+              title: Navbar 导航栏
+            - name: tabs
+              title: Tabs 标签页
+            - name: tabbar
+              title: Tabbar 标签栏
+        - type: group
+          title: 表单
+          children:
+            - name: checkbox
+              title: Checkbox 复选框
+            - name: datetimePicker
+              title: DatetimePicker 时间选择器
+            - name: datetimePickerView
+              title: DatetimePickerView 时间选择器视图
+            - name: form
+              title: Form 表单组合
+            - name: input
+              title: Input 输入框
+            - name: inputNumber
+              title: InputNumber 计数器
+            - name: picker
+              title: Picker 选择器
+            - name: pickerView
+              title: PickerView 选择器视图
+            - name: radio
+              title: Radio 单选框
+            - name: rate
+              title: Rate 评分
+            - name: search
+              title: Search 搜索框
+            - name: slider
+              title: Slider 滑块
+            - name: switch
+              title: Switch 开关
+        - type: group
+          title: 交互
+          children:
+            - name: actionSheet
+              title: ActionSheet 动作面板
+            - name: dropMenu
+              title: DropMenu 下拉菜单
+            - name: infiniteLoad
+              title: InfiniteLoad 无限加载
+            - name: loading
+              title: Loading 加载
+            - name: messageBox
+              title: MessageBox 弹框
+            - name: pullRefresh
+              title: PullRefresh 下拉刷新
+            - name: swipe
+              title: Swipe 轮播图
+            - name: swipeAction
+              title: SwipeAction 滑动操作
+            - name: toast
+              title: Toast 轻提示
+        - type: group
+          title: 展示
+          children:
+            - name: collapse
+              title: Collapse 折叠面板
+            - name: lazyload
+              title: Lazyload 图片懒加载
+            - name: noticeBar
+              title: NoticeBar 通知栏
+            - name: progress
+              title: Progress 进度条
+            - name: sortButton
+              title: SortButton 排序按钮
+            - name: steps
+              title: Steps 步骤条
+            - name: sticky
+              title: Sticky 粘性布局
+            - name: tag
+              title: Tag 标签
+            - name: tooltip
+              title: Tooltip 文字提示
+            - name: statusTip
+              title: StatusTip 缺省提示
+- type: link
+  name: mini-components
+  title: 小程序
+  link: http://ftf.jd.com/wot-design-mini/
