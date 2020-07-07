@@ -28,6 +28,7 @@
   "notice-bar": "./packages/notice-bar/index.js",
   "picker": "./packages/picker/index.js",
   "picker-view": "./packages/picker-view/index.js",
+  "popover": "./packages/popover/index.js",
   "popup": "./packages/popup/index.js",
   "progress": "./packages/progress/index.js",
   "pull-refresh": "./packages/pull-refresh/index.js",

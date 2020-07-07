@@ -30,6 +30,7 @@ import Navbar from '../packages/navbar'
 import NoticeBar from '../packages/notice-bar'
 import Picker from '../packages/picker'
 import PickerView from '../packages/picker-view'
+import Popover from '../packages/popover'
 import Popup from '../packages/popup'
 import Progress from '../packages/progress'
 import PullRefresh from '../packages/pull-refresh'
@@ -85,6 +86,7 @@ const components = [
   NoticeBar,
   Picker,
   PickerView,
+  Popover,
   Popup,
   Progress,
   PullRefresh,
@@ -164,6 +166,7 @@ export default {
   NoticeBar,
   Picker,
   PickerView,
+  Popover,
   Popup,
   Progress,
   PullRefresh,
