@@ -2,14 +2,15 @@
   <div
     v-if="show"
     class="wd-notice-bar"
-    :class="{
-      'wd-notice-bar--ellipse': !wrapable && !scrollable,
-      'wd-notice-bar--wrap': wrapable && !scrollable
-    }"
+    :class="[
+      {'wd-notice-bar--ellipse': !wrapable && !scrollable},
+      {'wd-notice-bar--wrap': wrapable && !scrollable},
+      'is-' + type
+    ]"
     :style="{ 'background': backgroundColor, 'color': color }"
   >
-    <slot name="left-icon">
-      <i v-if="leftIcon" :class="`wd-notice-bar__left-icon wd-icon-${leftIcon}`"></i>
+    <slot name="prefix">
+      <i v-if="prefix" :class="`wd-notice-bar__prefix wd-icon-${prefix}`"></i>
     </slot>
     <div class="wd-notice-bar__wrap" ref="wrap">
       <div
@@ -24,14 +25,13 @@
         @animationend="animationEnd"
         @webkitAnimationEnd="animationEnd"
       >
-        <slot>
-          {{ text }}
-        </slot>
+        <slot>{{ text }}</slot>
       </div>
     </div>
-    <slot name="right-icon">
-      <i v-if="closable" class="wd-notice-bar__right-icon wd-icon-close" @click="handleClick"></i>
-    </slot>
+    <span v-if="closable" class="wd-notice-bar__suffix">
+      <wd-icon name="close-bold" @click.native="handleClick"></wd-icon>
+    </span>
+    <slot name="suffix"></slot>
   </div>
 </template>
 
@@ -50,6 +50,11 @@ export default {
   },
   props: {
     text: String,
+    // warning | info | danger
+    type: {
+      type: String,
+      default: 'warning'
+    },
     scrollable: {
       type: Boolean,
       default: true
@@ -64,7 +69,7 @@ export default {
     },
     closable: Boolean,
     wrapable: Boolean,
-    leftIcon: String,
+    prefix: String,
     color: String,
     backgroundColor: String
   },

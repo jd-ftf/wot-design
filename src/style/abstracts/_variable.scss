@@ -88,6 +88,7 @@ $-modal-bg: rgba($-color-black, 0.65) !default;
 /*----------------------------------------- Theme color. end -------------------------------------------*/
 
 /*-------------------------------- Theme color application size.  start --------------------------------*/
+
 /* 文字字号 */
 $-fs-big: 24px !default; // 大型标题
 $-fs-important: 19px !default; // 重要数据
@@ -95,6 +96,10 @@ $-fs-title: 16px !default; // 标题字号/重要正文字号
 $-fs-content: 14px !default; // 普通正文
 $-fs-secondary: 12px !default; // 次要信息，注释/补充/正文
 $-fs-aid: 10px !default; // 辅助文字字号，弱化信息，引导性/不可点文字
+
+/* 文字字重 */
+$-fw-medium: 500 !default; // PingFangSC-Medium
+$-fw-semibold: 600 !default; // PingFangSC-Semibold
 
 /* 尺寸 */
 $-size-side-padding: 15px !default; // 屏幕两边留白
@@ -336,14 +341,23 @@ $-navbar-light-color: $-color-title !default; // light 主题下的文字颜色
 $-navbar-padding: $-size-side-padding !default; // 左右padding
 
 /* notice-bar */
-$-notice-bar-padding: 5px $-size-side-padding !default; // 非换行下的padding
-$-notice-bar-bg: #fef8ef !default; // 背景色
-$-notice-bar-color: #ff9000 !default; // 文字和图标颜色
 $-notice-bar-fs: 12px !default; // 字号
-$-notice-bar-icon-size: 16px !default; // 左侧图标大小
-$-notice-bar-icon-min-width: 30px !default; // 左侧图标所占最小宽度
+$-notice-bar-line-height: 18px !default; // 行高
+$-notice-bar-border-radius: 8px !default; // 圆角
+$-notice-bar-padding: 9px 20px 9px 15px !default; // 非换行下的padding
+$-notice-bar-warning-bg: mixColor($-color-white, $-color-warning, 0.9976728838187986) !default; // 背景色
+$-notice-bar-info-bg: mixColor($-color-white, $-color-theme, 0.9326404190141251) !default; // 背景色
+$-notice-bar-danger-bg: mixColor($-color-white, $-color-danger, 0.8127096171901389) !default; // 背景色
+$-notice-bar-warning-color: $-color-warning !default; // 文字和图标颜色
+$-notice-bar-info-color: $-color-theme !default; // 文字和图标颜色
+$-notice-bar-danger-color: $-color-danger !default; // 文字和图标颜色
+$-notice-bar-prefix-size: 18px !default; // 图标大小
+$-notice-bar-close-bg: rgba($-color-black, 0.15) !default; // 右侧关闭按钮背景颜色
+$-notice-bar-close-size: 18px !default; // 右侧关闭按钮背景颜色
+$-notice-bar-close-color: $-color-white !default; // 右侧关闭按钮颜色
 $-notice-bar-close-size: 10px !default; // 关闭按钮大小
 $-notice-bar-wrap-padding: 14px $-size-side-padding !default; // 换行下的padding
+
 
 /* picker */
 $-picker-toolbar-bg: #ededed !default; // toolbar 操作条的背景色

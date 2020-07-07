@@ -1,38 +1,64 @@
 <template>
-  <div>
-    <demo-block title="基本用法" transparent>
+  <div class="notice_bar">
+    <!-- TODO 图标待替换 -->
+    <demo-block title="基本用法">
+      <wd-notice-bar text="这是一条消息提示信息这是一条消息提示信息这是一条消息提示信息" prefix="warn-bold" />
+    </demo-block>
+    <demo-block title="类型修改">
       <wd-notice-bar
-        text="这是一条消息提示信息，这是一条消息提示信息，这是一条消息提示信息"
-        left-icon="bell"
+        type="danger"
+        text="当前网络不可用，请检查你的网络设置。当前网络不可用，请检查你的网络设置。"
+        prefix="wifi-error"
+        style="margin-bottom: 10px"
+      />
+      <wd-notice-bar
+        type="info"
+        text="pc-win京麦已登录，可在“设备管理”中查看详情。pc-win京麦已登录，可在“设备管理”中查看详情。"
+        prefix="check-outline"
       />
     </demo-block>
-    <demo-block title="禁止滚动" transparent>
+    <demo-block title="禁止滚动">
       <wd-notice-bar
-        text="这是一条消息提示信息，这是一条消息提示信息，这是一条消息提示信息"
         :scrollable="false"
-      />
+        text="通知被禁或时段内消息屏蔽可能造成消…"
+        prefix="warn-bold"
+        style="margin-bottom: 10px"
+      ></wd-notice-bar>
     </demo-block>
-    <demo-block title="多行展示" transparent>
+    <demo-block title="插槽">
+      <wd-notice-bar :scrollable="false" style="margin-bottom: 10px">
+        <wd-icon slot="prefix" class="prefix" name="warn-bold">占位符</wd-icon>通知被禁或时段内消息屏蔽可能造成消…
+        <div slot="suffix" style="color: #4D80F0">查看</div>
+      </wd-notice-bar>
+    </demo-block>
+    <demo-block title="可关闭的">
+      <wd-notice-bar text="挂起后，电脑与手机均不会有新客户接入。挂起后，电脑与手机均不会有新客户接入。" closable prefix="warn-bold" />
+    </demo-block>
+    <demo-block title="多行展示">
       <wd-notice-bar
-        text="这是一条消息提示信息，这是一条消息提示信息，这是一条消息提示信息"
+        text="这是一条消息提示信息，这是一条消息提示信息，这是一条消息提示信息这是一条消息提示信息，这是一条消息提示信息，这是一条消息提示信息"
         wrapable
         :scrollable="false"
       />
     </demo-block>
-    <demo-block title="可关闭的" transparent>
+    <demo-block title="自定义颜色">
       <wd-notice-bar
         text="这是一条消息提示信息，这是一条消息提示信息，这是一条消息提示信息"
-        closable
-      />
-    </demo-block>
-    <demo-block title="自定义颜色" transparent>
-      <wd-notice-bar
-        text="这是一条消息提示信息，这是一条消息提示信息，这是一条消息提示信息"
-        left-icon="bell"
-        closable
-        color="#0083ff"
-        background-color="#d9ebfd"
-      />
+        prefix="check-outline"
+        color="#34D19D"
+        background-color="#f0f9eb"
+      ></wd-notice-bar>
     </demo-block>
   </div>
 </template>
+<style lang="scss">
+.notice_bar .demo-block.is-transparent .demo-block__title {
+  padding: 0 !important;
+}
+.notice_bar .prefix {
+  width: 18px;
+  height: 18px;
+  font-size: 18px;
+  padding-right: 4px;
+}
+</style>
