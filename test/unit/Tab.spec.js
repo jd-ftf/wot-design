@@ -123,41 +123,6 @@ describe('Tabs\' props', () => {
     expect(wrapper.contains('.wd-tabs__map')).toBe(false)
   })
 
-  test('Should render color, inactive-color, line-width, and line-height', async () => {
-    const wrapper = mount({
-      template: `
-        <wd-tabs
-          v-model="tab"
-          :color="color"
-          :inactive-color="inactiveColor"
-          :line-width="lineWidth"
-          :line-height="lineHeight"
-        >
-          <wd-tab v-for="item in 4" :key="item">
-            <p>内容{{ item }}</p>
-          </wd-tab>
-        </wd-tabs>
-      `,
-      data () {
-        return {
-          tab: 0,
-          color: 'rgb(255, 0, 0)',
-          inactiveColor: 'rgb(0, 0, 0)',
-          lineWidth: 40,
-          lineHeight: 4
-        }
-      }
-    })
-    await later(0)
-    const navItems = wrapper.findAll('.wd-tabs__nav-item')
-    const { style: lineStyle } = wrapper.find('.wd-tabs__line').element
-    expect(lineStyle.background).toBe('rgb(255, 0, 0)')
-    expect(navItems.at(0).element.style.color).toBe('rgb(255, 0, 0)')
-    expect(navItems.at(getRandNum(1, 3)).element.style.color).toBe('rgb(0, 0, 0)')
-    expect(lineStyle.width).toBe('40px')
-    expect(lineStyle.height).toBe('4px')
-  })
-
   test('Tab renders after click with setting lazy-render', async () => {
     const wrapper = mount({
       template: `

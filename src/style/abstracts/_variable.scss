@@ -484,17 +484,22 @@ $-tabbar-label-fs: 10px !default; // 文字字号
 $-tabbar-label-line-height: 17px !default; // 文字行高
 
 /* tabs */
-$-tabs-nav-height: 40px !default; // 头部切换高度
+$-tabs-nav-arrow-fs: 18px !default; // 全部Icon字号
+$-tabs-nav-arrow-open-fs: 14px !default; // 展开Icon字号
+$-tabs-nav-height: 42px !default; // 头部切换高度
 $-tabs-nav-fs: $-fs-content !default; // 头部切换文字大小
-$-tabs-nav-color: $-color-title !default; // 头部切换文字颜色
+$-tabs-nav-color: rgba($-color-black, 0.85) !default; // 头部切换文字颜色
+$-tabs-nav-bg: $-color-white !default; // 背景颜色
 $-tabs-nav-active-color: $-color-theme !default; // 头部高亮颜色
-$-tabs-nav-disabled-color: #dedede !default; // 头部禁用颜色
+$-tabs-nav-disabled-color: rgba($-color-black, 0.25) !default; // 头部禁用颜色
 $-tabs-nav-line-height: 3px !default; // 高亮边框高度
+$-tabs-nav-line-bg-color: linear-gradient(315deg, rgba(81,124,240,1) 0%,rgba(118,158,245,1) 100%) !default; // 底部条颜色
 $-tabs-nav-map-fs: $-fs-content !default; // map 类型按钮字号
-$-tabs-nav-map-color: $-color-title !default; // map 类型按钮文字颜色
-$-tabs-nav-map-arrow-color: $-color-icon !default; // map 类型箭头颜色
-$-tabs-nav-map-button-border-color: $-color-border !default; // map 类型按钮边框颜色
-$-tabs-nav-map-button-radius: 4px !default; // map 类型按钮圆角大小
+$-tabs-nav-map-color: rgba($-color-black, 0.85) !default; // map 类型按钮文字颜色
+$-tabs-nav-map-arrow-color: rgba($-color-black, 0.65) !default; // map 类型箭头颜色
+$-tabs-nav-map-button-back-color:rgba($-color-black, 0.04) !default; // map 类型按钮边框颜色
+$-tabs-nav-map-btn-before-bg: linear-gradient(270deg, rgba(255,255,255,1) 1%,rgba(255,255,255,0) 100%) !default; // map 遮照
+$-tabs-nav-map-button-radius: 16px !default; // map 类型按钮圆角大小
 $-tabs-nav-map-modal-bg: $-modal-bg !default; // map 类型蒙层背景色
 
 /* tag */

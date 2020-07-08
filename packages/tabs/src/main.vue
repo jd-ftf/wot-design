@@ -39,14 +39,10 @@ export default {
       type: Number,
       default: 10
     },
-    color: String,
-    inactiveColor: String,
     sticky: Boolean,
     animated: Boolean,
     swipeable: Boolean,
     lazyRender: Boolean,
-    lineWidth: Number,
-    lineHeight: Number,
     offsetTop: {
       type: Number,
       default: 0
@@ -118,17 +114,14 @@ export default {
 
       this.$nextTick(() => {
         let left = 0
-        let width = 0
+        let width = 19
         if (this.$refs[`navs_${this.activeIndex}`]) {
           let { clientWidth, offsetLeft } = this.$refs[`navs_${this.activeIndex}`]
-          width = this.lineWidth ? this.lineWidth : this.slidableNum < this.items.length ? clientWidth : (clientWidth - 14)
           left = offsetLeft + (clientWidth - width) / 2
         }
 
         this.lineStyle = {
-          background: this.color,
           width: `${width}px`,
-          height: this.lineHeight ? this.lineHeight + 'px' : '',
           transform: `translateX(${left}px)`,
           transition: shouldAnimate ? 'width 300ms, transform 300ms' : ''
         }
@@ -176,9 +169,6 @@ export default {
               'is-active': this.activeIndex === index,
               'is-disabled': item.disabled
             }}
-            style={{
-              color: this.activeIndex === index ? this.color : this.inactiveColor
-            }}
             onClick={() => {
               this.changeTab(index, true)
             }}>
@@ -199,9 +189,6 @@ export default {
                 'wd-tabs__map-nav-btn': true,
                 'is-active': this.activeIndex === index,
                 'is-disabled': item.disabled
-              }}
-              style={{
-                color: this.activeIndex === index ? this.color : this.inactiveColor
               }}
               onClick={() => {
                 this.changeTab(index, true)
