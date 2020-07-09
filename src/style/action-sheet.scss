@@ -4,6 +4,16 @@
 @import './loading.scss';
 
 @include b(action-sheet) {
+  border-radius: $-action-sheet-radius $-action-sheet-radius 0 0;
+
+  @include m(spacing) {
+    margin: $-action-sheet-spacing;
+    border-radius: $-action-sheet-radius;
+  }
+
+  @include e(actions) {
+    padding: 8px 0;
+  }
   @include e(action) {
     position: relative;
     display: block;
@@ -14,25 +24,12 @@
     font-size: $-action-sheet-fs;
     text-align: center;
     border: none;
-    background: #fff;
+    background: $-action-sheet-bg;
     outline: none;
     -webkit-tap-highlight-color: transparent;
 
     &:active {
       background: $-action-sheet-active-color;
-    }
-    &::after {
-      position: absolute;
-      content: '';
-      width: 100%;
-      height: 1px;
-      left: 0;
-      bottom: 0;
-      background: $-action-sheet-border-color;
-      transform: scaleY(0.5);
-    }
-    &:last-child::after {
-      display: none;
     }
 
     @include m(disabled) {
@@ -45,44 +42,32 @@
   }
   @include e(cancel) {
     display: block;
-    width: 100%;
-    line-height: $-action-sheet-action-height;
+    width: calc(100% - 48px);
+    line-height: $-action-sheet-cancel-height;
     padding: 0;
-    color: $-action-sheet-color;
+    color: $-action-sheet-cancel-color;
     font-size: $-action-sheet-fs;
     text-align: center;
+    border-radius: $-action-sheet-cancel-radius;
     border: none;
-    background: #fff;
+    background: $-action-sheet-cancel-bg;
     outline: none;
     -webkit-tap-highlight-color: transparent;
+    margin: 0 auto 24px;
+    font-weight: $-action-sheet-weight;
 
     &:active {
       background: $-action-sheet-active-color;
     }
-    &::before {
-      display: block;
-      content: '';
-      height: 10px;
-      background: $-action-sheet-bg;
-    }
   }
   @include e(header) {
+    color: $-action-sheet-color;
     position: relative;
     height: $-action-sheet-title-height;
     line-height: $-action-sheet-title-height;
     text-align: center;
     font-size: $-action-sheet-title-fs;
-
-    &::after {
-      position: absolute;
-      content: '';
-      width: 100%;
-      height: 1px;
-      left: 0;
-      bottom: 0;
-      background: $-action-sheet-border-color;
-      transform: scaleY(0.5);
-    }
+    font-weight: $-action-sheet-weight;
   }
   @include e(close) {
     position: absolute;
@@ -93,5 +78,27 @@
     transform: rotate(-45deg);
     line-height: 1.1;
     -webkit-tap-highlight-color: transparent;
+  }
+  @include e(panels) {
+    padding-top: 32px;
+  }
+  @include e(panel) {
+    display: inline-block;
+    width: 25%;
+    margin-bottom: 24px;
+  }
+  @include e(panel-img) {
+    display: block;
+    width: $-action-sheet-panels-img-fs;
+    height: $-action-sheet-panels-img-fs;
+    margin: 0 auto;
+    margin-bottom: 8px;
+    border-radius: $-action-sheet-panels-img-radius;
+  }
+  @include e(panel-title) {
+    font-size: $-action-sheet-subname-fs;
+    text-align: center;
+    color: $-action-sheet-color;
+    @include lineEllipsis;
   }
 }

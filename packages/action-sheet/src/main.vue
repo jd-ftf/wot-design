@@ -1,6 +1,7 @@
 <template>
   <wd-popup
     class="wd-action-sheet"
+    :class="{'wd-action-sheet--spacing': actions && actions.length || panels && panels.length}"
     :lock-scroll="lockScroll"
     :duration="duration"
     :value="value"
@@ -31,6 +32,17 @@
         </template>
       </button>
     </div>
+    <div v-if="panels && panels.length" class="wd-action-sheet__panels">
+      <div
+        v-for="(item, index) in panels"
+        :key="index"
+        class="wd-action-sheet__panel"
+        @click="openLink(item.clickUrl)"
+      >
+        <img class="wd-action-sheet__panel-img" :src="item.imageUrl" />
+        <div class="wd-action-sheet__panel-title">{{ item.title }}</div>
+      </div>
+    </div>
     <slot></slot>
     <button v-if="cancelText" class="wd-action-sheet__cancel" @click="handleCancel">{{ cancelText }}</button>
   </wd-popup>
@@ -49,6 +61,12 @@ export default {
   props: {
     value: Boolean,
     actions: {
+      type: Array,
+      default () {
+        return []
+      }
+    },
+    panels: {
       type: Array,
       default () {
         return []
@@ -83,6 +101,9 @@ export default {
       if (this.closeOnClickAction) {
         this.close()
       }
+    },
+    openLink (link) {
+      window.location.href = link
     },
     handleClickModal () {
       this.$emit('click-modal')

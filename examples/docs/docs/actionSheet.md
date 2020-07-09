@@ -68,6 +68,32 @@ export default {
 </script>
 ```
 
+### 自定义面板
+
+可以设置 图片、文案、跳转链接。
+
+```html
+<wd-button type="primary" plain @click="show = true">弹出菜单</wd-button>
+<wd-action-sheet v-model="show" :panels="panels"></wd-action-sheet>
+
+<script>
+export default {
+  data () {
+    return {
+      show: false,
+      panels: [
+        {
+          imageUrl: '//img12.360buyimg.com/imagetools/jfs/t1/122016/33/6657/1362/5f0692a1E8708d245/e47299e5945a6956.png',
+          title: '微信好友',
+          clickUrl: ''
+        }
+      ]
+    }
+  }
+}
+</script>
+```
+
 ### 取消按钮
 
 设置 `cancel-text` 取消按钮文案，展示取消按钮。
@@ -92,6 +118,7 @@ export default {
 |---------- |------------------------------------ |---------- |------------- |-------- |
 | value/v-model | 绑定值，展示/关闭菜单 | boolean | - | - |
 | actions | 菜单选项 | array | - | [] |
+| panels | 自定义面板项 | array | - | [] |
 | title | 标题 | string | - | - |
 | cancel-text | 取消按钮文案 | string | - | - |
 | close-on-click-action | 点击选项后是否关闭菜单 | boolean | - | true |

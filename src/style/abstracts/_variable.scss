@@ -30,6 +30,7 @@ $-color-theme-emph: mix($-color-black, $-color-theme, 18%) !default; // 强调�
  * #D2D2D2 mixColor($-color-white, $-color-black, 0.8235294117647058)
  * #9b9b9b mixColor($-color-white, $-color-black, 0.6078431372549019)
  * #262728 mixColor($-color-white, $-color-black, 0.1490349858424059)
+ * #131415 mixColor($-color-white, $-color-black, 0.07452518192083728)
  * #668DF8 mixColor($-color-white, $-color-theme, 0.14034408637079962)
  * #4F7CF8 mixColor($-color-white, $-color-theme, 0.01111785969062061)
  * #517CF0 mixColor($-color-white, $-color-theme, 0.022321888435864964)
@@ -109,21 +110,29 @@ $-size-side-padding: 15px !default; // 屏幕两边留白
 /*-------------------------------- Theme color application size.  end --------------------------------*/
 
 /* action-sheet */
-$-action-sheet-action-height: 50px !default; // 单条菜单高度
-$-action-sheet-color: $-color-title !default; // 选项名称颜色
-$-action-sheet-fs: $-fs-content !default; // 选项名称字号
-$-action-sheet-border-color: $-color-border-light !default; // 边框颜色
+$-action-sheet-weight: 500 !default; // 面板字重
+$-action-sheet-radius: 16px !default; // 面板圆角大小
+$-action-sheet-spacing: 0 10px 10px !default; // 面板间距
+$-action-sheet-action-height: 48px !default; // 单条菜单高度
+$-action-sheet-color: rgba($-color-black, 0.85) !default; // 选项名称颜色
+$-action-sheet-fs: $-fs-title !default; // 选项名称字号
 $-action-sheet-active-color: $-color-bg !default; // 点击高亮颜色
 $-action-sheet-subname-fs: $-fs-secondary !default; // 描述信息字号
-$-action-sheet-subname-color: $-color-secondary !default; // 描述信息颜色
-$-action-sheet-disabled-color: $-color-aid !default; // 禁用颜色
-$-action-sheet-bg: #eee !default; // 菜单容器颜色（取消按钮上方的颜色）
-$-action-sheet-title-height: 45px !default; // 标题高度
+$-action-sheet-subname-color: rgba($-color-black, 0.45) !default; // 描述信息颜色
+$-action-sheet-disabled-color: rgba($-color-black, 0.25) !default; // 禁用颜色
+$-action-sheet-bg: $-color-white !default; // 菜单容器颜色（取消按钮上方的颜色）
+$-action-sheet-title-height: 64px !default; // 标题高度
 $-action-sheet-title-fs: $-fs-title !default; // 标题字号
-$-action-sheet-close-fs: 24px !default; // 关闭按钮大小
-$-action-sheet-close-color: #666 !default; // 关闭按钮颜色
-$-action-sheet-close-top: 10px !default; // 关闭按钮距离标题顶部距离
-$-action-sheet-close-right: 10px !default; // 关闭按钮距离标题右侧距离
+$-action-sheet-close-fs: $-fs-title !default; // 关闭按钮大小
+$-action-sheet-close-color: rgba($-color-black, 0.65) !default; // 关闭按钮颜色
+$-action-sheet-close-top: 25px !default; // 关闭按钮距离标题顶部距离
+$-action-sheet-close-right: 15px !default; // 关闭按钮距离标题右侧距离
+$-action-sheet-cancel-color: mixColor($-color-white, $-color-black, 0.07452518192083728) !default; // 取消按钮颜色
+$-action-sheet-cancel-height: 44px !default; // 取消按钮高度
+$-action-sheet-cancel-bg: rgba(240,240,240,1) !default; // 取消按钮背景色
+$-action-sheet-cancel-radius: 22px !default; // 取消按钮圆角大小
+$-action-sheet-panels-img-fs: 40px !default; // 自定义面板图片大小
+$-action-sheet-panels-img-radius: 4px !default; // 自定义面板图片圆角大小
 
 /* badge */
 $-badge-bg:  $-color-danger !default; // 背景填充颜色
