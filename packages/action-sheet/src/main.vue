@@ -1,6 +1,7 @@
 <template>
   <wd-popup
     class="wd-action-sheet"
+    :class="{'wd-action-sheet--spacing': actions && actions.length || panels && panels.length}"
     :lock-scroll="lockScroll"
     :duration="duration"
     :value="value"
@@ -22,7 +23,7 @@
           'wd-action-sheet__action--disabled': item.disabled
         }"
         :style="{ 'color': item.color }"
-        @click="select(index)"
+        @click="select('action', index)"
       >
         <wd-loading v-if="item.loading" size="20px" style="display: inline-block;" :color="item.color" />
         <template v-else>
@@ -30,6 +31,36 @@
           <span v-if="item.subname" class="wd-action-sheet__subname">{{ item.subname }}</span>
         </template>
       </button>
+    </div>
+    <div v-if="panels && panels.length">
+      <template v-if="Array.isArray(panels[0])">
+        <div
+          v-for="(item, rowIndex) in panels"
+          :key="rowIndex"
+          class="wd-action-sheet__panels"
+        >
+          <div
+            v-for="(panel, colIndex) in item"
+            :key="colIndex"
+            class="wd-action-sheet__panel"
+            @click="select('panel', rowIndex, colIndex)"
+          >
+            <img class="wd-action-sheet__panel-img" :src="panel.iconUrl" />
+            <div class="wd-action-sheet__panel-title">{{ panel.title }}</div>
+          </div>
+        </div>
+      </template>
+      <div v-else class="wd-action-sheet__panels">
+        <div
+          v-for="(item, index) in panels"
+          :key="index"
+          class="wd-action-sheet__panel"
+          @click="select('panel', index)"
+        >
+          <img class="wd-action-sheet__panel-img" :src="item.iconUrl" />
+          <div class="wd-action-sheet__panel-title">{{ item.title }}</div>
+        </div>
+      </div>
     </div>
     <slot></slot>
     <button v-if="cancelText" class="wd-action-sheet__cancel" @click="handleCancel">{{ cancelText }}</button>
@@ -49,6 +80,12 @@ export default {
   props: {
     value: Boolean,
     actions: {
+      type: Array,
+      default () {
+        return []
+      }
+    },
+    panels: {
       type: Array,
       default () {
         return []
@@ -77,12 +114,20 @@ export default {
     }
   },
   methods: {
-    select (index) {
-      this.$emit('select', this.actions[index], index)
-
+    select (type, rowIndex, colIndex = false) {
+      if (type === 'action') {
+        this.$emit('select', this.actions[rowIndex], rowIndex)
+      } else if (colIndex === false) {
+        this.$emit('select', this.panels[rowIndex], rowIndex)
+      } else {
+        this.$emit('select', this.panels[rowIndex][colIndex], rowIndex, colIndex)
+      }
       if (this.closeOnClickAction) {
         this.close()
       }
+    },
+    openLink (link) {
+      window.location.href = link
     },
     handleClickModal () {
       this.$emit('click-modal')
