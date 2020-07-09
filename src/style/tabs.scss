@@ -4,13 +4,13 @@
 
 @include b(tabs) {
   position: relative;
-  background: #fff;
+  background: $-tabs-nav-bg;
 
   @include e(nav) {
     position: relative;
     height: $-tabs-nav-height;
     overflow: hidden;
-    background: #fff;
+    background: $-tabs-nav-bg;
 
     @include halfPixelBorder;
   }
@@ -34,7 +34,7 @@
     -webkit-tap-highlight-color: transparent;
 
     @include when(active) {
-      color: $-tabs-nav-active-color;
+      font-weight: 500;
     }
     @include when(disabled) {
       color: $-tabs-nav-disabled-color;
@@ -42,11 +42,12 @@
   }
   @include e(line) {
     position: absolute;
-    bottom: 16px;
+    bottom: 20px;
     left: 0;
     height: $-tabs-nav-line-height;
-    background: $-tabs-nav-active-color;
+    background: $-tabs-nav-line-bg-color;
     z-index: 1;
+    border-radius: $-tabs-nav-line-height / 2;
   }
   @include e(container) {
     position: relative;
@@ -74,7 +75,7 @@
     text-align: center;
     color: $-tabs-nav-map-arrow-color;
     z-index: 3;
-    background: #fff;
+    background: $-tabs-nav-bg;
     -webkit-tap-highlight-color: transparent;
     @include halfPixelBorder;
 
@@ -82,18 +83,19 @@
       position: absolute;
       content: '';
       top: 0;
-      bottom: 0;
-      left: 0;
-      width: 1px;
-      transform: scaleX(0.5);
-      background: $-color-border-light;
+      left: -24px;
+      width: 24px;
+      height: $-tabs-nav-height - 1;
+      background: $-tabs-nav-map-btn-before-bg
     }
   }
   @include e(map-arrow) {
+    font-size: $-tabs-nav-arrow-fs;
     display: block;
     transition: transform .3s;
 
     @include when(open) {
+      font-size: $-tabs-nav-arrow-open-fs;
       transform: rotate(180deg);
     }
   }
@@ -105,7 +107,7 @@
     font-size: $-tabs-nav-map-fs;
     color: $-tabs-nav-map-color;
     transition: opacity .3s;
-    background: #fff;
+    background: $-tabs-nav-bg;
     opacity: 0;
 
     @include halfPixelBorder;
@@ -114,7 +116,7 @@
     display: flex;
     flex-wrap: wrap;
     padding: 20px 15px 10px;
-    background: #fff;
+    background: $-tabs-nav-bg;
     transition: transform .3s;
     transform: scaleY(0);
     transform-origin: center top;
@@ -135,22 +137,25 @@
   }
 
   @include e(map-nav-btn) {
+    @include buttonClear;
+    @include lineEllipsis;
+    
     display: inline-block;
-    width: 98px;
-    height: 26px;
-    border: 1px solid $-tabs-nav-map-button-border-color;
+    width: 107px;
+    height: 32px;
+    background-color: $-tabs-nav-map-button-back-color;
     margin-bottom: 10px;
+    border-color: transparent;
     border-radius: $-tabs-nav-map-button-radius;
     color: $-tabs-nav-map-color;
     font-size: $-tabs-nav-map-fs;
     text-align: center;
     transition: color .3s, border-color .3s;
-    @include buttonClear;
-    @include lineEllipsis;
 
     @include when(active) {
       color: $-tabs-nav-active-color;
-      border-color: $-tabs-nav-active-color;
+      border: 1px solid $-tabs-nav-active-color;
+      background-color: $-tabs-nav-bg
     }
     @include when(disabled) {
       color: $-tabs-nav-disabled-color;
@@ -174,6 +179,7 @@
       -webkit-overflow-scrolling: touch;
     }
     .wd-tabs__nav-item {
+      color: $-tabs-nav-color;
       flex: 0 0 auto;
       padding: 0 17px;
     }
@@ -185,6 +191,7 @@
   }
 }
 @media (max-width: 330px) {
+  color: $-tabs-nav-color;
   .wd-tabs__map-nav-btn {
     width: 90px;
   }

@@ -146,15 +146,11 @@ export default {
 | value/v-model | 绑定值 | string / number | - | - |
 | slidable-num | 可滑动的标签数阈值 | number | - | 6 |
 | map-num | 显示导航地图的标签数阈值 | number | - | 10 |
-| color | 标题选中时的颜色 | string | - | '#0083ff' |
-| inactive-color | 标题未选中时的颜色 | string | - | '#333' |
 | sticky | 粘性布局 | boolean | - | false |
 | offset-top | 粘性布局时距离窗口顶部距离 | number | - | 0 |
 | animated | 开启切换动画 | boolean | - | false |
 | swipeable | 开启手势滑动 | boolean | - | false |
 | lazy-render | 懒渲染标签页 | boolean | - | false |
-| line-width | 底部条宽度，单位像素 | number | - | auto |
-| line-height | 底部条高度，单位像素 | number | - | 3 |
 
 ### Tabs Events
 
