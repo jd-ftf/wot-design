@@ -20,7 +20,7 @@ Vue.use(Navbar)
 设置 `left` slot。
 
 ```html
-<wd-navbar title="左侧文字">
+<wd-navbar title="左侧插槽">
   <div slot="left">
     <wd-icon class="middle" name="arrow-left" />
     <span class="middle">返回</span>
@@ -31,20 +31,34 @@ Vue.use(Navbar)
 设置 `right` slot。
 
 ```html
-<wd-navbar title="右侧文字">
+<wd-navbar title="右侧插槽">
   <span slot="right">菜单</span>
 </wd-navbar>
 ```
 
-同时设置。
+设置 默认 slot。
 
 ```html
-<wd-navbar title="左右侧文字">
-  <div slot="left">
-    <wd-icon class="middle" name="arrow-left" />
-    <span class="middle">返回</span>
-  </div>
+<wd-navbar title="标题插槽">
   <span slot="right">菜单</span>
+</wd-navbar>
+```
+
+全部插槽设置。
+
+```html
+<wd-navbar>
+  <div slot="left" class="middle">
+    <wd-icon name="arrow-left" />
+  </div>
+  <div class="title">
+    <span>标题</span>
+    <wd-icon name="arrow-down"></wd-icon>
+  </div>
+  <span slot="right">
+    <wd-icon class="right" name="filter" />
+    <wd-icon class="right" name="setting" />
+  </span>
 </wd-navbar>
 ```
 
@@ -68,13 +82,16 @@ Vue.use(Navbar)
 ```
 
 ### Attributes
+
 | 参数      | 说明                                 | 类型      | 可选值       | 默认值   |
 |---------- |------------------------------------ |---------- |------------- |-------- |
-|title      |	标题                                |	string    |	—           |	—       |
-|light	    | 是否使用白色背景                      |	boolean    |	-         |	false |
+|title      | 标题                                | string    | —           | —       |
+|light     | 是否使用白色背景                      | boolean    | -         | false |
 
 ### Slot
+
 | name      | 说明       |
 |------------- |----------- |
+|default         | 默认标题处插槽 |
 |left         | 左侧操作 |
 |right        | 右侧操作 |
