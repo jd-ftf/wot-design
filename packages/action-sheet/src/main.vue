@@ -1,6 +1,7 @@
 <template>
   <wd-popup
     class="wd-action-sheet"
+    :class="{'wd-action-sheet--spacing': actions && actions.length || panels && panels.length}"
     :lock-scroll="lockScroll"
     :duration="duration"
     :value="value"
@@ -22,7 +23,7 @@
           'wd-action-sheet__action--disabled': item.disabled
         }"
         :style="{ 'color': item.color }"
-        @click="select(index)"
+        @click="select('action', index)"
       >
         <wd-loading v-if="item.loading" size="20px" style="display: inline-block;" :color="item.color" />
         <template v-else>
@@ -31,6 +32,25 @@
         </template>
       </button>
     </div>
+    <template v-if="formatPanels && formatPanels.length">
+      <div
+        v-for="(item, rowIndex) in formatPanels"
+        :key="rowIndex"
+        class="wd-action-sheet__panels"
+      >
+        <div class="wd-action-sheet__panels-content">
+          <div
+            v-for="(panel, colIndex) in item"
+            :key="colIndex"
+            class="wd-action-sheet__panel"
+            @click="select('panel', rowIndex, colIndex)"
+          >
+            <img class="wd-action-sheet__panel-img" :src="panel.iconUrl" />
+            <div class="wd-action-sheet__panel-title">{{ panel.title }}</div>
+          </div>
+        </div>
+      </div>
+    </template>
     <slot></slot>
     <button v-if="cancelText" class="wd-action-sheet__cancel" @click="handleCancel">{{ cancelText }}</button>
   </wd-popup>
@@ -54,6 +74,12 @@ export default {
         return []
       }
     },
+    panels: {
+      type: Array,
+      default () {
+        return []
+      }
+    },
     title: String,
     cancelText: String,
     closeOnClickAction: {
@@ -68,7 +94,18 @@ export default {
       type: Boolean,
       default: true
     },
-    duration: Number
+    duration: {
+      type: Number,
+      default: 200
+    }
+  },
+  computed: {
+    isSingle () {
+      return this.panels.length && !(this.panels[0] instanceof Array)
+    },
+    formatPanels () {
+      return this.isSingle ? [this.panels] : this.panels
+    }
   },
   watch: {
     value () {
@@ -77,9 +114,14 @@ export default {
     }
   },
   methods: {
-    select (index) {
-      this.$emit('select', this.actions[index], index)
-
+    select (type, rowIndex, colIndex) {
+      if (type === 'action') {
+        this.$emit('select', this.actions[rowIndex], rowIndex)
+      } else if (this.isSingle) {
+        this.$emit('select', this.panels[colIndex], colIndex)
+      } else {
+        this.$emit('select', this.panels[rowIndex][colIndex], rowIndex, colIndex)
+      }
       if (this.closeOnClickAction) {
         this.close()
       }
