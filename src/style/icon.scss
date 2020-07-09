@@ -49,6 +49,12 @@
 .wd-icon-close:before {
   content: "\e936";
 }
+.wd-icon-close-bold:before {
+  content: "\e902";
+}
+.wd-icon-close-outline:before {
+  content: "\e901";
+}
 .wd-icon-computer:before {
   content: "\e91c";
 }
@@ -137,12 +143,21 @@
 }
 
 .wd-icon-subscribe:before {
-  content: "\e900";
+  content: "\e905";
 }
 .wd-icon-detection:before {
-  content: "\e901";
+  content: "\e906";
 }
 .wd-icon-read:before {
-  content: "\e902";
+  content: "\e907";
 }
 
+.wd-icon-warn-bold:before {
+  content: "\e900";
+}
+.wd-icon-check-outline:before {
+  content: "\e903";
+}
+.wd-icon-wifi-error:before {
+  content: "\e904";
+}
