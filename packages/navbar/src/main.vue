@@ -3,7 +3,9 @@
     <div class="wd-navbar__side wd-navbar__side-left">
       <slot name="left"></slot>
     </div>
-    <div class="wd-navbar__title">{{ title }}</div>
+    <div class="wd-navbar__title">
+      <slot>{{ title }}</slot>
+    </div>
     <div class="wd-navbar__side wd-navbar__side-right">
       <slot name="right"></slot>
     </div>

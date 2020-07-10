@@ -39,6 +39,8 @@ $-color-theme-emph: mix($-color-black, $-color-theme, 18%) !default; // 强调�
  * #416BDF mixColor($-color-black, $-color-theme, 0.15589315808539794) dark
  * #4E79EE mixColor($-color-white, $-color-theme, 0.0054489959125264414) dark
  * #0053a2 mixColor($-color-black, $-color-theme, 0.00421516435400293)
+ * #2149CC mixColor($-color-theme, $-color-black, 0.4295057567214251)
+ * #588EFF mixColor($-color-theme, $-color-white, 0.9380664194150506)
  * #20b080 mixColor($-color-black, $-color-success, 0.3811019568497541))
  * #2bd69d mixColor($-color-black, $-color-success, 0.17002409048245387))
  * #E67137 mixColor($-color-black, $-color-warning, 0.041948197590968614))
@@ -331,13 +333,15 @@ $-message-box-confirm-color: $-color-white !default; // 确认按钮颜色
 $-message-box-confirm-bg: $-color-theme !default; // 确认按钮背景色
 
 /* navbar */
-$-navbar-bg: $-color-theme !default; // 背景颜色
+$-navbar-bg: linear-gradient(41deg, mixColor($-color-theme, $-color-black, 0.4295057567214251) 0%,mixColor($-color-theme, $-color-white, 0.9380664194150506) 100%) !default; // 背景颜色
 $-navbar-color: $-color-white !default; // 文字颜色
 $-navbar-height: 44px !default; // 高度
 $-navbar-title-fs: 16px !default; // 中间标题的字号
-$-navbar-side-fs: 14px !default; // 两边操作的字号
+$-navbar-title-fw: $-fw-medium !default; // 标题字重
+$-navbar-side-fs: 14px !default; //右侧操作的字号
+$-navbar-side-left-fs: 18px !default; // 左侧操作的字号
 $-navbar-light-bg: $-color-white !default; // light 主题下的背景色
-$-navbar-light-color: $-color-title !default; // light 主题下的文字颜色
+$-navbar-light-color: rgba($-color-black, 0.85) !default; // light 主题下的文字颜色
 $-navbar-padding: $-size-side-padding !default; // 左右padding
 
 /* notice-bar */
