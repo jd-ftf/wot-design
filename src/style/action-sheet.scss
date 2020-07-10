@@ -82,6 +82,7 @@
   @include e(panels) {
     display: flex;
     overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
 
     &:first-of-type {
       padding-top: 32px;

@@ -32,33 +32,20 @@
         </template>
       </button>
     </div>
-    <div v-if="panels && panels.length">
-      <template v-if="Array.isArray(panels[0])">
+    <div v-if="formatPanels && formatPanels.length">
+      <div
+        v-for="(item, rowIndex) in formatPanels"
+        :key="rowIndex"
+        class="wd-action-sheet__panels"
+      >
         <div
-          v-for="(item, rowIndex) in panels"
-          :key="rowIndex"
-          class="wd-action-sheet__panels"
-        >
-          <div
-            v-for="(panel, colIndex) in item"
-            :key="colIndex"
-            class="wd-action-sheet__panel"
-            @click="select('panel', rowIndex, colIndex)"
-          >
-            <img class="wd-action-sheet__panel-img" :src="panel.iconUrl" />
-            <div class="wd-action-sheet__panel-title">{{ panel.title }}</div>
-          </div>
-        </div>
-      </template>
-      <div v-else class="wd-action-sheet__panels">
-        <div
-          v-for="(item, index) in panels"
-          :key="index"
+          v-for="(panel, colIndex) in item"
+          :key="colIndex"
           class="wd-action-sheet__panel"
-          @click="select('panel', index)"
+          @click="select('panel', rowIndex, colIndex)"
         >
-          <img class="wd-action-sheet__panel-img" :src="item.iconUrl" />
-          <div class="wd-action-sheet__panel-title">{{ item.title }}</div>
+          <img class="wd-action-sheet__panel-img" :src="panel.iconUrl" />
+          <div class="wd-action-sheet__panel-title">{{ panel.title }}</div>
         </div>
       </div>
     </div>
@@ -105,7 +92,18 @@ export default {
       type: Boolean,
       default: true
     },
-    duration: Number
+    duration: {
+      type: Number,
+      default: 200
+    }
+  },
+  computed: {
+    isSingle () {
+      return this.panels.length && !(this.panels[0] instanceof Array)
+    },
+    formatPanels () {
+      return this.isSingle ? [this.panels] : this.panels
+    }
   },
   watch: {
     value () {
@@ -114,20 +112,17 @@ export default {
     }
   },
   methods: {
-    select (type, rowIndex, colIndex = false) {
+    select (type, rowIndex, colIndex) {
       if (type === 'action') {
         this.$emit('select', this.actions[rowIndex], rowIndex)
-      } else if (colIndex === false) {
-        this.$emit('select', this.panels[rowIndex], rowIndex)
+      } else if (this.isSingle) {
+        this.$emit('select', this.panels[colIndex], colIndex)
       } else {
         this.$emit('select', this.panels[rowIndex][colIndex], rowIndex, colIndex)
       }
       if (this.closeOnClickAction) {
         this.close()
       }
-    },
-    openLink (link) {
-      window.location.href = link
     },
     handleClickModal () {
       this.$emit('click-modal')
