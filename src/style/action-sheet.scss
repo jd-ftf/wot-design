@@ -80,11 +80,17 @@
     -webkit-tap-highlight-color: transparent;
   }
   @include e(panels) {
-    padding-top: 32px;
+    display: flex;
+    overflow-x: auto;
+
+    &:first-of-type {
+      padding-top: 32px;
+    }
   }
   @include e(panel) {
-    display: inline-block;
     width: 25%;
+    flex: 0 0 auto;
+    display: inline-block;
     margin-bottom: 24px;
   }
   @include e(panel-img) {

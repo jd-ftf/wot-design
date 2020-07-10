@@ -69,8 +69,8 @@ export default {
 ```
 
 ### 自定义面板
-
-可以设置 图片、文案、跳转链接。
+#### 单行展示
+可以设置 图片、文案。
 
 ```html
 <wd-button type="primary" plain @click="show = true">弹出菜单</wd-button>
@@ -83,10 +83,41 @@ export default {
       show: false,
       panels: [
         {
-          imageUrl: '//img12.360buyimg.com/imagetools/jfs/t1/122016/33/6657/1362/5f0692a1E8708d245/e47299e5945a6956.png',
+          iconUrl: '//img12.360buyimg.com/imagetools/jfs/t1/122016/33/6657/1362/5f0692a1E8708d245/e47299e5945a6956.png',
           title: '微信好友',
-          clickUrl: ''
         }
+      ]
+    }
+  }
+}
+</script>
+```
+
+#### 多行展示
+可以设置 图片、文案。
+
+```html
+<wd-button type="primary" plain @click="show = true">弹出菜单</wd-button>
+<wd-action-sheet v-model="show" :panels="panels"></wd-action-sheet>
+
+<script>
+export default {
+  data () {
+    return {
+      show: false,
+      panels: [
+        [
+          {
+            iconUrl: '//img12.360buyimg.com/imagetools/jfs/t1/122016/33/6657/1362/5f0692a1E8708d245/e47299e5945a6956.png',
+            title: '微信好友',
+          }
+        ],
+        [
+          {
+            iconUrl: '//img12.360buyimg.com/imagetools/jfs/t1/122016/33/6657/1362/5f0692a1E8708d245/e47299e5945a6956.png',
+            title: '微信好友',
+          }
+        ]
       ]
     }
   }
@@ -130,7 +161,7 @@ export default {
 
 | 事件名称      | 说明                                 | 参数     |
 |------------- |------------------------------------ |--------- |
-| select | 点击选项时触发 | item: 选项对象, index: 选项下标 |
+| select | 点击选项时触发 | 一行（item: 选项对象, index: 选项下标），多行（item: 选项对象, rowIndex: 选项行下标, colIndex选项列下标）|
 | open | 弹出层打开时触发 | - |
 | opened | 弹出层打开动画结束时触发 | - |
 | close | 弹出层关闭时触发 | - |

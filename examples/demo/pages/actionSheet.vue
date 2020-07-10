@@ -12,13 +12,17 @@
       <wd-button type="primary" @click="show3 = true">弹出菜单</wd-button>
       <wd-action-sheet v-model="show3" :actions="actions1" cancel-text="取消" />
     </demo-block>
-    <demo-block title="自定义面板">
+    <demo-block title="自定义面板单行">
       <wd-button type="primary" @click="show4 = true">弹出菜单</wd-button>
       <wd-action-sheet v-model="show4" :panels="panels1" cancel-text="取消" />
     </demo-block>
-    <demo-block title="标题">
+    <demo-block title="自定义面板多行">
       <wd-button type="primary" @click="show5 = true">弹出菜单</wd-button>
-      <wd-action-sheet v-model="show5" title="标题">
+      <wd-action-sheet v-model="show5" :panels="panels2" cancel-text="取消" />
+    </demo-block>
+    <demo-block title="标题">
+      <wd-button type="primary" @click="show6 = true">弹出菜单</wd-button>
+      <wd-action-sheet v-model="show6" title="标题">
         <p style="padding: 15px 15px 150px 15px; margin: 0;">内容</p>
       </wd-action-sheet>
     </demo-block>
@@ -54,44 +58,84 @@ export default {
       ],
       panels1: [
         {
-          imageUrl: '//img12.360buyimg.com/imagetools/jfs/t1/122016/33/6657/1362/5f0692a1E8708d245/e47299e5945a6956.png',
+          iconUrl: '//img12.360buyimg.com/imagetools/jfs/t1/122016/33/6657/1362/5f0692a1E8708d245/e47299e5945a6956.png',
           title: '微信好友',
-          clickUrl: ''
         },
         {
-          imageUrl: '//img14.360buyimg.com/imagetools/jfs/t1/111572/11/11734/1245/5f0692a1E39d13d21/b35dfe9243bd6c2a.png',
+          iconUrl: '//img14.360buyimg.com/imagetools/jfs/t1/111572/11/11734/1245/5f0692a1E39d13d21/b35dfe9243bd6c2a.png',
           title: '微信朋友圈',
-          clickUrl: ''
         },
         {
-          imageUrl: '//img14.360buyimg.com/imagetools/jfs/t1/132639/25/4003/945/5f069336E18778248/fa181913030bed8a.png',
+          iconUrl: '//img14.360buyimg.com/imagetools/jfs/t1/132639/25/4003/945/5f069336E18778248/fa181913030bed8a.png',
           title: 'QQ好友',
-          clickUrl: ''
         },
         {
-          imageUrl: '//img14.360buyimg.com/imagetools/jfs/t1/134807/4/3950/1256/5f069336E76949e27/d20641da8e699f07.png',
+          iconUrl: '//img14.360buyimg.com/imagetools/jfs/t1/134807/4/3950/1256/5f069336E76949e27/d20641da8e699f07.png',
           title: '微信收藏',
-          clickUrl: ''
         },
         {
-          imageUrl: '//img12.360buyimg.com/imagetools/jfs/t1/122016/33/6657/1362/5f0692a1E8708d245/e47299e5945a6956.png',
-          title: '微信好友',
-          clickUrl: ''
-        },
-        {
-          imageUrl: '//img14.360buyimg.com/imagetools/jfs/t1/111572/11/11734/1245/5f0692a1E39d13d21/b35dfe9243bd6c2a.png',
+          iconUrl: '//img14.360buyimg.com/imagetools/jfs/t1/111572/11/11734/1245/5f0692a1E39d13d21/b35dfe9243bd6c2a.png',
           title: '微信朋友圈',
-          clickUrl: ''
         },
         {
-          imageUrl: '//img14.360buyimg.com/imagetools/jfs/t1/132639/25/4003/945/5f069336E18778248/fa181913030bed8a.png',
+          iconUrl: '//img14.360buyimg.com/imagetools/jfs/t1/132639/25/4003/945/5f069336E18778248/fa181913030bed8a.png',
           title: 'QQ好友',
-          clickUrl: ''
         }
+      ],
+      panels2: [
+        [
+          {
+            iconUrl: '//img12.360buyimg.com/imagetools/jfs/t1/122016/33/6657/1362/5f0692a1E8708d245/e47299e5945a6956.png',
+            title: '微信好友',
+          },
+          {
+            iconUrl: '//img14.360buyimg.com/imagetools/jfs/t1/111572/11/11734/1245/5f0692a1E39d13d21/b35dfe9243bd6c2a.png',
+            title: '微信朋友圈',
+          },
+          {
+            iconUrl: '//img14.360buyimg.com/imagetools/jfs/t1/132639/25/4003/945/5f069336E18778248/fa181913030bed8a.png',
+            title: 'QQ好友',
+          },
+          {
+            iconUrl: '//img14.360buyimg.com/imagetools/jfs/t1/134807/4/3950/1256/5f069336E76949e27/d20641da8e699f07.png',
+            title: '微信收藏',
+          },
+          {
+            iconUrl: '//img12.360buyimg.com/imagetools/jfs/t1/122016/33/6657/1362/5f0692a1E8708d245/e47299e5945a6956.png',
+            title: '微信好友',
+          },
+          {
+            iconUrl: '//img14.360buyimg.com/imagetools/jfs/t1/111572/11/11734/1245/5f0692a1E39d13d21/b35dfe9243bd6c2a.png',
+            title: '微信朋友圈',
+          },
+          {
+            iconUrl: '//img12.360buyimg.com/imagetools/jfs/t1/122016/33/6657/1362/5f0692a1E8708d245/e47299e5945a6956.png',
+            title: '微信好友',
+          },
+          {
+            iconUrl: '//img14.360buyimg.com/imagetools/jfs/t1/111572/11/11734/1245/5f0692a1E39d13d21/b35dfe9243bd6c2a.png',
+            title: '微信朋友圈',
+          }
+        ],
+        [
+          {
+            iconUrl: '//img14.360buyimg.com/imagetools/jfs/t1/132639/25/4003/945/5f069336E18778248/fa181913030bed8a.png',
+            title: 'QQ好友',
+          },
+          {
+            iconUrl: '//img14.360buyimg.com/imagetools/jfs/t1/134807/4/3950/1256/5f069336E76949e27/d20641da8e699f07.png',
+            title: '微信收藏',
+          },
+          {
+            iconUrl: '//img12.360buyimg.com/imagetools/jfs/t1/122016/33/6657/1362/5f0692a1E8708d245/e47299e5945a6956.png',
+            title: '微信好友',
+          }
+        ]
       ],
       show3: false,
       show4: false,
-      show5: false
+      show5: false,
+      show6: false
     }
   }
 }
