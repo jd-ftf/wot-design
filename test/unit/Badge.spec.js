@@ -22,6 +22,15 @@ test('badge bgColor', () => {
   expect(wrapper.element.querySelector('sup').style.backgroundColor).toBe('rgb(204, 204, 204)')
 })
 
+test('badge borderColor', () => {
+  let wrapper = mount(Badge, {
+    propsData: {
+      borderColor: 'rgb(204, 204, 204)'
+    }
+  })
+  expect(wrapper.element.querySelector('sup').style.borderColor).toBe('rgb(204, 204, 204)')
+})
+
 test('badge type', () => {
   let wrapper = mount(Badge, {
     propsData: {

@@ -14,7 +14,8 @@
           }
         ]"
         :style="{
-          backgroundColor: bgColor
+          backgroundColor: bgColor,
+          borderColor: borderColor
         }">
       </sup>
     </transition>
@@ -27,6 +28,7 @@ export default {
   props: {
     value: [Number, String],
     bgColor: String,
+    borderColor: String,
     max: Number,
     isDot: Boolean,
     hidden: Boolean,
