@@ -96,21 +96,22 @@
     -webkit-overflow-scrolling: touch;
   }
   @include e(panel) {
-    width: 25%;
+    width: 88.75px;
     flex: 0 0 auto;
     display: inline-block;
-    padding: 12px 0;
+    padding: $-action-sheet-panel-padding;
   }
   @include e(panel-img) {
     display: block;
-    width: $-action-sheet-panels-img-fs;
-    height: $-action-sheet-panels-img-fs;
+    width: $-action-sheet-panel-img-fs;
+    height: $-action-sheet-panel-img-fs;
     margin: 0 auto;
-    margin-bottom: 8px;
-    border-radius: $-action-sheet-panels-img-radius;
+    margin-bottom: 7px;
+    border-radius: $-action-sheet-panel-img-radius;
   }
   @include e(panel-title) {
     font-size: $-action-sheet-subname-fs;
+    line-height: 1.2;
     text-align: center;
     color: $-action-sheet-color;
     @include lineEllipsis;

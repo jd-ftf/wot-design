@@ -131,8 +131,9 @@ $-action-sheet-cancel-color: mixColor($-color-white, $-color-black, 0.0745251819
 $-action-sheet-cancel-height: 44px !default; // 取消按钮高度
 $-action-sheet-cancel-bg: rgba(240,240,240,1) !default; // 取消按钮背景色
 $-action-sheet-cancel-radius: 22px !default; // 取消按钮圆角大小
-$-action-sheet-panels-img-fs: 40px !default; // 自定义面板图片大小
-$-action-sheet-panels-img-radius: 4px !default; // 自定义面板图片圆角大小
+$-action-sheet-panel-padding: 12px 0 11px !default; // 自定义面板内边距大小
+$-action-sheet-panel-img-fs: 40px !default; // 自定义面板图片大小
+$-action-sheet-panel-img-radius: 4px !default; // 自定义面板图片圆角大小
 
 /* badge */
 $-badge-bg:  $-color-danger !default; // 背景填充颜色
