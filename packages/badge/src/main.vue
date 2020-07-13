@@ -2,21 +2,23 @@
   <div class="wd-badge">
     <slot></slot>
     <transition name="wd-zoom-in-center">
-      <sup
+      <div
+        class="wd-badge__gap"
         v-show="!hidden && (content || content === 0 || isDot)"
-        v-text="content"
-        class="wd-badge__content"
-        :class="[
-          type ? `wd-badge__content--${type}` : '',
-          {
-            'is-fixed': $slots.default,
-            'is-dot': isDot
-          }
-        ]"
-        :style="{
-          backgroundColor: bgColor
-        }">
-      </sup>
+        :class="{ 'is-fixed': $slots.default }"
+      >
+        <div
+          v-text="content"
+          class="wd-badge__content"
+          :class="[
+            type ? `wd-badge__content--${type}` : '',
+            isDot ? 'is-dot': ''
+          ]"
+          :style="{
+            backgroundColor: bgColor
+          }">
+        </div>
+      </div>
     </transition>
   </div>
 </template>
