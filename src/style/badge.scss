@@ -6,33 +6,26 @@
   vertical-align: middle;
   display: inline-block;
 
-  @include e(gap) {
-    display: inline-block;
-    padding: 2px;
-    background-color: $-badge-color;
-    font-size: 0;
-    font-weight: 700;
-
-    @include when(fixed) {
-      position: absolute;
-      top: 0;
-      right: 0;
-      transform: translateY(-50%) translateX(50%);
-    }
-  }
-
   @include e(content) {
     display: inline-block;
     height: $-badge-height;
     line-height: $-badge-height;
     padding: $-badge-padding;
     background-color: $-badge-bg;
-    border-radius: $-badge-height / 2;
+    border-radius: $-badge-height / 2 + 2;
     color: $-badge-color;
     font-size: $-badge-fs;
     text-align: center;
     white-space: nowrap;
-
+    border: 2px solid $-badge-color;
+    font-weight: 500;
+    
+    @include when(fixed) {
+      position: absolute;
+      top: 0;
+      right: 0;
+      transform: translateY(-50%) translateX(50%);
+    }
     @include when(dot) {
       height: $-badge-dot-size;
       width: $-badge-dot-size;
