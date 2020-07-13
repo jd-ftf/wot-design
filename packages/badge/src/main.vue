@@ -2,7 +2,7 @@
   <div class="wd-badge">
     <slot></slot>
     <transition name="wd-zoom-in-center">
-      <sup
+      <div
         v-show="!hidden && (content || content === 0 || isDot)"
         v-text="content"
         class="wd-badge__content"
@@ -14,9 +14,10 @@
           }
         ]"
         :style="{
-          backgroundColor: bgColor
+          backgroundColor: bgColor,
+          borderColor: borderColor
         }">
-      </sup>
+      </div>
     </transition>
   </div>
 </template>
@@ -27,6 +28,7 @@ export default {
   props: {
     value: [Number, String],
     bgColor: String,
+    borderColor: String,
     max: Number,
     isDot: Boolean,
     hidden: Boolean,

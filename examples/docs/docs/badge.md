@@ -23,12 +23,13 @@ Vue.use(Badge)
 </wd-badge>
 ```
 
-### 修改背景色
+### 修改背景色和边框颜色
 
-设置 `type` 属性，也可以自定义背景色 `bg-color`。
+设置 `type` 属性，也可以自定义背景色 `bg-color` 和 边框颜色 `border-color`。
+
 
 ```html
-<wd-badge :value="3" bg-color="pink">
+<wd-badge :value="3" bg-color="pink" border-color="yellow">
   <wd-button size="small">回复</wd-button>
 </wd-badge>
 <wd-badge :value="1" type="primary">
@@ -100,4 +101,5 @@ Vue.use(Badge)
 | hidden       | 隐藏 badge       | boolean         |         —             |  false  |
 | type         | 类型             | string          | primary / success / warning / danger / info |    —    |
 | bg-color    | 类型             | string          | 各种颜色的css写法 |    —    |
+| border-color    | 类型             | string          | 各种颜色的css写法 |    —    |
 

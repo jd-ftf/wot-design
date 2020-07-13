@@ -4,7 +4,7 @@
       <wd-badge :value="12" class="item">
         <wd-button size="small">评论</wd-button>
       </wd-badge>
-      <wd-badge :value="3" class="item" bg-color="pink">
+      <wd-badge :value="3" class="item" bg-color="pink" border-color="yellow">
         <wd-button size="small">回复</wd-button>
       </wd-badge>
       <wd-badge :value="1" class="item" type="primary">
