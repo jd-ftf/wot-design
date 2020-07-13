@@ -96,7 +96,7 @@
     -webkit-overflow-scrolling: touch;
   }
   @include e(panel) {
-    width: 88.75px;
+    width: 88px;
     flex: 0 0 auto;
     display: inline-block;
     padding: $-action-sheet-panel-padding;
