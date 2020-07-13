@@ -12,28 +12,24 @@
     line-height: $-badge-height;
     padding: $-badge-padding;
     background-color: $-badge-bg;
-    border-radius: $-badge-height / 2;
+    border-radius: $-badge-height / 2 + 2;
     color: $-badge-color;
     font-size: $-badge-fs;
     text-align: center;
     white-space: nowrap;
-
+    border: $-badge-border;
+    font-weight: 500;
+    
     @include when(fixed) {
       position: absolute;
       top: 0;
-      right: $-badge-height / 2;
-      transform: translateY(-50%) translateX(100%);
-
-      @include when(dot) {
-        right: $-badge-dot-size / 2;
-      }
+      right: 0;
+      transform: translateY(-50%) translateX(50%);
     }
-
     @include when(dot) {
       height: $-badge-dot-size;
       width: $-badge-dot-size;
       padding: 0;
-      right: 0;
       border-radius: 50%;
     }
 
