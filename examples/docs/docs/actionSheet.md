@@ -193,3 +193,10 @@ export default {
 | color | 颜色 | string |
 | disabled | 禁用 | boolean |
 | loading | 加载中状态 | boolean |
+
+### Panel 数据结构
+
+| 键名 | 说明 | 类型 |
+|----- |----- |----- |
+| iconUrl | 图片地址 | string |
+| title | 标题内容 | string |
