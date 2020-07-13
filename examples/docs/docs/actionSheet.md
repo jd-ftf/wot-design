@@ -15,7 +15,7 @@ Vue.use(ActionSheet)
 
 ```html
 <wd-button type="primary" plain @click="show = true">弹出菜单</wd-button>
-<wd-action-sheet v-model="show" :actions="actions"></wd-action-sheet>
+<wd-action-sheet v-model="show" :actions="actions" @select="select"></wd-action-sheet>
 
 <script>
 export default {
@@ -32,6 +32,11 @@ export default {
           subname: '描述信息'
         }
       ]
+    }
+  },
+  methods: {
+    select (item, index) {
+      this.$toast(`当前选中项: ${item.name}, 下标: ${index}`)
     }
   }
 }
@@ -76,6 +81,73 @@ export default {
 <wd-action-sheet v-model="show" :actions="actions" cancel-text="取消"></wd-action-sheet>
 ```
 
+### 自定义面板
+#### 单行展示
+可以设置 图片、文案。
+
+```html
+<wd-button type="primary" plain @click="show = true">弹出菜单</wd-button>
+<wd-action-sheet v-model="show" :panels="panels" @select="select"></wd-action-sheet>
+
+<script>
+export default {
+  data () {
+    return {
+      show: false,
+      panels: [
+        {
+          iconUrl: '//img12.360buyimg.com/imagetools/jfs/t1/122016/33/6657/1362/5f0692a1E8708d245/e47299e5945a6956.png',
+          title: '微信好友',
+        }
+      ]
+    }
+  },
+  methods: {
+    select (item, index) {
+      this.$toast(`当前选中项: ${item.title}, 下标: ${index}`)
+    }
+  }
+}
+</script>
+```
+
+#### 多行展示
+可以设置 图片、文案。
+
+```html
+<wd-button type="primary" plain @click="show = true">弹出菜单</wd-button>
+<wd-action-sheet v-model="show" :panels="panels" @select="select"></wd-action-sheet>
+
+<script>
+export default {
+  data () {
+    return {
+      show: false,
+      panels: [
+        [
+          {
+            iconUrl: '//img12.360buyimg.com/imagetools/jfs/t1/122016/33/6657/1362/5f0692a1E8708d245/e47299e5945a6956.png',
+            title: '微信好友',
+          }
+        ],
+        [
+          {
+            iconUrl: '//img12.360buyimg.com/imagetools/jfs/t1/122016/33/6657/1362/5f0692a1E8708d245/e47299e5945a6956.png',
+            title: '微信好友',
+          }
+        ]
+      ]
+    }
+  },
+  methods: {
+    select (item, rowIndex, colIndex) {
+      this.$toast(`当前选中项: ${item.title}, 行下标: ${rowIndex}, 列下标: ${colIndex}`)
+    }
+  }
+}
+</script>
+```
+
 ### 标题
 
 设置 `title` 展示标题。
@@ -92,18 +164,19 @@ export default {
 |---------- |------------------------------------ |---------- |------------- |-------- |
 | value/v-model | 绑定值，展示/关闭菜单 | boolean | - | - |
 | actions | 菜单选项 | array | - | [] |
+| panels | 自定义面板项,可以为字符串数组，也可以为对象数组，如果为二维数组，则为多行展示 | array | - | [] |
 | title | 标题 | string | - | - |
 | cancel-text | 取消按钮文案 | string | - | - |
 | close-on-click-action | 点击选项后是否关闭菜单 | boolean | - | true |
 | lock-scroll | 锁定背景滚动 | boolean | - | true |
 | close-on-click-modal | 点击遮罩是否关闭 | boolean | - | true | 
-| duration | 动画持续时间 | number | - | 300(ms) |
+| duration | 动画持续时间 | number | - | 200(ms) |
 
 ### Events
 
 | 事件名称      | 说明                                 | 参数     |
 |------------- |------------------------------------ |--------- |
-| select | 点击选项时触发 | item: 选项对象, index: 选项下标 |
+| select | 点击选项时触发 | 菜单选项或自定义面板字符串数组类型 （item: 选项对象, index: 选项下标），自定义面板二维数组（item: 选项对象, rowIndex: 选项行下标, colIndex选项列下标）|
 | open | 弹出层打开时触发 | - |
 | opened | 弹出层打开动画结束时触发 | - |
 | close | 弹出层关闭时触发 | - |
@@ -120,3 +193,10 @@ export default {
 | color | 颜色 | string |
 | disabled | 禁用 | boolean |
 | loading | 加载中状态 | boolean |
+
+### Panel 数据结构
+
+| 键名 | 说明 | 类型 |
+|----- |----- |----- |
+| iconUrl | 图片地址 | string |
+| title | 标题内容 | string |
