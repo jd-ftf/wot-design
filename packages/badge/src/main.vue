@@ -2,7 +2,7 @@
   <div class="wd-badge">
     <slot></slot>
     <transition name="wd-zoom-in-center">
-      <div
+      <sup
         v-show="!hidden && (content || content === 0 || isDot)"
         v-text="content"
         class="wd-badge__content"
@@ -17,7 +17,7 @@
           backgroundColor: bgColor,
           borderColor: borderColor
         }">
-      </div>
+      </sup>
     </transition>
   </div>
 </template>
