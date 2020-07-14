@@ -100,6 +100,6 @@ Vue.use(Badge)
 | is-dot       | 小圆点           | boolean         |         —             |  false  |
 | hidden       | 隐藏 badge       | boolean         |         —             |  false  |
 | type         | 类型             | string          | primary / success / warning / danger / info |    —    |
-| bg-color    | 类型             | string          | 各种颜色的css写法 |    —    |
-| border-color    | 类型             | string          | 各种颜色的css写法 |    —    |
+| bg-color    | 背景色             | string          | 各种颜色的css写法 |    —    |
+| border-color    | 边框颜色             | string          | 各种颜色的css写法 |    —    |
 
