@@ -49,12 +49,7 @@
 .wd-icon-close:before {
   content: "\e936";
 }
-.wd-icon-close-bold:before {
-  content: "\e902";
-}
-.wd-icon-close-outline:before {
-  content: "\e901";
-}
+
 .wd-icon-computer:before {
   content: "\e91c";
 }
@@ -142,22 +137,33 @@
   content: "\e92e";
 }
 
-.wd-icon-subscribe:before {
-  content: "\e905";
-}
-.wd-icon-detection:before {
-  content: "\e906";
-}
-.wd-icon-read:before {
-  content: "\e907";
-}
-
-.wd-icon-warn-bold:before {
+.wd-icon-error-fill:before {
   content: "\e900";
 }
-.wd-icon-check-outline:before {
+.wd-icon-warn-bold:before {
+  content: "\e901";
+}
+.wd-icon-close-outline:before {
+  content: "\e902";
+}
+.wd-icon-close-bold:before {
   content: "\e903";
 }
-.wd-icon-wifi-error:before {
+.wd-icon-check-outline:before {
   content: "\e904";
+}
+.wd-icon-wifi-error:before {
+  content: "\e905";
+}
+.wd-icon-subscribe:before {
+  content: "\e906";
+}
+.wd-icon-detection:before {
+  content: "\e907";
+}
+.wd-icon-read:before {
+  content: "\e908";
+}
+.wd-icon-fill-arrow-down:before {
+  content: "\e909";
 }

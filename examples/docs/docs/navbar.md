@@ -53,7 +53,7 @@ Vue.use(Navbar)
   </div>
   <div class="title">
     <span>标题</span>
-    <wd-icon name="arrow-down"></wd-icon>
+    <wd-icon name="fill-arrow-down"></wd-icon>
   </div>
   <span slot="right">
     <wd-icon class="right" name="filter" />

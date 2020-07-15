@@ -2,6 +2,7 @@
  * 辅助函数
  */
 @import "config";
+$default-theme: #4d80f0 !default; // 品牌色
 
 /* 转换成字符串 */
 @function selectorToString($selector) {
@@ -33,110 +34,46 @@
   }
 }
 
-// 字符串翻转，添加#
-@function reverseString($string) {
-  $result: "";
-  $str: quote($string);
-  $len: str-length($str);
-  @for $i from $len through 1 {
-    $current-str: str-slice($str, $i, $i);
-    $result: $result + $current-str;
-  }
-  @return unquote(str-insert($result, "#", 1));
-}
-
-// 指数计算
-@function exponential($number, $n) {
-  $result: $number;
-  @if $n == 0 {
-    $result: 1;
-  } @else if ($n == 1) {
-    $result: $result;
-  } @else {
-    @for $i from 1 through $n {
-      @if $i == 1 {
-        $result: $number;
-      } @else {
-        $result: $result * $number;
-      }
+/**
+ * 主题色切换
+ * @params $theme-color 主题色
+ * @params $type 变暗’dark‘ 变亮 'light'
+ * @params $mix-color 自己设置的混色
+ */
+@function themeColor($theme-color, $type: "", $mix-color: "") {
+  @if $default-theme != #4d80f0 {
+    @if $type == "dark" {
+      @return darken($theme-color, 10%);
+    } @else if $type == "light" {
+      @return lighten($theme-color, 10%);
+    } @else {
+      @return $theme-color;
     }
+  } @else {
+    @return $mix-color;
   }
-  @return $result;
 }
 
 /**
- * 进制转换 16进制转成10进制
- * @params $number 需要转换的数字
+ * 颜色结果切换， 如果开启线性渐变色 使用渐变色，如果没有开启，那么使用主题色
+ * @params $open-linear 是否开启线性渐变色
+ * @params $deg 渐变色角度
+ * @params $theme-color 当前配色
+ * @params [Array] $set 主题色明暗设置，与 $color-list 数量对应
+ * @params [Array] $color-list 渐变色顺序， $color-list 和 $per-list 数量相同
+ * @params [Array] $per-list 渐变色比例
  */
-@function hexToDec($number) {
-  $maps: (
-    "0": 0,
-    "1": 1,
-    "2": 2,
-    "3": 3,
-    "4": 4,
-    "5": 5,
-    "6": 6,
-    "7": 7,
-    "8": 8,
-    "9": 9,
-    "a": 10,
-    "b": 11,
-    "c": 12,
-    "d": 13,
-    "e": 14,
-    "f": 15,
-  );
-  // 最后输出的结果
-  $res: 0;
-
-  // 是16进制
-  $str: to-lower-case(inspect($number));
-  $len: str-length($str);
-  $list: str-slice($str, 2, $len);
-  $list-len: str-length($list);
-  $curret-res: 0;
-  $current-str: 0;
-  $value: 0;
-
-  @for $i from $list-len through 1 {
-    $str-index: $list-len - $i + 1;
-    $current-str: str-slice($list, $str-index, $str-index);
-    $value: map-get($maps, $current-str);
-    $curret-res: $value * exponential(16, ($i - 1));
-    $res: $curret-res + $res;
+@function resultColor($open-linear, $deg, $theme-color, $set, $color-list, $per-list) {
+  // 开启渐变
+  @if $open-linear {
+    $len: length($color-list);
+    $arg: $deg;
+    @for $i from 1 through $len {
+      $arg: $arg + "," + themeColor($theme-color, nth($set, $i), nth($color-list, $i)) + " " + nth($per-list, $i);
+    }
+    @return linear-gradient(unquote($arg));
+  } @else {
+    // 不开启渐变 直接使用色值
+    @return $theme-color;
   }
-  @return $res;
-}
-/**
- * 进制转换 10进制转成16进制
- * @params $number 需要转换的数字
- */
-@function decToHex($number) {
-  $list: "";
-  $maps: "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d", "e", "f";
-  // 余数列表
-  $remainder: nth($maps, ($number % 16 + 1));
-  $list: $list + $remainder;
-  // 除数
-  $divisor: floor($number / 16);
-
-  @while $divisor >= 16 {
-    $remainder: nth($maps, ($divisor % 16 + 1));
-    $list: $list + $remainder;
-    $divisor: floor($divisor / 16);
-  }
-  @if $divisor < 16 {
-    $remainder: nth($maps, ($divisor % 16 + 1));
-    $list: $list + $remainder;
-  }
-  @return reverseString($list);
-}
-// TODO 目前返回类型是 string 类型，需要返回color类型的转换函数
-@function mixColor($color1, $color2, $percent) {
-  $c1: hexToDec($color1);
-  $c2: hexToDec($color2);
-  $res: floor($c1 * $percent + (1-$percent) * $c2);
-  $res: decToHex($res);
-  @return $res;
 }

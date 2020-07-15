@@ -21,8 +21,7 @@
         </div>
         <div class="title">
           <span>标题</span>
-          <!-- TODO 等待替换icon -->
-          <wd-icon name="arrow-down"></wd-icon>
+          <wd-icon name="fill-arrow-down"></wd-icon>
         </div>
         <span slot="right">
           <wd-icon class="right" name="filter" />
@@ -57,8 +56,7 @@
         </div>
         <div class="title">
           <span>标题</span>
-          <!-- TODO 等待替换icon -->
-          <wd-icon name="arrow-down"></wd-icon>
+          <wd-icon name="fill-arrow-down"></wd-icon>
         </div>
         <span slot="right">
           <wd-icon class="right" name="filter" />
