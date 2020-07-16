@@ -1,9 +1,9 @@
 <template>
   <div
-    :class="['wd-grid-item',  grid.border && !grid.gutter && itemClass]"
+    :class="['wd-grid-item', grid.border && !grid.gutter && itemClass]"
     @click="click"
     :style="style"
-    >
+  >
     <div
       :class="{
         'wd-grid-item__content': true,
@@ -11,7 +11,7 @@
         'is-round': grid.border && grid.gutter > 0
       }"
       :style="gutterContentStyle"
-      >
+    >
       <slot v-if="$slots.default" />
       <div v-else>
         <wd-badge
@@ -19,11 +19,13 @@
           :value="value"
           :max="max"
           :type="type"
-          >
-          <slot v-if="$slots.icon" name="icon"/>
-          <wd-icon v-else :name="icon" :size="iconSize"/>
+          :style="{ width:iconSize,height: iconSize }"
+        >
+          <slot v-if="$slots.icon" name="icon" />
+          <!-- TODO 标签切换为类名展示 -->
+          <wd-icon v-else :name="icon" :size="iconSize" />
         </wd-badge>
-        <slot name="text" v-if="$slots.text"/>
+        <slot name="text" v-if="$slots.text" />
         <div v-else class="wd-grid-item__text">{{ text }}</div>
       </div>
     </div>
@@ -43,7 +45,7 @@ export default {
     return {
       style: {},
       gutterContentStyle: {},
-      itemClass: ''
+      itemClass: []
     }
   },
   props: {
@@ -74,8 +76,7 @@ export default {
       this[key] = value
     },
     init () {
-      const { length, column, gutter, square } = this.grid
-
+      const { length, gutter, square, column, bgColor } = this.grid
       const width = column ? 100 / column + '%' : 100 / length + '%'
       // 单独定义正方形
       const squareStyle = square ? {
@@ -91,8 +92,7 @@ export default {
         backgroundColor: 'transparent'
       } : ''
       // 间隔+正方形
-      this.gutterContentStyle = (gutter && square) ? { right: `${gutter}px`, bottom: `${gutter}px` } : ''
-
+      this.gutterContentStyle = (gutter && square) ? { right: `${gutter}px`, bottom: `${gutter}px`, backgroundColor: bgColor } : { backgroundColor: bgColor }
       this.style = squareStyle || gutterStyle || { width }
     },
     click (event) {

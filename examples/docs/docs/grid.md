@@ -24,6 +24,16 @@ Vue.use(GridItem)
 </wd-grid>
 ```
 
+### 自定义背景颜色
+
+使用 `bg-color` 设置背景色。
+
+```html
+<wd-grid bg-color="rgba(0, 0, 0, 0.02)">
+  <wd-grid-item icon="picture" text="文字" v-for="i in 5" :key="i" />
+</wd-grid>
+```
+
 ### 自定义列数
 
 `column` 可以用来自定义宫格列数。未定义 `column` 属性时，默认显示为一行，定义该属性后，组件内部根据 `column` 属性自行划分行数。
@@ -31,6 +41,16 @@ Vue.use(GridItem)
 ```html
 <wd-grid :column="4">
   <wd-grid-item icon="picture" text="文字" v-for="i in 8" :key="i"/>
+</wd-grid>
+```
+
+### 显示边框
+
+`border` 用来设置展示边框。
+
+```html
+<wd-grid border>
+  <wd-grid-item icon="picture" text="文字" v-for="i in 4" :key="i"/>
 </wd-grid>
 ```
 
@@ -53,6 +73,16 @@ Vue.use(GridItem)
 }
 ```
 
+### 图标为尺寸
+
+通过 `icon-size` 设置图标位尺寸。
+
+```html
+<wd-grid>
+  <wd-grid-item v-for="i in 8" :key="i" icon-size="36px" icon="picture"></wd-grid-item>
+</wd-grid>
+```
+
 ### 单个插槽
 
 通过插槽 `icon` 可以插入 `GridItem` 中的图标位。
@@ -62,12 +92,12 @@ Vue.use(GridItem)
 注意: 外部控制每一个  `GridItem` 的高度时，保证每一个 `GridItem` 的高度相同且符合用户预期。
 
 ```html
-<wd-grid :column="3">
-  <wd-grid-item text="文字" v-for="i in 3" :key="i">
+<wd-grid>
+  <wd-grid-item text="文字" v-for="i in 3" :key="i" icon-size="36px">
     <img slot="icon" class="slot-img" src="../images/jd.png" />
   </wd-grid-item>
 </wd-grid>
-<wd-grid :column="3">
+<wd-grid>
   <wd-grid-item icon="picture" v-for="i in 3" :key="i">
     <div slot="text" class="text">
       这是一段测试数字
@@ -78,13 +108,14 @@ Vue.use(GridItem)
 
 ```css
 .slot-img{
-  height: 50px;
-  width: 50px;
-  margin-bottom: 5px;
+  height: 100%;
+  width: 100%;
+  vertical-align: middle;
+  border-radius: 4px;
 }
 .text{
   color: #ffb300;
-  margin-top: 5px;
+  margin-top: 8px;
 }
 ```
 
@@ -119,8 +150,8 @@ Vue.use(GridItem)
 ```html
 <template>
   <wd-grid clickable>
-    <wd-grid-item :to="href" @item-click="click" icon="person" text="location to ..." />
-    <wd-grid-item :to="{ path: '/button' }" @item-click="click" icon="link" text="RouterLink to ..." />
+    <wd-grid-item :to="href" @item-click="click" icon="edit-outline" text="link to ..." />
+    <wd-grid-item :to="{ path: '/button' }" @item-click="click" icon="setting" text="link to ..." />
   </wd-grid>
 </template>
 
@@ -148,8 +179,8 @@ export default {
 
 ```html
 <wd-grid>
-  <wd-grid-item is-dot icon="cart" text="文字" />
-  <wd-grid-item :value="100" :max="99" icon="chat-bubble" text="文字" />
+  <wd-grid-item is-dot icon="goods" text="文字" />
+  <wd-grid-item :value="100" :max="99" icon="computer" text="文字" />
 </wd-grid>
 ```
 
@@ -158,10 +189,11 @@ export default {
 | 参数      | 说明                                 | 类型      | 可选值       | 默认值   |
 |---------- |------------------------------------ |---------- |------------- |-------- |
 | column | 列数 | number | - | - |
-| border | 是否显示边框 | boolean | - | true |
+| border | 是否显示边框 | boolean | - | false |
 | gutter | 格子之间的间距，默认单位为`px` | number | - | 0 |
 | square | 是否将格子固定为正方形 | boolean | - | false |
 | clickable | 是否开启格子点击反馈 | boolean | - | false |
+| bgColor | 背景颜色设置 | string | - | ‘’ |
 
 ### GridItem Attributes
 

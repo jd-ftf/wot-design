@@ -589,7 +589,8 @@ $-popover-z-index: $-tooltip-z-index !default;
 /* grid-item */
 $-grid-item-fs: 12px !default; // 字号
 $-grid-item-padding: 15px 10px !default; // 内容的 padding
-$-grid-item-border-color: $-color-border-light !default; // 边框颜色
+$-grid-item-border-color: rgba($-color-black, 0.09) !default; // 边框颜色
+$-grid-item-bg: $-color-white !default; // 间距
 
 /* statustip */
 $-statustip-fs: $-fs-content !default; // 字号
