@@ -526,27 +526,66 @@ $-tabs-nav-map-fs: $-fs-content !default; // map 类型按钮字号
 $-tabs-nav-map-color: rgba($-color-black, 0.85) !default; // map 类型按钮文字颜色
 $-tabs-nav-map-arrow-color: rgba($-color-black, 0.65) !default; // map 类型箭头颜色
 $-tabs-nav-map-button-back-color: rgba($-color-black, 0.04) !default; // map 类型按钮边框颜色
-$-tabs-nav-map-btn-before-bg: linear-gradient(
-  270deg,
-  rgba(255, 255, 255, 1) 1%,
-  rgba(255, 255, 255, 0) 100%
-) !default; // 左侧map遮罩阴影
+$-tabs-nav-map-btn-before-bg: linear-gradient(270deg, rgba(255,255,255,1) 1%,rgba(255,255,255,0) 100%) !default; // 左侧map遮罩阴影
 $-tabs-nav-map-button-radius: 16px !default; // map 类型按钮圆角大小
 $-tabs-nav-map-modal-bg: $-modal-bg !default; // map 类型蒙层背景色
 
 /* tag */
-$-tag-small-padding: 2px 3px !default; // 小尺寸padding
-$-tag-medium-padding: 0 5px !default; // 中等尺寸padding
-$-tag-large-padding: 3px 10px !default; // 大尺寸padding
 $-tag-fs: $-fs-secondary !default; // 字号
-$-tag-small-fs: 10px !default; // 小尺寸字号
-$-tag-info-color: #777 !default; // info 颜色
+$-tag-color: $-color-white !default; // 字体颜色
+$-tag-small-fs: $-fs-aid !default; // 小尺寸字号
+$-tag-info-color: rgba($-color-black, 0.65) !default; // info 颜色
 $-tag-primary-color: $-color-theme !default; // 主颜色
-$-tag-danger-color: #ff4c4c !default; // danger 颜色
-$-tag-warning-color: #ff8200 !default; // warning 颜色
-$-tag-success-color: #30be05 !default; // success 颜色
+$-tag-danger-color: rgba(250,67,80,1) !default; // danger 颜色
+$-tag-warning-color: rgba(255,144,0,1) !default; // warning 颜色
+$-tag-success-color: rgba(51,187,68,1) !default; // success 颜色
+$-tag-info-bg: resultColor(
+  $open-linear,
+  49deg,
+  $-color-black,
+  "dark" "light",
+  #808080 #999999,
+  0% 100%
+) !default;  // info 背景颜色
+$-tag-primary-bg: resultColor(
+  $open-linear,
+  49deg,
+  $-color-theme,
+  "dark" "light",
+  rgba(81,124,240,1) rgba(118,158,245,1),
+  0% 100%
+) !default; // 主背景颜色
+$-tag-danger-bg: resultColor(
+  $open-linear,
+  44deg,
+  $-color-danger,
+  "dark" "light",
+  rgba(230,62,70,1) rgba(255,64,73,1),
+  0% 100%
+) !default; // danger 背景颜色
+$-tag-warning-bg: resultColor(
+  $open-linear,
+  45deg,
+  $-color-warning,
+  "dark" "light",
+  rgba(230,113,55,1) rgba(255,151,76,1),
+  0% 100%
+) !default; // warning 背景颜色
+$-tag-success-bg: resultColor(
+  $open-linear,
+  45deg,
+  $-color-success,
+  "dark" "light",
+  rgba(32,176,128,1) rgba(43,214,157,1),
+  0% 100%
+) !default; // success 背景颜色
+$-tag-round-color: rgba(102, 102, 102, 1) !default; // round 字体颜色
+$-tag-round-border-color: rgba(225,225,225,1) !default; // round 边框颜色
+$-tag-round-radius: 12px !default; // round 圆角大小
+$-tag-mark-radius: 6px 2px 6px 2px !default; // mark 圆角大小
 $-tag-close-size: 14px !default; // 关闭按钮字号
-$-tag-close-color: $-color-icon !default; // 关闭按钮颜色
+$-tag-close-color: $-tag-info-color !default; // 关闭按钮颜色
+$-tag-close-active-color: rgba($-color-black, 0.45) !default; // 关闭按钮 active 颜色
 
 /* toast */
 $-toast-padding: 8px 14px !default; // 无图标的padding
