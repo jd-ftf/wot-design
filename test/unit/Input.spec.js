@@ -53,8 +53,8 @@ test('clearable', () => {
       clear: clearHandler
     }
   })
-  
-  let clearWrapper = wrapper.find('.wd-icon-close-outline')
+
+  let clearWrapper = wrapper.find('.wd-icon-error-fill')
   expect(clearWrapper).toBeTruthy()
 
   clearWrapper.trigger('click')
@@ -192,7 +192,7 @@ test('calcTextareaHeight', async () => {
   window.getComputedStyle = ele => {
     const style = originGetComputedStyle(ele)
     style._values['box-sizing'] = 'content-box'
-    
+
     return style
   }
 
@@ -208,7 +208,7 @@ test('calcTextareaHeight', async () => {
   window.getComputedStyle = ele => {
     const style = originGetComputedStyle(ele)
     style._values['box-sizing'] = 'border-box'
-    
+
     return style
   }
   let wrapper2 = mount(Input, {

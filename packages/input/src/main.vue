@@ -7,7 +7,8 @@
         'is-disabled': disabled,
         'is-error': error,
         'is-cell': label || $slots.label,
-        'is-center': center
+        'is-center': center,
+        'is-not-empty': value && value.length !== 0
       },
       size ? `is-${size}` : ''
     ]"
@@ -52,9 +53,9 @@
           ref="textarea"
         ></textarea>
         <div class="wd-input__textarea-suffix">
-          <i v-show="showClear" class="wd-input__textarea-icon wd-icon-close-outline" @click="clear"></i>
-          <span v-if="showWordCount" class="wd-input__textarea-count">
-            <span class="wd-input__textarea-count-current" :class="{ 'is-error': value && value.length > parseInt(maxlength) }">{{ (value && value.length) || 0 }}</span>/{{ maxlength }}
+          <i v-show="showClear" class="wd-input__textarea-icon wd-icon-error-fill" @click="clear"></i>
+          <span v-if="showWordCount" class="wd-input__textarea-count" >
+            <span :class="[{ 'is-error': value && value.length > parseInt(maxlength) }, value && (value.length > 0) ? 'wd-input__textarea-count-current' : '']">{{ (value && value.length) || 0 }}</span>/{{ maxlength }}
           </span>
         </div>
       </div>
@@ -87,7 +88,7 @@
         v-if="showClear || showPwdVisible || suffixIcon || $slots.suffix || showWordCount"
         class="wd-input__suffix"
       >
-        <i v-if="showClear" class="wd-input__icon wd-icon-close-outline" @click="clear"></i>
+        <i v-if="showClear" class="wd-input__icon wd-icon-error-fill" @click="clear"></i>
         <i
           v-if="showPwdVisible"
           class="wd-input__icon"
@@ -95,7 +96,7 @@
           @click="togglePwdVisible"
         ></i>
         <span v-if="showWordCount" class="wd-input__count">
-          <span class="wd-input__count-current" :class="{ 'is-error': value && value.length > maxlength }">{{ (value && value.length) || 0 }}</span>/{{ maxlength }}
+          <span :class="[{ 'is-error': value && value.length > maxlength }, value && (value.length > 0) ? 'wd-input__textarea-count-current' : '']">{{ (value && value.length) || 0 }}</span>/{{ maxlength }}
         </span>
         <i v-if="suffixIcon" class="wd-input__icon" :class="suffixIcon"></i>
         <slot name="suffix"></slot>
