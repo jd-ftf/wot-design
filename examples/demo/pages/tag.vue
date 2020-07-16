@@ -21,12 +21,19 @@
       <wd-tag type="warning" mark>标签</wd-tag>
       <wd-tag type="success" mark>标签</wd-tag>
     </demo-block>
-    <demo-block title="空心标记标签">
+    <demo-block title="幽灵标记标签">
       <wd-tag mark plain>标签</wd-tag>
       <wd-tag type="primary" mark plain>标签</wd-tag>
       <wd-tag type="danger" mark plain>标签</wd-tag>
       <wd-tag type="warning" mark plain>标签</wd-tag>
       <wd-tag type="success" mark plain>标签</wd-tag>
+    </demo-block>
+    <demo-block title="圆角标签">
+      <wd-tag round>标签</wd-tag>
+      <wd-tag type="primary" round>标签</wd-tag>
+      <wd-tag type="danger" round>标签</wd-tag>
+      <wd-tag type="warning" round>标签</wd-tag>
+      <wd-tag type="success" round>标签</wd-tag>
     </demo-block>
     <demo-block title="设置图标">
       <wd-tag icon="wd-icon-clock" mark>标签</wd-tag>
@@ -36,7 +43,7 @@
       <wd-tag color="#faa21e" bg-color="#faa21e" plain>标签</wd-tag>
     </demo-block>
     <demo-block title="可关闭">
-      <wd-tag v-for="tag in tags" :key="tag.name" closable round @close="handleClose(tag)">{{ tag.name }}</wd-tag>
+      <wd-tag v-for="tag in tags" :key="tag.name" round closable @close="handleClose(tag)">{{ tag.name }}</wd-tag>
     </demo-block>
     <demo-block title="新增标签">
       <wd-tag v-for="tag in dynamicTags" :key="tag.name" closable round @close="handleClose1(tag)">{{ tag.name }}</wd-tag>

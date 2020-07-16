@@ -89,7 +89,7 @@ export default {
         {Icon}
         {Content}
         {
-          this.closable
+          this.closable && this.round
             ? <i class="wd-tag__close wd-icon-close-outline" onClick={ this.handleClose }></i> // TODO 等待替换icon
             : ''
         }

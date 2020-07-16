@@ -14,7 +14,7 @@
   }
   @include when(round) {
     font-size: $-tag-fs;
-    padding: 3px 12px;
+    padding: 4px 12px;
     background: transparent;
     color: $-tag-round-color;
     border: 1px solid $-tag-round-border-color;
@@ -90,8 +90,10 @@
   @include e(close) {
     display: inline-block;
     margin-left: 24px;
+    margin-right: -4px;
     font-size: $-tag-close-size;
-    vertical-align: middle;
+    height: 14px;
+    vertical-align: text-bottom;
     color: $-tag-close-color;
 
     &:active {

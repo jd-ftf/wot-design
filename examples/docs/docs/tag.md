@@ -45,7 +45,19 @@ Vue.use(Tag)
 <wd-tag type="success" mark>标签</wd-tag>
 ```
 
-### 空心标记标签
+### 幽灵标记标签
+
+设置 `round` 属性。
+
+```html
+<wd-tag mark>标签</wd-tag>
+<wd-tag type="primary" round>标签</wd-tag>
+<wd-tag type="danger" round>标签</wd-tag>
+<wd-tag type="warning" round>标签</wd-tag>
+<wd-tag type="success" round>标签</wd-tag>
+```
+
+### 圆角标签
 
 同时设置 `mark` 和 `plain` 属性。
 
@@ -114,7 +126,7 @@ export default {
 | icon | 左侧图标 | String | - | - |
 | color | 文字颜色 | String | - | - |
 | bg-color | 背景色和边框色 | String | - | - |
-| closable | 可关闭 | Boolean | - | false |
+| closable | 可关闭(只对圆角类型支持) | Boolean | - | false |
 | disable-transition | 禁用动画 | Boolean | - | false |
 | dynamic | 新增标签 | Boolean | - | false |
 
