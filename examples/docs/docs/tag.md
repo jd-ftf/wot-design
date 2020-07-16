@@ -74,7 +74,7 @@ Vue.use(Tag)
 设置 `icon` 左侧图标，也可以使用 'icon' 的 slot 插槽。
 
 ```html
-<wd-tag icon="wd-icon-clock">标签</wd-tag>
+<wd-tag icon="wd-icon-clock" mark>标签</wd-tag>
 ```
 
 ### 自定义颜色
