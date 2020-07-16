@@ -31,6 +31,10 @@ $-color-theme-emph: mix($-color-black, $-color-theme, 18%) !default; // 强调�
  * #9b9b9b mixColor($-color-white, $-color-black, 0.6078431372549019)
  * #262728 mixColor($-color-white, $-color-black, 0.1490349858424059)
  * #131415 mixColor($-color-white, $-color-black, 0.07452518192083728)
+ * #E1E1E1 mixColor($-color-white, $-color-black, 0.8823529411764706)
+ * #808080 mixColor($-color-white, $-color-black, 0.5019607843137255)
+ * #666666 mixColor($-color-white, $-color-black, 0.4)
+ * #999999 mixColor($-color-white, $-color-black, 0.6)
  * #668DF8 mixColor($-color-white, $-color-theme, 0.14034408637079962)
  * #4F7CF8 mixColor($-color-white, $-color-theme, 0.01111785969062061)
  * #517CF0 mixColor($-color-white, $-color-theme, 0.022321888435864964)
@@ -42,18 +46,23 @@ $-color-theme-emph: mix($-color-black, $-color-theme, 18%) !default; // 强调�
  * #0053a2 mixColor($-color-black, $-color-theme, 0.00421516435400293)
  * #2149CC mixColor($-color-theme, $-color-black, 0.4295057567214251)
  * #588EFF mixColor($-color-theme, $-color-white, 0.9380664194150506)
- * #20b080 mixColor($-color-black, $-color-success, 0.3811019568497541))
- * #2bd69d mixColor($-color-black, $-color-success, 0.17002409048245387))
- * #E67137 mixColor($-color-black, $-color-warning, 0.041948197590968614))
- * #FF974C mixColor($-color-white, $-color-warning, 0.9735592645168546))
- * #E04350 mixColor($-color-black, $-color-danger, 0.10389073211085606))
- * #FF5964 mixColor($-color-white, $-color-danger, 0.8865613604870433))
- * #6F56CC mixColor($-color-black, $-color-purple, 0.14623602619356685))
- * #9578FF mixColor($-color-white, $-color-purple, 0.15178717115906093))
- * #E6B52E mixColor($-color-black, $-color-yellow, 0.04191627618495966))
- * #F5D63B mixColor($-color-white, $-color-yellow, 0.3313174026620726))
- * #1A95DB mixColor($-color-black, $-color-blue, 0.391678528994532))
- * #33C2FF mixColor($-color-white, $-color-blue, 0.037960323165797775))
+ * #20b080 mixColor($-color-black, $-color-success, 0.3811019568497541)
+ * #2bd69d mixColor($-color-black, $-color-success, 0.17002409048245387)
+ * #30be05 mixColor($-color-black, $-color-success, 0.07717967732793533)
+ * #E67137 mixColor($-color-black, $-color-warning, 0.041948197590968614)
+ * #FF974C mixColor($-color-white, $-color-warning, 0.9735592645168546)
+ * #ff8200 mixColor($-color-white, $-color-warning, 0.968180952766151)
+ * #E04350 mixColor($-color-black, $-color-danger, 0.10389073211085606)
+ * #FF5964 mixColor($-color-white, $-color-danger, 0.8865613604870433)
+ * #ff4c4c mixColor($-color-white, $-color-danger, 0.8776460637847988)
+ * #ff4049 mixColor($-color-white, $-color-danger, 0.8694675025200608)
+ * #e63e46 mixColor($-color-black, $-color-danger, 0.07999460040562807)
+ * #6F56CC mixColor($-color-black, $-color-purple, 0.14623602619356685)
+ * #9578FF mixColor($-color-white, $-color-purple, 0.15178717115906093)
+ * #E6B52E mixColor($-color-black, $-color-yellow, 0.04191627618495966)
+ * #F5D63B mixColor($-color-white, $-color-yellow, 0.3313174026620726)
+ * #1A95DB mixColor($-color-black, $-color-blue, 0.391678528994532)
+ * #33C2FF mixColor($-color-white, $-color-blue, 0.037960323165797775)
  */
 
  /* 文字颜色（默认浅色背景下） */
@@ -508,28 +517,36 @@ $-tabs-nav-bg: $-color-white !default; // 背景颜色
 $-tabs-nav-active-color: $-color-theme !default; // 头部高亮颜色
 $-tabs-nav-disabled-color: rgba($-color-black, 0.25) !default; // 头部禁用颜色
 $-tabs-nav-line-height: 3px !default; // 高亮边框高度
-$-tabs-nav-line-bg-color: linear-gradient(315deg, rgba(81,124,240,1) 0%,rgba(118,158,245,1) 100%) !default; // 底部条颜色
+$-tabs-nav-line-bg-color: linear-gradient(315deg, mixColor($-color-white, $-color-theme, 0.022321888435864964) 0%, mixColor($-color-white, $-color-theme, 0.23035356240225305) 100%) !default; // 底部条颜色
 $-tabs-nav-map-fs: $-fs-content !default; // map 类型按钮字号
 $-tabs-nav-map-color: rgba($-color-black, 0.85) !default; // map 类型按钮文字颜色
 $-tabs-nav-map-arrow-color: rgba($-color-black, 0.65) !default; // map 类型箭头颜色
 $-tabs-nav-map-button-back-color:rgba($-color-black, 0.04) !default; // map 类型按钮边框颜色
-$-tabs-nav-map-btn-before-bg: linear-gradient(270deg, rgba(255,255,255,1) 1%,rgba(255,255,255,0) 100%) !default; // map 遮照
+$-tabs-nav-map-btn-before-bg: linear-gradient(270deg, $-color-white 1%,rgba($-color-white, 0) 100%) !default; // map 遮照
 $-tabs-nav-map-button-radius: 16px !default; // map 类型按钮圆角大小
 $-tabs-nav-map-modal-bg: $-modal-bg !default; // map 类型蒙层背景色
 
 /* tag */
-$-tag-small-padding: 2px 3px !default; // 小尺寸padding
-$-tag-medium-padding: 0 5px !default; // 中等尺寸padding
-$-tag-large-padding: 3px 10px !default; // 大尺寸padding
 $-tag-fs: $-fs-secondary !default; // 字号
-$-tag-small-fs: 10px !default; // 小尺寸字号
-$-tag-info-color: #777 !default; // info 颜色
+$-tag-color: $-color-white !default; // 字体颜色
+$-tag-small-fs: $-fs-aid !default; // 小尺寸字号
+$-tag-info-color: rgba($-color-black, 0.65) !default; // info 颜色
 $-tag-primary-color: $-color-theme !default; // 主颜色
-$-tag-danger-color: #ff4c4c !default; // danger 颜色
-$-tag-warning-color: #ff8200 !default; // warning 颜色
-$-tag-success-color: #30be05 !default; // success 颜色
+$-tag-danger-color: mixColor($-color-white, $-color-danger, 0.8776460637847988) !default; // danger 颜色
+$-tag-warning-color: mixColor($-color-white, $-color-warning, 0.968180952766151) !default; // warning 颜色
+$-tag-success-color: mixColor($-color-black, $-color-success, 0.07717967732793533) !default; // success 颜色
+$-tag-info-bg: linear-gradient(45deg, mixColor($-color-white, $-color-black, 0.5019607843137255) 0%,mixColor($-color-white, $-color-black, 0.6) 100%) !default; // info 背景颜色
+$-tag-primary-bg: linear-gradient(49deg, mixColor($-color-white, $-color-theme, 0.022321888435864964) 0%,mixColor($-color-white, $-color-theme, 0.23035356240225305) 100%) !default; // 主背景颜色
+$-tag-danger-bg: linear-gradient(44deg, mixColor($-color-black, $-color-danger, 0.07999460040562807) 0%,mixColor($-color-white, $-color-danger, 0.8694675025200608) 100%) !default; // danger 背景颜色
+$-tag-warning-bg: linear-gradient(45deg, mixColor($-color-black, $-color-warning, 0.041948197590968614) 0%,mixColor($-color-white, $-color-warning, 0.9735592645168546) 100%) !default; // warning 背景颜色
+$-tag-success-bg: linear-gradient(45deg, mixColor($-color-black, $-color-success, 0.3811019568497541) 0%,mixColor($-color-black, $-color-success, 0.17002409048245387) 100%) !default; // success 背景颜色
+$-tag-round-color: mixColor($-color-white, $-color-black, 0.4) !default; // round 字体颜色
+$-tag-round-border-color: mixColor($-color-white, $-color-black, 0.8823529411764706) !default; // round 边框颜色
+$-tag-round-radius: 12px !default; // round 圆角大小
+$-tag-mark-radius: 6px 2px 6px 2px !default; // mark 圆角大小
 $-tag-close-size: 14px !default; // 关闭按钮字号
-$-tag-close-color: $-color-icon !default; // 关闭按钮颜色
+$-tag-close-color: $-tag-info-color !default; // 关闭按钮颜色
+$-tag-close-active-color: rgba($-color-black, 0.45) !default; // 关闭按钮 active 颜色
 
 /* toast */
 $-toast-padding: 8px 14px !default; // 无图标的padding
