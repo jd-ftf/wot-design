@@ -3,38 +3,73 @@
 @import './common/transition.scss';
 @import './icon.scss';
 
-@mixin tag-type-style ($normalColor) {
-  background: $normalColor;
-  border: 1px solid transparent;
+@mixin tag-type-style ($normalColor, $normalBg) {
+  background: $normalBg;
 
   @include when(plain) {
     background: transparent;
     color: $normalColor;
-    border-color: $normalColor;
+    border: 1px solid $normalColor;
+    padding: 1px 4px;
+  }
+  @include when(round) {
+    font-size: $-tag-fs;
+    padding: 4px 12px;
+    background: transparent;
+    color: $-tag-round-color;
+    border: 1px solid $-tag-round-border-color;
+    border-radius: $-tag-round-radius;
+  }
+  @include when(mark) {
+    padding: 2px 6px;
+    border-radius: $-tag-mark-radius;
+
+    @include when(plain) {
+      padding: 1px 6px;
+    }
+  }
+  @include when(active) {
+    color: $-tag-primary-color;
+    border-color: $-tag-primary-color;
   }
 }
 @include b(tag) {
+  font-size: $-tag-small-fs;
+  line-height: 1.2;
   display: inline-block;
-  padding: $-tag-medium-padding;
-  color: #fff;
+  color: $-tag-color;
+  padding: 1px 3px;
   border-radius: 2px;
-  font-size: 0;
   transition: opacity .3s;
   -webkit-tap-highlight-color: transparent;
 
-  @include tag-type-style($-tag-info-color);
+  @include tag-type-style($-tag-info-color, $-tag-info-bg);
 
   @include when(primary) {
-    @include tag-type-style($-tag-primary-color);
+    @include tag-type-style($-tag-primary-color, $-tag-primary-bg);
   }
   @include when(danger) {
-    @include tag-type-style($-tag-danger-color);
+    @include tag-type-style($-tag-danger-color, $-tag-danger-bg);
   }
   @include when(warning) {
-    @include tag-type-style($-tag-warning-color);
+    @include tag-type-style($-tag-warning-color, $-tag-warning-bg);
   }
   @include when(success) {
-    @include tag-type-style($-tag-success-color);
+    @include tag-type-style($-tag-success-color, $-tag-success-bg);
+  }
+  @include when(icon) {
+    font-size: $-tag-fs;
+    padding: 2px 5px;
+  }
+  @include when(dynamic) {
+    
+    &:active {
+      color: $-tag-primary-color;
+      border-color: $-tag-primary-color;
+    }
+  }
+  @include when(dynamic-input) {
+    border-color: $-tag-primary-color;
   }
   @include e(icon) {
     display: inline-block;
@@ -46,8 +81,6 @@
   }
   @include e(text) {
     display: inline-block;
-    font-size: $-tag-fs;
-    line-height: 1.43;
     vertical-align: middle;
   }
   @include e(add-text) {
@@ -60,30 +93,20 @@
   }
   @include e(close) {
     display: inline-block;
-    margin-left: 10px;
+    margin-left: 24px;
+    margin-right: -4px;
     font-size: $-tag-close-size;
-    vertical-align: middle;
+    height: 14px;
+    vertical-align: text-bottom;
     color: $-tag-close-color;
-  }
 
-  @include when(small) {
-    .wd-tag__text {
-      font-size: $-tag-small-fs;
-    }
-    .wd-tag__add-text {
-      font-size: $-tag-small-fs;
-    }
-    .wd-tag__close {
-      transform: translateY(1px);
-      margin-left: 4px;
-      font-size: $-tag-fs;
+    &:active {
+      color: $-tag-close-active-color;
     }
   }
-  @include when(large) {
-    padding: $-tag-large-padding;
-
-    .wd-tag__close {
-      margin-left: 18px;
-    }
+  @include e(add) {
+    font-size: $-tag-fs;
+    vertical-align: bottom;
+    margin-right: 4px;
   }
 }
