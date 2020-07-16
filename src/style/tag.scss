@@ -14,7 +14,7 @@
   }
   @include when(round) {
     font-size: $-tag-fs;
-    padding: 4px 12px;
+    padding: 4px 11px;
     background: transparent;
     color: $-tag-round-color;
     border: 1px solid $-tag-round-border-color;
@@ -62,7 +62,9 @@
     padding: 2px 5px;
   }
   @include when(dynamic) {
-    
+    box-sizing: border-box;
+    width: 88px;
+
     &:active {
       color: $-tag-primary-color;
       border-color: $-tag-primary-color;
@@ -88,6 +90,7 @@
     display: inline-block;
     font-size: $-tag-fs;
     vertical-align: middle;
+    padding: 0;
     outline: none;
     border: none;
   }
