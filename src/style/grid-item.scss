@@ -68,6 +68,7 @@
 
   @include e(content) {
     height: 100%;
+    background-color: $-grid-item-bg;
     padding: $-grid-item-padding;
     position: relative;
     display: flex;
