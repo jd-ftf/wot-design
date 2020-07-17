@@ -18,7 +18,7 @@
       <i
         class="wd-checkbox__check"
         :class="{
-          'wd-icon-check-round': finalShape === 'circle' || finalShape === 'square'
+          'wd-icon-check-bold': finalShape === 'circle' || finalShape === 'square'
         }"
         :style="{
           'color': isChecked && finalShape !== 'circle' && finalShape !== 'square' && !finalDisabled ? finalCheckedColor : ''
@@ -37,8 +37,11 @@
       class="wd-checkbox__label"
       :style="{ 'color': isChecked && finalShape === 'button' && !finalDisabled ? finalCheckedColor : '' }"
     >
-      <i class="wd-checkbox__btn-check wd-icon-check" v-if="finalShape === 'button' && isChecked"></i>
-      <span class="wd-checkbox__txt">
+      <i
+        class="wd-checkbox__btn-check wd-icon-check-bold"
+        v-if="finalShape === 'button' && isChecked"
+      ></i>
+      <span class="wd-checkbox__txt" v-if="$slots.default">
         <slot></slot>
       </span>
     </div>
@@ -53,11 +56,21 @@ export default {
       default: ''
     }
   },
+
+  data () {
+    return {
+      currentDisabled: ''
+    }
+  },
+
   props: {
     value: [String, Number, Boolean],
     shape: String,
     checkedColor: String,
-    disabled: Boolean,
+    disabled: {
+      type: Boolean,
+      default: null
+    },
     trueValue: [String, Number],
     falseValue: [String, Number]
   },
@@ -79,14 +92,10 @@ export default {
     },
     finalDisabled () {
       if (this.checkboxGroup) {
-        let { min, max, value, disabled } = this.checkboxGroup
-        let sizeDisabled = false
-        if (min && value.length <= min && this.isChecked) {
-          sizeDisabled = true
-        } else if (max && value.length >= max && !this.isChecked) {
-          sizeDisabled = true
-        }
-        return this.disabled || disabled || sizeDisabled || false
+        const { min, max, value, disabled } = this.checkboxGroup
+        // 个数限制
+        const sizeDisabled = Boolean((min && value.length <= min && this.isChecked) || (max && value.length >= max && !this.isChecked))
+        return disabled ? (this.disabled !== null ? this.disabled : disabled) : (this.disabled || sizeDisabled)
       } else {
         return this.disabled || false
       }
@@ -95,6 +104,7 @@ export default {
       return this.checkboxGroup.inline
     }
   },
+
   methods: {
     toggle () {
       if (this.checkboxGroup) {

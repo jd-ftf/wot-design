@@ -1,0 +1,39 @@
+@import "./abstracts/variable";
+@import './abstracts/mixin';
+
+@include b(checkbox-group) {
+  background-color: $-checkbox-bg;
+  @include when(cell) {
+    .wd-checkbox {
+      padding: 14px 15px;
+      margin: 0;
+    }
+  }
+  // 上下20px 左右15px 内部间隔12px
+  @include when(button) {
+    width: 100%;
+    height: 100%;
+    padding: 8px 3px 20px 15px;
+    box-sizing: border-box;
+    overflow: hidden;
+    height: auto;
+
+    .wd-checkbox {
+      float: left;
+      display: flex;
+      width: 33.3333%;
+      padding: 12px 12px 0px 0px;
+      box-sizing: border-box;
+
+      .wd-checkbox__label {
+        width: 100%;
+      }
+
+      &:last-child::after {
+        content: "";
+        display: table;
+        clear: both;
+      }
+    }
+  }
+}

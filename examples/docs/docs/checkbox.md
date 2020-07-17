@@ -42,7 +42,7 @@ export default {
 设置 `checked-color` 属性。
 
 ```html
-<wd-checkbox v-model="value" checked-color="#f00">京麦</wd-checkbox>
+<wd-checkbox v-model="value" checked-color="#34d19d">京麦</wd-checkbox>
 ```
 
 ### 修改选中和非选中的值
@@ -57,17 +57,36 @@ export default {
 
 `v-model` 为数组，单个复选框的值通过 `value` 进行设置。
 
+设置 `cell` 属性，开启表单模式复选框组。
+
+开启表单模式时，如果同时设置 `shape` 为 `button` 开启表单复选按钮组模式。
+
 ```html
 <wd-checkbox-group v-model="value">
   <wd-checkbox value="jingmai">京麦</wd-checkbox>
   <wd-checkbox value="shop">商家后台</wd-checkbox>
+</wd-checkbox-group>
+<wd-checkbox-group v-model="value1" cell>
+  <wd-checkbox value="jingmai">京麦</wd-checkbox>
+  <wd-checkbox value="shop">商家后台</wd-checkbox>
+</wd-checkbox-group>
+<wd-checkbox-group v-model="value2" cell shape="button">
+  <wd-checkbox value="1" disabled>选项一</wd-checkbox>
+  <wd-checkbox value="2">选项二</wd-checkbox>
+  <wd-checkbox value="3">选项三</wd-checkbox>
+  <wd-checkbox value="4">选项四</wd-checkbox>
+  <wd-checkbox value="5">选项五</wd-checkbox>
+  <wd-checkbox value="6">选项六</wd-checkbox>
+  <wd-checkbox value="7">选项七</wd-checkbox>
 </wd-checkbox-group>
 
 <script>
 export default {
   data () {
     return {
-      value: ['jingmai']
+      value: ['jingmai'],
+      value1: ['jingmai'],
+      value2: ['1']
     }
   }
 }
@@ -124,6 +143,7 @@ export default {
 |---------- |------------------------------------ |---------- |------------- |-------- |
 | value/v-model | 绑定值 | Array | - | - |
 | shape | 单选框形状 | string | 'circle', 'square', 'button' | 'circle' |
+| cell | 表单模式 | boolean | - | false |
 | checked-color | 选中的颜色 | string | - | '#0083ff' |
 | disabled | 禁用 | boolean | - | false |
 | min | 最小选中的数量 | number | - | 0 |

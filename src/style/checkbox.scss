@@ -1,6 +1,6 @@
-@import './abstracts/variable';
-@import './abstracts/mixin';
-@import './icon.scss';
+@import "./abstracts/variable";
+@import "./abstracts/mixin";
+@import "./icon.scss";
 
 @include b(checkbox) {
   display: block;
@@ -17,13 +17,16 @@
     display: inline-block;
     width: $-checkbox-size;
     height: $-checkbox-size;
-    border: 1px solid $-checkbox-border-color;
+    border: 2px solid $-checkbox-border-color;
     border-radius: 50%;
-    color: #fff;
-    background: #fff;
+    color: $-checkbox-check-color;
+    background: $-checkbox-bg;
     vertical-align: middle;
-    transition: background .2s;
-
+    transition: background 0.2s;
+    box-sizing: border-box;
+    display: inline-flex;
+    align-content: center;
+    justify-content: center;
     @include when(square) {
       border-radius: $-checkbox-square-radius;
     }
@@ -36,38 +39,33 @@
     opacity: 0;
   }
   @include e(btn-check) {
-    position: absolute;
     display: inline-block;
-    left: 16px;
-    top: 50%;
-    font-size: 16px;
-    transform: translateY(-50%);
+    font-size: $-checkbox-icon-size;
     margin-right: 4px;
-    height: 16px;
-    width: 16px;
+    height: $-checkbox-icon-size;
+    width: $-checkbox-icon-size;
+    vertical-align: middle;
   }
   @include e(txt) {
     display: inline-block;
     vertical-align: middle;
-    line-height: 1.43;
+    line-height: 20px;
+    max-width: 112px;
+    @include lineEllipsis;
   }
   @include e(label) {
     position: relative;
     display: inline-block;
     margin-left: $-checkbox-label-margin;
-    vertical-align: top;
+    vertical-align: middle;
     font-size: $-checkbox-label-fs;
     color: $-checkbox-label-color;
   }
   @include e(check) {
-    position: absolute;
-    display: inline-block;
-    right: 0;
-    top: 1px;
-    color: #fff;
-    font-size: 13px;
+    color: $-checkbox-check-color;
+    font-size: $-checkbox-icon-size;
     opacity: 0;
-    transition: opacity .2s;
+    transition: opacity 0.2s;
   }
   @include when(checked) {
     .wd-checkbox__shape {
@@ -85,6 +83,7 @@
     margin-bottom: 0;
     margin-right: $-checkbox-margin;
     vertical-align: top;
+    font-size: $-checkbox-button-font-size;
 
     &:last-child {
       margin-right: 0;
@@ -97,17 +96,27 @@
       border: none;
     }
     .wd-checkbox__label {
+      display: inline-flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      min-width: $-checkbox-min-width;
+      max-width: $-checkbox-max-width;
+      height: $-checkbox-height;
+      font-size: $-checkbox-button-font-size;
       margin-left: 0;
-      padding: 4px 28px;
-      border: 1px solid $-checkbox-border-color;
+      padding: 5px 15px;
+      border: 1px solid $-checkbox-button-border;
+      background-color: $-checkbox-button-bg;
       border-radius: $-checkbox-button-radius;
-      transition: color .2s, border .2s;
+      transition: color 0.2s, border 0.2s;
+      box-sizing: border-box;
     }
     @include when(checked) {
       .wd-checkbox__label {
-        padding-left: 40px;
-        padding-right: 16px;
         color: $-checkbox-checked-color;
+        background-color: $-checkbox-bg;
+        border-color: $-checkbox-checked-color;
         border-color: currentColor;
       }
     }
@@ -117,7 +126,7 @@
     display: inline-block;
     margin-bottom: 0;
     margin-right: $-checkbox-margin;
-    
+
     &:last-child {
       margin-right: 0;
     }
@@ -125,14 +134,14 @@
 
   @include when(disabled) {
     .wd-checkbox__shape {
-      border-color: $-checkbox-disabled-label-color;
+      border-color: $-checkbox-border-color;
     }
     .wd-checkbox__label {
       color: $-checkbox-disabled-label-color;
     }
     @include when(checked) {
       .wd-checkbox__shape {
-        color: $-checkbox-disabled-label-color;
+        color: $-checkbox-disabled-check-color;
       }
       .wd-checkbox__label {
         color: $-checkbox-disabled-label-color;
@@ -140,7 +149,14 @@
     }
     @include when(button) {
       .wd-checkbox__label {
-        border-color: $-checkbox-disabled-color;
+        background: $-checkbox-disabled-color;
+        border-color: $-checkbox-button-border;
+        color: $-checkbox-disabled-label-color;
+      }
+      @include when(checked) {
+        .wd-checkbox__label {
+          border-color: $-checkbox-button-disabled-border;
+        }
       }
     }
   }
