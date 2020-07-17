@@ -6,10 +6,11 @@ export default {
     icon: String,
     closable: Boolean,
     plain: Boolean,
+    round: Boolean,
+    mark: Boolean,
     dynamic: Boolean,
     color: String,
     bgColor: String,
-    size: String,
     disableTransition: Boolean
   },
   data () {
@@ -24,7 +25,8 @@ export default {
 
       this.type && tagClass.push(`is-${this.type}`)
       this.plain && tagClass.push('is-plain')
-      this.size && tagClass.push(`is-${this.size}`)
+      this.round && tagClass.push('is-round')
+      this.mark && tagClass.push('is-mark')
 
       return tagClass
     }
@@ -37,13 +39,6 @@ export default {
       event.stopPropagation()
       this.$emit('close')
     },
-    handleAdd () {
-      this.dynamicInput = true
-      this.dynamicValue = ''
-      this.$nextTick(() => {
-        this.$refs.addText.focus()
-      })
-    },
     handleBlur () {
       this.setDynamicInput()
     },
@@ -55,6 +50,13 @@ export default {
     },
     setDynamicInput () {
       this.dynamicInput = false
+    },
+    handleAdd () {
+      this.dynamicInput = true
+      this.dynamicValue = ''
+      this.$nextTick(() => {
+        this.$refs.addText.focus()
+      })
     }
   },
   render (h) {
@@ -64,22 +66,34 @@ export default {
         ? <i class={[ 'wd-tag__icon', this.icon ]}></i>
         : ''
     let Content = !this.dynamic
-      ? <span class="wd-tag__text" style={{ color: this.color }}>{ this.$slots.default }</span>
+      ? <div class="wd-tag__text-container">
+        <span class={[ 'wd-tag__text', this.round || this.icon ? '' : 'wd-tag__text-hidden' ]}>{ this.$slots.default }</span>
+        <span v-show={ !this.round && !this.icon } class="wd-tag__text wd-tag__text-real" style={{ color: this.color }}>{ this.$slots.default }</span>
+      </div>
       : this.dynamicInput
-        ? <input ref="addText" class="wd-tag__add-text" type="text" autofocus vModel={ this.dynamicValue } onBlur={ this.handleBlur } onKeypress={ this.handleConfirm }/>
-        : <span class="wd-tag__text" style={{ color: this.color }} onClick={ this.handleAdd } >+新增标签</span>
+        ? <input ref="addText" class="wd-tag__add-text" type="text" autofocus vModel={ this.dynamicValue } onBlur={ this.handleBlur } onKeypress={ this.handleConfirm } placeholder="请输入"/>
+        : <span class="wd-tag__text"
+          style={{ color: this.color }}
+          onClick={ this.handleAdd }
+        ><i class="wd-tag__add wd-icon-add"></i>新增标签</span>
 
     let Tag = (
       <div
-        class={ this.tagClass }
+        class={[ this.tagClass,
+          {
+            'is-icon': Icon,
+            'is-dynamic': this.dynamic,
+            'is-dynamic-input': this.dynamicInput
+          }
+        ]}
         style={{ background: !this.plain && this.bgColor, borderColor: this.bgColor }}
         onClick={ this.handleClick }
       >
         {Icon}
         {Content}
         {
-          this.closable
-            ? <i class="wd-tag__close wd-icon-close-outline" onClick={ this.handleClose }></i>
+          this.closable && this.round
+            ? <i class="wd-tag__close wd-icon-error-fill" onClick={ this.handleClose }></i>
             : ''
         }
       </div>
