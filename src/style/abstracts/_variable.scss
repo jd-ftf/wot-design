@@ -264,16 +264,16 @@ $-infinite-load-loading-size: 20px !default; // loading 大小
 $-infinite-load-fs: 10px !default; // 字号
 
 /* input-number */
-$-input-number-color: $-color-title !default; // 文字颜色
-$-input-number-border-color: #cbcbcb !default; // 边框颜色
-$-input-number-disabled-color: #bfbfbf !default; // 禁用颜色
-$-input-number-disabled-input-bg: #f2f2f2 !default; // 输入框禁用背景色
+$-input-number-color: rgba($-color-black, 0.85) !default; // 文字颜色
+$-input-number-border-color: #e8e8e8 !default; // 边框颜色
+$-input-number-disabled-color: rgba($-color-black, 0.25) !default; // 禁用颜色
 $-input-number-height: 24px !default; // 加减号按钮高度
 $-input-number-btn-width: 26px !default; // 加减号按钮宽度
 $-input-number-input-width: 36px !default; // 输入框宽度
 $-input-number-radius: 4px !default; // 加减号按钮圆角大小
-$-input-number-fs: $-fs-secondary !default; // 输入框字号
-$-input-number-icon-size: 13px !default; // 加减号图标大小
+$-input-number-fs: 12px !default; // 输入框字号
+$-input-number-icon-size: 14px !default; // 加减号图标大小
+$-input-number-icon-color: rgba($-color-black, 0.65) !default; // icon颜色
 
 /* input */
 $-input-border-color: #dadada !default; // 无label边框颜色

@@ -7,7 +7,7 @@
     }"
   >
     <a class="wd-input-number__action" :class="{ 'is-disabled': minDisabled }" @click="sub">
-      <i class="wd-input-number__sub"></i>
+      <wd-icon name="decrease" class="wd-input-number__action-icon"></wd-icon>
     </a>
     <div v-if="!withoutInput" class="wd-input-number__inner">
       <input
@@ -25,9 +25,10 @@
         @blur="handleBlur"
       />
       <i class="wd-input-number__input-border"></i>
+
     </div>
     <a class="wd-input-number__action" :class="{ 'is-disabled': maxDisabled }" @click="add">
-      <i class="wd-input-number__add"></i>
+      <wd-icon name="add" class="wd-input-number__action-icon"></wd-icon>
     </a>
   </div>
 </template>
