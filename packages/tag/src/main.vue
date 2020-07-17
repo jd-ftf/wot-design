@@ -66,7 +66,10 @@ export default {
         ? <i class={[ 'wd-tag__icon', this.icon ]}></i>
         : ''
     let Content = !this.dynamic
-      ? <span class="wd-tag__text" style={{ color: this.color }}>{ this.$slots.default }</span>
+      ? <div class="wd-tag__text-container">
+        <span class={[ 'wd-tag__text', this.round || this.icon ? '' : 'wd-tag__text-hidden' ]}>{ this.$slots.default }</span>
+        <span v-show={ !this.round && !this.icon } class="wd-tag__text wd-tag__text-real" style={{ color: this.color }}>{ this.$slots.default }</span>
+      </div>
       : this.dynamicInput
         ? <input ref="addText" class="wd-tag__add-text" type="text" autofocus vModel={ this.dynamicValue } onBlur={ this.handleBlur } onKeypress={ this.handleConfirm } placeholder="请输入"/>
         : <span class="wd-tag__text"
