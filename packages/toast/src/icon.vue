@@ -1,7 +1,7 @@
 <template>
-  <div :style="{ 'width': size, 'height': size }">
+  <div>
     <!-- info -->
-    <div v-if="type === 'info'">
+    <div v-if="type === 'info'" :style="{ 'width': size, 'height': size }">
       <svg viewBox="0 0 42 42">
         <defs>
           <filter
@@ -43,7 +43,7 @@
       </svg>
     </div>
     <!-- warning -->
-    <div v-if="type === 'warning'">
+    <div v-if="type === 'warning'" :style="{ 'width': size, 'height': size }">
       <svg viewBox="0 0 42 42">
         <defs>
           <filter
@@ -94,7 +94,7 @@
       </svg>
     </div>
     <!-- success -->
-    <div v-if="type === 'success'">
+    <div v-if="type === 'success'" :style="{ 'width': size, 'height': size }">
       <svg viewBox="0 0 42 42">
         <defs>
           <filter
@@ -151,7 +151,7 @@
       </svg>
     </div>
     <!-- error -->
-    <div v-if="type === 'error'">
+    <div v-if="type === 'error'" :style="{ 'width': size, 'height': size }">
       <svg viewBox="0 0 42 42">
         <defs>
           <linearGradient x1="99.623%" y1="50.377%" x2=".377%" y2="50.377%" id="a">

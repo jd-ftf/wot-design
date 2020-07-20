@@ -1,28 +1,29 @@
-@import './abstracts/variable';
-@import './abstracts/mixin';
+@import "./abstracts/variable";
+@import "./abstracts/mixin";
 
 @include b(message-box) {
   width: $-message-box-width;
   border-radius: $-message-box-radius;
   overflow: hidden;
+  border-radius: $-message-box-border-radius;
 
   @include e(body) {
-    background-color: #fff;    
+    background-color: $-message-box-bg;
     padding: $-message-box-padding;
 
+    // TODO 待补充没有标题场景
     @include when(no-title) {
-      padding: 25px;
-    }
-    @include when(prompt) {
-      padding-bottom: 21px;
+      padding: 25px 24px 0px;
     }
   }
   @include e(title) {
     text-align: center;
     font-size: $-message-box-title-fs;
-    margin-bottom: 4px;
     color: $-message-box-title-color;
-    line-height: 1.375;
+    line-height: 20px;
+    font-weight: 500;
+    padding-top: 5px;
+    padding-bottom: 10px;
   }
   @include e(content) {
     max-height: $-message-box-content-max-height;
@@ -30,7 +31,7 @@
     font-size: $-message-box-content-fs;
     text-align: center;
     overflow: auto;
-    line-height: 1.43;
+    line-height: 20px;
 
     &::-webkit-scrollbar {
       width: $-message-box-content-scrollbar-width;
@@ -42,35 +43,10 @@
     }
   }
   @include e(input-container) {
-    position: relative;
-    
-    &::after {
-      position: absolute;
-      display: block;
-      content: '';
-      width: 100%;
-      height: 1px;
-      left: 0;
-      bottom: 0;
-      transform: scaleY(0.5);
-      background: $-message-box-input-border-color;
-    }
+    margin-top: 12px;
   }
-  @include e(input) {
-    margin-top: 14px;
-    border: none;
-    height: $-message-box-input-height;
-    width: 100%;
-    font-size: $-message-box-input-fs;
-    line-height: $-message-box-input-height;
-    box-sizing: border-box;
-    outline: none;
-    -webkit-tap-highlight-color: transparent;
 
-    &::-webkit-input-placeholder {
-      color: $-message-box-input-placeholder-color;
-    }
-  }
+  // TODO 待设计出图补充错误提示场景
   @include e(input-error) {
     min-height: 18px;
     margin-top: 2px;
@@ -83,37 +59,19 @@
   }
   @include e(actions) {
     display: flex;
+    padding: 24px;
+    .is-info {
+      margin-right: 16px;
+    }
   }
-  @include e(button) {
-    display: block;
-    flex: 1;
-    margin: 0;
-    padding: 0;
-    font-size: $-message-box-button-fs;
-    text-align: center;
-    height: $-message-box-button-height;
-    line-height: $-message-box-button-height;
-    color: $-message-box-cancel-color;
-    outline: none;
-    -webkit-appearance: none;
-    border: none;
-    -webkit-tap-highlight-color: transparent;
 
-    @include m(cancel) {
-      background-color: $-message-box-cancel-bg;
-      border-top: 1px solid #eee;
-      box-sizing: border-box;
-    }
-    @include m(confirm) {
-      background-color: $-message-box-confirm-bg;
-      color: $-message-box-confirm-color;
-    }
-  }
-  &.wd-zoom-in-enter-active, &.wd-zoom-in-leave-active{
+  &.wd-zoom-in-enter-active,
+  &.wd-zoom-in-leave-active {
     transition-property: opacity, transform;
     transform-origin: center center;
   }
-  &.wd-zoom-in-enter, &.wd-zoom-in-leave-to{
+  &.wd-zoom-in-enter,
+  &.wd-zoom-in-leave-to {
     opacity: 0;
     transform: translate3d(-50%, -50%, 0) scale(0.9);
   }

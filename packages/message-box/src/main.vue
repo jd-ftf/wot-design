@@ -17,40 +17,42 @@
         'is-prompt': type === 'prompt'
       }"
     >
-      <div v-if="title" class="wd-message-box__title">
-        {{ title }}
-      </div>
+      <div v-if="title" class="wd-message-box__title">{{ title }}</div>
       <div class="wd-message-box__content">
         <slot v-if="type !== 'prompt'">
           <div v-html="msg"></div>
         </slot>
         <template v-else>
           <div class="wd-message-box__input-container">
-            <input
+            <wd-input
               :type="inputType"
+              size="large"
               v-model="inputValue"
               :placeholder="inputPlaceholder || t('wd.messageBox.inputPlaceholder')"
-              class="wd-message-box__input"
             />
           </div>
-          <div v-show="showErr" class="wd-message-box__input-error">
-            {{ inputError || t('wd.messageBox.inputNoValidate') }}
-          </div>
+          <div
+            v-show="showErr"
+            class="wd-message-box__input-error"
+          >{{ inputError || t('wd.messageBox.inputNoValidate') }}</div>
         </template>
       </div>
     </div>
     <div class="wd-message-box__actions">
-      <button type="button"
+      <wd-button
         v-if="showCancelButton"
-        class="wd-message-box__button wd-message-box__button--cancel"
-        @click="toggleModal('cancel')">
-        {{ cancelButtonText || t('wd.messageBox.cancel') }}
-      </button>
-      <button type="button"
-        class="wd-message-box__button wd-message-box__button--confirm"
-        @click="toggleModal('confirm')">
-        {{ confirmButtonText || t('wd.messageBox.confirm') }}
-      </button>
+        type="info"
+        round
+        block
+        @click="toggleModal('cancel')"
+      >{{ cancelButtonText || t('wd.messageBox.cancel') }}</wd-button>
+      <wd-button
+        v-if="showConfirmButton"
+        type="primary"
+        round
+        block
+        @click="toggleModal('confirm')"
+      >{{ confirmButtonText || t('wd.messageBox.confirm') }}</wd-button>
     </div>
   </wd-popup>
 </template>
