@@ -4,12 +4,8 @@ export default {
     type: Boolean,
     default: true
   },
-  visibleItemCount: {
+  columnsHeight: {
     type: Number,
-    default: 7
-  },
-  itemHeight: {
-    type: Number,
-    default: 33
+    default: 217
   }
 }

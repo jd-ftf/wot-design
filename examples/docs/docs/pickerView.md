@@ -99,6 +99,25 @@ export default {
 </script>
 ```
 
+### 滚筒高度自定义
+
+`columns-height` 属性设置滚筒的高度。
+
+```html
+<wd-picker-view :columns="columns" v-model="value" :columns-height="100"></wd-picker-view>
+
+<script>
+export default {
+  data () {
+    return {
+      columns: ['选项1', '选项2', '选项3', '选项4', '选项5', '选项6', '选项7'],
+      value: '选项1'
+    }
+  }
+}
+</script>
+```
+
 ### 多级联动
 
 传入 `column-change` 属性，其类型为 `function`，接收 pickerView 实例、当前选中项、当前修改列的下标、resolve 作为入参，根据选中项和列下标进行判断，通过 pickerView 实例暴露出来的 `setColumnData` 方法修改其他列的数据源，当修改完成后需要执行 `resolve()` 告知组件修改完成以继续执行，如果 `column-change` 包含异步操作，也可以使组件按照异步顺序进行执行。
@@ -157,11 +176,10 @@ export default {
 | columns | 选择器数据，可以为字符串数组，也可以为对象数组，如果为二维数组，则为多列选择器 | array | - | - |
 | loading | 加载中 | boolean | - | false |
 | arrow-html | 是否使用html渲染选择器内容 | boolean | - | true |
-| visible-item-count | 展示的行数 | number | - | 7 |
-| item-height | 选项高度 | number | - | 33 |
 | value-key | 选项对象中，value对应的 key | string | - | 'label' |
 | label-key | 选项对象中，展示的文本对应的 key | string | - | 'value' |
 | column-change | 接收 pickerView 实例、选中项、当前修改列的下标、resolve 作为入参，根据选中项和列下标进行判断，通过 pickerView 实例暴露出来的 `setColumnData` 方法修改其他列的数据源。 | function | - | - |
+| columns-height | pickerView高 | number | - | 217 |
 
 ### Events
 

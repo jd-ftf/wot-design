@@ -1,44 +1,18 @@
 <template>
-  <div
-    class="wd-picker"
-    :class="[
-      {
-        'is-cell': label || $slots.label,
-        'is-error': error,
-        'is-align-right': alignRight,
-        'is-disabled': disabled
-      },
-      size ? `is-${size}` : ''
-    ]"
-  >
-    <div
-      class="wd-picker__field"
-      @click="showPopup"
-    >
-      <div v-if="label || $slots.label" class="wd-picker__label" :style="labelWidth ? `min-width: ${labelWidth}; max-width: ${labelWidth}` : ''">
-        <slot name="label">
-          {{ label }}
-        </slot>
-      </div>
-      <div class="wd-picker__value">{{ ((!value || (value instanceof Array && !value.length)) ? placeholder : showValue) || t('wd.picker.placeholder') }}</div>
-      <i v-if="!disabled && !readonly" class="wd-picker__arrow wd-icon-arrow-right"></i>
-    </div>
-    <wd-popup v-model="popupShow" position="bottom" @click-modal="onCancel">
-      <div class="wd-picker__toolbar">
-        <button class="wd-picker__action wd-picker__action--cancel" @click="onCancel">{{ cancelButtonText || t('wd.picker.cancel') }}</button>
-        <span v-if="title" class="wd-picker__title">{{ title }}</span>
-        <button class="wd-picker__action" @click="onConfirm">{{ confirmButtonText || t('wd.picker.done') }}</button>
-      </div>
+  <div :class="customClass">
+    <custom-cell />
+    <wd-popup v-model="popupShow" position="bottom" @click-modal="onCancel" :duration="250">
+      <toolbar :target="currentTarget"></toolbar>
+      <!-- 开始 -->
       <wd-picker-view
         ref="pickerView"
         v-model="pickerValue"
         :columns="displayColumns"
         :loading="loading"
         :arrow-html="arrowHtml"
-        :visible-item-count="visibleItemCount"
-        :item-height="itemHeight"
         :value-key="valueKey"
         :label-key="labelKey"
+        :columns-height="columnsHeight"
         :column-change="columnChange"
       />
     </wd-popup>
@@ -49,51 +23,37 @@
 import locale from 'wot-design/src/mixins/locale'
 import WdPopup from 'wot-design/packages/popup'
 import WdPickerView from 'wot-design/packages/picker-view'
-import pickerViewProps from '../../picker-view/src/pickerViewProps'
-import pickerProps from './pickerProps'
+import picker from 'wot-design/src/mixins/picker'
 
 export default {
   name: 'WdPicker',
-  mixins: [locale],
+  mixins: [locale, picker],
   components: {
     WdPopup,
     WdPickerView
   },
+
   data () {
     return {
-      showValue: '',
-      popupShow: false,
+      // 开始
       pickerValue: '',
       lastColumns: [],
       displayColumns: []
     }
   },
+
   props: {
-    ...pickerViewProps,
-    ...pickerProps,
-    value: [String, Number, Boolean, Array],
-    columnChange: Function,
-    columns: {
-      default () {
-        return []
-      }
-    },
-    valueKey: {
-      type: String,
-      default: 'value'
-    },
-    labelKey: {
-      type: String,
-      default: 'label'
-    }
+    columns: [Array, Object],
+    value: [String, Number, Boolean, Array]
   },
+
   watch: {
     value: {
       handler () {
         this.pickerValue = this.value
 
         this.$nextTick(() => {
-          this.setShowValue()
+          this.setShowValue(true)
         })
       },
       immediate: true
@@ -105,53 +65,55 @@ export default {
       immediate: true
     }
   },
-  methods: {
-    showPopup () {
-      if (this.disabled || this.readonly) return
 
-      this.lastColumns = this.$refs.pickerView.getColumnsData()
-      this.popupShow = true
-    },
+  methods: {
     onCancel () {
       this.displayColumns = this.lastColumns
       this.pickerValue = this.value
-      this.popupShow = false
-      this.$emit('cancel')
+      this.handleClose()
     },
+
     onConfirm () {
       if (this.loading) {
         this.popupShow = false
         this.$emit('confirm')
         return
       }
-
       if (this.beforeConfirm) {
         this.beforeConfirm(this.pickerValue, isPass => {
-          isPass && this.handleConfirm()
+          isPass && this.handleConfirm(this.pickerValue)
         })
       } else {
-        this.handleConfirm()
+        this.handleConfirm(this.pickerValue)
       }
     },
+
+    columnsInit () {
+      const pickerView = this.$refs.pickerView
+      this.lastColumns = pickerView.getColumnsData()
+    },
+
     handleConfirm () {
       this.$emit('input', this.pickerValue)
-      this.popupShow = false
+      this.closePopup()
       this.$emit('confirm')
     },
+
     setShowValue () {
+      const pickerView = this.$refs.pickerView
+
       if (this.displayFormat) {
-        let items = this.$refs.pickerView.getItems()
+        const items = pickerView.getItems()
         this.showValue = this.displayFormat(items)
         return
       }
 
-      let labels = this.$refs.pickerView.getLabels()
-      this.showValue = labels.length === 1
+      const labels = pickerView.getLabels()
+      const label = labels.length === 1
         ? labels[0]
         : labels.join(',')
-    },
-    getPickerView () {
-      return this.$refs.pickerView
+
+      this.showValue = label
     }
   }
 }
