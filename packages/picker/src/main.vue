@@ -36,7 +36,6 @@
         :loading="loading"
         :arrow-html="arrowHtml"
         :visible-item-count="visibleItemCount"
-        :item-height="itemHeight"
         :value-key="valueKey"
         :label-key="labelKey"
         :column-change="columnChange"

@@ -1,55 +1,56 @@
 <template>
-  <ul
-    class="wd-picker-view-column"
-    :style="{
-      'transform': `translate(0, ${offset + baseOffset}px)`,
-      'transition-duration': `${duration}ms`
-    }"
-    @touchstart="onTouchStart"
-    @touchmove="onTouchMove"
-    @touchend="onTouchEnd"
-    @touchcancel="onTouchEnd"
-    @transitionend="onTranstionEnd"
-  >
-    <li
-      v-for="(item, index) in data"
-      :key="index"
-      :class="{
-        'wd-picker-view-column__item': 1,
-        'wd-picker-view-column__item--active': index === selectedIndex,
-        'wd-picker-view-column__item--disabled': typeof item === 'string' ? false : item.disabled
-      }"
-      :style="{
-        'height': itemHeight + 'px',
-        'line-height': itemHeight + 'px'
-      }"
-      @click="selectItem(index)"
-      v-html="arrowHtml ? getItemLabel(item) : ''"
-    >
-      {{ arrowHtml ? '' : getItemLabel(item) }}
-    </li>
-  </ul>
+  <div class="wd-picker-view-wrapper">
+    <ul ref="roller" class="wd-picker-view-roller">
+      <li
+        v-for="(item, index) in data"
+        :key="index"
+        :class="{
+        'wd-picker-view-roller__item': 1,
+        'is-hidden': isHidden(index),
+        'wd-picker-view-roller__item--disabled': typeof item === 'string' ? false : item.disabled
+        }"
+        :style="{
+        'transform': `rotate3d(1, 0, 0, ${-18 * index}deg) translateZ(${radius}px)`
+        }"
+        v-html="arrowHtml ? getItemLabel(item) : ''"
+      >{{ arrowHtml ? '' : getItemLabel(item) }}</li>
+    </ul>
+    <div class="wd-picker-view-content">
+      <ul class="wd-picker-view-list" ref="list">
+        <li
+          v-for="(item, index) in data"
+          :key="index"
+          :class="{'wd-picker-view-roller__item--disabled': typeof item === 'string' ? false : item.disabled}"
+          v-html="arrowHtml ? getItemLabel(item) : ''"
+        >{{ arrowHtml ? '' : getItemLabel(item) }}</li>
+      </ul>
+    </div>
+  </div>
 </template>
 
 <script>
-import touchMixin from 'wot-design/src/mixins/touch'
 import { range } from 'wot-design/src/utils'
 
-const SELECT_DURATION = 300 // 选择滑动持续时间
 const MOMENTUM_LIMIT_DURATION = 300 // 惯性滑动限制最大时间
-const MOMENTUM_LIMIT_DISTANCE = 15 // 惯性滑动限制最大距离
 const MOMENTUM_DURATION = 1000 // 惯性滑动持续时间
 
 export default {
   name: 'WdPickerViewColumn',
-  mixins: [touchMixin],
   data () {
     return {
-      offset: 0,
-      activeIndex: 0,
+      touchParams: {
+        startY: 0,
+        endY: 0,
+        startTime: 0,
+        endTime: 0
+      },
+      currentIndex: 1,
+      transformY: 0,
+      itemHeight: 35,
+      scrollDistance: 0,
       selectedIndex: 0,
-      duration: 0,
-      moving: false,
+      radius: 110,
+      rollAngle: 18,
       transitionEndTrigger: '',
       data: this.initialData || []
     }
@@ -57,7 +58,6 @@ export default {
   props: {
     arrowHtml: Boolean,
     visibleItemCount: Number,
-    itemHeight: Number,
     initialData: {
       type: Array,
       default () {
@@ -75,9 +75,6 @@ export default {
   computed: {
     length () {
       return this.data.length
-    },
-    baseOffset () {
-      return this.itemHeight * (this.visibleItemCount - 1) / 2
     }
   },
   watch: {
@@ -96,9 +93,80 @@ export default {
     },
     initialData () {
       this.data = this.initialData || []
+    },
+    selectedIndex (val) {
+      if (val !== this.currentIndex) {
+        this.transformY = 0
+        this.setMove(-this.itemHeight * val, 'end', 0, false)
+      }
     }
   },
   methods: {
+    isHidden (index) {
+      if (index >= this.currentIndex + this.visibleItemCount / 2 || index <= this.currentIndex - this.visibleItemCount / 2) {
+        return true
+      } else {
+        return false
+      }
+    },
+
+    setTransform (translateY = 0, type, time = 1000, deg) {
+      if (type === 'end') {
+        this.$refs.list.style.webkitTransition = `transform ${time}ms cubic-bezier(0.19, 1, 0.22, 1)`
+        this.$refs.roller.style.webkitTransition = `transform ${time}ms cubic-bezier(0.19, 1, 0.22, 1)`
+      } else {
+        this.$refs.list.style.webkitTransition = ''
+        this.$refs.roller.style.webkitTransition = ''
+      }
+      this.$refs.list.style.webkitTransform = `translate3d(0, ${translateY}px, 0)`
+      this.$refs.roller.style.webkitTransform = `rotate3d(1, 0, 0, ${deg}deg)`
+      this.scrollDistance = translateY
+    },
+
+    setMove (move, type, time, change = true) {
+      let updateMove = move + this.transformY
+      if (type === 'end') {
+        // 限定滚动距离
+        if (updateMove > 0) {
+          updateMove = 0
+        }
+        if (updateMove < -(this.length - 1) * this.itemHeight) {
+          updateMove = -(this.length - 1) * this.itemHeight
+        }
+        const endMove = Math.round(updateMove / this.itemHeight) * this.itemHeight
+        let index = Math.abs(Math.round(endMove / this.itemHeight))
+        const deg = (Math.abs(Math.round(endMove / this.itemHeight))) * this.rollAngle
+        // 添加禁用兜底
+        if (this.data[index] && this.data[index].disabled) {
+          index++
+          this.setTransform(endMove - this.itemHeight, type, time, deg + this.rollAngle)
+        } else {
+          this.setTransform(endMove, type, time, deg)
+        }
+
+        this.currentIndex = index
+        if (change) {
+          this.setIndex(this.currentIndex)
+        }
+      } else {
+        let deg = '0deg'
+        // 滚动过程中设置最大角度限制
+        const maxDeg = (this.length - 1) * this.rollAngle + 30
+        const minDeg = -30
+        deg = range(
+          updateMove < 0
+            ? (Math.abs(updateMove / this.itemHeight)) * this.rollAngle
+            : (-updateMove / this.itemHeight) * this.rollAngle,
+          minDeg,
+          maxDeg)
+        // touch 事件超出当前区域，会触发触底回弹，因此需要阻止继续移动的行为
+        if (deg === minDeg || deg === maxDeg) return
+        this.currentIndex = Math.abs(Math.round(updateMove / this.itemHeight))
+
+        // 根据限制角度计算当前 竖向滑动 距离
+        this.setTransform(updateMove, null, null, deg)
+      }
+    },
     getItemLabel (item) {
       return typeof item === 'object' && this.labelKey in item ? item[this.labelKey] : item
     },
@@ -116,91 +184,49 @@ export default {
         if (typeof this.data[i] !== 'object' || !this.data[i].disabled) return i
       }
     },
-    selectItem (index) {
-      if (this.moving) return
-
-      this.duration = SELECT_DURATION
-      this.setIndex(index)
-    },
     setIndex (index, userAction = true) {
       index = this.adjustIndex(index)
-      this.offset = -index * this.itemHeight
+      if (this.selectedIndex !== index) {
+        this.selectedIndex = index
 
-      const trigger = () => {
-        if (this.selectedIndex !== index) {
-          this.selectedIndex = index
-
-          if (userAction) {
-            this.$emit('change')
-          }
+        if (userAction) {
+          this.$emit('change')
         }
-      }
-
-      if (this.moving) {
-        this.transitionEndTrigger = trigger
-      } else {
-        trigger()
       }
     },
     onTouchStart (event) {
-      this.touchStart(event)
+      event.preventDefault()
 
-      this.startOffset = this.offset
-      this.duration = 0
-      this.transitionEndTrigger = null
-      this.startTime = Date.now()
-      this.momentumOffset = this.startOffset
+      const changedTouches = event.changedTouches[0]
+      this.touchParams.startY = changedTouches.pageY
+      this.touchParams.startTime = event.timestamp || Date.now()
+      this.transformY = this.scrollDistance
     },
     onTouchMove (event) {
-      this.moving = true
-      this.touchMove(event)
+      event.preventDefault()
 
-      if (this.direction === 'vertical') {
-        event.preventDefault()
-      }
-
-      this.offset = range(this.startOffset + this.deltaY, -this.itemHeight * this.length, this.itemHeight)
-      const now = Date.now()
-
-      if (now - this.startTime > MOMENTUM_LIMIT_DURATION) {
-        this.startTime = now
-        this.momentumOffset = this.offset
-      }
+      const changedTouches = event.changedTouches[0]
+      this.touchParams.lastY = changedTouches.pageY
+      this.touchParams.lastTime = event.timestamp || Date.now()
+      const move = this.touchParams.lastY - this.touchParams.startY
+      this.setMove(move)
     },
+
     onTouchEnd (event) {
-      const distance = this.offset - this.momentumOffset
-      const duration = Date.now() - this.startTime
-      const shouldMomentum = Math.abs(distance) > MOMENTUM_LIMIT_DISTANCE && duration < MOMENTUM_LIMIT_DURATION
+      event.preventDefault()
+      const changedTouches = event.changedTouches[0]
+      this.touchParams.lastY = changedTouches.pageY
+      this.touchParams.lastTime = event.timestamp || Date.now()
+      let move = this.touchParams.lastY - this.touchParams.startY
 
-      if (shouldMomentum) {
-        this.momentum(distance, duration)
-        return
+      let moveTime = this.touchParams.lastTime - this.touchParams.startTime
+      if (moveTime <= MOMENTUM_LIMIT_DURATION) {
+        move = move * 2
+        moveTime = moveTime + MOMENTUM_DURATION
+        this.setMove(move, 'end', moveTime)
+      } else {
+        this.setMove(move, 'end')
       }
-
-      const index = this.getIndexByOffset(this.offset)
-      this.moving = false
-      this.duration = SELECT_DURATION
-      this.setIndex(index)
-    },
-    momentum (distane, duration) {
-      const speed = distane / duration
-      const momentumDistance = this.offset + speed * MOMENTUM_DURATION
-      const nextIndex = this.getIndexByOffset(momentumDistance)
-
-      this.duration = MOMENTUM_DURATION
-      this.setIndex(nextIndex)
-    },
-    onTranstionEnd () {
-      this.moving = false
-      this.duration = 0
-
-      if (this.transitionEndTrigger) {
-        this.transitionEndTrigger()
-        this.transitionEndTrigger = null
-      }
-    },
-    getIndexByOffset (offset) {
-      return range(Math.round(-offset / this.itemHeight), 0, this.length - 1)
     },
     getValue () {
       let item = this.data[this.selectedIndex]
@@ -225,6 +251,23 @@ export default {
     if (this.$parent.children) {
       this.$parent.children.push(this)
     }
+  },
+  mounted () {
+    // 初始化位置 函数
+    this.$nextTick(() => {
+      this.setMove(-this.itemHeight * this.selectedIndex, 'end', 0)
+      this.$el.addEventListener('touchstart', this.onTouchStart)
+      this.$el.addEventListener('touchmove', this.onTouchMove)
+      this.$el.addEventListener('touchend', this.onTouchEnd)
+      this.$el.addEventListener('touchcancel', this.onTouchEnd)
+    })
+  },
+  beforeDestroy () {
+    // 移除监听
+    this.$el.removeEventListener('touchstart', this.onTouchStart)
+    this.$el.removeEventListener('touchmove', this.onTouchMove)
+    this.$el.removeEventListener('touchend', this.onTouchEnd)
+    this.$el.removeEventListener('touchcancel', this.onTouchEnd)
   },
   destroyed () {
     const { children } = this.$parent

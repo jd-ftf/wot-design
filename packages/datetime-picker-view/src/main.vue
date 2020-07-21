@@ -4,7 +4,6 @@
     v-model="pickerValue"
     :columns="columns"
     :visible-item-count="visibleItemCount"
-    :item-height="itemHeight"
     :loading="loading"
     :arrow-html="arrowHtml"
     :column-change="onColumnChange"

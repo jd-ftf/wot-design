@@ -359,17 +359,27 @@ $-notice-bar-close-size: 10px !default; // 关闭按钮大小
 $-notice-bar-wrap-padding: 14px $-size-side-padding !default; // 换行下的padding
 
 /* picker */
-$-picker-toolbar-bg: #ededed !default; // toolbar 操作条的背景色
-$-picker-toolbar-height: 44px !default; // toolbar 操作条的高度
-$-picker-toolbar-border-color: #d0d0d0 !default; // toolbar 操作条的边框颜色
+$-picker-toolbar-height: 16px !default; // toolbar 操作条的高度
+$-picker-action-height: 16px !default; // toolbar 操作条的高度
+// $-picker-toolbar-border-color: #d0d0d0 !default; // toolbar 操作条的边框颜色
 $-picker-toolbar-finish-color: $-color-theme !default; // toolbar 操作条完成按钮的颜色
-$-picker-toolbar-cancel-color: $-color-content !default; // toolbar 操作条的边框颜色
+$-picker-toolbar-cancel-color: #666666 !default; // toolbar 操作条的边框颜色
 $-picker-toolbar-fs: $-fs-title !default; // toolbar 操作条的字号
 $-picker-toolbar-title-color: $-color-title !default; // toolbar 操作台的标题颜色
 $-picker-column-fs: 16px !default; // 选择器选项的字号
-$-picker-column-color: #292929 !default; // 选择器选项的颜色
-$-picker-column-active-fs: 18px !default; // 选择器选项被选中的字号
-$-picker-column-disabled-color: #dedede !default; // 选择器选项禁用的颜色
+$-picker-bg: $-color-white !default; // 选择器选项的字号
+// TODO 文字普通颜色透明度展示
+// TODO 区域划分 是否等分
+// TODO 是否需要 选择时间范围的功能
+$-picker-column-color: rgba($-color-black, 0.85) !default; // 选择器选项的颜色
+$-picker-column-padding: 10px !default; // padding
+$-picker-column-active-fs: 20px !default; // 选择器选项被选中的字号
+$-picker-column-select-bg: rgba($-color-black, 0.04) !default; // 选择器选项被选中的字号
+$-picker-column-height: 210px !default; // 列高 滚筒外部的高度
+$-picker-column-item-height: 35px !default; // 列高 滚筒外部的高度
+
+// TODO 文字禁用颜色待确认
+$-picker-column-disabled-color: rgba($-color-black, 0.25) !default; // 选择器选项禁用的颜色
 $-picker-column-selected-border: $-color-border-light !default; // 选择器选项选中的边框
 $-picker-cell-fs: $-cell-title-fs !default; // cell 类型的字号
 $-picker-cell-fs-large: $-cell-title-fs-large !default; // cell 类型的大尺寸字号
@@ -380,6 +390,9 @@ $-picker-arrow-color: $-cell-arrow-color !default; // cell 类型箭头颜色
 $-picker-error-color: $-color-danger !default; // cell 类型右侧值的错误颜色
 $-picker-side-padding: $-size-side-padding !default; // 选择器左右间距
 $-picker-content-padding: 11px 10px 11px 0 !default; // cell 展示的label和value的间距
+$-picker-mask: linear-gradient(180deg, hsla(0, 0%, 100%, 0.9), hsla(0, 0%, 100%, 0.25)),
+  linear-gradient(0deg, hsla(0, 0%, 100%, 0.9), hsla(0, 0%, 100%, 0.25)) !default; // 上下阴影
+$-picker-loading-bg: rgba($-color-white, 0.8) !default; // loading 背景颜色
 
 /* popup */
 $-popup-close-size: 24px !default; // 关闭按钮尺寸

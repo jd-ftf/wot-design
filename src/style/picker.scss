@@ -1,10 +1,13 @@
-@import './abstracts/variable';
-@import './abstracts/mixin';
-@import './picker-view.scss';
-@import './icon.scss';
-@import './popup.scss';
+@import "./abstracts/variable";
+@import "./abstracts/mixin";
+@import "./picker-view.scss";
+@import "./icon.scss";
+@import "./popup.scss";
 
 @include b(picker) {
+  .wd-popup {
+    border-radius: 16px 16px 0px 0px;
+  }
   @include when(large) {
     .wd-picker__field {
       font-size: $-picker-cell-fs-large;
@@ -25,7 +28,7 @@
     display: flex;
     padding: 0 $-picker-side-padding;
     align-items: center;
-    background-color: #fff;
+    background-color: $-picker-bg;
     text-decoration: none;
     color: $-cell-title-color;
     font-size: $-picker-cell-fs;
@@ -34,7 +37,7 @@
   }
   @include when(cell) {
     .wd-picker__field {
-      @include halfPixelBorder('bottom', $-picker-side-padding);
+      @include halfPixelBorder("bottom", $-picker-side-padding);
     }
 
     &:last-child .wd-picker__field::after {
@@ -65,29 +68,17 @@
   @include e(toolbar) {
     position: relative;
     display: flex;
+    font-size: $-picker-toolbar-fs;
+    padding: 25px 15px 15px 15px;
     height: $-picker-toolbar-height;
     line-height: $-picker-toolbar-height;
-    font-size: $-picker-toolbar-fs;
     justify-content: space-between;
     align-items: center;
-    background: $-picker-toolbar-bg;
-
-    &::after {
-      position: absolute;
-      display: block;
-      content: '';
-      width: 100%;
-      height: 1px;
-      left: 0;
-      bottom: 0;
-      transform: scaleY(0.5);
-      background: $-picker-toolbar-border-color;
-    }
   }
   @include e(action) {
     display: block;
-    height: 100%;
-    padding: 0 $-picker-side-padding;
+    height: $-picker-action-height;
+    line-height: $-picker-action-height;
     border: none;
     outline: none;
     font-size: $-picker-toolbar-fs;
