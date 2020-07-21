@@ -4,7 +4,6 @@
 @import "./common/transition.scss";
 @import "./loading.scss";
 
-// TODO 待添加 图标情况下的padding和最大宽度的限制
 @include b(toast) {
   @include e(modal) {
     position: fixed;
@@ -24,7 +23,7 @@
   }
   @include e(body) {
     display: inline-block;
-    max-width: calc(100% - #{$-toast-side-padding * 2});
+    max-width: $-toast-max-width;
     padding: $-toast-padding;
     background-color: $-toast-bg;
     border-radius: $-toast-radius;
@@ -59,8 +58,6 @@
   @include m(with-icon) {
     .wd-toast__body {
       min-width: $-toast-with-icon-min-width;
-      max-width: $-toast-with-icon-max-width;
-      padding: $-toast-with-icon-padding;
       display: inline-flex;
       align-items: center;
     }

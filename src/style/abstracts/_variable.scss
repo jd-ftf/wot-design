@@ -307,28 +307,21 @@ $-input-icon-size-large: 18px !default; // 大尺寸图标大小
 $-input-textarea-padding: 15px !default; // textarea下的padding
 
 /* message-box */
-$-message-box-width: 270px !default; // 宽度
+$-message-box-width: 300px !default; // 宽度
+$-message-box-border-radius: 16px !default; // 宽度
+$-message-box-bg: $-color-white !default; // 默认背景颜色
 $-message-box-radius: 8px !default; // 圆角大小
-$-message-box-padding: 21px 25px 14px !default; // 主体内容padding
-$-message-box-title-fs: $-fs-title !default; // 标题字号
-$-message-box-title-color: $-color-title !default; // 标题颜色
-$-message-box-content-fs: $-fs-secondary !default; // 内容字号
-$-message-box-content-color: $-color-content !default; // 内容颜色
-$-message-box-content-max-height: 170px !default; // 内容最大高度
+$-message-box-padding: 25px 24px 0 !default; // 主体内容padding
+$-message-box-title-fs: 16px !default; // 标题字号
+$-message-box-title-color: rgba($-color-black, 0.85) !default; // 标题颜色
+$-message-box-content-fs: 14px !default; // 内容字号
+$-message-box-content-color: #666666 !default; // 内容颜色
+$-message-box-content-max-height: 264px !default; // 内容最大高度
 $-message-box-content-scrollbar-width: 4px !default; // 内容滚动条宽度
-$-message-box-content-scrollbar-color: #d8d8d8 !default; // 内容滚动条颜色
-$-message-box-input-fs: $-input-fs !default; // 输入框字号
-$-message-box-input-border-color: $-input-border-color !default; // 输入框边框颜色
-$-message-box-input-placeholder-color: $-input-placeholder-color !default; // 输入框占位符颜色
+$-message-box-content-scrollbar-color: rgba($-color-black, 0.1) !default; // 内容滚动条颜色
 $-message-box-input-error-color: $-input-error-color !default; // 输入框错误颜色
-$-message-box-input-height: 34px !default; // 输入框padding
-$-message-box-button-fs: $-fs-title !default; // 按钮字号
-$-message-box-button-height: 45px !default; // 按钮高度
-$-message-box-cancel-color: $-color-content !default; // 取消按钮文字颜色
-$-message-box-cancel-bg: $-color-white !default; // 取消按钮背景色
-$-message-box-confirm-color: $-color-white !default; // 确认按钮颜色
-$-message-box-confirm-bg: $-color-theme !default; // 确认按钮背景色
 
+/* navbar */
 $-navbar-bg: resultColor(
   $open-linear,
   41deg,
@@ -526,7 +519,11 @@ $-tabs-nav-map-fs: $-fs-content !default; // map 类型按钮字号
 $-tabs-nav-map-color: rgba($-color-black, 0.85) !default; // map 类型按钮文字颜色
 $-tabs-nav-map-arrow-color: rgba($-color-black, 0.65) !default; // map 类型箭头颜色
 $-tabs-nav-map-button-back-color: rgba($-color-black, 0.04) !default; // map 类型按钮边框颜色
-$-tabs-nav-map-btn-before-bg: linear-gradient(270deg, rgba(255,255,255,1) 1%,rgba(255,255,255,0) 100%) !default; // 左侧map遮罩阴影
+$-tabs-nav-map-btn-before-bg: linear-gradient(
+  270deg,
+  rgba(255, 255, 255, 1) 1%,
+  rgba(255, 255, 255, 0) 100%
+) !default; // 左侧map遮罩阴影
 $-tabs-nav-map-button-radius: 16px !default; // map 类型按钮圆角大小
 $-tabs-nav-map-modal-bg: $-modal-bg !default; // map 类型蒙层背景色
 
@@ -536,9 +533,9 @@ $-tag-color: $-color-white !default; // 字体颜色
 $-tag-small-fs: $-fs-aid !default; // 小尺寸字号
 $-tag-info-color: rgba($-color-black, 0.65) !default; // info 颜色
 $-tag-primary-color: $-color-theme !default; // 主颜色
-$-tag-danger-color: rgba(250,67,80,1) !default; // danger 颜色
-$-tag-warning-color: rgba(255,144,0,1) !default; // warning 颜色
-$-tag-success-color: rgba(51,187,68,1) !default; // success 颜色
+$-tag-danger-color: rgba(250, 67, 80, 1) !default; // danger 颜色
+$-tag-warning-color: rgba(255, 144, 0, 1) !default; // warning 颜色
+$-tag-success-color: rgba(51, 187, 68, 1) !default; // success 颜色
 $-tag-info-bg: resultColor(
   $open-linear,
   49deg,
@@ -546,13 +543,13 @@ $-tag-info-bg: resultColor(
   "dark" "light",
   #808080 #999999,
   0% 100%
-) !default;  // info 背景颜色
+) !default; // info 背景颜色
 $-tag-primary-bg: resultColor(
   $open-linear,
   49deg,
   $-color-theme,
   "dark" "light",
-  rgba(81,124,240,1) rgba(118,158,245,1),
+  rgba(81, 124, 240, 1) rgba(118, 158, 245, 1),
   0% 100%
 ) !default; // 主背景颜色
 $-tag-danger-bg: resultColor(
@@ -560,7 +557,7 @@ $-tag-danger-bg: resultColor(
   44deg,
   $-color-danger,
   "dark" "light",
-  rgba(230,62,70,1) rgba(255,64,73,1),
+  rgba(230, 62, 70, 1) rgba(255, 64, 73, 1),
   0% 100%
 ) !default; // danger 背景颜色
 $-tag-warning-bg: resultColor(
@@ -568,7 +565,7 @@ $-tag-warning-bg: resultColor(
   45deg,
   $-color-warning,
   "dark" "light",
-  rgba(230,113,55,1) rgba(255,151,76,1),
+  rgba(230, 113, 55, 1) rgba(255, 151, 76, 1),
   0% 100%
 ) !default; // warning 背景颜色
 $-tag-success-bg: resultColor(
@@ -576,11 +573,11 @@ $-tag-success-bg: resultColor(
   45deg,
   $-color-success,
   "dark" "light",
-  rgba(32,176,128,1) rgba(43,214,157,1),
+  rgba(32, 176, 128, 1) rgba(43, 214, 157, 1),
   0% 100%
 ) !default; // success 背景颜色
 $-tag-round-color: rgba(102, 102, 102, 1) !default; // round 字体颜色
-$-tag-round-border-color: rgba(225,225,225,1) !default; // round 边框颜色
+$-tag-round-border-color: rgba(225, 225, 225, 1) !default; // round 边框颜色
 $-tag-round-radius: 12px !default; // round 圆角大小
 $-tag-mark-radius: 6px 2px 6px 2px !default; // mark 圆角大小
 $-tag-close-size: 14px !default; // 关闭按钮字号
@@ -588,14 +585,12 @@ $-tag-close-color: $-tag-info-color !default; // 关闭按钮颜色
 $-tag-close-active-color: rgba($-color-black, 0.45) !default; // 关闭按钮 active 颜色
 
 /* toast */
-$-toast-padding: 8px 14px !default; // 无图标的padding
-$-toast-side-padding: $-size-side-padding !default; //左右两边最小留白宽度
+$-toast-padding: 16px 24px !default; // padding
+$-toast-max-width: 300px !default; // 最大宽度
 $-toast-radius: 8px !default; // 圆角大小
 $-toast-bg: $-modal-bg !default; // 背景色
 $-toast-fs: $-fs-content !default; // 字号
 $-toast-with-icon-min-width: 150px !default; // 有图标的情况下最小宽度
-$-toast-with-icon-max-width: 300px !default; // 有图标的情况下最大宽度
-$-toast-with-icon-padding: 16px 24px !default; // 有图标的padding
 $-toast-icon-size: 39px !default; // 图标大小
 $-toast-loading-padding: 10px !default; // loading 下的padding
 $-toast-box-shadow: 0px 6px 16px 0px rgba($-color-black, 0.08) !default; // 外部阴影
