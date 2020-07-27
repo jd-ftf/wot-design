@@ -11,23 +11,37 @@
       size ? `is-${size}` : ''
     ]"
   >
-    <div
-      class="wd-picker__field"
-      @click="showPopup"
-    >
-      <div v-if="label || $slots.label" class="wd-picker__label" :style="labelWidth ? `min-width: ${labelWidth}; max-width: ${labelWidth}` : ''">
-        <slot name="label">
-          {{ label }}
-        </slot>
-      </div>
-      <div class="wd-picker__value">{{ ((!value || (value instanceof Array && !value.length)) ? placeholder : showValue) || t('wd.picker.placeholder') }}</div>
-      <i v-if="!disabled && !readonly" class="wd-picker__arrow wd-icon-arrow-right"></i>
+    <div @click="showPopup">
+      <!-- 与cell表单结合 -->
+      <slot>
+        <div class="wd-picker__field">
+          <div
+            v-if="label || $slots.label"
+            class="wd-picker__label"
+            :style="labelWidth ? `min-width: ${labelWidth}; max-width: ${labelWidth}` : ''"
+          >
+            <slot name="label">{{ label }}</slot>
+          </div>
+          <div
+            class="wd-picker__value"
+          >{{ ((!value || (value instanceof Array && !value.length)) ? placeholder : showValue) || t('wd.picker.placeholder') }}</div>
+          <i v-if="!disabled && !readonly" class="wd-picker__arrow wd-icon-arrow-right"></i>
+        </div>
+      </slot>
     </div>
+
+    <!-- TODO 把弹出层作为一个组件，点击时激活picker弹框 -->
     <wd-popup v-model="popupShow" position="bottom" @click-modal="onCancel">
       <div class="wd-picker__toolbar">
-        <button class="wd-picker__action wd-picker__action--cancel" @click="onCancel">{{ cancelButtonText || t('wd.picker.cancel') }}</button>
+        <button
+          class="wd-picker__action wd-picker__action--cancel"
+          @click="onCancel"
+        >{{ cancelButtonText || t('wd.picker.cancel') }}</button>
         <span v-if="title" class="wd-picker__title">{{ title }}</span>
-        <button class="wd-picker__action" @click="onConfirm">{{ confirmButtonText || t('wd.picker.done') }}</button>
+        <button
+          class="wd-picker__action"
+          @click="onConfirm"
+        >{{ confirmButtonText || t('wd.picker.done') }}</button>
       </div>
       <wd-picker-view
         ref="pickerView"
@@ -40,6 +54,20 @@
         :label-key="labelKey"
         :column-change="columnChange"
       />
+      <div v-if="endTime">
+        <div>至</div>
+        <wd-picker-view
+          ref="endTime"
+          v-model="endTime"
+          :columns="displayColumns"
+          :loading="loading"
+          :arrow-html="arrowHtml"
+          :visible-item-count="visibleItemCount"
+          :value-key="valueKey"
+          :label-key="labelKey"
+          :column-change="columnChange"
+        />
+      </div>
     </wd-popup>
   </div>
 </template>
@@ -63,6 +91,7 @@ export default {
       showValue: '',
       popupShow: false,
       pickerValue: '',
+      endTime: '',
       lastColumns: [],
       displayColumns: []
     }

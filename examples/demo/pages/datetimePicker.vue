@@ -1,5 +1,8 @@
 <template>
   <div style="margin: 20px 0">
+    <demo-block title="值靠右展示" transparent>
+      <wd-datetime-picker v-model="value13" label="区域选择" align-right />
+    </demo-block>
     <div>
       <wd-datetime-picker v-model="value1" label="日期选择" />
       <wd-datetime-picker type="date" v-model="value2" label="年月日" />
@@ -40,7 +43,16 @@ export default {
       value9: new Date(),
       value10: new Date(),
       value11: '',
-      value12: new Date()
+      value12: new Date(),
+      value13: [
+        new Date(),
+        ''
+      ]
+    }
+  },
+  watch: {
+    value1 (val) {
+      console.log(val)
     }
   },
   methods: {

@@ -39,6 +39,11 @@
     <demo-block title="值靠右显示" transparent>
       <wd-picker :columns="columns1" label="单列选择" v-model="value12" align-right />
     </demo-block>
+    <demo-block title="插槽">
+      <wd-picker :columns="columns1" v-model="value12">
+        <wd-button type="primary">插槽唤起</wd-button>
+      </wd-picker>
+    </demo-block>
   </div>
 </template>
 

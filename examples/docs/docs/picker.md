@@ -222,6 +222,16 @@ export default {
 </script>
 ```
 
+### 内容插槽
+
+设置默认插槽修改唤起picker组件的形式。
+
+```html
+<wd-picker v-model="value" :columns="columns">
+  <wd-button type="primary">插槽唤起</wd-button>
+</wd-picker>
+```
+
 ### Attributes
 
 | 参数      | 说明                                 | 类型      | 可选值       | 默认值   |
@@ -248,6 +258,13 @@ export default {
 | error | 是否为错误状态，错误状态时右侧内容为红色 | boolean | - | false |
 | align-right | 选择器的值靠右展示 | boolean | - | false |
 | before-confirm | 确定前校验函数，接收 (value, resolve) 参数，通过 resolve 继续执行 picker，resolve 接收1个boolean参数 | function | - | - |
+
+### Slot
+
+| name      | 说明       |
+|------------- |----------- |
+| default | 唤起picker的展示形式，不设置则展示cell表单样式 |
+| label | cell展示时，左侧展示文案 |
 
 ### Events
 
