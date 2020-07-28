@@ -27,6 +27,7 @@
 
       .wd-checkbox__label {
         width: 100%;
+        max-width: inherit;
       }
 
       &:last-child::after {

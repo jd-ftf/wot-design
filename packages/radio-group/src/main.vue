@@ -1,5 +1,12 @@
 <template>
-  <div class="wd-radio-group">
+  <div
+    class="wd-radio-group"
+    :class="[
+      { 'is-cell': cell },
+      { 'is-button': cell && shape === 'button' },
+      { 'is-small': size === 'small'}
+    ]"
+  >
     <slot></slot>
   </div>
 </template>
@@ -14,7 +21,14 @@ export default {
       default: 'dot'
     },
     checkedColor: String,
+    checkedTextColor: String,
     disabled: Boolean,
+    cell: Boolean,
+    // normal || small
+    size: {
+      type: String,
+      default: 'normal'
+    },
     inline: Boolean
   },
   provide () {

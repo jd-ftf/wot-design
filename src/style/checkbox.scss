@@ -100,9 +100,9 @@
       flex-direction: row;
       justify-content: center;
       align-items: center;
-      min-width: $-checkbox-min-width;
-      max-width: $-checkbox-max-width;
-      height: $-checkbox-height;
+      min-width: $-checkbox-button-min-width;
+      max-width: $-checkbox-button-max-width;
+      height: $-checkbox-button-height;
       font-size: $-checkbox-button-font-size;
       margin-left: 0;
       padding: 5px 15px;
@@ -135,6 +135,7 @@
   @include when(disabled) {
     .wd-checkbox__shape {
       border-color: $-checkbox-border-color;
+      background: $-checkbox-disabled-check-bg;
     }
     .wd-checkbox__label {
       color: $-checkbox-disabled-label-color;
