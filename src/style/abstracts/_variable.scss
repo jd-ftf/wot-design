@@ -503,12 +503,12 @@ $-switch-inactive-color: resultColor(
 $-switch-inactive-shadow-color: rgba(155, 155, 155, 0.5) !default; // 非选中状态shadow颜色
 
 /* tabbar */
-$-tabbar-color: $-color-secondary !default; // 默认颜色
+$-tabbar-color: rgba(51,51,51,1) !default; // 默认颜色
 $-tabbar-active-color: $-color-theme !default; // 高亮颜色
-$-tabbar-item-padding: 10px 0 4px !default; // 每一项的padding
-$-tabbar-icon-size: 18px !default; // 图标大小
+$-tabbar-item-padding: 7px 0 4px !default; // 每一项的padding
+$-tabbar-icon-size: 24px !default; // 图标大小
 $-tabbar-label-fs: 10px !default; // 文字字号
-$-tabbar-label-line-height: 17px !default; // 文字行高
+$-tabbar-label-line-height: 1.2 !default; // 文字行高
 
 /* tabs */
 $-tabs-nav-arrow-fs: 18px !default; // 全部Icon字号
