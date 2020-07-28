@@ -1,5 +1,5 @@
 <template>
-  <div class="wd-checkbox-group">
+  <div class="wd-checkbox-group" :class="[{ 'is-cell': cell }, { 'is-button': cell && shape === 'button' }]">
     <slot></slot>
   </div>
 </template>
@@ -28,6 +28,8 @@ export default {
       type: Number,
       default: 0
     },
+    cell: Boolean,
+    button: Boolean,
     inline: Boolean
   },
   provide () {

@@ -221,16 +221,30 @@ $-cell-tap-bg: rgba(0, 0, 0, 0.06) !default; // 点击态背景色
 
 /* checkbox */
 $-checkbox-margin: 10px !default; // 多个复选框距离
-$-checkbox-label-margin: 10px !default; // 右侧文字与左侧图标距离
+$-checkbox-height: 32px !default; // 多个复选框距离
+$-checkbox-min-width: 78px !default; // 多个复选框距离
+$-checkbox-max-width: 162px !default; // 多个复选框距离
+$-checkbox-bg: $-color-white !default; // 多个复选框距离
+$-checkbox-label-margin: 9px !default; // 右侧文字与左侧图标距离
 $-checkbox-size: 16px !default; // 左侧图标尺寸
-$-checkbox-border-color: #a7a7a7 !default; // 左侧图标边框颜色
-$-checkbox-label-fs: 12px !default; // 右侧文字字号
-$-checkbox-label-color: $-color-title; // 右侧文字颜色
+$-checkbox-icon-size: 14px !default; // 左侧图标尺寸
+$-checkbox-border-color: #dcdcdc !default; // 左侧图标边框颜色
+// $-checkbox-bg: rgba($-color-black, 0.15) !default; // 左侧图标边框颜色
+$-checkbox-check-color: $-color-white !default; // 左侧图标边框颜色
+$-checkbox-label-fs: 16px !default; // 右侧文字字号
+$-checkbox-label-color: rgba($-color-black, 0.85); // 右侧文字颜色
 $-checkbox-checked-color: $-color-theme !default; // 选中颜色
-$-checkbox-disabled-color: $-color-bg !default; // 禁用颜色
-$-checkbox-disabled-label-color: #dedede !default; // 禁用文字颜色
+
+$-checkbox-disabled-color: rgba($-color-black, 0.04) !default; // 禁用背景颜色
+$-checkbox-disabled-label-color: rgba($-color-black, 0.25) !default; // 禁用文字颜色
+$-checkbox-disabled-check-color: rgba($-color-black, 0.15) !default; // 禁用图标颜色
 $-checkbox-square-radius: 4px !default; // 方型圆角大小
-$-checkbox-button-radius: 4px !default; // 按钮圆角大小
+
+$-checkbox-button-radius: 16px !default; // 按钮圆角大小
+$-checkbox-button-bg: rgba($-color-black, 0.04) !default; // 按钮模式背景颜色
+$-checkbox-button-font-size: 14px !default; // 按钮模式背景颜色
+$-checkbox-button-border: #f5f5f5 !default; // 按钮边框颜色
+$-checkbox-button-disabled-border: rgba($-color-black, 0.15) !default; // 按钮禁用边框颜色
 
 /* collapse */
 $-collapse-side-padding: $-size-side-padding !default; // 左右间距

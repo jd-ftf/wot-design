@@ -96,6 +96,34 @@ test('checkbox-group disabled', () => {
   expect(checkboxs.at(1).contains('.is-disabled')).toBe(true)
 })
 
+test('checkbox-group cell', () => {
+  let wrapper = mount({
+    template: `
+      <wd-checkbox-group cell>
+        <wd-checkbox value="1"></wd-checkbox>
+        <wd-checkbox value="2"></wd-checkbox>
+      </wd-checkbox-group>
+    `
+  })
+
+  const checkboxsGroup = wrapper.findAll('.wd-checkbox-group')
+  expect(checkboxsGroup.at(0).contains('.is-cell')).toBe(true)
+})
+
+test('checkbox-group cell-button', () => {
+  let wrapper = mount({
+    template: `
+      <wd-checkbox-group cell shape="button">
+        <wd-checkbox value="1"></wd-checkbox>
+        <wd-checkbox value="2"></wd-checkbox>
+      </wd-checkbox-group>
+    `
+  })
+
+  const checkboxsGroup = wrapper.findAll('.wd-checkbox-group')
+  expect(checkboxsGroup.at(0).contains('.is-button')).toBe(true)
+})
+
 test('checkbox-group shape', () => {
   let wrapper = mount({
     template: `
