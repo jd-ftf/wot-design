@@ -23,7 +23,7 @@
     line-height: initial;
   }
   @include e(label) {
-    margin-top: 3px;
+    margin-top: 2px;
     font-size: $-tabbar-label-fs;
     line-height: $-tabbar-label-line-height;
   }

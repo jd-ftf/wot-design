@@ -22,8 +22,6 @@
     
     @include when(fixed) {
       position: absolute;
-      top: 0;
-      right: 0;
       transform: translateY(-50%) translateX(50%);
     }
     @include when(dot) {

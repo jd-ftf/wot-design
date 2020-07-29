@@ -7,11 +7,14 @@ export default {
   props: {
     name: String,
     icon: String,
+    activeIcon: String,
     dot: Boolean,
     value: [Number, String],
     max: Number,
     to: [String, Object],
-    replace: Boolean
+    replace: Boolean,
+    top: Number,
+    right: Number
   },
   components: {
     WdBadge
@@ -42,13 +45,14 @@ export default {
       ? this.$slots.icon
       : (<i class={` wd-tabbar-item__icon ${this.icon}` }></i>)
 
+    let ActiveIcon = this.isActive && this.activeIcon && !this.$slots.icon ? (<i class={` wd-tabbar-item__icon ${this.activeIcon}` }></i>) : ''
     let Content = (
       <div>
         <div class="wd-tabbar-item__icon-container">
           {
             this.renderBadge
-              ? <WdBadge value={this.value} is-dot={this.dot} value={this.value} max={this.max} bg-color={this.tabbar.badgeColor}>{Icon}</WdBadge>
-              : Icon
+              ? <WdBadge value={this.value} is-dot={this.dot} top={this.top} right={this.right} value={this.value} max={this.max} bg-color={this.tabbar.badgeColor}>{ActiveIcon || Icon}</WdBadge>
+              : (ActiveIcon || Icon)
           }
         </div>
         <div class="wd-tabbar-item__label">

@@ -13,9 +13,7 @@
             'is-dot': isDot
           }
         ]"
-        :style="{
-          backgroundColor: bgColor
-        }">
+        :style="badgeStyle">
       </sup>
     </transition>
   </div>
@@ -30,6 +28,8 @@ export default {
     max: Number,
     isDot: Boolean,
     hidden: Boolean,
+    top: Number,
+    right: Number,
     type: {
       type: String,
       validator (val) {
@@ -37,7 +37,6 @@ export default {
       }
     }
   },
-
   computed: {
     content () {
       if (this.isDot) return
@@ -47,6 +46,19 @@ export default {
         return max < value ? `${max}+` : value
       }
       return value
+    },
+    badgeStyle () {
+      let badgeStyle = {
+        'background-color': this.bgColor
+      }
+      if (this.$slots.default) {
+        badgeStyle = Object.assign(badgeStyle, {
+          'top': `${this.top || 0}px`,
+          'right': `${this.right || 0}px`
+        })
+      }
+
+      return badgeStyle
     }
   }
 }

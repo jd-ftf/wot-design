@@ -16,9 +16,9 @@ Vue.use(TabbarItem)
 
 ```html
 <wd-tabbar v-model="tabbar">
-  <wd-tabbar-item icon="wd-icon-cart">购物车</wd-tabbar-item>
-  <wd-tabbar-item icon="wd-icon-collect">收藏</wd-tabbar-item>
-  <wd-tabbar-item icon="wd-icon-person">我</wd-tabbar-item>
+  <wd-tabbar-item icon="wd-icon-bags">服务</wd-tabbar-item>
+  <wd-tabbar-item icon="wd-icon-dong">咚咚</wd-tabbar-item>
+  <wd-tabbar-item icon="wd-icon-chat">我</wd-tabbar-item>
 </wd-tabbar>
 
 <script>
@@ -38,9 +38,9 @@ export default {
 
 ```html
 <wd-tabbar v-model="tabbar">
-  <wd-tabbar-item icon="wd-icon-cart" dot>购物车</wd-tabbar-item>
-  <wd-tabbar-item icon="wd-icon-collect" value="new">收藏</wd-tabbar-item>
-  <wd-tabbar-item icon="wd-icon-person" :value="7">我</wd-tabbar-item>
+  <wd-tabbar-item icon="wd-icon-bags" dot>服务</wd-tabbar-item>
+  <wd-tabbar-item icon="wd-icon-dong" value="new">咚咚</wd-tabbar-item>
+  <wd-tabbar-item icon="wd-icon-chat" :value="7">我</wd-tabbar-item>
 </wd-tabbar>
 ```
 
@@ -50,9 +50,21 @@ export default {
 
 ```html
 <wd-tabbar v-model="tabbar" active-color="#f00" badge-color="#0083ff">
-  <wd-tabbar-item icon="wd-icon-cart" dot>购物车</wd-tabbar-item>
-  <wd-tabbar-item icon="wd-icon-collect">收藏</wd-tabbar-item>
-  <wd-tabbar-item icon="wd-icon-person">我</wd-tabbar-item>
+  <wd-tabbar-item icon="wd-icon-bags" dot>服务</wd-tabbar-item>
+  <wd-tabbar-item icon="wd-icon-dong">咚咚</wd-tabbar-item>
+  <wd-tabbar-item icon="wd-icon-chat">我</wd-tabbar-item>
+</wd-tabbar>
+```
+
+### 修改选中icon
+
+支持修改标签栏颜色和角标颜色。
+
+```html
+<wd-tabbar v-model="tabbar">
+  <wd-tabbar-item icon="wd-icon-bags" active-icon="wd-icon-read" dot>服务</wd-tabbar-item>
+  <wd-tabbar-item icon="wd-icon-dong" active-icon="wd-icon-read">咚咚</wd-tabbar-item>
+  <wd-tabbar-item icon="wd-icon-chat" active-icon="wd-icon-read">我</wd-tabbar-item>
 </wd-tabbar>
 ```
 
@@ -62,21 +74,21 @@ export default {
 
 ```html
 <wd-tabbar>
-  <wd-tabbar-item icon="wd-icon-cart" to="/tabbar">标签栏</wd-tabbar-item>
-  <wd-tabbar-item icon="wd-icon-collect" to="/button">按钮</wd-tabbar-item>
-  <wd-tabbar-item icon="wd-icon-person" to="https://m.jd.com">京东</wd-tabbar-item>
+  <wd-tabbar-item icon="wd-icon-bags" to="/tabbar">标签栏</wd-tabbar-item>
+  <wd-tabbar-item icon="wd-icon-dong" to="/button">按钮</wd-tabbar-item>
+  <wd-tabbar-item icon="wd-icon-chat" to="https://m.jd.com">京东</wd-tabbar-item>
 </wd-tabbar>
 ```
 
 ### fixed 定位和边框
 
-设置 `fixed` 属性和 `border` 边框属性。
+服务 `fixed` 属性和 `border` 边框属性。
 
 ```html
 <wd-tabbar v-model="tabbar" fixed border>
-  <wd-tabbar-item icon="wd-icon-cart">购物车</wd-tabbar-item>
-  <wd-tabbar-item icon="wd-icon-collect">收藏</wd-tabbar-item>
-  <wd-tabbar-item icon="wd-icon-person">我</wd-tabbar-item>
+  <wd-tabbar-item icon="wd-icon-bags">服务</wd-tabbar-item>
+  <wd-tabbar-item icon="wd-icon-dong">咚咚</wd-tabbar-item>
+  <wd-tabbar-item icon="wd-icon-chat">我</wd-tabbar-item>
 </wd-tabbar>
 ```
 
@@ -104,7 +116,10 @@ export default {
 |---------- |------------------------------------ |---------- |------------- |-------- |
 | name | 标签栏名称 | string | - | - |
 | icon | 图标类名 | string | - | - |
+| active-icon | 选中图标类名 | string | - | - |
 | dot | 是否显示小圆点 | boolean | - | false |
+| top    | 为正时，角标向下偏移对应的像素             | Number          | - |    —    |
+| right    | 为正时，角标向左偏移对应的像素              | Number          | - |    —    |
 | value | 文字或者数字角标 | string / number | - | - |
 | max | 数字角标的最大值 | number | - | - |
 | to | 路由地址，可以为链接或者为router中的路由 | string / number | - | - |

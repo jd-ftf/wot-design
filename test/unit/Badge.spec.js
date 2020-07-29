@@ -40,6 +40,20 @@ test('badge isDot', () => {
   expect(wrapper.element.querySelector('sup').getAttribute('class')).toContain('is-dot')
 })
 
+test('badge top right', () => {
+  let wrapper = mount(Badge, {
+    slots: {
+      default: '<span>primary</span>'
+    },
+    propsData: {
+      top: 3,
+      right: 3
+    }
+  })
+  expect(wrapper.element.querySelector('sup').style.top).toBe('3px')
+  expect(wrapper.element.querySelector('sup').style.right).toBe('3px')
+})
+
 test('badge max', () => {
   let wrapper = mount(Badge, {
     propsData: {
