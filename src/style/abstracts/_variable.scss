@@ -221,15 +221,11 @@ $-cell-tap-bg: rgba(0, 0, 0, 0.06) !default; // 点击态背景色
 
 /* checkbox */
 $-checkbox-margin: 10px !default; // 多个复选框距离
-$-checkbox-height: 32px !default; // 多个复选框距离
-$-checkbox-min-width: 78px !default; // 多个复选框距离
-$-checkbox-max-width: 162px !default; // 多个复选框距离
 $-checkbox-bg: $-color-white !default; // 多个复选框距离
 $-checkbox-label-margin: 9px !default; // 右侧文字与左侧图标距离
 $-checkbox-size: 16px !default; // 左侧图标尺寸
 $-checkbox-icon-size: 14px !default; // 左侧图标尺寸
 $-checkbox-border-color: #dcdcdc !default; // 左侧图标边框颜色
-// $-checkbox-bg: rgba($-color-black, 0.15) !default; // 左侧图标边框颜色
 $-checkbox-check-color: $-color-white !default; // 左侧图标边框颜色
 $-checkbox-label-fs: 16px !default; // 右侧文字字号
 $-checkbox-label-color: rgba($-color-black, 0.85); // 右侧文字颜色
@@ -238,11 +234,15 @@ $-checkbox-checked-color: $-color-theme !default; // 选中颜色
 $-checkbox-disabled-color: rgba($-color-black, 0.04) !default; // 禁用背景颜色
 $-checkbox-disabled-label-color: rgba($-color-black, 0.25) !default; // 禁用文字颜色
 $-checkbox-disabled-check-color: rgba($-color-black, 0.15) !default; // 禁用图标颜色
+$-checkbox-disabled-check-bg: rgba($-color-black, 0.15) !default; // 禁用边框背景颜色
 $-checkbox-square-radius: 4px !default; // 方型圆角大小
 
+$-checkbox-button-height: 32px !default; // 按钮模式复选框高
+$-checkbox-button-min-width: 78px !default; // 按钮模式最小宽
+$-checkbox-button-max-width: 162px !default; // 按钮模式最大宽
 $-checkbox-button-radius: 16px !default; // 按钮圆角大小
 $-checkbox-button-bg: rgba($-color-black, 0.04) !default; // 按钮模式背景颜色
-$-checkbox-button-font-size: 14px !default; // 按钮模式背景颜色
+$-checkbox-button-font-size: 14px !default; // 按钮模式字号
 $-checkbox-button-border: #f5f5f5 !default; // 按钮边框颜色
 $-checkbox-button-disabled-border: rgba($-color-black, 0.15) !default; // 按钮禁用边框颜色
 
@@ -417,15 +417,25 @@ $-pull-refresh-tip-fs: $-fs-secondary !default; // 成功提示字号
 /* radio */
 $-radio-margin: $-checkbox-margin !default; // 多个单选框距离
 $-radio-label-margin: $-checkbox-label-margin !default; // 右侧文字与左侧图标距离
-$-radio-size: $-checkbox-size !default; // 左侧图标尺寸
-$-radio-border-color: $-checkbox-border-color !default; // 左侧图标边框颜色
+$-radio-size: 18px !default; // 左侧图标尺寸
+$-radio-bg: $-checkbox-bg !default; // 左侧图标尺寸
 $-radio-label-fs: $-checkbox-label-fs !default; // 右侧文字字号
 $-radio-label-color: $-checkbox-label-color !default; // 右侧文字颜色
 $-radio-checked-color: $-checkbox-checked-color !default; // 选中颜色
 $-radio-disabled-color: $-checkbox-disabled-color !default; // 禁用颜色
 $-radio-disabled-label-color: $-checkbox-disabled-label-color !default; // 禁用文字颜色
+
+$-radio-small-size: 16px !default; // 左侧图标尺寸
+$-radio-small-label-fs: 14px !default; // 右侧文字字号
+
+$-radio-button-height: $-checkbox-button-height !default; // 按钮模式复选框高
+$-radio-button-min-width: 60px !default; // 按钮模式最小宽
+$-radio-button-max-width: 144px !default; // 按钮模式最大宽
 $-radio-button-radius: $-checkbox-button-radius !default; // 按钮圆角大小
-$-radio-check-size: 10px !default; // 选中圆点大小
+$-radio-button-bg: $-checkbox-button-bg !default; // 按钮模式背景颜色
+$-radio-button-fs: $-checkbox-button-font-size !default; // 按钮模式字号
+$-radio-button-border: $-checkbox-button-border !default; // 按钮边框颜色
+$-radio-button-disabled-border: $-checkbox-button-disabled-border !default; // 按钮禁用边框颜色
 
 /* search */
 $-search-side-padding: $-size-side-padding !default; // 左右间距

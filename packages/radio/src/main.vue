@@ -8,9 +8,18 @@
       'is-inline': inline
     }"
   >
-    <span class="wd-radio__shape" :style="{ 'color': isChecked && !finalDisabled ? finalCheckedColor : '' }">
+    <div
+      class="wd-radio__label"
+      :style="{ 'color': isChecked && finalShape === 'button' && !finalDisabled ? finalCheckedColor : '' }"
+    >
+      <slot></slot>
+    </div>
+    <span
+      class="wd-radio__shape"
+      :style="{ 'color': isChecked && !finalDisabled ? finalCheckedColor : '' }"
+    >
       <i
-        class="wd-radio__check"
+        class="wd-icon-check"
         :style="{
           'color': isChecked && !finalDisabled ? finalCheckedColor : ''
         }"
@@ -24,9 +33,6 @@
         @change="handleChange"
       />
     </span>
-    <div class="wd-radio__label" :style="{ 'color': isChecked && finalShape === 'button' && !finalDisabled ? finalCheckedColor : '' }">
-      <slot></slot>
-    </div>
   </label>
 </template>
 

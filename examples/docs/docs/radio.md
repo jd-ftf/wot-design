@@ -31,17 +31,6 @@ export default {
 </script>
 ```
 
-### 同行展示
-
-设置 `inline` 属性，使单选框在同一行展示。
-
-```html
-<wd-radio-group v-model="value" inline>
-  <wd-radio value="1">单选框1</wd-radio>
-  <wd-radio value="2">单选框2</wd-radio>
-</wd-radio-group>
-```
-
 ### 修改图标形状
 
 修改 `shape` 属性，可选值为 'dot'、'button'，默认为 'dot'。
@@ -53,12 +42,45 @@ export default {
 </wd-radio-group>
 ```
 
+### 表单模式
+
+设置 `cell` 属性，开启表单模式复选框组。
+
+开启表单模式时，如果同时设置 `shape` 为 `button` 开启表单复选按钮组模式。
+
+```html
+<wd-radio-group v-model="value" cell>
+  <wd-radio value="1">京麦</wd-radio>
+  <wd-radio value="2">商家后台</wd-radio>
+</wd-radio-group>
+<wd-radio-group v-model="value" cell shape="button">
+  <wd-radio value="1">选项一</wd-radio>
+  <wd-radio value="2">选项二</wd-radio>
+  <wd-radio value="3">选项三</wd-radio>
+  <wd-radio value="4">选项四</wd-radio>
+  <wd-radio value="5">选项五</wd-radio>
+  <wd-radio value="6">选项六</wd-radio>
+  <wd-radio value="7">选项七</wd-radio>
+</wd-radio-group>
+```
+
+### 同行展示
+
+设置 `inline` 属性，使单选框在同一行展示。
+
+```html
+<wd-radio-group v-model="value" inline>
+  <wd-radio value="1">单选框1</wd-radio>
+  <wd-radio value="2">单选框2</wd-radio>
+</wd-radio-group>
+```
+
 ### 修改选中的颜色
 
 设置 `checked-color` 属性。
 
 ```html
-<wd-radio-group v-model="value" checked-color="#f00">
+<wd-radio-group v-model="value" checked-color="#fa4350">
   <wd-radio value="1">京麦</wd-radio>
   <wd-radio value="2">商家后台</wd-radio>
 </wd-radio-group>
@@ -75,14 +97,28 @@ export default {
 </wd-radio-group>
 ```
 
+### 小尺寸
+
+设置 `size` 属性。
+
+```html
+<wd-radio-group v-model="value" size="small">
+  <wd-radio value="1">京麦</wd-radio>
+  <wd-radio value="2">商家后台</wd-radio>
+</wd-radio-group>
+```
+
 ### RadioGroup Attributes
+
 | 参数      | 说明                                 | 类型      | 可选值       | 默认值   |
 |---------- |------------------------------------ |---------- |------------- |-------- |
 | value/v-model | 绑定值 | string / number / boolean | - | - |
 | shape | 单选框形状 | string | 'dot', 'button' | 'dot' |
-| checked-color | 选中的颜色 | string | - | '#0083ff' |
+| size | 单选框尺寸 | string | 'normal', 'small' | 'normal' |
+| checked-color | 选中的颜色 | string | - | '#4d80f0' |
 | disabled | 禁用 | boolean | - | false |
 | inline | 同行展示 | boolean | - | false |
+| cell | 表单模式 | boolean | - | false |
 
 ### RadioGroup Events
 
