@@ -3,7 +3,7 @@
     <div v-if="type === 'circle-outline'" class="wd-loading--circle-outline">
       <svg viewBox="0 0 42 42">
         <defs>
-          <linearGradient x1="100%" y1="0%" x2="0%" y2="0%" id="a">
+          <linearGradient x1="100%" y1="0%" x2="0%" y2="0%" :id="svgDefineId">
             <stop stop-color="#FFF" stop-opacity="0" offset="0%" />
             <stop stop-color="#FFF" offset="100%" />
           </linearGradient>
@@ -11,11 +11,11 @@
         <g fill="none" fill-rule="evenodd">
           <path
             d="M21 1c11.046 0 20 8.954 20 20s-8.954 20-20 20S1 32.046 1 21 9.954 1 21 1zm0 7C13.82 8 8 13.82 8 21s5.82 13 13 13 13-5.82 13-13S28.18 8 21 8z"
-            :fill="color"
+            fill="currentColor"
           />
           <path
             d="M4.599 21c0 9.044 7.332 16.376 16.376 16.376 9.045 0 16.376-7.332 16.376-16.376"
-            stroke="url(#a)"
+            :stroke="`url(#${svgDefineId})`"
             stroke-width="3.5"
             stroke-linecap="round"
           />
@@ -34,8 +34,15 @@
 </template>
 
 <script>
+import context from 'wot-design/src/utils/id'
+
 export default {
   name: 'WdLoading',
+  data () {
+    return {
+      svgDefineId: context.id++
+    }
+  },
   props: {
     type: {
       type: String,

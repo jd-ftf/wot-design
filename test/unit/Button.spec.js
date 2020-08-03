@@ -1,7 +1,6 @@
 import Button from 'wot-design/packages/button/index.js'
 import { mount } from '@vue/test-utils'
 import { testInstall } from './utils'
-import Loading from 'wot-design/packages/loading/index.js'
 
 testInstall(Button)
 
@@ -23,6 +22,20 @@ test('click event', () => {
   })
   wrapper.trigger('click')
   expect(onClick).toHaveBeenCalled()
+})
+
+test('click disabled when loading', () => {
+  const onClick = jest.fn()
+  let wrapper = mount(Button, {
+    propsData: {
+      loading: true
+    },
+    listeners: {
+      click: onClick
+    }
+  })
+  wrapper.trigger('click')
+  expect(onClick.mock.calls.length).toBe(0)
 })
 
 test('button type', () => {
@@ -68,8 +81,7 @@ test('button loading', () => {
     }
   })
   expect(wrapper.classes()).toContain('is-loading')
-  const loading = wrapper.find(Loading)
-  expect(loading.is(Loading)).toBe(true)
+  expect(wrapper.contains('.wd-button__loading')).toBe(true)
 })
 
 test('button suck', () => {
