@@ -119,7 +119,7 @@ $-badge-border: 2px solid $-badge-color; // 边框样式
 /* button */
 $-button-normal-bg: $-color-white !default; // 默认按钮禁用背景色
 $-button-normal-color: $-color-title !default; // 文字颜色
-$-button-normal-active-color: rgba($-color-black, 1) !default; // 文字点击态颜色
+$-button-normal-active-color: $-color-black !default; // 文字点击态颜色
 $-button-normal-active-bg: $-color-bg !default; // 默认按钮点击态背景色
 $-button-normal-border-active-color: rgba($-color-black, 0.45) !default; // 默认按钮点击态边框色
 $-button-normal-disabled-color: rgba($-color-black, 0.25) !default; // 默认按钮禁用文字色
@@ -184,16 +184,17 @@ $-button-medium-padding: 0 15px !default; // 中型按钮padding
 $-button-medium-fs: $-fs-content !default; // 中型按钮字号
 $-button-medium-radius: 4px !default; // 中型按钮圆角大小
 $-button-medium-round-radius: 22px !default; // 中型按钮round类型圆角大小
-$-button-medium-loading: 16px !default; // 中型按钮loading图标大小
+$-button-medium-loading: 18px !default; // 中型按钮loading图标大小
 $-button-large-height: 44px !default; // 大型按钮高度
 $-button-large-padding: 0 36px !default; // 大型按钮padding
 $-button-large-fs: $-fs-title !default; // 大型按钮字号
 $-button-large-radius: 8px !default; // 大型按钮圆角大小
 $-button-large-round-radius: 22px !default; // 大型按钮round类型圆角大小
-$-button-large-loading: 18px !default; // 大小按钮loading图标大小
+$-button-large-loading: 24px !default; // 大小按钮loading图标大小
 $-button-suck-height: 50px !default; // suck 类型按钮高度
+$-button-icon-fs: 18px !default; // 带图标的按钮的图标大小
 $-button-icon-size: 40px !default; // icon 类型按钮尺寸
-$-button-icon-color: $-color-icon !default; // icon 类型按钮颜色
+$-button-icon-color: mix($-color-black, $-color-white, 65%) !default; // icon 类型按钮颜色
 $-button-icon-active-color: $-color-icon-active !default; // icon 类型按钮点击态颜色
 $-button-icon-disabled-color: $-color-icon-disabled !default; // icon 类型按钮禁用颜色
 

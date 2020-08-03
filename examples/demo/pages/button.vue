@@ -46,21 +46,29 @@
     <demo-block title="加载中">
       <wd-button loading>加载中</wd-button>
       <wd-button type="primary" loading>加载中</wd-button>
-      <wd-button type="primary" plain loading>加载中</wd-button>
+      <wd-button type="success" loading>加载中</wd-button>
+      <wd-button type="warning" loading>加载中</wd-button>
+      <wd-button type="error" loading>加载中</wd-button>
+      <wd-button type="info" loading>加载中</wd-button>
+      <wd-button type="primary" loading plain>加载中</wd-button>
+      <wd-button type="success" loading plain>加载中</wd-button>
+      <wd-button type="warning" loading plain>加载中</wd-button>
+      <wd-button type="error" loading plain>加载中</wd-button>
+      <wd-button type="info" loading plain>加载中</wd-button>
     </demo-block>
     <demo-block title="文字按钮">
       <wd-button type="text">文字按钮</wd-button>
       <wd-button type="text" disabled>文字按钮</wd-button>
     </demo-block>
     <demo-block title="图标按钮">
-      <wd-button type="icon" icon="wd-icon-menu"></wd-button>
-      <wd-button type="icon" icon="wd-icon-menu" disabled></wd-button>
+      <wd-button type="icon" icon="wd-icon-delete-thin"></wd-button>
+      <wd-button type="icon" icon="wd-icon-delete-thin" disabled></wd-button>
     </demo-block>
     <demo-block title="带图标的基本按钮">
-      <wd-button type="primary" icon="wd-icon-edit-outline">修改</wd-button>
-      <wd-button type="primary" icon="wd-icon-share">分享</wd-button>
+      <wd-button type="primary" icon="wd-icon-download">下载</wd-button>
+      <wd-button type="primary" icon="wd-icon-setting">设置</wd-button>
     </demo-block>
-    <demo-block title="吸顶按钮" transparent>
+    <demo-block title="吸顶按钮" transparent class="page-button-suck">
       <div slot="desc">吸顶按钮</div>
       <wd-button type="primary" suck>主要按钮</wd-button>
       <wd-button type="success" suck>成功按钮</wd-button>
@@ -80,7 +88,7 @@
         <wd-button type="error" size="large" block>危险按钮</wd-button>
       </div>
     </demo-block>
-    <demo-block title="圆角按钮2.0">
+    <demo-block title="常用按钮：块状+圆角">
       <div style="width: 315px; margin: 0 auto">
         <wd-button type="primary" size="large" block disabled round>主要按钮</wd-button>
         <wd-button type="primary" size="large" block round>主要按钮</wd-button>
@@ -89,7 +97,7 @@
         <wd-button type="info" size="large" block round>信息按钮</wd-button>
       </div>
     </demo-block>
-    <demo-block title="圆角按钮2.0 中小尺寸">
+    <demo-block title="常用按钮：圆角或圆角+幽灵">
       <wd-button type="primary" disabled round>主操作</wd-button>
       <wd-button type="primary" size="small" disabled round>主操作</wd-button>
       <br />
@@ -125,6 +133,11 @@ export default {}
 .page-button {
   .wd-button {
     margin: 0 10px 10px 0;
+  }
+  .page-button-suck {
+    .wd-button {
+      margin-right: 0;
+    }
   }
 }
 </style>

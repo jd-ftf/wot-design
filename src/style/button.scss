@@ -3,7 +3,7 @@
 @import "./loading.scss";
 @import "./icon.scss";
 
-@mixin button-type-style($color, $normal, $active, $disabled, $disabledcolor) {
+@mixin button-type-style($color, $normal, $active, $disabled, $disabledcolor, $loadingColor) {
   background: $normal;
   color: $color;
   border-color: $normal;
@@ -22,15 +22,15 @@
     border-color: $disabled;
     color: $disabledcolor;
   }
-  .wd-button__loading {
-    color: $-color-white;
-  }
   @include when(loading) {
-    background: $normal;
-    border-color: $normal;
+    &,
     &:active {
+      color: $color;
       background: $normal;
       border-color: $normal;
+    }
+    .wd-button__loading {
+      color: $loadingColor;
     }
   }
   @include when(suck) {
@@ -58,11 +58,13 @@
       border-color: $disabled;
     }
   }
-  .wd-button__loading {
-    color: $disabled;
-  }
   @include when(loading) {
-    background: transparent;
+    &,
+    &:active {
+      color: $color;
+      border-color: $normal;
+      background: transparent;
+    }
   }
 }
 
@@ -100,12 +102,15 @@
     display: inline-block;
     margin-right: 2px;
     vertical-align: middle;
-    color: $-button-normal-disabled-color;
+    animation: wd-rotate 0.8s linear infinite;
+    animation-duration: 2s;
   }
   @include when(loading) {
-    color: $-button-normal-disabled-color;
-    background: $-button-normal-disabled-bg;
-    border-color: $-button-normal-border-disabled-color;
+    &:active {
+      color: $-button-normal-color;
+      background: transparent;
+      border-color: $-button-border-color;
+    }
   }
 
   @include when(primary) {
@@ -115,7 +120,8 @@
       $-button-primary-bg-color,
       $-button-primary-active-color,
       $-button-primary-disabled-color,
-      $-color-white
+      $-color-white,
+      $-button-primary-color
     );
     border: none;
   }
@@ -125,7 +131,8 @@
       $-button-success-color,
       $-button-success-active-color,
       $-button-success-disabled-color,
-      $-color-white
+      $-color-white,
+      $-button-success-color
     );
   }
   @include when(info) {
@@ -134,7 +141,8 @@
       $-button-info-bg-color,
       $-button-info-active-bg-color,
       $-button-info-disabled-bg-color,
-      $-button-info-disabled-color
+      $-button-info-disabled-color,
+      $-button-info-color
     );
   }
   @include when(warning) {
@@ -143,7 +151,8 @@
       $-button-warning-color,
       $-button-warning-active-color,
       $-button-warning-disabled-color,
-      $-color-white
+      $-color-white,
+      $-button-warning-color
     );
   }
   @include when(error) {
@@ -152,7 +161,8 @@
       $-button-error-color,
       $-button-error-active-color,
       $-button-error-disabled-color,
-      $-color-white
+      $-color-white,
+      $-button-error-color
     );
   }
 
@@ -269,6 +279,12 @@
           background-color: $-button-info-plain-disabled-bg-color;
         }
       }
+      @include when(loading) {
+        &,
+        &:active {
+          border-color: $-button-info-plain-color;
+        }
+      }
     }
     @include when(warning) {
       @include button-plain-style(
@@ -335,10 +351,22 @@
   @include e(icon) {
     display: inline-block;
     margin-right: 2px;
-    font-size: $-button-medium-fs;
+    font-size: $-button-icon-fs;
+    vertical-align: middle;
   }
 
   @include e(txt) {
+    display: inline-block;
     user-select: none;
+    vertical-align: middle;
+  }
+}
+@keyframes wd-rotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
   }
 }
