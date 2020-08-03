@@ -11,6 +11,7 @@ import CheckboxGroup from '../packages/checkbox-group'
 import Col from '../packages/col'
 import Collapse from '../packages/collapse'
 import CollapseItem from '../packages/collapse-item'
+import ColPicker from '../packages/col-picker'
 import DatetimePicker from '../packages/datetime-picker'
 import DatetimePickerView from '../packages/datetime-picker-view'
 import DropMenu from '../packages/drop-menu'
@@ -69,6 +70,7 @@ const components = [
   Col,
   Collapse,
   CollapseItem,
+  ColPicker,
   DatetimePicker,
   DatetimePickerView,
   DropMenu,
@@ -147,6 +149,7 @@ export default {
   Col,
   Collapse,
   CollapseItem,
+  ColPicker,
   DatetimePicker,
   DatetimePickerView,
   DropMenu,

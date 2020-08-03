@@ -4,6 +4,10 @@ export default {
       expand: '展开',
       retract: '收起'
     },
+    colPicker: {
+      title: '请选择',
+      placeholder: '请选择'
+    },
     infiniteLoad: {
       loading: '加载中...',
       finished: '没有更多了',

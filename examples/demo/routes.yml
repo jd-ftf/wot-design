@@ -31,6 +31,8 @@
   children:
     - name: checkbox
       title: Checkbox 复选框
+    - name: colPicker
+      title: ColPicker 多列选择器
     - name: datetimePicker
       title: DatetimePicker 时间选择器
     - name: datetimePickerView
