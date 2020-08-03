@@ -13,17 +13,21 @@
       size ? `is-${size}` : ''
     ]"
   >
-    <div v-if="label || $slots.label" class="wd-input__label" :style="labelWidth ? `min-width: ${labelWidth};max-width: ${labelWidth}` : ''">
+    <!-- cell组合  label prefixIcon labelWidth  slot: prefix label-->
+    <div
+      v-if="label || $slots.label"
+      class="wd-input__label"
+      :style="labelWidth ? `min-width: ${labelWidth};max-width: ${labelWidth}` : ''"
+    >
       <div v-if="prefixIcon || $slots.prefix" class="wd-input__prefix">
         <slot name="prefix"></slot>
         <i v-if="prefixIcon" class="wd-input__icon" :class="prefixIcon"></i>
       </div>
       <div class="wd-input__label-inner">
-        <slot name="label">
-          {{ label }}
-        </slot>
+        <slot name="label">{{ label }}</slot>
       </div>
     </div>
+    <!-- input组件 -->
     <template v-if="type === 'textarea' || (type === 'text' && autosize)">
       <div
         class="wd-input__textarea"
@@ -54,8 +58,11 @@
         ></textarea>
         <div class="wd-input__textarea-suffix">
           <i v-show="showClear" class="wd-input__textarea-icon wd-icon-error-fill" @click="clear"></i>
-          <span v-if="showWordCount" class="wd-input__textarea-count" >
-            <span :class="[{ 'is-error': value && value.length > parseInt(maxlength) }, value && (value.length > 0) ? 'wd-input__textarea-count-current' : '']">{{ (value && value.length) || 0 }}</span>/{{ maxlength }}
+          <span v-if="showWordCount" class="wd-input__textarea-count">
+            <span
+              :class="[{ 'is-error': value && value.length > parseInt(maxlength) }, value && (value.length > 0) ? 'wd-input__textarea-count-current' : '']"
+            >{{ (value && value.length) || 0 }}</span>
+            /{{ maxlength }}
           </span>
         </div>
       </div>
@@ -96,7 +103,10 @@
           @click="togglePwdVisible"
         ></i>
         <span v-if="showWordCount" class="wd-input__count">
-          <span :class="[{ 'is-error': value && value.length > maxlength }, value && (value.length > 0) ? 'wd-input__textarea-count-current' : '']">{{ (value && value.length) || 0 }}</span>/{{ maxlength }}
+          <span
+            :class="[{ 'is-error': value && value.length > maxlength }, value && (value.length > 0) ? 'wd-input__textarea-count-current' : '']"
+          >{{ (value && value.length) || 0 }}</span>
+          /{{ maxlength }}
         </span>
         <i v-if="suffixIcon" class="wd-input__icon" :class="suffixIcon"></i>
         <slot name="suffix"></slot>
@@ -148,7 +158,10 @@ export default {
     autofocus: Boolean,
     error: Boolean,
     label: String,
-    labelWidth: String,
+    labelWidth: {
+      type: String,
+      default: '80px'
+    },
     size: String,
     center: Boolean
   },
@@ -176,6 +189,7 @@ export default {
       })
     }
   },
+
   methods: {
     focus () {
       this.getInput().focus()

@@ -9,9 +9,16 @@ export default {
     isLink: Boolean,
     value: {},
     clickable: Boolean,
-    size: String,
+    size: {
+      type: String,
+      default: 'large'
+    },
     titleWidth: String,
     center: Boolean,
+    align: {
+      type: String,
+      default: 'left'
+    },
     replace: Boolean
   },
   computed: {
@@ -30,32 +37,33 @@ export default {
     }
   },
   render (h) {
-    const { to, title, label, isLink, value, clickable, size, titleWidth, center, iconShow, valueShow, replace } = this
+    const { to, title, label, isLink, value, clickable, size, titleWidth, iconShow, valueShow, replace, align, center } = this
 
     const Icon = iconShow ? (
       <div class="wd-cell__icon">
         {
-          this.$slots.icon ? this.$slots.icon : <i class={ this.icon }></i>
+          this.$slots.icon ? this.$slots.icon : <i class={this.icon}></i>
         }
       </div>
     ) : ''
     const Wrapper = (
-      <div class="wd-cell__wrapper">
-        <div class="wd-cell__left" style={ titleWidth ? `min-width: ${titleWidth}; max-width: ${titleWidth}` : '' }>
+      <div class="wd-cell__wrapper" class={['wd-cell__wrapper', (this.$slots.label || label) && 'is-label']}>
+        <div class={['wd-cell__left', iconShow && 'is-prefix']} style={titleWidth ? `min-width: ${titleWidth}; max-width: ${titleWidth}` : ''}>
+          {Icon}
           {
-            this.$slots.title ? <div class="wd-cell__title">{ this.$slots.title }</div> : <div class="wd-cell__title">{ title }</div>
+            this.$slots.title ? <div class="wd-cell__title">{this.$slots.title}</div> : <div class="wd-cell__title">{title}</div>
           }
           {
             this.$slots.label
-              ? <div class="wd-cell__label">{ this.$slots.label }</div>
+              ? <div class="wd-cell__label">{this.$slots.label}</div>
               : label
-                ? <div class="wd-cell__label">{ label }</div>
+                ? <div class="wd-cell__label">{label}</div>
                 : ''
           }
         </div>
         <div class="wd-cell__right">
           {
-            valueShow ? <div class="wd-cell__value">{ this.$slots.default ? this.$slots.default : value }</div> : ''
+            valueShow ? <div class="wd-cell__value">{this.$slots.default ? this.$slots.default : value}</div> : ''
           }
           {
             isLink ? <i class="wd-cell__arrow-right wd-icon-arrow-right"></i> : ''
@@ -63,6 +71,10 @@ export default {
         </div>
       </div>
     )
+    let rootClass = ['wd-cell']
+    size && rootClass.push(`is-${size}`)
+    align && rootClass.push(`is-${align}`)
+    center && rootClass.push('is-align-center')
 
     if (to) {
       let isRouterLink = false
@@ -72,26 +84,17 @@ export default {
           isRouterLink = true
         }
       }
-
-      let rootClass = ['wd-cell is-cell']
       isLink && rootClass.push('is-link')
-      size && rootClass.push(`is-${size}`)
-      center && rootClass.push('is-center')
-
       rootClass = rootClass.join(' ')
 
       return isRouterLink
-        ? <router-link to={ to } class={rootClass} replace={replace}>{Icon}{Wrapper}</router-link>
-        : <a class={rootClass} href={ to }>{Icon}{Wrapper}</a>
+        ? <router-link to={to} class={rootClass} replace={replace}>{Wrapper}</router-link>
+        : <a class={rootClass} href={to}>{Wrapper}</a>
     } else {
-      let rootClass = ['wd-cell is-cell']
       clickable && rootClass.push('is-link')
-      size && rootClass.push(`is-${size}`)
-      center && rootClass.push('is-center')
-
       rootClass = rootClass.join(' ')
 
-      return <a class={rootClass} onClick={ this.handleClick }>{Icon}{Wrapper}</a>
+      return <a class={rootClass} onClick={this.handleClick}>{Wrapper}</a>
     }
   }
 }

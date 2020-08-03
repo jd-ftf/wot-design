@@ -1,15 +1,11 @@
 <template>
-  <div class="wd-cell-group">
+  <div class="wd-cell-group" :class="border ? 'is-border' : ''">
     <div v-if="showTitle" class="wd-cell-group__title">
       <div class="wd-cell-group__left">
-        <slot name="title">
-          {{ title }}
-        </slot>
+        <slot name="title">{{ title }}</slot>
       </div>
       <div class="wd-cell-group__right">
-        <slot name="value">
-          {{ value }}
-        </slot>
+        <slot name="value">{{ value }}</slot>
       </div>
     </div>
     <div class="wd-cell-group__body">
@@ -23,6 +19,7 @@ export default {
   name: 'WdCellGroup',
   props: {
     title: String,
+    border: Boolean,
     value: String
   },
   computed: {

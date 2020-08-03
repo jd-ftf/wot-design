@@ -101,6 +101,10 @@
     &:last-child::after {
       display: none;
     }
+
+    &.wd-input::after {
+      display: none;
+    }
   }
   // 大尺寸 16px
   @include when(large) {
@@ -239,6 +243,7 @@
     color: $-input-count-color;
     background: $-input-bg;
     line-height: 20px;
+    width: max-content;
   }
   @include e(textarea-count-current) {
     color: $-input-count-current-color;

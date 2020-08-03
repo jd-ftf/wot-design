@@ -62,13 +62,27 @@ Vue.use(Cell)
 
 ### 单元格大小
 
-通过设置 `size` 修改单元格大小，将 `size` 设置为 'large' 时左侧标题字号为 16px。
+通过设置 `size` 修改单元格大小，将 `size` 设置为 'large' 时左侧标题字号为 16px，描述字号为14px。
+
+将 `size` 设置为 'small' 时左侧标题字号为 14px，描述尺寸为 12px。
 
 ```html
+<wd-cell title="标题文字" value="内容" size="small" />
 <wd-cell title="标题文字" value="内容" size="large" />
 ```
 
-### 
+### 展示边框线
+
+通过设置 `size` 修改单元格大小，将 `size` 设置为 'large' 时左侧标题字号为 16px，描述字号为14px。
+
+将 `size` 设置为 'small' 时左侧标题字号为 14px，描述尺寸为 12px。
+
+```html
+<wd-cell-group title="交易管理" border>
+  <wd-cell title="标题文字" value="内容" />
+  <wd-cell title="标题文字" label="描述信息" value="内容" />
+</wd-cell-group>
+```
 
 ### 分组标题
 
@@ -112,6 +126,25 @@ export default {
 <wd-cell title="设置" value="内容" is-link :to="{ path: '/button' }"></wd-cell>
 ```
 
+### 对齐方式
+
+通过设置 `align` 设置左侧文字对齐方式， 默认值为 'left'。
+
+```html
+<wd-cell title="左对齐" value="描述" />
+<wd-cell title="居中" value="描述" align="center" />
+<wd-cell title="右对齐" value="描述" align="right" />
+```
+
+### 垂直居中
+
+通过设置 `center` 设置内容垂直居中对齐，默认顶部居中。
+
+```html
+<wd-cell title="标题" value="内容" center/>
+<wd-cell title="标题" label="描述信息" value="内容" center />
+```
+
 ### 自定义内容
 
 `cell` 提供了 `icon`、`title`、`label`和默认value的插槽。
@@ -123,6 +156,9 @@ export default {
   </wd-cell>
   <wd-cell title="标题文字">
     <wd-switch class="custom-value" v-model="value"></wd-switch>
+  </wd-cell>
+  <wd-cell title="标题文字">
+    <div class="custom-text">订购</div>
   </wd-cell>
   <wd-cell>
     <div slot="title">
@@ -140,6 +176,12 @@ export default {
   transform: translate(0, -50%);
   white-space: nowrap;
 }
+.custom-text {
+  position: absolute;
+  top: 2px;
+  right: 26px;
+  color: #f0883a;
+}
 </style>
 ```
 
@@ -149,6 +191,7 @@ export default {
 |---------- |------------------------------------ |---------- |------------- |-------- |
 | title | 分组标题 | string | - | - |
 | value | 分组右侧内容 | string | - | - |
+| border | 是否展示边框线 | boolean | - | false |
 
 ### Cell Attributes
 
@@ -158,20 +201,23 @@ export default {
 | value | 右侧内容 | string | - | - |
 | icon | 图标类名 | string | - | - |
 | label | 描述信息 | string | - | - |
+| align | 标题的水平对齐方式 | string | 'left' / 'right' / 'center' | 'left' |
 | is-link | 是否为跳转链接 | boolean | - | false |
 | to | 跳转地址 | string / object | - | - |
 | replace | 跳转时是否替换栈顶页面，只对`vue-router` 中的路由对象有效，普通链接无效 | boolean | - | false |
-| size | 设置单元格大小 | string | 'large' | - |
+| size | 设置单元格大小 | string | 'large' / 'small' | 'large' |
 | title-width | 设置左侧标题宽度 | string | - | - |
 | center | 是否垂直居中，默认顶部居中 | boolean | - | false |
 
 ### CellGroup Slot
+
 | name      | 说明       |
 |------------- |----------- |
 | title | 分组标题 |
 | value | 分组右侧内容 |
 
 ### Cell Slot
+
 | name      | 说明       |
 |------------- |----------- |
 | title | 标题 |
