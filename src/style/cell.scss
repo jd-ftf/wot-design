@@ -1,47 +1,71 @@
-@import './abstracts/variable';
-@import './abstracts/mixin';
-@import './icon.scss';
+@import "./abstracts/variable";
+@import "./abstracts/mixin";
+@import "./icon.scss";
 
 @include b(cell) {
   position: relative;
   display: flex;
   padding-left: $-cell-padding;
-  background-color: #fff;
+  background-color: $-color-white;
   text-decoration: none;
   color: $-cell-title-color;
-  line-height: 1.43;
+  line-height: 1;
   -webkit-tap-highlight-color: transparent;
-  
+
   @include e(wrapper) {
     position: relative;
     display: flex;
     flex: 1;
     padding: $-cell-wrapper-padding;
     justify-content: space-between;
+    width: 100%;
+    box-sizing: border-box;
     align-items: flex-start;
   }
-  @include when(cell) {
-    .wd-cell__wrapper {
-      @include halfPixelBorder;
+  @include when(right) {
+    .wd-cell__left {
+      text-align: right;
     }
-    &:last-child .wd-cell__wrapper::after {
-      display: none;
+  }
+  @include when(left) {
+    .wd-cell__left {
+      text-align: left;
     }
+  }
+  @include when(center) {
+    .wd-cell__left {
+      text-align: center;
+    }
+  }
+  @include e(left-img) {
+    width: $-cell-left-img-size;
+    height: $-cell-left-img-size;
+    line-height: $-cell-left-img-size;
+    box-sizing: border-box;
+    margin-right: $-cell-padding;
   }
   @include e(left) {
     font-size: $-cell-title-fs;
     vertical-align: middle;
     flex-shrink: 0;
-    margin-right: 20px;
+    margin-right: $-cell-padding;
+    flex: 2;
+    max-width: 66%;
+    @include when(prefix) {
+      display: flex;
+      align-items: center;
+    }
   }
   @include e(label) {
-    margin-top: 3px;
+    margin-top: 8px;
     font-size: $-cell-label-fs;
     color: $-cell-label-color;
+    @include lineEllipsis;
   }
   @include e(right) {
     position: relative;
     font-size: 0;
+    flex: 1;
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
@@ -50,28 +74,31 @@
   }
   @include e(icon) {
     position: relative;
-    min-width: $-cell-icon-size;
-    height: $-cell-icon-height;
-    line-height: $-cell-icon-height;
-    margin-right: $-cell-icon-right;
     font-size: $-cell-icon-size;
+    width: $-cell-icon-size;
+    height: $-cell-icon-size;
+    line-height: 1;
+    margin-right: $-cell-icon-right;
+    display: inline-block;
   }
   @include e(value) {
     display: block;
     font-size: $-cell-value-fs;
     color: $-cell-value-color;
+    width: 100%;
+    text-align: right;
   }
   @include e(arrow-right) {
     display: block;
-    margin-left: 5px;
-    height: 20px;
-    min-width: $-cell-arrow-size;
-    line-height: 20px;
+    margin-left: 8px;
+    width: $-cell-arrow-size;
+    height: $-cell-arrow-size;
+    line-height: $-cell-arrow-size;
     font-size: $-cell-arrow-size;
     color: $-cell-arrow-color;
   }
   @include when(link) {
-    transition: background .2s;
+    transition: background 0.2s;
     -webkit-tap-highlight-color: $-cell-tap-bg;
 
     &:active {
@@ -82,16 +109,29 @@
     .wd-cell__title {
       font-size: $-cell-title-fs-large;
     }
-    .wd-cell__arrow-right {
-      height: 22px;
-      line-height: 22px;
+    .wd-cell__label {
+      font-size: $-cell-label-fs-large;
+      margin-bottom: 2px;
+    }
+    .wd-cell__value {
+      font-size: $-cell-value-fs-large;
     }
     .wd-cell__icon {
-      height: $-cell-icon-height-large;
-      line-height: $-cell-icon-height-large;
+      font-size: $-cell-icon-size-large;
+      width: $-cell-icon-size-large;
+      height: $-cell-icon-size-large;
+    }
+    .wd-cell__wrapper {
+      padding: 16px $-cell-padding 16px 0;
+      height: 48px;
+      box-sizing: border-box;
+      @include when(label) {
+        padding: 18px $-cell-padding 18px 0;
+        height: 76px;
+      }
     }
   }
-  @include when(center) {
+  @include when(align-center) {
     .wd-cell__wrapper {
       align-items: center;
     }

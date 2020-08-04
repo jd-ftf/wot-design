@@ -200,25 +200,30 @@ $-button-icon-disabled-color: $-color-icon-disabled !default; // icon 类型按�
 
 /* cell */
 $-cell-group-title-fs: $-fs-title !default; // 组标题字号
-$-cell-group-title-color: $-color-title !default; // 组标题文字颜色
+$-cell-group-title-color: rgba($-color-black, 0.85) !default; // 组标题文字颜色
 $-cell-group-value-fs: $-fs-content !default; // 组值字号
 $-cell-group-value-color: $-color-content !default; // 组值文字颜色
-$-cell-padding: $-size-side-padding !default; // cell 左右padding距离
-$-cell-wrapper-padding: 11px $-cell-padding 11px 0 !default; // cell 容器padding
-$-cell-icon-height: 42px !default; // 图标高度
-$-cell-icon-height-large: 44px !default; // 大尺寸图标高度
+
+$-cell-padding: 15px !default; // cell 左右padding距离
+$-cell-wrapper-padding: 10px 15px 10px 0 !default; // cell 容器padding
+// $-cell-icon-height: 42px !default; // 图标高度
 $-cell-icon-right: $-cell-padding !default; // 图标距离右边缘
-$-cell-icon-size: 18px !default; // 图标大小
-$-cell-title-fs: $-fs-content !default; // 标题字号
-$-cell-title-fs-large: $-fs-title !default; // 大尺寸标题字号
-$-cell-title-color: $-color-title !default; // 标题文字颜色
-$-cell-label-fs: $-fs-secondary !default; // 描述信息字号
-$-cell-label-color: $-color-secondary !default; // 描述信息文字颜色
-$-cell-value-fs: $-fs-content !default; // 右侧内容字号
-$-cell-value-color: $-color-content !default; // 右侧内容文字颜色
-$-cell-arrow-size: 14px !default; // 右箭头大小
-$-cell-arrow-color: $-color-icon !default; // 右箭头颜色
-$-cell-tap-bg: rgba(0, 0, 0, 0.06) !default; // 点击态背景色
+$-cell-icon-size: 16px !default; // 图标大小
+$-cell-title-fs: 14px !default; // 标题字号
+$-cell-title-color: rgba($-color-black, 0.85) !default; // 标题文字颜色
+$-cell-label-fs: 12px !default; // 描述信息字号
+$-cell-label-color: rgba($-color-black, 0.45) !default; // 描述信息文字颜色
+$-cell-value-fs: 12px !default; // 右侧内容字号
+$-cell-value-color: rgba($-color-black, 0.45) !default; // 右侧内容文字颜色
+$-cell-arrow-size: 18px !default; // 右箭头大小
+$-cell-arrow-color: rgba($-color-black, 0.25) !default; // 右箭头颜色
+$-cell-tap-bg: rgba($-color-black, 0.06) !default; // 点击态背景色
+$-cell-left-img-size: 40px !default; // 左侧图片位尺寸
+
+$-cell-title-fs-large: 16px !default; // 大尺寸标题字号
+$-cell-value-fs-large: 14px !default; // 右侧内容大号字号
+$-cell-label-fs-large: 14px !default; // 描述信息字号
+$-cell-icon-size-large: 18px !default; // 图标大小
 
 /* checkbox */
 $-checkbox-margin: 10px !default; // 多个复选框距离
@@ -514,7 +519,7 @@ $-switch-inactive-color: resultColor(
 $-switch-inactive-shadow-color: rgba(155, 155, 155, 0.5) !default; // 非选中状态shadow颜色
 
 /* tabbar */
-$-tabbar-color: rgba(51,51,51,1) !default; // 默认颜色
+$-tabbar-color: rgba(51, 51, 51, 1) !default; // 默认颜色
 $-tabbar-active-color: $-color-theme !default; // 高亮颜色
 $-tabbar-item-padding: 7px 0 4px !default; // 每一项的padding
 $-tabbar-icon-size: 24px !default; // 图标大小

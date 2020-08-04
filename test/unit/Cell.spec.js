@@ -70,7 +70,7 @@ test('should only render cell-group value slot', () => {
   expect(wrapper.element.querySelector('.wd-cell-group__right').textContent.trim()).toBe('内容')
 })
 
-test('should render cell icon and label, and isLink, clickable, size, center', () => {
+test('should render cell icon and label, and isLink, clickable, size, align', () => {
   let wrapper = mount(Cell, {
     propsData: {
       title: '标题文字',
@@ -80,7 +80,7 @@ test('should render cell icon and label, and isLink, clickable, size, center', (
       isLink: true,
       clickable: true,
       size: 'large',
-      center: true
+      align: 'left'
     }
   })
 
@@ -89,7 +89,7 @@ test('should render cell icon and label, and isLink, clickable, size, center', (
   expect(wrapper.contains('.wd-cell__arrow-right')).toBe(true)
   expect(wrapper.contains('.is-link')).toBe(true)
   expect(wrapper.contains('.is-large')).toBe(true)
-  expect(wrapper.contains('.is-center')).toBe(true)
+  expect(wrapper.contains('.is-left')).toBe(true)
 })
 
 test('should render cell slots', () => {
@@ -159,7 +159,7 @@ test('props: to(router)', () => {
       }
     ]
   })
-  
+
   let wrapper = shallowMount(Cell, {
     localVue,
     router,
@@ -171,7 +171,7 @@ test('props: to(router)', () => {
     }
   })
   expect(wrapper.attributes('to')).toBe('/cell')
-  
+
   let wrapper2 = shallowMount(Cell, {
     localVue,
     router,
@@ -195,10 +195,10 @@ test('props: to(router)', () => {
       replace: true
     }
   })
-  expect(wrapper3.attributes('replace')).toBe("true")
+  expect(wrapper3.attributes('replace')).toBe('true')
 })
 
-test('props: to, isLink, size, center', () => {
+test('props: to, isLink, size, align', () => {
   let wrapper = mount(Cell, {
     propsData: {
       title: '标题文字',
@@ -206,7 +206,7 @@ test('props: to, isLink, size, center', () => {
       to: 'https://m.jd.com',
       isLink: true,
       size: 'large',
-      center: true
+      align: 'center'
     }
   })
   expect(wrapper.contains('.is-link')).toBe(true)

@@ -9,7 +9,7 @@
     <demo-block title="图标" transparent>
       <wd-cell-group>
         <wd-cell title="标题文字" value="内容" icon="wd-icon-setting" />
-        <wd-cell title="标题文字" value="内容" icon="wd-icon-collect" />
+        <wd-cell title="标题文字" value="内容" icon="wd-icon-edit-outline" />
         <wd-cell title="标题文字" value="内容">
           <div class="custom-icon" slot="icon">
             <i class="cell-icon"></i>
@@ -17,18 +17,20 @@
         </wd-cell>
       </wd-cell-group>
     </demo-block>
-    <demo-block title="大小" transparent>
-      <wd-cell-group>
-        <wd-cell title="标题文字" value="内容" size="large" />
-        <wd-cell title="标题文字" label="描述信息" value="内容" size="large" />
+    <demo-block title="分组标题" transparent>
+      <wd-cell-group title="交易管理">
+        <wd-cell title="标题文字" value="内容" />
+        <wd-cell title="标题文字" label="描述信息" value="内容" />
       </wd-cell-group>
     </demo-block>
-    <demo-block title="分组标题" transparent>
-      <wd-cell-group title="交易管理" value="订购">
-        <div slot="value" class="custom-group-value">
-          <i class="wd-icon-cart"></i>
-          <span>订购</span>
-        </div>
+    <demo-block title="小尺寸" transparent>
+      <wd-cell-group>
+        <wd-cell title="标题文字" value="内容" size="small" />
+        <wd-cell title="标题文字" label="描述信息" value="内容" size="small" />
+      </wd-cell-group>
+    </demo-block>
+    <demo-block title="展示边框线" transparent>
+      <wd-cell-group title="交易管理" border>
         <wd-cell title="标题文字" value="内容" />
         <wd-cell title="标题文字" label="描述信息" value="内容" />
       </wd-cell-group>
@@ -42,13 +44,31 @@
         <wd-cell title="设置" value="内容" is-link :to="{ path: '/button' }" replace />
       </wd-cell-group>
     </demo-block>
+    <demo-block title="水平对齐方式" transparent>
+      <wd-cell-group>
+        <wd-cell title="左对齐" value="描述" />
+        <wd-cell title="居中" value="描述" align="center" />
+        <wd-cell title="右对齐" value="描述" align="right" />
+      </wd-cell-group>
+    </demo-block>
+    <demo-block title="垂直居中" transparent>
+      <wd-cell-group>
+        <wd-cell title="标题文字" value="内容" center/>
+        <wd-cell title="标题文字" label="描述信息" value="内容" center/>
+      </wd-cell-group>
+    </demo-block>
     <demo-block title="自定义slot" transparent>
       <wd-cell-group>
-        <wd-cell title="标题文字" center>
+        <wd-cell title="标题文字">
           <wd-button class="custom-value" size="small" type="primary" plain>按钮</wd-button>
         </wd-cell>
-        <wd-cell title="标题文字" center>
+        <wd-cell title="标题文字">
           <wd-switch class="custom-value" v-model="value" />
+        </wd-cell>
+        <wd-cell title="标题文字" is-link :to="href">
+          <div class="custom-text">
+            <span>订购</span>
+          </div>
         </wd-cell>
         <wd-cell>
           <div slot="title">
@@ -78,17 +98,18 @@ export default {
 </script>
 <style lang="scss">
 .page-cell {
-  .end-time{
+  .end-time {
     margin-left: 8px;
-    border: 1px solid #faa21e;
+    border: 1px solid #f0883a;
     padding: 0 4px;
     font-size: 10px;
-    color: #faa21e;
+    color: #f0883a;
   }
-  .custom-icon {
-    position: relative;
-    width: 18px;
-    height: 100%;
+  .custom-text {
+    position: absolute;
+    top: 2px;
+    right: 26px;
+    color: #f0883a;
   }
   .cell-icon {
     position: absolute;
@@ -98,7 +119,8 @@ export default {
     display: inline-block;
     width: 18px;
     height: 18px;
-    background: url('https://img10.360buyimg.com/jmadvertisement/jfs/t1/71075/7/3762/1820/5d1f26d1E0d600b9e/a264c901943080ac.png') no-repeat;
+    background: url('https://img10.360buyimg.com/jmadvertisement/jfs/t1/71075/7/3762/1820/5d1f26d1E0d600b9e/a264c901943080ac.png')
+      no-repeat;
     background-size: cover;
   }
   .custom-value {

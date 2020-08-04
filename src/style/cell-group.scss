@@ -1,25 +1,36 @@
-@import './abstracts/variable';
-@import './abstracts/mixin';
+@import "./abstracts/variable";
+@import "./abstracts/mixin";
 
 @include b(cell-group) {
-  background-color: #fff;
-
+  background-color: $-color-white;
+  @include when(border) {
+    .wd-cell {
+      .wd-cell__wrapper {
+        @include halfPixelBorder;
+      }
+      &:last-child .wd-cell__wrapper::after {
+        display: none;
+      }
+    }
+    .wd-cell-group__title {
+      @include halfPixelBorder;
+    }
+  }
   @include e(title) {
     position: relative;
     display: flex;
     justify-content: space-between;
-    padding: $-cell-padding;
-    background: #fff;
+    padding: 13px $-cell-padding;
+    background: $-color-white;
     font-size: $-cell-group-title-fs;
     color: $-cell-group-title-color;
-    
-    @include halfPixelBorder;
+    font-weight: $-fw-medium;
   }
   @include e(right) {
     color: $-cell-group-value-color;
     font-size: $-cell-group-value-fs;
   }
   @include e(body) {
-    background: #fff;
+    background: $-color-white;
   }
 }
