@@ -6,6 +6,10 @@
     <demo-block title="不显示进度文字">
       <wd-progress :percentage="60" hide-text />
     </demo-block>
+    <demo-block title="进度条状态">
+      <wd-progress :percentage="100" hide-text status="success" />
+      <wd-progress :percentage="80" hide-text status="danger" />
+    </demo-block>
     <demo-block title="修改颜色">
       <wd-progress :percentage="80" color="#00c740" />
     </demo-block>
