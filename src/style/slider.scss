@@ -31,7 +31,7 @@
     position: relative;
     border-radius: inherit;
     height: $-slider-axie-height;
-    background-color: $-slider-line-color;
+    background: $-slider-line-color;
   }
   @include e(button-wrapper) {
     width: $-slider-handle-radius * 2;
@@ -46,21 +46,21 @@
   @include e(button) {
     height: $-slider-handle-radius * 2;
     width: $-slider-handle-radius * 2;
-    background-color: #fff;
+    background: $-slider-handle-bg;
     border-radius: 100%;
     border: 1px solid $-slider-axie-bg;
     box-sizing: border-box;
-    box-shadow: 0 2px 4px 0 rgba($color: #000, $alpha: 0.3);
+    box-shadow: 0 2px 4px 0 rgba($color: #9B9B9B, $alpha: 0.5);
   }
   @include e(label-min) {
-    margin-right: $-slider-handle-radius + 8px;
+    margin-right: $-slider-handle-radius + 11px;
   }
   @include e(label-max) {
-    margin-left: $-slider-handle-radius + 8px;
+    margin-left: $-slider-handle-radius + 11px;
   }
   @include m(disabled) {
     @include me(bar) {
-      background-color: $-slider-disabled-line-color ;
+      opacity: 0.25;
     }
     @include me(label-min, label-max) {
       color: $-slider-disabled-color;

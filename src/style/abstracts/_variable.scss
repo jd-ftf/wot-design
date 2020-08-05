@@ -464,13 +464,27 @@ $-search-light-bg: $-color-bg !default; // light 类型的容器背景色
 
 /* slider */
 $-slider-fs: $-fs-content !default; // 字体大小
-$-slider-handle-radius: 14px !default; // 滑块半径
-$-slider-axie-height: 6px !default; // 滑轴高度
-$-slider-color: $-color-title !default; // 字体颜色
-$-slider-axie-bg: $-progress-bg !default; // 滑轴的默认背景色
-$-slider-line-color: $-color-theme !default; // 进度条颜色
-$-slider-disabled-color: $-color-aid !default; // 禁用状态下字体颜色
-$-slider-disabled-line-color: #e5f3ff !default; // 禁用状态下进度条的颜色
+$-slider-handle-radius: 12px !default; // 滑块半径
+$-slider-handle-bg: resultColor(
+  $open-linear,
+  139deg,
+  $-color-theme,
+  "dark" "light",
+  #FFFFFF #F7F7F7 ,
+  0% 100%
+) !default; // 滑块背景
+$-slider-axie-height: 3px !default; // 滑轴高度
+$-slider-color: #333 !default; // 字体颜色
+$-slider-axie-bg: #E5E5E5 !default; // 滑轴的默认背景色
+$-slider-line-color: resultColor(
+  $open-linear,
+  315deg,
+  $-color-theme,
+  "dark" "light",
+  #517CF0 #769EF5 ,
+  0% 100%
+) !default; // 进度条颜色
+$-slider-disabled-color: rgba($-color-black, 0.25) !default; // 禁用状态下字体颜色
 
 /* sort-button */
 $-sort-button-fs: $-fs-content !default; // 字号
