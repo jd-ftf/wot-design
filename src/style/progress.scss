@@ -25,6 +25,17 @@
     border-radius: $-progress-height / 2;
     background: $-progress-color;
     transition: background .2s, width .3s;
+    font-size: $-progress-icon-fs;
+
+    @include when(danger) {
+      background: $-progress-linear-danger-color;
+    }
+    @include when(success) {
+      background: $-progress-linear-success-color;
+    }
+    @include when(progress) {
+      background: $-progress-linear-color;
+    }
   }
   @include e(label) {
     width: 30px;
@@ -34,5 +45,15 @@
   }
   @include e(icon) {
     font-size: $-progress-icon-fs;
+
+    @include when(danger) {
+      color: $-progress-danger-color;
+    }
+    @include when(success) {
+      color: $-progress-success-color;
+    }
+    @include when(progress) {
+      color: $-progress-color;
+    }
   }
 }

@@ -1,13 +1,23 @@
 <template>
   <div class="wd-progress">
     <span class="wd-progress__outer">
-      <i class="wd-progress__inner" :style="{ background: showColor, width: percentage + '%' }"></i>
+      <i
+        class="wd-progress__inner"
+        :class="[ status ? `is-${status}` : '' ]"
+        :style="{ background: showColor, width: percentage + '%' }"></i>
     </span>
-    <div class="wd-progress__label">
-      <span v-if="!hideText">{{ percentage }}%</span>
-      <i v-else-if="icon" class="wd-progress__icon" :style="{ color: color }" :class="icon"></i>
-      <slot v-else name="icon"></slot>
-    </div>
+    <span class="wd-progress__label" v-if="!hideText">{{ percentage }}%</span>
+    <i
+      v-else-if="status" class="wd-progress__label wd-progress__icon"
+      :class="[
+        {
+          'wd-icon-close-outline': status == 'danger',
+          'wd-icon-check-outline': status == 'success'
+        },
+        status ? `is-${status}` : ''
+      ]"
+      :style="{ color: color }"
+    ></i>
   </div>
 </template>
 
@@ -21,7 +31,8 @@ export default {
     },
     hideText: Boolean,
     color: [String, Array, Function],
-    icon: String
+    icon: String,
+    status: String
   },
   computed: {
     showColor () {
@@ -43,7 +54,6 @@ export default {
           color = this.color(this.percentage)
         }
       }
-
       return color
     }
   },

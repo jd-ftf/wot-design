@@ -6,19 +6,16 @@
     <demo-block title="不显示进度文字">
       <wd-progress :percentage="60" hide-text />
     </demo-block>
+    <demo-block title="进度条状态">
+      <wd-progress :percentage="60" hide-text status="progress" />
+      <wd-progress :percentage="100" hide-text status="success" />
+      <wd-progress :percentage="80" hide-text status="danger" />
+    </demo-block>
     <demo-block title="修改颜色">
       <wd-progress :percentage="80" color="#00c740" />
     </demo-block>
     <demo-block title="颜色数组">
       <wd-progress :percentage="percentage" :color="[ '#00c740', '#ffb300', '#e2231a', '#0083ff' ]" hide-text />
-    </demo-block>
-    <demo-block title="设置图标">
-      <wd-progress icon="wd-icon-check-outline" :percentage="100" color="#0083ff" hide-text></wd-progress>
-      <wd-progress :percentage="60" color="#e2231a" hide-text>
-        <span slot="icon">
-          <wd-icon name="close-outline" size="18px" color="#e2231a"/>
-        </span>
-      </wd-progress>
     </demo-block>
   </div>
 </template>

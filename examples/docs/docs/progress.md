@@ -25,6 +25,16 @@ Vue.use(Progress)
 <wd-progress :percentage="60" hide-text></wd-progress>
 ```
 
+### 设置状态
+
+设置 `status`，告知用户当前状态和预期。
+
+```html
+<wd-progress :percentage="60" hide-text status="progress" />
+<wd-progress :percentage="100" hide-text status="success" />
+<wd-progress :percentage="70" hide-text status="danger" />
+```
+
 ### 修改颜色
 
 设置 `color` 修改进度条颜色。
@@ -69,31 +79,11 @@ export default {
 </script>
 ```
 
-### 设置图标
-
-设置 `icon` 右侧图标，也可以使用 'icon' 的 slot 插槽。
-
-```html
-<wd-progress icon="wd-icon-check-outline" :percentage="100" color="#0083ff" hide-text>
-</wd-progress>
-<wd-progress :percentage="60" color="#e2231a" hide-text>
-  <span slot="icon">
-    <wd-icon name="close-outline" size="18px" color="#e2231a"/>
-  </span>
-</wd-progress>
-```
-
 ### Attributes
 
 | 参数      | 说明                                 | 类型      | 可选值       | 默认值   |
 |---------- |------------------------------------ |---------- |------------- |-------- |
 | percentage | 进度数值，最大值100 | number | - | 0 |
 | hide-text | 隐藏进度文字 | boolean | - | false |
-| color | 进度条颜色 | string / array/ function | - | 'linear-gradient(315deg, rgba(81,124,240,1) 0%,rgba(118,158,245,1) 100%)' |
-| icon | 右侧图标 | String | - | - |
-
-### Slot
-
-| name      | 说明       |
-|------------- |----------- |
-| icon | 图标 |
+| color | 进度条颜色 | string / array/ function | - | '#4d80f0' |
+| status | 进度条状态 | string | 'progress'、'success'、'danger' | - |
