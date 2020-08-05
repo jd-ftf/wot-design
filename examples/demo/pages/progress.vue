@@ -12,6 +12,14 @@
     <demo-block title="颜色数组">
       <wd-progress :percentage="percentage" :color="[ '#00c740', '#ffb300', '#e2231a', '#0083ff' ]" hide-text />
     </demo-block>
+    <demo-block title="设置图标">
+      <wd-progress icon="wd-icon-check-outline" :percentage="100" color="#0083ff" hide-text></wd-progress>
+      <wd-progress :percentage="60" color="#e2231a" hide-text>
+        <span slot="icon">
+          <wd-icon name="close-outline" size="18px" color="#e2231a"/>
+        </span>
+      </wd-progress>
+    </demo-block>
   </div>
 </template>
 

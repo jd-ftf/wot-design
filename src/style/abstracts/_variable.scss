@@ -406,12 +406,20 @@ $-popup-close-size: 24px !default; // 关闭按钮尺寸
 $-popup-close-color: #666 !default; // 关闭按钮颜色
 
 /* progress */
-$-progress-bg: #e5e5e5 !default; // 进度条底色
-$-progress-color: $-color-theme !default; // 进度条颜色
+$-progress-padding: 10px 0 !default; // 进度条内边距
+$-progress-bg: rgba(229,229,229,1) !default; // 进度条底色
+$-progress-color: resultColor(
+  $open-linear,
+  315deg,
+  $-color-theme,
+  "dark" "light",
+  #517CF0 #769EF5 ,
+  0% 100%
+) !default; // 进度条颜色
 $-progress-height: 3px !default; // 进度条高度
 $-progress-label-color: #333 !default; // 文字颜色
 $-progress-label-fs: 14px !default; // 文字字号
-$-progress-txt-height: 26px !default; // 文字占据的高度
+$-progress-icon-fs: 18px !default; // 图标字号
 
 /* pull-refresh */
 $-pull-refresh-fs: $-fs-secondary !default; // 下拉刷下提示文字字号
@@ -658,6 +666,6 @@ $-grid-item-bg: $-color-white !default; // 间距
 
 /* statustip */
 $-statustip-fs: $-fs-content !default; // 字号
-$-statustip-color: $-color-aid !default; // 文字颜色
+$-statustip-color: rgba($-color-black, 0.45) !default; // 文字颜色
 $-statustip-line-height: 16px !default; // 文字行高
 $-statustip-padding: 5px 10px !default; // 间距
