@@ -16,8 +16,8 @@
     font-size: $-tag-fs;
     padding: 4px 11px;
     background: transparent;
-    color: $-tag-round-color;
-    border: 1px solid $-tag-round-border-color;
+    color: if($normalColor != $-tag-info-color, $normalColor, $-tag-round-color);
+    border: 1px solid if($normalColor != $-tag-info-color, $normalColor, $-tag-round-border-color);
     border-radius: $-tag-round-radius;
   }
   @include when(mark) {
@@ -76,8 +76,7 @@
   }
   @include e(icon) {
     display: inline-block;
-    margin-right: 3px;
-    margin-top: 1px;
+    margin-right: 4px;
     font-size: $-tag-small-fs;
     line-height: 1;
     vertical-align: middle;

@@ -2,17 +2,16 @@
 @import './abstracts/mixin';
 
 @include b(progress) {
-  position: relative;
   width: 100%;
   height: $-progress-height;
+  display: flex;
+  align-items: center;
+  padding: $-progress-padding;
 
-  @include when(with-text) {
-    padding-top: $-progress-txt-height;
-  }
   @include e(outer) {
     display: block;
+    flex: 1;
     position: relative;
-    width: 100%;
     height: $-progress-height;
     border-radius: $-progress-height / 2;
     background: $-progress-bg;
@@ -26,12 +25,29 @@
     border-radius: $-progress-height / 2;
     background: $-progress-color;
     transition: background .2s, width .3s;
+    font-size: $-progress-icon-fs;
+
+    @include when(danger) {
+      background: $-progress-linear-danger-color;
+    }
+    @include when(success) {
+      background: $-progress-linear-success-color;
+    }
   }
   @include e(label) {
-    position: absolute;
-    transform: translateX(-50%);
-    bottom: $-progress-height + 6px;
+    width: 30px;
+    margin-left: 9px;
     color: $-progress-label-color;
     font-size: $-progress-label-fs;
+  }
+  @include e(icon) {
+    font-size: $-progress-icon-fs;
+
+    @include when(danger) {
+      color: $-progress-danger-color;
+    }
+    @include when(success) {
+      color: $-progress-success-color;
+    }
   }
 }
