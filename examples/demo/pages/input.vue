@@ -19,7 +19,7 @@
       <wd-input v-model="value6" clearable show-password />
     </demo-block>
     <demo-block title="设置前后Icon">
-      <wd-input v-model="value7" prefix-icon="wd-icon-person" suffix-icon="wd-icon-tickets" />
+      <wd-input v-model="value7" prefix-icon="wd-icon-dong" suffix-icon="wd-icon-list" />
     </demo-block>
     <demo-block title="字数限制">
       <wd-input v-model="value8" maxlength="20" show-word-limit />
@@ -48,16 +48,16 @@
       <wd-cell-group border>
         <wd-input v-model="value13" placeholder="请输入..." label="基本用法" />
         <wd-input v-model="value14" placeholder="请输入..." label="禁用" disabled />
-        <wd-input v-model="value15" placeholder="请输入..." label="清除、密码" show-password clearable input-width="100px" />
+        <wd-input v-model="value15" placeholder="请输入..." label="清除、密码" show-password clearable />
         <wd-input v-model="value16" placeholder="请输入..." label="错误状态" error />
         <wd-input
           v-model="value17"
           placeholder="请输入..."
           label="图标"
-          prefix-icon="wd-icon-person"
-          suffix-icon="wd-icon-tickets"
+          prefix-icon="wd-icon-dong"
+          suffix-icon="wd-icon-list"
         />
-        <wd-input v-model="value18" placeholder="请输入..." label="自定义插槽" input-width="100px">
+        <wd-input v-model="value18" placeholder="请输入..." label="自定义插槽">
           <wd-button slot="suffix" type="primary" size="small" class="custom-button">获取验证码</wd-button>
         </wd-input>
         <wd-input v-model="value19" placeholder="请输入..." label="大尺寸" size="large" />
