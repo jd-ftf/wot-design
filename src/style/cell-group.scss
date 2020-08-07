@@ -3,6 +3,7 @@
 
 @include b(cell-group) {
   background-color: $-color-white;
+
   @include when(border) {
     .wd-cell {
       .wd-cell__wrapper {
@@ -15,16 +16,24 @@
     .wd-cell-group__title {
       @include halfPixelBorder;
     }
+    .wd-input.is-cell {
+      @include halfPixelBorder('bottom', $-cell-padding);
+
+      &:last-child::after {
+        display: none;
+      }
+    }
   }
   @include e(title) {
     position: relative;
     display: flex;
     justify-content: space-between;
-    padding: 13px $-cell-padding;
+    padding: $-cell-group-padding;
     background: $-color-white;
     font-size: $-cell-group-title-fs;
     color: $-cell-group-title-color;
     font-weight: $-fw-medium;
+    line-height: 1.43;
   }
   @include e(right) {
     color: $-cell-group-value-color;
