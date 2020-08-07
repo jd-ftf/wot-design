@@ -11,15 +11,13 @@ export default {
     clickable: Boolean,
     size: {
       type: String,
-      default: 'large'
+      default: 'small'
     },
     titleWidth: String,
     center: Boolean,
-    align: {
-      type: String,
-      default: 'left'
-    },
-    replace: Boolean
+    replace: Boolean,
+    required: Boolean,
+    vertical: Boolean
   },
   computed: {
     iconShow () {
@@ -37,7 +35,7 @@ export default {
     }
   },
   render (h) {
-    const { to, title, label, isLink, value, clickable, size, titleWidth, iconShow, valueShow, replace, align, center } = this
+    const { to, title, label, isLink, value, clickable, size, titleWidth, iconShow, valueShow, replace, center, required, vertical } = this
 
     const Icon = iconShow ? (
       <div class="wd-cell__icon">
@@ -47,11 +45,11 @@ export default {
       </div>
     ) : ''
     const Wrapper = (
-      <div class="wd-cell__wrapper" class={['wd-cell__wrapper', (this.$slots.label || label) && 'is-label']}>
+      <div class="wd-cell__wrapper" class={['wd-cell__wrapper', (this.$slots.label || label) && 'is-label', vertical && 'is-vertical']}>
         <div class={['wd-cell__left', iconShow && 'is-prefix']} style={titleWidth ? `min-width: ${titleWidth}; max-width: ${titleWidth}` : ''}>
           {Icon}
           {
-            this.$slots.title ? <div class="wd-cell__title">{this.$slots.title}</div> : <div class="wd-cell__title">{title}</div>
+            this.$slots.title ? <div class="wd-cell__title">{this.$slots.title}</div> : <div class={['wd-cell__title', required && 'is-required']}>{title}</div>
           }
           {
             this.$slots.label
@@ -73,7 +71,6 @@ export default {
     )
     let rootClass = ['wd-cell']
     size && rootClass.push(`is-${size}`)
-    align && rootClass.push(`is-${align}`)
     center && rootClass.push('is-align-center')
 
     if (to) {

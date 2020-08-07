@@ -64,11 +64,16 @@
     .wd-input__textarea-inner {
       color: $-input-error-color;
       background: transparent;
-
-      // TODO ::placeholder 表单下 颜色 报错颜色
-      // &::-webkit-input-placeholder {
-      //   color: $-input-error-color;
-      // }
+    }
+  }
+  @include when(no-border) {
+    &::after {
+      display: none;
+    }
+    .wd-input__inner {
+      height: $-input-inner-height-no-border;
+      padding-top: 0;
+      padding-bottom: 0;
     }
   }
   @include when(cell) {
@@ -135,6 +140,7 @@
   }
   @include e(inner) {
     display: block;
+    width: 1px; // 真机上，input有默认宽度，input的默认宽度会将右侧插槽挤出屏幕
     flex: 1;
     height: $-input-inner-height;
     padding: $-input-inner-padding;

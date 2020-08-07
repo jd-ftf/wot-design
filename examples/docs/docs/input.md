@@ -75,6 +75,15 @@ export default {
 <wd-input v-model="value" maxlength="20" show-word-limit></wd-input>
 ```
 
+### 取消底部边框
+
+设置 `no-border` 属性，取消底部边框，同时取消上下间距，方便开发者自定义使用。
+
+```html
+<wd-input v-model="value" no-border placeholder="请输入价格" style="display: inline-block; width: 70px; vertical-align: middle;" />
+<span style="display: inline-block; vertical-align: middle; font-size: 14px;">元</span>
+```
+
 ### 文本域
 
 设置 `type` 为 'textarea`。
@@ -155,6 +164,7 @@ export default {
 | error | 设置输入框错误状态，错误状态时为红色 | boolean | - | false |
 | center | 当有label属性时，设置标题和输入框垂直居中，默认为顶部居中 | boolean | - | false |
 | label-width | 设置左侧标题宽度 | string | - | '33%' |
+| no-border | 取消底部边框 | boolean | - | false |
 
 ### Events
 

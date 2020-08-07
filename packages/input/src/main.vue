@@ -8,7 +8,8 @@
         'is-error': error,
         'is-cell': label || $slots.label,
         'is-center': center,
-        'is-not-empty': value && value.length !== 0
+        'is-not-empty': value && value.length !== 0,
+        'is-no-border': noBorder
       },
       size ? `is-${size}` : ''
     ]"
@@ -160,10 +161,11 @@ export default {
     label: String,
     labelWidth: {
       type: String,
-      default: '80px'
+      default: '33%'
     },
     size: String,
-    center: Boolean
+    center: Boolean,
+    noBorder: Boolean
   },
   watch: {
     value: {

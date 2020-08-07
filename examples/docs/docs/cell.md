@@ -27,61 +27,27 @@ Vue.use(Cell)
 
 设置 `icon` 属性，可以为 Icon 章节中的图标，也可以通过 icon 的 slot 自定义图标位置。
 
-> 自定义图标，如果有多个cell，需保证所有图标的宽度是一致的且垂直居中。如果使用 icon 属性且为 Icon 章节的字体图标，则宽度一致且垂直居中。
+> 自定义图标，如果有多个cell，需保证所有图标的宽度是一致的且垂直居中。如果使用 icon 属性且为 Icon 章节的字体图标，则宽度一致且垂直居中；cell图标的大小是宽16px，高16px，large 尺寸图标宽度18px，高度18px。
 
 ```html
 <wd-cell-group>
   <wd-cell title="标题文字" value="内容" icon="wd-icon-setting"></wd-cell>
   <wd-cell title="标题文字" value="内容" icon="wd-icon-collect"></wd-cell>
   <wd-cell title="标题文字" value="内容">
-    <div class="custom-icon" slot="icon">
-      <i class="cell-icon"></i>
-    </div>
+    <i class="cell-icon" slot="icon"></i>
   </wd-cell>
 </wd-cell-group>
 
 <style>
-.custom-icon {
-  position: relative;
-  width: 18px;
-  height: 100%;
-}
 .cell-icon {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  display: inline-block;
-  width: 18px;
-  height: 18px;
-  background: url('https://img10.360buyimg.com/jmadvertisement/jfs/t1/71075/7/3762/1820/5d1f26d1E0d600b9e/a264c901943080ac.png') no-repeat;
+  display: block;
+  width: 16px;
+  height: 16px;
+  background: url('https://img10.360buyimg.com/jmadvertisement/jfs/t1/71075/7/3762/1820/5d1f26d1E0d600b9e/a264c901943080ac.png')
+    no-repeat;
   background-size: cover;
 }
 </style>
-```
-
-### 单元格大小
-
-通过设置 `size` 修改单元格大小，将 `size` 设置为 'large' 时左侧标题字号为 16px，描述字号为14px。
-
-将 `size` 设置为 'small' 时左侧标题字号为 14px，描述尺寸为 12px。
-
-```html
-<wd-cell title="标题文字" value="内容" size="small" />
-<wd-cell title="标题文字" value="内容" size="large" />
-```
-
-### 展示边框线
-
-通过设置 `size` 修改单元格大小，将 `size` 设置为 'large' 时左侧标题字号为 16px，描述字号为14px。
-
-将 `size` 设置为 'small' 时左侧标题字号为 14px，描述尺寸为 12px。
-
-```html
-<wd-cell-group title="交易管理" border>
-  <wd-cell title="标题文字" value="内容" />
-  <wd-cell title="标题文字" label="描述信息" value="内容" />
-</wd-cell-group>
 ```
 
 ### 分组标题
@@ -96,6 +62,30 @@ Vue.use(Cell)
   </div>
   <wd-cell title="标题文字" value="内容"></wd-cell>
   <wd-cell title="标题文字" label="描述信息" value="内容"></wd-cell>
+</wd-cell-group>
+```
+
+### 单元格大小
+
+通过设置 `size` 修改单元格大小，将 `size` 设置为 'large' 时左侧标题字号为 16px，描述字号为14px。
+
+将 `size` 设置为 'small' 时左侧标题字号为 14px，描述尺寸为 12px。
+
+默认为 'small'。
+
+```html
+<wd-cell title="标题文字" value="内容" size="small" />
+<wd-cell title="标题文字" value="内容" size="large" />
+```
+
+### 展示边框线
+
+在 `wd-cell-group` 上设置 `border` 属性，会给每个cell加上边框，最后一个cell则不展示边框，其他具有 `cell` 类型的表单组件也支持边框展示，如 input、picker。
+
+```html
+<wd-cell-group title="交易管理" border>
+  <wd-cell title="标题文字" value="内容" />
+  <wd-cell title="标题文字" label="描述信息" value="内容" />
 </wd-cell-group>
 ```
 
@@ -126,14 +116,10 @@ export default {
 <wd-cell title="设置" value="内容" is-link :to="{ path: '/button' }"></wd-cell>
 ```
 
-### 对齐方式
-
-通过设置 `align` 设置左侧文字对齐方式， 默认值为 'left'。
+可以只设置 `is-link` 用于展示右箭头和点击态。
 
 ```html
-<wd-cell title="左对齐" value="描述" />
-<wd-cell title="居中" value="描述" align="center" />
-<wd-cell title="右对齐" value="描述" align="right" />
+<wd-cell title="帮助与反馈" is-link></wd-cell>
 ```
 
 ### 垂直居中
@@ -141,8 +127,28 @@ export default {
 通过设置 `center` 设置内容垂直居中对齐，默认顶部居中。
 
 ```html
-<wd-cell title="标题" value="内容" center/>
-<wd-cell title="标题" label="描述信息" value="内容" center />
+<wd-cell title="标题" value="内容" center></wd-cell>
+<wd-cell title="标题" label="描述信息" value="内容" center></wd-cell>
+```
+
+### 表单属性 - 必填
+
+设置 `required` 属性。
+
+```html
+<wd-cell title="必填" required>
+  <wd-rate v-model="rate"></wd-rate>
+</wd-cell>
+```
+
+### 表单属性 - 上下结构
+
+设置 `vertical` 属性。
+
+```html
+<wd-cell title="上下结构" vertical>
+  <wd-slider v-model="store"></wd-slider>
+</wd-cell>
 ```
 
 ### 自定义内容
@@ -151,14 +157,16 @@ export default {
 
 ```html
 <wd-cell-group>
-  <wd-cell title="标题文字">
+  <wd-cell title="标题文字" center>
     <wd-button class="custom-value" size="small" type="primary" plain>按钮</wd-button>
   </wd-cell>
-  <wd-cell title="标题文字">
-    <wd-switch class="custom-value" v-model="value"></wd-switch>
+  <wd-cell title="标题文字" center>
+    <wd-switch class="custom-value" v-model="value" />
   </wd-cell>
-  <wd-cell title="标题文字">
-    <div class="custom-text">订购</div>
+  <wd-cell title="标题文字" is-link :to="href">
+    <div class="custom-text">
+      <span>订购</span>
+    </div>
   </wd-cell>
   <wd-cell>
     <div slot="title">
@@ -176,10 +184,11 @@ export default {
   transform: translate(0, -50%);
   white-space: nowrap;
 }
-.custom-text {
-  position: absolute;
-  top: 2px;
-  right: 26px;
+.end-time {
+  margin-left: 8px;
+  border: 1px solid #f0883a;
+  padding: 0 4px;
+  font-size: 10px;
   color: #f0883a;
 }
 </style>
@@ -201,13 +210,14 @@ export default {
 | value | 右侧内容 | string | - | - |
 | icon | 图标类名 | string | - | - |
 | label | 描述信息 | string | - | - |
-| align | 标题的水平对齐方式 | string | 'left' / 'right' / 'center' | 'left' |
 | is-link | 是否为跳转链接 | boolean | - | false |
 | to | 跳转地址 | string / object | - | - |
 | replace | 跳转时是否替换栈顶页面，只对`vue-router` 中的路由对象有效，普通链接无效 | boolean | - | false |
 | size | 设置单元格大小 | string | 'large' / 'small' | 'large' |
 | title-width | 设置左侧标题宽度 | string | - | - |
 | center | 是否垂直居中，默认顶部居中 | boolean | - | false |
+| required | 表单属性，必填 | boolean | - | false |
+| vertical | 表单属性，上下结构 | boolean | - | false |
 
 ### CellGroup Slot
 

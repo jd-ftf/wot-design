@@ -9,11 +9,8 @@
     <demo-block title="图标" transparent>
       <wd-cell-group>
         <wd-cell title="标题文字" value="内容" icon="wd-icon-setting" />
-        <wd-cell title="标题文字" value="内容" icon="wd-icon-edit-outline" />
         <wd-cell title="标题文字" value="内容">
-          <div class="custom-icon" slot="icon">
-            <i class="cell-icon"></i>
-          </div>
+          <i class="cell-icon" slot="icon"></i>
         </wd-cell>
       </wd-cell-group>
     </demo-block>
@@ -23,10 +20,10 @@
         <wd-cell title="标题文字" label="描述信息" value="内容" />
       </wd-cell-group>
     </demo-block>
-    <demo-block title="小尺寸" transparent>
+    <demo-block title="大尺寸" transparent>
       <wd-cell-group>
-        <wd-cell title="标题文字" value="内容" size="small" />
-        <wd-cell title="标题文字" label="描述信息" value="内容" size="small" />
+        <wd-cell title="标题文字" value="内容" size="large" />
+        <wd-cell title="标题文字" label="描述信息" value="内容" size="large" />
       </wd-cell-group>
     </demo-block>
     <demo-block title="展示边框线" transparent>
@@ -35,7 +32,7 @@
         <wd-cell title="标题文字" label="描述信息" value="内容" />
       </wd-cell-group>
     </demo-block>
-    <demo-block title="可点击的" transparent>
+    <demo-block title="点击事件" transparent>
       <wd-cell clickable title="标题文字" value="内容" @click="toast" />
     </demo-block>
     <demo-block title="页面跳转" transparent>
@@ -44,25 +41,28 @@
         <wd-cell title="设置" value="内容" is-link :to="{ path: '/button' }" replace />
       </wd-cell-group>
     </demo-block>
-    <demo-block title="水平对齐方式" transparent>
-      <wd-cell-group>
-        <wd-cell title="左对齐" value="描述" />
-        <wd-cell title="居中" value="描述" align="center" />
-        <wd-cell title="右对齐" value="描述" align="right" />
-      </wd-cell-group>
-    </demo-block>
     <demo-block title="垂直居中" transparent>
       <wd-cell-group>
         <wd-cell title="标题文字" value="内容" center/>
         <wd-cell title="标题文字" label="描述信息" value="内容" center/>
       </wd-cell-group>
     </demo-block>
+    <demo-block title="表单属性" transparent>
+      <wd-cell-group border>
+        <wd-cell title="必填" required>
+          <wd-rate v-model="rate" icon="wd-icon-dong" active-icon="wd-icon-dong" />
+        </wd-cell>
+        <wd-cell title="上下结构" vertical>
+          <wd-slider v-model="store" />
+        </wd-cell>
+      </wd-cell-group>
+    </demo-block>
     <demo-block title="自定义slot" transparent>
       <wd-cell-group>
-        <wd-cell title="标题文字">
+        <wd-cell title="标题文字" center>
           <wd-button class="custom-value" size="small" type="primary" plain>按钮</wd-button>
         </wd-cell>
-        <wd-cell title="标题文字">
+        <wd-cell title="标题文字" center>
           <wd-switch class="custom-value" v-model="value" />
         </wd-cell>
         <wd-cell title="标题文字" is-link :to="href">
@@ -86,7 +86,9 @@ export default {
   data () {
     return {
       href: location.href.split('#')[0],
-      value: true
+      value: true,
+      rate: '',
+      store: 0
     }
   },
   methods: {
@@ -106,19 +108,12 @@ export default {
     color: #f0883a;
   }
   .custom-text {
-    position: absolute;
-    top: 2px;
-    right: 26px;
     color: #f0883a;
   }
   .cell-icon {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    display: inline-block;
-    width: 18px;
-    height: 18px;
+    display: block;
+    width: 16px;
+    height: 16px;
     background: url('https://img10.360buyimg.com/jmadvertisement/jfs/t1/71075/7/3762/1820/5d1f26d1E0d600b9e/a264c901943080ac.png')
       no-repeat;
     background-size: cover;

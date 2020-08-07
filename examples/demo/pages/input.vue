@@ -24,13 +24,17 @@
     <demo-block title="字数限制">
       <wd-input v-model="value8" maxlength="20" show-word-limit />
     </demo-block>
+    <demo-block title="取消底部边框，自定义使用">
+      <wd-input v-model="value9" no-border placeholder="请输入价格" style="display: inline-block; width: 70px; vertical-align: middle;" />
+      <span style="display: inline-block; vertical-align: middle; font-size: 14px;">元</span>
+    </demo-block>
     <demo-block title="textarea" transparent>
-      <wd-input type="textarea" v-model="value9" placeholder="请填写评价..." />
+      <wd-input type="textarea" v-model="value10" placeholder="请填写评价..." />
     </demo-block>
     <demo-block title="textarea 清空按钮 和 字数限制" transparent>
       <wd-input
         type="textarea"
-        v-model="value10"
+        v-model="value11"
         rows="6"
         maxlength="120"
         clearable
@@ -38,54 +42,26 @@
       />
     </demo-block>
     <demo-block title="自适应高度">
-      <wd-input v-model="value11" autosize clearable />
+      <wd-input v-model="value12" autosize clearable />
     </demo-block>
     <demo-block title="cell类型" transparent>
-      <!-- <wd-cell-group border>
-        <wd-cell title="基本用法" title-width="80px">
-          <wd-input v-model="value12" placeholder="请输入..." />
-        </wd-cell>
-        <wd-cell title="禁用" title-width="80px">
-          <wd-input v-model="value13" placeholder="请输入..." disabled />
-        </wd-cell>
-        <wd-cell title="清除、密码" title-width="80px">
-          <wd-input v-model="value14" placeholder="请输入..." show-password clearable />
-        </wd-cell>
-        <wd-cell title="错误状态" title-width="80px">
-          <wd-input v-model="value15" placeholder="请输入..." error />
-        </wd-cell>
-        <wd-cell title="图标" title-width="80px" icon="wd-icon-setting">
-          <wd-input
-            v-model="value16"
-            placeholder="请输入..."
-            prefix-icon="wd-icon-scan"
-            suffix-icon="wd-icon-search"
-          />
-        </wd-cell>
-        <wd-cell title="自定义插槽" title-width="80px">
-          <wd-input v-model="value17" placeholder="请输入...">
-            <wd-button slot="suffix" type="primary" size="small" class="custom-button">获取验证码</wd-button>
-          </wd-input>
-        </wd-cell>
-        <wd-cell title="大尺寸" title-width="80px">
-          <wd-input v-model="value18" placeholder="请输入..." size="large" />
-        </wd-cell>
-      </wd-cell-group> -->
-      <wd-input v-model="value12" placeholder="请输入..." label="基本用法" />
-      <wd-input v-model="value13" placeholder="请输入..." label="禁用" disabled />
-      <wd-input v-model="value14" placeholder="请输入..." label="清除、密码" show-password clearable />
-      <wd-input v-model="value15" placeholder="请输入..." label="错误状态" error />
-      <wd-input
-        v-model="value16"
-        placeholder="请输入..."
-        label="图标"
-        prefix-icon="wd-icon-person"
-        suffix-icon="wd-icon-tickets"
-      />
-      <wd-input v-model="value17" placeholder="请输入..." label="自定义插槽">
-        <wd-button slot="suffix" type="primary" size="small" class="custom-button">获取验证码</wd-button>
-      </wd-input>
-      <wd-input v-model="value18" placeholder="请输入..." label="大尺寸" size="large" />
+      <wd-cell-group border>
+        <wd-input v-model="value13" placeholder="请输入..." label="基本用法" />
+        <wd-input v-model="value14" placeholder="请输入..." label="禁用" disabled />
+        <wd-input v-model="value15" placeholder="请输入..." label="清除、密码" show-password clearable input-width="100px" />
+        <wd-input v-model="value16" placeholder="请输入..." label="错误状态" error />
+        <wd-input
+          v-model="value17"
+          placeholder="请输入..."
+          label="图标"
+          prefix-icon="wd-icon-person"
+          suffix-icon="wd-icon-tickets"
+        />
+        <wd-input v-model="value18" placeholder="请输入..." label="自定义插槽" input-width="100px">
+          <wd-button slot="suffix" type="primary" size="small" class="custom-button">获取验证码</wd-button>
+        </wd-input>
+        <wd-input v-model="value19" placeholder="请输入..." label="大尺寸" size="large" />
+      </wd-cell-group>
     </demo-block>
   </div>
 </template>
@@ -103,15 +79,16 @@ export default {
       value7: '',
       value8: '',
       value9: '',
-      value10: '支持清空和字数限制的文本域',
-      value11: '输入文字后，输入框高度跟随字数多少变化',
-      value12: '',
-      value13: '该输入框禁用',
-      value14: '12345678',
-      value15: '',
+      value10: '',
+      value11: '支持清空和字数限制的文本域',
+      value12: '输入文字后，输入框高度跟随字数多少变化',
+      value13: '',
+      value14: '该输入框禁用',
+      value15: '12345678',
       value16: '',
       value17: '',
-      value18: ''
+      value18: '',
+      value19: ''
     }
   }
 }

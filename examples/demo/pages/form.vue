@@ -1,7 +1,7 @@
 <template>
   <div>
     <demo-block title="Form 表单组件组合使用" transparent>
-      <wd-cell-group>
+      <wd-cell-group border>
         <wd-input label="用户名" v-model="username" placeholder="请输入用户名" clearable :error="usernameError" />
         <wd-input label="密码" v-model="password" placeholder="请输入密码" show-password clearable :error="passwordError" />
         <wd-cell title="性别">
@@ -10,8 +10,8 @@
             <wd-radio :value="2">女</wd-radio>
           </wd-radio-group>
         </wd-cell>
-        <wd-cell title="是否订阅">
-          <wd-switch v-model="subscribe" size="20px" style="display: block;" />
+        <wd-cell title="是否订阅" center>
+          <wd-switch v-model="subscribe" size="20px" style="position: absolute; top: 50%; right: 0; transform: translate(0, -50%);" />
         </wd-cell>
         <wd-picker :columns="typeList" v-model="userType" label="注册类型" align-right :error="userTypeError" />
         <wd-datetime-picker v-model="birthday" label="生日" align-right :error="birthdayError" />

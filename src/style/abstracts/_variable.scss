@@ -199,12 +199,15 @@ $-button-icon-active-color: $-color-icon-active !default; // icon 类型按钮�
 $-button-icon-disabled-color: $-color-icon-disabled !default; // icon 类型按钮禁用颜色
 
 /* cell */
+$-cell-padding: 15px !default; // cell 左右padding距离
+$-cell-ling-height: 1.43 !default; // 行高
+
 $-cell-group-title-fs: $-fs-title !default; // 组标题字号
+$-cell-group-padding: 13px $-cell-padding !default; // 组padding
 $-cell-group-title-color: rgba($-color-black, 0.85) !default; // 组标题文字颜色
 $-cell-group-value-fs: $-fs-content !default; // 组值字号
 $-cell-group-value-color: $-color-content !default; // 组值文字颜色
 
-$-cell-padding: 15px !default; // cell 左右padding距离
 $-cell-wrapper-padding: 10px 15px 10px 0 !default; // cell 容器padding
 // $-cell-icon-height: 42px !default; // 图标高度
 $-cell-icon-right: $-cell-padding !default; // 图标距离右边缘
@@ -215,6 +218,7 @@ $-cell-label-fs: 12px !default; // 描述信息字号
 $-cell-label-color: rgba($-color-black, 0.45) !default; // 描述信息文字颜色
 $-cell-value-fs: 12px !default; // 右侧内容字号
 $-cell-value-color: rgba($-color-black, 0.45) !default; // 右侧内容文字颜色
+$-cell-value-line-height: 1.67 !default; // 右侧内容行高
 $-cell-arrow-size: 18px !default; // 右箭头大小
 $-cell-arrow-color: rgba($-color-black, 0.25) !default; // 右箭头颜色
 $-cell-tap-bg: rgba($-color-black, 0.06) !default; // 点击态背景色
@@ -222,8 +226,15 @@ $-cell-left-img-size: 40px !default; // 左侧图片位尺寸
 
 $-cell-title-fs-large: 16px !default; // 大尺寸标题字号
 $-cell-value-fs-large: 14px !default; // 右侧内容大号字号
+$-cell-value-line-height-large: 1.58 !default; // 右侧内容行高
 $-cell-label-fs-large: 14px !default; // 描述信息字号
 $-cell-icon-size-large: 18px !default; // 图标大小
+$-cell-wrapper-padding-large: 13px $-cell-padding 13px 0 !default; // 大尺寸wrapper padding
+$-cell-wrapper-padding-large-with-label: 16px $-cell-padding 16px 0 !default; // 大尺寸wrapper padding（有label情况下）
+
+$-cell-required-color: #FA4350 !default; // 要求必填*颜色
+$-cell-required-size: 20px !default; // 必填*字号
+$-cell-vertical-top: 16px !default; // 表单类型-上下结构的间距
 
 /* checkbox */
 $-checkbox-margin: 10px !default; // 多个复选框距离
@@ -319,6 +330,7 @@ $-input-cell-height: 42px !default; // cell 高度
 $-input-cell-height-large: 44px !default; // cell 大尺寸高度
 $-input-cell-label-width: 33% !default; // cell 下 label 的宽度
 $-input-inner-height: 40px !default; // 非cell和textarea下的高度
+$-input-inner-height-no-border: 22px !default; // 无边框下的高度
 $-input-inner-padding: 9px 0 !default; // 非cell和textarea下的padding
 $-input-count-fs: 14px !default; // 计数字号
 $-input-count-fs-large: 14px !default; // 大尺寸计数字号
