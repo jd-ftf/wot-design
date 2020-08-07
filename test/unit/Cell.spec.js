@@ -79,8 +79,7 @@ test('should render cell icon and label, and isLink, clickable, size, align', ()
       icon: 'wd-icon-setting',
       isLink: true,
       clickable: true,
-      size: 'large',
-      align: 'left'
+      size: 'large'
     }
   })
 
@@ -89,7 +88,6 @@ test('should render cell icon and label, and isLink, clickable, size, align', ()
   expect(wrapper.contains('.wd-cell__arrow-right')).toBe(true)
   expect(wrapper.contains('.is-link')).toBe(true)
   expect(wrapper.contains('.is-large')).toBe(true)
-  expect(wrapper.contains('.is-left')).toBe(true)
 })
 
 test('should render cell slots', () => {
@@ -198,7 +196,7 @@ test('props: to(router)', () => {
   expect(wrapper3.attributes('replace')).toBe('true')
 })
 
-test('props: to, isLink, size, align', () => {
+test('props: to, isLink, size, center', () => {
   let wrapper = mount(Cell, {
     propsData: {
       title: '标题文字',
@@ -206,12 +204,12 @@ test('props: to, isLink, size, align', () => {
       to: 'https://m.jd.com',
       isLink: true,
       size: 'large',
-      align: 'center'
+      center: true
     }
   })
   expect(wrapper.contains('.is-link')).toBe(true)
   expect(wrapper.contains('.is-large')).toBe(true)
-  expect(wrapper.contains('.is-center')).toBe(true)
+  expect(wrapper.contains('.is-align-center')).toBe(true)
 })
 
 test('props: titleWidth', () => {
@@ -233,4 +231,15 @@ test('should not render value', () => {
     }
   })
   expect(wrapper.contains('.wd-cell__value')).toBe(false)
+})
+
+test('props: required', () => {
+  let wrapper = mount(Cell, {
+    propsData: {
+      title: '标题文字',
+      value: '内容',
+      required: true
+    }
+  })
+  expect(wrapper.find('.wd-cell__title').contains('.is-required')).toBe(true)
 })
