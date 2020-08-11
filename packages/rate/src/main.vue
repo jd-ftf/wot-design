@@ -33,11 +33,11 @@ export default {
     },
     size: {
       type: String,
-      default: '20px'
+      default: '16px'
     },
     space: {
       type: String,
-      default: '4px'
+      default: '2px'
     },
     color: {
       type: String,
@@ -49,11 +49,11 @@ export default {
     },
     icon: {
       type: String,
-      default: 'wd-icon-star'
+      default: 'wd-icon-chat' // Todo 替换图标
     },
     activeIcon: {
       type: String,
-      default: 'wd-icon-star-fill'
+      default: 'wd-icon-chat' // Todo 替换图标
     },
     disabled: {
       type: Boolean,
