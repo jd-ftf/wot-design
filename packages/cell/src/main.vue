@@ -42,7 +42,7 @@ export default {
         <div class={['wd-cell__left', iconShow && 'is-prefix', required && 'is-required']} style={titleWidth ? `min-width: ${titleWidth}; max-width: ${titleWidth}` : ''}>
           {Icon}
           <div class="wd-cell__title">
-            { this.$slots.title ? this.$slots.title : <div>{title}</div> }
+            <div class="wd-cell__title-inner">{ this.$slots.title ? this.$slots.title : title }</div>
             {
               this.$slots.label
                 ? <div class="wd-cell__label">{this.$slots.label}</div>

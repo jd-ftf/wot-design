@@ -232,7 +232,7 @@ $-cell-icon-size-large: 18px !default; // 图标大小
 $-cell-wrapper-padding-large: 13px $-cell-padding 13px 0 !default; // 大尺寸wrapper padding
 $-cell-wrapper-padding-large-with-label: 16px $-cell-padding 16px 0 !default; // 大尺寸wrapper padding（有label情况下）
 
-$-cell-required-color: #FA4350 !default; // 要求必填*颜色
+$-cell-required-color: $-color-danger !default; // 要求必填*颜色
 $-cell-required-size: 20px !default; // 必填*字号
 $-cell-vertical-top: 16px !default; // 表单类型-上下结构的间距
 

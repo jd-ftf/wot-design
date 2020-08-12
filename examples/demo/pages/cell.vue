@@ -15,7 +15,7 @@
       </wd-cell-group>
     </demo-block>
     <demo-block title="分组标题" transparent>
-      <wd-cell-group title="交易管理">
+      <wd-cell-group title="交易管理" value="内容">
         <wd-cell title="标题文字" value="内容" />
         <wd-cell title="标题文字" label="描述信息" value="内容" />
       </wd-cell-group>

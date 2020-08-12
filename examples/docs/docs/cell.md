@@ -27,7 +27,7 @@ Vue.use(Cell)
 
 设置 `icon` 属性，可以为 Icon 章节中的图标，也可以通过 icon 的 slot 自定义图标位置。
 
-> 自定义图标，如果有多个cell，需保证所有图标的宽度是一致的且垂直居中。如果使用 icon 属性且为 Icon 章节的字体图标，则宽度一致且垂直居中；cell图标的大小是宽16px，高16px，large 尺寸图标宽度18px，高度18px，距离右侧文字距离15px。
+> 自定义图标，如果有多个cell，需保证所有图标的宽度是一致的且垂直居中。如果使用 icon 属性且为 Icon 章节的字体图标，则宽度一致且垂直居中；cell图标的大小是宽16px，高16px，large 尺寸图标宽度18px，高度18px，距离右侧文字15px。
 
 ```html
 <wd-cell-group>
@@ -53,10 +53,10 @@ Vue.use(Cell)
 
 ### 分组标题
 
-可以在 `cell-group` 上设置 `title` 和 `value` 属性。也可以使用 slot 插槽。
+可以在 `cell-group` 上设置 `title` 和 `value` 属性。
 
 ```html
- <wd-cell-group title="交易管理">
+<wd-cell-group title="交易管理" value="订购">
   <wd-cell title="标题文字" value="内容"></wd-cell>
   <wd-cell title="标题文字" label="描述信息" value="内容"></wd-cell>
 </wd-cell-group>

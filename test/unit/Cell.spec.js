@@ -100,7 +100,7 @@ test('should render cell slots', () => {
     }
   })
 
-  expect(wrapper.element.querySelector('.wd-cell__title').textContent.trim()).toBe('标题文字')
+  expect(wrapper.element.querySelector('.wd-cell__title-inner').textContent.trim()).toBe('标题文字')
   expect(wrapper.element.querySelector('.wd-cell__value').textContent.trim()).toBe('内容')
   expect(wrapper.element.querySelector('.wd-cell__label').textContent.trim()).toBe('描述信息')
   expect(wrapper.contains('.wd-icon-setting')).toBe(true)
@@ -230,7 +230,7 @@ test('should not render value', () => {
       titleWidth: '100px'
     }
   })
-  expect(wrapper.contains('.wd-cell__value')).toBe(false)
+  expect(wrapper.element.querySelector('.wd-cell__value').textContent).toBe('')
 })
 
 test('props: required', () => {
@@ -241,5 +241,5 @@ test('props: required', () => {
       required: true
     }
   })
-  expect(wrapper.find('.wd-cell__title').contains('.is-required')).toBe(true)
+  expect(wrapper.find('.wd-cell__left').contains('.is-required')).toBe(true)
 })
