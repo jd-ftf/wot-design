@@ -3,8 +3,8 @@
 @import "./icon.scss";
 
 @include b(cell) {
+  display: block;
   position: relative;
-  display: flex;
   padding-left: $-cell-padding;
   background-color: $-color-white;
   text-decoration: none;
@@ -15,7 +15,6 @@
   @include e(wrapper) {
     position: relative;
     display: flex;
-    flex: 1;
     padding: $-cell-wrapper-padding;
     justify-content: space-between;
     align-items: flex-start;
@@ -24,7 +23,6 @@
       display: block;
 
       .wd-cell__right {
-        display: block;
         margin-top: $-cell-vertical-top;
       }
       .wd-cell__value {
@@ -33,35 +31,11 @@
     }
   }
   @include e(left) {
-    flex: 1;
-    font-size: $-cell-title-fs;
-    vertical-align: middle;
-    flex-shrink: 0;
-    margin-right: $-cell-padding;
-
-    @include when(prefix) {
-      display: flex;
-      align-items: center;
-    }
-  }
-  @include e(label) {
-    margin-top: 2px;
-    font-size: $-cell-label-fs;
-    color: $-cell-label-color;
-    @include lineEllipsis;
-  }
-  @include e(right) {
     position: relative;
-    font-size: 0;
     flex: 1;
     display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    flex-wrap: nowrap;
-    align-items: center;
-  }
-  @include e(title) {
-    position: relative;
+    margin-right: $-cell-padding;
+    font-size: $-cell-title-fs;
 
     @include when(required) {
       padding-left: 12px;
@@ -76,30 +50,49 @@
       }
     }
   }
-  @include e(icon) {
+  @include e(right) {
     position: relative;
-    font-size: $-cell-icon-size;
+    display: flex;
+    flex: 1;
+  }
+  @include e(title) {
+    flex: 1;
+    width: 100%;
+    font-size: $-cell-title-fs;
+    margin-right: $-cell-padding;
+  }
+  @include e(label) {
+    margin-top: 2px;
+    font-size: $-cell-label-fs;
+    color: $-cell-label-color;
+    @include lineEllipsis;
+  }
+  @include e(icon) {
+    display: block;
+    position: relative;
     width: $-cell-icon-size;
     height: $-cell-icon-size;
-    line-height: 1.1;
+    line-height: 1.25;
     margin-right: $-cell-icon-right;
-    display: inline-block;
+    font-size: $-cell-icon-size;
   }
   @include e(value) {
+    position: relative;
+    flex: 1;
     font-size: $-cell-value-fs;
     color: $-cell-value-color;
-    width: 100%;
     text-align: right;
     line-height: $-cell-value-line-height;
   }
   @include e(arrow-right) {
-    display: block;
+    display: inline-block;
     margin-left: 8px;
     width: $-cell-arrow-size;
     height: $-cell-arrow-size;
     line-height: $-cell-arrow-size;
     font-size: $-cell-arrow-size;
     color: $-cell-arrow-color;
+    vertical-align: middle;
   }
   @include when(link) {
     transition: background 0.2s;
