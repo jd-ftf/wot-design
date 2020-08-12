@@ -4,6 +4,10 @@ export default {
       expand: 'Expand',
       retract: 'Retract'
     },
+    colPicker: {
+      title: 'please select',
+      placeholder: 'please select'
+    },
     infiniteLoad: {
       loading: 'loading...',
       finished: 'no more',
