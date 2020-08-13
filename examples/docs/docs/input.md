@@ -112,6 +112,14 @@ export default {
 <wd-input v-model="value" placeholder="请输入..." label="基本用法"></wd-input>
 ```
 
+### 必填样式
+
+设置了 `label` 的情况下，设置 `required` 属性，展示必填样式。
+
+```html
+<wd-input v-model="value" placeholder="请输入..." label="必填" required></wd-input>
+```
+
 ### 输入框大小
 
 通过设置 `size` 修改输入框大小，将 `size` 设置为 'large' 时字号为 16px。
@@ -165,6 +173,7 @@ export default {
 | center | 当有label属性时，设置标题和输入框垂直居中，默认为顶部居中 | boolean | - | false |
 | label-width | 设置左侧标题宽度 | string | - | '33%' |
 | no-border | 取消底部边框 | boolean | - | false |
+| required | cell 类型下必填样式 | boolean | - | false |
 
 ### Events
 
@@ -174,6 +183,8 @@ export default {
 | blur         | 监听输入框blur事件                     | -       |
 | change       | 监听输入框修改事件                      | 搜索输入框文本       |
 | clear        | 监听输入框清空按钮事件                   | -       |
+| click-prefix-icon | 点击前置图标时触发                | - |
+| click-suffix-icon | 点击后置图标时触发                | - |
 
 ### Methods
 

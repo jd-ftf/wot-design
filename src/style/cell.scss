@@ -15,7 +15,7 @@
   @include e(wrapper) {
     position: relative;
     display: flex;
-    padding: $-cell-wrapper-padding;
+    padding: $-cell-wrapper-padding $-cell-padding $-cell-wrapper-padding 0;
     justify-content: space-between;
     align-items: flex-start;
 
@@ -28,6 +28,9 @@
       .wd-cell__value {
         text-align: left;
       }
+    }
+    @include when(label) {
+      padding: $-cell-wrapper-padding-with-label $-cell-padding $-cell-wrapper-padding-with-label 0;
     }
   }
   @include e(left) {
@@ -117,13 +120,6 @@
       font-size: $-cell-icon-size-large;
       width: $-cell-icon-size-large;
       height: $-cell-icon-size-large;
-    }
-    .wd-cell__wrapper {
-      padding: $-cell-wrapper-padding-large;
-
-      @include when(label) {
-        padding: $-cell-wrapper-padding-large-with-label
-      }
     }
   }
   @include when(align-center) {

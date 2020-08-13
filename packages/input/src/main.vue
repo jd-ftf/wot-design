@@ -18,11 +18,14 @@
     <div
       v-if="label || $slots.label"
       class="wd-input__label"
+      :class="{
+        'is-required': required
+      }"
       :style="labelWidth ? `min-width: ${labelWidth};max-width: ${labelWidth}` : ''"
     >
       <div v-if="prefixIcon || $slots.prefix" class="wd-input__prefix">
         <slot name="prefix"></slot>
-        <i v-if="prefixIcon" class="wd-input__icon" :class="prefixIcon"></i>
+        <i v-if="prefixIcon" class="wd-input__icon" :class="prefixIcon" @click="onClickPrefixIcon"></i>
       </div>
       <div class="wd-input__label-inner">
         <slot name="label">{{ label }}</slot>
@@ -71,7 +74,7 @@
     <div v-else class="wd-input__block">
       <div v-if="(prefixIcon || $slots.prefix) && !label && !$slots.label" class="wd-input__prefix">
         <slot name="prefix"></slot>
-        <i v-if="prefixIcon" class="wd-input__icon" :class="prefixIcon"></i>
+        <i v-if="prefixIcon" class="wd-input__icon" :class="prefixIcon" @click="onClickPrefixIcon"></i>
       </div>
       <input
         class="wd-input__inner"
@@ -109,7 +112,7 @@
           >{{ (value && value.length) || 0 }}</span>
           /{{ maxlength }}
         </span>
-        <i v-if="suffixIcon" class="wd-input__icon" :class="suffixIcon"></i>
+        <i v-if="suffixIcon" class="wd-input__icon" :class="suffixIcon" @click="onClickSuffixIcon"></i>
         <slot name="suffix"></slot>
       </div>
     </div>
@@ -165,7 +168,8 @@ export default {
     },
     size: String,
     center: Boolean,
-    noBorder: Boolean
+    noBorder: Boolean,
+    required: Boolean
   },
   watch: {
     value: {
@@ -244,6 +248,12 @@ export default {
         }
         this.textareaCalcStyle = calcTextareaHeight(this.getInput(), minRows, maxRows)
       }
+    },
+    onClickSuffixIcon () {
+      this.$emit('click-suffix-icon')
+    },
+    onClickPrefixIcon () {
+      this.$emit('click-prefix-icon')
     }
   }
 }
