@@ -208,8 +208,8 @@ $-cell-group-title-color: rgba($-color-black, 0.85) !default; // 组标题文字
 $-cell-group-value-fs: $-fs-content !default; // 组值字号
 $-cell-group-value-color: $-color-content !default; // 组值文字颜色
 
-$-cell-wrapper-padding: 10px 15px 10px 0 !default; // cell 容器padding
-// $-cell-icon-height: 42px !default; // 图标高度
+$-cell-wrapper-padding: 13px !default; // cell 容器上下padding
+$-cell-wrapper-padding-with-label: 16px !default; // cell 容器上下padding（有label情况下）
 $-cell-icon-right: $-cell-padding !default; // 图标距离右边缘
 $-cell-icon-size: 16px !default; // 图标大小
 $-cell-title-fs: 14px !default; // 标题字号
@@ -222,15 +222,12 @@ $-cell-value-line-height: 1.67 !default; // 右侧内容行高
 $-cell-arrow-size: 18px !default; // 右箭头大小
 $-cell-arrow-color: rgba($-color-black, 0.25) !default; // 右箭头颜色
 $-cell-tap-bg: rgba($-color-black, 0.06) !default; // 点击态背景色
-$-cell-left-img-size: 40px !default; // 左侧图片位尺寸
 
 $-cell-title-fs-large: 16px !default; // 大尺寸标题字号
 $-cell-value-fs-large: 14px !default; // 右侧内容大号字号
 $-cell-value-line-height-large: 1.58 !default; // 右侧内容行高
 $-cell-label-fs-large: 14px !default; // 描述信息字号
 $-cell-icon-size-large: 18px !default; // 图标大小
-$-cell-wrapper-padding-large: 13px $-cell-padding 13px 0 !default; // 大尺寸wrapper padding
-$-cell-wrapper-padding-large-with-label: 16px $-cell-padding 16px 0 !default; // 大尺寸wrapper padding（有label情况下）
 
 $-cell-required-color: $-color-danger !default; // 要求必填*颜色
 $-cell-required-size: 20px !default; // 必填*字号
@@ -320,18 +317,18 @@ $-input-error-color: $-color-danger !default; // 输入框错误颜色
 $-input-icon-color: rgba($-color-black, 0.65) !default; // 图标颜色
 $-input-count-color: rgba($-color-black, 0.25) !default; // 计数文字颜色
 $-input-count-current-color: rgba($-color-black, 0.85) !default; // 当前长度颜色
-$-input-label-padding: 11px 10px 11px 0 !default; // label padding
+$-input-label-padding: 13px 10px 13px 0 !default; // label padding
 $-input-bg: $-color-white !default; // 默认背景颜色
 // TODO cell模式下 待设计改
 $-input-cell-bg: $-color-white !default; // cell 类型背景色
 $-input-cell-border-color: $-color-border-light !default; // cell 类型边框颜色
 $-input-cell-padding: $-size-side-padding !default; // cell 类型左右间距
-$-input-cell-height: 42px !default; // cell 高度
-$-input-cell-height-large: 44px !default; // cell 大尺寸高度
+$-input-cell-height: 46px !default; // cell 高度
+$-input-cell-height-large: 48px !default; // cell 大尺寸高度
 $-input-cell-label-width: 33% !default; // cell 下 label 的宽度
-$-input-inner-height: 40px !default; // 非cell和textarea下的高度
-$-input-inner-height-no-border: 22px !default; // 无边框下的高度
-$-input-inner-padding: 9px 0 !default; // 非cell和textarea下的padding
+$-input-inner-height: 34px !default; // 非cell和textarea下的高度
+$-input-inner-height-no-border: 20px !default; // 无边框下的高度
+$-input-inner-padding: 6px 0 !default; // 非cell和textarea下的padding
 $-input-count-fs: 14px !default; // 计数字号
 $-input-count-fs-large: 14px !default; // 大尺寸计数字号
 $-input-icon-size: 16px !default; // 图标大小

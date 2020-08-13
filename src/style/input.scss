@@ -5,6 +5,7 @@
   position: relative;
   -webkit-tap-highlight-color: transparent;
   overflow: hidden;
+  text-align: left;
 
   &::after {
     position: absolute;
@@ -30,16 +31,32 @@
     }
   }
   @include e(label) {
+    position: relative;
+    display: flex;
     width: $-input-cell-label-width;
     color: $-cell-title-color;
     box-sizing: border-box;
     font-size: 0;
     flex-shrink: 0;
-    line-height: 1.43;
+    line-height: $-cell-ling-height;
+
+    @include when(required) {
+      padding-left: 12px;
+
+      &::after {
+        position: absolute;
+        left: 0;
+        top: $-cell-wrapper-padding + 2px;
+        content: '*';
+        font-size: $-cell-required-size;
+        line-height: 1.1;
+        color: $-cell-required-color;
+      }
+    }
   }
   @include e(label-inner) {
     display: inline-block;
-    padding: $-input-label-padding;
+    padding: $-cell-wrapper-padding 0;
     font-size: $-input-fs;
   }
   @include e(prefix) {
@@ -106,10 +123,6 @@
     @include when(center) {
       align-items: center;
     }
-    &:last-child::after {
-      display: none;
-    }
-
     &.wd-input::after {
       display: none;
     }
