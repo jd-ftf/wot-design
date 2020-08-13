@@ -33,16 +33,18 @@
     width: $-input-cell-label-width;
     color: $-cell-title-color;
     box-sizing: border-box;
-    font-size: $-cell-title-fs;
+    font-size: 0;
     flex-shrink: 0;
     line-height: 1.43;
   }
   @include e(label-inner) {
     display: inline-block;
     padding: $-input-label-padding;
+    font-size: $-input-fs;
   }
   @include e(prefix) {
     margin-right: $-input-icon-margin;
+    font-size: $-input-fs;
   }
   @include e(suffix) {
     flex-shrink: 0;
@@ -96,6 +98,7 @@
     }
     .wd-input__prefix {
       display: inline-block;
+      margin-right: $-cell-icon-right;
     }
     .wd-input__inner {
       height: $-input-cell-height;
@@ -113,8 +116,11 @@
   }
   // 大尺寸 16px
   @include when(large) {
-    .wd-input__label {
-      font-size: $-cell-title-fs-large;
+    .wd-input__prefix {
+      font-size: $-input-fs-large;
+    }
+    .wd-input__label-inner {
+      font-size: $-input-fs-large;
     }
     .wd-input__inner {
       font-size: $-input-fs-large;

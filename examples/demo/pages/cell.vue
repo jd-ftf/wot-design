@@ -15,7 +15,7 @@
       </wd-cell-group>
     </demo-block>
     <demo-block title="分组标题" transparent>
-      <wd-cell-group title="交易管理">
+      <wd-cell-group title="交易管理" value="内容">
         <wd-cell title="标题文字" value="内容" />
         <wd-cell title="标题文字" label="描述信息" value="内容" />
       </wd-cell-group>
@@ -57,6 +57,11 @@
         </wd-cell>
       </wd-cell-group>
     </demo-block>
+    <demo-block title="设置左侧宽度" transparent>
+      <wd-cell-group>
+        <wd-cell title="标题文字" label="这里是文字描述这里是文字描述这里是文字描述" title-width="200px" value="内容" />
+      </wd-cell-group>
+    </demo-block>
     <demo-block title="自定义slot" transparent>
       <wd-cell-group>
         <wd-cell title="标题文字" center>
@@ -87,7 +92,7 @@ export default {
     return {
       href: location.href.split('#')[0],
       value: true,
-      rate: '',
+      rate: 0,
       store: 0
     }
   },
@@ -114,6 +119,8 @@ export default {
     display: block;
     width: 16px;
     height: 16px;
+    margin-top: 2px;
+    margin-right: 15px;
     background: url('https://img10.360buyimg.com/jmadvertisement/jfs/t1/71075/7/3762/1820/5d1f26d1E0d600b9e/a264c901943080ac.png')
       no-repeat;
     background-size: cover;
