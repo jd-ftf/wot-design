@@ -193,7 +193,7 @@ export default {
 | gutter | 格子之间的间距，默认单位为`px` | number | - | 0 |
 | square | 是否将格子固定为正方形 | boolean | - | false |
 | clickable | 是否开启格子点击反馈 | boolean | - | false |
-| bgColor | 背景颜色设置 | string | - | ‘’ |
+| bg-color | 背景颜色设置 | string | - | ‘’ |
 
 ### GridItem Attributes
 

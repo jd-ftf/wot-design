@@ -95,6 +95,7 @@ this.$toast.close()
 |------------- |----------- |---------  |
 | success | 成功提示 | options |
 | error | 关闭提示 | options |
+| info | 常规提示 | options |
 | warning | 警告提示 | options |
 | loading | 加载提示 | options |
 | close | 手动关闭消息提示框，是Toast实例上的方法| —  |
