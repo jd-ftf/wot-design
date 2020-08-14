@@ -138,6 +138,17 @@ export default {
 </script>
 ```
 
+### 尺寸
+
+设置 `size` 属性，可选 `large`。
+
+```html
+<wd-checkbox-group v-model="value" size="large">
+  <wd-checkbox value="1">京麦</wd-checkbox>
+  <wd-checkbox value="2">商家后台</wd-checkbox>
+</wd-checkbox-group>
+```
+
 ### CheckboxGroup Attributes
 | 参数      | 说明                                 | 类型      | 可选值       | 默认值   |
 |---------- |------------------------------------ |---------- |------------- |-------- |
@@ -149,6 +160,7 @@ export default {
 | min | 最小选中的数量 | number | - | 0 |
 | max | 最大选中的数量，0 为无限数量，默认为 0 | number | - | 0 |
 | inline | 同行展示 | boolean | - | false |
+| size | 设置大小 | string | 'large' | - |
 
 ### CheckboxGroup Events
 

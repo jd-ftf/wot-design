@@ -5,8 +5,13 @@
   background-color: $-checkbox-bg;
   @include when(cell) {
     .wd-checkbox {
-      padding: 14px 15px;
+      padding: 13px 15px;
       margin: 0;
+    }
+    @include when(large) {
+      .wd-checkbox {
+        padding: 14px 15px;
+      }
     }
   }
   // 上下20px 左右15px 内部间隔12px
@@ -35,6 +40,16 @@
         display: table;
         clear: both;
       }
+    }
+  }
+  @include when(large) {
+    .wd-checkbox__shape {
+      width: $-radio-large-size;
+      height: $-radio-large-size;
+      font-size: $-radio-large-size;
+    }
+    .wd-checkbox__label {
+      font-size: $-radio-large-label-fs;
     }
   }
 }

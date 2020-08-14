@@ -97,12 +97,12 @@ export default {
 </wd-radio-group>
 ```
 
-### 小尺寸
+### 尺寸
 
-设置 `size` 属性。
+设置 `size` 属性，可选 `large`。
 
 ```html
-<wd-radio-group v-model="value" size="small">
+<wd-radio-group v-model="value" size="large">
   <wd-radio value="1">京麦</wd-radio>
   <wd-radio value="2">商家后台</wd-radio>
 </wd-radio-group>
@@ -114,7 +114,7 @@ export default {
 |---------- |------------------------------------ |---------- |------------- |-------- |
 | value/v-model | 绑定值 | string / number / boolean | - | - |
 | shape | 单选框形状 | string | 'dot', 'button' | 'dot' |
-| size | 单选框尺寸 | string | 'normal', 'small' | 'normal' |
+| size | 单选框尺寸 | string | 'large' | - |
 | checked-color | 选中的颜色 | string | - | '#4d80f0' |
 | disabled | 禁用 | boolean | - | false |
 | inline | 同行展示 | boolean | - | false |
