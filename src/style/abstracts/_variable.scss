@@ -421,16 +421,6 @@ $-picker-cell-arrow-size-large: $-cell-arrow-size !default; // cell 类型的大
 $-picker-placeholder-color: rgba($-color-black, 0.25) !default; // 区域选择文字颜色
 
 /* col-picker */
-$-col-picker-side-padding: 15px !default; // 左右间距
-$-col-picker-cell-fs: 14px !default; // 字号
-$-col-picker-cell-fs-large: 16px !default; // 大尺寸字号
-$-col-picker-label-width: $-input-cell-label-width !default; // label 宽度
-$-col-picker-content-padding: 11px 10px 11px 0 !default; // label和value的间距
-$-col-picker-label-color: $-cell-title-color !default; // label 文字颜色
-$-col-picker-value-color: $-cell-value-color !default; // value 文字颜色
-$-col-picker-value-color-disabled: rgba($-color-black, 0.15) !default; // value 禁用颜色
-$-col-picker-value-color-error: $-color-danger !default; // value 错误颜色
-$-col-picker-arrow-color: $-cell-arrow-color !default; // cell 类型箭头颜色
 $-col-picker-selected-height: 44px !default; // 弹框顶部值高度
 $-col-picker-selected-padding: 0 16px !default; // 弹框顶部值左右间距
 $-col-picker-selected-fs: 14px !default; // 弹框顶部值字号

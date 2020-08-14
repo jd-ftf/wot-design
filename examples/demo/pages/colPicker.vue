@@ -1,6 +1,6 @@
 <template>
   <div class="page-col-picker">
-    <div style="margin: 20px 0">
+    <wd-cell-group border style="margin: 20px 0">
       <wd-col-picker label="选择地址" v-model="value1" :columns="areaData1" :column-change="columnChange1" />
       <wd-col-picker label="初始选项" v-model="value2" :columns="areaData2" :column-change="columnChange1" />
       <wd-col-picker label="禁用" disabled v-model="value3" :columns="areaData3" :column-change="columnChange1" />
@@ -10,26 +10,25 @@
       <wd-col-picker label="展示格式化" v-model="value6" :columns="areaData3" :column-change="columnChange1" :display-format="displayFormat" />
       <wd-col-picker label="标题" v-model="value7" title="选择地址" :columns="areaData1" :column-change="columnChange1" />
       <wd-col-picker label="before-confirm" v-model="value8" :columns="areaData1" :column-change="columnChange1" :before-confirm="beforeConfirm" />
-    </div>
+      <wd-col-picker label="错误" error v-model="value9" :columns="areaData1" :column-change="columnChange1" />
+      <wd-col-picker label="必填" required v-model="value10" :columns="areaData1" :column-change="columnChange1" />
+    </wd-cell-group>
     <demo-block title="一般column-change是个异步获取数据的操作，触发column-change组件会有默认loading，数据响应后关闭loading" transparent>
-      <wd-col-picker label="选择地址" v-model="value9" :columns="areaData1" :column-change="columnChange2" />
+      <wd-col-picker label="选择地址" v-model="value11" :columns="areaData1" :column-change="columnChange2" />
     </demo-block>
     <demo-block title="label不传" transparent>
-      <wd-col-picker v-model="value10" :columns="areaData1" :column-change="columnChange1" />
+      <wd-col-picker v-model="value12" :columns="areaData1" :column-change="columnChange1" />
     </demo-block>
     <demo-block title="大小" transparent>
-      <wd-col-picker label="选择地址" v-model="value11" size="large" :columns="areaData1" :column-change="columnChange1" />
-    </demo-block>
-    <demo-block title="错误" transparent>
-      <wd-col-picker label="选择地址" error v-model="value12" :columns="areaData1" :column-change="columnChange1" />
+      <wd-col-picker label="选择地址" v-model="value13" size="large" :columns="areaData1" :column-change="columnChange1" />
     </demo-block>
     <demo-block title="值靠右展示" transparent>
-      <wd-col-picker label="选择地址" align-right v-model="value13" :columns="areaData1" :column-change="columnChange1" />
+      <wd-col-picker label="选择地址" align-right v-model="value14" :columns="areaData1" :column-change="columnChange1" />
     </demo-block>
     <demo-block title="自定义选择器" transparent>
       <div style="margin-left: 15px;">
         <div style="margin-bottom: 10px;">当前选中项: {{ displayValue }}</div>
-        <wd-col-picker v-model="value14" :columns="areaData1" :column-change="columnChange1" style="display: inline-block;" @confirm="handleConfirm">
+        <wd-col-picker v-model="value15" :columns="areaData1" :column-change="columnChange1" style="display: inline-block;" @confirm="handleConfirm">
           <wd-button type="primary">选择地址</wd-button>
         </wd-col-picker>
       </div>
@@ -57,6 +56,7 @@ export default {
       value12: [],
       value13: [],
       value14: [],
+      value15: [],
       displayValue: '',
       areaData1: [Object.keys(areaData[86]).map(key => {
         return {
