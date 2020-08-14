@@ -16,6 +16,7 @@
   @include e(item-star) {
     display: inline-block;
     vertical-align: top;
+    color: transparent;
 
     @include m(active) {
       position: absolute;

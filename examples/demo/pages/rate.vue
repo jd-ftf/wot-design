@@ -10,10 +10,10 @@
       <wd-rate v-model="rate3" disabled />
     </demo-block>
     <demo-block title="修改选中颜色">
-      <wd-rate v-model="rate4" active-color="#FFAE16" />
+      <wd-rate v-model="rate4" active-color="linear-gradient(315deg, rgba(245,34,34,1) 0%,rgba(255,117,102,1) 100%)" />
     </demo-block>
     <demo-block title="修改icon和选中颜色">
-      <wd-rate v-model="rate5" icon="wd-icon-good" active-icon="wd-icon-good" active-color="#0083ff" />
+      <wd-rate v-model="rate5" icon="wd-icon-dong" active-icon="wd-icon-dong" active-color="#4D80F0" />
     </demo-block>
     <demo-block title="修改size、space">
       <wd-rate v-model="rate6" size="30px" space="10px" />
@@ -29,7 +29,7 @@ export default {
       rate2: 3,
       rate3: 2,
       rate4: 3.5,
-      rate5: 1,
+      rate5: 2.3,
       rate6: 5
     }
   }

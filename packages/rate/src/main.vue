@@ -4,16 +4,16 @@
       v-for="(item, index) in rateList"
       :key="index"
       class="wd-rate__item"
-      :style="{ 'margin': '0 ' + space }"
+      :style="{ 'margin-right': index == rateList.length - 1 ? 0 : space }"
       @click="changeRate(index)">
       <i
         :class="icon"
         class="wd-rate__item-star"
-        :style="{ 'width': size, 'height': size, 'font-size': size, 'color': disabled ? disabledColor : color }"></i>
+        :style="{ 'width': size, 'height': size, 'font-size': size, 'background': color, '-webkit-background-clip': 'text' }"></i>
       <i
         :class="activeIcon"
         class="wd-rate__item-star wd-rate__item-star--active"
-        :style="{ 'width': item, 'height': size, 'font-size': size, 'color': disabled ? disabledColor : activeColor }"></i>
+        :style="{ 'width': item, 'height': size, 'font-size': size, 'background': disabled ? disabledColor : activeColor, '-webkit-background-clip': 'text' }"></i>
     </li>
   </ul>
 </template>
@@ -37,23 +37,23 @@ export default {
     },
     space: {
       type: String,
-      default: '2px'
+      default: '4px'
     },
     color: {
       type: String,
-      default: '#c5c5c5'
+      default: '#E8E8E8'
     },
     activeColor: {
       type: String,
-      default: '#e2231a'
+      default: 'linear-gradient(180deg, rgba(255,238,0,1) 0%,rgba(250,176,21,1) 100%)'
     },
     icon: {
       type: String,
-      default: 'wd-icon-chat' // Todo 替换图标
+      default: 'wd-icon-star-on'
     },
     activeIcon: {
       type: String,
-      default: 'wd-icon-chat' // Todo 替换图标
+      default: 'wd-icon-star-on'
     },
     disabled: {
       type: Boolean,
@@ -61,7 +61,7 @@ export default {
     },
     disabledColor: {
       type: String,
-      default: '#c5c5c5'
+      default: 'linear-gradient(315deg, rgba(177,177,177,1) 0%,rgba(199,199,199,1) 100%)'
     }
   },
   computed: {
@@ -74,7 +74,7 @@ export default {
         if (i < fullLength) {
           rateList.push('100%')
         } else if (i === fullLength) {
-          let rate = this.value - fullLength
+          let rate = (this.value - fullLength) > 0.5 ? 1 : 0.5
           rateList.push(rate * 100 + '%')
         } else {
           rateList.push('0')
