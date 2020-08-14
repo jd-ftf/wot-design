@@ -104,7 +104,7 @@ Vue.use(NoticeBar)
 | 参数      | 说明                                 | 类型      | 可选值       | 默认值   |
 |---------- |------------------------------------ |---------- |------------- |-------- |
 | text | 设置通知栏文案 | string | - | - |
-| type | 设置通知栏类型 | string | `info`|`warning`|`danger` | 'warning' |
+| type | 设置通知栏类型 | string | `info`/`warning`/`danger` | 'warning' |
 | prefix | 设置左侧图标，使用icon章节中的图标名 | string | - | - |
 | scrollable | 是否可以滚动 | boolean | - | true |
 | delay | 滚动动画初始延时，单位 秒(s) | number | - | 1 |
