@@ -31,6 +31,14 @@
         display: none;
       }
     }
+    .wd-picker {
+      .wd-picker__field {
+        @include halfPixelBorder('bottom', $-cell-padding);
+      }
+      &:last-child .wd-picker__field::after {
+        display: none;
+      }
+    }
   }
   @include e(title) {
     position: relative;

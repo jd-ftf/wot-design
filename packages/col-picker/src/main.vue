@@ -26,7 +26,12 @@
               {{ label }}
             </slot>
           </div>
-          <div class="wd-col-picker__value">{{ ((!value || (value instanceof Array && !value.length)) ? placeholder : showValue) || t('wd.colPicker.placeholder') }}</div>
+          <div
+            class="wd-col-picker__value"
+            :class="{
+              'wd-col-picker__value--placeholder': (!value || (value instanceof Array && !value.length))
+            }"
+          >{{ ((!value || (value instanceof Array && !value.length)) ? placeholder : showValue) || t('wd.colPicker.placeholder') }}</div>
           <i v-if="!disabled && !readonly" class="wd-col-picker__arrow wd-icon-arrow-right"></i>
         </div>
       </slot>
@@ -74,7 +79,7 @@
           </div>
         </template>
         <div v-if="loading" class="wd-col-picker__loading">
-          <wd-loading />
+          <wd-loading :color="loadingColor" />
         </div>
       </div>
     </wd-action-sheet>
@@ -146,7 +151,8 @@ export default {
     tipKey: {
       type: String,
       default: 'tip'
-    }
+    },
+    loadingColor: String
   },
   watch: {
     value: {

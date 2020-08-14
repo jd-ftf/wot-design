@@ -180,10 +180,9 @@ export default {
 <wd-picker label="单列选项" error v-model="value" :columns="columns" />
 ```
 
-<!-- TODO 需判定是否需要 -->
 ### 校验标志
 
-通过设置 `required` 开启label左侧校验标志。
+设置 `required` 属性，展示必填样式。
 
 ```html
 <wd-picker :columns="columns" v-model="value" label="日期选择" required />
@@ -267,7 +266,8 @@ export default {
 | error | 是否为错误状态，错误状态时右侧内容为红色 | boolean | - | false |
 | align-right | 选择器的值靠右展示 | boolean | - | false |
 | before-confirm | 确定前校验函数，接收 (value, resolve) 参数，通过 resolve 继续执行 picker，resolve 接收1个boolean参数 | function | - | - |
-<!-- 不确定是否使用该api -->
+| loading-color | 加载的颜色 | String | - | '#4D80F0' |
+
 ### Slot
 
 | name      | 说明       |

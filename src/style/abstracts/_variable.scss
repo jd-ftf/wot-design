@@ -219,7 +219,6 @@ $-cell-label-color: rgba($-color-black, 0.45) !default; // 描述信息文字颜
 $-cell-value-fs: 12px !default; // 右侧内容字号
 $-cell-value-color: rgba($-color-black, 0.45) !default; // 右侧内容文字颜色
 $-cell-value-line-height: 1.67 !default; // 右侧内容行高
-$-cell-arrow-size: 18px !default; // 右箭头大小
 $-cell-arrow-color: rgba($-color-black, 0.25) !default; // 右箭头颜色
 $-cell-tap-bg: rgba($-color-black, 0.06) !default; // 点击态背景色
 
@@ -340,9 +339,8 @@ $-input-textarea-padding: 15px !default; // textarea下的padding
 
 /* message-box */
 $-message-box-width: 300px !default; // 宽度
-$-message-box-border-radius: 16px !default; // 宽度
 $-message-box-bg: $-color-white !default; // 默认背景颜色
-$-message-box-radius: 8px !default; // 圆角大小
+$-message-box-radius: 16px !default; // 圆角大小
 $-message-box-padding: 25px 24px 0 !default; // 主体内容padding
 $-message-box-title-fs: 16px !default; // 标题字号
 $-message-box-title-color: rgba($-color-black, 0.85) !default; // 标题颜色
@@ -405,23 +403,11 @@ $-picker-column-height: 210px !default; // 列高 滚筒外部的高度
 $-picker-column-item-height: 35px !default; // 列高 滚筒外部的高度
 
 $-picker-column-disabled-color: rgba($-color-black, 0.25) !default; // 选择器选项禁用的颜色
-$-picker-cell-fs: $-cell-title-fs !default; // cell 类型的字号
-$-picker-label-color: $-cell-title-color !default; // cell 类型左侧label颜色
-$-picker-label-width: $-input-cell-label-width !default; // cell 类型左侧label宽度
-$-picker-value-color: $-cell-value-color !default; // cell 类型右侧值的颜色
-$-picker-arrow-color: $-cell-arrow-color !default; // cell 类型箭头颜色
-$-picker-error-color: $-color-danger !default; // cell 类型右侧值的错误颜色
-$-picker-side-padding: 15px !default; // 选择器左右间距
-$-picker-content-padding: 11px 10px 11px 0 !default; // cell 展示的label和value的间距
 $-picker-mask: linear-gradient(180deg, hsla(0, 0%, 100%, 0.9), hsla(0, 0%, 100%, 0.25)),
   linear-gradient(0deg, hsla(0, 0%, 100%, 0.9), hsla(0, 0%, 100%, 0.25)) !default; // 上下阴影
 $-picker-loading-bg: rgba($-color-white, 0.8) !default; // loading 背景颜色
 $-picker-region-separator-color: rgba($-color-black, 0.65) !default; // 区域选择文字颜色
-$-picker-cell-fs-large: $-cell-title-fs-large !default; // cell 类型的大尺寸字号
-$-picker-cell-height-large: 48px !default; // cell 类型的大尺寸高
-$-picker-cell-content-padding-large: 13px 10px 13px 0 !default; // cell 类型的大尺寸padding
-$-picker-cell-arrow-size-large: $-cell-arrow-size !default; // cell 类型的大尺寸 右侧icon尺寸
-$-picker-placeholder-color: rgba($-color-black, 0.25) !default; // 区域选择文字颜色
+$-picker-cell-arrow-size-large: $-cell-icon-size !default; // cell 类型的大尺寸 右侧icon尺寸
 
 /* col-picker */
 $-col-picker-selected-height: 44px !default; // 弹框顶部值高度

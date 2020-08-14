@@ -33,11 +33,9 @@ export default {
           showValue,
           showPopup,
           required,
-          border,
           t
         } = parent
         const fieldClass = ['wd-picker__field']
-        border && fieldClass.push(' is-border')
         // 右箭头
         const arrow = !disabled && !readonly ? (<i class='wd-picker__arrow wd-icon-arrow-right'></i>) : ''
 

@@ -3,6 +3,8 @@
 
 @include b(checkbox-group) {
   background-color: $-checkbox-bg;
+  line-height: 1.2;
+
   @include when(cell) {
     .wd-checkbox {
       padding: 13px 15px;

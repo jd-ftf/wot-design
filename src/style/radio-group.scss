@@ -3,6 +3,8 @@
 
 @include b(radio-group) {
   background-color: $-radio-bg;
+  line-height: 1.2;
+
   @include when(cell) {
     .wd-radio {
       padding: 13px 15px;

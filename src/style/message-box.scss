@@ -5,7 +5,6 @@
   width: $-message-box-width;
   border-radius: $-message-box-radius;
   overflow: hidden;
-  border-radius: $-message-box-border-radius;
 
   @include e(body) {
     background-color: $-message-box-bg;
