@@ -11,8 +11,13 @@
   @include e(block) {
     position: relative;
     flex: 1;
+    display: flex;
     background-color: $-search-input-bg;
     border-radius: $-search-input-radius;
+  }
+  @include e(field) {
+    position: relative;
+    flex: 1;
   }
   @include e(input) {
     display: block;

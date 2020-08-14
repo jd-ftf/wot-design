@@ -90,10 +90,10 @@
   @include e(arrow-right) {
     display: inline-block;
     margin-left: 8px;
-    width: $-cell-arrow-size;
-    height: $-cell-arrow-size;
-    line-height: $-cell-arrow-size;
-    font-size: $-cell-arrow-size;
+    width: $-cell-icon-size;
+    height: $-cell-icon-size;
+    line-height: $-cell-icon-size;
+    font-size: $-cell-icon-size;
     color: $-cell-arrow-color;
     vertical-align: middle;
   }
@@ -117,6 +117,11 @@
       line-height: $-cell-value-line-height-large;
     }
     .wd-cell__icon {
+      font-size: $-cell-icon-size-large;
+      width: $-cell-icon-size-large;
+      height: $-cell-icon-size-large;
+    }
+    .wd-cell__arrow-right {
       font-size: $-cell-icon-size-large;
       width: $-cell-icon-size-large;
       height: $-cell-icon-size-large;

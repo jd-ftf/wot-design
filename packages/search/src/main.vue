@@ -1,30 +1,33 @@
 <template>
   <div class="wd-search" :class="{ 'is-light': light, 'is-without-cancel': hideCancel }">
-    <div class="wd-search__block" @click="searchFocus">
-      <form action="#" @submit.prevent="preventSubmit">
-        <input
-          type="search"
-          :value="value"
-          class="wd-search__input"
-          autocomplete="off"
-          ref="searchInput"
-          @input="input"
-          @search="search"
-          @compositionstart="toggleTyping"
-          @compositionend="toggleTyping"
-          @blur="searchBlur"
-          :disabled="disabled"
-          :maxlength="maxlength"
-          :autofocus="autofocus"
-        />
-      </form>
-      <div class="wd-search__placeholder" :class="{ 'is-focus': isFocus || (!typing && value) || placeholderLeft }">
-        <i class="wd-icon-search wd-search__search-icon"></i>
-        <span v-show="!typing && !value" class="wd-search__placeholder-txt">{{ placeholder || t('wd.search.search') }}</span>
+    <div class="wd-search__block">
+      <slot name="prefix"></slot>
+      <div class="wd-search__field" @click="searchFocus">
+        <form action="#" @submit.prevent="preventSubmit">
+          <input
+            type="search"
+            :value="value"
+            class="wd-search__input"
+            autocomplete="off"
+            ref="searchInput"
+            @input="input"
+            @search="search"
+            @compositionstart="toggleTyping"
+            @compositionend="toggleTyping"
+            @blur="searchBlur"
+            :disabled="disabled"
+            :maxlength="maxlength"
+            :autofocus="autofocus"
+          />
+        </form>
+        <div class="wd-search__placeholder" :class="{ 'is-focus': isFocus || (!typing && value) || placeholderLeft }">
+          <i class="wd-icon-search wd-search__search-icon"></i>
+          <span v-show="!typing && !value" class="wd-search__placeholder-txt">{{ placeholder || t('wd.search.search') }}</span>
+        </div>
       </div>
       <i v-show="typing || value" class="wd-search__clear wd-icon-error-fill" @click="clearSearch"></i>
     </div>
-    <slot name="action">
+    <slot name="suffix">
       <div v-show="!hideCancel" class="wd-search__cancel" @click="handleCancel">
         {{ cancelTxt || t('wd.search.cancel') }}
       </div>

@@ -36,6 +36,10 @@
     }
     @include when(large) {
       font-size: $-cell-title-fs-large;
+
+      .wd-picker__arrow {
+        font-size: $-cell-icon-size-large;
+      }
     }
   }
   @include e(label) {
@@ -64,9 +68,14 @@
     margin-right: 10px;
     color: $-cell-value-color;
     @include lineEllipsis;
+
+    @include m(placeholder) {
+      color: $-input-placeholder-color;
+    }
   }
   @include e(arrow) {
     display: block;
+    font-size: $-cell-icon-size;
     color: $-cell-arrow-color;
   }
   @include e(selected) {

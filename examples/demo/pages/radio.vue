@@ -13,7 +13,7 @@
       </wd-radio-group>
     </demo-block>
     <demo-block title="表单---单选组" transparent>
-      <wd-radio-group v-model="value3" cell>
+      <wd-radio-group v-model="value3" cell size="large">
         <wd-radio value="1">京麦</wd-radio>
         <wd-radio value="2">商家后台</wd-radio>
       </wd-radio-group>
@@ -51,12 +51,12 @@
         <wd-radio value="2">商家后台</wd-radio>
       </wd-radio-group>
     </demo-block>
-    <demo-block title="小尺寸">
-      <wd-radio-group v-model="value5" size="small">
+    <demo-block title="大尺寸">
+      <wd-radio-group v-model="value5" size="large">
         <wd-radio value="1">单选框1</wd-radio>
         <wd-radio value="2">单选框2</wd-radio>
       </wd-radio-group>
-      <wd-radio-group v-model="value11" size="small" inline class="group">
+      <wd-radio-group v-model="value11" size="large" inline class="group">
         <wd-radio value="1">单选框1</wd-radio>
         <wd-radio value="2">单选框2</wd-radio>
       </wd-radio-group>

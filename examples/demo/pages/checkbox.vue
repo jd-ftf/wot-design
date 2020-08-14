@@ -66,6 +66,16 @@
         <wd-checkbox value="market">营销中心</wd-checkbox>
       </wd-checkbox-group>
     </demo-block>
+    <demo-block title="大尺寸">
+      <wd-checkbox-group v-model="value14" inline size="large">
+        <wd-checkbox value="jingmai">京麦</wd-checkbox>
+        <wd-checkbox value="shop">商家后台</wd-checkbox>
+      </wd-checkbox-group>
+      <wd-checkbox-group v-model="value15" size="large" class="group">
+        <wd-checkbox value="jingmai">京麦</wd-checkbox>
+        <wd-checkbox value="shop">商家后台</wd-checkbox>
+      </wd-checkbox-group>
+    </demo-block>
   </div>
 </template>
 
@@ -85,8 +95,18 @@ export default {
       value10: ['jingmai'],
       value11: ['jd'],
       value12: ['1'],
-      value13: ['jd']
+      value13: ['jd'],
+      value14: ['jingmai'],
+      value15: ['jingmai']
     }
   }
 }
 </script>
+
+<style scoped>
+.group {
+  margin-top: 10px;
+  padding: 10px 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.04);
+}
+</style>

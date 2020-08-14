@@ -3,14 +3,16 @@
 
 @include b(radio-group) {
   background-color: $-radio-bg;
+  line-height: 1.2;
+
   @include when(cell) {
     .wd-radio {
-      padding: 14px 15px;
+      padding: 13px 15px;
       margin: 0;
     }
-    @include when(small) {
+    @include when(large) {
       .wd-radio {
-        padding: 8px 15px;
+        padding: 14px 15px;
       }
     }
   }
@@ -42,14 +44,14 @@
       }
     }
   }
-  @include when(small) {
+  @include when(large) {
     .wd-radio__shape {
-      width: $-radio-small-size;
-      height: $-radio-small-size;
-      font-size: $-radio-small-size;
+      width: $-radio-large-size;
+      height: $-radio-large-size;
+      font-size: $-radio-large-size;
     }
     .wd-radio__label {
-      font-size: $-radio-small-label-fs;
+      font-size: $-radio-large-label-fs;
     }
   }
 }

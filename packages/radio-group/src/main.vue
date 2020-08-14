@@ -4,7 +4,7 @@
     :class="[
       { 'is-cell': cell },
       { 'is-button': cell && shape === 'button' },
-      { 'is-small': size === 'small'}
+      size && `is-${size}`
     ]"
   >
     <slot></slot>
@@ -24,11 +24,7 @@ export default {
     checkedTextColor: String,
     disabled: Boolean,
     cell: Boolean,
-    // normal || small
-    size: {
-      type: String,
-      default: 'normal'
-    },
+    size: String,
     inline: Boolean
   },
   provide () {

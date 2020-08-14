@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div style="margin: 20px 0">
+    <wd-cell-group border style="margin: 20px 0">
       <wd-picker :columns="columns1" label="单列选项" v-model="value1" />
       <wd-picker :columns="columns1" label="禁用" v-model="value2" disabled />
       <wd-picker :columns="columns1" label="只读" v-model="value3" readonly />
@@ -25,7 +25,9 @@
         :loading="isLoading"
         :before-confirm="beforeConfirm"
       />
-    </div>
+      <wd-picker :columns="columns1" label="错误" v-model="value17" error />
+      <wd-picker :columns="columns1" v-model="value14" label="必填" required />
+    </wd-cell-group>
     <demo-block title="label不传" transparent>
       <wd-picker :columns="columns1" v-model="value10" />
     </demo-block>
@@ -35,15 +37,6 @@
     <demo-block title="大小" transparent>
       <wd-picker :columns="columns1" label="单列选择" v-model="value11" size="large" />
     </demo-block>
-    <demo-block title="错误" transparent>
-      <wd-picker :columns="columns1" label="单列选择" v-model="value17" error />
-    </demo-block>
-    <demo-block title="校验标志" transparent>
-      <wd-picker :columns="columns1" v-model="value14" label="日期选择" required />
-    </demo-block>
-    <demo-block title="展示边框线" transparent>
-      <wd-picker :columns="columns1" v-model="value15" border label="日期选择" />
-      <wd-picker :columns="columns1" v-model="value16" border label="日期选择" />
     </demo-block>
     <demo-block title="值靠右显示" transparent>
       <wd-picker :columns="columns1" label="单列选择" v-model="value12" align-right />

@@ -12,7 +12,17 @@
     <demo-block title="禁用且隐藏取消按钮" transparent>
       <wd-search v-model="search4" hide-cancel disabled />
     </demo-block>
-    <demo-block title="自定义" transparent>
+    <demo-block title="自定义左侧插槽" transparent>
+      <wd-search v-model="search6">
+        <wd-popover slot="prefix" mode="menu" :content="menu" @menu-click="changeSearchType">
+          <div class="search-type">
+            <span>{{ searchType }}</span>
+            <wd-icon class="icon-arrow" name="fill-arrow-down"></wd-icon>
+          </div>
+        </wd-popover>
+      </wd-search>
+    </demo-block>
+    <demo-block title="自定义右侧文案" transparent>
       <wd-search v-model="search5" placeholder="请输入订单号/订单名称" cancel-txt="搜索" />
     </demo-block>
   </div>
@@ -27,7 +37,18 @@ export default {
       search3: '',
       search4: '',
       search5: '',
-      search6: ''
+      search6: '',
+      searchType: '全部',
+      menu: [
+        {
+          content: '全部'
+        }, {
+          content: '订单号'
+        }, {
+          content: '退款单号'
+        }
+      ],
+      isSelecting: false
     }
   },
   methods: {
@@ -39,7 +60,39 @@ export default {
     },
     handleClear () {
       this.$toast('点击了清除按钮')
+    },
+    changeSearchType (item, index) {
+      this.searchType = item.content
     }
   }
 }
 </script>
+
+
+<style lang="scss" scoped>
+.search-type {
+  position: relative;
+  height: 30px;
+  line-height: 30px;
+  padding: 0 8px 0 16px;
+
+  &::after {
+    position: absolute;
+    content: '';
+    width: 1px;
+    right: 0;
+    top: 5px;
+    bottom: 5px;
+    background: rgba(0, 0, 0, 0.25);
+  }
+  span {
+    display: inline-block;
+    vertical-align: middle;
+  }
+  .icon-arrow {
+    display: inline-block;
+    font-size: 20px;
+    vertical-align: middle;
+  }
+}
+</style>
