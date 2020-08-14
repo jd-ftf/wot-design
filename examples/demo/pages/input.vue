@@ -50,6 +50,7 @@
         <wd-input v-model="value14" placeholder="请输入..." label="禁用" disabled />
         <wd-input v-model="value15" placeholder="请输入..." label="清除、密码" show-password clearable />
         <wd-input v-model="value16" placeholder="请输入..." label="错误状态" error />
+        <wd-input v-model="value17" placeholder="请输入..." label="必填" required />
         <wd-input
           v-model="value17"
           placeholder="请输入..."
@@ -73,11 +74,11 @@ export default {
       value1: '',
       value2: '这是禁用状态',
       value3: '这是只读状态',
-      value4: '',
+      value4: '123456',
       value5: '支持清空',
-      value6: '1234',
+      value6: 'password',
       value7: '',
-      value8: '',
+      value8: '1234',
       value9: '',
       value10: '',
       value11: '支持清空和字数限制的文本域',
@@ -88,7 +89,8 @@ export default {
       value16: '',
       value17: '',
       value18: '',
-      value19: ''
+      value19: '',
+      value20: ''
     }
   }
 }
