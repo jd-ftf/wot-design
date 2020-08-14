@@ -14,7 +14,14 @@
             size ? `is-${size}` : ''
           ]"
         >
-          <div v-if="label || $slots.label" class="wd-col-picker__label" :style="labelWidth ? `min-width: ${labelWidth}; max-width: ${labelWidth}` : ''">
+          <div
+            v-if="label || $slots.label"
+            class="wd-col-picker__label"
+            :class="{
+              'is-required': required
+            }"
+            :style="labelWidth ? `min-width: ${labelWidth}; max-width: ${labelWidth}` : ''"
+          >
             <slot name="label">
               {{ label }}
             </slot>
@@ -126,6 +133,7 @@ export default {
     beforeConfirm: Function,
     alignRight: Boolean,
     error: Boolean,
+    required: Boolean,
     size: String,
     valueKey: {
       type: String,

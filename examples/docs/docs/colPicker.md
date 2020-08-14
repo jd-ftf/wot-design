@@ -366,13 +366,6 @@ export default {
 </script>
 ```
 
-### 选择器大小
-
-通过设置 `size` 修改选择器大小，将 `size` 设置为 'large' 时字号为 16px。
-
-```html
-<wd-col-picker label="选择地址" v-model="value" size="large" :columns="areaData" :column-change="columnChange"></wd-col-picker>
-```
 
 ### 错误状态
 
@@ -380,6 +373,22 @@ export default {
 
 ```html
 <wd-col-picker label="选择地址" v-model="value" error :columns="areaData" :column-change="columnChange"></wd-col-picker>
+```
+
+### 必填样式
+
+设置 `required` 属性，展示必填样式。
+
+```html
+<wd-col-picker label="必填" required v-model="value" :columns="areaData" :column-change="columnChange" />
+```
+
+### 选择器大小
+
+通过设置 `size` 修改选择器大小，将 `size` 设置为 'large' 时字号为 16px。
+
+```html
+<wd-col-picker label="选择地址" v-model="value" size="large" :columns="areaData" :column-change="columnChange"></wd-col-picker>
 ```
 
 ### 值靠右展示
@@ -459,6 +468,7 @@ export default {
 | size | 设置选择器大小 | string | 'large' | - |
 | label-width | 设置左侧标题宽度 | string | - | '33%' |
 | error | 是否为错误状态，错误状态时右侧内容为红色 | boolean | - | false |
+| required | 必填样式 | boolean | - | false |
 | align-right | 选择器的值靠右展示 | boolean | - | false |
 | before-confirm | 确定前校验函数，接收 (value, resolve) 参数，通过 resolve 继续执行 picker，resolve 接收1个boolean参数 | function | - | - |
 
