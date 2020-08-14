@@ -2,7 +2,7 @@
 
 ### 2.0.0-beta1
 
-*2020-08-07*
+*2020-08-14*
 
 #### 新特性
 
@@ -18,6 +18,7 @@
   - 新增属性 `border`, 支持设置表单组是否展示边框线 (by [@HXCStudio123](https://github.com/HXCStudio123) )
 - CheckboxGroup
   - 新增属性 `cell`, 支持复选框组下的表单模式事件 (by [@HXCStudio123](https://github.com/HXCStudio123) )
+  - 新增属性 `size`，支持单选框尺寸更改（large） (by [@yawuling](https://github.com/yawuling) )
 - ColPicker
   - 新增 ColPicker 多列选择组件 (by [@yawuling](https://github.com/yawuling) )
 - DatetimePicker
