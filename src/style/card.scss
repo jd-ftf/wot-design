@@ -1,0 +1,48 @@
+@import "./abstracts/variable";
+@import "./abstracts/mixin";
+
+@include b(card) {
+  padding: $-card-padding;
+  background-color: $-card-bg;
+  line-height: $-card-line-height;
+  margin-left: $-card-margin;
+  margin-right: $-card-margin;
+  border-radius: $-card-radius;
+  box-shadow: 0px 4px 8px 0px $-card-shadow-color;
+  font-size: $-card-fs;
+  
+  &:not(:last-of-type) {
+    margin-bottom: 12px;
+  }
+
+  @include when(rectangle) {
+    margin-left: 0;
+    margin-right: 0;
+    border-radius: 0;
+    box-shadow: none;
+    padding: $-card-rectangle-padding;
+  }
+  @include e(title) {
+    color: $-card-title-color;
+    font-size: $-card-title-fs;
+    
+    @include when(rectangle) {
+      font-size: $-card-fs;
+    }
+  }
+  @include e(content) {
+    color: $-card-content-color;
+    line-height: $-card-content-line-height;
+    margin: $-card-content-margin;
+
+    @include when(rectangle) {
+      padding: $-card-content-padding;
+      margin: $-card-content-rectangle-margin;
+      border-top: 1px solid $-card-content-border-color;
+      border-bottom: 1px solid $-card-content-border-color;
+    }
+  }
+  @include e(action) {
+    text-align: right;
+  }
+}
