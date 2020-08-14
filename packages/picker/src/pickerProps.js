@@ -6,10 +6,22 @@ export default {
   placeholder: String,
   disabled: Boolean,
   readonly: Boolean,
+  required: Boolean,
+  border: Boolean,
   displayFormat: Function,
   beforeConfirm: Function,
   size: String,
   labelWidth: String,
   error: Boolean,
-  alignRight: Boolean
+  alignRight: Boolean,
+  columnChange: Function,
+  columnChangeEnd: Function,
+  valueKey: {
+    type: String,
+    default: 'value'
+  },
+  labelKey: {
+    type: String,
+    default: 'label'
+  }
 }

@@ -142,16 +142,51 @@ export default {
 </script>
 ```
 
+### 自定义处理列项数组
+
+传入 `column-formatter` 属性，其类型为 `function`，接收 pickerView 实例、pickerView 源数组 originColumns、当前 pickerView 的 value 作为入参，根据选中项和边界范围进行判断，通过 pickerView 实例暴露出来的 `getPickerValue` 获取对数据进行数组转换。
+
+```html
+<wd-datetime-picker-view :column-formatter="setColumn" v-model="value" />
+
+<script>
+export default {
+  data () {
+    return {
+      value: ''
+    }
+  },
+  methods: {
+    setColumn (pickerView, originColumns, currentValue) {
+      currentValue = pickerView.getPickerValue(currentValue)
+      const mapColumns = (columns) => {
+        // 此时index是最外层知道当前的索引即可得到当前是哪个时间段
+        return columns.map((column, cIndex) => {
+          return column.values.map((value, index) => {
+            return {
+              label: (column.type === 'hour' ? '#:' : '') + value,
+              value,
+              disabled: column.type === 'year' && value !== currentValue[0]
+            }
+          })
+        })
+      }
+
+      return mapColumns(originColumns)
+    }
+  }
+}
+</script>
+```
+
 ### Attributes
 
 | 参数      | 说明                                 | 类型      | 可选值       | 默认值   |
 |---------- |------------------------------------ |---------- |------------- |-------- |
 | value/v-model | 选中项，当 type 为 time 时，类型为字符串，否则为 Date | string / date | - |
-| type | 选择器类型 | string | 'date' / 'year-month' / 'time' | 'datetime' |
+| type | 选择器类型 | string | 'date' / 'year-month' / 'time' / 'datetime' | 'datetime' |
 | loading | 加载中 | boolean | - | false |
 | arrow-html | 是否使用html渲染选择器内容 | boolean | - | true |
-| visible-item-count | 展示的行数 | number | - | 7 |
-| item-height | 选项高度 | number | - | 33 |
 | disabled | 禁用 | boolean | - | fasle |
 | readonly | 只读 | boolean | - | false |
 | formatter | 自定义弹出层选项文案的格式化函数，返回一个字符串 | function | - | - |
@@ -162,6 +197,7 @@ export default {
 | maxHour | 最大小时 | number | - | 23 |
 | minMinute | 最小分钟 | number | - | 0 |
 | maxMinute | 最大分钟 | number | - | 59 |
+| column-formatter | 接收 pickerView 实例、pickerView 源数组 originColumns、当前 pickerView 的 value 作为入参，根据选中项和边界范围进行判断，通过 pickerView 实例暴露出来的 `getPickerValue` 获取对数据进行数组转换。 | function | - | - |
 
 ### Events
 

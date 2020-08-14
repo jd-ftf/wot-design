@@ -6,22 +6,53 @@
       <wd-picker :columns="columns1" label="只读" v-model="value3" readonly />
       <wd-picker :columns="columns1" label="loading" v-model="value4" loading />
       <wd-picker :columns="columns2" label="多列" v-model="value5" />
-      <wd-picker :columns="columns3" label="多列联动" v-model="value6" :column-change="onChangeDistrict" />
-      <wd-picker :columns="columns2" label="展示格式化" v-model="value7" :display-format="displayFormat" />
-      <wd-picker :columns="columns1" label="标题" v-model="value8" title="文案标题" />
-      <wd-picker :columns="columns1" label="before-confirm" v-model="value9" :loading="isLoading" :before-confirm="beforeConfirm" />
+      <wd-picker
+        :columns="columns3"
+        label="多列联动"
+        v-model="value6"
+        :column-change="onChangeDistrict"
+      />
+      <wd-picker
+        :columns="columns2"
+        label="展示格式化"
+        v-model="value7"
+        :display-format="displayFormat"
+      />
+      <wd-picker
+        :columns="columns1"
+        label="before-confirm"
+        v-model="value9"
+        :loading="isLoading"
+        :before-confirm="beforeConfirm"
+      />
     </div>
     <demo-block title="label不传" transparent>
       <wd-picker :columns="columns1" v-model="value10" />
+    </demo-block>
+    <demo-block title="展示标题" transparent>
+      <wd-picker :columns="columns1" label="标题" v-model="value8" title="文案标题" />
     </demo-block>
     <demo-block title="大小" transparent>
       <wd-picker :columns="columns1" label="单列选择" v-model="value11" size="large" />
     </demo-block>
     <demo-block title="错误" transparent>
-      <wd-picker :columns="columns1" label="单列选择" v-model="value11" error />
+      <wd-picker :columns="columns1" label="单列选择" v-model="value17" error />
+    </demo-block>
+    <demo-block title="校验标志" transparent>
+      <wd-picker :columns="columns1" v-model="value14" label="日期选择" required />
+    </demo-block>
+    <demo-block title="展示边框线" transparent>
+      <wd-picker :columns="columns1" v-model="value15" border label="日期选择" />
+      <wd-picker :columns="columns1" v-model="value16" border label="日期选择" />
     </demo-block>
     <demo-block title="值靠右显示" transparent>
       <wd-picker :columns="columns1" label="单列选择" v-model="value12" align-right />
+    </demo-block>
+    <demo-block title="唤起项插槽">
+      <div class="text">当前选中项：{{value13}}</div>
+      <wd-picker :columns="columns1" v-model="value13">
+        <wd-button type="primary">插槽唤起</wd-button>
+      </wd-picker>
     </demo-block>
   </div>
 </template>
@@ -32,8 +63,8 @@ const district = {
   '110000': [{ label: '北京', value: '110100' }],
   '440000': [{ label: '广州市', value: '440100' }, { label: '韶关市', value: '440200' }, { label: '深圳市', value: '440300' }, { label: '珠海市', value: '440400' }, { label: '汕头市', value: '440500' }],
   '110100': [{ label: '东城区', value: '110101' }, { label: '西城区', value: '110102' }, { label: '朝阳区', value: '110105' }, { label: '丰台区', value: '110106' }, { label: '石景山区', value: '110107' }],
-  '440100': [{ label: '荔湾区', value: '440103' }, { label: '越秀区', value: '440104' }, { label: '海珠区', value: '440105'}],
-  '440200': [{ label: '武江区', value: '440203'}],
+  '440100': [{ label: '荔湾区', value: '440103' }, { label: '越秀区', value: '440104' }, { label: '海珠区', value: '440105' }],
+  '440200': [{ label: '武江区', value: '440203' }],
   '440300': [{ label: '罗湖区', value: '440303' }, { label: '福田区', value: '440304' }],
   '440400': [{ label: '香洲区', value: '440402' }, { label: '斗门区', value: '440403' }, { label: '金湾区', value: '440404' }],
   '440500': [{ label: '龙湖区', value: '440507' }, { label: '金平区', value: '440511' }]
@@ -61,27 +92,38 @@ export default {
       value7: ['中南大学', '软件工程'],
       value8: '',
       value9: '',
-      value10: '',
-      value11: '',
+      value10: '选项3',
+      value11: '选项6',
       value12: '',
+      value13: '选项3',
+      value14: '',
+      value15: '选项6',
+      value16: '选项3',
+      value17: '选项1',
       isLoading: false
     }
   },
+
   methods: {
     onChangeDistrict (pickerView, item, columnIndex, resolve) {
+      // 修改第一列，2、3列刷新
+      // setColumnData 是组件内部的方法，修改当前 pickerView 的列数据
       if (columnIndex === 0) {
         pickerView.setColumnData(1, district[item.value])
         pickerView.setColumnData(2, district[district[item.value][0].value])
         return
       }
+      // 修改第二列，更新第三列
       if (columnIndex === 1) {
         pickerView.setColumnData(2, district[item.value])
       }
       resolve()
     },
+
     displayFormat (items) {
       return items.join('-')
     },
+
     beforeConfirm (value, resolve) {
       this.isLoading = true
       setTimeout(() => {
@@ -97,3 +139,8 @@ export default {
   }
 }
 </script>
+<style scoped lang="scss">
+.text {
+  margin-bottom: 10px;
+}
+</style>

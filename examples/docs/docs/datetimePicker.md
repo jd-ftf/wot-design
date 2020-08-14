@@ -179,6 +179,15 @@ export default {
 <wd-datetime-picker label="日期选择" error v-model="value" />
 ```
 
+<!-- TODO 需判定是否需要 -->
+### 校验标志
+
+通过设置 `required` 开启label左侧校验标志。
+
+```html
+<wd-datetime-picker label="日期选择" required v-model="value" />
+```
+
 ### 值靠右展示
 
 设置 `align-right` 属性，选择器的值靠右展示。
@@ -215,16 +224,45 @@ export default {
 </script>
 ```
 
+### 唤起项插槽
+
+设置默认插槽修改唤起picker组件的形式。
+
+```html
+<wd-datetime-picker v-model="value" :columns="columns">
+  <wd-button type="primary">插槽唤起</wd-button>
+</wd-datetime-picker>
+```
+
+### 时间范围选择
+
+当 `value` 为 `Array` 类型, 时间范围选择开启。
+
+```html
+<wd-datetime-picker v-model="value" label="时间范围选择"></wd-datetime-picker>
+<script>
+export default {
+  data () {
+    return {
+      value: [
+        new Date(2012, 10, 10, 10, 10),
+        new Date(2013, 10, 11, 10, 10)
+      ]
+    }
+  }
+}
+</script>
+```
+
 ### Attributes
 
 | 参数      | 说明                                 | 类型      | 可选值       | 默认值   |
 |---------- |------------------------------------ |---------- |------------- |-------- |
-| value/v-model | 选中项，当 type 为 time 时，类型为字符串，否则为 Date | string / date | - |
-| type | 选择器类型 | string | 'date' / 'year-month' / 'time' | 'datetime' |
+| value/v-model | 选中项，当 type 为 time 时，类型为字符串；当 type 为 Array 时，类型为范围选择；否则为 Date | string / date / Array | - |
+| type | 选择器类型 | string | 'date' / 'year-month' / 'time'  | 'datetime' |
 | loading | 加载中 | boolean | - | false |
 | arrow-html | 是否使用html渲染选择器内容 | boolean | - | true |
-| visible-item-count | 展示的行数 | number | - | 7 |
-| item-height | 选项高度 | number | - | 33 |
+| columns-height | picker内部滚筒高 | number | - | 217 |
 | title | 弹出层标题 | string | - | - |
 | cancel-button-text | 取消按钮文案 | string | - | '取消' |
 | confirm-button-text | 确认按钮文案 | string | - | '完成' |
@@ -232,6 +270,7 @@ export default {
 | placeholder | 选择器占位符 | string | - | '请选择' |
 | disabled | 禁用 | boolean | - | fasle |
 | readonly | 只读 | boolean | - | false |
+| required | 是否校验 | boolean | - | false |
 | display-format | 自定义展示文案的格式化函数，返回一个字符串 | function | - | - |
 | formatter | 自定义弹出层选项文案的格式化函数，返回一个字符串 | function | - | - |
 | filter | 自定义过滤选项的函数，返回列的选项数组 | function | - | - |
@@ -247,15 +286,18 @@ export default {
 | align-right | 选择器的值靠右展示 | boolean | - | false |
 | before-confirm | 确定前校验函数，接收 (value, resolve) 参数，通过 resolve 继续执行 picker，resolve 接收1个boolean参数 | function | - | - |
 
+### Slot
+
+| name      | 说明       |
+|------------- |----------- |
+| default | 唤起picker的展示形式，不设置则展示cell表单样式 |
+| label | cell展示时，左侧展示文案 |
+| range-separator | 区域选择时，中间展示的分隔符插槽 |
+<!-- TODO 可能会修改交互形式，此slot可能会替换 -->
+
 ### Events
 
 | 事件名称      | 说明                                 | 参数     |
 |------------- |------------------------------------ |--------- |
 | confirm | 点击右侧按钮触发 | - |
 | cancel | 点击左侧按钮触发 | - |
-
-### Slot
-
-| name      | 说明       |
-|------------- |----------- |
-| label | 左侧标题插槽 |

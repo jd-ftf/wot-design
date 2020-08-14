@@ -180,6 +180,15 @@ export default {
 <wd-picker label="单列选项" error v-model="value" :columns="columns" />
 ```
 
+<!-- TODO 需判定是否需要 -->
+### 校验标志
+
+通过设置 `required` 开启label左侧校验标志。
+
+```html
+<wd-picker :columns="columns" v-model="value" label="日期选择" required />
+```
+
 ### 值靠右展示
 
 设置 `align-right` 属性，选择器的值靠右展示。
@@ -222,16 +231,25 @@ export default {
 </script>
 ```
 
+### 唤起项插槽
+
+设置默认插槽修改唤起picker组件的形式。
+
+```html
+<wd-picker v-model="value" :columns="columns">
+  <wd-button type="primary">插槽唤起</wd-button>
+</wd-picker>
+```
+
 ### Attributes
 
 | 参数      | 说明                                 | 类型      | 可选值       | 默认值   |
 |---------- |------------------------------------ |---------- |------------- |-------- |
 | value/v-model | 选中项，如果为多列选择器，则其类型应为数组 | string / number / boolean / array | - |
-| columns | 选择器数据，可以为字符串数组，也可以为对象数组，如果为二维数组，则为多列选择器 | array | - | - |
+| columns | 选择器数据，可以为字符串数组，也可以为对象数组，如果为二维数组，则为多列选择器、 | array | - | - |
 | loading | 加载中 | boolean | - | false |
 | arrow-html | 是否使用html渲染选择器内容 | boolean | - | true |
-| visible-item-count | 展示的行数 | number | - | 7 |
-| item-height | 选项高度 | number | - | 33 |
+| columns-height | 内部pickerView高 | number | - | 217 |
 | value-key | 选项对象中，value对应的 key | string | - | 'label' |
 | label-key | 选项对象中，展示的文本对应的 key | string | - | 'value' |
 | title | 弹出层标题 | string | - | - |
@@ -241,6 +259,7 @@ export default {
 | placeholder | 选择器占位符 | string | - | '请选择' |
 | disabled | 禁用 | boolean | - | fasle |
 | readonly | 只读 | boolean | - | false |
+| required | 是否校验 | boolean | - | false |
 | display-format | 自定义展示文案的格式化函数，返回一个字符串 | function | - | - |
 | column-change | 接收 pickerView 实例、选中项、当前修改列的下标、resolve 作为入参，根据选中项和列下标进行判断，通过 pickerView 实例暴露出来的 `setColumnData` 方法修改其他列的数据源。 | function | - | - |
 | size | 设置选择器大小 | string | 'large' | - |
@@ -248,6 +267,13 @@ export default {
 | error | 是否为错误状态，错误状态时右侧内容为红色 | boolean | - | false |
 | align-right | 选择器的值靠右展示 | boolean | - | false |
 | before-confirm | 确定前校验函数，接收 (value, resolve) 参数，通过 resolve 继续执行 picker，resolve 接收1个boolean参数 | function | - | - |
+<!-- 不确定是否使用该api -->
+### Slot
+
+| name      | 说明       |
+|------------- |----------- |
+| default | 唤起picker的展示形式，不设置则展示cell表单样式 |
+| label | cell展示时，左侧展示文案 |
 
 ### Events
 
