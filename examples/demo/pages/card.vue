@@ -34,7 +34,7 @@
       </wd-card>
       <wd-card type="rectangle">
         <div class="title" slot="title">
-          <div>服务到期</div>
+          <div>2020-02-03服务到期</div>
           <div class="title-tip"><wd-icon name="warning" size="14px" style="vertical-align: bottom"/> 您可以去电脑上使用该服务</div>
         </div>
         <div style="height: 40px;" class="content">
