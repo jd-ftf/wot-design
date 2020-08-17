@@ -44,7 +44,7 @@ Vue.use(Card)
   </div>
 </wd-card>
 ```
-```style
+```css
 .content, .title {
   display: flex;
   flex-direction: row;
