@@ -733,16 +733,16 @@ $-statustip-padding: 5px 10px !default; // 间距
 
 /* card */
 $-card-bg: $-color-white !default; // 背景色
-$-card-fs: $-fs-content; // 卡片字号
+$-card-fs: $-fs-content !default; // 卡片字号
 $-card-padding: 15px 15px 16px !default; // 内边距
 $-card-rectangle-padding: 15px 15px 12px !default; // 矩形卡片内边距
-$-card-shadow-color: rgba($-color-black, 0.02) !default; // 阴影
+$-card-shadow-color: 0px 4px 8px 0px rgba($-color-black, 0.02) !default; // 阴影
 $-card-radius: 8px !default; // 圆角大小
 $-card-line-height: 1.1 !default; // 行高
 $-card-margin: 15px !default; // 外边距
 $-card-title-color: rgba($-color-black, 0.85) !default; // 标题颜色
 $-card-title-fs: $-fs-title !default; //  矩形卡片标题字号
-$-card-content-border-color: rgba($-color-black, 0.09) !default; // 内容边框
+$-card-content-border-color: 1px solid rgba($-color-black, 0.09) !default; // 内容边框
 $-card-content-padding: 17px 0 16px !default; // 内容的内边距
 $-card-content-color: rgba($-color-black, 0.45) !default; // 文本内容颜色
 $-card-content-line-height: 20px !default; // 文本内容行高
