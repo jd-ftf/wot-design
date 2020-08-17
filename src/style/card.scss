@@ -42,7 +42,7 @@
       border-bottom: 1px solid $-card-content-border-color;
     }
   }
-  @include e(action) {
+  @include e(footer) {
     text-align: right;
   }
 }

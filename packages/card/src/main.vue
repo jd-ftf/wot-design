@@ -16,7 +16,7 @@
     >
       <slot></slot>
     </div>
-    <div class="wd-card__action">
+    <div class="wd-card__footer">
       <slot name="footer"></slot>
     </div>
   </div>
