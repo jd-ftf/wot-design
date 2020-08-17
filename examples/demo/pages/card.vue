@@ -3,7 +3,7 @@
     <demo-block title="基本使用" transparent>
       <wd-card title="经营分析">
         一般的，检举内容由承办的党的委员会或纪律检查委员会将处理意见或复议、复查结论同申诉人见面，听取其意见。复议、复查的结论和决定，应交给申诉人一份。
-        <wd-button slot="action" size="small" type="primary" plain round>查看详情</wd-button>
+        <wd-button slot="footer" size="small" type="primary" plain round>查看详情</wd-button>
       </wd-card>
       <wd-card title="新订单">
         <div class="content">
@@ -15,7 +15,7 @@
             <div>买家昵称：Joy</div>
           </div>
         </div>
-        <wd-button slot="action" size="small" type="primary" plain round>查看详情</wd-button>
+        <wd-button slot="footer" size="small" type="primary" plain round>查看详情</wd-button>
       </wd-card>
     </demo-block>
     <demo-block title="矩形卡片" transparent>
@@ -27,7 +27,7 @@
             <div style="color: rgba(0,0,0,0.25); font-size: 12px;">高级版-快速吸粉 | 周期一年 </div>
           </div>
         </div>
-        <div slot="action">
+        <div slot="footer">
           <wd-button size="small" round style="margin-right: 8px;">评价</wd-button>
           <wd-button size="small" type="primary" plain round>立即使用</wd-button>
         </div>
@@ -44,7 +44,7 @@
             <div style="color: rgba(0,0,0,0.25); font-size: 12px;">高级版-快速吸粉 | 周期一年 </div>
           </div>
         </div>
-        <div slot="action">
+        <div slot="footer">
           <wd-button size="small" round style="margin-right: 8px;">评价</wd-button>
           <wd-button size="small" type="primary" plain round>立即使用</wd-button>
         </div>

@@ -17,7 +17,7 @@
       <slot></slot>
     </div>
     <div class="wd-card__action">
-      <slot name="action"></slot>
+      <slot name="footer"></slot>
     </div>
   </div>
 </template>
