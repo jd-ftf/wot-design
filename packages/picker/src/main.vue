@@ -9,6 +9,7 @@
         v-model="pickerValue"
         :columns="displayColumns"
         :loading="loading"
+        :loading-color="loadingColor"
         :arrow-html="arrowHtml"
         :value-key="valueKey"
         :label-key="labelKey"
@@ -70,7 +71,7 @@ export default {
     onCancel () {
       this.displayColumns = this.lastColumns
       this.pickerValue = this.value
-      this.handleClose()
+      this.closePopup()
     },
 
     onConfirm () {

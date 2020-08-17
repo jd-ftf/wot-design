@@ -4,8 +4,12 @@
       <wd-loading />
     </demo-block>
     <demo-block title="circle 类型，可以修改指示器颜色">
-      <wd-loading type="circle"/>
+      <wd-loading type="circle" />
       <wd-loading type="circle" color="#fff" class="loading-black" />
+    </demo-block>
+    <demo-block title="circular-ring 类型，可以修改指示器颜色">
+      <wd-loading type="circular-ring" />
+      <wd-loading type="circular-ring" color="red" intermediate-color="pink" />
     </demo-block>
     <demo-block title="spinner类型">
       <wd-loading type="spinner" />

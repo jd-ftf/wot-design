@@ -1,0 +1,14 @@
+@import './picker.scss';
+
+@include b(select-picker) {
+  .wd-action-sheet__header {
+    height: 72px;
+    line-height: 72px;
+  }
+  @include e(wrapper) {
+    padding: 0 10px;
+    position: relative;
+    max-height: 245px;
+    overflow: auto;
+  }
+}

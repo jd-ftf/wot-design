@@ -153,9 +153,9 @@ export default {
 | 参数      | 说明                                 | 类型      | 可选值       | 默认值   |
 |---------- |------------------------------------ |---------- |------------- |-------- |
 | value/v-model | 绑定值 | Array | - | - |
-| shape | 单选框形状 | string | 'circle', 'square', 'button' | 'circle' |
+| shape | 复选框形状 | string | 'circle', 'square', 'button' | 'circle' |
 | cell | 表单模式 | boolean | - | false |
-| checked-color | 选中的颜色 | string | - | '#0083ff' |
+| checked-color | 选中的颜色 | string | - | '#4D80F0' |
 | disabled | 禁用 | boolean | - | false |
 | min | 最小选中的数量 | number | - | 0 |
 | max | 最大选中的数量，0 为无限数量，默认为 0 | number | - | 0 |
@@ -173,7 +173,7 @@ export default {
 |---------- |------------------------------------ |---------- |------------- |-------- |
 | value | 单选框选中时的值 | string / number / boolean | - | - |
 | shape | 单选框形状 | string | 'circle', 'square', 'button' | 'circle' |
-| checked-color | 选中的颜色 | string | - | '#0083ff' |
+| checked-color | 选中的颜色 | string | - | '#4D80F0' |
 | disabled | 禁用 | boolean | - | false |
 | true-value | 选中值，在 checkbox-group 中使用无效，需同 false-value 一块使用 | string / number | - | - |
 | false-value | 非选中时的值，在 checkbox-group 中使用无效，需同 true-value 一块使用 | string /number | - | - |

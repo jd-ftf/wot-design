@@ -39,6 +39,7 @@
   "rate": "./packages/rate/index.js",
   "row": "./packages/row/index.js",
   "search": "./packages/search/index.js",
+  "select-picker": "./packages/select-picker/index.js",
   "slider": "./packages/slider/index.js",
   "sort-button": "./packages/sort-button/index.js",
   "status-tip": "./packages/status-tip/index.js",

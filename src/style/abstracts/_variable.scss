@@ -406,6 +406,7 @@ $-picker-column-disabled-color: rgba($-color-black, 0.25) !default; // 选择器
 $-picker-mask: linear-gradient(180deg, hsla(0, 0%, 100%, 0.9), hsla(0, 0%, 100%, 0.25)),
   linear-gradient(0deg, hsla(0, 0%, 100%, 0.9), hsla(0, 0%, 100%, 0.25)) !default; // 上下阴影
 $-picker-loading-bg: rgba($-color-white, 0.8) !default; // loading 背景颜色
+$-picker-loading-button-color: rgba($-color-black, 0.25) !default; // loading 背景颜色
 $-picker-region-separator-color: rgba($-color-black, 0.65) !default; // 区域选择文字颜色
 $-picker-cell-arrow-size-large: $-cell-icon-size !default; // cell 类型的大尺寸 右侧icon尺寸
 

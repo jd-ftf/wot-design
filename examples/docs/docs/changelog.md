@@ -25,6 +25,7 @@
   - 属性 `value` 添加 `Array` 格式，用来支持区域选择下的 上方picker选中值 及 下方picker选中值。 (by [@HXCStudio123](https://github.com/HXCStudio123) )
   - 新增属性 `columns-height`, 支持设置 picker 内部的单个 pickerView 高 (by [@HXCStudio123](https://github.com/HXCStudio123) )
   - 新增属性 `required`, 支持表单属性设置必填项 (by [@HXCStudio123](https://github.com/HXCStudio123) )
+  - 新增属性 `loading-color`, 支持修改加载的颜色 (by [@HXCStudio123](https://github.com/HXCStudio123) )
   - 移除属性 `item-height` (by [@HXCStudio123](https://github.com/HXCStudio123) )
   - 移除属性 `visible-item-count` (by [@HXCStudio123](https://github.com/HXCStudio123) )
   - 新增默认插槽，可更改默认唤起 picker 的形式（默认为cell）。(by [@HXCStudio123](https://github.com/HXCStudio123) )
@@ -33,6 +34,7 @@
 - DatetimePickerView
   - 新增属性 `columns-height`, 支持设置 pickerView 高 (by [@HXCStudio123](https://github.com/HXCStudio123) )
   - 新增属性 `column-formatter`, 支持自定义处理列项数组，接收 pickerView 实例、pickerView 源数组 originColumns、pickerView 每个属性的范围 ranges、当前 pickerView 的 value 作为入参，根据选中项和边界范围进行判断，通过 pickerView 实例暴露出来的 getPickerValue 获取对数据进行数组转换 (by [@HXCStudio123](https://github.com/HXCStudio123) )
+  - 新增属性 `loading-color`, 支持修改加载的颜色 (by [@HXCStudio123](https://github.com/HXCStudio123) )
   - 移除属性 `item-height` (by [@HXCStudio123](https://github.com/HXCStudio123) )
   - 移除属性 `visible-item-count` (by [@HXCStudio123](https://github.com/HXCStudio123) )
   - 将 pickerView 交互形式更改为滚筒交互。 (by [@HXCStudio123](https://github.com/HXCStudio123) )
@@ -55,12 +57,14 @@
 - Picker
   - 新增属性 `columns-height`, 支持设置 pickerView 高 (by [@HXCStudio123](https://github.com/HXCStudio123) )
   - 新增属性 `required`, 支持表单属性设置必填项 (by [@HXCStudio123](https://github.com/HXCStudio123) )
+  - 新增属性 `loading-color`, 支持修改加载的颜色 (by [@HXCStudio123](https://github.com/HXCStudio123) )
   - 移除属性 `item-height` (by [@HXCStudio123](https://github.com/HXCStudio123) )
   - 移除属性 `visible-item-count` (by [@HXCStudio123](https://github.com/HXCStudio123) )
   - 将 pickerView 交互形式更改为滚筒交互。 (by [@HXCStudio123](https://github.com/HXCStudio123) )
   - 新增默认插槽，可更改默认唤起 picker 的形式（默认为cell）。(by [@HXCStudio123](https://github.com/HXCStudio123) )
 - PickerView
   - 新增属性 `columns-height`, 支持设置 pickerView 高 (by [@HXCStudio123](https://github.com/HXCStudio123) )
+  - 新增属性 `loading-color`, 支持修改加载的颜色 (by [@HXCStudio123](https://github.com/HXCStudio123) )
   - 移除属性 `item-height` (by [@HXCStudio123](https://github.com/HXCStudio123) )
   - 移除属性 `visible-item-count` (by [@HXCStudio123](https://github.com/HXCStudio123) )
   - 将 pickerView 交互形式更改为滚筒交互。 (by [@HXCStudio123](https://github.com/HXCStudio123) )
@@ -73,6 +77,8 @@
   - 新增属性 `size`, 支持单选框尺寸更改（large） (by [@HXCStudio123](https://github.com/HXCStudio123) )
 - Status Tip
   - 属性 `type` 下的七种类型 对应缺省展示图片更改。 (by [@awjing](https://github.com/awjing))
+- selectPicker
+  - 新增组件 selectPicker 。 (by [@HXCStudio123](https://github.com/HXCStudio123))
 - Tabs
   - 移除属性 `color` (by [@awjing](https://github.com/awjing) )
   - 移除属性 `inactive-color` (by [@awjing](https://github.com/awjing) )
