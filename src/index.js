@@ -12,6 +12,7 @@ import Col from '../packages/col'
 import Collapse from '../packages/collapse'
 import CollapseItem from '../packages/collapse-item'
 import ColPicker from '../packages/col-picker'
+import Card from '../packages/card'
 import DatetimePicker from '../packages/datetime-picker'
 import DatetimePickerView from '../packages/datetime-picker-view'
 import DropMenu from '../packages/drop-menu'
@@ -71,6 +72,7 @@ const components = [
   Collapse,
   CollapseItem,
   ColPicker,
+  Card,
   DatetimePicker,
   DatetimePickerView,
   DropMenu,
@@ -150,6 +152,7 @@ export default {
   Collapse,
   CollapseItem,
   ColPicker,
+  Card,
   DatetimePicker,
   DatetimePickerView,
   DropMenu,

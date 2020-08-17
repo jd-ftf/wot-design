@@ -117,6 +117,8 @@
         - type: group
           title: 展示
           children:
+            - name: card
+              title: Card 卡片
             - name: collapse
               title: Collapse 折叠面板
             - name: lazyload
@@ -127,6 +129,8 @@
               title: Popover 气泡
             - name: progress
               title: Progress 进度条
+            - name: statusTip
+              title: StatusTip 缺省提示
             - name: sortButton
               title: SortButton 排序按钮
             - name: steps
@@ -137,8 +141,6 @@
               title: Tag 标签
             - name: tooltip
               title: Tooltip 文字提示
-            - name: statusTip
-              title: StatusTip 缺省提示
 - type: link
   name: mini-components
   title: 小程序
