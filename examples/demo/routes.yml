@@ -81,6 +81,8 @@
 - title: 展示组件
   icon: //img10.360buyimg.com/jmadvertisement/jfs/t1/64146/11/13923/495/5db52ed3Ea32effd5/f15411c2a37f5dc9.png
   children:
+    - name: card
+      title: Card 卡片
     - name: collapse
       title: Collapse 折叠面板
     - name: lazyload
@@ -91,6 +93,8 @@
       title: Popover 气泡
     - name: progress
       title: Progress 进度条
+    - name: statusTip
+      title: StatusTip 缺省提示
     - name: sortButton
       title: SortButton 排序按钮
     - name: steps
@@ -101,5 +105,3 @@
       title: Tag 标签
     - name: tooltip
       title: Tooltip 文字提示
-    - name: statusTip
-      title: StatusTip 缺省提示

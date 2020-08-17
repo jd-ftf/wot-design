@@ -10,6 +10,7 @@
   "collapse": "./packages/collapse/index.js",
   "collapse-item": "./packages/collapse-item/index.js",
   "col-picker": "./packages/col-picker/index.js",
+  "card": "./packages/card/index.js",
   "datetime-picker": "./packages/datetime-picker/index.js",
   "datetime-picker-view": "./packages/datetime-picker-view/index.js",
   "drop-menu": "./packages/drop-menu/index.js",
