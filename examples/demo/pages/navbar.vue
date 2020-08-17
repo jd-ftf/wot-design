@@ -102,7 +102,7 @@ export default {
         );
         position: absolute;
         left: -15px;
-        top: 5px;
+        top: 3px;
         border-radius: 50%;
       }
     }

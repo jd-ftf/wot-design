@@ -146,7 +146,7 @@ Tooltip 组件通过属性`show-close` 控制是否显示关闭按钮。
 |  content        |  显示的内容，也可以通过 `slot#content` 传入  | String            | — | — |
 |  placement        |  Tooltip 的出现位置  | String           |  top/top-start/top-end/bottom/bottom-start/bottom-end/left/left-start/left-end/right/right-start/right-end |  bottom |
 |  visible-arrow   |  是否显示 Tooltip 箭头 | Boolean | — | true |
-|  show-close   |  是否显示 Tooltip 内部的关闭按钮 | Boolean | — | true |
+|  show-close   |  是否显示 Tooltip 内部的关闭按钮 | Boolean | — | false |
 |  disabled       |  Tooltip 是否可用  | Boolean           | — |  false |
 |  offset        |  出现位置的偏移量  | Number           | — |  5 |
 | close-outside | 是否可以通过点击其他位置 关闭 tooltip | boolean    | — | true |
