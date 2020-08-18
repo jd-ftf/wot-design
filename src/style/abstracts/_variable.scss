@@ -264,16 +264,16 @@ $-checkbox-button-disabled-border: rgba($-color-black, 0.15) !default; // 按钮
 
 /* collapse */
 $-collapse-side-padding: $-size-side-padding !default; // 左右间距
-$-collapse-header-padding: 11px $-collapse-side-padding !default; // 头部padding
-$-collapse-title-color: $-color-title !default; // 标题颜色
-$-collapse-title-fs: $-fs-title !default; // 标题字号
-$-collapse-arrow-size: 14px !default; // 箭头大小
-$-collapse-arrow-color: $-color-icon !default; // 箭头颜色
-$-collapse-body-padding: 13px $-collapse-side-padding !default; // 内容padding
-$-collapse-body-fs: 13px !default; // 内容字号
-$-collapse-body-color: $-color-content !default; // 内容颜色
-$-collapse-disabled-color: $-color-aid !default; // 禁用颜色
-$-collapse-more-fs: 13px !default; // 更多 字号
+$-collapse-body-padding: 14px 25px !default; // body padding
+$-collapse-header-padding: 13px $-size-side-padding !default; // 头部padding
+$-collapse-title-color: rgba($-color-black, 0.85) !default; // 标题颜色
+$-collapse-title-fs: 16px !default; // 标题字号
+$-collapse-arrow-size: 18px !default; // 箭头大小
+$-collapse-arrow-color: #d8d8d8 !default; // 箭头颜色
+$-collapse-body-fs: 14px !default; // 内容字号
+$-collapse-body-color: rgba($-color-black, 0.65) !default; // 内容颜色
+$-collapse-disabled-color: rgba($-color-black, 0.15) !default; // 禁用颜色
+$-collapse-retract-fs: 14px !default; // 更多 字号
 $-collapse-more-color: $-color-theme !default; // 更多 颜色
 
 /* drop-menu */
