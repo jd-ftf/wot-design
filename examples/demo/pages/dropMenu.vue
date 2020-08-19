@@ -13,7 +13,6 @@
       </wd-drop-menu>
       <wd-button
         @click="click"
-        type="primary"
         size="small"
         style="margin: 10px;display: block;"
       >选中第一个</wd-button>
@@ -25,7 +24,7 @@
           <div slot="custom">
             <wd-cell title="标题文字" value="内容" />
             <wd-cell title="标题文字" label="描述信息" value="内容" />
-            <wd-button type="primary" block size="large" suck @click="confirm">主要按钮</wd-button>
+            <wd-button block size="large" suck @click="confirm">主要按钮</wd-button>
           </div>
         </wd-drop-menu-item>
       </wd-drop-menu>

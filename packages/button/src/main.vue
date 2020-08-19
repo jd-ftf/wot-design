@@ -44,7 +44,10 @@ export default {
     }
   },
   props: {
-    type: String,
+    type: {
+      type: String,
+      default: 'primary'
+    },
     round: Boolean,
     plain: Boolean,
     loading: Boolean,

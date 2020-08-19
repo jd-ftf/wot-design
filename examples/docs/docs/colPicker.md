@@ -406,7 +406,7 @@ export default {
 ```html
 <div style="margin-bottom: 10px;">当前选中项: {{ displayValue }}</div>
 <wd-col-picker v-model="value" :columns="areaData" :column-change="columnChange" style="display: inline-block;" @confirm="handleConfirm">
-  <wd-button type="primary">选择地址</wd-button>
+  <wd-button>选择地址</wd-button>
 </wd-col-picker>
 
 <script>

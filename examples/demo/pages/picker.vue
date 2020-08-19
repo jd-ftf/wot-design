@@ -44,7 +44,7 @@
     <demo-block title="唤起项插槽">
       <div class="text">当前选中项：{{value13}}</div>
       <wd-picker :columns="columns1" v-model="value13">
-        <wd-button type="primary">插槽唤起</wd-button>
+        <wd-button>插槽唤起</wd-button>
       </wd-picker>
     </demo-block>
   </div>

@@ -144,24 +144,31 @@ $-button-primary-active-color: resultColor(
   #416bdf #4e79ee,
   0% 100%
 ) !default; // 主要按钮点击态颜色
-$-button-primary-plain-active-color: #eff4fe !default; // 主要按钮点击态颜色
-$-button-primary-disabled-color: $-color-theme-light !default; // 主要按钮禁用颜色
-
+$-button-primary-disabled-color: resultColor(
+  $open-linear,
+  315deg,
+  $-color-theme,
+  "dark" "light",
+  #8FADFF #9FB8FE,
+  0% 100%
+) !default; // 主要按钮禁用颜色
+$-button-primary-plain-active-bg-color: #eff4fe !default; // 主要按钮点击态颜色
+$-button-primary-plain-disabled-color: themeColor($-color-theme, "light", #9DB9F6) !default; // 主要按钮点击态文字颜色
 $-button-success-color: $-color-success !default; // 成功按钮颜色
 $-button-success-active-color: mix($-color-black, $-button-success-color, 18%) !default; // 成功按钮点击态颜色
 $-button-success-disabled-color: mix($-color-white, $-button-success-color, 42%) !default; // 成功按钮禁用颜色
 
-$-button-info-bg-color: $-color-bg !default; // 信息按钮背景颜色
+$-button-info-bg-color: #F0F0F0 !default; // 信息按钮背景颜色
 $-button-info-color: $-color-title !default; // 信息按钮颜色
-$-button-info-active-bg-color: $-color-border-light !default; // 信息按钮背景颜色
-$-button-info-active-color: $-color-title !default; // 信息按钮点击态颜色
-$-button-info-disabled-bg-color: $-color-bg !default; // 信息按钮禁用颜色
+$-button-info-active-bg-color: #E1E1E1 !default; // 信息按钮背景颜色
+$-button-info-active-color: rgba($-color-black, 0.85) !default; // 信息按钮点击态颜色
+$-button-info-disabled-bg-color: #F0F0F0 !default; // 信息按钮禁用颜色
 $-button-info-disabled-color: rgba($-color-black, 0.09) !default; // 信息按钮禁用颜色
 $-button-info-plain-color: rgba($-color-black, 0.45) !default; // 信息按钮禁用颜色
 $-button-info-plain-bg-color: $-color-white !default; // 信息按钮禁用颜色
-$-button-info-plain-disabled-bg-color: $-color-border-light !default; // 信息按钮禁用颜色
+$-button-info-plain-disabled-bg-color: #F0F0F0 !default; // 信息按钮禁用颜色
 $-button-info-plain-active-color: rgba($-color-black, 0.45) !default; // 信息按钮禁用颜色
-$-button-info-plain-active-bg-color: $-color-bg !default; // 信息按钮禁用颜色
+$-button-info-plain-active-bg-color: #F0F0F0 !default; // 信息按钮禁用颜色
 
 $-button-warning-color: $-color-warning !default; // 警告按钮颜色
 $-button-warning-active-color: mix($-color-black, $-button-warning-color, 18%) !default; // 警告按钮点击颜色
@@ -170,7 +177,7 @@ $-button-warning-disabled-color: mix($-color-white, $-button-warning-color, 42%)
 $-button-error-color: $-color-danger !default; // 错误按钮颜色
 $-button-error-active-color: mix($-color-black, $-button-error-color, 18%) !default; // 错误按钮点击颜色
 $-button-error-disabled-color: mix($-color-white, $-button-error-color, 42%) !default; // 错误按钮禁用颜色
-$-button-suck-active-color: $-button-primary-plain-active-color !default; // 错误按钮禁用颜色
+$-button-suck-active-color: $-button-primary-plain-active-bg-color !default; // 错误按钮禁用颜色
 
 $-button-border-color: mix($-color-black, $-color-white, 65%) !default; // 默认按钮边框色
 $-button-small-height: 28px !default; // 小型按钮高度

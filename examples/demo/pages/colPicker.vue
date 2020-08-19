@@ -29,7 +29,7 @@
       <div style="margin-left: 15px;">
         <div style="margin-bottom: 10px;">当前选中项: {{ displayValue }}</div>
         <wd-col-picker v-model="value15" :columns="areaData1" :column-change="columnChange1" style="display: inline-block;" @confirm="handleConfirm">
-          <wd-button type="primary">选择地址</wd-button>
+          <wd-button>选择地址</wd-button>
         </wd-col-picker>
       </div>
     </demo-block>

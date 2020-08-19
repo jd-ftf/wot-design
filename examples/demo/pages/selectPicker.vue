@@ -43,7 +43,7 @@
         <span>{{value16}}</span>
       </div>
       <wd-select-picker v-model="value16" :columns="columns1">
-        <wd-button type="primary">默认唤起项</wd-button>
+        <wd-button>默认唤起项</wd-button>
       </wd-select-picker>
     </demo-block>
   </div>

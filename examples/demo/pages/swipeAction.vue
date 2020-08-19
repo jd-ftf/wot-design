@@ -54,9 +54,9 @@
       </wd-swipe-action>
     </demo-block>
     <div class="button-group">
-      <wd-button type="primary" @touchstart.native.capture.stop="changeState('left',$event)">打开左边</wd-button>
-      <wd-button type="primary" @touchstart.native.capture.stop="changeState('close',$event)">关闭所有</wd-button>
-      <wd-button type="primary" @touchstart.native.capture.stop="changeState('right',$event)">打开右边</wd-button>
+      <wd-button @touchstart.native.capture.stop="changeState('left',$event)">打开左边</wd-button>
+      <wd-button @touchstart.native.capture.stop="changeState('close',$event)">关闭所有</wd-button>
+      <wd-button @touchstart.native.capture.stop="changeState('right',$event)">打开右边</wd-button>
     </div>
 
     <demo-block title="点击事件" transparent>

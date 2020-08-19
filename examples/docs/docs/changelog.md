@@ -11,6 +11,8 @@
 - Badge
   - 新增属性 `top` 为正时表示角标向下偏移对应的像素 (by [@awjing](https://github.com/awjing) )
   - 新增属性 `right` 为正时表示角标向左偏移对应的像素 (by [@awjing](https://github.com/awjing) )
+- Button
+  - 属性 `type` 默认值改为 `primary` (by [@HXCStudio123](https://github.com/HXCStudio123) )
 - Cell
   - 新增属性 `required`, 支持表单属性设置必填项 (by [@yawuling](https://github.com/yawuling) ) )
   - 新增属性 `vertical`, 支持表单属性展示为上下结构 (by [@yawuling](https://github.com/yawuling) )
@@ -46,7 +48,7 @@
   - 新增事件 `click-prefix-icon`, 点击前置图标时触发 (by [@yawuling](https://github.com/yawuling) )
   - 新增事件 `click-suffix-icon`, 点击后置图标时触发 (by [@yawuling](https://github.com/yawuling) )
 - Loading
-  - 属性 `type` 新增类型 `circle-outline` loading 样式 (by [@HXCStudio123](https://github.com/HXCStudio123) ) )
+  - 属性 `type` 新增类型 `circle-outline`/`circular-ring` loading 样式 (by [@HXCStudio123](https://github.com/HXCStudio123) ) )
 - Navbar
   - 新增默认插槽，可更改标题处展示样式。(by [@HXCStudio123](https://github.com/HXCStudio123) )
 - NoticeBar

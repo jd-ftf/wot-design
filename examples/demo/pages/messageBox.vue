@@ -1,23 +1,23 @@
 <template>
   <div>
     <demo-block title="alert">
-      <wd-button type="primary" @click="alert">alert</wd-button>
+      <wd-button @click="alert">alert</wd-button>
     </demo-block>
     <demo-block title="显示标题">
-      <wd-button type="primary" @click="alert2">alert</wd-button>
+      <wd-button @click="alert2">alert</wd-button>
     </demo-block>
     <demo-block title="confirm">
-      <wd-button type="primary" @click="confirm">confirm</wd-button>
+      <wd-button @click="confirm">confirm</wd-button>
     </demo-block>
     <demo-block title="prompt">
-      <wd-button type="primary" @click="prompt">prompt</wd-button>
+      <wd-button @click="prompt">prompt</wd-button>
     </demo-block>
     <demo-block title="当文案过长时，弹框的高度不再增加，而是将文案内容设置成滚动">
-      <wd-button type="primary" @click="alert3">alert</wd-button>
+      <wd-button @click="alert3">alert</wd-button>
     </demo-block>
     <demo-block>
       <div slot="title">使用<code>wd-message-box</code>组件，通过<code>slot</code>插入其他组件内容</div>
-      <wd-button type="primary" @click="custom">custom</wd-button>
+      <wd-button @click="custom">custom</wd-button>
       <wd-message-box :show="isShow" show-cancel-button @action="handleAction" title="评分">
         <wd-rate v-model="rate" />
       </wd-message-box>

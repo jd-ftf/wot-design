@@ -1,23 +1,24 @@
 <template>
   <div class="page-toast">
     <demo-block title="基本用法">
-      <wd-button type="primary" @click="handleToast1">toast</wd-button>
-      <wd-button type="primary" @click="handleToast9">长文案</wd-button>
+      <wd-button @click="handleToast1">toast</wd-button>
+      <wd-button @click="handleToast9">长文案</wd-button>
     </demo-block>
     <demo-block title="类型toast">
-      <wd-button type="primary" @click="handleToast2">成功toast</wd-button>
-      <wd-button type="primary" @click="handleToast3">错误toast</wd-button>
-      <wd-button type="primary" @click="handleToast4">警告toast</wd-button>
-      <wd-button type="primary" @click="handleToast11">常规toast</wd-button>
+      <wd-button @click="handleToast2">成功toast</wd-button>
+      <wd-button @click="handleToast3">错误toast</wd-button>
+      <wd-button @click="handleToast4">警告toast</wd-button>
+      <wd-button @click="handleToast11">常规toast</wd-button>
     </demo-block>
     <demo-block title="提示位置">
-      <wd-button type="primary" @click="handleToast5">顶部toast</wd-button>
-      <wd-button type="primary" @click="handleToast6">底部toast</wd-button>
+      <wd-button @click="handleToast5">顶部toast</wd-button>
+      <wd-button @click="handleToast6">底部toast</wd-button>
     </demo-block>
     <demo-block title="loading">
-      <wd-button type="primary" @click="handleToast7">Loading加载</wd-button>
-      <wd-button type="primary" @click="handleToast8">Circle类型loading</wd-button>
-      <wd-button type="primary" @click="handleToast10">Spinner类型loading</wd-button>
+      <wd-button @click="handleToast7">Loading加载</wd-button>
+      <wd-button @click="handleToast8">Circle类型loading</wd-button>
+      <wd-button @click="handleToast10">Spinner类型loading</wd-button>
+      <wd-button @click="handleToast12">circular-ring类型loading</wd-button>
     </demo-block>
   </div>
 </template>
@@ -66,7 +67,7 @@ export default {
       this.$toast.loading({
         msg: '3s后调用close关闭',
         loadingType: 'circle',
-        loadingColor: '#fff'
+        loadingColor: '#ffffff'
       })
       setTimeout(() => {
         this.$toast.close()
@@ -87,6 +88,16 @@ export default {
     },
     handleToast11 () {
       this.$toast.info('常规提示常规提示')
+    },
+    handleToast12 () {
+      this.$toast.loading({
+        msg: '3s后调用close关闭',
+        loadingType: 'circular-ring',
+        loadingColor: '#ffffff'
+      })
+      setTimeout(() => {
+        this.$toast.close()
+      }, 3000)
     }
   }
 }

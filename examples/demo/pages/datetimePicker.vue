@@ -27,7 +27,7 @@
         <span>{{value14}}</span>
       </div>
       <wd-datetime-picker v-model="value14">
-        <wd-button type="primary">唤起picker</wd-button>
+        <wd-button>唤起picker</wd-button>
       </wd-datetime-picker>
     </demo-block>
     <demo-block title="时间范围选择" transparent>
@@ -46,7 +46,7 @@
           <span>{{value15[1]}}</span>
         </div>
         <wd-datetime-picker v-model="value15" :columns-height="100">
-          <wd-button type="primary">唤起picker</wd-button>
+          <wd-button>唤起picker</wd-button>
         </wd-datetime-picker>
       </div>
     </demo-block>

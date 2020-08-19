@@ -28,7 +28,7 @@
       <wd-datetime-picker v-model="birthday" label="生日" align-right :error="birthdayError" />
     </wd-cell-group>
     <div style="padding: 15px">
-      <wd-button type="primary" block size="large" @click="handleClick">提交</wd-button>
+      <wd-button block size="large" @click="handleClick">提交</wd-button>
     </div>
     <div class="display-item">
       用户名: {{ username }}

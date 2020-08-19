@@ -9,7 +9,7 @@
     </demo-block>
     <demo-block title="circular-ring 类型，可以修改指示器颜色">
       <wd-loading type="circular-ring" />
-      <wd-loading type="circular-ring" color="red" intermediate-color="pink" />
+      <wd-loading type="circular-ring" color="#faa3ee" intermediate-color="pink" />
     </demo-block>
     <demo-block title="spinner类型">
       <wd-loading type="spinner" />
