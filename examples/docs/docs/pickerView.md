@@ -175,6 +175,7 @@ export default {
 | value/v-model | 选中项，如果为多列选择器，则其类型应为数组 | string / number / boolean / array | - |
 | columns | 选择器数据，可以为字符串数组，也可以为对象数组，如果为二维数组，则为多列选择器 | array | - | - |
 | loading | 加载中 | boolean | - | false |
+| loading-color | 加载的颜色 | String | - | '#4D80F0' |
 | arrow-html | 是否使用html渲染选择器内容 | boolean | - | true |
 | value-key | 选项对象中，value对应的 key | string | - | 'label' |
 | label-key | 选项对象中，展示的文本对应的 key | string | - | 'value' |

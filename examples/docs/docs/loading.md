@@ -21,11 +21,12 @@ Vue.use(Loading)
 
 ### 修改指示器类型
 
-通过 `type` 修改指示器的类型，可选值为 'spinner' / 'circle' / 'circle-outline'，默认为 'circle-outline'。
+通过 `type` 修改指示器的类型，可选值为 'spinner' / 'circle' / 'circle-outline' / 'circular-ring'，默认为 'circle-outline'。
 
 ```html
 <wd-loading type="spinner"></wd-loading>
 <wd-loading type="circle"></wd-loading>
+<wd-loading type="circular-ring"></wd-loading>
 ```
 
 ### 修改颜色
@@ -58,14 +59,14 @@ Vue.use(Loading)
 
 | 参数      | 说明                                 | 类型      | 可选值       | 默认值   |
 |---------- |------------------------------------ |---------- |------------- |-------- |
-| type      |	加载指示器类型                        |	string    |	'spinner'/'circle-outline'/'circle'  |	'circle-outline'  |
-| color	    | 设置加载指示器颜色                      |	string    |	-         |	'#4D80F0' |
-| size      | 设置加载指示器大小                      | string    | -          | '32px'   |
+| type      | 加载指示器类型 | string | 'spinner'/'circle-outline'/'circle'/'circular-ring'  | 'circle-outline'  |
+| color     | 设置加载指示器颜色 | string | - | '#4D80F0' |
+| size      | 设置加载指示器大小 | string    | - | '32px' |
 
 ### Options
 
 options可以为Object也可以为String
 
-| 参数      | 说明                                 | 类型      | 可选值       | 默认值   |
+| 参数 | 说明 | 类型      | 可选值       | 默认值   |
 |---------- |------------------------------------ |---------- |------------- |-------- |
-| type      |	加载指示器类型                        |	string    |	'spinner'/'circle-outline'/'circle'   |	'circle'  |
+| type | 加载指示器类型 | string | 'spinner'/'circle-outline'/'circle'/'circular-ring' | 'circle'  |

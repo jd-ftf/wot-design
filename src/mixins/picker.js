@@ -66,7 +66,7 @@ export default {
         target: Object
       },
       render (h) {
-        const { onCancel, onConfirm, cancelButtonText, confirmButtonText, title, t } = this.target
+        const { onCancel, onConfirm, cancelButtonText, confirmButtonText, title, loading, t } = this.target
         const cancelButton = (
           <button
             class="wd-picker__action wd-picker__action--cancel"
@@ -78,8 +78,8 @@ export default {
 
         const confirmButton = (
           <button
-            class="wd-picker__action"
-            onClick={onConfirm}
+            onClick={loading ? () => { } : onConfirm}
+            class={['wd-picker__action', loading ? 'is-loading' : '']}
           >
             {confirmButtonText || t('wd.picker.done')}
           </button>

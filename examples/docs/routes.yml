@@ -89,6 +89,8 @@
               title: Rate 评分
             - name: search
               title: Search 搜索框
+            - name: selectPicker
+              title: SelectPicker 单复选选择器
             - name: slider
               title: Slider 滑块
             - name: switch

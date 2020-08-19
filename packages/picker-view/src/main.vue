@@ -13,7 +13,7 @@
       />
       <div class="wd-picker-view__mask" :style="{ 'background-size': '100% 45%' }"></div>
       <div v-if="loading" class="wd-picker-view__loading">
-        <wd-loading size="30px" />
+        <wd-loading type="circular-ring" :color="loadingColor" />
       </div>
     </div>
   </div>

@@ -11,7 +11,7 @@
       margin: 0;
     }
     @include when(large) {
-      .wd-radio {
+      &:not(.is-button) .wd-radio {
         padding: 14px 15px;
       }
     }
@@ -45,7 +45,7 @@
     }
   }
   @include when(large) {
-    .wd-radio__shape {
+    &:not(.is-button) .wd-radio__shape {
       width: $-radio-large-size;
       height: $-radio-large-size;
       font-size: $-radio-large-size;
