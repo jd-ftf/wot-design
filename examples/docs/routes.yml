@@ -50,6 +50,8 @@
         - type: group
           title: 导航
           children:
+            - name: anchor
+              title: Anchor 锚点
             - name: cell
               title: Cell 单元格
             - name: grid

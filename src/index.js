@@ -56,6 +56,7 @@ import Tab from '../packages/tab'
 import Tabs from '../packages/tabs'
 import Tabbar from '../packages/tabbar'
 import TabbarItem from '../packages/tabbar-item'
+import Anchor from '../packages/anchor'
 import Tag from '../packages/tag'
 import Toast from '../packages/toast'
 import Tooltip from '../packages/tooltip'
@@ -115,6 +116,7 @@ const components = [
   Tabs,
   Tabbar,
   TabbarItem,
+  Anchor,
   Tag,
   Tooltip,
   MessageBox.wdMessageBox
@@ -198,6 +200,7 @@ export default {
   Tabs,
   Tabbar,
   TabbarItem,
+  Anchor,
   Tag,
   Toast,
   Tooltip

@@ -749,3 +749,18 @@ $-card-content-color: rgba($-color-black, 0.45) !default; // 文本内容颜色
 $-card-content-line-height: 20px !default; // 文本内容行高
 $-card-content-margin: 13px 0 12px !default; // 内容外边距
 $-card-content-rectangle-margin: 14px 0 12px !default; // 矩形卡片内容外边距
+
+/* anchor */
+$-anchor-nav-height: 42px !default; // 头部切换高度
+$-anchor-nav-fs: $-fs-content !default; // 头部切换文字大小
+$-anchor-nav-color: rgba($-color-black, 0.85) !default; // 头部切换文字颜色
+$-anchor-nav-bg: $-color-white !default; // 背景颜色
+$-anchor-nav-line-height: 3px !default; // 高亮边框高度
+$-anchor-nav-line-bg-color: resultColor(
+  $open-linear,
+  315deg,
+  $-color-theme,
+  "dark" "light",
+  rgba(81, 124, 240, 1) rgba(118, 158, 245, 1),
+  0% 100%
+) !default; // 底部条颜色
