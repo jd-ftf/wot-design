@@ -266,7 +266,7 @@
     }
     @include when(info) {
       @include button-plain-style(
-        $-button-info-color,
+        $-button-info-plain-normal-color,
         $-button-info-bg-color,
         $-button-info-active-color,
         $-button-info-disabled-color
