@@ -1,7 +1,7 @@
 <template>
   <div
     class="wd-collapse"
-    :class="{ 'is-viewmore': viewmore }"
+    :class="[{ 'is-viewmore': viewmore }]"
   >
     <slot v-if="!viewmore"></slot>
     <template v-else>
@@ -18,6 +18,7 @@
       >
         <slot name="more">
           <span class="wd-collapse__more-txt">{{ t(!value ? 'wd.collapse.expand' : 'wd.collapse.retract') }}</span>
+          <!-- TODO 设计稿 icon 大小不符 -->
           <i
             class="wd-collapse__arrow wd-icon-arrow-down"
             :class="{ 'is-retract': value }"
