@@ -24,6 +24,8 @@
       title: Layout 布局
     - name: navbar
       title: Navbar 导航栏
+    - name: pagination
+      title: Pagination 分页         
     - name: tabbar
       title: Tabbar 标签栏
     - name: tabs

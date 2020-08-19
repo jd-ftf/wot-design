@@ -19,6 +19,13 @@ export default {
       cancel: 'Cancel',
       inputNoValidate: 'The data entered is not legal'
     },
+    pagination: {
+      prev: 'prev',
+      next: 'next',
+      page: 'current page：{value}',
+      total: 'total：{total}',
+      size: 'page size：{size}'
+    },
     picker: {
       cancel: 'Cancel',
       done: 'Done',

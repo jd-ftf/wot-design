@@ -162,6 +162,7 @@ $-button-info-bg-color: #F0F0F0 !default; // 信息按钮背景颜色
 $-button-info-color: $-color-title !default; // 信息按钮颜色
 $-button-info-active-bg-color: #E1E1E1 !default; // 信息按钮背景颜色
 $-button-info-active-color: rgba($-color-black, 0.85) !default; // 信息按钮点击态颜色
+$-button-info-plain-normal-color: rgba($-color-black, 0.85) !default; // 信息幽灵按钮默认颜色
 $-button-info-disabled-bg-color: #F0F0F0 !default; // 信息按钮禁用颜色
 $-button-info-disabled-color: rgba($-color-black, 0.09) !default; // 信息按钮禁用颜色
 $-button-info-plain-color: rgba($-color-black, 0.45) !default; // 信息按钮禁用颜色
@@ -394,6 +395,20 @@ $-notice-bar-close-size: 18px !default; // 右侧关闭按钮背景颜色
 $-notice-bar-close-color: $-color-white !default; // 右侧关闭按钮颜色
 $-notice-bar-close-size: 10px !default; // 关闭按钮大小
 $-notice-bar-wrap-padding: 14px $-size-side-padding !default; // 换行下的padding
+
+/* pagination */
+$-pagination-content-padding: 10px 15px !default;
+$-pagination-message-padding: 1px 0 16px 0 !default;
+$-pagination-message-fs: 12px !default;
+$-pagination-message-color: rgba($-color-black, 0.69) !default;
+$-pagination-nav-border: 1px solid rgba($-color-black, 0.45) !default;
+$-pagination-nav-border-radius: 16px !default;
+$-pagination-nav-fs: 12px !default;
+$-pagination-nav-width: 60px !default;
+$-pagination-nav-color: rgba($-color-black, 0.85) !default;
+$-pagination-nav-content-fs: 12px !default;
+$-pagination-nav-sepatator-padding: 0 4px !default;
+$-pagination-nav-current-color: $-color-theme !default;
 
 /* picker */
 $-picker-toolbar-height: 16px !default; // toolbar 操作条的高度
