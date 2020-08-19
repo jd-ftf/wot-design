@@ -28,11 +28,11 @@ export default {
     },
     offsetTop: {
       type: Number,
-      default: 44
+      default: 0
     },
     containerOffsetTop: {
       type: Number,
-      default: 86
+      default: 0
     }
   },
   components: {
@@ -217,6 +217,10 @@ export default {
     this.$nextTick(() => {
       window.addEventListener('scroll', this.handleScroll)
     })
+  },
+  beforeDestroy () {
+    clearInterval(anchorTimer)
+    window.removeEventListener('scroll', this.handleScroll)
   },
   render (h) {
     const Navs = this.getNavDom()

@@ -1,21 +1,21 @@
 <template>
   <div>
     <demo-block title="基本使用">
-      <wd-anchor :data="data" v-model="value">
+      <wd-anchor :data="data" v-model="value" :offset-top="44" :container-offset-top="86">
         <div class="anchor-content">
           <div v-for="item in data" :id="item.id">{{item.title}}的内容</div>
         </div>
       </wd-anchor>
     </demo-block>
     <demo-block title="数量大于6时可滑动">
-      <wd-anchor :data="data1" v-model="value1">
+      <wd-anchor :data="data1" v-model="value1" :offset-top="44" :container-offset-top="86">
         <div class="anchor-content">
           <div v-for="item in data1" :id="item.id">{{item.title}}的内容</div>
         </div>
       </wd-anchor>
     </demo-block>
     <demo-block title="点击事件">
-      <wd-anchor :data="data2" v-model="value2" @click="handleClick">
+      <wd-anchor :data="data2" v-model="value2" @click="handleClick" :offset-top="44" :container-offset-top="86">
         <div class="anchor-content">
           <div v-for="item in data2" :id="item.id">{{item.title}}的内容</div>
         </div>

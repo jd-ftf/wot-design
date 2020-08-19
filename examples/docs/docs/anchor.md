@@ -15,7 +15,7 @@ Vue.use(Anchor)
 `data` 为标题的内容和id值，和插槽内容部分id对应。
 
 ```html
-<wd-anchor :data="data" v-model="value">
+<wd-anchor :data="data" v-model="value" :offset-top="44" :container-offset-top="86">
   <div class="anchor-content">
     <div v-for="item in data" :id="item.id">{{item.title}}的内容</div>
   </div>
@@ -51,7 +51,7 @@ export default {
 监听页签的点击事件.
 
 ```html
-<wd-anchor :data="data" v-model="value" @click="handleClick">
+<wd-anchor :data="data" v-model="value" @click="handleClick" :offset-top="44" :container-offset-top="86">
   <div class="anchor-content">
     <div v-for="item in data" :id="item.id">{{item.title}}的内容</div>
   </div>
