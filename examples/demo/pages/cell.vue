@@ -65,7 +65,7 @@
     <demo-block title="自定义slot" transparent>
       <wd-cell-group>
         <wd-cell title="标题文字" center>
-          <wd-button class="custom-value" size="small" type="primary" plain>按钮</wd-button>
+          <wd-button class="custom-value" size="small" plain>按钮</wd-button>
         </wd-cell>
         <wd-cell title="标题文字" center>
           <wd-switch class="custom-value" v-model="value" />

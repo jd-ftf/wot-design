@@ -236,7 +236,7 @@ export default {
 
 ```html
 <wd-picker v-model="value" :columns="columns">
-  <wd-button type="primary">插槽唤起</wd-button>
+  <wd-button>插槽唤起</wd-button>
 </wd-picker>
 ```
 

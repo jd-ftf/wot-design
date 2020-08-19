@@ -59,7 +59,7 @@
           suffix-icon="wd-icon-list"
         />
         <wd-input v-model="value18" placeholder="请输入..." label="自定义插槽">
-          <wd-button slot="suffix" type="primary" size="small" class="custom-button">获取验证码</wd-button>
+          <wd-button slot="suffix" size="small" class="custom-button">获取验证码</wd-button>
         </wd-input>
         <wd-input v-model="value19" placeholder="请输入..." label="大尺寸" size="large" />
       </wd-cell-group>

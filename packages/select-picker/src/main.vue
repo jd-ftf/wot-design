@@ -83,7 +83,6 @@
       <!-- 确认按钮 -->
       <wd-button
         suck
-        type="primary"
         @click="onConfirm"
         :disabled="loading"
       >{{confirmButtonText || t('wd.picker.confirm')}}</wd-button>

@@ -14,7 +14,7 @@ Vue.use(Popup)
 `v-model` 为绑定值，表示是否展示弹出层。
 
 ```html
-<wd-button type="primary" plain @click="show = true">弹出层</wd-button>
+<wd-button plain @click="show = true">弹出层</wd-button>
 <wd-popup v-model="show" :style="{ 'padding': '30px 40px' }">内容</wd-popup>
 ```
 

@@ -41,7 +41,7 @@
           x2="150"
           y2="180"
         >
-          <stop offset="0" stop-color="#fff" />
+          <stop offset="0" stop-color="#fff" stop-opacity="0"/>
           <stop offset="1" :stop-color="intermediateColor" />
         </linearGradient>
         <path

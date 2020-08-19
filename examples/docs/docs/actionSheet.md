@@ -14,7 +14,7 @@ Vue.use(ActionSheet)
 `v-model` 为绑定值，表示是否展示菜单。
 
 ```html
-<wd-button type="primary" plain @click="show = true">弹出菜单</wd-button>
+<wd-button plain @click="show = true">弹出菜单</wd-button>
 <wd-action-sheet v-model="show" :actions="actions" @select="select"></wd-action-sheet>
 
 <script>
@@ -48,7 +48,7 @@ export default {
 可以设置 颜色、禁用、加载 等状态。
 
 ```html
-<wd-button type="primary" plain @click="show = true">弹出菜单</wd-button>
+<wd-button plain @click="show = true">弹出菜单</wd-button>
 <wd-action-sheet v-model="show" :actions="actions"></wd-action-sheet>
 
 <script>
@@ -86,7 +86,7 @@ export default {
 可以设置 图片、文案。
 
 ```html
-<wd-button type="primary" plain @click="show = true">弹出菜单</wd-button>
+<wd-button plain @click="show = true">弹出菜单</wd-button>
 <wd-action-sheet v-model="show" :panels="panels" @select="select"></wd-action-sheet>
 
 <script>
@@ -115,7 +115,7 @@ export default {
 可以设置 图片、文案。
 
 ```html
-<wd-button type="primary" plain @click="show = true">弹出菜单</wd-button>
+<wd-button plain @click="show = true">弹出菜单</wd-button>
 <wd-action-sheet v-model="show" :panels="panels" @select="select"></wd-action-sheet>
 
 <script>

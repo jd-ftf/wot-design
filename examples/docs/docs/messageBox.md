@@ -18,7 +18,7 @@ Vue.use(MessageBox)
 alert 弹框只有确定按钮，用于强提醒。
 
 ```html
-<wd-button type="primary" plain @click="alert">alert</wd-button>
+<wd-button plain @click="alert">alert</wd-button>
 
 <script>
 export default {
@@ -34,7 +34,7 @@ export default {
 显示标题的 alert 弹框。
 
 ```html
-<wd-button type="primary" plain @click="alert">alert</wd-button>
+<wd-button plain @click="alert">alert</wd-button>
 
 <script>
 export default {
@@ -50,7 +50,7 @@ export default {
 如果内容文案过长，弹框高度不再增加，而是展示滚动条。
 
 ```html
-<wd-button type="primary" plain @click="alert">alert</wd-button>
+<wd-button plain @click="alert">alert</wd-button>
 
 <script>
 export default {
@@ -68,7 +68,7 @@ export default {
 用于提示用户操作。
 
 ```html
-<wd-button type="primary" plain @click="confirm">confirm</wd-button>
+<wd-button plain @click="confirm">confirm</wd-button>
 
 <script>
 export default {
@@ -88,7 +88,7 @@ export default {
 prompt 会展示一个输入框，并可以进行输入校验。
 
 ```html
-<wd-button type="primary" plain @click="prompt">prompt</wd-button>
+<wd-button plain @click="prompt">prompt</wd-button>
 
 <script>
 export default {
