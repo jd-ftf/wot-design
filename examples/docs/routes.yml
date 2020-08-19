@@ -60,6 +60,8 @@
               title: Layout 布局
             - name: navbar
               title: Navbar 导航栏
+            - name: pagination
+              title: Pagination 分页               
             - name: tabs
               title: Tabs 标签页
             - name: tabbar
