@@ -8,8 +8,10 @@
   color: $color;
   border-color: $normal;
   font-weight: 500;
+
   &:active {
     background: $active;
+    border-color: $active;
   }
   @include when(disabled) {
     &:active {
@@ -17,7 +19,6 @@
       color: $disabledcolor;
     }
 
-    opacity: 0.6;
     background: $disabled;
     border-color: $disabled;
     color: $disabledcolor;
@@ -168,7 +169,8 @@
 
   @include when(small) {
     height: $-button-small-height;
-    padding: $-button-small-padding;
+    // padding: $-button-small-padding;
+    padding: 0 11px;
     border-radius: $-button-small-radius;
     font-size: $-button-small-fs;
     font-weight: normal;
@@ -243,14 +245,15 @@
       border: 1px solid;
       box-shadow: none;
       &:active {
-        background-color: $-button-primary-plain-active-color;
+        background-color: $-button-primary-plain-active-bg-color;
       }
       @include when(disabled) {
         &:active {
-          background-color: $-button-primary-plain-active-color;
+          background-color: $-button-primary-plain-active-bg-color;
         }
         opacity: 1;
-        background-color: $-button-primary-plain-active-color;
+        background-color: $-button-primary-plain-active-bg-color;
+        color: $-button-primary-plain-disabled-color;
       }
     }
     @include when(success) {
@@ -277,6 +280,7 @@
         &,
         &:active {
           background-color: $-button-info-plain-disabled-bg-color;
+          border-color: $-button-info-plain-disabled-bg-color;
         }
       }
       @include when(loading) {

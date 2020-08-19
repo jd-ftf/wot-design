@@ -103,9 +103,9 @@ flex-direction: row;
 </wd-swipe-action>
 
 <div class="button-group">
-  <wd-button type="primary" @touchstart.native.capture.stop="changeState('left')">打开左边</wd-button>
-  <wd-button type="primary" @touchstart.native.capture.stop="changeState('close')">关闭所有</wd-button>
-  <wd-button type="primary" @touchstart.native.capture.stop="changeState('right')">打开右边</wd-button>
+  <wd-button @touchstart.native.capture.stop="changeState('left')">打开左边</wd-button>
+  <wd-button @touchstart.native.capture.stop="changeState('close')">关闭所有</wd-button>
+  <wd-button @touchstart.native.capture.stop="changeState('right')">打开右边</wd-button>
 </div>
 ```
 ```javascript
@@ -157,9 +157,9 @@ export default {
 </wd-swipe-action>
 
 <div class="button-group">
-  <wd-button type="primary" @touchstart.native.capture.stop="changeState('left')">打开左边</wd-button>
-  <wd-button type="primary" @touchstart.native.capture.stop="changeState('close')">关闭所有</wd-button>
-  <wd-button type="primary" @touchstart.native.capture.stop="changeState('right')">打开右边</wd-button>
+  <wd-button @touchstart.native.capture.stop="changeState('left')">打开左边</wd-button>
+  <wd-button @touchstart.native.capture.stop="changeState('close')">关闭所有</wd-button>
+  <wd-button @touchstart.native.capture.stop="changeState('right')">打开右边</wd-button>
 </div>
 ```
 ```javascript

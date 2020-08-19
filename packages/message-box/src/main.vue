@@ -48,7 +48,6 @@
       >{{ cancelButtonText || t('wd.messageBox.cancel') }}</wd-button>
       <wd-button
         v-if="showConfirmButton"
-        type="primary"
         round
         block
         @click="toggleModal('confirm')"

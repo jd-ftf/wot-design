@@ -3,7 +3,7 @@
     <demo-block title="基本用法">
       <div style="text-align: center;">
         <wd-popover content="这是一段内容。">
-          <wd-button class="btn btn-default" type="primary">点击展示</wd-button>
+          <wd-button class="btn btn-default">点击展示</wd-button>
         </wd-popover>
       </div>
     </demo-block>
@@ -16,14 +16,14 @@
             <wd-tag type="warning">标签</wd-tag>
             <wd-tag type="success">标签</wd-tag>
           </div>
-          <wd-button class="btn btn-default" type="primary">点击展示</wd-button>
+          <wd-button class="btn btn-default">点击展示</wd-button>
         </wd-popover>
       </div>
     </demo-block>
     <demo-block title="列表模式 menu">
       <div style="text-align: center;">
         <wd-popover placement="bottom-end" mode="menu" :content="menu" @menu-click="linkTo">
-          <wd-button class="btn btn-default" type="primary">列表</wd-button>
+          <wd-button class="btn btn-default">列表</wd-button>
         </wd-popover>
       </div>
     </demo-block>

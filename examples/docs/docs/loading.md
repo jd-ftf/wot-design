@@ -33,8 +33,18 @@ Vue.use(Loading)
 
 通过 `color` 属性修改指示器的颜色。比如修改为白色，同时设置背景为黑色。
 
+注意：当type类型为 `circular-ring` 时，设置指示器颜色必须为16进制色值，且不接受色值缩写。
+
 ```html
-<wd-loading color="#fff" class="loading-black" type="circle"></wd-loading>
+<wd-loading color="#fff" class="loading-black"></wd-loading>
+
+<!-- 当 type='circular-ring' 时： -->
+<!-- 正确写法 -->
+<wd-loading color="#ffffff" type="circular-ring"></wd-loading>
+<!-- 错误写法 -->
+<wd-loading color="#fff" type="circular-ring"></wd-loading>
+<wd-loading color="green" type="circular-ring"></wd-loading>
+<wd-loading color="rgba(255,255,255,1)" type="circular-ring"></wd-loading>
 ```
 
 ```css
