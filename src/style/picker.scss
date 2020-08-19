@@ -125,6 +125,10 @@
     @include m(cancel) {
       color: $-picker-toolbar-cancel-color;
     }
+
+    @include when(loading) {
+      color: $-picker-loading-button-color;
+    }
   }
 
   @include e(title) {

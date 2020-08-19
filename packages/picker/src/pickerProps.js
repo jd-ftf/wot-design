@@ -7,7 +7,6 @@ export default {
   disabled: Boolean,
   readonly: Boolean,
   required: Boolean,
-  border: Boolean,
   displayFormat: Function,
   beforeConfirm: Function,
   size: String,

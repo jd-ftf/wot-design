@@ -7,5 +7,6 @@ export default {
   columnsHeight: {
     type: Number,
     default: 217
-  }
+  },
+  loadingColor: String
 }

@@ -41,6 +41,7 @@ import RadioGroup from '../packages/radio-group'
 import Rate from '../packages/rate'
 import Row from '../packages/row'
 import Search from '../packages/search'
+import SelectPicker from '../packages/select-picker'
 import Slider from '../packages/slider'
 import SortButton from '../packages/sort-button'
 import StatusTip from '../packages/status-tip'
@@ -99,6 +100,7 @@ const components = [
   Rate,
   Row,
   Search,
+  SelectPicker,
   Slider,
   SortButton,
   StatusTip,
@@ -181,6 +183,7 @@ export default {
   Rate,
   Row,
   Search,
+  SelectPicker,
   Slider,
   SortButton,
   StatusTip,
