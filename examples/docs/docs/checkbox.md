@@ -175,6 +175,7 @@ export default {
 | shape | 单选框形状 | string | 'circle', 'square', 'button' | 'circle' |
 | checked-color | 选中的颜色 | string | - | '#4D80F0' |
 | disabled | 禁用 | boolean | - | false |
+| max-width | 文字位置最大宽度 | string | - | '' |
 | true-value | 选中值，在 checkbox-group 中使用无效，需同 false-value 一块使用 | string / number | - | - |
 | false-value | 非选中时的值，在 checkbox-group 中使用无效，需同 true-value 一块使用 | string /number | - | - |
 
