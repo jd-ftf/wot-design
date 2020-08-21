@@ -1,5 +1,39 @@
 ## 更新日志
 
+### 2.0.0-beta2
+
+*2020-08-21*
+
+#### 新特性
+
+- Button
+  - 属性 `type` 默认值为 `primary` (by [@HXCStudio123](https://github.com/HXCStudio123) )
+- Card
+  - 新增卡片组件 Card  (by [@awjing](https://github.com/awjing) )
+- Checkbox
+  - 新增属性 `max-width`, 支持设置文字部分最大宽度，设置最大宽度开启文字折叠 (by [@HXCStudio123](https://github.com/HXCStudio123) )
+- ColPicker
+  - 展开弹出框事件名称由 `showPicker` 改为 `open`。（by [@yawuling](https://github.com/yawuling)）
+  - 新增方法 `close`, 支持关闭弹出框 (by [@yawuling](https://github.com/yawuling)） )
+- DatetimePicker
+  - 新增属性 `loading-color`, 支持修改加载的颜色 (by [@HXCStudio123](https://github.com/HXCStudio123) )
+  - 展开弹出框事件名称由 `showPicker` 改为 `open`。（by [@yawuling](https://github.com/yawuling)）
+  - 新增方法 `close`, 支持关闭弹出框 (by [@yawuling](https://github.com/yawuling)） )
+- DatetimePickerView
+  - 新增属性 `loading-color`, 支持修改加载的颜色 (by [@HXCStudio123](https://github.com/HXCStudio123) )
+- Loading
+  - 属性 `type` 新增类型 `circular-ring` loading 样式 (by [@HXCStudio123](https://github.com/HXCStudio123) ) )
+- Picker
+  - 新增属性 `loading-color`, 支持修改加载的颜色 (by [@HXCStudio123](https://github.com/HXCStudio123) )
+  - 展开弹出框事件名称由 `showPicker` 改为 `open`。（by [@yawuling](https://github.com/yawuling)）
+  - 新增方法 `close`, 支持关闭弹出框 (by [@yawuling](https://github.com/yawuling)） )
+- PickerView
+  - 新增属性 `loading-color`, 支持修改加载的颜色 (by [@HXCStudio123](https://github.com/HXCStudio123) )
+- Radio
+  - 新增属性 `max-width`, 支持设置文字部分最大宽度，设置最大宽度开启文字折叠 (by [@HXCStudio123](https://github.com/HXCStudio123) )
+- selectPicker
+  - 新增组件 selectPicker 。 (by [@HXCStudio123](https://github.com/HXCStudio123))
+
 ### 2.0.0-beta1
 
 *2020-08-14*
@@ -11,13 +45,9 @@
 - Badge
   - 新增属性 `top` 为正时表示角标向下偏移对应的像素 (by [@awjing](https://github.com/awjing) )
   - 新增属性 `right` 为正时表示角标向左偏移对应的像素 (by [@awjing](https://github.com/awjing) )
-- Button
-  - 属性 `type` 默认值改为 `primary` (by [@HXCStudio123](https://github.com/HXCStudio123) )
 - Cell
   - 新增属性 `required`, 支持表单属性设置必填项 (by [@yawuling](https://github.com/yawuling) ) )
   - 新增属性 `vertical`, 支持表单属性展示为上下结构 (by [@yawuling](https://github.com/yawuling) )
-- Checkbox
-  - 新增属性 `max-width`, 支持设置文字部分最大宽度，设置最大宽度开启文字折叠 (by [@HXCStudio123](https://github.com/HXCStudio123) )
 - CellGroup
   - 新增属性 `border`, 支持设置表单组是否展示边框线 (by [@HXCStudio123](https://github.com/HXCStudio123) )
 - CheckboxGroup
@@ -29,7 +59,6 @@
   - 属性 `value` 添加 `Array` 格式，用来支持区域选择下的 上方picker选中值 及 下方picker选中值。 (by [@HXCStudio123](https://github.com/HXCStudio123) )
   - 新增属性 `columns-height`, 支持设置 picker 内部的单个 pickerView 高 (by [@HXCStudio123](https://github.com/HXCStudio123) )
   - 新增属性 `required`, 支持表单属性设置必填项 (by [@HXCStudio123](https://github.com/HXCStudio123) )
-  - 新增属性 `loading-color`, 支持修改加载的颜色 (by [@HXCStudio123](https://github.com/HXCStudio123) )
   - 移除属性 `item-height` (by [@HXCStudio123](https://github.com/HXCStudio123) )
   - 移除属性 `visible-item-count` (by [@HXCStudio123](https://github.com/HXCStudio123) )
   - 新增默认插槽，可更改默认唤起 picker 的形式（默认为cell）。(by [@HXCStudio123](https://github.com/HXCStudio123) )
@@ -38,7 +67,6 @@
 - DatetimePickerView
   - 新增属性 `columns-height`, 支持设置 pickerView 高 (by [@HXCStudio123](https://github.com/HXCStudio123) )
   - 新增属性 `column-formatter`, 支持自定义处理列项数组，接收 pickerView 实例、pickerView 源数组 originColumns、pickerView 每个属性的范围 ranges、当前 pickerView 的 value 作为入参，根据选中项和边界范围进行判断，通过 pickerView 实例暴露出来的 getPickerValue 获取对数据进行数组转换 (by [@HXCStudio123](https://github.com/HXCStudio123) )
-  - 新增属性 `loading-color`, 支持修改加载的颜色 (by [@HXCStudio123](https://github.com/HXCStudio123) )
   - 移除属性 `item-height` (by [@HXCStudio123](https://github.com/HXCStudio123) )
   - 移除属性 `visible-item-count` (by [@HXCStudio123](https://github.com/HXCStudio123) )
   - 将 pickerView 交互形式更改为滚筒交互。 (by [@HXCStudio123](https://github.com/HXCStudio123) )
@@ -50,7 +78,7 @@
   - 新增事件 `click-prefix-icon`, 点击前置图标时触发 (by [@yawuling](https://github.com/yawuling) )
   - 新增事件 `click-suffix-icon`, 点击后置图标时触发 (by [@yawuling](https://github.com/yawuling) )
 - Loading
-  - 属性 `type` 新增类型 `circle-outline`/`circular-ring` loading 样式 (by [@HXCStudio123](https://github.com/HXCStudio123) ) )
+  - 属性 `type` 新增类型 `circle-outline` loading 样式 (by [@HXCStudio123](https://github.com/HXCStudio123) ) )
 - Navbar
   - 新增默认插槽，可更改标题处展示样式。(by [@HXCStudio123](https://github.com/HXCStudio123) )
 - NoticeBar
@@ -61,14 +89,12 @@
 - Picker
   - 新增属性 `columns-height`, 支持设置 pickerView 高 (by [@HXCStudio123](https://github.com/HXCStudio123) )
   - 新增属性 `required`, 支持表单属性设置必填项 (by [@HXCStudio123](https://github.com/HXCStudio123) )
-  - 新增属性 `loading-color`, 支持修改加载的颜色 (by [@HXCStudio123](https://github.com/HXCStudio123) )
   - 移除属性 `item-height` (by [@HXCStudio123](https://github.com/HXCStudio123) )
   - 移除属性 `visible-item-count` (by [@HXCStudio123](https://github.com/HXCStudio123) )
   - 将 pickerView 交互形式更改为滚筒交互。 (by [@HXCStudio123](https://github.com/HXCStudio123) )
   - 新增默认插槽，可更改默认唤起 picker 的形式（默认为cell）。(by [@HXCStudio123](https://github.com/HXCStudio123) )
 - PickerView
   - 新增属性 `columns-height`, 支持设置 pickerView 高 (by [@HXCStudio123](https://github.com/HXCStudio123) )
-  - 新增属性 `loading-color`, 支持修改加载的颜色 (by [@HXCStudio123](https://github.com/HXCStudio123) )
   - 移除属性 `item-height` (by [@HXCStudio123](https://github.com/HXCStudio123) )
   - 移除属性 `visible-item-count` (by [@HXCStudio123](https://github.com/HXCStudio123) )
   - 将 pickerView 交互形式更改为滚筒交互。 (by [@HXCStudio123](https://github.com/HXCStudio123) )
@@ -76,15 +102,11 @@
   - 新增属性 `status` 设置进度条状态，支持sucess和danger (by [@awjing](https://github.com/awjing) )
 - Popover
   - 新增组件 `Popover` (by [@HXCStudio123](https://github.com/HXCStudio123) )
-- Radio
-  - 新增属性 `max-width`, 支持设置文字部分最大宽度，设置最大宽度开启文字折叠 (by [@HXCStudio123](https://github.com/HXCStudio123) )
 - RadioGroup
   - 新增属性 `cell`, 支持单选组下的表单模式事件 (by [@HXCStudio123](https://github.com/HXCStudio123) )
   - 新增属性 `size`, 支持单选框尺寸更改（large） (by [@HXCStudio123](https://github.com/HXCStudio123) )
 - Status Tip
   - 属性 `type` 下的七种类型 对应缺省展示图片更改。 (by [@awjing](https://github.com/awjing))
-- selectPicker
-  - 新增组件 selectPicker 。 (by [@HXCStudio123](https://github.com/HXCStudio123))
 - Tabs
   - 移除属性 `color` (by [@awjing](https://github.com/awjing) )
   - 移除属性 `inactive-color` (by [@awjing](https://github.com/awjing) )
