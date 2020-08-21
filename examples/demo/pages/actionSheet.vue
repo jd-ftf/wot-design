@@ -1,27 +1,27 @@
 <template>
   <div>
     <demo-block title="基本用法">
-      <wd-button type="primary" @click="show1 = true">弹出菜单</wd-button>
+      <wd-button @click="show1 = true">弹出菜单</wd-button>
       <wd-action-sheet v-model="show1" :actions="actions1" @select="select1" />
     </demo-block>
     <demo-block title="选项状态">
-      <wd-button type="primary" @click="show2 = true">弹出菜单</wd-button>
+      <wd-button @click="show2 = true">弹出菜单</wd-button>
       <wd-action-sheet v-model="show2" :actions="actions2" />
     </demo-block>
     <demo-block title="取消按钮">
-      <wd-button type="primary" @click="show3 = true">弹出菜单</wd-button>
+      <wd-button @click="show3 = true">弹出菜单</wd-button>
       <wd-action-sheet v-model="show3" :actions="actions1" cancel-text="取消" />
     </demo-block>
     <demo-block title="自定义面板单行">
-      <wd-button type="primary" @click="show4 = true">弹出菜单</wd-button>
+      <wd-button @click="show4 = true">弹出菜单</wd-button>
       <wd-action-sheet v-model="show4" :panels="panels1" cancel-text="取消" @select="select2" />
     </demo-block>
     <demo-block title="自定义面板多行">
-      <wd-button type="primary" @click="show5 = true">弹出菜单</wd-button>
+      <wd-button @click="show5 = true">弹出菜单</wd-button>
       <wd-action-sheet v-model="show5" :panels="panels2" cancel-text="取消" @select="select3" />
     </demo-block>
     <demo-block title="标题">
-      <wd-button type="primary" @click="show6 = true">弹出菜单</wd-button>
+      <wd-button @click="show6 = true">弹出菜单</wd-button>
       <wd-action-sheet v-model="show6" title="标题">
         <p style="padding: 0 15px 150px 15px; margin: 0;">内容</p>
       </wd-action-sheet>

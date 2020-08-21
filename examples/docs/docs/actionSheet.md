@@ -13,6 +13,14 @@ Vue.use(ActionSheet)
 
 `v-model` 为绑定值，表示是否展示菜单。
 
+`actions` 类型为 `Array`，数组内部对象结构如下：
+
+| 参数      | 类型 | 说明 |
+|---------- |---- |---------- |
+| name | string | 选项名称 |
+| subname | string | 描述信息 |
+| color | string | 颜色 |
+
 ```html
 <wd-button plain @click="show = true">弹出菜单</wd-button>
 <wd-action-sheet v-model="show" :actions="actions" @select="select"></wd-action-sheet>
@@ -59,7 +67,7 @@ export default {
       actions: [
         {
           name: '颜色',
-          color: '#0083ff'
+          color: '#4d80f0'
         }, {
           name: '禁用',
           disabled: true
@@ -81,9 +89,14 @@ export default {
 <wd-action-sheet v-model="show" :actions="actions" cancel-text="取消"></wd-action-sheet>
 ```
 
-### 自定义面板
-#### 单行展示
-可以设置 图片、文案。
+### 自定义单行面板
+
+自定义单行面板时，`panels` 类型为一维数组， 数组内部对象结构如下：
+
+| 参数      | 类型 | 说明 |
+|---------- |---- |---------- |
+| iconUrl | string | 图片地址 |
+| title | string | 标题 |
 
 ```html
 <wd-button plain @click="show = true">弹出菜单</wd-button>
@@ -112,7 +125,13 @@ export default {
 ```
 
 #### 多行展示
-可以设置 图片、文案。
+
+自定义多行面板时， `panels` 类型为多维数组， 每个数组内部对象结构如下：
+
+| 参数      | 类型 | 说明 |
+|---------- |---- |---------- |
+| iconUrl | string | 图片地址 |
+| title | string | 标题 |
 
 ```html
 <wd-button plain @click="show = true">弹出菜单</wd-button>

@@ -15,7 +15,7 @@ Vue.use(Badge)
 
 展示新消息数量。
 
-定义`value`属性，它接受`Number`或者`String`。
+设置 `value` 属性，数据类型为 `Number` 或者 `String`。
 
 ```html
 <wd-badge :value="12">
@@ -49,7 +49,9 @@ Vue.use(Badge)
 
 可自定义最大值。
 
-由`max`属性定义，它接受一个`Number`，需要注意的是，只有当`value`为`Number`时，它才会生效。
+设置`max` 属性，`max` 属性接受 `Number` 类型。
+
+注意：只有当 `value` 类型为 `Number` 时，`max` 属性才会生效。
 
 ```html
 <wd-badge :value="200" :max="99">
@@ -60,12 +62,11 @@ Vue.use(Badge)
 </wd-badge>
 ```
 
-
 ### 自定义内容
 
 可以显示数字以外的文本内容。
 
- 定义`value`为`String`类型是时可以用于显示自定义文本。
+当 `value` 值为 `String` 类型时可以用于显示自定义文本。
 
 ```html
 <wd-badge value="new">
@@ -76,12 +77,11 @@ Vue.use(Badge)
 </wd-badge>
 ```
 
-
 ### 点状类型
 
 以点状的形式标注需要关注的内容。
 
- 除了数字外，设置`is-dot`属性，它接受一个`Boolean`。
+通过设置 `is-dot` 属性，开启点状标注。
 
 ```html
 <wd-badge is-dot>数据查询</wd-badge>
@@ -90,8 +90,8 @@ Vue.use(Badge)
 </wd-badge>
 ```
 
-
 ### Attributes
+
 | 参数          | 说明            | 类型            | 可选值                 | 默认值   |
 |------------- |---------------- |---------------- |---------------------- |-------- |
 | value        | 显示值           | string, number  |          —            |    —    |
