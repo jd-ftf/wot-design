@@ -189,6 +189,17 @@ export default {
     }
   },
   methods: {
+    // 对外暴露接口，打开弹框
+    open () {
+      this.showPicker()
+    },
+
+    // 对外暴露接口，关闭弹框
+    close () {
+      this.pickerShow = false
+      this.handlePickerClose()
+    },
+
     handlePickerClose () {
       // 未确定选项时，数据还原复位
       if (this.isChange) {
