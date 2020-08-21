@@ -30,7 +30,8 @@
     font-size: $-message-box-content-fs;
     text-align: center;
     overflow: auto;
-    line-height: 20px;
+    line-height: 1.43;
+    word-break: break-all;
 
     &::-webkit-scrollbar {
       width: $-message-box-content-scrollbar-width;

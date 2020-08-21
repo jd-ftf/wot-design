@@ -4,119 +4,199 @@
 
 常见的 form 表单为`单元格`形式的展示，即左侧为表单的标题描述，右侧为表单的输入。
 
-其中，`Input 输入框`、`Picker 选择器`和 `DatetimePicker 日期时间选择器`具有`单元格`的展示形式，而 `Checkbox 复选框`、`Radio 单选框`、`InputNumber 计数器`和 `Switch 开关`需要使用 `Cell 单元格`进行包裹使用。
+其中，`Input 输入框`、`Picker 选择器`、`ColPicker 多列选择器`、`SelectPicker 单复选选择器` 和 `DatetimePicker 日期时间选择器`具有`单元格`的展示形式，而 `InputNumber 计数器`和 `Switch 开关`需要使用 `Cell 单元格`进行包裹使用。
 
-以下表单页面示例使用了 Button、Cell、CellGroup、DatetimePicker、Input、Picker、Radio、RadioGroup、Switch、Toast、MessageBox：
+> 对于表单组件，建议对 wd-cell-group 开启 border 属性，这样每条cell就会有边框线隔离开，这样表单的划分比较清晰。
+
+下面是 Demo 示例：
 
 ```html
 <template>
-  <div>
-    <wd-cell-group>
-      <wd-input label="用户名" v-model="username" placeholder="请输入用户名" clearable :error="usernameError" />
-      <wd-input label="密码" v-model="password" placeholder="请输入密码" show-password clearable :error="passwordError" />
-      <wd-cell title="性别">
-        <wd-radio-group v-model="gender" inline>
-          <wd-radio :value="1">男</wd-radio>
-          <wd-radio :value="2">女</wd-radio>
-        </wd-radio-group>
+  <div class="page-form">
+    <wd-cell-group class="group" title="基础信息" border>
+      <wd-input label="优惠券名称" label-width="100px" maxlength="20" show-word-limit required suffix-icon="wd-icon-warn-bold" clearable v-model="couponName" placeholder="请输入优惠券名称" @click-suffix-icon="handleIconClick" />
+      <wd-select-picker label="推广平台" label-width="100px" v-model="platform" :columns="platformList" placeholder="请选择推广平台" />
+      <wd-picker label="优惠方式" label-width="100px" name="promotion" align-right v-model="promotion" :columns="promotionlist" bind:confirm="handlePromotion" />
+      <wd-cell title="券面额" required title-width="100px">
+        <div style="text-align: left;">
+          <div class="inline-txt" style="margin-left: 0;">满</div>
+          <wd-input
+            no-border
+            style="display: inline-block; width: 70px; vertical-align: middle;"
+            placeholder="请输入金额"
+            v-model="threshold"
+          />
+          <div class="inline-txt">减</div>
+          <wd-input
+            no-border
+            style="display: inline-block; width: 70px; vertical-align: middle;"
+            placeholder="请输入金额"
+            v-model="price"
+          />
+        </div>
       </wd-cell>
-      <wd-cell title="是否订阅">
-        <!-- 设置为block展示，避免空格导致单元格高度被空格撑开 -->
-        <wd-switch v-model="subscribe" size="20px" style="display: block;" />
-      </wd-cell>
-      <wd-picker :columns="typeList" v-model="userType" label="注册类型" align-right :error="userTypeError" />
-      <wd-datetime-picker v-model="birthday" label="生日" align-right :error="birthdayError" />
     </wd-cell-group>
-    <div style="padding: 15px">
-      <wd-button block size="large" @click="handleClick">提交</wd-button>
+    <wd-cell-group class="group" title="时间和地址" border>
+      <wd-datetime-picker label="时间" label-width="100px" v-model="date" />
+      <wd-col-picker label="地址" label-width="100px" v-model="address" :columns="area" :column-change="areaChange" />
+    </wd-cell-group>
+    <wd-cell-group class="group" title="其他信息" border>
+      <wd-input
+        label="活动细则"
+        label-width="100px"
+        type="textarea"
+        v-model="content"
+        maxlength="300"
+        show-word-limit
+        rows="5"
+        placeholder="请输入活动细则信息"
+        clearable
+      />
+      <wd-cell title="发货数量" center>
+        <wd-input-number v-model="count" />
+      </wd-cell>
+      <wd-cell title="这里显示的是多文字标题包含非常的文字" title-width="240px" center>
+        <wd-switch v-model="switchVal" />
+      </wd-cell>
+      <wd-input label="卡号" label-width="100px" suffix-icon="wd-icon-camera" placeholder="请输入卡号" clearable v-model="cardId" />
+      <wd-input label="手机号" label-width="100px" placeholder="请输入手机号" clearable v-model="phone" />
+    </wd-cell-group>
+    <div class="tip">
+      <wd-checkbox v-model="read">
+        已阅读并同意<span style="color: #4D80F0">《借款额度合同及相关授权》</span>
+      </wd-checkbox>
     </div>
-    <div class="display-item">
-      用户名: {{ username }}
-    </div>
-    <div class="display-item">
-      密码: {{ password }}
-    </div>
-    <div class="display-item">
-      性别: {{ gender }}
-    </div>
-    <div class="display-item">
-      注册类型: {{ userType }}
-    </div>
-    <div class="display-item">
-      生日: {{ birthday }}
-    </div>
+    <wd-button suck @click="handleSubmit">提交</wd-button>
   </div>
 </template>
 
 <script>
+import areaData from 'china-area-data'
+
 export default {
   data () {
     return {
-      username: '',
-      usernameError: false,
-      password: '',
-      passwordError: false,
-      gender: 1,
-      subscribe: true,
-      typeList: [
+      couponName: '',
+      platform: [],
+      platformList: [
         {
-          label: '类型1',
-          value: 1
+          value: '1',
+          label: '京东'
         }, {
-          label: '类型2',
-          value: 2
+          value: '2',
+          label: '开普勒'
         }, {
-          label: '类型3',
-          value: 3
+          value: '3',
+          label: '手Q'
+        }, {
+          value: '4',
+          label: '微信'
+        }, {
+          value: '5',
+          label: '1号店'
+        }, {
+          value: '6',
+          label: '十元街'
+        }, {
+          value: '7',
+          label: '京东极速版'
         }
       ],
-      userType: '',
-      userTypeError: false,
-      birthday: '',
-      birthdayError: false
-    }
-  },
-  watch: {
-    username () {
-      this.usernameError = false
-    },
-    password () {
-      this.passwordError = false
-    },
-    userType () {
-      this.userTypeError = false
-    },
-    birthday () {
-      this.birthdayError = false
+      promotion: '1',
+      promotionlist: [
+        {
+          value: '1',
+          label: '满减'
+        }, {
+          value: '2',
+          label: '无门槛'
+        }
+      ],
+      threshold: '',
+      price: '',
+      date: new Date(),
+      address: [],
+      area: [Object.keys(areaData[86]).map(key => {
+        return {
+          value: key,
+          label: areaData[86][key]
+        }
+      })],
+      areaChange ({ selectedItem, resolve, finish }) {
+        if (areaData[selectedItem.value]) {
+          resolve(Object.keys(areaData[selectedItem.value]).map(key => {
+            return {
+              value: key,
+              label: areaData[selectedItem.value][key]
+            }
+          }))
+        } else {
+          finish()
+        }
+      },
+      content: '',
+      count: 1,
+      read: false,
+      switchVal: true,
+      cardId: '',
+      phone: ''
     }
   },
   methods: {
-    handleClick () {
-      const { username, password, userType, birthday } = this
+    handleIconClick () {
+      this.$toast.info('优惠券提示信息')
+    },
+    handleSubmit () {
+      const { couponName } = this
 
-      if (!username || !password || !userType || !birthday) {
-        this.usernameError = !username
-        this.passwordError = !password
-        this.userTypeError = !userType
-        this.birthdayError = !birthday
+      if (!couponName) {
+        this.couponNameError = true
         
-        this.$toast.error('有未填的选项')
+        this.$toast.error('请填写优惠券名称')
         return
       }
 
-      this.$messageBox.alert('提交成功', '提交提示')
+      const value = {
+        couponName: this.couponName,
+        platform: this.platform,
+        promotion: this.promotion,
+        threshold: this.threshold,
+        price: this.price,
+        date: this.date,
+        address: this.address,
+        content: this.content,
+        count: this.count,
+        read: this.read,
+        switchVal: this.switchVal,
+        cardId: this.cardId,
+        phone: this.phone
+      }
+
+      this.$messageBox.alert(`获取的数据为 ${JSON.stringify(value)}`)
     }
   }
 }
 </script>
 
 <style lang="scss" scoped>
-.display-item {
-  padding: 0 15px;
-  margin-bottom: 10px;
+.page-form {
+  padding-bottom: 16px;
+}
+.inline-txt {
+  display: inline-block;
+  font-size: 14px;
+  margin: 0 8px;
+  color: rgba(0, 0, 0, 0.45);
+  vertical-align: middle;
+  line-height: 20px;
+}
+.group {
+  margin-top: 12px;
+}
+.tip {
+  margin: 10px 15px 25px;
   color: #999;
+  font-size: 12px;
 }
 </style>
 ```
-
-> 在 `CellGroup 组件` 中，每个 Cell 组件都有0.5像素的下边框，最后1个 Cell 组件会自动判断并去掉下边框，只有支持 Cell 类型的组件才支持这种判断。
