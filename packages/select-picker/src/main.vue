@@ -1,6 +1,6 @@
 <template>
   <div class="wd-col-picker wd-select-picker">
-    <div class="wd-col-picker__field" @click="showPicker">
+    <div class="wd-col-picker__field" @click="open">
       <slot>
         <div
           class="wd-col-picker__cell"
@@ -166,6 +166,21 @@ export default {
   },
 
   methods: {
+    getSelectedItem (value) {
+      const selecteds = this.columns.filter(item => {
+        return item[this.valueKey] === value
+      })
+
+      if (selecteds.length > 0) {
+        return selecteds[0]
+      }
+
+      return {
+        [this.valueKey]: value,
+        [this.labelKey]: ''
+      }
+    },
+
     valueFormat (value) {
       return this.type === 'checkbox' ? Array.prototype.slice.call(value) : value
     },
@@ -182,11 +197,18 @@ export default {
       this.$emit('cancel')
     },
 
-    showPicker () {
+    // 对外暴露接口，打开弹框
+    open () {
       if (this.disabled || this.readonly) return
       this.selectList = this.valueFormat(this.value)
       this.pickerShow = true
       this.isConfirm = false
+    },
+
+    // 对外暴露接口，关闭弹框
+    close () {
+      this.pickerShow = false
+      this.handlePickerClose()
     },
 
     onConfirm () {
@@ -219,19 +241,15 @@ export default {
       } else {
         let showValue = ''
         if (this.type === 'checkbox') {
-          value.length > 0 && value.forEach((item, index) => {
-            this.columns.forEach((column) => {
-              if (column[this.valueKey] === item) {
-                showValue += column[this.labelKey] + ' '
-              }
-            })
+          const selectedItems = value.map(item => {
+            return this.getSelectedItem(item)
           })
+          showValue = selectedItems.map(item => {
+            return item[this.labelKey]
+          }).join(', ')
         } else if (this.type === 'radio') {
-          this.columns.forEach((column) => {
-            if (column[this.valueKey] === value) {
-              showValue = column[this.labelKey]
-            }
-          })
+          const selectedItem = this.getSelectedItem(value)
+          showValue = selectedItem[this.labelKey]
         } else {
           showValue = value
         }

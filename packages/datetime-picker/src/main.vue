@@ -117,6 +117,16 @@ export default {
   },
 
   methods: {
+    // 对外暴露接口，打开弹框
+    open () {
+      this.showPopup()
+    },
+
+    // 对外暴露接口，关闭弹框
+    close () {
+      this.onCancel()
+    },
+
     onConfirm () {
       if (this.loading) {
         this.closePopup()
