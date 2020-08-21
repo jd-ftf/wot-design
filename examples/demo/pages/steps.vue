@@ -26,15 +26,15 @@
     </demo-block>
     <demo-block title="修改图标">
       <wd-steps :active="1" align-center>
-        <wd-step icon="wd-icon-invite" />
-        <wd-step icon="wd-icon-link" />
+        <wd-step icon="wd-icon-setting" />
+        <wd-step icon="wd-icon-list" />
         <wd-step icon="wd-icon-clock" />
       </wd-steps>
     </demo-block>
     <demo-block title="竖向步骤条">
       <wd-steps :active="1" vertical>
         <wd-step description="注册1个账号" />
-        <wd-step description="登录账号并绑定手机" />
+        <wd-step description="登录账号并绑定手机，后面是比较长的文案，后面是比较长的文案" />
         <wd-step description="完善个人信息" />
       </wd-steps>
     </demo-block>
