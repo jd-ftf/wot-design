@@ -76,6 +76,7 @@
     font-size: $-steps-label-fs;
   }
   @include e(title) {
+    font-weight: $-steps-title-fw;
     line-height: 1.43;
 
     @include when(description) {
@@ -83,13 +84,23 @@
     }
   }
   @include e(description) {
-    margin-top: 4px;
-    padding: 0 2px 4px;
+    margin-top: 5px;
+    padding: 0 2px;
     line-height: 1.43;
+    color: rgba($-color-black, 0.45);
+  }
+  @include when(wait) {
+    .wd-step__description {
+      color: $-steps-inactive-color;
+    }
   }
   @include when(finished) {
     .wd-step__icon-inner {
       color: $-steps-finished-color;
+    }
+    .wd-step__icon-outer {
+      color: $-steps-finished-color;
+      border-color: $-steps-finished-color;
     }
     .wd-step__title {
       color: $-steps-finished-color;
@@ -137,6 +148,10 @@
     .wd-step__icon-inner, .wd-step__title {
       color: $-steps-error-color;
     }
+    .wd-step__icon-outer {
+      color: $-steps-error-color;
+      border-color: $-steps-error-color;
+    }
     .wd-step__dot {
       background: $-steps-error-color;
     }
@@ -168,7 +183,7 @@
     .wd-step__content {
       margin-left: 30px;
       margin-top: 0;
-      min-height: 56px;
+      padding-bottom: 20px;
     }
     .wd-step__line {
       top: 0;

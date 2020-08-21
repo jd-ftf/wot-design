@@ -569,15 +569,16 @@ $-sort-button-fs: $-fs-content !default; // 字号
 $-sort-button-height: 34px !default; // 高度
 
 /* steps */
-$-steps-icon-size: 20px !default; // 图标尺寸
-$-steps-inactive-color: $-color-secondary !default; // 文字颜色
+$-steps-icon-size: 22px !default; // 图标尺寸
+$-steps-inactive-color: rgba($-color-black, 0.25) !default; // 文字颜色
 $-steps-finished-color: $-color-theme !default; // 完成文字颜色
 $-steps-icon-text-fs: $-fs-content !default; // 数字图标文字字号
 $-steps-error-color: $-color-danger !default; // 异常颜色
 $-steps-title-fs: $-fs-content !default; // 标题字号
+$-steps-title-fw: $-fw-medium !default; // 标题字重
 $-steps-label-fs: $-fs-secondary !default; // 描述信息字号
 $-steps-is-icon-width: 30px !default; // 自定义图标的宽度，给左右留白
-$-steps-line-color: $-color-aid !default; // 线条颜色
+$-steps-line-color: rgba($-color-black, 0.15) !default; // 线条颜色
 $-steps-dot-size: 7px !default; // 点状大小
 $-steps-dot-active-size: 9px !default; // 点状高亮大小
 
