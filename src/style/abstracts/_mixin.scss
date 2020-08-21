@@ -127,7 +127,7 @@
     position: absolute;
     display: block;
     content: "";
-    width: 100%;
+    width: calc(100% - #{$left});
     height: 1px;
     left: $left;
     @if ($direction == "bottom") {

@@ -39,6 +39,7 @@
     display: flex;
     margin-right: $-cell-padding;
     font-size: $-cell-title-fs;
+    box-sizing: border-box;
 
     @include when(required) {
       padding-left: 12px;
