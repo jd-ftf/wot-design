@@ -16,7 +16,7 @@
           class="wd-sort-button__icon--top"
         >
           <wd-icon
-            name="caret-top"
+            name="arrow-up"
             :color="top.color"
             class="wd-sort-button__icon"
           />
@@ -26,7 +26,7 @@
           class="wd-sort-button__icon--bottom"
         >
           <wd-icon
-            name="caret-bottom"
+            name="arrow-down"
             :color="bottom.color"
             class="wd-sort-button__icon"
           />
@@ -44,7 +44,7 @@ export default {
     titleColor: String,
     color: {
       type: String,
-      default: '#0083ff'
+      default: '#4d80f0'
     },
     value: {
       type: Number,

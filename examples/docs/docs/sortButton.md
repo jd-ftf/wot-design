@@ -77,7 +77,7 @@ export default {
 ```html
 <wd-sort-button
   v-model="value1"
-  color="#00c740"
+  color="#34d19d"
   title="价格"
 />
 ```
@@ -98,7 +98,7 @@ export default {
 ```html
 <wd-sort-button
   v-model="value1"
-  title-color="#ff0000"
+  title-color="#fa4350"
   title="价格"
 />
 ```
@@ -117,7 +117,7 @@ export default {
 |---------- |------------------------------------ |---------- |------------- |-------- |
 | value/v-model | 选中的箭头方向：-1 降序，0 重置状态，1 升序。 | number | -1,0,1 | - |
 | title | 排序按钮展示的文案。 | string | — |	— |
-| color | 箭头/文案选中时的整体颜色。 | sting | 十六进制 | #0083ff |
+| color | 箭头/文案选中时的整体颜色。 | sting | 十六进制 | #4d80f0 |
 | title-color | 文案选中时的颜色，优先级高于 color。 | string | 十六进制 |	— |
 | one-arrow | 是否只显示一个箭头。 | boolean |	- |	false |
 | allow-reset | 展示双箭头时，允许手动重置按钮。 | boolean | - | false |
