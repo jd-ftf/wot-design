@@ -46,6 +46,7 @@
     position: relative;
     width: $-input-cell-label-width;
     padding: $-cell-wrapper-padding 0;
+    margin-right: $-cell-padding;
     box-sizing: border-box;
 
     @include when(required) {
