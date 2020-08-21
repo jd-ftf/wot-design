@@ -80,7 +80,7 @@ export default {
 | next-text | 下一页按钮文字 |  string | - | '下一页' |
 | total-page | 总页数，如果有total，则优先使用total计算页数 |  number | - | 根据页数计算 |
 | page-size | 分页大小 |  number | - | 10 |
-| total | 总数据个数 |  number | - | 1 |
+| total | 总数据个数 |  number | - | - |
 | show-icon | 是否展示分页Icon |  boolean | - | false |
 | show-message | 是否展示文字提示 |  boolean | - | false |
 | hide-if-one-page | 总页数只有一页时是否隐藏 |  boolean | - | true |
