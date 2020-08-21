@@ -493,7 +493,8 @@ export default {
 
 | 方法名称      | 说明       | 参数   |
 |------------- |----------- |---------  |
-| showPicker    | 展示弹窗 | —  |
+| open | 打开picker弹框 |
+| close | 关闭picker弹框 |
 
 ### Slots
 
