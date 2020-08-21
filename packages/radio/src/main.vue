@@ -10,7 +10,7 @@
   >
     <div
       class="wd-radio__label"
-      :style="{ 'color': isChecked && finalShape === 'button' && !finalDisabled ? finalCheckedColor : '' }"
+      :style="[{ 'color': isChecked && finalShape === 'button' && !finalDisabled ? finalCheckedColor : '' }, {'max-width': maxWidth}]"
     >
       <slot></slot>
     </div>
@@ -44,6 +44,7 @@ export default {
     value: [String, Number, Boolean],
     shape: String,
     checkedColor: String,
+    maxWidth: String,
     disabled: Boolean
   },
   computed: {

@@ -46,13 +46,14 @@
     width: $-checkbox-icon-size;
     vertical-align: middle;
   }
+
   @include e(txt) {
     display: inline-block;
     vertical-align: middle;
     line-height: 20px;
-    max-width: 112px;
     @include lineEllipsis;
   }
+
   @include e(label) {
     position: relative;
     display: inline-block;

@@ -41,7 +41,7 @@
         class="wd-checkbox__btn-check wd-icon-check-bold"
         v-if="finalShape === 'button' && isChecked"
       ></i>
-      <span class="wd-checkbox__txt" v-if="$slots.default">
+      <span class="wd-checkbox__txt" v-if="$slots.default" :style="maxWidth ? `max-width: ${maxWidth}` : ''">
         <slot></slot>
       </span>
     </div>
@@ -67,6 +67,7 @@ export default {
     value: [String, Number, Boolean],
     shape: String,
     checkedColor: String,
+    maxWidth: String,
     disabled: {
       type: Boolean,
       default: null

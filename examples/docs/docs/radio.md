@@ -134,3 +134,4 @@ export default {
 | shape | 单选框形状 | string | 'dot', 'button' | 'dot' |
 | checked-color | 选中的颜色 | string | - | '#0083ff' |
 | disabled | 禁用 | boolean | - | false |
+| max-width | 文字位置最大宽度 | string | - | '' |
