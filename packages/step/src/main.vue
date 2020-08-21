@@ -11,11 +11,14 @@
         'is-dot': steps.dot
       }">
         <i v-if="steps.dot" class="wd-step__dot"></i>
-        <slot v-else-if="currentStatus !== 'finished' && currentStatus !== 'error' || icon || $slots.icon" name="icon">
+        <slot v-else name="icon">
           <i v-if="icon" class="wd-step__icon-inner" :class="icon"></i>
-          <div v-else class="wd-step__icon-outer">{{ index + 1 }}</div>
+          <div v-else class="wd-step__icon-outer">
+            <i v-if="currentStatus === 'finished'" class="wd-icon-check-bold"></i>
+            <i v-else-if="currentStatus === 'error'" class="wd-icon-close-bold"></i>
+            <span v-else>{{ index + 1 }}</span>
+          </div>
         </slot>
-        <i v-else class="wd-step__icon-inner" :class="['wd-icon-' + (currentStatus === 'finished' ? 'success' : 'close')]"></i>
       </div>
       <div class="wd-step__line"></div>
     </div>
