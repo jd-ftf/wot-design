@@ -76,7 +76,7 @@
             :disabled="item.disabled"
           >{{item[labelKey]}}</wd-radio>
         </wd-radio-group>
-        <div v-if="loading" class="wd-picker-view__loading">
+        <div v-if="loading" class="wd-picker-view__loading" @touchmove.stop.prevent>
           <wd-loading type="circular-ring" :color="loadingColor" />
         </div>
       </div>

@@ -13,7 +13,7 @@
     </demo-block>
 
     <demo-block title="修改选中颜色">
-      <wd-sort-button v-model="value4" title="价格" color="#00c740"/>
+      <wd-sort-button v-model="value4" title="价格" color="#34d19d"/>
     </demo-block>
 
     <demo-block title="修改文案选中颜色">
@@ -21,8 +21,8 @@
         v-model="value5"
         allow-reset
         title="价格"
-        color="#00c740"
-        title-color="#ff0000"
+        color="#34d19d"
+        title-color="#fa4350"
       />
     </demo-block>
   </div>
