@@ -1,5 +1,21 @@
 ## 更新日志
 
+### 2.0.0-beta3
+
+*2020-08-25*
+
+#### 新特性
+
+- DatetimePicker
+  - 新增方法 `toggle`, 在区域选择模式下，tab标签切换时触发 (by [@HXCStudio123](https://github.com/HXCStudio123) )
+  - 新增属性 `display-format-tab-label`, 在区域选择模式下，自定义展示tab标签文案的格式化函数，返回一个字符串 (by [@HXCStudio123](https://github.com/HXCStudio123) )
+  - 修改范围选择 交互样式，将picker拆分为 tab形式 (by [@HXCStudio123](https://github.com/HXCStudio123) )
+  - 移除插槽 `range-separator` (by [@HXCStudio123](https://github.com/HXCStudio123) )
+
+#### Bug 修复
+
+- 修复 `DatetimePicker` 当type为 'date' 时，区域选择禁用错误选项，无法修改选中问题。 (by [@HXCStudio123](https://github.com/HXCStudio123) )
+
 ### 2.0.0-beta2
 
 *2020-08-21*

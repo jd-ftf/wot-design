@@ -420,17 +420,20 @@ $-picker-toolbar-title-color: $-color-title !default; // toolbar 操作台的标
 $-picker-column-fs: 16px !default; // 选择器选项的字号
 $-picker-bg: $-color-white !default; // 选择器选项的字号
 $-picker-column-color: rgba($-color-black, 0.85) !default; // 选择器选项的颜色
-$-picker-column-select-bg: #F5F5F5 !default; // 选择器选项被选中的背景色
 $-picker-column-height: 210px !default; // 列高 滚筒外部的高度
-$-picker-column-item-height: 35px !default; // 列高 滚筒外部的高度
-
 $-picker-column-disabled-color: rgba($-color-black, 0.25) !default; // 选择器选项禁用的颜色
+$-picker-column-item-height: 35px !default; // 列高 滚筒外部的高度
+$-picker-column-select-bg: #F5F5F5 !default; // 选中背景颜色
+
 $-picker-mask: linear-gradient(180deg, hsla(0, 0%, 100%, 0.9), hsla(0, 0%, 100%, 0.25)),
   linear-gradient(0deg, hsla(0, 0%, 100%, 0.9), hsla(0, 0%, 100%, 0.25)) !default; // 上下阴影
 $-picker-loading-bg: rgba($-color-white, 0.8) !default; // loading 背景颜色
 $-picker-loading-button-color: rgba($-color-black, 0.25) !default; // loading 背景颜色
-$-picker-region-separator-color: rgba($-color-black, 0.65) !default; // 区域选择文字颜色
 $-picker-cell-arrow-size-large: $-cell-icon-size !default; // cell 类型的大尺寸 右侧icon尺寸
+
+$-picker-region-color: rgba($-color-black, 0.45) !default; // 区域选择文字颜色
+$-picker-region-bg-active-color: #538BFF !default; // 区域选择激活选中背景颜色
+$-picker-region-fs: 14px !default; // 区域选择文字字号
 
 /* col-picker */
 $-col-picker-selected-height: 44px !default; // 弹框顶部值高度

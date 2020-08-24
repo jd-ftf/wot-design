@@ -23,7 +23,7 @@
         <li
           v-for="(item, index) in data"
           :key="index"
-          :class="{'wd-picker-view-roller__item--disabled': typeof item === 'string' ? false : item.disabled}"
+          :class="[{'wd-picker-view-roller__item--disabled': typeof item === 'string' ? false : item.disabled}]"
           v-html="arrowHtml ? getItemLabel(item) : ''"
         >{{ arrowHtml ? '' : getItemLabel(item) }}</li>
       </ul>

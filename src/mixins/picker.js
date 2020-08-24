@@ -109,7 +109,7 @@ export default {
   methods: {
     showPopup () {
       if (this.disabled || this.readonly) return
-      this.columnsInit && this.columnsInit()
+      this.showPopInit && this.showPopInit()
       this.popupShow = true
     },
 
