@@ -3,8 +3,24 @@
     <custom-cell />
     <wd-popup v-model="popupShow" position="bottom" @click-modal="onCancel" :duration="250">
       <toolbar :target="currentTarget"></toolbar>
+      <!-- 区域选择tab展示 -->
+      <div v-if="region" class="wd-picker__region-tabs">
+        <ul class="wd-picker__region" :class="showStart ? 'is-active' : ''" @click="chooseItem()">
+          <li>开始时间</li>
+          <li>{{changeLabel[0]}}</li>
+        </ul>
+        <ul
+          class="wd-picker__region"
+          :class="showStart ? '' : 'is-active'"
+          @click="chooseItem(false)"
+        >
+          <li>结束时间</li>
+          <li>{{changeLabel[1]}}</li>
+        </ul>
+      </div>
       <!-- 开始 -->
       <wd-picker-view
+        v-show="showStart"
         ref="pickerView"
         v-model="innerValue"
         :type="type"
@@ -27,30 +43,27 @@
       />
       <!-- 结束 -->
       <!-- 如果有结束事件那么是范围选择模式，该模式仅在时间选择下有效 -->
-      <div v-if="region">
-        <slot name="region-separator">
-          <div class="wd-picker__region-separator">至</div>
-        </slot>
-        <wd-picker-view
-          ref="endPickerView"
-          v-model="end.innerValue"
-          :type="type"
-          :loading="loading"
-          :loading-color="loadingColor"
-          :filter="filter"
-          :formatter="formatter"
-          :arrow-html="arrowHtml"
-          :value-key="valueKey"
-          :min-date="minDate"
-          :max-date="maxDate"
-          :min-hour="minHour"
-          :max-hour="maxHour"
-          :max-minute="maxMinute"
-          :min-minute="minMinute"
-          :columns-height="columnsHeight"
-          :column-formatter="customColumnFormatter"
-        />
-      </div>
+      <wd-picker-view
+        v-if="region"
+        v-show="!showStart"
+        ref="endPickerView"
+        v-model="end.innerValue"
+        :type="type"
+        :loading="loading"
+        :loading-color="loadingColor"
+        :filter="filter"
+        :formatter="formatter"
+        :arrow-html="arrowHtml"
+        :value-key="valueKey"
+        :min-date="minDate"
+        :max-date="maxDate"
+        :min-hour="minHour"
+        :max-hour="maxHour"
+        :max-minute="maxMinute"
+        :min-minute="minMinute"
+        :columns-height="columnsHeight"
+        :column-formatter="customColumnFormatter"
+      />
     </wd-popup>
   </div>
 </template>
@@ -73,8 +86,10 @@ export default {
 
   data () {
     return {
+      showStart: true,
       timePicker: true,
       currentTarget: this,
+      changeLabel: [],
       innerValue: this.region ? this.value[0] : this.value,
       displayColumns: [],
       end: {
@@ -91,6 +106,7 @@ export default {
       type: String,
       default: 'datetime'
     },
+    displayFormatTabLabel: Function,
     ...pickerViewProps,
     ...pickerProps,
     ...datetimePickerViewProps
@@ -113,6 +129,12 @@ export default {
         }
       },
       immediate: true
+    },
+    innerValue () {
+      this.setLabel()
+    },
+    'end.innerValue' () {
+      this.setLabel(1)
     }
   },
 
@@ -125,6 +147,17 @@ export default {
     // 对外暴露接口，关闭弹框
     close () {
       this.onCancel()
+    },
+
+    // 初始化展示参数
+    showPopInit () {
+      this.showStart = true
+      this.setShowValue()
+    },
+
+    chooseItem (isStart = true) {
+      this.showStart = isStart
+      this.$emit('toggle', isStart ? this.innerValue : this.end.innerValue)
     },
 
     onConfirm () {
@@ -152,6 +185,7 @@ export default {
       })
     },
 
+    // 取消是状态重置
     onCancel () {
       // reset innerValue
       // 格式化单个this.value.start
@@ -161,16 +195,23 @@ export default {
       this.$emit('cancel')
     },
 
-    defaultDisplayFormat (items) {
+    defaultDisplayFormat (items, tabLabel = false) {
       if (items.length === 0) return ''
+
+      if (tabLabel && this.displayFormatTabLabel) {
+        return this.displayFormatTabLabel(items)
+      }
+
       if (this.displayFormat) {
         return this.displayFormat(items)
       }
+
       // 如果使用了自定义的的formatter，defaultDisplayFormat无效
       if (this.formatter) {
         const pickerView = this.$refs.pickerView.$refs.pickerView
         return pickerView.getLabels().join('')
       }
+
       switch (this.type) {
         case 'date':
           return `${items[0].label}-${items[1].label}-${items[2].label}`
@@ -183,6 +224,14 @@ export default {
       }
     },
 
+    setLabel (index = 0) {
+      if (this.region) {
+        const pickerView = index === 0 ? this.$refs.pickerView.$refs.pickerView : this.$refs.endPickerView.$refs.pickerView
+        const items = pickerView.getItems()
+        this.changeLabel[index] = this.defaultDisplayFormat(items, true)
+      }
+    },
+
     setShowValue () {
       const pickerView = this.$refs.pickerView.$refs.pickerView
       const items = pickerView.getItems()
@@ -190,8 +239,9 @@ export default {
 
       if (this.region) {
         const endPickerView = this.$refs.endPickerView.$refs.pickerView
-        const items1 = endPickerView.getItems()
-        label = label + ' 至 ' + this.defaultDisplayFormat(items1)
+        const endItems = endPickerView.getItems()
+        label += ' 至 ' + this.defaultDisplayFormat(endItems)
+        this.changeLabel = [this.defaultDisplayFormat(items, true), this.defaultDisplayFormat(endItems, true)]
       }
       this.showValue = label
     },
@@ -221,10 +271,8 @@ export default {
         if (column.type === 'year') {
           return isStart ? value > year : value < year
         }
-        if (column.type === 'month') {
-          if (currentValue[0] === year) {
-            return isStart ? value > month : value < month
-          }
+        if (column.type === 'month' && currentValue[0] === year) {
+          return isStart ? value > month : value < month
         }
         if (column.type === 'date' && (currentValue[0] === year && currentValue[1] === month)) {
           return isStart ? value > date : value < date
@@ -246,18 +294,18 @@ export default {
           return isStart ? value > month : value < month
         }
       } else if (this.type === 'date') {
-        const date = boundary[0]
-        const hour = boundary[1]
-        const minute = boundary[2]
+        const year = boundary[0]
+        const month = boundary[1]
+        const date = boundary[2]
 
-        if (column.type === 'date') {
+        if (column.type === 'year') {
+          return isStart ? value > year : value < year
+        }
+        if (column.type === 'month' && currentValue[0] === year) {
+          return isStart ? value > month : value < month
+        }
+        if (column.type === 'date' && currentValue[0] === year && currentValue[1] === month) {
           return isStart ? value > date : value < date
-        }
-        if (column.type === 'hour' && currentValue[0] === date) {
-          return isStart ? value > hour : value < hour
-        }
-        if (column.type === 'minute' && currentValue[0] === date && currentValue[1] === hour) {
-          return isStart ? value > minute : value < minute
         }
       } else if (this.type === 'time') {
         const hour = boundary[0]

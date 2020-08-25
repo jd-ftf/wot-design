@@ -3,6 +3,8 @@
 @import "./loading.scss";
 
 @include b(picker-view) {
+  padding: 10px 0;
+
   @include e(columns) {
     position: relative;
     display: flex;
@@ -60,7 +62,6 @@
   @include e(item) {
     position: absolute;
     user-select: none;
-    transition: font 0.2s ease-out;
     font-size: $-picker-column-fs;
     top: 0;
     width: 100%;

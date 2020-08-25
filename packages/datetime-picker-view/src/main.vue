@@ -132,7 +132,6 @@ export default {
     value: {
       handler (val, oldVal) {
         // 存在旧值，新值与 innerValue 相同，则不作处理
-        // console.log('更改了', val, this.innerValue, oldVal && val.valueOf() === this.innerValue.valueOf())
         if (oldVal && val.valueOf() === this.innerValue.valueOf()) return
         // 格式化新值
         val = this.formatValue(val)
