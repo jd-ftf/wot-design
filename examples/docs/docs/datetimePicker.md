@@ -254,6 +254,29 @@ export default {
 </script>
 ```
 
+### 范围选择tab标签展示格式
+
+给 `display-format-tab-label` 属性传入一个函数，接收所有选中项数组，返回展示的文本内容。
+
+```html
+<wd-datetime-picker v-model="value" label="范围tab展示格式" :display-format-tab-label="displayFormatTabLabel"></wd-datetime-picker>
+<script>
+export default {
+  data () {
+    return {
+      value: [
+        new Date(2012, 10, 10, 10, 10),
+        new Date(2013, 10, 11, 10, 10)
+      ],
+      displayFormatTabLabel (items) {
+        return `${items[0].label}年${items[1].label}月${items[2].label}日 ${items[3].label}:${items[4].label}`
+      }
+    }
+  }
+}
+</script>
+```
+
 ### Attributes
 
 | 参数      | 说明                                 | 类型      | 可选值       | 默认值   |
@@ -273,6 +296,7 @@ export default {
 | readonly | 只读 | boolean | - | false |
 | required | 是否校验 | boolean | - | false |
 | display-format | 自定义展示文案的格式化函数，返回一个字符串 | function | - | - |
+| display-format-tab-label | 在区域选择模式下，自定义展示tab标签文案的格式化函数，返回一个字符串 | function | - | - |
 | formatter | 自定义弹出层选项文案的格式化函数，返回一个字符串 | function | - | - |
 | filter | 自定义过滤选项的函数，返回列的选项数组 | function | - | - |
 | minDate | 最小日期 | date | - | 当前日期 - 10年 |
@@ -293,8 +317,6 @@ export default {
 |------------- |----------- |
 | default | 唤起picker的展示形式，不设置则展示cell表单样式 |
 | label | cell展示时，左侧展示文案 |
-| range-separator | 区域选择时，中间展示的分隔符插槽 |
-<!-- TODO 可能会修改交互形式，此slot可能会替换 -->
 
 ### Events
 
@@ -302,6 +324,7 @@ export default {
 |------------- |------------------------------------ |--------- |
 | confirm | 点击右侧按钮触发 | - |
 | cancel | 点击左侧按钮触发 | - |
+| toggle | 在区域选择模式下，tab标签切换时触发 | 切换到当前picker选中的值 |
 
 ### Methods
 

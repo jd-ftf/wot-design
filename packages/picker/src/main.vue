@@ -99,7 +99,7 @@ export default {
       }
     },
 
-    columnsInit () {
+    showPopInit () {
       const pickerView = this.$refs.pickerView
       this.lastColumns = pickerView.getColumnsData()
     },

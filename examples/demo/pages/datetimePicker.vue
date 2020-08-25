@@ -31,12 +31,14 @@
       </wd-datetime-picker>
     </demo-block>
     <demo-block title="时间范围选择" transparent>
-      <wd-datetime-picker v-model="value16" label="时间范围选择" :columns-height="100" type="time"></wd-datetime-picker>
-      <!-- TODO 可能会修改交互形式，此slot可能会替换 -->
-      <wd-datetime-picker v-model="value17" label="分隔符插槽" :columns-height="100">
-        <div slot="region-separator" class="region-separator">分隔符</div>
-      </wd-datetime-picker>
-      <div class="range-wrapper">
+      <wd-datetime-picker v-model="value16" label="时间范围选择" :columns-height="180" type="time"></wd-datetime-picker>
+      <wd-datetime-picker
+        v-model="value17"
+        label="范围tab展示格式"
+        :columns-height="180"
+        :display-format-tab-label="displayFormatTabLabel"
+      ></wd-datetime-picker>
+      <div class="region-wrapper">
         <div class="text">
           开始时间:
           <span>{{value15[0]}}</span>
@@ -45,7 +47,7 @@
           结束时间:
           <span>{{value15[1]}}</span>
         </div>
-        <wd-datetime-picker v-model="value15" :columns-height="100">
+        <wd-datetime-picker v-model="value15" :columns-height="180">
           <wd-button>唤起picker</wd-button>
         </wd-datetime-picker>
       </div>
@@ -93,7 +95,9 @@ export default {
     displayFormat (items) {
       return `${items[0].label}年${items[1].label}月${items[2].label}日 ${items[3].label}:${items[4].label}`
     },
-
+    displayFormatTabLabel (items) {
+      return `${items[0].label}年${items[1].label}月${items[2].label}日 ${items[3].label}:${items[4].label}`
+    },
     formatter (type, value) {
       switch (type) {
         case 'year':
@@ -139,33 +143,9 @@ export default {
     color: #34d19d;
   }
 }
-.range-wrapper {
+.region-wrapper {
   padding: 15px 15px;
   background-color: #fff;
   border-top: 1px solid rgba(0, 0, 0, 0.04);
-}
-.region-separator {
-  text-align: center;
-  position: relative;
-  margin: 10px 0;
-  color: rgba(0, 0, 0, 0.25);
-  &::after {
-    content: '';
-    position: absolute;
-    width: 50%;
-    height: 1px;
-    left: -30px;
-    top: 50%;
-    background-color: rgba(0, 0, 0, 0.04);
-  }
-  &::before {
-    content: '';
-    position: absolute;
-    width: 50%;
-    height: 1px;
-    right: -30px;
-    top: 50%;
-    background-color: rgba(0, 0, 0, 0.04);
-  }
 }
 </style>

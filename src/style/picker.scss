@@ -138,9 +138,25 @@
     color: $-picker-toolbar-title-color;
   }
 
-  @include e(region-separator) {
-    text-align: center;
-    color: $-picker-region-separator-color;
-    padding: 5px 0;
+  @include e(region-tabs) {
+    display: flex;
   }
+
+  @include e(region) {
+    width: 50%;
+    display: inline-block;
+    color: $-picker-region-color;
+    text-align: center;
+    padding: 5px 0;
+    font-size: $-picker-region-fs;
+    transition: all 0.15s ease-out;
+    li:last-child {
+      font-size: 16px;
+    }
+    @include when(active) {
+      background-color: $-picker-region-bg-active-color;
+      color: $-color-white;
+    }
+  }
+
 }
