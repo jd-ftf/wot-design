@@ -1,5 +1,6 @@
 @import "./abstracts/variable";
 @import "./abstracts/mixin";
+@import "./popup.scss";
 
 @include b(message-box) {
   width: $-message-box-width;

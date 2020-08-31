@@ -1,6 +1,7 @@
 @import './abstracts/variable';
 @import './abstracts/mixin';
 @import './icon.scss';
+@import './modal.scss';
 
 @include b(popup) {
   position: fixed;
