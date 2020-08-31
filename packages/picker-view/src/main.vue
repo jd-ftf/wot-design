@@ -88,10 +88,16 @@ export default {
   methods: {
     onChange (columnIndex) {
       if (this.columnChange) {
-        // 列项修改参数：当前pickerView实例、要修改的列项数组、列项、回调函数（执行修改）
-        this.columnChange(this, this.getColumnItem(columnIndex) || {}, columnIndex, () => {
+        const selectedItem = this.getColumnItem(columnIndex)
+
+        if (selectedItem) {
+          // 列项修改参数：当前pickerView实例、要修改的列项数组、列项、回调函数（执行修改）
+          this.columnChange(this, selectedItem, columnIndex, () => {
+            this.handleChange(columnIndex)
+          })
+        } else {
           this.handleChange(columnIndex)
-        })
+        }
       } else {
         this.handleChange(columnIndex)
       }
@@ -133,12 +139,12 @@ export default {
     },
 
     getColumnIndex (columnIndex) {
-      return (this.children[columnIndex] || {}).selectedIndex
+      return (this.children[columnIndex] || {}).selectedIndex || 0
     },
 
     getItems () {
       return this.children.map(column => {
-        return column.data[column.selectedIndex]
+        return column.data[column.selectedIndex || 0]
       })
     },
 
@@ -146,7 +152,8 @@ export default {
       const column = this.children[columnIndex]
 
       if (column) {
-        return column.data[column.selectedIndex]
+        console.log(column.data)
+        return column.data[column.selectedIndex || 0]
       }
     },
 
@@ -178,7 +185,7 @@ export default {
         this.$emit('confirm', this, this.getColumnValue(0), this.getColumnIndex(0))
       } else {
         let allIndex = this.children.map(column => {
-          return column.selectedIndex
+          return column.selectedIndex || 0
         })
         this.$emit('confirm', this, this.getValues(), allIndex)
       }

@@ -60,8 +60,9 @@ export default {
       immediate: true
     },
     columns: {
-      handler () {
-        this.displayColumns = this.columns
+      handler (val) {
+        this.displayColumns = val
+        this.lastColumns = val
       },
       immediate: true
     }
