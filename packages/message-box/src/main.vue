@@ -5,6 +5,7 @@
     :value="show"
     :close-on-click-modal="closeOnClickModal"
     transition="wd-zoom-in"
+    :duration="200"
     @click-modal="toggleModal('modal')"
     @opened="handleOpened"
     @closed="handleClosed"
