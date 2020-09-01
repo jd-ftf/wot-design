@@ -80,9 +80,9 @@ export default {
     }
   },
   methods: {
-    handleClick () {
+    handleClick (event) {
       if (!this.disabled && !this.loading) {
-        this.$emit('click')
+        this.$emit('click', event)
       }
     }
   }
