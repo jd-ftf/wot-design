@@ -6,12 +6,12 @@
         v-for="(item, index) in data"
         :key="index"
         :class="{
-        'wd-picker-view-roller__item': 1,
-        'is-hidden': isHidden(index),
-        'wd-picker-view-roller__item--disabled': typeof item === 'string' ? false : item.disabled
+          'wd-picker-view-roller__item': 1,
+          'is-hidden': isHidden(index),
+          'wd-picker-view-roller__item--disabled': typeof item === 'string' ? false : item.disabled
         }"
         :style="{
-        'transform': `rotate3d(1, 0, 0, ${-18 * index}deg) translateZ(${radius}px)`
+          'transform': `rotate3d(1, 0, 0, ${-18 * index}deg) translateZ(${radius}px)`
         }"
         v-html="arrowHtml ? getItemLabel(item) : ''"
         @click="selectItem(index)"
@@ -56,7 +56,7 @@ export default {
       // 当前滚动距离
       scrollDistance: 0,
       // 当前选中索引（已经emit）
-      selectedIndex: 0,
+      selectedIndex: '',
       // 半径
       radius: 110,
       // 单个弧形角度
@@ -93,7 +93,9 @@ export default {
 
   watch: {
     value: {
-      handler () {
+      handler (val) {
+        if (this.length === 0) return
+
         let selectedIndex = 0
         for (let i = 0; i < this.length; i++) {
           if (this.getItemValue(this.data[i]) === this.value) {
@@ -101,7 +103,7 @@ export default {
             break
           }
         }
-        this.setIndex(selectedIndex, false)
+        this.setIndex(selectedIndex, val === '')
       },
       immediate: true
     },
@@ -112,11 +114,6 @@ export default {
       if (val !== this.currentIndex) {
         this.transformY = 0
         this.setMove(-this.itemHeight * val, 'end', 0, false)
-        if (val !== oldVal) {
-          this.$nextTick(() => {
-            this.$emit('change')
-          })
-        }
       }
     }
   },
@@ -176,7 +173,7 @@ export default {
         const deg = (Math.abs(Math.round(endMove / this.itemHeight))) * this.rollAngle
         // 添加禁用兜底
         if (this.data[index] && this.data[index].disabled) {
-          index = this.selectedIndex
+          index = this.selectedIndex || 0
           this.selectItem(index)
         } else {
           this.setTransform(endMove, type, time, deg)
@@ -278,15 +275,15 @@ export default {
     },
 
     getValue () {
-      let item = this.data[this.selectedIndex]
+      let item = this.data[this.selectedIndex || 0]
 
       if (item) {
-        return this.getItemValue(this.data[this.selectedIndex])
+        return this.getItemValue(this.data[this.selectedIndex || 0])
       }
     },
 
     getLabel () {
-      return this.getItemLabel(this.data[this.selectedIndex])
+      return this.getItemLabel(this.data[this.selectedIndex || 0])
     },
 
     setValue (value) {
@@ -308,7 +305,7 @@ export default {
   mounted () {
     // 初始化位置 函数
     this.$nextTick(() => {
-      this.setMove(-this.itemHeight * this.selectedIndex, 'end', 0)
+      this.setMove(-this.itemHeight * (this.selectedIndex || 0), 'end', 0)
       this.$el.addEventListener('touchstart', this.onTouchStart)
       this.$el.addEventListener('touchmove', this.onTouchMove)
       this.$el.addEventListener('touchend', this.onTouchEnd)

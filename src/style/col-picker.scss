@@ -1,6 +1,7 @@
 @import './abstracts/variable';
 @import './abstracts/mixin';
 @import './icon.scss';
+@import './action-sheet.scss';
 
 @include b(col-picker) {
   @include e(cell) {
