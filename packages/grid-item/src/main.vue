@@ -37,10 +37,13 @@ import WdBadge from 'wot-design/packages/badge'
 
 export default {
   name: 'WdGridItem',
+
   inject: ['grid'],
+
   components: {
     WdBadge
   },
+
   data () {
     return {
       style: {},
@@ -48,6 +51,7 @@ export default {
       itemClass: []
     }
   },
+
   props: {
     icon: {
       type: String,
@@ -66,15 +70,18 @@ export default {
     value: [Number, String],
     max: Number
   },
+
   created () {
     this.$nextTick(() => {
       this.init()
     })
   },
+
   methods: {
     set (key, value) {
       this[key] = value
     },
+
     init () {
       const { length, gutter, square, column, bgColor } = this.grid
       const width = column ? 100 / column + '%' : 100 / length + '%'
@@ -95,6 +102,7 @@ export default {
       this.gutterContentStyle = (gutter && square) ? { right: `${gutter}px`, bottom: `${gutter}px`, backgroundColor: bgColor } : { backgroundColor: bgColor }
       this.style = squareStyle || gutterStyle || { width }
     },
+
     click (event) {
       if (!this.grid.clickable) return
       const { to, replace } = this

@@ -229,7 +229,7 @@ export default {
 设置默认插槽修改唤起picker组件的形式。
 
 ```html
-<wd-datetime-picker v-model="value" :columns="columns">
+<wd-datetime-picker v-model="value">
   <wd-button>插槽唤起</wd-button>
 </wd-datetime-picker>
 ```

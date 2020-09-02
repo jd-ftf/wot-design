@@ -90,11 +90,7 @@
       margin-right: 0;
     }
     .wd-checkbox__shape {
-      width: 0;
-      height: 0;
-      overflow: hidden;
-      opacity: 0;
-      border: none;
+      display: none;
     }
     .wd-checkbox__label {
       display: inline-flex;

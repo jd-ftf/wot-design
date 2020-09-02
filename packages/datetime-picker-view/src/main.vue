@@ -188,6 +188,7 @@ export default {
     getPickerValue (value) {
       return this.getValueArray(this.formatValue(value))
     },
+
     formatDisplay (items) {
       if (this.displayFormat) return this.displayFormat(items)
 
@@ -357,6 +358,7 @@ export default {
 
       return values
     },
+
     handleChange (pickerView, value, index) {
       this.$emit('change', pickerView, value, index)
     }

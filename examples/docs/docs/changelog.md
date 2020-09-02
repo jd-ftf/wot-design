@@ -2,9 +2,12 @@
 
 ### 2.0.0-beta3
 
-*2020-08-25*
+*2020-09-04*
 
 #### 新特性
+
+- Button
+  - click 事件抛出event对象 (by [@yawuling](https://github.com/yawuling)） )
 
 - DatetimePicker
   - 新增方法 `toggle`, 在区域选择模式下，tab标签切换时触发 (by [@HXCStudio123](https://github.com/HXCStudio123) )
@@ -12,9 +15,33 @@
   - 修改范围选择 交互样式，将picker拆分为 tab形式 (by [@HXCStudio123](https://github.com/HXCStudio123) )
   - 移除插槽 `range-separator` (by [@HXCStudio123](https://github.com/HXCStudio123) )
 
+#### 优化
+
+- MessageBox
+  - 动画时间由300ms改为200ms，减少等待时间
+- Grid
+  - 支持动态渲染GridItem （by [@HXCStudio123](https://github.com/HXCStudio123) ）
+  - 支持列项修改后内部GridItem重排 （by [@HXCStudio123](https://github.com/HXCStudio123) ）
+  - GridItem 内容padding移除，兼容小屏幕展示四字标题 （by [@HXCStudio123](https://github.com/HXCStudio123) ）
+
 #### Bug 修复
 
-- 修复 `DatetimePicker` 当type为 'date' 时，区域选择禁用错误选项，无法修改选中问题。 (by [@HXCStudio123](https://github.com/HXCStudio123) )
+- Cell
+  - 修复边框线样式calc计算无效问题 (by [@yawuling](https://github.com/yawuling)） )
+- ColPicker
+  - 修复按需引入缺少actionSheet样式问题 (by [@yawuling](https://github.com/yawuling)） )
+- Picker
+  - 修复columns数据延迟传入无法正常展示文本问题 (by [@yawuling](https://github.com/yawuling)） )
+- PickerView
+  - 修复columns延迟传入时无法自动选中第一项的问题；修复columns延迟传入时picker重置数据的记录 (by [@yawuling](https://github.com/yawuling)） )
+- Popup
+  - 修复按需引入popup和messageBox缺少modal样式问题 (by [@yawuling](https://github.com/yawuling)） )
+- StatusTip
+  - 去掉占位图的白色背景，将图片从base64改为图片链接以减少包大小 (by [@yawuling](https://github.com/yawuling)） )
+- Button
+  - 圆角按钮圆角还原度，修复2px偏差 (by [@yawuling](https://github.com/yawuling)） )
+- DatetimePicker
+  - 修复 `DatetimePicker` 当type为 'date' 时，区域选择禁用错误选项，无法修改选中问题。 (by [@HXCStudio123](https://github.com/HXCStudio123) )
 
 ### 2.0.0-beta2
 
