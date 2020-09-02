@@ -54,14 +54,18 @@ export default {
         this.pickerValue = this.value
 
         this.$nextTick(() => {
-          this.setShowValue(true)
+          this.setShowValue()
         })
       },
       immediate: true
     },
     columns: {
-      handler () {
-        this.displayColumns = this.columns
+      handler (val) {
+        this.displayColumns = val
+        this.lastColumns = val
+        this.$nextTick(() => {
+          this.setShowValue()
+        })
       },
       immediate: true
     }

@@ -416,7 +416,7 @@ $-picker-action-height: 16px !default; // toolbar 操作条的高度
 $-picker-toolbar-finish-color: $-color-theme !default; // toolbar 操作条完成按钮的颜色
 $-picker-toolbar-cancel-color: #666666 !default; // toolbar 操作条的边框颜色
 $-picker-toolbar-fs: $-fs-title !default; // toolbar 操作条的字号
-$-picker-toolbar-title-color: $-color-title !default; // toolbar 操作台的标题颜色
+$-picker-toolbar-title-color: rgba($-color-black, 0.85) !default; // toolbar 操作台的标题颜色
 $-picker-column-fs: 16px !default; // 选择器选项的字号
 $-picker-bg: $-color-white !default; // 选择器选项的字号
 $-picker-column-color: rgba($-color-black, 0.85) !default; // 选择器选项的颜色
