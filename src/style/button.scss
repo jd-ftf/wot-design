@@ -175,7 +175,7 @@
     font-size: $-button-small-fs;
     font-weight: normal;
     @include when(round) {
-      border-radius: $-button-small-round-radius;
+      border-radius: $-button-small-height / 2;
     }
     .wd-button__loading {
       width: $-button-small-loading;
@@ -191,7 +191,7 @@
 
     @include when(round) {
       min-width: 118px;
-      border-radius: $-button-medium-round-radius;
+      border-radius: $-button-medium-height / 2;
     }
     .wd-button__loading {
       width: $-button-medium-loading;
@@ -209,7 +209,7 @@
     font-size: $-button-large-fs;
 
     @include when(round) {
-      border-radius: $-button-large-round-radius;
+      border-radius: $-button-large-height / 2;
     }
     .wd-button__loading {
       width: $-button-large-loading;
