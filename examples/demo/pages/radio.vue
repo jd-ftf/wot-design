@@ -8,7 +8,7 @@
     </demo-block>
     <demo-block title="修改形状">
       <wd-radio-group v-model="value2" shape="button">
-        <wd-radio value="1" max-width="30px">京麦</wd-radio>
+        <wd-radio value="1">京麦</wd-radio>
         <wd-radio value="2">商家后台</wd-radio>
       </wd-radio-group>
     </demo-block>

@@ -81,6 +81,7 @@
       top: 0;
       right: 0;
       left: 0;
+      padding: 0;
       height: auto;
     }
 
@@ -103,7 +104,8 @@
 
   @include e(text) {
     margin-top: 8px;
-    font-size: 12px;
+    font-size: $-grid-item-fs;
+    line-height: $-grid-item-fs;
     @include lineEllipsis;
   }
 }

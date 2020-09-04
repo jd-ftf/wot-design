@@ -1,5 +1,5 @@
-@import './abstracts/variable';
-@import './abstracts/mixin';
+@import "./abstracts/variable";
+@import "./abstracts/mixin";
 
 @include b(drop-menu) {
   display: flex;
@@ -18,27 +18,27 @@
     text-align: center;
     @include lineEllipsis;
 
-    &::before{
+    &::before {
       position: absolute;
       content: "";
-      width: 100%;
+      width: 200%;
       height: 1px;
       left: 0;
       top: 0;
       background: $-color-border-light;
-      transform: scale(.5);
+      transform: scale(0.5);
       transform-origin: left top;
       z-index: 100;
     }
-    &::after{
+    &::after {
       position: absolute;
       content: "";
-      width: 100%;
+      width: 200%;
       height: 1px;
       left: 0;
       top: $-drop-menu-height - 1;
       background: $-color-border-light;
-      transform: scale(.5);
+      transform: scale(0.5);
       transform-origin: left bottom;
       z-index: 100;
     }
@@ -49,11 +49,11 @@
 
   @include e(arrow) {
     display: inline-block;
-    transition: transform .3s;
-    transform: scale(.6);
+    transition: transform 0.3s;
+    transform: scale(0.6);
 
     @include when(retract) {
-      transform: scale(.6) rotate(-180deg);
+      transform: scale(0.6) rotate(-180deg);
       transform-origin: center center;
     }
   }

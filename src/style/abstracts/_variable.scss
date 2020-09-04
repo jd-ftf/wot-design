@@ -408,7 +408,7 @@ $-pagination-nav-sepatator-padding: 0 4px !default;
 $-pagination-nav-current-color: $-color-theme !default;
 
 /* picker */
-$-picker-toolbar-height: 16px !default; // toolbar 操作条的高度
+$-picker-toolbar-height: 54px !default; // toolbar 操作条的高度
 $-picker-action-height: 16px !default; // toolbar 操作条的高度
 $-picker-toolbar-finish-color: $-color-theme !default; // toolbar 操作条完成按钮的颜色
 $-picker-toolbar-cancel-color: #666666 !default; // toolbar 操作条的边框颜色
@@ -429,7 +429,15 @@ $-picker-loading-button-color: rgba($-color-black, 0.25) !default; // loading �
 $-picker-cell-arrow-size-large: $-cell-icon-size !default; // cell 类型的大尺寸 右侧icon尺寸
 
 $-picker-region-color: rgba($-color-black, 0.45) !default; // 区域选择文字颜色
-$-picker-region-bg-active-color: #538BFF !default; // 区域选择激活选中背景颜色
+$-picker-region-bg-active-color: resultColor(
+  $open-linear,
+  315deg,
+  $-color-theme,
+  "dark" "light" "light",
+  rgba(79,124,248,1) rgba(102,141,248,1) rgba(102,141,248,1),
+  0% 100% 100%
+) !default; // 区域选择激活选中背景颜色
+
 $-picker-region-fs: 14px !default; // 区域选择文字字号
 
 /* col-picker */
@@ -745,7 +753,7 @@ $-popover-z-index: $-tooltip-z-index !default;
 
 /* grid-item */
 $-grid-item-fs: 12px !default; // 字号
-$-grid-item-padding: 15px 10px !default; // 内容的 padding
+$-grid-item-padding: 14px 0 !default; // 内容的 padding
 $-grid-item-border-color: rgba($-color-black, 0.09) !default; // 边框颜色
 $-grid-item-bg: $-color-white !default; // 间距
 

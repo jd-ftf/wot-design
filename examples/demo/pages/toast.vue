@@ -40,10 +40,10 @@ export default {
       this.$toast.success('操作成功')
     },
     handleToast3 () {
-      this.$toast.error('错误提示错误提示')
+      this.$toast.error('错误提示')
     },
     handleToast4 () {
-      this.$toast.warning('提示信息')
+      this.$toast.warning('警告信息')
     },
     handleToast5 () {
       this.$toast({

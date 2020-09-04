@@ -75,7 +75,7 @@
         position: absolute;
         left: 0;
         top: $-cell-wrapper-padding + 2px;
-        content: '*';
+        content: "*";
         font-size: $-cell-required-size;
         line-height: 1.1;
         color: $-cell-required-color;
@@ -108,11 +108,11 @@
     font-size: $-picker-toolbar-fs;
     justify-content: space-between;
     align-items: center;
-    height: 56px;
-    line-height: 1.1;
+    height: $-picker-toolbar-height;
+    line-height: $-picker-action-height;
     box-sizing: border-box;
   }
-  
+
   @include e(action) {
     display: block;
     border: none;
@@ -147,16 +147,18 @@
     display: inline-block;
     color: $-picker-region-color;
     text-align: center;
-    padding: 5px 0;
+    padding: 14px 0;
     font-size: $-picker-region-fs;
+    line-height: 16px;
     transition: all 0.15s ease-out;
+
     li:last-child {
       font-size: 16px;
+      margin-top: 2px;
     }
     @include when(active) {
-      background-color: $-picker-region-bg-active-color;
+      background: $-picker-region-bg-active-color;
       color: $-color-white;
     }
   }
-
 }
