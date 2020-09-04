@@ -4,6 +4,7 @@
 @include b(radio-group) {
   background-color: $-radio-bg;
   line-height: 1.2;
+  font-size: 0;
 
   @include when(cell) {
     .wd-radio {

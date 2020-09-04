@@ -7,7 +7,7 @@
       <div v-if="region" class="wd-picker__region-tabs">
         <ul class="wd-picker__region" :class="showStart ? 'is-active' : ''" @click="chooseItem()">
           <li>开始时间</li>
-          <li>{{changeLabel[0]}}</li>
+          <li>{{showTabLabel[0]}}</li>
         </ul>
         <ul
           class="wd-picker__region"
@@ -15,7 +15,7 @@
           @click="chooseItem(false)"
         >
           <li>结束时间</li>
-          <li>{{changeLabel[1]}}</li>
+          <li>{{showTabLabel[1]}}</li>
         </ul>
       </div>
       <!-- 开始 -->
@@ -89,7 +89,7 @@ export default {
       showStart: true,
       timePicker: true,
       currentTarget: this,
-      changeLabel: [],
+      showTabLabel: [],
       innerValue: this.region ? this.value[0] : this.value,
       displayColumns: [],
       end: {
@@ -228,7 +228,7 @@ export default {
       if (this.region) {
         const pickerView = index === 0 ? this.$refs.pickerView.$refs.pickerView : this.$refs.endPickerView.$refs.pickerView
         const items = pickerView.getItems()
-        this.changeLabel[index] = this.defaultDisplayFormat(items, true)
+        this.showTabLabel[index] = this.defaultDisplayFormat(items, true)
       }
     },
 
@@ -241,7 +241,7 @@ export default {
         const endPickerView = this.$refs.endPickerView.$refs.pickerView
         const endItems = endPickerView.getItems()
         label += ' 至 ' + this.defaultDisplayFormat(endItems)
-        this.changeLabel = [this.defaultDisplayFormat(items, true), this.defaultDisplayFormat(endItems, true)]
+        this.showTabLabel = [this.defaultDisplayFormat(items, true), this.defaultDisplayFormat(endItems, true)]
       }
       this.showValue = label
     },
@@ -335,7 +335,7 @@ export default {
       const boundary = pickerView.startSymbol ? pickerView.getPickerValue(end) : pickerView.getPickerValue(start)
       currentValue = pickerView.getPickerValue(currentValue)
 
-      const mapColumns = (columns, type) => {
+      const mapColumns = (columns) => {
         // 此时index是最外层知道当前的索引即可得到当前是哪个时间段
         return columns.map((column, cIndex) => {
           return column.values.map((value, index) => {
@@ -350,7 +350,7 @@ export default {
         })
       }
 
-      return mapColumns(originColumns, pickerView.startSymbol)
+      return mapColumns(originColumns)
     }
   },
 
