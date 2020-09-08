@@ -1,0 +1,7 @@
+img[lazy="error"] {
+  object-fit: contain;
+  background: #f7f7f7;
+}
+img[lazy="loading"] {
+  object-fit: cover;
+}
