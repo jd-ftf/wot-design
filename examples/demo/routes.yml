@@ -11,6 +11,8 @@
       title: Img 图片
     - name: popup
       title: Popup 弹出层
+    - name: upload
+      title: Upload 上传
 - title: 导航组件
   icon: //img10.360buyimg.com/jmadvertisement/jfs/t1/57401/2/14433/579/5db52423Eb624b53d/5fdc9b3664a130c5.png
   children:

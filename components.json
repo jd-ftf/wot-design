@@ -59,5 +59,6 @@
   "anchor": "./packages/anchor/index.js",
   "tag": "./packages/tag/index.js",
   "toast": "./packages/toast/index.js",
-  "tooltip": "./packages/tooltip/index.js"
+  "tooltip": "./packages/tooltip/index.js",
+  "upload": "./packages/upload/index.js"
 }

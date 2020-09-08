@@ -62,6 +62,7 @@ import Anchor from '../packages/anchor'
 import Tag from '../packages/tag'
 import Toast from '../packages/toast'
 import Tooltip from '../packages/tooltip'
+import Upload from '../packages/upload'
 import locale from './locale'
 
 const components = [
@@ -123,6 +124,7 @@ const components = [
   Anchor,
   Tag,
   Tooltip,
+  Upload,
   MessageBox.wdMessageBox
 ]
 
@@ -209,5 +211,6 @@ export default {
   Anchor,
   Tag,
   Toast,
-  Tooltip
+  Tooltip,
+  Upload
 }
