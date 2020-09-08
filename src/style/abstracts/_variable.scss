@@ -281,6 +281,12 @@ $-collapse-disabled-color: rgba($-color-black, 0.15) !default; // 禁用颜色
 $-collapse-retract-fs: 14px !default; // 更多 字号
 $-collapse-more-color: $-color-theme !default; // 更多 颜色
 
+/* divider */
+$-divider-padding: 0 $-size-side-padding !default; // 两边间距
+$-divider-color: rgba($-color-black, 0.45) !default; // 字体颜色
+$-divider-line-color: rgba($-color-black, 0.15) !default; // 线条颜色
+$-divider-fs: 14px !default; // 字体大小
+
 /* drop-menu */
 $-drop-menu-height: 34px; // 展示选中项的高度
 $-drop-menu-color: $-color-title !default; // 展示选中项的颜色
