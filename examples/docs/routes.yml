@@ -127,6 +127,8 @@
               title: Card 卡片
             - name: collapse
               title: Collapse 折叠面板
+            - name: divider
+              title: Divider 分割线
             - name: lazyload
               title: Lazyload 图片懒加载
             - name: noticeBar

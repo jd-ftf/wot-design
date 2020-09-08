@@ -15,6 +15,7 @@ import ColPicker from '../packages/col-picker'
 import Card from '../packages/card'
 import DatetimePicker from '../packages/datetime-picker'
 import DatetimePickerView from '../packages/datetime-picker-view'
+import Divider from '../packages/divider'
 import DropMenu from '../packages/drop-menu'
 import DropMenuItem from '../packages/drop-menu-item'
 import Grid from '../packages/grid'
@@ -78,6 +79,7 @@ const components = [
   Card,
   DatetimePicker,
   DatetimePickerView,
+  Divider,
   DropMenu,
   DropMenuItem,
   Grid,
@@ -161,6 +163,7 @@ export default {
   Card,
   DatetimePicker,
   DatetimePickerView,
+  Divider,
   DropMenu,
   DropMenuItem,
   Grid,

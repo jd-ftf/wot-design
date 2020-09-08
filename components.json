@@ -13,6 +13,7 @@
   "card": "./packages/card/index.js",
   "datetime-picker": "./packages/datetime-picker/index.js",
   "datetime-picker-view": "./packages/datetime-picker-view/index.js",
+  "divider": "./packages/divider/index.js",
   "drop-menu": "./packages/drop-menu/index.js",
   "drop-menu-item": "./packages/drop-menu-item/index.js",
   "grid": "./packages/grid/index.js",

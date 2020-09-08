@@ -1,0 +1,21 @@
+@import './abstracts/variable';
+@import './abstracts/mixin';
+
+@include b(divider) {
+  position: relative;
+  display: flex;
+  padding: $-divider-padding;
+  align-items: center;
+  color: $-divider-color;
+  font-size: $-divider-fs;
+
+  @include e(line) {
+    display: block;
+    flex: 1;
+    height: 1px;
+    background: $-divider-line-color;
+  }
+  @include e(content) {
+    padding: 0 12px;
+  }
+}
