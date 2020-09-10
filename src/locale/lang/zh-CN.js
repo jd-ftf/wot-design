@@ -9,9 +9,10 @@ export default {
       placeholder: '请选择'
     },
     infiniteLoad: {
-      loading: '加载中...',
-      finished: '没有更多了',
-      error: '加载失败，点击重试'
+      loading: '正在努力加载中...',
+      finished: '已加载完毕',
+      error: '加载失败',
+      retry: '点击重试'
     },
     messageBox: {
       inputPlaceholder: '请输入',
