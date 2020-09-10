@@ -15,6 +15,8 @@
 <script>
 import Dog from '../assets/img/dog.png'
 
+let errored = false
+
 export default {
   data () {
     return {
@@ -29,19 +31,24 @@ export default {
       this.loading = true
 
       if (this.time) {
-        setTimeout(() => {
-          let list = []
-          this.num += 15
-          for (let i = this.num - 15; i < this.num; i++) {
-            list.push({
-              img: Dog,
-              text: `这是一条测试${i + 1}`
-            })
-          }
-          this.list = this.list.concat(list)
-          this.loading = false
-          this.time--
-        }, 1000)
+        if (this.time === 1 && !errored) {
+          this.$refs.loadmore.loadError()
+          errored = true
+        } else {
+          setTimeout(() => {
+            let list = []
+            this.num += 15
+            for (let i = this.num - 15; i < this.num; i++) {
+              list.push({
+                img: Dog,
+                text: `这是一条测试${i + 1}`
+              })
+            }
+            this.list = this.list.concat(list)
+            this.loading = false
+            this.time--
+          }, 1000)
+        }
       } else {
         this.$refs.loadmore.loadEnd()
       }
