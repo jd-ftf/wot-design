@@ -299,10 +299,10 @@ $-drop-menu-item-fs: $-fs-secondary !default; // 选项字号
 $-drop-menu-item-modal-bg: $-modal-bg !default; // 蒙层颜色
 
 /* infinite-load */
-$-infinite-load-height: 50px !default; // 高度
-$-infinite-load-color: $-color-secondary !default; // 颜色
-$-infinite-load-loading-size: 20px !default; // loading 大小
-$-infinite-load-fs: 10px !default; // 字号
+$-infinite-load-height: 48px !default; // 高度
+$-infinite-load-color: rgba($-color-black, 0.45) !default; // 颜色
+$-infinite-load-fs: 14px !default; // 字号
+$-infinite-load-error-color: $-color-theme !default; // 点击重试颜色
 
 /* input-number */
 $-input-number-color: rgba($-color-black, 0.85) !default; // 文字颜色

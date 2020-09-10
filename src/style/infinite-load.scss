@@ -1,6 +1,8 @@
 @import './abstracts/variable';
 @import './abstracts/mixin';
 @import './icon.scss';
+@import './divider.scss';
+@import './loading.scss';
 
 @include b(infinite-load) {
   width: 100%;
@@ -9,16 +11,24 @@
   text-align: center;
   color: $-infinite-load-color;
 
-  @include e(indicator) {
+  @include e(loading) {
     display: inline-block;
-    width: $-infinite-load-loading-size;
-    height: $-infinite-load-loading-size;
-    line-height: 1.1;
-    margin-right: 4px;
-    vertical-align: middle;
+    margin-right: 8px;
+    vertical-align:  middle;
   }
   @include e(text) {
     display: inline-block;
     font-size: $-infinite-load-fs;
+    vertical-align: middle;
+
+    @include when(light) {
+      margin: 0 6px;
+      color: $-infinite-load-error-color;
+    }
+  }
+  @include e(refresh) {
+    display: inline-block;
+    color: $-infinite-load-error-color;
+    vertical-align: middle;
   }
 }

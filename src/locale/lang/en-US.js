@@ -11,7 +11,8 @@ export default {
     infiniteLoad: {
       loading: 'loading...',
       finished: 'no more',
-      error: 'Failed to load, click to try again'
+      error: 'Failed to load',
+      retry: 'click to try again'
     },
     messageBox: {
       inputPlaceholder: 'please enter',
