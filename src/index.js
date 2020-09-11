@@ -25,6 +25,7 @@ import InfiniteLoad from '../packages/infinite-load'
 import Input from '../packages/input'
 import InputNumber from '../packages/input-number'
 import Img from '../packages/img'
+import ImgPreview from '../packages/img-preview'
 import Lazyload from '../packages/lazyload'
 import Loading from '../packages/loading'
 import MessageBox from '../packages/message-box'
@@ -125,7 +126,8 @@ const components = [
   Tag,
   Tooltip,
   Upload,
-  MessageBox.wdMessageBox
+  MessageBox.wdMessageBox,
+  ImgPreview.wdImgPreview
 ]
 
 const install = (Vue, config = {}) => {
@@ -138,6 +140,7 @@ const install = (Vue, config = {}) => {
 
   Vue.prototype.$toast = Toast
   Vue.prototype.$messageBox = MessageBox.MessageBox
+  Vue.prototype.$preview = ImgPreview.ImgPreview
 
   Vue.use(Lazyload, config.lazyload)
 }
@@ -175,6 +178,7 @@ export default {
   Input,
   InputNumber,
   Img,
+  ImgPreview,
   Lazyload,
   Loading,
   MessageBox,

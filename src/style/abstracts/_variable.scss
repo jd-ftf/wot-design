@@ -834,6 +834,19 @@ $-anchor-nav-line-bg-color: resultColor(
 /* upload */
 $-upload-size: 80px !default; // upload的外边框默认尺寸
 $-upload-evoke-icon-size: 24px !default; // 唤起项的图标大小
-$-upload-evoke-bg: rgba($-color-black, 0.04) !default; // 唤起项的图标大小
-$-upload-evoke-color: rgba($-color-black, 0.25) !default; // 唤起项的图标大小
-$-upload-close-icon-size: 16px !default; // upload的外边框默认尺寸
+$-upload-evoke-bg: rgba($-color-black, 0.04) !default; // 唤起项的背景色
+$-upload-evoke-color: rgba($-color-black, 0.25) !default; // 唤起项的图标颜色
+$-upload-evoke-disabled-color: rgba($-color-black, 0.09) !default; // 唤起项禁用颜色
+$-upload-close-icon-size: 16px !default; // 移除按钮尺寸
+$-upload-close-icon-color: rgba($-color-black, 0.65) !default; // 移除按钮颜色
+$-upload-progress-fs: 14px !default; // 进度文字字号
+$-upload-preview-name-fs: 12px !default; // 预览图片名字号
+$-upload-preview-icon-size: 24px !default; // 预览内部图标尺寸
+$-upload-preview-name-bg: rgba($-color-black, 0.6) !default; // 预览文件名背景色
+$-upload-preview-name-height: 22px !default; // 预览文件名背景高度
+
+/* imgPreview */
+$-img-preview-bg: #252525 !default; // 图片预览背景色
+$-img-preview-color: $-color-white !default; // 图片预览文字颜色
+$-img-preview-fs: 16px !default; // 图片预览分页字号
+$-img-preview-z-index: 2000 !default; // 图片预览默认层级

@@ -1,0 +1,61 @@
+@import "./abstracts/variable";
+@import "./abstracts/mixin";
+
+@include b(img-preview) {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: $-img-preview-bg;
+  z-index: $-img-preview-z-index;
+  transition: opacity 0.3s ease;
+
+  .wd-swipe {
+    width: 100%;
+    height: 100%;
+  }
+  .wd-swipe-item {
+    height: 100%;
+  }
+
+  @include e(wrapper) {
+    height: 100%;
+    width: 100%;
+    position: relative;
+  }
+
+  @include e(item) {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    line-height: 100vh;
+    z-index: $-img-preview-z-index;
+  }
+
+  @include e(page) {
+    position: absolute;
+    top: 20px;
+    font-size: $-img-preview-fs;
+    color: $-img-preview-color;
+    text-align: center;
+    width: 100%;
+  }
+
+  @include e(picture) {
+    width: 100%;
+    vertical-align: middle;
+    z-index: $-img-preview-z-index + 2;
+    pointer-events: none;
+    object-fit: contain;
+  }
+
+  @include e(modal) {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: $-img-preview-z-index + 1;
+  }
+}

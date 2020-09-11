@@ -45,8 +45,12 @@
               title: Icon 图标
             - name: img
               title: Img 图片
+            - name: imgPreview
+              title: ImgPreview 图片预览
             - name: popup
               title: Popup 弹出层
+            - name: upload
+              title: Upload 上传
         - type: group
           title: 导航
           children:

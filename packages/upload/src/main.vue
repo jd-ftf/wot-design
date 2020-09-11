@@ -62,7 +62,43 @@ export default {
     multiple: Boolean,
     reverse: Boolean,
     limit: Number,
+    // 是否展示限制个数
+    showLimitMum: {
+      type: Boolean,
+      default: true
+    },
     disabled: Boolean,
+    // 开启图片预览
+    showImgPreview: {
+      type: Boolean,
+      default: true
+    },
+    // 双指缩放最小倍数
+    minZoom: {
+      type: Number,
+      default: 1 / 3
+    },
+    // 双指缩放最大倍数
+    maxZoom: {
+      type: Number,
+      default: 3
+    },
+    // 轮播持续时间
+    swipeDuration: {
+      type: Number,
+      default: 500
+    },
+    // 是否展示页码索引
+    showIndex: {
+      type: Boolean,
+      default: true
+    },
+    // 图片预览 长按事件钩子
+    onLongTap: Function,
+    // 图片预览 关闭预览列表钩子
+    onClose: Function,
+    // 图片预览 打开预览列表钩子
+    onOpen: Function,
     // 文件上传之前
     beforeUpload: Function,
     // 文件移除前的钩子
@@ -238,8 +274,25 @@ export default {
       this.onRemove(file)
     },
 
-    handlePreview (file) {
+    handlePreview (imgList, file, index) {
       // 调用图片预览组件
+      this.$preview({
+        imgList,
+        minZoom: this.minZoom,
+        maxZoom: this.maxZoom,
+        showIndex: this.showIndex,
+        swipeDuration: this.swipeDuration,
+        swipeInitialIndex: index,
+        onClose: () => {
+          this.onClose && this.onClose()
+        },
+        onOpen: () => {
+          this.onOpen && this.onOpen()
+        },
+        onLongTap: () => {
+          this.onLongTap && this.onLongTap()
+        }
+      })
     },
 
     removeFile (file) {
@@ -252,13 +305,13 @@ export default {
       }
     },
 
-    preview (file) {
+    preview (imgList, file, index) {
       if (this.beforePreview) {
         this.beforePreview(file, isPass => {
-          isPass && this.handlePreview(file)
+          isPass && this.handlePreview(imgList, file, index)
         })
       } else {
-        this.handlePreview(file)
+        this.handlePreview(imgList, file, index)
       }
     }
   },
@@ -266,6 +319,7 @@ export default {
   render (h) {
     const {
       limit,
+      showLimitMum,
       reverse,
       uploadFiles,
       disabled,
@@ -288,7 +342,7 @@ export default {
         onChange={this.handleChange} />
     )
     // 限制数量时，展示上传文件个数
-    const envokeLimitNum = limit
+    const envokeLimitNum = limit && showLimitMum
       ? <div class="wd-upload__evoke-num">（{uploadFiles.length}/{limit}）</div>
       : ''
     // 唤起项div
@@ -313,9 +367,12 @@ export default {
         size={loadingSize}
         color={loadingColor}></wd-loading>
     )
-
+    let imgList = []
     // 图片预览的列表
     const previewList = uploadFiles.length !== 0 ? uploadFiles.map((file, index) => {
+      if (this.showImgPreview) {
+        imgList.push(file.url)
+      }
       // 加载中、失败状态下的样式
       const statusDiv = file.status === 'loading' ? (
         <div class="wd-upload__status-content">
@@ -334,7 +391,7 @@ export default {
         <div
           class="wd-upload__status-content"
           onClick={() => {
-            this.preview(file)
+            this.showImgPreview && this.preview(imgList, file, index)
           }}>
           <img src={file.url} class="wd-upload__picture" />
           {showName ? <div class="wd-upload__picture-name">{file.name || '图片名'}</div> : ''}

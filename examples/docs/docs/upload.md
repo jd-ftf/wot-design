@@ -292,7 +292,9 @@ export default {
 }
 </style>
 ```
+
 通过 max-size 属性可以限制上传文件的大小，超过大小的文件会被自动过滤，这些文件信息可以通过 oversize 事件获取
+
 ### Attributes
 
 | 参数      | 说明          | 类型      | 可选值                           | 默认值  |
@@ -308,6 +310,7 @@ export default {
 | reverse | 反转预览列表和唤起项位置，默认唤起项在图片列表后 | boolean | — | false |
 | show-name | 是否展示文件名 | boolean | — | false |
 | limit | 最大允许上传个数 |  number | — | — |
+| show-limit-num | 限制上传个数的情况下，是否展示当前上传的个数 | boolean | — | false |
 | max-size | 文件大小限制，单位为`byte` |  number | — | — |
 | on-remove | 文件列表移除文件时的钩子 | function(file, fileList) | — | — |
 | on-success | 文件上传成功时的钩子 | function(response, file, fileList) | — | — |
@@ -317,9 +320,17 @@ export default {
 | before-upload | 上传文件之前的钩子，参数为上传的文件，若返回 false 或者返回 Promise 且被 reject，则停止上传。 | function(file) | — | — |
 | before-remove | 删除文件之前的钩子，参数为上传的文件和文件列表，若返回 false 或者返回 Promise 且被 reject，则停止上传。| function(file, fileList) | — | — |
 | before-preview | 图片预览前的钩子，参数为上传的文件和文件列表，若返回 false 或者返回 Promise 且被 reject，则停止上传。| function(file, fileList) | — | — |
-| loading-type | [加载中图标类型](/#/component/loading) | string | — | 'circular-ring' |
-| loading-color | [加载中图标颜色](/#/component/loading) | string | — | '#ffffff' |
-| loading-size | [加载中图标尺寸](/#/component/loading) | string | — | '24px' |
+| loading-type | [加载中图标类型](/docs#/components/loading) | string | — | 'circular-ring' |
+| loading-color | [加载中图标颜色](/docs#/components/loading) | string | — | '#ffffff' |
+| loading-size | [加载中图标尺寸](/docs#/components/loading) | string | — | '24px' |
+| show-img-preview | 是否开启图片预览，上传组件中使用了[图片预览组件 JS 调用](/docs#/components/imgPreview)的方式 | boolean | — | false |
+| maxZoom | 开启图片预览，手势缩放时，最大缩放比例，详细使用说明查看[图片预览组件 JS 调用](/docs#/components/imgPreview) | Number | -  | 3 |
+| minZoom | 开启图片预览，手势缩放时，最小缩放比例，详细使用说明查看[图片预览组件 JS 调用](/docs#/components/imgPreview) | Number | -  | 1/3 |
+| showIndex | 开启图片预览，是否显示页码，详细使用说明查看[图片预览组件 JS 调用](/docs#/components/imgPreview) | Boolean | -  | true |
+| swipeDuration |开启图片预览， 动画时长，单位为`ms`，详细使用说明查看[图片预览组件 JS 调用](/docs#/components/imgPreview) | Number | -  | 500 |
+| onLongTap | 开启图片预览，长按事件钩子，详细使用说明查看[图片预览组件 JS 调用](/docs#/components/imgPreview) | Function | -  | - |
+| onClose | 开启图片预览，打开预览列表钩子，详细使用说明查看[图片预览组件 JS 调用](/docs#/components/imgPreview) | Function | -  | - |
+| onOpen | 开启图片预览，关闭预览列表钩子，详细使用说明查看[图片预览组件 JS 调用](/docs#/components/imgPreview) | Function | -  | - |
 
 ### file 数据结构
 
