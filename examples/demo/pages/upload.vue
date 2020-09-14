@@ -23,7 +23,7 @@
         :on-exceed="handleExceed"
       ></wd-upload>
     </demo-block>
-    <demo-block title="自定义预览">
+    <demo-block title="拦截预览图片操作">
       <wd-upload
         v-model="fileList5"
         action="https://jsonplaceholder.typicode.com/posts/"
@@ -41,17 +41,17 @@
       <wd-upload
         v-model="fileList7"
         action="https://jsonplaceholder.typicode.com/posts/"
-        :on-remove="handleRemove"
+        @remove="handleRemove"
         :before-remove="beforeRemove"
       ></wd-upload>
     </demo-block>
-    <demo-block title="上传各个状态钩子">
+    <demo-block title="上传各个状态">
       <wd-upload
         v-model="fileList8"
         action="https://jsonplaceholder.typicode.com/posts/"
-        :on-error="handleError"
-        :on-progress="handleProgress"
-        :on-success="handleSuccess"
+        @fail="handleError"
+        @progress="handleProgress"
+        @success="handleSuccess"
       ></wd-upload>
     </demo-block>
     <demo-block title="禁用">
@@ -62,7 +62,7 @@
         v-model="fileList10"
         action="https://jsonplaceholder.typicode.com/posts/"
         reverse
-        custom-envoke-class="test-class"
+        custom-evoke-class="test-class"
       >
         <wd-button>上传</wd-button>
       </wd-upload>
@@ -82,26 +82,26 @@ export default {
       fileList1: [],
       fileList2: [{
         name: '图片名称',
-        url: 'https://img12.360buyimg.com//n0/jfs/t1/29118/6/4823/55969/5c35c16bE7c262192/c9fdecec4b419355.jpg'
+        url: 'https://img12.360buyimg.com/ling/jfs/t1/113331/7/16867/48717/5f50b97eE1e7730a8/32880e735dd48ae3.jpg'
       }],
       fileList3: [{
         name: '图片名称',
-        url: 'https://img12.360buyimg.com//n0/jfs/t1/29118/6/4823/55969/5c35c16bE7c262192/c9fdecec4b419355.jpg'
+        url: 'https://img12.360buyimg.com/ling/jfs/t1/113331/7/16867/48717/5f50b97eE1e7730a8/32880e735dd48ae3.jpg'
       }, {
         name: '图片名称',
-        url: 'https://img13.360buyimg.com//n0/jfs/t1/116155/19/7759/93443/5ec76a1dE8cc1832d/6a66c4c2eb501df2.jpg'
+        url: 'https://img13.360buyimg.com/ling/jfs/t1/140106/11/5789/68021/5f3a3500E93dae718/3e1995c7eb2a0ef0.jpg'
       }],
       fileList4: [{
         name: '图片名称',
-        url: 'https://img13.360buyimg.com//n0/jfs/t1/116155/19/7759/93443/5ec76a1dE8cc1832d/6a66c4c2eb501df2.jpg'
+        url: 'https://img13.360buyimg.com/ling/jfs/t1/140106/11/5789/68021/5f3a3500E93dae718/3e1995c7eb2a0ef0.jpg'
       }],
       fileList5: [{
         name: '图片名称',
-        url: 'https://img12.360buyimg.com//n0/jfs/t1/29118/6/4823/55969/5c35c16bE7c262192/c9fdecec4b419355.jpg'
+        url: 'https://img12.360buyimg.com/ling/jfs/t1/113331/7/16867/48717/5f50b97eE1e7730a8/32880e735dd48ae3.jpg'
       }],
       fileList6: [{
         name: '图片名称',
-        url: 'https://img12.360buyimg.com//n0/jfs/t1/29118/6/4823/55969/5c35c16bE7c262192/c9fdecec4b419355.jpg'
+        url: 'https://img12.360buyimg.com/ling/jfs/t1/113331/7/16867/48717/5f50b97eE1e7730a8/32880e735dd48ae3.jpg'
       }],
       fileList7: [],
       fileList8: [],

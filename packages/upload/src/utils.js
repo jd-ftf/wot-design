@@ -5,32 +5,6 @@ export function isImageUrl (url) {
   return IMAGE_REGEXP.test(url)
 }
 
-/**
- * @description 设置区域选择 tab 标签展示值
- * @param {Number} index 索引标志位，有三个有效值; 0(默认):上方picker索引; 1:下方picker索引;
- * @return {String} showTabLabel
- */
-export function readFile (file, resultType) {
-  return new Promise(resolve => {
-    if (resultType === 'file') {
-      resolve()
-      return
-    }
-
-    const reader = new FileReader()
-
-    reader.onload = event => {
-      resolve(event.target.result)
-    }
-
-    if (resultType === 'dataUrl') {
-      reader.readAsDataURL(file)
-    } else if (resultType === 'text') {
-      reader.readAsText(file)
-    }
-  })
-}
-
 function getBody (xhr) {
   const text = xhr.responseText || xhr.response
   if (!text) {

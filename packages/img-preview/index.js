@@ -2,14 +2,14 @@ import Vue from 'vue'
 import wdImgPreview from './src/main.vue'
 
 const defaultConfig = {
-  imgList: [],
+  urls: [],
   minZoom: 1 / 3,
   maxZoom: 3,
   onLongTap: null,
   onClose: null,
   onOpen: null,
   showIndex: true,
-  swipeInitialIndex: 0,
+  current: 0,
   swipeDuration: 500
 }
 

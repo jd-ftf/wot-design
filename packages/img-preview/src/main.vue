@@ -9,26 +9,27 @@
           :autoplay="false"
           :stop-moving="stopSwipeMoving"
           :duration="duration"
-          :initial-index="swipeInitialIndex"
+          :initial-index="current"
           @touchstart.native="onWraperTouchStart"
           @touchmove.native="onWraperTouchMove"
           @touchend.native="onWraperTouchEnd"
           @touchcancel.native="onWraperTouchEnd"
         >
-          <wd-swipe-item v-for="(img, index) in imgList" :key="index">
+          <wd-swipe-item v-for="(url, index) in urls" :key="index">
             <!-- 页数展示 -->
             <slot name="index">
-              <div v-if="showIndex" class="wd-img-preview__page">{{index + 1}} / {{imgList.length}}</div>
+              <div v-if="showIndex" class="wd-img-preview__page">{{index + 1}} / {{urls.length}}</div>
             </slot>
             <!-- 单项图片 -->
             <div
+              ref="img"
               @touchstart="onImageTouchStart(index)"
               @touchmove="onImageTouchMove"
               @touchend="onImageTouchEnd"
               class="wd-img-preview__item"
               :style="index === currentIndex ? imageStyle : null"
             >
-              <img :src="img" class="wd-img-preview__picture" />
+              <img :src="url" class="wd-img-preview__picture" />
             </div>
           </wd-swipe-item>
         </wd-swipe>
@@ -42,14 +43,8 @@ import touchMixin from 'wot-design/src/mixins/touch'
 import { range } from 'wot-design/src/utils/index'
 
 const SINGLE_CLIK_TIME = 300
-const DOUBLE_CLIK_INTERVAL_TIME = 200
+const DOUBLE_CLIK_INTERVAL_TIME = 300
 const LONG_TAP_TIME = 600
-function getDistance (touches) {
-  return Math.sqrt(
-    (touches[0].clientX - touches[1].clientX) ** 2 +
-    (touches[0].clientY - touches[1].clientY) ** 2
-  )
-}
 
 export default {
   name: 'WdImgPreview',
@@ -85,7 +80,7 @@ export default {
 
   props: {
     value: Boolean,
-    imgList: {
+    urls: {
       type: Array,
       default () {
         return []
@@ -108,7 +103,7 @@ export default {
       default: 3
     },
     // 初始展示索引
-    swipeInitialIndex: {
+    current: {
       type: Number,
       default: 0
     },
@@ -170,6 +165,7 @@ export default {
       this.$emit('close', {
         index: this.currentIndex
       })
+      clearTimeout(this.timer)
     },
 
     /**
@@ -177,15 +173,13 @@ export default {
      */
     open () {
       this.reset()
-
-      if (this.swipeInitialIndex !== 0) {
+      if (this.current !== 0) {
         // 初始化时将轮播滑动时间置为0，禁用跳转index动画
         this.duration = 0
-        this.initSwipeTimer = setTimeout(() => {
-          this.duration = this.swipeDuration
-        }, 30)
-        clearTimeout(this.initSwipeTimer)
       }
+      this.timer = setTimeout(() => {
+        this.duration = this.swipeDuration
+      }, 30)
 
       this.$emit('open')
     },
@@ -208,6 +202,18 @@ export default {
       this.scale = scale
       this.moveX = 0
       this.moveY = 0
+    },
+
+    /**
+     * @description 计算两个触点间的斜向局里
+     * @param {Array} touches 两个触点
+     * @return {Number} distance
+     */
+    getDistance (touches) {
+      return Math.sqrt(
+        (touches[0].clientX - touches[1].clientX) ** 2 +
+        (touches[0].clientY - touches[1].clientY) ** 2
+      )
     },
 
     /**
@@ -250,31 +256,39 @@ export default {
       // 从当前尺寸开始变化
       this.startScale = this.scale
       // 获取尺寸变化的倍数
-      this.startDistance = getDistance(event.touches)
+      this.startDistance = this.getDistance(event.touches)
     },
 
     /**
-     * @description 图片拖动位置初始化
+     * @description 图片拖动位置初始化，图片上处理两类事件
+     * 1. 放大后 拖动图片位置
+     * 2. 双指缩放处理
      * @param {Number} index 当前触摸的图片索引
      */
     onImageTouchStart (index) {
       this.moving = false
+      // this.zooming = false
+      if (this.current !== 0) {
+        // 初始化时将轮播滑动时间置为0，禁用跳转index动画，此时放开
+        this.duration = this.swipeDuration
+      }
       this.currentIndex = index
-      const { offsetX = 0 } = this.$refs.swipe || {}
       const { touches } = event
 
-      // 只有一个触点 在放大的情况下，移动图片，禁止图片轮播切换
-      if (touches.length === 1 && this.scale > 1) {
-        this.stopSwipeMoving = true
-        this.startMove()
-      } else if (touches.length === 2 && !offsetX) {
-        // 两个触点，双指缩放开启
-        this.stopSwipeMoving = true
-        this.startZoom()
-      } else if (touches.length === 1 && this.scale === 1) {
+      // 图片未缩放，只有一个触点，表示当前是轮播滑动
+      if (touches.length === 1 && this.scale === 1) {
         this.stopSwipeMoving = false
+      } else {
+        this.stopSwipeMoving = true
+        // 只有一个触点 在放大的情况下，移动图片，禁止图片轮播切换
+        if (touches.length === 1 && this.scale > 1) {
+          this.startMove()
+        }
+        // // 两个触点，双指缩放开启
+        // if (touches.length === 2) {
+        //   this.startZoom()
+        // }
       }
-      event.preventDefault()
     },
 
     /**
@@ -282,17 +296,24 @@ export default {
      */
     onImageTouchMove () {
       const { touches } = event
+      /**
+       * TODO 暂时关闭待优化双指缩放 双指缩放图片
+       * 1. 获取当前两个触点之间的斜向距离
+       * 2. 根据当前斜向距离与初始斜向距离的比例 与 当前缩放尺寸计算
+       */
+      // if (this.zooming && touches.length === 2) {
+      //   this.moving = false
+      //   if (this.moving) {
+      //     this.moving = false
+      //   }
+      //   const distance = this.getDistance(touches)
+      //   const scale = (this.startScale * distance) / this.startDistance
+      //   this.scale = range(scale, this.minZoom, this.maxZoom)
+      // }
 
       if (touches.length === 1 && this.scale !== 1) {
         this.setMoving()
       }
-
-      if (this.zooming && touches.length === 2) {
-        const distance = getDistance(touches)
-        const scale = (this.startScale * distance) / this.startDistance
-        this.scale = range(scale, this.minZoom, this.maxZoom)
-      }
-      event.preventDefault()
     },
 
     /**
@@ -316,27 +337,13 @@ export default {
       if (this.scale < 1) {
         this.reset()
       }
-
-      // 当移动中或缩放时
-      if (this.moving || this.zooming) {
-        if (!event.touches.length) {
-          this.moving = false
-          this.zooming = false
-          this.startMoveX = 0
-          this.startMoveY = 0
-          this.startScale = 1
-
-          if (this.scale < 1) {
-            this.reset()
-          }
-        }
-
-        event.preventDefault()
-      }
     },
 
     /**
      * @description 外层touch事件，由于 click 事件 与 touch 事件存在冲突，因此用touch事件模拟点击事件、双击事件、长按事件
+     * 在外层处理
+     * 1. 单击关闭
+     * 2. 双击放大，缩小
      */
     onWraperTouchStart () {
       // 记录初始时间，比对
@@ -397,7 +404,7 @@ export default {
               // 处理单击事件
               if (this.clickTimes === 1) {
                 this.clickTimes = 0
-                this.handleClick()
+                this.show && this.close()
               }
               this.doubleClickTimer = null
             }, DOUBLE_CLIK_INTERVAL_TIME)
@@ -414,20 +421,24 @@ export default {
     },
 
     /**
-     * @description 单击事件，关闭窗口
-     */
-    handleClick () {
-      if (this.show) {
-        this.close()
-      }
-    },
-
-    /**
      * @description 外层touch移动
      */
     handleDbClick () {
       this.toggleScale()
+    },
+
+    onPopstate () {
+      this.show && this.close()
     }
+  },
+
+  created () {
+    window.addEventListener('popstate', this.onPopstate)
+  },
+
+  beforeDestroy () {
+    // 移除监听
+    window.removeEventListener('popstate', this.onPopstate)
   }
 }
 </script>

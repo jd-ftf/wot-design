@@ -23,16 +23,16 @@ Vue.use(ImagePreview)
 export default {
   data () {
     return {
-      imgList: [
-        'https://img12.360buyimg.com//n0/jfs/t1/29118/6/4823/55969/5c35c16bE7c262192/c9fdecec4b419355.jpg',
-        'https://img.yzcdn.cn/vant/apple-4.jpg'
+      urls: [
+        'https://img11.360buyimg.com/ling/jfs/t1/113690/16/12975/651172/5f17a317E282b9f76/30bc80373c4e91fb.png',
+        'https://img14.360buyimg.com/ling/jfs/t1/113879/15/16995/77352/5f50abd5E9fb3880f/89cb46fbce8b88d5.jpg'
       ]
     }
   },
   methods: {
     toggle () {
       this.$preview({
-        imgList: this.imgList
+        urls: this.urls
       })
     }
   }
@@ -50,18 +50,18 @@ export default {
 export default {
   data () {
     return {
-      imgList: [
-        'https://img12.360buyimg.com//n0/jfs/t1/29118/6/4823/55969/5c35c16bE7c262192/c9fdecec4b419355.jpg',
-        'https://img.yzcdn.cn/vant/apple-4.jpg'
+      urls: [
+        'https://img11.360buyimg.com/ling/jfs/t1/113690/16/12975/651172/5f17a317E282b9f76/30bc80373c4e91fb.png',
+        'https://img14.360buyimg.com/ling/jfs/t1/113879/15/16995/77352/5f50abd5E9fb3880f/89cb46fbce8b88d5.jpg'
       ]
     }
   },
   methods: {
     toggle () {
       this.$preview({
-        imgList: this.imgList,
+        urls: this.urls,
         showIndex: false,
-        swipeInitialIndex: 4,
+        current: 4,
         onClose: () => {
           console.log('调用方法，关闭预览')
         },
@@ -86,7 +86,7 @@ export default {
 <wd-button @click="openImgPreview">调用</wd-button>
   <wd-img-preview
     v-model="show"
-    :img-list="imgList"
+    :urls="urls"
     @open="open"
     @close="close"
     :on-long-tap="handleLongtap"
@@ -98,9 +98,9 @@ export default {
   data() {
     return {
       show: false,
-      imgList: [
-        'https://img12.360buyimg.com//n0/jfs/t1/29118/6/4823/55969/5c35c16bE7c262192/c9fdecec4b419355.jpg',
-        'https://img.yzcdn.cn/vant/apple-4.jpg'
+      urls: [
+        'https://img11.360buyimg.com/ling/jfs/t1/113690/16/12975/651172/5f17a317E282b9f76/30bc80373c4e91fb.png',
+        'https://img14.360buyimg.com/ling/jfs/t1/113879/15/16995/77352/5f50abd5E9fb3880f/89cb46fbce8b88d5.jpg'
       ]
     };
   },
@@ -130,11 +130,11 @@ export default {
 
 | 参数      | 说明                                 | 类型      | 可选值       | 默认值   |
 |---------- |------------------------------------ |---------- |------------- |-------- |
-| imgList | 需要预览的图片 URL 数组 | Array | -  | [] |
+| urls | 需要预览的图片 URL 数组 | Array | -  | [] |
 | maxZoom | 手势缩放时，最大缩放比例 | Number | -  | 3 |
 | minZoom | 手势缩放时，最小缩放比例 | Number | -  | 1/3 |
 | showIndex | 是否显示页码 | Boolean | -  | true |
-| swipeInitialIndex | 图片预览起始位置索引 | Number | -  | 0 |
+| current | 图片预览起始位置索引 | Number | -  | 0 |
 | swipeDuration | 动画时长，单位为`ms` | Number | -  | 500 |
 | onLongTap | 长按事件钩子 | Function | -  | - |
 | onClose | 打开预览列表钩子 | Function | -  | - |
@@ -149,11 +149,11 @@ export default {
 | 参数 | 说明 | 类型      | 可选值       | 默认值   |
 |---------- |------------------------------------ |---------- |------------- |-------- |
 | v-model | 是否打开图片预览组件 | Boolean    | -   | false  |
-| img-list | 需要预览的图片 URL 数组 | Array | -  | [] |
+| urls | 需要预览的图片 URL 数组 | Array | -  | [] |
 | max-zoom | 手势缩放时，最大缩放比例 | Number | -  | 3 |
 | min-zoom | 手势缩放时，最小缩放比例 | Number | -  | 1/3 |
 | show-index | 是否显示页码 | Boolean | -  | true |
-| swipe-initial-index | 图片预览起始位置索引 | Number | -  | 0 |
+| current | 图片预览起始位置索引 | Number | -  | 0 |
 | swipe-duration | 动画时长，单位为`ms` | Number | -  | 500 |
 | on-long-tap | 长按事件钩子 | Function | -  | - |
 

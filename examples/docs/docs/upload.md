@@ -100,7 +100,7 @@ export default {
 
 ### 自定义预览
 
-设置 `before-preview` 函数，在用户点击图片进行预览时，会执行 `before-remopreviewve` 函数，并传入 `file` 和 `resolve` 参数，可以对 `file` 进行处理，并通过 `resolve` 函数告知组件是否确定通过，`resolve` 接受1个 boolean 值，`resolve(true)` 表示选项通过，`resolve(false)` 表示选项不通过，不通过时不会执行预览图片操作。
+设置 `before-preview` 函数，在用户点击图片进行预览时，会执行 `before-preview` 函数，并传入 `file` 和 `resolve` 参数，可以对 `file` 进行处理，并通过 `resolve` 函数告知组件是否确定通过，`resolve` 接受1个 boolean 值，`resolve(true)` 表示选项通过，`resolve(false)` 表示选项不通过，不通过时不会执行预览图片操作。
 
 ```html
 <wd-upload
@@ -182,7 +182,7 @@ export default {
 <wd-upload
   v-model="fileList"
   action="https://jsonplaceholder.typicode.com/posts/"
-  :on-remove="handleRemove"
+  @remove="handleRemove"
   :before-remove="beforeRemove">
 </wd-upload>
 
@@ -212,21 +212,21 @@ export default {
 </script>
 ```
 
-### 上传各个状态钩子
+### 上传各个状态
 
-传入 `on-error` 属性，在上传失败时触发，类型为 `Function`，接收参数 error: object；file: object；fileList: Array；
+事件 `fail`，在上传失败时触发，类型为 `Function`，接收参数 error: object；file: object；fileList: Array；
 
-传入 `on-progress` 属性，在上传时触发，类型为 `Function`，接收参数 event: object；file: object；
+事件 `progress`，在上传时触发，类型为 `Function`，接收参数 event: object；file: object；
 
-传入 `on-success` 属性，在上传成功时触发，类型为 `Function`，接收参数 response: object；file: object；fileList: Array；
+事件 `success`，在上传成功时触发，类型为 `Function`，接收参数 response: object；file: object；fileList: Array；
 
 ```html
 <wd-upload
   v-model="fileList"
   action="https://jsonplaceholder.typicode.com/posts/"
-  :on-error="handleError"
-  :on-progress="handleProgress"
-  :on-success="handleSuccess">
+  @fail="handleError"
+  @progress="handleProgress"
+  @success="handleSuccess">
 </wd-upload>
 
 <script>
@@ -259,7 +259,7 @@ export default {
 
 使用默认插槽可以修改唤起上传的样式。
 
-在自定义唤起项时，可以使用 `custom-envoke-class` 属性添加自定义class。
+在自定义唤起项时，可以使用 `custom-evoke-class` 属性添加自定义class。
 
 上传组件默认图片列表在唤起项前，可通过设置 `reverse` 属性将位置颠倒。
 
@@ -268,7 +268,7 @@ export default {
   v-model="fileList"
   action="https://jsonplaceholder.typicode.com/posts/"
   reverse
-  custom-envoke-class="test-class">
+  custom-evoke-class="test-class">
   <wd-button>上传</wd-button>
 </wd-upload>
 
@@ -300,22 +300,18 @@ export default {
 | 参数      | 说明          | 类型      | 可选值                           | 默认值  |
 |---------- |-------------- |---------- |--------------------------------  |-------- |
 | file-list | 上传的文件列表, 例如: [{name: 'food.jpg', url: 'https://xxx.cdn.com/xxx.jpg'}] | array | — | [] |
-| action | 必选参数，上传的地址 | string | — | 'image/*' |
+| action | 必选参数，上传的地址 | string | — | - |
 | headers | 设置上传的请求头部 | object | — | — |
 | multiple | 是否支持多选文件 | boolean | — | — |
 | with-credentials | 支持发送 cookie 凭证信息 | boolean | — | false |
-| accept | 接受上传的[文件类型](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-accept)（thumbnail-mode 模式下此参数无效）| string | — | — |
+| accept | 接受上传的[文件类型](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-accept)（thumbnail-mode 模式下此参数无效）| string | — | 'image/*' |
 | disabled | 是否禁用 | boolean | — | false |
-| custom-envoke-class | 自定义唤起项class | string | — | - |
+| custom-evoke-class | 自定义唤起项class | string | — | - |
 | reverse | 反转预览列表和唤起项位置，默认唤起项在图片列表后 | boolean | — | false |
 | show-name | 是否展示文件名 | boolean | — | false |
 | limit | 最大允许上传个数 |  number | — | — |
 | show-limit-num | 限制上传个数的情况下，是否展示当前上传的个数 | boolean | — | false |
 | max-size | 文件大小限制，单位为`byte` |  number | — | — |
-| on-remove | 文件列表移除文件时的钩子 | function(file, fileList) | — | — |
-| on-success | 文件上传成功时的钩子 | function(response, file, fileList) | — | — |
-| on-error | 文件上传失败时的钩子 | function(err, file, fileList) | — | — |
-| on-progress | 文件上传时的钩子 | function(event, file, fileList) | — | — |
 | on-exceed | 文件超出个数限制时的钩子 | function(files, fileList) | — | - |
 | before-upload | 上传文件之前的钩子，参数为上传的文件，若返回 false 或者返回 Promise 且被 reject，则停止上传。 | function(file) | — | — |
 | before-remove | 删除文件之前的钩子，参数为上传的文件和文件列表，若返回 false 或者返回 Promise 且被 reject，则停止上传。| function(file, fileList) | — | — |
@@ -324,13 +320,13 @@ export default {
 | loading-color | [加载中图标颜色](/docs#/components/loading) | string | — | '#ffffff' |
 | loading-size | [加载中图标尺寸](/docs#/components/loading) | string | — | '24px' |
 | show-img-preview | 是否开启图片预览，上传组件中使用了[图片预览组件 JS 调用](/docs#/components/imgPreview)的方式 | boolean | — | false |
-| maxZoom | 开启图片预览，手势缩放时，最大缩放比例，详细使用说明查看[图片预览组件 JS 调用](/docs#/components/imgPreview) | Number | -  | 3 |
-| minZoom | 开启图片预览，手势缩放时，最小缩放比例，详细使用说明查看[图片预览组件 JS 调用](/docs#/components/imgPreview) | Number | -  | 1/3 |
-| showIndex | 开启图片预览，是否显示页码，详细使用说明查看[图片预览组件 JS 调用](/docs#/components/imgPreview) | Boolean | -  | true |
-| swipeDuration |开启图片预览， 动画时长，单位为`ms`，详细使用说明查看[图片预览组件 JS 调用](/docs#/components/imgPreview) | Number | -  | 500 |
-| onLongTap | 开启图片预览，长按事件钩子，详细使用说明查看[图片预览组件 JS 调用](/docs#/components/imgPreview) | Function | -  | - |
-| onClose | 开启图片预览，打开预览列表钩子，详细使用说明查看[图片预览组件 JS 调用](/docs#/components/imgPreview) | Function | -  | - |
-| onOpen | 开启图片预览，关闭预览列表钩子，详细使用说明查看[图片预览组件 JS 调用](/docs#/components/imgPreview) | Function | -  | - |
+| max-zoom | 开启图片预览，手势缩放时，最大缩放比例，详细使用说明查看[图片预览组件 JS 调用](/docs#/components/imgPreview) | Number | -  | 3 |
+| min-zoom | 开启图片预览，手势缩放时，最小缩放比例，详细使用说明查看[图片预览组件 JS 调用](/docs#/components/imgPreview) | Number | -  | 1/3 |
+| show-index | 开启图片预览，是否显示页码，详细使用说明查看[图片预览组件 JS 调用](/docs#/components/imgPreview) | Boolean | -  | true |
+| swipe-duration |开启图片预览， 动画时长，单位为`ms`，详细使用说明查看[图片预览组件 JS 调用](/docs#/components/imgPreview) | Number | -  | 500 |
+| on-long-tap | 开启图片预览，长按事件钩子，详细使用说明查看[图片预览组件 JS 调用](/docs#/components/imgPreview) | Function | -  | - |
+| on-close | 开启图片预览，打开预览列表钩子，详细使用说明查看[图片预览组件 JS 调用](/docs#/components/imgPreview) | Function | -  | - |
+| on-open | 开启图片预览，关闭预览列表钩子，详细使用说明查看[图片预览组件 JS 调用](/docs#/components/imgPreview) | Function | -  | - |
 
 ### file 数据结构
 
@@ -356,3 +352,7 @@ export default {
 | 事件名 | 说明 | 回调参数 |
 |------|------|------|
 | oversize | 文件大小超过限制时触发 | file: 尺寸超出的文件信息 |
+| remove | 文件列表移除文件时触发 | file: 尺寸超出的文件信息，fileList: 文件列表 |
+| success | 文件上传成功时触发 | response: 响应信息，file: 尺寸超出的文件信息，fileList: 文件列表 |
+| fail | 文件上传失败时触发 | err: 错误信息，file: 尺寸超出的文件信息，fileList: 文件列表 |
+| progress | 文件上传时触发 | event: 上传中事件信息，file: 尺寸超出的文件信息，fileList: 文件列表 |

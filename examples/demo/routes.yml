@@ -7,14 +7,8 @@
       title: Button 按钮
     - name: icon
       title: Icon 图标
-    - name: img
-      title: Img 图片
-    - name: imgPreview
-      title: ImgPreview 图片预览
     - name: popup
       title: Popup 弹出层
-    - name: upload
-      title: Upload 上传
 - title: 导航组件
   icon: //img10.360buyimg.com/jmadvertisement/jfs/t1/57401/2/14433/579/5db52423Eb624b53d/5fdc9b3664a130c5.png
   children:
@@ -67,6 +61,8 @@
       title: Slider 滑块
     - name: switch
       title: Switch 开关
+    - name: upload
+      title: Upload 上传
 - title: 交互组件
   icon: //img10.360buyimg.com/jmadvertisement/jfs/t1/61394/26/14003/924/5db5213aEebdbae4b/13a175a474dcf220.png
   children:
@@ -97,6 +93,10 @@
       title: Collapse 折叠面板
     - name: divider
       title: Divider 分割线
+    - name: img
+      title: Img 图片
+    - name: imgPreview
+      title: ImgPreview 图片预览
     - name: lazyload
       title: Lazyload 图片懒加载
     - name: noticeBar

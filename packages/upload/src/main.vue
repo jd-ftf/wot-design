@@ -11,8 +11,7 @@ export default {
 
   data () {
     return {
-      uploadFiles: [],
-      reqs: {}
+      uploadFiles: []
     }
   },
 
@@ -58,7 +57,7 @@ export default {
       type: Number,
       default: Number.MAX_VALUE
     },
-    customEnvokeClass: String,
+    customEvokeClass: String,
     multiple: Boolean,
     reverse: Boolean,
     limit: Number,
@@ -162,9 +161,11 @@ export default {
           name: file.name,
           size: file.size,
           file,
+          url: URL.createObjectURL(file),
           action: this.action,
           percent: 0
         }
+
         // 检查文件尺寸是否大于最大尺寸
         if (file.size <= this.maxSize) {
           this.uploadFiles.push(initState)
@@ -226,7 +227,7 @@ export default {
       if (!files || this.disabled) return
       // 检查上传数量是否超过限制数
       if (this.limit && (this.uploadFiles.length + files.length > this.limit)) {
-        this.onExceed && this.onExceed(files, this.uploadFiles)
+        this.onExceed ? this.onExceed(files, this.uploadFiles) : console.warn('文件超出最大限制')
         return
       }
       // 上传前钩子
@@ -243,10 +244,9 @@ export default {
     handleSuccess (res, rawFile) {
       const file = this.getFileFromList(rawFile)
       if (file) {
-        file.url = URL.createObjectURL(rawFile.file)
         file.status = 'success'
         file.response = res
-        this.onSuccess(res, file, this.uploadFiles)
+        this.$emit('success', res, file, this.uploadFiles)
       }
     },
 
@@ -256,7 +256,7 @@ export default {
         file.error = res.message
         file.status = 'fail'
         file.response = res
-        this.onError(res, file, this.uploadFiles)
+        this.$emit('fail', res, file, this.uploadFiles)
       }
     },
 
@@ -264,25 +264,19 @@ export default {
       const file = this.getFileFromList(rawFile)
       if (file) {
         file.percent = e.percent
-        this.onProgress(e, file)
+        this.$emit('progress', e, file)
       }
     },
 
-    handleRemove (file) {
-      this.uploadFiles.splice(this.uploadFiles.findIndex(item => item === file), 1)
-      this.$emit('input', this.uploadFiles)
-      this.onRemove(file)
-    },
-
-    handlePreview (imgList, file, index) {
+    handlePreview (urls, file, index) {
       // 调用图片预览组件
       this.$preview({
-        imgList,
+        urls,
+        current: index,
         minZoom: this.minZoom,
         maxZoom: this.maxZoom,
         showIndex: this.showIndex,
         swipeDuration: this.swipeDuration,
-        swipeInitialIndex: index,
         onClose: () => {
           this.onClose && this.onClose()
         },
@@ -295,13 +289,19 @@ export default {
       })
     },
 
-    removeFile (file) {
+    handleRemove (file, index) {
+      this.uploadFiles.splice(index, 1)
+      this.$emit('input', this.uploadFiles)
+      this.$emit('remove', file)
+    },
+
+    removeFile (file, index) {
       if (this.beforeRemove) {
         this.beforeRemove(file, isPass => {
-          isPass && this.handleRemove(file)
+          isPass && this.handleRemove(file, index)
         })
       } else {
-        this.handleRemove(file)
+        this.handleRemove(file, index)
       }
     },
 
@@ -329,7 +329,7 @@ export default {
       loadingColor,
       loadingSize,
       showName,
-      customEnvokeClass } = this
+      customEvokeClass } = this
 
     const input = (
       <input
@@ -341,21 +341,26 @@ export default {
         class="wd-upload__input"
         onChange={this.handleChange} />
     )
+
     // 限制数量时，展示上传文件个数
-    const envokeLimitNum = limit && showLimitMum
+    const evokeLimitNum = limit && showLimitMum
       ? <div class="wd-upload__evoke-num">（{uploadFiles.length}/{limit}）</div>
       : ''
+
     // 唤起项div
-    const envoke = !limit || (uploadFiles.length < limit)
+    const evoke = !limit || (uploadFiles.length < limit)
       ? (
         <div
+          key={-1}
           class={[
             'wd-upload__evoke',
+            'wd-upload-list-item',
             disabled ? 'is-disabled' : '',
             this.$slots.default ? 'is-slot-default' : '',
-            customEnvokeClass]}>
-          {this.$slots.default || <i class="wd-icon-camera"></i>}
-          {this.$slots.default ? '' : envokeLimitNum}
+            customEvokeClass
+          ]}>
+          {this.$slots.default || <i class="wd-icon-fill-camera"></i>}
+          {this.$slots.default ? '' : evokeLimitNum}
           {input}
         </div>
       ) : ''
@@ -370,9 +375,8 @@ export default {
     let imgList = []
     // 图片预览的列表
     const previewList = uploadFiles.length !== 0 ? uploadFiles.map((file, index) => {
-      if (this.showImgPreview) {
-        imgList.push(file.url)
-      }
+      this.showImgPreview && imgList.push(file.url)
+
       // 加载中、失败状态下的样式
       const statusDiv = file.status === 'loading' ? (
         <div class="wd-upload__status-content">
@@ -386,17 +390,9 @@ export default {
         </div>
       ) : ''
 
-      // 成功时展示成功的标签，上传的蒙层在状态为加载中和失败时才会展示
-      const previewDiv = file.status === 'success' ? (
-        <div
-          class="wd-upload__status-content"
-          onClick={() => {
-            this.showImgPreview && this.preview(imgList, file, index)
-          }}>
-          <img src={file.url} class="wd-upload__picture" />
-          {showName ? <div class="wd-upload__picture-name">{file.name || '图片名'}</div> : ''}
-        </div>
-      ) : (<div class="wd-upload__mask wd-upload__status-content">{statusDiv}</div>)
+      const mask = file.status !== 'success' ? (
+        <div class="wd-upload__mask wd-upload__status-content">{statusDiv}</div>
+      ) : ''
 
       // 右上角关闭按钮
       const closeButton = file.status === 'loading' ? '' : (
@@ -408,16 +404,47 @@ export default {
       )
 
       return (
-        <div class="wd-upload__preview">
-          {previewDiv}
+        <div
+          class="wd-upload__preview wd-upload-list-item"
+          key={file.uid}>
+          {mask}
+          <div
+            class="wd-upload__status-content"
+            onClick={() => {
+              this.showImgPreview && this.preview(imgList, file, index)
+            }}>
+            <img src={file.url} class="wd-upload__picture" />
+            {showName ? <div class="wd-upload__picture-name">{file.name || '图片名'}</div> : ''}
+          </div>
           {closeButton}
         </div>
       )
     }) : ''
 
-    const upload = reverse ? (
-      <div class='wd-upload'>{envoke}{previewList}</div>
-    ) : (<div class='wd-upload'>{previewList}{envoke}</div>)
+    const transition = (front, end) => {
+      return this.$slots.default
+        ? (
+          <div class="wd-upload">
+            {front}
+            <transition-group
+              name="wd-upload-list"
+              class="wd-upload__preview-list"
+              tag="div">
+              {end}
+            </transition-group>
+          </div>
+        )
+        : (
+          <transition-group
+            name="wd-upload-list"
+            tag="div"
+            class="wd-upload">
+            {front}{end}
+          </transition-group>
+        )
+    }
+    const upload = reverse ? transition(evoke, previewList) : transition(previewList, evoke)
+
     return upload
   }
 }
