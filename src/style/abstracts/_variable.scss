@@ -850,3 +850,8 @@ $-img-preview-bg: #252525 !default; // 图片预览背景色
 $-img-preview-color: $-color-white !default; // 图片预览文字颜色
 $-img-preview-fs: 16px !default; // 图片预览分页字号
 $-img-preview-z-index: 2000 !default; // 图片预览默认层级
+
+/* curtain */
+$-curtain-content-radius: 24px !default; // 内容圆角
+$-curtain-content-close-color: $-color-white !default; // 关闭按钮颜色
+$-curtain-content-close-fs: $-fs-big !default; // 关闭按钮大小
