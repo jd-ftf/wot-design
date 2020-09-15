@@ -154,12 +154,12 @@ export default {
 | clearable | 显示清空按钮 | boolean | - | false |
 | maxlength | 原生属性，最大长度 | string | - | - |
 | minlength | 原生属性，最小长度 | string | - | - |
-| showPassword | 显示为密码框 | boolean | - | false |
+| show-password | 显示为密码框 | boolean | - | false |
 | disabled | 原生属性，禁用 | boolean | - | false |
 | readonly | 原生属性，只读 | boolean | - | false |
 | prefixIcon | 前置图标，京麦icon中的图标类名 | string | - | - |
 | suffixIcon | 后置图标，京麦icon中的图标类名 | string | - | - |
-| showWordLimit | 显示字数限制，需要同时设置 maxlength | boolean | - | false |
+| show-word-limit | 显示字数限制，需要同时设置 maxlength | boolean | - | false |
 | max | 原生属性，最大值 | string | - | - |
 | min | 原生属性，最小值 | string | - | - |
 | step | 原生属性，设置输入字段的合法数字间隔 | string | - | - |
