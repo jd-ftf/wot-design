@@ -2,59 +2,61 @@
 @import "./abstracts/mixin";
 
 @include b(drop-menu) {
-  display: flex;
-  background-color: #fff;
   box-sizing: border-box;
   color: $-drop-menu-color;
   font-size: $-drop-menu-fs;
   position: relative;
 
   @include e(title) {
+    display: flex;
+    text-align: center;
+    background-color: #fff;
+  }
+  @include e(title-item) {
     flex: 1;
     padding: 0 $-drop-menu-side-padding;
     height: $-drop-menu-height;
     line-height: $-drop-menu-height;
-    position: relative;
-    text-align: center;
-    @include lineEllipsis;
 
-    &::before {
-      position: absolute;
-      content: "";
-      width: 200%;
-      height: 1px;
-      left: 0;
-      top: 0;
-      background: $-color-border-light;
-      transform: scale(0.5);
-      transform-origin: left top;
-      z-index: 100;
-    }
-    &::after {
-      position: absolute;
-      content: "";
-      width: 200%;
-      height: 1px;
-      left: 0;
-      top: $-drop-menu-height - 1;
-      background: $-color-border-light;
-      transform: scale(0.5);
-      transform-origin: left bottom;
-      z-index: 100;
+    @include when(active) {
+      font-weight: $-fw-medium;
+
+      .wd-drop-menu__title-text::after {
+        opacity: 1;
+      }
+      .wd-drop-menu__arrow {
+        transform: scale(0.6) rotate(-180deg);
+        transform-origin: center center;
+      }
     }
     @include when(disabled) {
       color: $-drop-menu-disabled-color;
     }
   }
 
+  @include e(title-text) {
+    position: relative;
+    display: inline-block;
+
+    &::after {
+      position: absolute;
+      content: '';
+      width: 19px;
+      height: $-drop-menu-line-height;
+      bottom: 6px;
+      left: 50%;
+      transform: translate(-50%, 0);
+      background: $-drop-menu-line-color;
+      border-radius: $-drop-menu-line-height;
+      transition: opacity .15s;
+      opacity: 0;
+    }
+  }
+
   @include e(arrow) {
     display: inline-block;
+    margin-left: 6px;
     transition: transform 0.3s;
     transform: scale(0.6);
-
-    @include when(retract) {
-      transform: scale(0.6) rotate(-180deg);
-      transform-origin: center center;
-    }
   }
 }

@@ -15,7 +15,7 @@ const clickoutside = {
         return false
       }
       // 判断指令中是否绑定了函数
-      if (binding.expression) {
+      if (binding.value) {
         binding.value(e)
       }
     }
