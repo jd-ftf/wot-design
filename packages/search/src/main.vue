@@ -66,6 +66,7 @@ export default {
       this.$emit('input', '')
       this.$emit('clear')
       this.typing = false
+      this.isFocus = true
       this.$refs.searchInput.focus()
     },
     search (e) {
