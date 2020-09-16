@@ -36,7 +36,8 @@ export default {
       value: 0,
       required: true
     },
-    allowReset: Boolean
+    allowReset: Boolean,
+    descFirst: Boolean
   },
   data () {
     return {
@@ -56,11 +57,14 @@ export default {
       } else if (value === -1) {
         // 不允许重置，只要点击就应该由降序切换到升序
         value = 1
+      } else if (this.descFirst) {
+        value = -1
       } else {
         // 不管是否允许重置，只要点击就应该由 重置状态 切换到升序
         value = 1
       }
       this.$emit('input', value)
+      this.$emit('change', value)
     }
   }
 }
