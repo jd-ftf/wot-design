@@ -1,6 +1,5 @@
 <script>
 import Clickoutside from 'wot-design/src/utils/clickoutside'
-import WdIcon from 'wot-design/packages/icon'
 
 export default {
   name: 'WdDropMenu',
@@ -86,7 +85,7 @@ export default {
                   'is-disabled': item.disabled
                 }} onClick={() => toggle(index)}>
                   <div class="wd-drop-menu__title-text">{item.$slots.title || item.displayTitle}</div>
-                  <WdIcon name="arrow-down" class="wd-drop-menu__arrow" />
+                  <i class="wd-icon-arrow-down wd-drop-menu__arrow"></i>
                 </div>
               )
             })

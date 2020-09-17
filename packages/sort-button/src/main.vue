@@ -11,16 +11,8 @@
         {{title}}
       </div>
       <div class="wd-sort-button__right" :class="{ 'is-active': value !== 0 }">
-        <wd-icon
-          v-show="value !== -1"
-          name="arrow-up"
-          class="wd-sort-button__icon wd-sort-button__icon--up"
-        />
-        <wd-icon
-          v-show="value !== 1"
-          name="arrow-down"
-          class="wd-sort-button__icon wd-sort-button__icon--down"
-        />
+        <i v-show="value !== -1" class="wd-icon-arrow-up wd-sort-button__icon wd-sort-button__icon--up" />
+        <i v-show="value !== 1" class="wd-icon-arrow-down wd-sort-button__icon wd-sort-button__icon--down" />
       </div>
     </div>
   </div>
@@ -39,30 +31,36 @@ export default {
     allowReset: Boolean,
     descFirst: Boolean
   },
-  data () {
-    return {
-      showUp: true,
-      showDown: true
-    }
-  },
   methods: {
     handleClick () {
-      let { value, allowReset } = this
-      if (value === 1) {
-        // 无论单价头还是双箭头，只要点击就应该由升序切换到降序
-        value = -1
-      } else if (allowReset && value === -1) {
-        // 双箭头并且允许重置时，只要点击就应该由降序切换到重置状态
-        value = 0
-      } else if (value === -1) {
-        // 不允许重置，只要点击就应该由降序切换到升序
-        value = 1
-      } else if (this.descFirst) {
-        value = -1
+      let { value, allowReset, descFirst } = this
+
+      if (descFirst) {
+        if (value === 0) {
+          value = -1
+        } else if (value === -1) {
+          value = 1
+        } else if (value === 1) {
+          if (allowReset) {
+            value = 0
+          } else {
+            value = -1
+          }
+        }
       } else {
-        // 不管是否允许重置，只要点击就应该由 重置状态 切换到升序
-        value = 1
+        if (value === 0) {
+          value = 1
+        } else if (value === 1) {
+          value = -1
+        } else if (value === -1) {
+          if (allowReset) {
+            value = 0
+          } else {
+            value = 1
+          }
+        }
       }
+
       this.$emit('input', value)
       this.$emit('change', value)
     }

@@ -138,7 +138,7 @@ export default {
 ```html
 <wd-drop-menu>
   <wd-drop-menu-item v-model="value1" disabled :options="option1" />
-  <wd-drop-menu-item v-model="value2" disabled :options="option2" />
+  <wd-drop-menu-item v-model="value2" :options="option2" />
 </wd-drop-menu>
 ```
 
@@ -159,7 +159,7 @@ export default {
 | value / v-model | 当前选中项对应选中的 value | string | - | - |
 | disabled | 禁用菜单 | boolean | - | false |
 | options | 列表数据，对应数据结构 `[{text: '标题', value: '0', tip: '提示文字'}]` | array | - | - |
-| icon-name | 选中的图标名称(可选名称在wd-icon组件中) | string | - | 'check-round' |
+| icon-name | 选中的图标名称(可选名称在wd-icon组件中) | string | - | 'check' |
 | title | 菜单标题 | string | - | - |
 
 ### DropdownItem Event
