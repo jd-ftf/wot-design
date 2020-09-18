@@ -5,7 +5,8 @@
       class="wd-modal"
       :style="{
         'z-index': zIndex,
-        'transition-duration': duration ? (duration + 'ms') : ''
+        'transition-duration': duration ? (duration + 'ms') : '',
+        ...modalStyle
       }"
       @click="handleClock"
       @touchmove="preventMove"
@@ -26,6 +27,12 @@ export default {
     closeOnClickModal: {
       type: Boolean,
       default: true
+    },
+    modalStyle: {
+      type: Object,
+      default () {
+        return {}
+      }
     }
   },
   methods: {

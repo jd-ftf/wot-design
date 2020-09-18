@@ -15,6 +15,7 @@
             @compositionstart="toggleTyping"
             @compositionend="toggleTyping"
             @blur="searchBlur"
+            @focus="searchFocus"
             :disabled="disabled"
             :maxlength="maxlength"
             :autofocus="autofocus"
@@ -66,6 +67,7 @@ export default {
       this.$emit('input', '')
       this.$emit('clear')
       this.typing = false
+      this.isFocus = true
       this.$refs.searchInput.focus()
     },
     search (e) {
@@ -81,9 +83,6 @@ export default {
     searchFocus () {
       if (!this.disabled) {
         this.isFocus = true
-        let clickEvent = new Event('touchstart')
-        this.$refs.searchInput.dispatchEvent(clickEvent)
-        this.$refs.searchInput.focus()
       }
       this.$emit('focus')
     },

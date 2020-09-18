@@ -71,7 +71,7 @@ export default {
       this.immediateCheck && this.loadmore()
     },
     loadmore () {
-      if (this.$refs.loadmore.getBoundingClientRect().top <= (this.scrollContainerHeight + this.offset) && !this.loading) {
+      if (this.$refs.loadmore.getBoundingClientRect().top <= (this.scrollContainerHeight + this.offset) && !this.loading && !this.isFinished && !this.isError) {
         this.$emit('loadmore')
       }
     },

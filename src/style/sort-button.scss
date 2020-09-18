@@ -1,44 +1,73 @@
 @import './abstracts/variable';
 @import './abstracts/mixin';
+@import './icon.scss';
 
 @include b(sort-button){
   display: inline-block;
 
   @include e(wrapper){
-    height: $-sort-button-height;
     font-size: $-sort-button-fs;
+    color: $-sort-button-color;
     word-break: break-all;
-    white-space:nowrap;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+    white-space: nowrap;
+  }
+
+  @include e(left) {
+    position: relative;
+    display: inline-block;
+    height: $-sort-button-height;
+    line-height: $-sort-button-height;
+    vertical-align: middle;
+
+    &::after {
+      position: absolute;
+      content: '';
+      width: 19px;
+      height: 3px;
+      bottom: 6px;
+      left: 50%;
+      transform: translate(-50%, 0);
+      background: linear-gradient(315deg, rgba(81,124,240,1) 0%,rgba(118,158,245,1) 100%);
+      border-radius: $-sort-button-line-height / 2;
+      transition: opacity .15s;
+      opacity: 0;
+    }
+
+    @include when(active) {
+      font-weight: $-fw-medium;
+
+      &::after {
+        opacity: 1;
+      }
+      .wd-sort-button__right {
+        justify-content: center;
+      }
+
+    }
   }
 
   @include e(right){
+    display: inline-block;
+    min-width: 14px;
     margin-left: 2px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    vertical-align: middle;
 
-    @include when(only){
-      justify-content: center;
-
-      .wd-sort-button__icon--top,
-      .wd-sort-button__icon--bottom{
-        margin: 0;
+    @include when(active) {
+      .wd-sort-button__icon {
+        transform: scale((4/7));
       }
     }
   }
 
   @include e(icon){
     display: block;
-    transform: scale((4/7));
+    line-height: 1.1;
 
-    @include m(top){
-      margin-bottom: -4px;
+    @include m(up){
+      transform: scale((4/7)) translate(0, 7px);
     }
-    @include m(bottom){
-      margin-top: -4px;
+    @include m(down){
+      transform: scale((4/7)) translate(0, -7px);
     }
   }
 }

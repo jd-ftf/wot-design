@@ -11,18 +11,16 @@ Vue.use(SortButton)
 
 ### 基本用法
 
-> `v-model` 为必选值
-
 使用 `v-model` 绑定组件展示状态，其值为：`-1、0、1`，分别代表：降序、未选中状态、升序。
 
 ```html
-<wd-sort-button v-model="value1" title="价格"/>
+<wd-sort-button v-model="value" title="价格"/>
 ```
 ```javascript
 export default {
   data () {
     return {
-      value1: 0,
+      value: 0,
     }
   }
 }
@@ -33,83 +31,24 @@ export default {
 双箭头状态下通过设置 `allow-reset` 允许重置按钮为未选中状态。
 
 ```html
-<wd-sort-button
-  v-model="value1"
-  allow-reset
-  title="价格"
-/>
+<wd-sort-button v-model="value" allow-reset title="价格" />
 ```
 ```javascript
 export default {
   data () {
     return {
-      value1: 0,
+      value: 0
     }
   }
 }
 ```
 
-### 仅展示单箭头
+### 优先切换为降序
 
-通过设置 `one-arrow` 仅展示单箭头。单箭头始终处于选中状态，且默认状态为升序。
+通过设置 `desc-first` 优先切换为降序，默认为升序。
 
 ```html
-<wd-sort-button
-  v-model="value1"
-  one-arrow
-  title="价格"
-/>
-```
-```javascript
-export default {
-  data () {
-    return {
-      value1: 0,
-    }
-  }
-}
-```
-
-### 修改选中颜色
-
-可以通过设置 `color` 来修改选中状态的颜色。
-
-```html
-<wd-sort-button
-  v-model="value1"
-  color="#34d19d"
-  title="价格"
-/>
-```
-```javascript
-export default {
-  data () {
-    return {
-      value1: 0,
-    }
-  }
-}
-```
-
-### 修改文案选中颜色
-
-如果箭头处于选中状态，文案相应的也处于选中状态。默认情况下文案的选中颜色跟随箭头的选中颜色，可以通过设置 `title-color` 覆盖。
-
-```html
-<wd-sort-button
-  v-model="value1"
-  title-color="#fa4350"
-  title="价格"
-/>
-```
-```javascript
-export default {
-  data () {
-    return {
-      value1: 0,
-    }
-  }
-}
+<wd-sort-button v-model="value" desc-first title="价格" />
 ```
 
 ### Attributes
@@ -117,7 +56,11 @@ export default {
 |---------- |------------------------------------ |---------- |------------- |-------- |
 | value/v-model | 选中的箭头方向：-1 降序，0 重置状态，1 升序。 | number | -1,0,1 | - |
 | title | 排序按钮展示的文案。 | string | — |	— |
-| color | 箭头/文案选中时的整体颜色。 | sting | 十六进制 | #4d80f0 |
-| title-color | 文案选中时的颜色，优先级高于 color。 | string | 十六进制 |	— |
-| one-arrow | 是否只显示一个箭头。 | boolean |	- |	false |
 | allow-reset | 展示双箭头时，允许手动重置按钮。 | boolean | - | false |
+| desc-first | 优先切换为降序，不开启则默认优先切换为升序 | boolean | - | false | 
+
+### Event
+
+| 事件名称      | 说明                                 | 参数     |
+|------------- |------------------------------------ |--------- |
+| change | 绑定值变化时触发 | 排序值 |

@@ -14,111 +14,112 @@ Vue.use(DropMenuItem)
 
 ### 基础用法
 
-基础用法需要绑定 `value` 值以及 `options` 属性。
+基础用法需要绑定 `v-model` 值以及 `options` 属性。
 
- `options` 属性一般格式为 `[{ text:'', value: '0' }]`, 如果开启内容插槽,应当使用 `string` 类型, 使用说明见后文。
-
-```html
-<wd-drop-menu>
-  <wd-drop-menu-item value="0" :options="option1" />
-  <wd-drop-menu-item value="a" :options="option2" />
-</wd-drop-menu>
-```
-
-### 外部控制选项
-
-`value` 值可以绑定静态数据, 也可以绑定变量，通过控制绑定的 `value` 或 `v-model` 设置绑定值去控制其显示。
+ `options` 属性是一个一维对象数组，数组项的数据结构为：label（选项文本），value（选项值），tip（选项说明）。
 
 ```html
 <wd-drop-menu>
-  <wd-drop-menu-item v-model="value1" :options="option1"/>
-  <wd-drop-menu-item v-model="value2" :options="option2"/>
+  <wd-drop-menu-item v-model="value1" :options="option1" />
+  <wd-drop-menu-item v-model="value2" :options="option2" />
 </wd-drop-menu>
-```
 
-```JavaScript
+<script>
 export default {
-  data() {
+  data () {
     return {
       value1: '2',
-      value2: '1',
+      value2: '0',
       option1: [
-        { text: '全部商品', value: '0' },
-        { text: '新款商品', value: '1' },
-        { text: '活动商品', value: '2' }
+        {
+          label: '全部商品',
+          value: '0'
+        }, {
+          label: '新款商品',
+          value: '1',
+          tip: '这是补充信息'
+        }, {
+          label: '活动商品',
+          value: '2'
+        }
       ],
       option2: [
-        { text: '综合', value: '0' },
-        { text: '销量', value: '1' },
-        { text: '上架时间', value: '2' }
+        {
+          label: '综合',
+          value: '0'
+        }, {
+          label: '销量',
+          value: '1'
+        }, {
+          label: '上架时间',
+          value: '2'
+        }
       ]
     }
   }
 }
+</script>
 ```
 
 ### 自定义菜单内容
 
-通过插槽`custom`可以自定义 `DropMenuItem` 的内容，此时需要使用实例上的 `close` 方法手动控制菜单的关闭。
+通过默认插槽 `default` 可以自定义 `DropMenuItem` 的内容，此时需要使用实例上的 `close` 方法手动控制菜单的关闭。
 
-使用 `custom` 插槽过程中, 传入 `string` 类型的 `options` 属性用来展示列表上的显示名称。
+可以通过 `title` 设置菜单标题。
 
 ```html
 <wd-drop-menu>
-  <wd-drop-menu-item value="0" :options="option1" />
-  <wd-drop-menu-item options="筛选" ref="dropMenu">
-    <div slot="custom">
+  <wd-drop-menu-item v-model="value1" :options="option1" />
+  <wd-drop-menu-item title="筛选" ref="dropMenuItem">
+    <div>
       <wd-cell title="标题文字" value="内容" />
       <wd-cell title="标题文字" label="描述信息" value="内容" />
       <wd-button block size="large" suck @click="confirm">主要按钮</wd-button>
     </div>
   </wd-drop-menu-item>
 </wd-drop-menu>
-```
 
-```JavaScript
+<script>
 export default {
   data() {
     return {
+      value1: '0',
       option1: [
-        { text: '全部商品', value: '0' },
-        { text: '新款商品', value: '1' },
-        { text: '活动商品', value: '2' }
+        {
+          label: '全部商品',
+          value: '0'
+        }, {
+          label: '新款商品',
+          value: '1'
+        }, {
+          label: '活动商品',
+          value: '2'
+        }
       ]
     }
   },
   methods: {
     confirm () {
-      this.$refs.dropMenu.close()
+      this.$refs.dropMenuItem.close()
     }
   }
 }
+</script>
 ```
 
 ### 自定义菜单选项
 
-通过插槽 `menu` 可以自定义 `DropMenu` 某一选项的内容。。
-
-注意: 使用 `dropMenu` 插槽的过程中，菜单内容和展开方式也需要用户自行控制。如果只需要控制选项卡上的选项(如: `sortButton`), 则不需要展开折叠。
+自己通过 flex 布局做自定义筛选展示。
 
 ```html
-<wd-drop-menu>
-  <wd-drop-menu-item value="0" :options="option1" />
-  <div slot="menu" style="line-height: 14px;">
-    <wd-sort-button v-model="value3"  title="价格"/>
+<div style="display: flex; background: #fff; text-align: center;">
+  <wd-drop-menu style="flex: 1;">
+    <wd-drop-menu-item v-model="value4" :options="option1" />
+  </wd-drop-menu>
+  <div style="flex: 1;">
+    <wd-sort-button v-model="value5" title="价格" />
   </div>
-</wd-drop-menu>
-```
-
-### 自定义选中态颜色
-
-通过`active-color`属性可以自定义菜单标题和选项的选中态颜色
-
-```html
-<wd-drop-menu active-color="#ee0a24">
-  <wd-drop-menu-item value="0" :options="option1" />
-  <wd-drop-menu-item value="1" :options="option2" />
-</wd-drop-menu>
+</div>
 ```
 
 ### 向上展开
@@ -127,8 +128,8 @@ export default {
 
 ```html
 <wd-drop-menu direction="up">
-  <wd-drop-menu-item value="0" :options="option1" />
-  <wd-drop-menu-item value="1" :options="option2" />
+  <wd-drop-menu-item v-model="value1" :options="option1" />
+  <wd-drop-menu-item v-model="value2" :options="option2" />
 </wd-drop-menu>
 ```
 
@@ -136,8 +137,8 @@ export default {
 
 ```html
 <wd-drop-menu>
-  <wd-drop-menu-item value="0" disabled :options="option2" />
-  <wd-drop-menu-item value="0" disabled :options="option1" />
+  <wd-drop-menu-item v-model="value1" disabled :options="option1" />
+  <wd-drop-menu-item v-model="value2" :options="option2" />
 </wd-drop-menu>
 ```
 
@@ -145,9 +146,11 @@ export default {
 
 | 参数      | 说明                                 | 类型      | 可选值       | 默认值   |
 |---------- |------------------------------------ |---------- |------------- |-------- |
-| active-color | 菜单标题和选项的选中态颜色 | string | - | '#0083ff'|
 | direction | 菜单展开方向，可选值为`up` 或 `down` | string | - | 'down' |
 | close-outside | 是否开启点击外部关闭 | boolean | - | true |
+| modal | 是否展示蒙层 | boolean | - | true |
+| close-on-click-modal | 是否点击蒙层时关闭 | boolean | - | true |
+| duration | 菜单展开收起动画时间，单位 ms | number | - | 200 |
 
 ### DropMenuItem Attributes
 
@@ -155,14 +158,17 @@ export default {
 |---------- |------------------------------------ |---------- |------------- |-------- |
 | value / v-model | 当前选中项对应选中的 value | string | - | - |
 | disabled | 禁用菜单 | boolean | - | false |
-| options | 选项`options`类型为`Array`时: 展示列表, 对应数据结构 `[{text: '标题', value: '0'}]`; 类型为`string`: 使用自定义菜单内容; | Array / String | - | - | - |
-| modal | 是否显示遮罩层 | boolean | - | false |
-| icon-name | 选中的图标名称(可选名称在wd-icon组件中) | string | - | 'check-round' |
-| close-on-click-modal | 是否在点击遮罩层后关闭菜单 | boolean | - | true |
+| options | 列表数据，对应数据结构 `[{text: '标题', value: '0', tip: '提示文字'}]` | array | - | - |
+| icon-name | 选中的图标名称(可选名称在wd-icon组件中) | string | - | 'check' |
+| title | 菜单标题 | string | - | - |
 
-### DropdownItem Events
+### DropdownItem Event
 
-通过 `this.$refs.dropMenu` 可以获取到 DropdownItem 实例并调用实例方法
+| 事件名称      | 说明                                 | 参数     |
+|------------- |------------------------------------ |--------- |
+| change | 菜单选项修改时触发 | value |
+
+### DropdownItem Methods
 
 | 方法名 | 说明 | 参数 | 返回值 |
 |------|------|------|------|
@@ -174,10 +180,10 @@ export default {
 | name      | 说明       |
 |------------- |----------- |
 | default | 菜单内容 |
-| custom | 菜单内容插槽 |
 
 ### DropMenuItem Slot
 
 | name      | 说明       |
 |------------- |----------- |
-| menu | 菜单选项卡中的一个自定义选项插槽 |
+| default | 菜单自定义内部内容 |
+| title | 菜单自定义标题 |

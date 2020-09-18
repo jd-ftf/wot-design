@@ -99,6 +99,7 @@
     height: $-col-picker-selected-height;
     line-height: $-col-picker-selected-height;
     padding: $-col-picker-selected-padding;
+    -webkit-tap-highlight-color: transparent;
 
     @include when(selected) {
       font-weight: $-col-picker-selected-fw;
