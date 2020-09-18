@@ -1,8 +1,9 @@
 @import './abstracts/variable';
 @import './abstracts/mixin';
+@import './popup.scss';
 
 @include b(drop-item) {
-  position: absolute;
+  position: fixed;
   right: 0;
   left: 0;
   overflow: hidden;
@@ -10,59 +11,39 @@
   color: $-drop-menu-item-color;
   width: 100%;
   z-index: 101;
-  transition: all .3s;
-
-  @include e(modal) {
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    background: $-drop-menu-item-modal-bg;
-    height: 100%;
-    z-index: 100;
-    transition: opacity .3s;
-    opacity: 1;
-  }
   
-  @include e(popup){
+  .wd-drop-item__popup {
     position: absolute;
-    z-index: 101;
-    width: 100%;
-    background-color: #fff;
+    max-height: 80%;
+  }
+
+  @include e(option) {
+    display: flex;
+    height: $-drop-menu-item-height;
+    line-height: $-drop-menu-item-height;
+    padding: 0 $-drop-menu-side-padding;
+    justify-content: space-between;
+    align-items: center;
+    transition: color .2s;
+
+    @include when(active) {
+      color: $-drop-menu-item-color-active;
+    }
   }
 
   @include e(title){
+    display: block;
+  }
+
+  @include e(tip) {
     display: inline-block;
-    box-sizing: border-box;
-    height: $-drop-menu-item-height;
-    line-height: $-drop-menu-item-height;
-    padding: 0 $-drop-menu-side-padding;
+    color: $-drop-menu-item-color-tip;
+    font-size: $-drop-menu-item-fs-tip;
+    margin-left: 2px;
   }
 
   @include e(icon){
-    vertical-align: middle;
-    float: right;
-    height: $-drop-menu-item-height;
-    line-height: $-drop-menu-item-height;
-    padding: 0 $-drop-menu-side-padding;
-    transform: scale(.6);
+    display: block;
+    font-size: $-drop-menu-option-check-size;
   }
-}
-.wd-drop--slide-down-enter-active .wd-drop-item__popup, .wd-drop--slide-down-leave-active .wd-drop-item__popup,
-.wd-drop--slide-up-enter-active .wd-drop-item__popup, .wd-drop--slide-up-leave-active .wd-drop-item__popup{
-  transition: transform .3s;
-}
-
-.wd-drop--slide-up-enter .wd-drop-item__popup,
-.wd-drop--slide-up-leave-to .wd-drop-item__popup{
-  transform: translateY(100%);
-}
-
-.wd-drop--slide-down-enter .wd-drop-item__popup,
-.wd-drop--slide-down-leave-to .wd-drop-item__popup{
-  transform: translateY(-100%);
-}
-.wd-drop-item__modal-leave{
-  opacity: 0;
 }

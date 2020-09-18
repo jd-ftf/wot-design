@@ -40,6 +40,16 @@ export default {
     duration: {
       type: Number,
       default: 300
+    },
+    modal: {
+      type: Boolean,
+      default: true
+    },
+    modalStyle: {
+      type: Object,
+      default () {
+        return {}
+      }
     }
   },
   watch: {
@@ -59,7 +69,7 @@ export default {
       }
 
       this.opened = true
-      this.renderModal()
+      this.modal && this.renderModal()
 
       if (this.lockScroll) {
         on(document, 'touchstart', this.touchStart)
@@ -85,7 +95,7 @@ export default {
       }
 
       this.opened = false
-      closeModal(this)
+      this.modal && closeModal(this)
       this.$emit('input', false)
     },
     renderModal () {
@@ -93,7 +103,8 @@ export default {
       openModal(this, {
         duration: this.duration,
         zIndex: context.zIndex++,
-        closeOnClickModal: this.closeOnClickModal
+        closeOnClickModal: this.closeOnClickModal,
+        modalStyle: this.modalStyle
       })
     },
     onTouchMove (event) {

@@ -288,15 +288,27 @@ $-divider-line-color: rgba($-color-black, 0.15) !default; // 线条颜色
 $-divider-fs: 14px !default; // 字体大小
 
 /* drop-menu */
-$-drop-menu-height: 34px; // 展示选中项的高度
-$-drop-menu-color: $-color-title !default; // 展示选中项的颜色
+$-drop-menu-height: 48px; // 展示选中项的高度
+$-drop-menu-color: $-color-content !default; // 展示选中项的颜色
 $-drop-menu-fs: $-fs-content !default; // 展示选中项的字号
 $-drop-menu-side-padding: $-size-side-padding !default; // 两边留白间距
-$-drop-menu-disabled-color: $-color-aid !default; // 禁用颜色
-$-drop-menu-item-height: 30px; // 选项高度
-$-drop-menu-item-color: $-color-title !default; // 选项颜色
-$-drop-menu-item-fs: $-fs-secondary !default; // 选项字号
-$-drop-menu-item-modal-bg: $-modal-bg !default; // 蒙层颜色
+$-drop-menu-disabled-color: rgba($-color-black, 0.25) !default; // 禁用颜色
+$-drop-menu-item-height: 48px; // 选项高度
+$-drop-menu-item-color: $-color-content !default; // 选项颜色
+$-drop-menu-item-fs: $-fs-content !default; // 选项字号
+$-drop-menu-item-color-active: $-color-theme !default; // 选中颜色
+$-drop-menu-item-color-tip: rgba($-color-black, 0.45) !default; // 提示文字颜色
+$-drop-menu-item-fs-tip: $-fs-secondary !default; // 提示文字字号
+$-drop-menu-option-check-size: 20px !default; // check 图标大小
+$-drop-menu-line-color: resultColor(
+  $open-linear,
+  315deg,
+  $-color-theme,
+  "dark" "light",
+  rgba(81, 124, 240, 1) rgba(118, 158, 245, 1),
+  0% 100%
+) !default; // 下划线颜色
+$-drop-menu-line-height: 3px !default; // 下划线高度
 
 /* infinite-load */
 $-infinite-load-height: 48px !default; // 高度
@@ -454,7 +466,14 @@ $-col-picker-selected-color: rgba($-color-black, 0.85) !default; // 弹框顶部
 $-col-picker-selected-fw: 700 !default; // 弹框顶部值高亮字重
 $-col-picker-line-width: 16px !default; // 弹框顶部值高亮线条宽度
 $-col-picker-line-height: 3px !default; // 弹框顶部值高亮线条高度
-$-col-picker-line-color: linear-gradient(315deg, rgba(81,124,240,1), rgba(118,158,245,1)) !default; // 弹框顶部值高亮线条颜色
+$-col-picker-line-color: resultColor(
+  $open-linear,
+  315deg,
+  $-color-theme,
+  "dark" "light",
+  rgba(81, 124, 240, 1) rgba(118, 158, 245, 1),
+  0% 100%
+) !default; // 弹框顶部值高亮线条颜色
 $-col-picker-line-box-shadow: 0px 1px 2px 0px rgba(1, 87, 255, 0.2) !default; // 弹框顶部值高亮线条阴影
 $-col-picker-list-height: 53vh !default; // 弹框列表高度
 $-col-picker-list-padding-bottom: 30px !default; // 弹框列表底部间距
@@ -580,7 +599,17 @@ $-slider-disabled-color: rgba($-color-black, 0.25) !default; // 禁用状态下�
 
 /* sort-button */
 $-sort-button-fs: $-fs-content !default; // 字号
-$-sort-button-height: 34px !default; // 高度
+$-sort-button-color: $-color-content !default; // 颜色
+$-sort-button-height: 48px !default; // 高度
+$-sort-button-line-height: 3px !default; // 下划线高度
+$-sort-button-line-color: resultColor(
+  $open-linear,
+  315deg,
+  $-color-theme,
+  "dark" "light",
+  rgba(81, 124, 240, 1) rgba(118, 158, 245, 1),
+  0% 100%
+) !default; // 下划线颜色
 
 /* steps */
 $-steps-icon-size: 22px !default; // 图标尺寸

@@ -1,6 +1,7 @@
 @import './abstracts/variable';
 @import './abstracts/mixin';
 @import './icon.scss';
+@import './sticky.scss';
 
 @include b(tabs) {
   position: relative;
