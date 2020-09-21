@@ -163,7 +163,7 @@ export default {
     onConfirm () {
       if (this.loading) {
         this.closePopup()
-        this.$emit('confirm')
+        this.$emit('confirm', this.region ? [this.innerValue, this.end.innerValue] : this.innerValue)
         return
       }
       if (this.beforeConfirm) {
@@ -180,7 +180,7 @@ export default {
 
       this.$nextTick(() => {
         this.$emit('input', this.region ? [this.innerValue, this.end.innerValue] : this.innerValue)
-        this.$emit('confirm')
+        this.$emit('confirm', this.region ? [this.innerValue, this.end.innerValue] : this.innerValue)
         this.setShowValue()
       })
     },

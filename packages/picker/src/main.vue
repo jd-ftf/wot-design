@@ -91,7 +91,7 @@ export default {
     onConfirm () {
       if (this.loading) {
         this.popupShow = false
-        this.$emit('confirm')
+        this.$emit('confirm', this.pickerValue)
         return
       }
       if (this.beforeConfirm) {
@@ -110,8 +110,8 @@ export default {
 
     handleConfirm () {
       this.$emit('input', this.pickerValue)
+      this.$emit('confirm', this.pickerValue)
       this.closePopup()
-      this.$emit('confirm')
     },
 
     setShowValue () {

@@ -214,7 +214,7 @@ export default {
     onConfirm () {
       if (this.loading) {
         this.pickerShow = false
-        this.$emit('confirm')
+        this.$emit('confirm', this.valueFormat(this.selectList))
         return
       }
       if (this.beforeConfirm) {
@@ -231,7 +231,7 @@ export default {
       this.pickerShow = false
       this.lastSelectList = this.valueFormat(this.selectList)
       this.$emit('input', this.lastSelectList)
-      this.$emit('confirm')
+      this.$emit('confirm', this.lastSelectList)
       this.setShowValue(this.lastSelectList)
     },
 

@@ -22,7 +22,7 @@
     &::after {
       position: absolute;
       content: '';
-      width: 19px;
+      width: 0;
       height: 3px;
       bottom: 6px;
       left: 50%;
@@ -30,14 +30,14 @@
       background: linear-gradient(315deg, rgba(81,124,240,1) 0%,rgba(118,158,245,1) 100%);
       border-radius: $-sort-button-line-height / 2;
       transition: opacity .15s;
-      opacity: 0;
+      transition: width 0.2s ease-in-out;
     }
 
     @include when(active) {
       font-weight: $-fw-medium;
 
       &::after {
-        opacity: 1;
+        width: 19px;
       }
       .wd-sort-button__right {
         justify-content: center;

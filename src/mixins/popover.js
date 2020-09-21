@@ -41,11 +41,19 @@ export default {
     }
   },
 
-  mounted () {
-    window.addEventListener('resize', () => {
-      this.init()
-    })
+  computed: {
+    arrowClass () {
+      const el = `wd-${this.el}__arrow`
+      return this.visibleArrow ? {
+        [el]: true,
+        [el + '-up']: this.placement === 'bottom' || this.placement === 'bottom-start' || this.placement === 'bottom-end',
+        [el + '-right']: this.placement === 'left' || this.placement === 'left-start' || this.placement === 'left-end',
+        [el + '-left']: this.placement === 'right' || this.placement === 'right-start' || this.placement === 'right-end',
+        [el + '-down']: this.placement === 'top' || this.placement === 'top-start' || this.placement === 'top-end'
+      } : ''
+    }
   },
+
   watch: {
     'value': {
       immediate: true, // immediate选项可以开启首次赋值监听
@@ -55,6 +63,7 @@ export default {
       }
     }
   },
+
   methods: {
     /**
      * @param {Boolean} isOutsideControl 判定是否是value控制的显隐, 默认值为空
@@ -70,16 +79,19 @@ export default {
       this.$emit(`${this.showPop === true ? 'show' : 'hide'}`)
       this.$emit('input', this.showPop)
     },
+
     // 点击外部关闭
     handleOutsideClick () {
       if (!this.closeOutside || this.disabled) return
       this.showPop && this.toggle()
     },
+
+    // 位置初始化函数
     init () {
       // 目标对象 dom（被跟随）
       const trigger = this.$refs.trigger.children[0]
       // 文字提示 dom
-      const popover = this.$refs.popover
+      const popover = this.$refs[this.el]
       const arrow = this.$refs.arrow || ''
       const arrowHeight = arrow.offsetHeight || 0
       const arrowWidth = arrow.offsetWidth || 0
@@ -163,5 +175,11 @@ export default {
       }
       this.arrowStyle = arrowStyle
     }
+  },
+
+  mounted () {
+    window.addEventListener('resize', () => {
+      this.init()
+    })
   }
 }
