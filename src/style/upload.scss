@@ -1,0 +1,152 @@
+@import "./abstracts/variable";
+@import "./abstracts/mixin";
+
+@include b(upload) {
+  position: relative;
+  display: block;
+
+  /* 设置持续时间和动画函数 */
+  .wd-upload-list-enter-active {
+    transition: all 0.5s ease;
+  }
+  .wd-upload-list-leave-active {
+    position: absolute;
+    transition: all 0.5s cubic-bezier(1, 0.5, 0.8, 1);
+  }
+
+  // 设置不同的进入和离开动画
+  .wd-upload-list-enter,
+  .wd-upload-list-leave-to {
+    transform: translate(0, -10px);
+    opacity: 0;
+  }
+  .wd-upload-list-item {
+    transition: all 1s;
+    vertical-align: middle;
+  }
+
+  @include e(evoke) {
+    position: relative;
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    width: $-upload-size;
+    height: $-upload-size;
+    margin-bottom: 12px;
+    font-size: $-upload-evoke-icon-size;
+
+    background-color: $-upload-evoke-bg;
+    color: $-upload-evoke-color;
+
+    @include when(disabled) {
+      color: $-upload-evoke-disabled-color;
+    }
+
+    @include when(slot-default) {
+      width: auto;
+      height: auto;
+      background-color: transparent;
+    }
+  }
+
+  @include e(evoke-num) {
+    font-size: 14px;
+    line-height: 14px;
+    margin-top: 9px;
+  }
+
+  @include e(input) {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    opacity: 0;
+  }
+
+  @include e(preview) {
+    position: relative;
+    display: inline-block;
+    width: $-upload-size;
+    height: $-upload-size;
+    margin: 0 12px 12px 0;
+  }
+
+  @include e(preview-list) {
+    display: flex;
+  }
+
+  @include e(picture) {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  @include e(picture-name) {
+    box-sizing: border-box;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    text-align: center;
+    padding: 0 5px;
+    height: $-upload-preview-name-height;
+    line-height: $-upload-preview-name-height;
+    width: 100%;
+    background-color: $-upload-preview-name-bg;
+    color: $-color-white;
+    font-size: $-upload-preview-name-fs;
+    @include lineEllipsis;
+  }
+
+  @include e(close) {
+    position: absolute;
+    right: -$-upload-close-icon-size / 2;
+    top: -$-upload-close-icon-size / 2;
+    font-size: $-upload-close-icon-size;
+    z-index: 10;
+    color: $-upload-close-icon-color;
+
+    &::after {
+      position: absolute;
+      content: "";
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background-color: $-color-white;
+      left: 0;
+      z-index: -1;
+    }
+  }
+
+  @include e(mask) {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: $-upload-preview-name-bg;
+  }
+
+  @include e(progress-txt) {
+    font-size: $-upload-progress-fs;
+    line-height: $-upload-progress-fs;
+    margin-top: 9px;
+    color: $-color-white;
+  }
+
+  @include e(icon) {
+    font-size: $-upload-preview-icon-size;
+    color: $-color-white;
+  }
+
+  @include e(status-content) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+  }
+}

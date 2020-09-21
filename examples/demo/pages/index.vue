@@ -24,9 +24,7 @@
           <li class="kind-list__list-item" v-for="(item, index) in componentModule.children" :key="index">
             <router-link class="kind-list__list-item-link" :to="`/${item.name}`">
               <div>{{ item.title }}</div>
-              <div>
-                <wd-icon name="arrow-right" color="#aaa" />
-              </div>
+              <i class="wd-icon-arrow-right custom-icon-right"></i>
             </router-link>
           </li>
         </ul>
@@ -173,6 +171,13 @@ export default {
     padding: 15px;
     background: #fff;
     justify-content: space-between;
+    align-items: center;
+  }
+  .custom-icon-right {
+    color: #aaa;
+    font-size: 14px;
+    width: 14px;
+    height: 14px;
   }
 }
 </style>

@@ -87,7 +87,8 @@ export default {
     animate: {
       type: Boolean,
       default: true
-    }
+    },
+    stopMoving: Boolean
   },
   watch: {
     items () {
@@ -214,7 +215,9 @@ export default {
       this.clearTimer()
       this.startX = event.touches[0].clientX
       this.startY = event.touches[0].clientY
-      this.resetToCurrentPosition()
+      if (!this.stopMoving) {
+        this.resetToCurrentPosition()
+      }
     },
     onTouchMove (event) {
       if (!this.touchable || !this.swiping) return
