@@ -23,6 +23,7 @@
   "input": "./packages/input/index.js",
   "input-number": "./packages/input-number/index.js",
   "img": "./packages/img/index.js",
+  "img-preview": "./packages/img-preview/index.js",
   "lazyload": "./packages/lazyload/index.js",
   "loading": "./packages/loading/index.js",
   "message-box": "./packages/message-box/index.js",
@@ -59,5 +60,6 @@
   "anchor": "./packages/anchor/index.js",
   "tag": "./packages/tag/index.js",
   "toast": "./packages/toast/index.js",
-  "tooltip": "./packages/tooltip/index.js"
+  "tooltip": "./packages/tooltip/index.js",
+  "upload": "./packages/upload/index.js"
 }

@@ -56,4 +56,16 @@ export const range = (value, min, max) => {
   return Math.min(Math.max(value, min), max)
 }
 
+/** @description 比较数值是否相等 */
+export const isEqual = (value1, value2) => {
+  if (value1 === value2) return true
+  if (!(value1 instanceof Array)) return false
+  if (!(value2 instanceof Array)) return false
+  if (value1.length !== value2.length) return false
+  for (let i = 0; i !== value1.length; ++i) {
+    if (value1[i] !== value2[i]) return false
+  }
+  return true
+}
+
 export const bus = new Vue()
