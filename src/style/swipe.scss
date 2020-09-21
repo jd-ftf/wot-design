@@ -18,13 +18,17 @@
   }
   @include e(indicator) {
     display: inline-block;
-    width: $-swipe-indicator-size;
-    height: $-swipe-indicator-size;
-    border-radius: 50%;
-    margin-right: 6px;
-
+    width: $-swipe-indicator-width;
+    height: $-swipe-indicator-height;
+    border-radius: 0 4px 0 4px;
+    margin-right: 3px;
+    transition: width 0.1s ease-in-out;
     &:last-child {
       margin-right: 0;
+    }
+
+    @include when(active) {
+      width: $-swipe-indicator-active-width;
     }
   }
   @include when(vertical) {
@@ -42,7 +46,10 @@
     .wd-swipe__indicator {
       display: block;
       margin-right: 0;
-      margin-bottom: 6px;
+      margin-bottom: 8px;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
 
       &:last-child {
         margin-bottom: 0;

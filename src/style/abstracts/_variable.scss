@@ -626,9 +626,11 @@ $-steps-dot-size: 7px !default; // 点状大小
 $-steps-dot-active-size: 9px !default; // 点状高亮大小
 
 /* swipe */
-$-swipe-indicators-bottom: 6px !default; // 点状指示器距离底部距离
+$-swipe-indicators-bottom: 8px !default; // 点状指示器距离底部距离
 $-swipe-indicators-vertical-left: 10px !default; // 点状指示器竖直滑动方向时距离左侧距离
-$-swipe-indicator-size: 5px !default; // 点状指示器大小
+$-swipe-indicator-width: 7px !default; // 点状指示器夸
+$-swipe-indicator-height: 3px !default; // 点状指示器高
+$-swipe-indicator-active-width: 12px !default; // 点状指示激活态长度
 
 /* switch */
 $-switch-width: 51px !default; // 宽度
