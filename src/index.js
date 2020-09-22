@@ -13,6 +13,7 @@ import Collapse from '../packages/collapse'
 import CollapseItem from '../packages/collapse-item'
 import ColPicker from '../packages/col-picker'
 import Card from '../packages/card'
+import Curtain from '../packages/curtain'
 import DatetimePicker from '../packages/datetime-picker'
 import DatetimePickerView from '../packages/datetime-picker-view'
 import Divider from '../packages/divider'
@@ -79,6 +80,7 @@ const components = [
   CollapseItem,
   ColPicker,
   Card,
+  Curtain,
   DatetimePicker,
   DatetimePickerView,
   Divider,
@@ -166,6 +168,7 @@ export default {
   CollapseItem,
   ColPicker,
   Card,
+  Curtain,
   DatetimePicker,
   DatetimePickerView,
   Divider,

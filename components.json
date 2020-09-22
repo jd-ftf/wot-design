@@ -11,6 +11,7 @@
   "collapse-item": "./packages/collapse-item/index.js",
   "col-picker": "./packages/col-picker/index.js",
   "card": "./packages/card/index.js",
+  "curtain": "./packages/curtain/index.js",
   "datetime-picker": "./packages/datetime-picker/index.js",
   "datetime-picker-view": "./packages/datetime-picker-view/index.js",
   "divider": "./packages/divider/index.js",
