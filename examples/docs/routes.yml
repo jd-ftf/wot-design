@@ -127,6 +127,8 @@
               title: Card 卡片
             - name: collapse
               title: Collapse 折叠面板
+            - name: curtain
+              title: Curtain 幕帘
             - name: divider
               title: Divider 分割线
             - name: img
