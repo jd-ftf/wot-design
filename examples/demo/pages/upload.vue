@@ -126,14 +126,12 @@ export default {
       })
     },
     handleRemove (file, fileList) {
-      console.log(this.fileList3)
       this.$toast.success('删除成功')
     },
     handleProgress (e, file) {
-      console.log('正在上传....', file)
+      this.$toast(`正在上传.... ${file.percent}%`)
     },
     handleSuccess (res, file, fileList) {
-      console.log(this.fileList3)
       this.$toast.success(`图片[${file.name}]上传成功`)
     },
     handleError (res, file, fileList) {

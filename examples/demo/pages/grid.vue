@@ -86,7 +86,7 @@ export default {
   },
   methods: {
     click (event) {
-      console.log('点击', event)
+      this.$toast('跳转至 ' + this.href)
     }
   }
 }

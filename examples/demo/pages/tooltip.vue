@@ -100,10 +100,10 @@ export default {
       event.stopPropagation()
     },
     onShow () {
-      console.log('on show')
+      this.$toast('on show')
     },
     onHide () {
-      console.log('on hide')
+      this.$toast('on hide')
     }
   }
 }
