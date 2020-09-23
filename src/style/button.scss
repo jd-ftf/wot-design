@@ -115,7 +115,6 @@
   }
 
   @include when(primary) {
-    box-shadow: $-button-primary-box-shadow;
     @include button-type-style(
       $-color-white,
       $-button-primary-bg-color,
@@ -189,24 +188,57 @@
     border-radius: $-button-medium-radius;
     font-size: $-button-medium-fs;
 
+    &:not(.is-plain) {
+      @include when(primary) {
+        box-shadow: $-button-medium-box-shadow-size $-button-primary-box-shadow-color;
+      }
+  
+      @include when(success) {
+        box-shadow: $-button-medium-box-shadow-size $-button-success-box-shadow-color;
+      }
+  
+      @include when(warning) {
+        box-shadow: $-button-medium-box-shadow-size $-button-warning-box-shadow-color;
+      }
+  
+      @include when(error) {
+        box-shadow: $-button-medium-box-shadow-size $-button-error-box-shadow-color;
+      }
+    }
+
     @include when(round) {
       min-width: 118px;
       border-radius: $-button-medium-height / 2;
     }
+
     .wd-button__loading {
       width: $-button-medium-loading;
       height: $-button-medium-loading;
     }
-    // TODO 图标确认后替换更改
-    // i {
-    //   font-size: 18px;
-    // }
   }
   @include when(large) {
     height: $-button-large-height;
     padding: $-button-large-padding;
     border-radius: $-button-large-radius;
     font-size: $-button-large-fs;
+
+    &:not(.is-plain) {
+      @include when(primary) {
+        box-shadow: $-button-large-box-shadow-size $-button-primary-box-shadow-color;
+      }
+
+      @include when(success) {
+        box-shadow: $-button-large-box-shadow-size $-button-success-box-shadow-color;
+      }
+
+      @include when(warning) {
+        box-shadow: $-button-large-box-shadow-size $-button-warning-box-shadow-color;
+      }
+
+      @include when(error) {
+        box-shadow: $-button-large-box-shadow-size $-button-error-box-shadow-color;
+      }
+    }
 
     @include when(round) {
       border-radius: $-button-large-height / 2;
@@ -243,7 +275,6 @@
         $-button-primary-disabled-color
       );
       border: 1px solid;
-      box-shadow: none;
       &:active {
         background-color: $-button-primary-plain-active-bg-color;
       }
