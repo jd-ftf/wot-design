@@ -22,7 +22,7 @@
     @include when(active) {
       font-weight: $-fw-medium;
 
-      .wd-drop-menu__title-text::after {
+      .wd-drop-menu__item-title::after {
         opacity: 1;
       }
       .wd-drop-menu__arrow {
