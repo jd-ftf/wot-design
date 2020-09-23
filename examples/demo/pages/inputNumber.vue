@@ -1,7 +1,7 @@
 <template>
   <div class="page-input-number">
     <demo-block title="基本用法">
-      <wd-input-number v-model="value1" />
+      <wd-input-number v-model="value1"/>
     </demo-block>
     <demo-block title="设置步长">
       <wd-input-number v-model="value2" :step="2" />

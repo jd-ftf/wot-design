@@ -22,7 +22,7 @@
     height: $-swipe-indicator-height;
     border-radius: 0 4px 0 4px;
     margin-right: 3px;
-    transition: width 0.1s ease-in-out;
+    transition: width 0.2s ease-in-out;
     &:last-child {
       margin-right: 0;
     }
@@ -46,11 +46,15 @@
     .wd-swipe__indicator {
       display: block;
       margin-right: 0;
-      margin-bottom: 8px;
-      width: 5px;
-      height: 5px;
-      border-radius: 50%;
+      margin-bottom: 3px;
+      transition: height 0.2s ease-in-out;
+      width: $-swipe-indicator-height;
+      height: $-swipe-indicator-width;
+      border-radius: 0 4px 0 4px;
 
+      @include when(active) {
+        height: $-swipe-indicator-active-width;
+      }
       &:last-child {
         margin-bottom: 0;
       }

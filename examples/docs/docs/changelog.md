@@ -140,14 +140,17 @@
 
 #### 优化
 
-- MessageBox
-  - 动画时间由300ms改为200ms，减少等待时间 （by [@yawuling](https://github.com/yawuling)）
 - Grid
   - 支持动态渲染GridItem （by [@HXCStudio123](https://github.com/HXCStudio123) ）
   - 支持列项修改后内部GridItem重排 （by [@HXCStudio123](https://github.com/HXCStudio123) ）
   - GridItem 内容padding移除，兼容小屏幕展示四字标题 （by [@HXCStudio123](https://github.com/HXCStudio123) ）
+- InputNumber
+  - 属性 `min` 支持动态修改后重置值 （by [@HXCStudio123](https://github.com/HXCStudio123) ）
+  - 属性 `max` 支持动态修改后重置值 （by [@HXCStudio123](https://github.com/HXCStudio123) ）
 - LazyLoad
   - 图片懒加载兜底图优化 （by [@yawuling](https://github.com/yawuling)）
+- MessageBox
+  - 动画时间由300ms改为200ms，减少等待时间 （by [@yawuling](https://github.com/yawuling)）
 - Status Tip
   - 属性 `type` 下的七种类型 对应缺省展示图片更改。 (by [@awjing](https://github.com/awjing))
 
