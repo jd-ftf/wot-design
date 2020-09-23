@@ -28,31 +28,31 @@ Vue.use(DropMenuItem)
 export default {
   data () {
     return {
-      value1: '2',
-      value2: '0',
+      value1: 1,
+      value2: 0,
       option1: [
         {
           label: '全部商品',
-          value: '0'
+          value: 0
         }, {
           label: '新款商品',
-          value: '1',
+          value: 1,
           tip: '这是补充信息'
         }, {
-          label: '活动商品',
-          value: '2'
+          label: '这是比较长的筛选条件这是比较长的筛选条件',
+          value: 2
         }
       ],
       option2: [
         {
           label: '综合',
-          value: '0'
+          value: 0
         }, {
           label: '销量',
-          value: '1'
+          value: 1
         }, {
           label: '上架时间',
-          value: '2'
+          value: 2
         }
       ]
     }
@@ -83,17 +83,17 @@ export default {
 export default {
   data() {
     return {
-      value1: '0',
+      value1: 0,
       option1: [
         {
           label: '全部商品',
-          value: '0'
+          value: 0
         }, {
           label: '新款商品',
-          value: '1'
+          value: 1
         }, {
           label: '活动商品',
-          value: '2'
+          value: 2
         }
       ]
     }
@@ -156,7 +156,7 @@ export default {
 
 | 参数      | 说明                                 | 类型      | 可选值       | 默认值   |
 |---------- |------------------------------------ |---------- |------------- |-------- |
-| value / v-model | 当前选中项对应选中的 value | string | - | - |
+| value / v-model | 当前选中项对应选中的 value | string / number | - | - |
 | disabled | 禁用菜单 | boolean | - | false |
 | options | 列表数据，对应数据结构 `[{text: '标题', value: '0', tip: '提示文字'}]` | array | - | - |
 | icon-name | 选中的图标名称(可选名称在wd-icon组件中) | string | - | 'check' |

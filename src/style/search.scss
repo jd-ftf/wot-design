@@ -74,13 +74,18 @@
   }
   @include e(clear) {
     position: absolute;
-    right: 9px;
+    display: inline-block;
+    padding: 7px;
+    right: 2px;
     top: 50%;
     transform: translate(0, -50%);
-    font-size: $-search-input-close-fs;
-    color: $-search-icon-close-color;
+    font-size: 0;
     z-index: 3;
     -webkit-tap-highlight-color: transparent;
+  }
+  @include e(clear-icon) {
+    font-size: $-search-input-close-fs;
+    color: $-search-icon-close-color;
   }
   @include e(cancel) {
     padding: $-search-cancel-padding;

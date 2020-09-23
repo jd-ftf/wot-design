@@ -75,17 +75,21 @@ export default {
     const { children, currentIndex, handleOutsideClick, toggle } = this
     return (
       <div class='wd-drop-menu' vClickoutside={handleOutsideClick}>
-        <div ref='title' class='wd-drop-menu__title'>
+        <div ref='title' class='wd-drop-menu__list'>
           {
             children.map((item, index) => {
               return (
                 <div class={{
-                  'wd-drop-menu__title-item': true,
+                  'wd-drop-menu__item': true,
                   'is-active': currentIndex === index,
                   'is-disabled': item.disabled
                 }} onClick={() => toggle(index)}>
-                  <div class="wd-drop-menu__title-text">{item.$slots.title || item.displayTitle}</div>
-                  <i class="wd-icon-arrow-down wd-drop-menu__arrow"></i>
+                  <div class="wd-drop-menu__item-title">
+                    <div class="wd-drop-menu__item-title-text">
+                      {item.$slots.title || item.displayTitle}
+                    </div>
+                    <i class="wd-icon-arrow-down wd-drop-menu__arrow"></i>
+                  </div>
                 </div>
               )
             })
