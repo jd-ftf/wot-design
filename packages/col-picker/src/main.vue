@@ -68,7 +68,7 @@
                 'is-selected': pickerColSelected[colIndex] && item[valueKey] === pickerColSelected[colIndex],
                 'is-disabled': item.disabled
               }"
-              @click="chooseItem(colIndex, item)"
+              @click="chooseItem(colIndex, item, index)"
             >
               <div>
                 <div class="wd-col-picker__list-item-label">{{ item[labelKey] }}</div>
@@ -233,7 +233,7 @@ export default {
         [this.labelKey]: ''
       }
     },
-    chooseItem (colIndex, item) {
+    chooseItem (colIndex, item, index) {
       if (item.disabled) return
 
       this.isChange = true
@@ -246,6 +246,7 @@ export default {
       this.columnChange({
         selectedItem: item,
         index: colIndex,
+        rowIndex: index,
         resolve: (nextColumn) => {
           if (!(nextColumn instanceof Array)) {
             console.error('[Wot Design] error: the data of each column of wd-col-picker should be an array')

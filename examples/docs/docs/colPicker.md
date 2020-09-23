@@ -24,7 +24,8 @@ Vue.use(ColPicker)
 | 参数      | 类型 | 说明                                 |
 |---------- |---- |---------- |
 | selectedItem | object | 当前列的选中项，数据结构跟 columns 中选项的数据结构一致 |
-| index | number | 当前列的下标 |
+| index | number | 当前列下标 |
+| rowIndex | number | 当前列选中项下标 |
 | resolve | function | 接收下一列的选项数组 |
 | finish | function | 结束 picker 选择，若无法正常关闭如数据获取失败，则执行 `finish(false)` |
 
@@ -464,7 +465,7 @@ export default {
 | disabled | 禁用 | boolean | - | fasle |
 | readonly | 只读 | boolean | - | false |
 | display-format | 自定义展示文案的格式化函数，返回一个字符串 | function | - | - |
-| column-change | 接收当前列的选中项 item、下一列数据处理函数 resolve、结束选择 finish | function | - | - |
+| column-change | 接收当前列的选中项 item、当前列下标、当前列选中项下标下一列数据处理函数 resolve、结束选择 finish | function | - | - |
 | size | 设置选择器大小 | string | 'large' | - |
 | label-width | 设置左侧标题宽度 | string | - | '33%' |
 | error | 是否为错误状态，错误状态时右侧内容为红色 | boolean | - | false |
