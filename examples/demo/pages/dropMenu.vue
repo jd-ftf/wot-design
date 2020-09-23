@@ -24,7 +24,7 @@
           <wd-drop-menu-item v-model="value4" :options="option1" />
         </wd-drop-menu>
         <div style="flex: 1;">
-          <wd-sort-button v-model="value5" title="价格" />
+          <wd-sort-button v-model="value5" title="上架时间" />
         </div>
       </div>
     </demo-block>
@@ -48,24 +48,24 @@ export default {
   data () {
     return {
       show: false,
-      value1: '2',
-      value2: '0',
-      value3: '0',
-      value4: '0',
+      value1: 1,
+      value2: 0,
+      value3: 0,
+      value4: 0,
       value5: 0,
-      value6: '0',
-      value7: '0',
-      value8: '0',
-      value9: '0',
+      value6: 0,
+      value7: 0,
+      value8: 0,
+      value9: 0,
       option1: [
-        { label: '全部商品', value: '0' },
-        { label: '新款商品', value: '1', tip: '这是补充信息' },
-        { label: '活动商品', value: '2' }
+        { label: '全部商品', value: 0 },
+        { label: '新款商品', value: 1, tip: '这是补充信息' },
+        { label: '这是比较长的筛选条件这是比较长的筛选条件', value: 2 }
       ],
       option2: [
-        { label: '综合', value: '0' },
-        { label: '销量', value: '1' },
-        { label: '上架时间', value: '2' }
+        { label: '综合', value: 0 },
+        { label: '销量', value: 1 },
+        { label: '上架时间', value: 2 }
       ],
       option3: '我是第一个选项'
     }

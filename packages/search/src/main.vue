@@ -26,7 +26,9 @@
           <span v-show="!typing && !value" class="wd-search__placeholder-txt">{{ placeholder || t('wd.search.search') }}</span>
         </div>
       </div>
-      <i v-show="typing || value" class="wd-search__clear wd-icon-error-fill" @click="clearSearch"></i>
+      <a v-show="typing || value" class="wd-search__clear" @click="clearSearch">
+        <i class="wd-search__clear-icon wd-icon-error-fill"></i>
+      </a>
     </div>
     <slot name="suffix">
       <div v-show="!hideCancel" class="wd-search__cancel" @click="handleCancel">

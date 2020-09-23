@@ -7,21 +7,22 @@
   font-size: $-drop-menu-fs;
   position: relative;
 
-  @include e(title) {
+  @include e(list) {
     display: flex;
     text-align: center;
     background-color: #fff;
   }
-  @include e(title-item) {
+  @include e(item){
     flex: 1;
-    padding: 0 $-drop-menu-side-padding;
+    min-width: 0;
     height: $-drop-menu-height;
     line-height: $-drop-menu-height;
+    text-align: center;
 
     @include when(active) {
       font-weight: $-fw-medium;
 
-      .wd-drop-menu__title-text::after {
+      .wd-drop-menu__item-title::after {
         opacity: 1;
       }
       .wd-drop-menu__arrow {
@@ -33,10 +34,12 @@
       color: $-drop-menu-disabled-color;
     }
   }
-
-  @include e(title-text) {
+  @include e(item-title) {
     position: relative;
     display: inline-block;
+    max-width: 100%;
+    padding: 0 $-drop-menu-side-padding;
+    box-sizing: border-box;
 
     &::after {
       position: absolute;
@@ -53,9 +56,16 @@
     }
   }
 
+  @include e(item-title-text) {
+    position: relative;
+    @include lineEllipsis;
+  }
+
   @include e(arrow) {
+    position: absolute;
     display: inline-block;
-    margin-left: 6px;
+    top: 0;
+    right: -4px;
     transition: transform 0.3s;
     transform: scale(0.6);
   }
