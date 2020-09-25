@@ -13,13 +13,7 @@ Vue.use(ActionSheet)
 
 `v-model` 为绑定值，表示是否展示菜单。
 
-`actions` 类型为 `Array`，数组内部对象结构如下：
-
-| 参数      | 类型 | 说明 |
-|---------- |---- |---------- |
-| name | string | 选项名称 |
-| subname | string | 描述信息 |
-| color | string | 颜色 |
+`actions` 类型为 `Array`。
 
 ```html
 <wd-button plain @click="show = true">弹出菜单</wd-button>

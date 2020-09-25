@@ -77,9 +77,9 @@ Vue.use(Badge)
 </wd-badge>
 ```
 
-### 点状类型
+### 点状标注
 
-以点状的形式标注需要关注的内容。
+以红点的形式标注需要关注的内容。
 
 通过设置 `is-dot` 属性，开启点状标注。
 
@@ -98,7 +98,7 @@ Vue.use(Badge)
 | max          | 最大值，超过最大值会显示 '{max}+'，要求 value 是 Number 类型    | number  |         —              |     —    |
 | top    | 为正时，角标向下偏移对应的像素             | Number          | - |    —    |
 | right    | 为正时，角标向左偏移对应的像素              | Number          | - |    —    |
-| is-dot       | 小圆点           | boolean         |         —             |  false  |
+| is-dot       | 点状标注           | boolean         |         —             |  false  |
 | hidden       | 隐藏 badge       | boolean         |         —             |  false  |
 | type         | 类型             | string          | primary / success / warning / danger / info |    —    |
 | bg-color    | 背景色             | string          | 各种颜色的css写法 |    —    |

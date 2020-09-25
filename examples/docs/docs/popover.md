@@ -25,13 +25,22 @@ Popover 的属性与 [Tooltip](/docs#/components/tooltip) 很类似，因此对�
 
 ### 模式 mode
 
-使用 `mode` 属性控制当前文字提示的模式。
+使用 `mode` 属性控制当前文字提示的展示模式。`mode` 可选参数为 `normal` / `menu`：
 
-`mode` 有两个值，一种是 `normal` 普通文字模式，另一种是 `menu` 列表模式:
+- **normal**（普通文字模式）:
+  - 当 `mode` 处于默认状态，`content` 属性传入要显示的 `String` 字符串。
 
-* **normal**: 当 `mode` 处于默认状态，`content` 属性传入要显示的 `String` 字符串。
+- **menu**（列表模式）:
+  - 文字提示框会展示成列表形式，此时 `content` 属性传入 `Array` 类型，数组内对象数据结构如下方列表所示。
+  - 绑定事件 `menu-click`，在选择结束后，执行操作，列表关闭。
 
-* **menu**: 文字提示框会展示成列表形式，此时 `content` 属性传入 `Array` 类型，数组中每一个对象以 `[{ iconClass: 'wd-icon-read', content: '内容' }]` 命名。如果不需要icon，那么传入 `[{ content: '内容' }]`。绑定事件 `menu-click` ，在选择结束后，执行操作，列表关闭。
+列表模式下 `content` 数组内对象的数据结构：
+
+| 键名 | 说明 | 类型 | 是否必填 |
+|----- |----- |----- | ----- |
+| content | 选项名 | string | 是 |
+| iconClass（不设置该属性时只展示标题） | 选项值 | string | 否 |
+
 **注意：class属性值为组件库内部的icon类名。也可自定义类名，自定义类名需要用户自行传入图标类库。**
 
 ```html
@@ -68,20 +77,24 @@ export default {
 
 ### 嵌套信息
 
-可以在 Popover 中嵌套多种类型信息，以下为嵌套标签的例子。
+使用插槽 `content` 可以在 Popover 中嵌套多种类型信息。
 
 ```html
 <template>
   <wd-popover>
     <div slot="content">
-      <wd-tag type="primary">标签</wd-tag>
-      <wd-tag type="danger">标签</wd-tag>
-      <wd-tag type="warning">标签</wd-tag>
-      <wd-tag type="success">标签</wd-tag>
+      <i class="pop-content">这是一段自定义样式的内容。</i>
     </div>
     <wd-button class="btn btn-default">点击展示</wd-button>
   </wd-popover>
 </template>
+
+<style scoped>
+.pop-content{
+  color: #8268de;
+  font-weight: bolder;
+}
+</style>
 ```
 
 ## 注意
@@ -113,4 +126,4 @@ export default {
 | -------------- | -------------- | ---------------------------------------- |
 | show     |显示时触发       | - |
 | hide | 隐藏时触发 | - |
-| menu-click | menu 模式下点击某一选项触发 | 当前选项内容{name,content}, 当前选项索引index |
+| menu-click | menu 模式下点击某一选项触发 | item: 选中项, index: 当前选项索引index |

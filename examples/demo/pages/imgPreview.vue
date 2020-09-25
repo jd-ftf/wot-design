@@ -94,25 +94,26 @@ export default {
       })
     },
     toggle3 () {
+      const _this = this
       this.$preview({
         urls: this.urls4,
         onClose: () => {
-          console.log('调用方法，关闭预览')
+          _this.$toast('调用方法，关闭预览')
         },
         onOpen: () => {
-          console.log('调用方法，开启预览')
+          _this.$toast('调用方法，开启预览')
         },
-        onLongTap: this.handleLongtap
+        onLongTap: _this.handleLongtap
       })
     },
     handleLongtap () {
-      console.log('长按事件')
+      this.$toast('长按事件')
     },
     close ({ index }) {
-      console.log('关闭', index)
+      this.$toast('关闭:' + index)
     },
     open () {
-      console.log('打开')
+      this.$toast('打开')
     },
     openImgPreview () {
       this.show = true

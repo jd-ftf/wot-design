@@ -5,15 +5,18 @@
       :key="index"
       class="wd-rate__item"
       :style="{ 'margin-right': index == rateList.length - 1 ? 0 : space }"
-      @click="changeRate(index)">
+      @click="changeRate(index)"
+    >
       <i
         :class="icon"
         class="wd-rate__item-star"
-        :style="{ 'width': size, 'height': size, 'font-size': size, 'background': color, '-webkit-background-clip': 'text' }"></i>
+        :style="{ 'width': size, 'height': size, 'font-size': size, 'background': color, '-webkit-background-clip': 'text' }"
+      ></i>
       <i
         :class="activeIcon"
         class="wd-rate__item-star wd-rate__item-star--active"
-        :style="{ 'width': item, 'height': size, 'font-size': size, 'background': disabled ? disabledColor : activeColor, '-webkit-background-clip': 'text' }"></i>
+        :style="{ 'width': item, 'height': size, 'font-size': size, 'background': disabled ? disabledColor : activeColor, '-webkit-background-clip': 'text' }"
+      ></i>
     </li>
   </ul>
 </template>
@@ -88,6 +91,7 @@ export default {
     changeRate (index) {
       if (!this.readonly && !this.disabled) {
         this.$emit('input', index + 1)
+        this.$emit('change', index + 1)
       }
     }
   }

@@ -69,6 +69,12 @@ export default {
       handler () {
         this.$emit('input', this.formatValue(this.value))
       }
+    },
+    max () {
+      this.setValue(this.value)
+    },
+    min () {
+      this.setValue(this.value)
     }
   },
   computed: {

@@ -60,16 +60,23 @@ export default {
 ```
 
 ### Attributes
+
 | 参数      | 说明                                 | 类型      | 可选值       | 默认值   |
 |---------- |------------------------------------ |---------- |------------- |-------- |
-| value / v-model      |	当前分数                |	number    |	—           |	—       |
-| num	    | 评分最大值                      |	number    |	-         |	5 |
-| readonly      | 是否只读                  | boolean | - | false |
-| size   | 图标大小                  | string | - | '16px' |
-| space      | 图标间距        | string | - | '4px' |
-| color       | 未选中的图标颜色  | string | - | '#E8E8E8' |
-| active-color           | 选中的图标颜色        | string | - | 'linear-gradient(180deg, rgba(255,238,0,1) 0%,rgba(250,176,21,1) 100%)' |
-| icon           | 未选中的图标类名                  | string | - | 'wd-icon-star-on' |
-| active-icon    | 选中的图标类名                  | string | - | 'wd-icon-star-on' |
-| disabled           | 是否禁用                  | boolean | - | false |
-| disabled-color    | 禁用的图标颜色                  | string | - | 'linear-gradient(315deg, rgba(177,177,177,1) 0%,rgba(199,199,199,1) 100%)' |
+| value / v-model | 当前分数 | number | — | —       |
+| num | 评分最大值 | number | - | 5 |
+| readonly | 是否只读 | boolean | - | false |
+| size   | 图标大小 | string | - | '16px' |
+| space | 图标间距 | string | - | '4px' |
+| color | 未选中的图标颜色  | string | - | '#E8E8E8' |
+| active-color | 选中的图标颜色 | string | - | 'linear-gradient(180deg, rgba(255,238,0,1) 0%,rgba(250,176,21,1) 100%)' |
+| icon | 未选中的图标类名 | string | - | 'wd-icon-star-on' |
+| active-icon | 选中的图标类名 | string | - | 'wd-icon-star-on' |
+| disabled | 是否禁用 | boolean | - | false |
+| disabled-color    | 禁用的图标颜色 | string | - | 'linear-gradient(315deg, rgba(177,177,177,1) 0%,rgba(199,199,199,1) 100%)' |
+
+### Events
+
+| 事件名称      | 说明                                 | 参数     |
+|------------- |------------------------------------ |--------- |
+| change | 修改评分时触发 | value: 改后的评分 |
