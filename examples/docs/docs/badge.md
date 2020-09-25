@@ -9,8 +9,6 @@ import { Badge } from 'wot-design'
 Vue.use(Badge)
 ```
 
-出现在按钮、图标旁的数字或状态标记。
-
 ### 基础用法
 
 展示新消息数量。
@@ -86,7 +84,7 @@ Vue.use(Badge)
 ```html
 <wd-badge is-dot>数据查询</wd-badge>
 <wd-badge is-dot>
-  <wd-button class="share-button" ></wd-button>
+  <wd-button class="share-button" type="info" :round="false">数据查询</wd-button>
 </wd-badge>
 ```
 

@@ -18,7 +18,12 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
+.wd-icon-arrow-thin-up:before {
+  content: "\e898";
+}
+.wd-icon-arrow-thin-down:before {
+  content: "\e899";
+}
 .wd-icon-arrow-right:before {
   content: "\e900";
 }
@@ -34,6 +39,7 @@
 .wd-icon-fill-camera:before {
   content: "\e904";
 }
+
 .wd-icon-clock:before {
   content: "\e91d";
 }
@@ -178,7 +184,8 @@
 }
 .wd-icon-edit-outline:before {
   content: "\e912";
-}.wd-icon-copy:before {
+}
+.wd-icon-copy:before {
   content: "\e914";
 }
 .wd-icon-bags:before {

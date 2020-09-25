@@ -150,7 +150,7 @@ export default {
   .demo-iframe {
     position: fixed;
     top: 50%;
-    right: 20px;
+    right: 50px;
     transform: translateY(-50%);
     background-image: url('../assets/img/phone-case.png');
     background-size: 100% 100%;

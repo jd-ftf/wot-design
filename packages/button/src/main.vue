@@ -29,7 +29,9 @@
       </svg>
     </span>
     <i v-if="icon" class="wd-button__icon" :class="icon"></i>
-    <span class="wd-button__txt"><slot></slot></span>
+    <span class="wd-button__txt">
+      <slot></slot>
+    </span>
   </button>
 </template>
 
@@ -48,7 +50,10 @@ export default {
       type: String,
       default: 'primary'
     },
-    round: Boolean,
+    round: {
+      type: Boolean,
+      default: true
+    },
     plain: Boolean,
     loading: Boolean,
     block: Boolean,

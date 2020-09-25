@@ -36,10 +36,18 @@ export default {
 修改 `shape` 属性，可选值为 'dot'、'button'、'check'，默认为 'check'。
 
 ```html
+<!-- button 按钮式单选 -->
 <wd-radio-group v-model="value1" shape="button">
   <wd-radio value="1">京麦</wd-radio>
   <wd-radio value="2">商家后台</wd-radio>
 </wd-radio-group>
+```
+
+> <div style="color: #FA4350;font-weight: 500;">注意：</div>
+> <div>内容项在3项以内，且有比较重要的信息备选（如付款类型选择等）可考虑采用圆形组件。因为会跟圆形复选框容易混淆，且会造成当前表单页页面结构不统一，<span style="color: #FA4350;font-weight: 500;">一般情况不建议使用点状单选。</span></div>
+
+```html
+<!-- dot 点状单选 -->
 <wd-radio-group v-model="value2" shape="dot">
   <wd-radio value="1">京麦</wd-radio>
   <wd-radio value="2">商家后台</wd-radio>

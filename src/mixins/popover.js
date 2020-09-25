@@ -178,8 +178,10 @@ export default {
   },
 
   mounted () {
-    window.addEventListener('resize', () => {
-      this.init()
-    })
+    window.addEventListener('resize', this.init)
+  },
+
+  beforeDestroy () {
+    window.removeEventListener('resize', this.init)
   }
 }

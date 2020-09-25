@@ -37,14 +37,6 @@ Vue.use(Button)
 <wd-button plain>主要按钮</wd-button>
 ```
 
-### 圆角按钮
-
-设置 `round` 属性。
-
-```html
-<wd-button round>主要按钮</wd-button>
-```
-
 ### 按钮大小
 
 设置 `size` ，支持 'small'、'medium'、'large'，默认为 'medium'。
@@ -87,14 +79,6 @@ Vue.use(Button)
 <wd-button icon="wd-icon-edit-outline"></wd-button>
 ```
 
-### 吸顶按钮
-
-设置 `suck` 属性。
-
-```html
-<wd-button suck>主要按钮</wd-button>
-```
-
 ### 块状按钮
 
 设置 `block` 属性。
@@ -108,7 +92,7 @@ Vue.use(Button)
 | 参数      | 说明                                 | 类型      | 可选值       | 默认值   |
 |---------- |------------------------------------ |---------- |------------- |-------- |
 | type   |	按钮类型                        |	string     | 'primary', 'success', 'info', 'warning', 'error', 'text', 'icon' |	'primary'  |
-| round	    | 圆角按钮                  |	boolean    |	-         |	false |
+| round	    | 圆角按钮                  |	boolean    |	-         |	true |
 | plain | 幽灵按钮 | boolean | - | false |
 | loading | 加载中按钮 | boolean | - | false |
 | suck | 吸顶按钮 | boolean | - | false |
