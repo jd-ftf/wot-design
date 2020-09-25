@@ -117,6 +117,7 @@
       }
     }
   }
+
   @include when(inline) {
     display: inline-block;
     margin-right: $-radio-margin;
@@ -143,9 +144,9 @@
       .wd-radio__check {
         color: $-radio-disabled-label-color;
       }
-      // .wd-radio__label {
-      //   color: $-radio-disabled-label-color;
-      // }
+      .wd-radio__label {
+        color: $-radio-disabled-label-color;
+      }
     }
 
     @include when(button) {
@@ -169,6 +170,26 @@
       .wd-radio__shape{
         background: $-radio-dot-disabled-bg;
         border-color: $-radio-dot-disabled-border;
+      }
+    }
+  }
+
+  @include when(large) {
+    .wd-radio__shape {
+      width: $-radio-large-size;
+      height: $-radio-large-size;
+      font-size: $-radio-large-size;
+    }
+    .wd-radio__label {
+      font-size: $-radio-large-label-fs;
+    }
+
+    @include when(dot) {
+      .wd-radio__shape {
+        &::before {
+          width: $-radio-dot-large-size;
+          height: $-radio-dot-large-size;
+        }
       }
     }
   }

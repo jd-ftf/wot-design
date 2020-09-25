@@ -143,7 +143,7 @@ export default {
 | 参数      | 说明                                 | 类型      | 可选值       | 默认值   |
 |---------- |------------------------------------ |---------- |------------- |-------- |
 | value | 单选框选中时的值 | string / number / boolean | - | - |
-| shape | 单选框形状 | string | 'dot', 'button' | 'dot' |
+| shape | 单选框形状 | string | 'dot', 'button', 'check' | 'check' |
 | checked-color | 选中的颜色 | string | - | '#4d80f0' |
 | disabled | 禁用 | boolean | - | false |
 | max-width | 文字位置最大宽度 | string | - | '' |
