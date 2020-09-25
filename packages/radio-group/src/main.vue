@@ -18,7 +18,7 @@ export default {
     value: [String, Number, Boolean],
     shape: {
       type: String,
-      default: 'dot'
+      default: 'check'
     },
     checkedColor: String,
     checkedTextColor: String,

@@ -54,6 +54,37 @@
     }
   }
 
+  @include when(dot) {
+    .wd-radio__shape {
+      border: 2px solid $-radio-dot-border-color;
+      border-radius: 50%;
+      position: relative;
+      display: inline-block;
+      box-sizing: border-box;
+
+      &::before {
+        content: "";
+        position: absolute;
+        width: $-radio-dot-size;
+        height: $-radio-dot-size;
+        left: 2px;
+        top: 2px;
+        border-radius: 50%;
+        background-color: #fff;
+        opacity: 0;
+      }
+    }
+    @include when(checked) {
+      .wd-radio__shape {
+        background-color: $-radio-dot-checked-bg;
+        border-color: $-radio-dot-checked-border-color;
+        &::before {
+          opacity: 1;
+        }
+      }
+    }
+  }
+
   @include when(button) {
     display: inline-block;
     margin-bottom: 0;
@@ -68,9 +99,8 @@
     .wd-radio__label {
       height: $-radio-button-height;
       min-width: $-radio-button-min-width;
-      // max-width: $-radio-button-max-width;
       padding: 5px 15px;
-      margin-left: 0;
+      margin-right: 0;
       border-radius: $-radio-button-radius;
       background-color: $-radio-button-bg;
       font-size: $-radio-button-fs;
@@ -97,7 +127,7 @@
     }
     .wd-radio__shape {
       display: inline-block;
-      margin-left: 4px;
+      margin-right: 4px;
     }
   }
 
@@ -105,6 +135,7 @@
     .wd-radio__label {
       color: $-radio-disabled-label-color;
     }
+
     @include when(checked) {
       .wd-radio__shape {
         color: $-radio-disabled-label-color;
@@ -112,10 +143,11 @@
       .wd-radio__check {
         color: $-radio-disabled-label-color;
       }
-      .wd-radio__label {
-        color: $-radio-disabled-label-color;
-      }
+      // .wd-radio__label {
+      //   color: $-radio-disabled-label-color;
+      // }
     }
+
     @include when(button) {
       .wd-radio__label {
         border-color: $-radio-disabled-color;
@@ -130,6 +162,13 @@
           border-color: $-radio-button-disabled-border;
           background: $-radio-disabled-color;
         }
+      }
+    }
+
+    @include when(dot) {
+      .wd-radio__shape{
+        background: $-radio-dot-disabled-bg;
+        border-color: $-radio-dot-disabled-border;
       }
     }
   }
