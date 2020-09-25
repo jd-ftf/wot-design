@@ -107,10 +107,5 @@ export default {}
   .wd-button {
     margin: 0 10px 10px 0;
   }
-  .page-button-suck {
-    .wd-button {
-      margin-right: 0;
-    }
-  }
 }
 </style>

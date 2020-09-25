@@ -25,11 +25,13 @@ export default {
     },
     inline () {
       return this.radioGroup.inline
+    },
+    size () {
+      return this.radioGroup.size || ''
     }
   },
   methods: {
     handleChange () {
-      console.log('修改')
       this.radioGroup.changeValue(this.value)
     }
   },
@@ -42,6 +44,7 @@ export default {
       finalDisabled,
       finalCheckedColor,
       maxWidth,
+      size,
       inline
     } = this
 
@@ -74,27 +77,26 @@ export default {
       </span>
     )
     // 单选框
+    const classList = {
+      'wd-radio': true,
+      'is-checked': isChecked,
+      'is-large': size && (size === 'large'),
+      'is-button': finalShape === 'button',
+      'is-dot': finalShape === 'dot',
+      'is-disabled': finalDisabled,
+      'is-inline': inline
+    }
     const radio = inline ? (
       <label
         class={{
-          'wd-radio': true,
-          'is-checked': isChecked,
-          'is-button': finalShape === 'button',
-          'is-dot': finalShape === 'dot',
-          'is-disabled': finalDisabled,
+          ...classList,
           'is-inline': inline
         }}>
         {shape}{label}
       </label>
     ) : (
       <label
-        class={{
-          'wd-radio': true,
-          'is-checked': isChecked,
-          'is-button': finalShape === 'button',
-          'is-dot': finalShape === 'dot',
-          'is-disabled': finalDisabled
-        }}>
+        class={{ ...classList }}>
         {label}{shape}
       </label>
     )
