@@ -12,59 +12,111 @@ Wot Design 使用 BEM 格式进行 CSS 类名的定义，大部分的样式只�
 
 **主题色**为：
 
-<div class="style-block" style="background: #0083ff;">
+<div class="style-block" style="background: #4d80f0;">
   <p>Theme Color</p>
-  <p>$-color-theme: #0083ff</p>
+  <p>$-color-theme: #4d80f0</p>
 </div>
 
-**辅助颜色**，这些颜色在部分组件中会被使用：
+**主题品牌色-小渐变（按钮，渐变更弱）色**：
+<div class="color-wrapper">
+  <span class="style-block liner-color" style="background: linear-gradient(315deg, rgba(79,124,248,1) 0%,rgba(102,141,248,1) 100%);">
+    <span class="a-dot"></span>
+    <span class="b-dot"></span>
+  </span>
 
-<div class="style-block" style="background: #00c740;">
+  <div class="demo-right">
+    <i>渐变倾斜角度45度左上角较浅，右下角较深</i>
+    <ul>
+      <li>A: <span class="color-block" style="background: #668DF8">#668DF8</span></li>
+      <li>B: <span class="color-block" style="background: #4F7CF8">#4F7CF8</span></li>
+    </ul>
+  </div>
+</div>
+
+**品牌色-大渐变（大面积背景色/插件icon底色，渐变更强）**：
+
+<div class="color-wrapper">
+  <span class="style-block liner-color liner-color1" style="background: linear-gradient(315deg, rgba(81,124,240,1) 0%,rgba(118,158,245,1) 100%);">
+    <span class="a-dot"></span>
+    <span class="b-dot"></span>
+  </span>
+
+  <div class="demo-right">
+    <i>渐变倾斜角度45度右上角较浅，左下角较深</i>
+    <ul>
+      <li>A: <span class="color-block" style="background: #769EF5">#769EF5</span></li>
+      <li>B: <span class="color-block" style="background: #517CF0">#517CF0</span></li>
+    </ul>
+  </div>
+</div>
+
+**功能色**：
+
+<div class="style-block" style="background: #4D80F0;">
+  <p>Theme Color</p>
+  <p>$-color-theme: #4D80F0</p>
+</div>
+<div class="style-block" style="background: #34d19d;">
   <p>Success Color</p>
-  <p>$-color-success: #00c740</p>
+  <p>$-color-success: #34d19d</p>
 </div>
-<div class="style-block" style="background: #ffb300;">
+<div class="style-block" style="background: #f0883a;">
   <p>Warning Color</p>
-  <p>$-color-warning: #ffb300</p>
+  <p>$-color-warning: #f0883a</p>
 </div>
-<div class="style-block" style="background: #e2231a;">
+<div class="style-block" style="background: #fa4350;">
   <p>Danger Color</p>
-  <p>$-color-danger: #e2231a</p>
-</div>
-<div class="style-block" style="background: #909399;">
-  <p>Info Color</p>
-  <p>$-color-info: #909399</p>
+  <p>$-color-danger: #fa4350</p>
 </div>
 
-**还有一些图标、背景、边框颜色**：
+**辅助色**：
 
-<div class="style-block" style="background: #c5c5c5;">
-  <p>Icon Color</p>
-  <p>$-color-icon: #c5c5c5</p>
+<div class="style-block" style="background: #8268de;">
+  <p>#8268de</p>
 </div>
-<div class="style-block" style="background: #f4f4f4;">
-  <p style="color: #666;">Background Color</p>
-  <p style="color: #666;">$-color-bg: #f4f4f4</p>
+<div class="style-block" style="background: #fa4350;">
+  <p>#fa4350</p>
 </div>
-<div class="style-block" style="background: #c5c5c5;">
-  <p style="color: #666;">Border Color</p>
-  <p style="color: #666;">$-color-border: #c5c5c5</p>
+<div class="style-block" style="background: #f0883a;">
+  <p>#f0883a</p>
 </div>
-<div class="style-block" style="background: #eee;">
-  <p style="color: #666;">Border-light Color</p>
-  <p style="color: #666;">$-color-border-light: #eee</p>
+<div class="style-block" style="background: #f0cf1d;">
+  <p>#f0cf1d</p>
 </div>
-
-**左右留白间距**：
-
-$-size-side-padding: 15px;
-
-<div style="position: relative; width: 375px; height: 100px; background: #f4f4f4;">
-  <div style="position: absolute; right: -8px; top: 40px;">15px</div>
-  <div style="height: 100px; margin: 0 15px; background: rgba(255, 179, 0, 0.55);"></div>
+<div class="style-block" style="background: #34d19d;">
+  <p>#34d19d</p>
+</div>
+<div class="style-block" style="background: #2bb3ed;">
+  <p>#2bb3ed</p>
 </div>
 
-> 更多样式变量查看 <a href="https://github.com/jd-ftf/wot-design/blob/dev/src/style/abstracts/_variable.scss" target="_blank">配置文件</a>
+### 中性色
+
+中性色用于文本、背景和边框颜色。通过运用不同的中性色，来表现层次结构。
+
+<ul class="color-group">
+  <li class="color-group-line" style="background: rgba(0,0,0,1);color: #fff">100%<div>重要文字</div></li>
+  <li class="color-group-line" style="background: rgba(0,0,0,0.85);color: #fff">85%<div>普通文字</div></li>
+  <li class="color-group-line" style="background: rgba(0,0,0,0.65);color: #fff">65%<div>遮罩、次要文字<br/>仅在层级复杂时使用</div></li>
+  <li class="color-group-line" style="background: rgba(0,0,0,0.45);color: #fff">45%<div>辅助文字、次级按钮边框线</div></li>
+  <li class="color-group-line" style="background: rgba(0,0,0,0.25);color: rgba(0,0,0,0.65)">25%<div>失效、默认提示文字</div></li>
+  <li class="color-group-line" style="background: rgba(0,0,0,0.15);color: rgba(0,0,0,0.65)">15%<div>控件边框线</div></li>
+  <li class="color-group-line" style="background: rgba(0,0,0,0.09);color: rgba(0,0,0,0.65)">9%<div>若交叉使用则为实色#E8E8E8</div></li>
+  <li class="color-group-line" style="background: rgba(0,0,0,0.04);color: rgba(0,0,0,0.65)">4%<div>背景色、禁用填充色</div></li>
+  <li class="color-group-line" style="background: rgba(0,0,0,0.02);color: rgba(0,0,0,0.65)">2%<div>表头填充色</div></li>
+</ul>
+
+<ul class="color-group dark">
+  <li class="color-group-line" style="background: rgba(255,255,255,1);color: rgba(0,0,0,0.65)">100%<div>重要文字</div></li>
+  <li class="color-group-line" style="background: rgba(255,255,255,0.85);color: rgba(0,0,0,0.65)">85%<div>普通文字</div></li>
+  <li class="color-group-line" style="background: rgba(255,255,255,0.65);color: rgba(0,0,0,0.65)">65%<div>遮罩、次要文字<br/>仅在层级复杂时使用</div></li>
+  <li class="color-group-line" style="background: rgba(255,255,255,0.45);color: rgba(255,255,255,0.65)">45%<div>辅助文字、次级按钮边框线</div></li>
+  <li class="color-group-line" style="background: rgba(255,255,255,0.25);color: rgba(255,255,255,0.65)">25%<div>失效、默认提示文字</div></li>
+  <li class="color-group-line" style="background: rgba(255,255,255,0.15);color: rgba(255,255,255,0.65)">15%<div>控件边框线</div></li>
+  <li class="color-group-line" style="background: rgba(255,255,255,0.09);color: rgba(255,255,255,0.65)">9%<div>若交叉使用则为实色#E8E8E8</div></li>
+  <li class="color-group-line" style="background: rgba(255,255,255,0.04);color: rgba(255,255,255,0.65)">4%<div>背景色、禁用填充色</div></li>
+  <li class="color-group-line" style="background: rgba(255,255,255,0.02);color: rgba(255,255,255,0.65)">2%<div>表头填充色</div></li>
+</ul>
 
 #### npm 项目中创建 SCSS 变量文件
 

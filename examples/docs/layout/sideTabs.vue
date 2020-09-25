@@ -8,10 +8,13 @@
           <page-controller></page-controller>
         </div>
         <div class="demo-iframe" v-show="$route.meta.demo">
-          <!-- <input readonly v-model="demoLink" class="phone-link" /> -->
-          <input readonly v-model="demoLink" class="phone-link" />
-          <div class="wrapper">
-            <iframe frameborder="0" :src="demoLink" ref="iframe"></iframe>
+          <div class="iframe-wrapper">
+            <div class="input-wrapper">
+              <input readonly v-model="demoLink" class="phone-link" />
+            </div>
+            <div class="wrapper">
+              <iframe frameborder="0" :src="demoLink" ref="iframe"></iframe>
+            </div>
           </div>
         </div>
       </div>
@@ -131,10 +134,30 @@ export default {
   .phone-title {
     width: 100%;
   }
-  .phone-link {
+
+  .input-wrapper {
     position: absolute;
     top: 69px;
-    left: 35px;
+    width: 368px;
+    height: 46px;
+    padding-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    background-color: #fafafa;
+
+    &::after {
+      content: '';
+      width: 100%;
+      height: 1px;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, 0.04);
+    }
+  }
+  .phone-link {
     padding: 10px;
     border-radius: 10px;
     background: rgba(142, 142, 147, 0.12);
@@ -152,28 +175,33 @@ export default {
     top: 50%;
     right: 50px;
     transform: translateY(-50%);
-    background-image: url('../assets/img/phone-case.png');
-    background-size: 100% 100%;
     width: 425px;
     height: 820px;
     margin-top: 30px;
     font-size: 0;
-    display: flex;
-    justify-content: center;
 
+    .iframe-wrapper {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+      background-image: url('../assets/img/phone-case.png');
+      background-size: 100% 100%;
+    }
     iframe {
       height: 100%;
       width: 100%;
     }
-  }
-  .wrapper {
-    position: relative;
-    width: 368px;
-    height: 680px;
-    margin-top: 112px;
-    overflow: hidden;
-    box-sizing: border-box;
-    border-radius: 0 0 22px 22px;
+    .wrapper {
+      position: relative;
+      width: 368px;
+      height: 680px;
+      margin-top: 115px;
+      overflow: hidden;
+      box-sizing: border-box;
+      border-radius: 0 0 22px 22px;
+    }
   }
 }
 @media (max-width: 1536px) and (max-height: 750px) {
@@ -185,11 +213,21 @@ export default {
     .demo-iframe {
       right: 80px;
       width: 360px;
+      height: 651px;
       margin-top: 20px;
-
+      .wrapper {
+        width: 313px;
+        height: 517px;
+      }
       iframe {
         height: 550px;
       }
+    }
+    .phone-link {
+      width: 290px;
+    }
+    .input-wrapper {
+      width: 313px;
     }
   }
 }
@@ -197,16 +235,25 @@ export default {
   .tab-content {
     margin-left: 275px;
     margin-right: 420px;
+    height: 610px;
     margin-bottom: 0;
 
     .demo-iframe {
       right: 80px;
       width: 320px;
       margin-top: 20px;
-
-      iframe {
-        height: 460px;
+      .wrapper {
+        margin-top: 101px;
+        width: 280px;
+        height: 527px;
       }
+    }
+    .phone-link {
+      width: 260px;
+    }
+    .input-wrapper {
+      width: 280px;
+      top: 55px;
     }
   }
 }

@@ -2,7 +2,7 @@
 
 ### 2.0.0
 
-*2020-09-21*
+*2020-09-25*
 
 #### 新特性
 
@@ -17,6 +17,7 @@
 - Button
   - click 事件抛出event对象 (by [@yawuling](https://github.com/yawuling)） )
   - type 默认值改为 `primary` (by [@HXCStudio123](https://github.com/HXCStudio123) )
+  - round 默认值改为 `true` (by [@HXCStudio123](https://github.com/HXCStudio123) )
 - Card
   - 新增卡片组件 Card  (by [@awjing](https://github.com/awjing) )
 - Cell

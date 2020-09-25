@@ -1,8 +1,8 @@
 /**
  * 初始化
  */
-@import 'variable';
-@import 'markdown';
+@import "variable";
+@import "markdown";
 
 html,
 body {
@@ -99,5 +99,113 @@ a {
   p {
     margin: 0;
     color: #fff;
+  }
+}
+.a-dot,
+.b-dot {
+  position: absolute;
+  border-radius: 50%;
+  width: 12px;
+  height: 12px;
+  background: #668df8;
+  z-index: 10;
+  border: 2px solid white;
+  box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.09);
+}
+.a-dot {
+  left: -6px;
+  top: -6px;
+  &::before {
+    content: "A";
+    display: inline-block;
+    color: rgba(0, 0, 0, 0.85);
+    font-size: 17px;
+    transform: translate(14px, -22px);
+  }
+}
+.b-dot {
+  right: -6px;
+  bottom: -6px;
+  &::before {
+    content: "B";
+    display: inline-block;
+    color: rgba(0, 0, 0, 0.85);
+    font-size: 17px;
+    transform: translate(14px, -22px);
+  }
+}
+.liner-color {
+  width: 160px;
+  height: 160px;
+  position: relative;
+  &::after {
+    position: absolute;
+    content: "";
+    width: 2px;
+    height: 250px;
+    right: 96px;
+    top: -32px;
+    background-color: #fff;
+    transform: rotate(-45deg);
+  }
+}
+.color-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.color-block {
+  width: 65px;
+  vertical-align: middle;
+  display: inline-block;
+  text-align: center;
+  height: 20px;
+  color: #fff;
+  font-size: 14px;
+  margin-left: 5px;
+}
+
+.liner-color1 {
+  &::after {
+    transform: rotate(45deg);
+    top: -30px;
+  }
+  .a-dot {
+    right: -6px;
+    top: -6px;
+    left: inherit;
+  }
+  .b-dot {
+    left: -6px;
+    bottom: -6px;
+    &::before {
+      transform: translate(25px, -15px);
+    }
+  }
+}
+.demo-right {
+  position: absolute;
+  left: 250px;
+}
+.color-group {
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 0 !important;
+  box-sizing: border-box;
+  &.dark {
+    background: rgba(38, 38, 38, 1);
+    border: 3px solid rgba(38, 38, 38, 1);
+    border-radius: 4px;
+  }
+  li {
+    width: 120px;
+    height: 120px;
+    list-style: none;
+    display: inline-block;
+    padding: 8px 0 0 8px;
+
+    div {
+      font-weight: 500;
+    }
   }
 }
