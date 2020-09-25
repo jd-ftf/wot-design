@@ -6,8 +6,14 @@
         <wd-radio value="2">单选框2</wd-radio>
       </wd-radio-group>
     </demo-block>
-    <demo-block title="修改形状">
+    <demo-block title="修改形状--button">
       <wd-radio-group v-model="value2" shape="button">
+        <wd-radio value="1">京麦</wd-radio>
+        <wd-radio value="2">商家后台</wd-radio>
+      </wd-radio-group>
+    </demo-block>
+    <demo-block title="修改形状--dot">
+      <wd-radio-group v-model="value12" shape="dot">
         <wd-radio value="1">京麦</wd-radio>
         <wd-radio value="2">商家后台</wd-radio>
       </wd-radio-group>
@@ -50,6 +56,10 @@
         <wd-radio value="1">京麦</wd-radio>
         <wd-radio value="2">商家后台</wd-radio>
       </wd-radio-group>
+      <wd-radio-group v-model="value13" shape="dot" disabled class="offset">
+        <wd-radio value="1">京麦</wd-radio>
+        <wd-radio value="2">商家后台</wd-radio>
+      </wd-radio-group>
     </demo-block>
     <demo-block title="大尺寸">
       <wd-radio-group v-model="value5" size="large">
@@ -78,7 +88,9 @@ export default {
       value8: '1',
       value9: '1',
       value10: '1',
-      value11: '1'
+      value11: '1',
+      value13: '1',
+      value12: '1'
     }
   }
 }
@@ -88,5 +100,8 @@ export default {
   margin-top: 10px;
   padding: 10px 0;
   border-top: 1px solid rgba(0, 0, 0, 0.04);
+}
+.offset {
+  margin-top: 20px;
 }
 </style>

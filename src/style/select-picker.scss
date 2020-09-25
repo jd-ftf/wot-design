@@ -11,4 +11,7 @@
     max-height: 245px;
     overflow: auto;
   }
+  @include e(footer) {
+    padding: 24px 15px;
+  }
 }

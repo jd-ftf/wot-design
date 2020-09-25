@@ -140,7 +140,7 @@ $-button-large-box-shadow-size: 0px 4px 8px 0px !default; // 大尺寸阴影尺�
 $-button-suck-height: 50px !default; // suck 类型按钮高度
 $-button-icon-fs: 18px !default; // 带图标的按钮的图标大小
 $-button-icon-size: 40px !default; // icon 类型按钮尺寸
-$-button-icon-color: mix($-color-black, $-color-white, 65%) !default; // icon 类型按钮颜色
+$-button-icon-color: rgba($-color-black, 65%) !default; // icon 类型按钮颜色
 $-button-icon-active-color: $-color-icon-active !default; // icon 类型按钮点击态颜色
 $-button-icon-disabled-color: $-color-icon-disabled !default; // icon 类型按钮禁用颜色
 
@@ -347,12 +347,12 @@ $-input-color: rgba($-color-black, 0.85) !default; // 文字颜色
 $-input-placeholder-color: rgba($-color-black, 0.25) !default; // 占位符颜色
 $-input-disabled-color: rgba($-color-black, 0.15) !default; // 输入框禁用颜色
 $-input-error-color: $-color-danger !default; // 输入框错误颜色
-$-input-icon-color: rgba($-color-black, 0.65) !default; // 图标颜色
+$-input-clear-color: rgba($-color-black, 0.65) !default; // 清空按钮颜色
+$-input-icon-color: rgba($-color-black, 0.25) !default; // 图标颜色
 $-input-count-color: rgba($-color-black, 0.25) !default; // 计数文字颜色
 $-input-count-current-color: rgba($-color-black, 0.85) !default; // 当前长度颜色
 $-input-label-padding: 13px 10px 13px 0 !default; // label padding
 $-input-bg: $-color-white !default; // 默认背景颜色
-// TODO cell模式下 待设计改
 $-input-cell-bg: $-color-white !default; // cell 类型背景色
 $-input-cell-border-color: $-color-border-light !default; // cell 类型边框颜色
 $-input-cell-padding: $-size-side-padding !default; // cell 类型左右间距
@@ -533,11 +533,10 @@ $-progress-label-fs: 14px !default; // 文字字号
 $-progress-icon-fs: 18px !default; // 图标字号
 
 /* pull-refresh */
-$-pull-refresh-fs: $-fs-secondary !default; // 下拉刷下提示文字字号
-$-pull-refresh-color: $-color-secondary !default; // 下拉刷下提示文字颜色
-$-pull-refresh-tip-height: 30px !default; // 成功提示高度
-$-pull-refresh-tip-bg: $-color-theme !default; // 成功提示背景色
-$-pull-refresh-tip-fs: $-fs-secondary !default; // 成功提示字号
+$-pull-refresh-height: 56px !default; // 下拉刷下提示文字高度
+$-pull-refresh-fs: 14px !default; // 下拉刷下提示文字字号
+$-pull-refresh-icon-fs: 24px !default; // 下拉刷下提示文字字号
+$-pull-refresh-color: rgba($-color-black, 0.45) !default; // 下拉刷下提示文字颜色
 
 /* radio */
 $-radio-margin: $-checkbox-margin !default; // 多个单选框距离
@@ -561,6 +560,13 @@ $-radio-button-bg: $-checkbox-button-bg !default; // 按钮模式背景颜色
 $-radio-button-fs: $-checkbox-button-font-size !default; // 按钮模式字号
 $-radio-button-border: $-checkbox-button-border !default; // 按钮边框颜色
 $-radio-button-disabled-border: $-checkbox-button-disabled-border !default; // 按钮禁用边框颜色
+
+$-radio-dot-size: 8px !default; // 单选dot模式圆点尺寸
+$-radio-dot-checked-bg: $-color-theme !default; // 单选dot模式选中背景色
+$-radio-dot-checked-border-color: $-color-theme !default; // 单选dot模式选中边框色
+$-radio-dot-border-color: #dcdcdc !default; // 单选dot模式边框色
+$-radio-dot-disabled-border: #d9d9d9 !default; // 单选dot模式禁用边框颜色
+$-radio-dot-disabled-bg: #d9d9d9 !default; // 单选dot模式禁用背景颜色
 
 /* search */
 $-search-side-padding: $-size-side-padding !default; // 左右间距

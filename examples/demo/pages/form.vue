@@ -1,9 +1,34 @@
 <template>
-  <div class="page-form">
+  <div>
     <wd-cell-group class="group" title="基础信息" border>
-      <wd-input label="优惠券名称" label-width="100px" maxlength="20" show-word-limit required suffix-icon="wd-icon-warn-bold" clearable v-model="couponName" placeholder="请输入优惠券名称" @click-suffix-icon="handleIconClick" />
-      <wd-select-picker label="推广平台" label-width="100px" v-model="platform" :columns="platformList" placeholder="请选择推广平台" />
-      <wd-picker label="优惠方式" label-width="100px" name="promotion" align-right v-model="promotion" :columns="promotionlist" bind:confirm="handlePromotion" />
+      <wd-input
+        label="优惠券名称"
+        label-width="100px"
+        maxlength="20"
+        show-word-limit
+        required
+        suffix-icon="wd-icon-warn-bold"
+        clearable
+        v-model="couponName"
+        placeholder="请输入优惠券名称"
+        @click-suffix-icon="handleIconClick"
+      />
+      <wd-select-picker
+        label="推广平台"
+        label-width="100px"
+        v-model="platform"
+        :columns="platformList"
+        placeholder="请选择推广平台"
+      />
+      <wd-picker
+        label="优惠方式"
+        label-width="100px"
+        name="promotion"
+        align-right
+        v-model="promotion"
+        :columns="promotionlist"
+        bind:confirm="handlePromotion"
+      />
       <wd-cell title="券面额" required title-width="100px">
         <div style="text-align: left;">
           <div class="inline-txt" style="margin-left: 0;">满</div>
@@ -25,7 +50,13 @@
     </wd-cell-group>
     <wd-cell-group class="group" title="时间和地址" border>
       <wd-datetime-picker label="时间" label-width="100px" v-model="date" />
-      <wd-col-picker label="地址" label-width="100px" v-model="address" :columns="area" :column-change="areaChange" />
+      <wd-col-picker
+        label="地址"
+        label-width="100px"
+        v-model="address"
+        :columns="area"
+        :column-change="areaChange"
+      />
     </wd-cell-group>
     <wd-cell-group class="group" title="其他信息" border>
       <wd-input
@@ -45,15 +76,27 @@
       <wd-cell title="这里显示的是多文字标题包含非常的文字" title-width="240px" center>
         <wd-switch v-model="switchVal" />
       </wd-cell>
-      <wd-input label="卡号" label-width="100px" suffix-icon="wd-icon-camera" placeholder="请输入卡号" clearable v-model="cardId" />
+      <wd-input
+        label="卡号"
+        label-width="100px"
+        suffix-icon="wd-icon-camera"
+        placeholder="请输入卡号"
+        clearable
+        v-model="cardId"
+      />
       <wd-input label="手机号" label-width="100px" placeholder="请输入手机号" clearable v-model="phone" />
     </wd-cell-group>
     <div class="tip">
       <wd-checkbox v-model="read">
-        已阅读并同意<span style="color: #4D80F0">《借款额度合同及相关授权》</span>
+        <span class="text">
+          已阅读并同意
+          <span style="color: #4D80F0;">《借款额度合同及相关授权》</span>
+        </span>
       </wd-checkbox>
     </div>
-    <wd-button suck @click="handleSubmit">提交</wd-button>
+    <div class="footer">
+      <wd-button block size="large" @click="handleSubmit">提交</wd-button>
+    </div>
   </div>
 </template>
 
@@ -138,7 +181,7 @@ export default {
 
       if (!couponName) {
         this.couponNameError = true
-        
+
         this.$toast.error('请填写优惠券名称')
         return
       }
@@ -166,9 +209,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.page-form {
-  padding-bottom: 16px;
-}
 .inline-txt {
   display: inline-block;
   font-size: 14px;
@@ -181,8 +221,16 @@ export default {
   margin-top: 12px;
 }
 .tip {
-  margin: 10px 15px 25px;
-  color: #999;
-  font-size: 12px;
+  margin: 10px 15px 21px;
+  .text {
+    color: #999;
+    font-size: 12px;
+  }
+}
+.tip /deep/ .wd-checkbox__label {
+  margin-left: 4px;
+}
+.footer {
+  padding: 0 25px 21px;
 }
 </style>

@@ -7,11 +7,14 @@
     <demo-block title="弹出位置">
       <wd-button @click="show2 = true">顶部</wd-button>
       <wd-popup v-model="show2" position="top" :style="{ 'height': '200px' }"></wd-popup>
+
       <wd-button @click="show3 = true">右侧</wd-button>
       <wd-popup v-model="show3" position="right" :style="{ 'width': '200px' }"></wd-popup>
-      <wd-button @click="show4 = true">底部</wd-button>
+
+      <wd-button @click="show4 = true" style="margin-top: 20px;">底部</wd-button>
       <wd-popup v-model="show4" position="bottom" :style="{ 'height': '200px' }"></wd-popup>
-      <wd-button @click="show5 = true">左侧</wd-button>
+
+      <wd-button @click="show5 = true" style="margin-top: 20px;">左侧</wd-button>
       <wd-popup v-model="show5" position="left" :style="{ 'width': '200px' }"></wd-popup>
     </demo-block>
     <demo-block title="关闭按钮">

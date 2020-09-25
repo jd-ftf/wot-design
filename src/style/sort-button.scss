@@ -22,22 +22,22 @@
     &::after {
       position: absolute;
       content: '';
-      width: 0;
+      width: 19px;
       height: 3px;
       bottom: 6px;
       left: 50%;
       transform: translate(-50%, 0);
-      background: linear-gradient(315deg, rgba(81,124,240,1) 0%,rgba(118,158,245,1) 100%);
+      background: $-sort-button-line-color;
       border-radius: $-sort-button-line-height / 2;
       transition: opacity .15s;
-      transition: width 0.2s ease-in-out;
+      opacity: 0;
     }
 
     @include when(active) {
       font-weight: $-fw-medium;
 
       &::after {
-        width: 19px;
+        opacity: 1;
       }
       .wd-sort-button__right {
         justify-content: center;

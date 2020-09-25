@@ -81,11 +81,14 @@
         </div>
       </div>
       <!-- 确认按钮 -->
-      <wd-button
-        suck
-        @click="onConfirm"
-        :disabled="loading"
-      >{{confirmButtonText || t('wd.picker.confirm')}}</wd-button>
+      <footer class="wd-select-picker__footer">
+        <wd-button
+          block
+          size="large"
+          @click="onConfirm"
+          :disabled="loading"
+        >{{confirmButtonText || t('wd.picker.confirm')}}</wd-button>
+      </footer>
     </wd-action-sheet>
   </div>
 </template>

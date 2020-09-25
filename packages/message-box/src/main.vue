@@ -43,13 +43,11 @@
       <wd-button
         v-if="showCancelButton"
         type="info"
-        round
         block
         @click="toggleModal('cancel')"
       >{{ cancelButtonText || t('wd.messageBox.cancel') }}</wd-button>
       <wd-button
         v-if="showConfirmButton"
-        round
         block
         @click="toggleModal('confirm')"
       >{{ confirmButtonText || t('wd.messageBox.confirm') }}</wd-button>

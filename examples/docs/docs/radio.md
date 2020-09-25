@@ -33,10 +33,22 @@ export default {
 
 ### 修改图标形状
 
-修改 `shape` 属性，可选值为 'dot'、'button'，默认为 'dot'。
+修改 `shape` 属性，可选值为 'dot'、'button'、'check'，默认为 'check'。
 
 ```html
-<wd-radio-group v-model="value" shape="button">
+<!-- button 按钮式单选 -->
+<wd-radio-group v-model="value1" shape="button">
+  <wd-radio value="1">京麦</wd-radio>
+  <wd-radio value="2">商家后台</wd-radio>
+</wd-radio-group>
+```
+
+> <div style="color: #FA4350;font-weight: 500;">注意：</div>
+> <div>内容项在3项以内，且有比较重要的信息备选（如付款类型选择等）可考虑采用圆形组件。因为会跟圆形复选框容易混淆，且会造成当前表单页页面结构不统一，<span style="color: #FA4350;font-weight: 500;">一般情况不建议使用点状单选。</span></div>
+
+```html
+<!-- dot 点状单选 -->
+<wd-radio-group v-model="value2" shape="dot">
   <wd-radio value="1">京麦</wd-radio>
   <wd-radio value="2">商家后台</wd-radio>
 </wd-radio-group>
@@ -113,7 +125,7 @@ export default {
 | 参数      | 说明                                 | 类型      | 可选值       | 默认值   |
 |---------- |------------------------------------ |---------- |------------- |-------- |
 | value/v-model | 绑定值 | string / number / boolean | - | - |
-| shape | 单选框形状 | string | 'dot', 'button' | 'dot' |
+| shape | 单选框形状 | string | 'dot', 'button', 'check' | 'check' |
 | size | 单选框尺寸 | string | 'large' | - |
 | checked-color | 选中的颜色 | string | - | '#4d80f0' |
 | disabled | 禁用 | boolean | - | false |
@@ -132,6 +144,6 @@ export default {
 |---------- |------------------------------------ |---------- |------------- |-------- |
 | value | 单选框选中时的值 | string / number / boolean | - | - |
 | shape | 单选框形状 | string | 'dot', 'button' | 'dot' |
-| checked-color | 选中的颜色 | string | - | '#0083ff' |
+| checked-color | 选中的颜色 | string | - | '#4d80f0' |
 | disabled | 禁用 | boolean | - | false |
 | max-width | 文字位置最大宽度 | string | - | '' |
