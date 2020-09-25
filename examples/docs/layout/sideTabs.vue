@@ -8,11 +8,11 @@
           <page-controller></page-controller>
         </div>
         <div class="demo-iframe" v-show="$route.meta.demo">
-          <div class="phone-header">
-            <img class="phone-title" src="../assets/img/phtitle.png" />
-            <input readonly v-model="demoLink" class="phone-link" />
+          <!-- <input readonly v-model="demoLink" class="phone-link" /> -->
+          <input readonly v-model="demoLink" class="phone-link" />
+          <div class="wrapper">
+            <iframe frameborder="0" :src="demoLink" ref="iframe"></iframe>
           </div>
-          <iframe frameborder="0" :src="demoLink" ref="iframe"></iframe>
         </div>
       </div>
     </div>
@@ -42,7 +42,7 @@ export default {
     }
   },
   methods: {
-    renderAnchorHref() {
+    renderAnchorHref () {
       const anchors = document.querySelectorAll('h2 a,h3 a,h4 a,h5 a')
       const basePath = location.href.split('#').splice(0, 2).join('#')
 
@@ -91,7 +91,7 @@ export default {
 </script>
 
 <style lang="scss">
-.tab-content{
+.tab-content {
   margin: 0 530px 100px 375px;
 
   .content-flex {
@@ -101,7 +101,12 @@ export default {
     padding-top: 10px;
     margin-top: 10px;
 
-    h1, h2, h3, h4, h5, h6 {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
       position: relative;
 
       &:hover {
@@ -127,33 +132,48 @@ export default {
     width: 100%;
   }
   .phone-link {
-    margin-top: 10px;
-    width: 100%;
-    padding: 0 6px;
-    height: 28px;
-    line-height: 28px;
-    border-radius: 4px;
-    box-sizing: border-box;
-    outline: none;
+    position: absolute;
+    top: 69px;
+    left: 35px;
+    padding: 10px;
+    border-radius: 10px;
+    background: rgba(142, 142, 147, 0.12);
     border: none;
-    background: #a2a2a2;
-    color: #fff;
-    overflow: auto;
-    line-height: 1.1;
+    width: 355px;
+    outline: none;
+    height: 36px;
+    box-sizing: border-box;
+    color: #030303;
+    text-align: center;
   }
+
   .demo-iframe {
     position: fixed;
-    top: 60px;
-    right: 120px;
-    width: 375px;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    background-image: url('../assets/img/phone-case.png');
+    background-size: 100% 100%;
+    width: 425px;
+    height: 820px;
     margin-top: 30px;
-    box-shadow: 0 0 10px #cecece;
     font-size: 0;
+    display: flex;
+    justify-content: center;
 
     iframe {
+      height: 100%;
       width: 100%;
-      height: 597px;
     }
+  }
+  .wrapper {
+    position: relative;
+    width: 368px;
+    height: 680px;
+    margin-top: 112px;
+    overflow: hidden;
+    box-sizing: border-box;
+    border-radius: 0 0 22px 22px;
   }
 }
 @media (max-width: 1536px) and (max-height: 750px) {
