@@ -1,27 +1,13 @@
 <template>
   <div class="tooltip-wrap">
     <demo-block title="基本用法" class="position-wrap">
-      <div class="center">
-        <wd-tooltip placement="top" content="提示文字" style="margin: 10px;">
-          <wd-button class="btn btn-default">top</wd-button>
-        </wd-tooltip>
-        <br />
-        <wd-tooltip placement="top-start" content="提示文字" style="margin: 10px;">
-          <wd-button class="btn btn-default">top-start</wd-button>
-        </wd-tooltip>
-        <br />
-        <wd-tooltip placement="top-end" content="提示文字" style="margin: 10px;">
-          <wd-button class="btn btn-default">top-end</wd-button>
-        </wd-tooltip>
-        <br />
+      <div class="top">
         <wd-tooltip placement="bottom" content="提示文字" style="margin: 10px;">
           <wd-button class="btn btn-default">bottom</wd-button>
         </wd-tooltip>
-        <br />
         <wd-tooltip placement="bottom-start" content="提示文字" style="margin: 10px;">
           <wd-button class="btn btn-default">bottom-start</wd-button>
         </wd-tooltip>
-        <br />
         <wd-tooltip placement="bottom-end" content="提示文字" style="margin: 10px;">
           <wd-button class="btn btn-default">bottom-end</wd-button>
         </wd-tooltip>
@@ -50,6 +36,17 @@
         <br />
         <wd-tooltip placement="right-end" content="提示文字" style="margin: 10px;">
           <wd-button class="btn btn-default">right-end</wd-button>
+        </wd-tooltip>
+      </div>
+      <div class="bottom">
+        <wd-tooltip placement="top" content="提示文字" style="margin: 10px;">
+          <wd-button class="btn btn-default">top</wd-button>
+        </wd-tooltip>
+        <wd-tooltip placement="top-start" content="提示文字" style="margin: 10px;">
+          <wd-button class="btn btn-default">top-start</wd-button>
+        </wd-tooltip>
+        <wd-tooltip placement="top-end" content="提示文字" style="margin: 10px;">
+          <wd-button class="btn btn-default">top-end</wd-button>
         </wd-tooltip>
       </div>
     </demo-block>
@@ -103,10 +100,10 @@ export default {
       event.stopPropagation()
     },
     onShow () {
-      console.log('on show')
+      this.$toast('on show')
     },
     onHide () {
-      console.log('on hide')
+      this.$toast('on hide')
     }
   }
 }
@@ -123,10 +120,15 @@ export default {
   .left {
     text-align: left;
     position: absolute;
-    bottom: 10px;
+    top: 98px;
   }
   .right {
     text-align: right;
+  }
+  .top,
+  .bottom {
+    display: flex;
+    justify-content: space-between;
   }
 }
 </style>

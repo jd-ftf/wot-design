@@ -11,10 +11,7 @@
       <div style="text-align: center;">
         <wd-popover>
           <div slot="content">
-            <wd-tag type="primary">标签</wd-tag>
-            <wd-tag type="danger">标签</wd-tag>
-            <wd-tag type="warning">标签</wd-tag>
-            <wd-tag type="success">标签</wd-tag>
+            <i class="pop-content">这是一段自定义样式的内容。</i>
           </div>
           <wd-button class="btn btn-default">点击展示</wd-button>
         </wd-popover>
@@ -62,3 +59,9 @@ export default {
   }
 }
 </script>
+<style scoped>
+.pop-content{
+  color: #8268de;
+  font-weight: bolder;
+}
+</style>

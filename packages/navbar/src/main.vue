@@ -17,8 +17,7 @@ export default {
   name: 'WdNavbar',
   props: {
     title: {
-      type: String,
-      required: true
+      type: String
     },
     light: {
       type: Boolean,

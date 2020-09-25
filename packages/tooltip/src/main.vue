@@ -8,7 +8,7 @@
     <transition name="wd-fade">
       <div
         class="wd-tooltip__body"
-        ref="popover"
+        :ref="el"
         :style="popStyle"
         v-show="showPop"
         :aria-hidden="(disabled || !showPop) ? 'true' : 'false'"
@@ -31,30 +31,22 @@
 </template>
 
 <script>
-import Popper from 'wot-design/src/utils/popover'
+import Popper from 'wot-design/src/mixins/popover'
 
 export default {
   name: 'WdTooltip',
+
+  mixins: [Popper],
+
   data () {
     return {
-      showPop: false
+      el: 'tooltip'
     }
   },
-  mixins: [Popper],
+
   props: {
     content: String,
     showClose: Boolean
-  },
-  computed: {
-    arrowClass () {
-      return this.visibleArrow && {
-        'wd-tooltip__arrow': true,
-        'wd-tooltip__arrow-up': this.placement === 'bottom' || this.placement === 'bottom-start' || this.placement === 'bottom-end',
-        'wd-tooltip__arrow-right': this.placement === 'left' || this.placement === 'left-start' || this.placement === 'left-end',
-        'wd-tooltip__arrow-left': this.placement === 'right' || this.placement === 'right-start' || this.placement === 'right-end',
-        'wd-tooltip__arrow-down': this.placement === 'top' || this.placement === 'top-start' || this.placement === 'top-end'
-      }
-    }
   }
 }
 </script>

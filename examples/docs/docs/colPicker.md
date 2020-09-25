@@ -499,7 +499,7 @@ export default {
 
 ### Slots
 
-| name      | 说明       |
+| 插槽名称      | 说明       |
 |------------- |----------- |
 | default | 自定义展示 |
 | label | 左侧插槽 |

@@ -15,6 +15,7 @@
           v-for="item in count"
           :key="item"
           class="wd-swipe__indicator"
+          :class="item - 1 === countIndex ? 'is-active' : ''"
           :style="{
             'background': item - 1 === countIndex ? indicatorActiveColor : indicatorColor
           }"
@@ -68,7 +69,7 @@ export default {
     hideIndicators: Boolean,
     indicatorColor: {
       type: String,
-      default: 'rgba(0, 0, 0, 0.3)'
+      default: 'rgba(255, 255, 255, 0.65)'
     },
     indicatorActiveColor: {
       type: String,
