@@ -196,11 +196,12 @@ export default {
     .wrapper {
       position: relative;
       width: 368px;
-      height: 680px;
+      height: 676px;
       margin-top: 115px;
       overflow: hidden;
       box-sizing: border-box;
       border-radius: 0 0 22px 22px;
+      border: 1px solid rgba(0, 0, 0, 0.02);
     }
   }
 }
@@ -218,9 +219,6 @@ export default {
       .wrapper {
         width: 313px;
         height: 517px;
-      }
-      iframe {
-        height: 550px;
       }
     }
     .phone-link {
