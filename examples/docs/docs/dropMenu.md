@@ -74,7 +74,9 @@ export default {
     <div>
       <wd-cell title="标题文字" value="内容" />
       <wd-cell title="标题文字" label="描述信息" value="内容" />
-      <wd-button block size="large" suck @click="confirm">主要按钮</wd-button>
+      <div style="padding: 0 10px 20px; box-sizing: border-box;">
+        <wd-button block size="large" @click="confirm">主要按钮</wd-button>
+      </div>
     </div>
   </wd-drop-menu-item>
 </wd-drop-menu>

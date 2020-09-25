@@ -13,7 +13,7 @@
       </wd-radio-group>
     </demo-block>
     <demo-block title="修改形状--dot">
-      <wd-radio-group v-model="value12" shape="dot">
+      <wd-radio-group v-model="value12" shape="dot" size="large" inline>
         <wd-radio value="1">京麦</wd-radio>
         <wd-radio value="2">商家后台</wd-radio>
       </wd-radio-group>
