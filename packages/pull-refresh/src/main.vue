@@ -1,20 +1,30 @@
 <template>
   <div class="wd-pull-refresh">
-    <div class="wd-pull-refresh__container" :class="{ 'dropping': topDropped }" :style="{ 'transform': transform }">
-      <transition name="wd-slice-down" v-if="tipText">
-        <div class="wd-pull-refresh__tip" v-show="tipShow">
-          {{ tipText }}
-        </div>
-      </transition>
+    <div
+      class="wd-pull-refresh__container"
+      :class="{ 'dropping': topDropped }"
+      :style="{ 'transform': transform }"
+    >
+      <slot name="tip">
+        <transition name="wd-slice-down" v-if="tipText">
+          <wd-button v-show="tipShow" class="wd-pull-refresh__tip">{{ tipText }}</wd-button>
+        </transition>
+      </slot>
       <slot name="top">
         <div class="wd-pull-refresh__top">
-          <wd-loading v-if="topStatus == 'loading'" class="wd-pull-refresh__loading" type="spinner" size="16px" color="#a7a7a7" />
+          <wd-loading
+            v-if="topStatus == 'loading'"
+            class="wd-pull-refresh__loading"
+            type="circular-ring"
+            size="16px"
+          />
           <i
             class="wd-pull-refresh__arrow"
             :class="{
-            'wd-icon-arrow-thin-down': topStatus == 'pull' || topStatus == 'drop',
+            'wd-icon-arrow-thin-down': topStatus == 'pull',
             'wd-icon-arrow-thin-up': topStatus == 'drop'
-          }"></i>
+          }"
+          ></i>
           <span class="wd-pull-refresh__text">{{ topText }}</span>
         </div>
       </slot>
