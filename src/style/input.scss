@@ -48,7 +48,7 @@
         position: absolute;
         left: 0;
         top: $-cell-wrapper-padding + 2px;
-        content: '*';
+        content: "*";
         font-size: $-cell-required-size;
         line-height: 1.1;
         color: $-cell-required-color;
@@ -67,6 +67,10 @@
   @include e(suffix) {
     flex-shrink: 0;
     margin-left: $-input-icon-margin;
+
+    .wd-input__clear {
+      color: $-input-clear-color;
+    }
   }
   @include e(block) {
     position: relative;
@@ -262,6 +266,9 @@
     top: $-input-textarea-padding;
     bottom: 0;
     z-index: 1;
+    .wd-input__clear {
+      color: $-input-clear-color;
+    }
   }
   @include e(textarea-icon) {
     margin-left: 8px;

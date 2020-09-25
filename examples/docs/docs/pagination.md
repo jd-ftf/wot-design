@@ -85,9 +85,6 @@ export default {
 | show-message | 是否展示文字提示 |  boolean | - | false |
 | hide-if-one-page | 总页数只有一页时是否隐藏 |  boolean | - | true |
 
-
-
-
 ### Pagination Events
 
 | 事件名称      | 说明                                 | 参数     |

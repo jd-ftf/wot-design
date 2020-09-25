@@ -63,10 +63,15 @@
     </wd-cell-group>
     <div class="tip">
       <wd-checkbox v-model="read">
-        已阅读并同意<span style="color: #4D80F0">《借款额度合同及相关授权》</span>
+        <span class="text">
+          已阅读并同意
+          <span style="color: #4D80F0;">《借款额度合同及相关授权》</span>
+        </span>
       </wd-checkbox>
     </div>
-    <wd-button suck @click="handleSubmit">提交</wd-button>
+    <div class="footer">
+      <wd-button block size="large" @click="handleSubmit">提交</wd-button>
+    </div>
   </div>
 </template>
 
@@ -151,7 +156,6 @@ export default {
 
       if (!couponName) {
         this.couponNameError = true
-        
         this.$toast.error('请填写优惠券名称')
         return
       }
@@ -194,9 +198,17 @@ export default {
   margin-top: 12px;
 }
 .tip {
-  margin: 10px 15px 25px;
-  color: #999;
-  font-size: 12px;
+  margin: 10px 15px 21px;
+  .text {
+    color: #999;
+    font-size: 12px;
+  }
+}
+.tip /deep/ .wd-checkbox__label {
+  margin-left: 4px;
+}
+.footer {
+  padding: 0 25px 21px;
 }
 </style>
 ```

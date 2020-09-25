@@ -89,7 +89,7 @@ export default {
     // 位置初始化函数
     init () {
       // 目标对象 dom（被跟随）
-      const trigger = this.$refs.trigger.children[0]
+      const trigger = this.$refs.trigger ? this.$refs.trigger.children[0] : {}
       // 文字提示 dom
       const popover = this.$refs[this.el]
       const arrow = this.$refs.arrow || ''
@@ -178,8 +178,10 @@ export default {
   },
 
   mounted () {
-    window.addEventListener('resize', () => {
-      this.init()
-    })
+    window.addEventListener('resize', this.init)
+  },
+
+  beforeDestroy () {
+    window.removeEventListener('resize', this.init)
   }
 }

@@ -3,7 +3,6 @@
     <div class="wd-pager__content">
       <wd-button
         :plain="value !== 1"
-        round
         type="info"
         size="small"
         class="wd-pager__nav"
@@ -30,7 +29,6 @@
       </div>
       <wd-button
         :plain="value !== this.computedPageSize"
-        round
         type="info"
         size="small"
         class="wd-pager__nav"

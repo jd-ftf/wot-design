@@ -61,7 +61,7 @@
           ref="textarea"
         ></textarea>
         <div class="wd-input__textarea-suffix">
-          <i v-show="showClear" class="wd-input__textarea-icon wd-icon-error-fill" @click="clear"></i>
+          <i v-show="showClear" class="wd-input__textarea-icon wd-input__clear wd-icon-error-fill" @click="clear"></i>
           <span v-if="showWordCount" class="wd-input__textarea-count">
             <span
               :class="[{ 'is-error': value && value.length > parseInt(maxlength) }, value && (value.length > 0) ? 'wd-input__textarea-count-current' : '']"
@@ -99,7 +99,7 @@
         v-if="showClear || showPwdVisible || suffixIcon || $slots.suffix || showWordCount"
         class="wd-input__suffix"
       >
-        <i v-if="showClear" class="wd-input__icon wd-icon-error-fill" @click="clear"></i>
+        <i v-if="showClear" class="wd-input__icon wd-input__clear wd-icon-error-fill " @click="clear"></i>
         <i
           v-if="showPwdVisible"
           class="wd-input__icon"
