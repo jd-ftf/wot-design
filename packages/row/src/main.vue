@@ -4,10 +4,10 @@
       'wd-row',
       flex && 'wd-row__flex',
       flex && justify && 'wd-row__justify-' + justify,
-      flex && align && 'wd-row__align-' + align
+      flex && align && 'wd-row__align-' + align,
     ]"
     :style="style"
-    >
+  >
     <slot />
   </div>
 </template>
@@ -16,11 +16,13 @@
 
 export default {
   name: 'WdRow',
+
   data () {
     return {
       style: ''
     }
   },
+
   props: {
     flex: Boolean,
     align: String,
@@ -30,11 +32,13 @@ export default {
       default: 0
     }
   },
+
   created () {
     this.$nextTick(() => {
       this.setGutter()
     })
   },
+
   methods: {
     setGutter () {
       const { gutter } = this
