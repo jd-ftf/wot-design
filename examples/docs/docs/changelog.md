@@ -7,7 +7,7 @@
 #### 新特性
 
 - Input
-  - 新增属性 `align-right`, 支持设置内容右对齐 (by [@HXCStudio123](https://github.com/HXCStudio123) )
+  - 新增属性 `align-right`, 支持设置内容右对齐 [#210](https://github.com/jd-ftf/wot-design/issues/210)  (by [@HXCStudio123](https://github.com/HXCStudio123) )
 
 #### 优化
 
