@@ -95,7 +95,7 @@ export default {
 设置清空，字数限制，设置 `rows` 行数。也可以设置 `autosize` ，使文本域高度自动增加。
 
 ```html
-<wd-input type="textarea" v-model="value" :rows="6" maxlength="120" clearable show-word-limit></wd-input>
+<wd-input type="textarea" v-model="value" rows="6" maxlength="120" clearable show-word-limit></wd-input>
 ```
 
 ### 普通输入框高度自增加
