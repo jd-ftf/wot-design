@@ -1,5 +1,21 @@
 ## 更新日志
 
+### 2.1.0
+
+*2020-09-30*
+
+#### 新特性
+
+- Input
+  - 新增属性 `align-right`, 支持设置内容右对齐 [#210](https://github.com/jd-ftf/wot-design/issues/210)  (by [@HXCStudio123](https://github.com/HXCStudio123) )
+
+#### 优化
+
+#### Bug 修复
+
+- Input
+  - 文档里面的demo对齐（rows）改成string  [#211](https://github.com/jd-ftf/wot-design/issues/211) (by [@HXCStudio123](https://github.com/HXCStudio123) )
+
 ### 2.0.0
 
 *2020-09-25*

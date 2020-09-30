@@ -7,6 +7,11 @@
   overflow: hidden;
   text-align: left;
 
+  @include when(right) {
+    .wd-input__inner {
+      text-align: right;
+    }
+  }
   &::after {
     position: absolute;
     content: "";
