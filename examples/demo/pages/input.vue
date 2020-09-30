@@ -1,7 +1,7 @@
 <template>
   <div>
     <demo-block title="基本用法">
-      <wd-input v-model="value1" placeholder="请输入用户名" />
+      <wd-input v-model="value1" placeholder="请输入用户名"/>
     </demo-block>
     <demo-block title="禁用状态">
       <wd-input v-model="value2" disabled />
@@ -35,7 +35,7 @@
       <wd-input
         type="textarea"
         v-model="value11"
-        rows="6"
+        :rows="6"
         maxlength="120"
         clearable
         show-word-limit

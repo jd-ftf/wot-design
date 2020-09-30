@@ -20,45 +20,47 @@ Vue.use(Col)
 
 ```html
 <wd-row>
-  <wd-col span="24" class="dark">span: 24</wd-col>
+  <wd-col span="24"><div class="bg-dark1">span: 24</div></wd-col>
 </wd-row>
 <wd-row>
-  <wd-col span="12" class="dark">span: 12</wd-col>
-  <wd-col span="12" class="light">span: 12</wd-col>
+  <wd-col span="12"><div class="bg-dark">span: 12</div></wd-col>
+  <wd-col span="12"><div class="bg-light">span: 12</div></wd-col>
 </wd-row>
 <wd-row>
-  <wd-col span="8" class="dark">span: 8</wd-col>
-  <wd-col span="8" class="light">span: 8</wd-col>
-  <wd-col span="8" class="dark">span: 8</wd-col>
+  <wd-col span="8"><div class="bg-dark">span: 8</div></wd-col>
+  <wd-col span="8"><div class="bg-light">span: 8</div></wd-col>
+  <wd-col span="8"><div class="bg-dark">span: 8</div></wd-col>
 </wd-row>
 <wd-row>
-  <wd-col span="6" class="dark">span: 6</wd-col>
-  <wd-col span="6" class="light">span: 6</wd-col>
-  <wd-col span="6" class="dark">span: 6</wd-col>
-  <wd-col span="6" class="light">span: 6</wd-col>
+  <wd-col span="6"><div class="bg-dark">span: 6</div></wd-col>
+  <wd-col span="6"><div class="bg-light">span: 6</div></wd-col>
+  <wd-col span="6"><div class="bg-dark">span: 6</div></wd-col>
+  <wd-col span="6"><div class="bg-light">span: 6</div></wd-col>
 </wd-row>
 ```
 
 ```css
-.dark,
-.light {
-  color: #fff;
-  font-size: 12px;
-  line-height: 34px;
-  height: 34px;
+.bg-dark1,
+.bg-dark,
+.bg-light{
+  border-radius: 4px;
+  min-height: 30px;
   text-align: center;
+  line-height: 30px;
   margin-bottom: 10px;
-  background-clip: content-box;
+  font-size: 12px;
+  color: rgba(0, 0, 0, 0.45);
 }
-
-.dark {
-  background-color: #39a9ed;
+.bg-dark1 {
+  background: #99a9bf;
+  color: #fff;
 }
-
-.light {
-  background-color: #66c6f2;
+.bg-dark {
+  background: #d3dce6;
 }
-
+.bg-light {
+  background: #e5e9f2;
+}
 ```
 
 ### 分栏偏移
@@ -67,12 +69,12 @@ Vue.use(Col)
 
 ```html
 <wd-row>
-  <wd-col span="4" class="dark">span: 4</wd-col>
-  <wd-col span="8" offset="4" class="light">span: 8 offset: 4</wd-col>
+  <wd-col span="4">span: 4</wd-col>
+  <wd-col span="8" offset="4"><div class="bg-light">span: 8 offset: 4</div></wd-col>
 </wd-row>
 <wd-row>
-  <wd-col span="8" offset="4" class="dark">span: 8 offset: 4</wd-col>
-  <wd-col span="8" offset="4" class="light">span: 8 offset: 4</wd-col>
+  <wd-col span="8" offset="4"><div class="bg-dark">span: 8 offset: 4</div></wd-col>
+  <wd-col span="8" offset="4"><div class="bg-light">span: 8 offset: 4</div></wd-col>
 </wd-row>
 ```
 
@@ -82,9 +84,9 @@ Vue.use(Col)
 
 ```html
 <wd-row gutter="20">
-  <wd-col span="8" class="dark">span: 8</wd-col>
-  <wd-col span="8" class="light">span: 8</wd-col>
-  <wd-col span="8" class="dark">span: 8</wd-col>
+  <wd-col span="8"><div class="bg-dark">span: 8</div></wd-col>
+  <wd-col span="8"><div class="bg-light">span: 8</div></wd-col>
+  <wd-col span="8"><div class="bg-dark">span: 8</div></wd-col>
 </wd-row>
 ```
 
@@ -97,37 +99,37 @@ Vue.use(Col)
 ```html
 <!-- 左对齐 -->
 <wd-row flex>
-  <wd-col span="6">span: 6</wd-col>
-  <wd-col span="6">span: 6</wd-col>
-  <wd-col span="6">span: 6</wd-col>
+  <wd-col span="6"><div class="bg-dark">span: 6</div></wd-col>
+  <wd-col span="6"><div class="bg-light">span: 6</div></wd-col>
+  <wd-col span="6"><div class="bg-dark">span: 6</div></wd-col>
 </wd-row>
 
 <!-- 居中 -->
 <wd-row flex justify="center">
-  <wd-col span="6">span: 6</wd-col>
-  <wd-col span="6">span: 6</wd-col>
-  <wd-col span="6">span: 6</wd-col>
+  <wd-col span="6"><div class="bg-dark">span: 6</div></wd-col>
+  <wd-col span="6"><div class="bg-light">span: 6</div></wd-col>
+  <wd-col span="6"><div class="bg-dark">span: 6</div></wd-col>
 </wd-row>
 
 <!-- 右对齐 -->
 <wd-row flex justify="end">
-  <wd-col span="6">span: 6</wd-col>
-  <wd-col span="6">span: 6</wd-col>
-  <wd-col span="6">span: 6</wd-col>
+  <wd-col span="6"><div class="bg-dark">span: 6</div></wd-col>
+  <wd-col span="6"><div class="bg-light">span: 6</div></wd-col>
+  <wd-col span="6"><div class="bg-dark">span: 6</div></wd-col>
 </wd-row>
 
 <!-- 两端对齐 -->
 <wd-row flex justify="space-between">
-  <wd-col span="6">span: 6</wd-col>
-  <wd-col span="6">span: 6</wd-col>
-  <wd-col span="6">span: 6</wd-col>
+  <wd-col span="6"><div class="bg-dark">span: 6</div></wd-col>
+  <wd-col span="6"><div class="bg-light">span: 6</div></wd-col>
+  <wd-col span="6"><div class="bg-dark">span: 6</div></wd-col>
 </wd-row>
 
 <!-- 平均间隔 -->
 <wd-row flex justify="space-around">
-  <wd-col span="6">span: 6</wd-col>
-  <wd-col span="6">span: 6</wd-col>
-  <wd-col span="6">span: 6</wd-col>
+  <wd-col span="6"><div class="bg-dark">span: 6</div></wd-col>
+  <wd-col span="6"><div class="bg-light">span: 6</div></wd-col>
+  <wd-col span="6"><div class="bg-dark">span: 6</div></wd-col>
 </wd-row>
 ```
 

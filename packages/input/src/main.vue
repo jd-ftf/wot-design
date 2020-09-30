@@ -8,6 +8,7 @@
         'is-error': error,
         'is-cell': label || $slots.label,
         'is-center': center,
+        'is-right': alignRight,
         'is-not-empty': value && value.length !== 0,
         'is-no-border': noBorder
       },
@@ -168,6 +169,7 @@ export default {
     },
     size: String,
     center: Boolean,
+    alignRight: Boolean,
     noBorder: Boolean,
     required: Boolean
   },
