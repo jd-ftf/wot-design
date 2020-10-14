@@ -1,12 +1,25 @@
 <template>
   <ul class="side-bar" :class="isWindows ? 'win-scrollbar' : ''">
-    <li>
+    <template>
       <div class="side-bar__link">关于我们</div>
       <div class="side-bar__github-info">
         <a href="https://github.com/jd-ftf/wot-design" target="_blank"><i class="github-logo"></i></a>
         <github-button class="github-star" href="https://github.com/jd-ftf/wot-design" data-icon="octicon-star" data-show-count="true" aria-label="Star jd-ftf/wot-design on GitHub">Star</github-button>
       </div>
-    </li>
+    </template>
+    <!--规避 netlify 免费政策-->
+    <template v-if="showNetlify">
+      <div class="side-bar__link">Thanks</div>
+      <div class="side-bar__github-info">
+        <a href="https://www.netlify.com">
+          <img
+            width="100" height="40"
+            src="https://www.netlify.com/img/global/badges/netlify-color-bg.svg"
+            alt="Deploys by Netlify"
+          />
+        </a>
+      </div>
+    </template>
     <li v-for="(mdl, index) in sideMenu.children" class="side-bar__item" :key="index">
       <template v-if="mdl.children">
         <a class="side-bar__group-name">{{ mdl.title }}</a>
@@ -75,6 +88,9 @@ export default {
       let sideMenu = routesConfig.filter(item => item.name === this.$route.meta.parentName)
 
       return sideMenu.length ? sideMenu[0] : []
+    },
+    showNetlify () {
+      return location.href.includes('netlify')
     }
   },
   created () {
