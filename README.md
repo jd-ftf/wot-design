@@ -4,6 +4,10 @@ An ui component library built on vue.js.
 
 [Documentation](http://ftf.jd.com/wot-design/)
 
+# Build Status
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/2c222737-8907-490b-af74-babea62cf83e/deploy-status)](https://app.netlify.com/sites/wot-design/deploys)
+
 ## Install
 
 ```bash
