@@ -20,7 +20,7 @@
     display: inline-block;
     width: $-swipe-indicator-width;
     height: $-swipe-indicator-height;
-    border-radius: 0 4px 0 4px;
+    border-radius: 4px 0 4px 0;
     margin-right: 3px;
     transition: width 0.2s ease-in-out;
     &:last-child {

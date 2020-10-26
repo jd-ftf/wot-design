@@ -1,6 +1,8 @@
 <template>
   <div>
     <demo-block title="基本用法">
+      <div>1、内容项在3项以内，且有比较重要的信息备选（如付款类型选择等）可考虑采用圆形组件。因为会跟圆形复选框容易混淆，且会造成当前表单页页面结构不统一，<span style="color: #f0883a;">一般情况不建议使用点状单选。</span></div>
+      <div style="margin-bottom: 10px;">2、单选框基本使用未对高度进行扩充，<span style="color: #f0883a;">一般情况建议使用表单--单选组。</span></div>
       <wd-radio-group v-model="value1">
         <wd-radio value="1">单选框1</wd-radio>
         <wd-radio value="2">单选框2</wd-radio>

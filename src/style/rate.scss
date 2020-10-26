@@ -17,6 +17,7 @@
     display: inline-block;
     vertical-align: top;
     color: transparent;
+    -webkit-background-clip: text !important;
 
     @include m(active) {
       position: absolute;

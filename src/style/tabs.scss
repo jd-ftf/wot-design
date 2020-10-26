@@ -12,8 +12,6 @@
     height: $-tabs-nav-height;
     overflow: hidden;
     background: $-tabs-nav-bg;
-
-    @include halfPixelBorder;
   }
   @include e(nav-container) {
     position: relative;
@@ -78,7 +76,10 @@
     z-index: 3;
     background: $-tabs-nav-bg;
     -webkit-tap-highlight-color: transparent;
-    @include halfPixelBorder;
+
+    @include when(open) {
+      @include halfPixelBorder;
+    }
 
     &::before {
       position: absolute;

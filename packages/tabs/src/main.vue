@@ -253,7 +253,7 @@ export default {
 
       NavMap = (
         <div class="wd-tabs__map">
-          <span class="wd-tabs__map-btn" on-click={this.toggleMap}>
+          <span class={{ 'wd-tabs__map-btn': true, 'is-open': this.animating }} on-click={this.toggleMap}>
             <i class={{
               'wd-tabs__map-arrow': true,
               'wd-icon-arrow-down': true,
