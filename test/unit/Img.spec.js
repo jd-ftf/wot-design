@@ -1,4 +1,4 @@
-import Img from 'wot-design/packages/Img/index.js'
+import Img from 'wot-design/packages/img/index.js'
 import { mount } from '@vue/test-utils'
 import { testInstall } from './utils'
 
