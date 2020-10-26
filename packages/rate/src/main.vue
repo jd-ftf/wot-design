@@ -10,12 +10,12 @@
       <i
         :class="icon"
         class="wd-rate__item-star"
-        :style="{ 'width': size, 'height': size, 'font-size': size, 'background': color, '-webkit-background-clip': 'text' }"
+        :style="{ 'width': size, 'height': size, 'font-size': size, 'background': color }"
       ></i>
       <i
         :class="activeIcon"
         class="wd-rate__item-star wd-rate__item-star--active"
-        :style="{ 'width': item, 'height': size, 'font-size': size, 'background': disabled ? disabledColor : activeColor, '-webkit-background-clip': 'text' }"
+        :style="{ 'width': item, 'height': size, 'font-size': size, 'background': disabled ? disabledColor : activeValue }"
       ></i>
     </li>
   </ul>
@@ -47,7 +47,7 @@ export default {
       default: '#E8E8E8'
     },
     activeColor: {
-      type: String,
+      type: [String, Array],
       default: 'linear-gradient(180deg, rgba(255,238,0,1) 0%,rgba(250,176,21,1) 100%)'
     },
     icon: {
@@ -85,6 +85,13 @@ export default {
       }
 
       return rateList
+    },
+    activeValue () {
+      if (Array.isArray(this.activeColor) && this.activeColor.length) {
+        return this.value <= 3 ? this.activeColor[0] : this.activeColor[1]
+      } else {
+        return this.activeColor
+      }
     }
   },
   methods: {

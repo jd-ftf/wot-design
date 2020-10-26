@@ -48,7 +48,8 @@ export default {
 可以通过 `color` 属性修改未选中的颜色，`active-color` 修改选中的颜色。
 
 ```html
-<wd-rate v-model="rate" active-color="linear-gradient(315deg, rgba(245,34,34,1) 0%,rgba(255,117,102,1) 100%)"></wd-rate>
+<wd-rate v-model="rate" active-color="linear-gradient(180deg, rgba(255,238,0,1) 0%,rgba(250,176,21,1) 100%)"></wd-rate>
+<wd-rate v-model="rate" :active-color="['linear-gradient(180deg, rgba(255,238,0,1) 0%,rgba(250,176,21,1) 100%)', 'linear-gradient(315deg, rgba(245,34,34,1) 0%,rgba(255,117,102,1) 100%)']" />
 ```
 
 ### 修改icon
@@ -69,7 +70,7 @@ export default {
 | size   | 图标大小 | string | - | '16px' |
 | space | 图标间距 | string | - | '4px' |
 | color | 未选中的图标颜色  | string | - | '#E8E8E8' |
-| active-color | 选中的图标颜色 | string | - | 'linear-gradient(180deg, rgba(255,238,0,1) 0%,rgba(250,176,21,1) 100%)' |
+| active-color | 选中的图标颜色(支持传颜色数组，共有 2 个元素，为 2 个分段所对应的颜色) | string/array | - | 'linear-gradient(180deg, rgba(255,238,0,1) 0%,rgba(250,176,21,1) 100%)' |
 | icon | 未选中的图标类名 | string | - | 'wd-icon-star-on' |
 | active-icon | 选中的图标类名 | string | - | 'wd-icon-star-on' |
 | disabled | 是否禁用 | boolean | - | false |
