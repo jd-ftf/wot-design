@@ -87,8 +87,12 @@ export default {
       return rateList
     },
     activeValue () {
-      if (Array.isArray(this.activeColor) && this.activeColor.length) {
-        return this.value <= 3 || !this.activeColor[1] ? this.activeColor[0] : this.activeColor[1]
+      if (Array.isArray(this.activeColor)) {
+        if (this.activeColor.length) {
+          return this.value <= this.num * 0.6 || !this.activeColor[1] ? this.activeColor[0] : this.activeColor[1]
+        } else {
+          throw Error('activeColor cannot be an empty array')
+        }
       } else {
         return this.activeColor
       }
