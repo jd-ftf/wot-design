@@ -88,7 +88,7 @@ export default {
     },
     activeValue () {
       if (Array.isArray(this.activeColor) && this.activeColor.length) {
-        return this.value <= 3 ? this.activeColor[0] : this.activeColor[1]
+        return this.value <= 3 || !this.activeColor[1] ? this.activeColor[0] : this.activeColor[1]
       } else {
         return this.activeColor
       }
