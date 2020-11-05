@@ -49,6 +49,10 @@ export default {
     },
     tabs: {
       all: '全部'
+    },
+    upload: {
+      fileName: '文件名',
+      error: '上传失败'
     }
   }
 }
