@@ -3,11 +3,14 @@ import { upload } from './utils'
 import context from '../../../src/utils/id'
 import { isEqual } from '../../../src/utils/index'
 import WdLoading from 'wot-design/packages/loading'
+import locale from 'wot-design/src/mixins/locale'
 
 function noop () { }
 
 export default {
   name: 'WdUpload',
+
+  mixins: [locale],
 
   data () {
     return {
@@ -329,6 +332,7 @@ export default {
       loadingColor,
       loadingSize,
       showName,
+      t,
       customEvokeClass } = this
 
     const input = (
@@ -386,7 +390,7 @@ export default {
       ) : file.status === 'fail' ? (
         <div class="wd-upload__status-content">
           <i class="wd-icon-close-outline wd-upload__icon"></i>
-          <span class="wd-upload__progress-txt">{file.error || '上传失败'}</span>
+          <span class="wd-upload__progress-txt">{file.error || t('wd.upload.error') }</span>
         </div>
       ) : ''
 
@@ -414,7 +418,7 @@ export default {
               this.showImgPreview && this.preview(imgList, file, index)
             }}>
             <img src={file.url} class="wd-upload__picture" />
-            {showName ? <div class="wd-upload__picture-name">{file.name || '图片名'}</div> : ''}
+            {showName ? <div class="wd-upload__picture-name">{file.name || t('wd.upload.fileName') }</div> : ''}
           </div>
           {closeButton}
         </div>
