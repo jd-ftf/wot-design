@@ -5,10 +5,6 @@
 @import "./popup.scss";
 
 @include b(picker) {
-  .wd-popup {
-    border-radius: 16px 16px 0px 0px;
-  }
-
   @include when(large) {
     .wd-picker__field {
       font-size: $-cell-title-fs-large;
@@ -161,4 +157,8 @@
       color: $-color-white;
     }
   }
+}
+
+.wd-popup.wd-picker__popup {
+  border-radius: 16px 16px 0px 0px;
 }

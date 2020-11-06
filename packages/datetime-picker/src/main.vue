@@ -1,13 +1,23 @@
 <template>
   <div :class="customClass" ref="datetimePicker">
     <custom-cell />
-    <wd-popup v-model="popupShow" position="bottom" @click-modal="onCancel" :duration="250">
+    <wd-popup
+      ref="popup"
+      v-model="popupShow"
+      position="bottom"
+      @click-modal="onCancel"
+      :duration="250"
+    >
       <toolbar :target="currentTarget"></toolbar>
       <!-- 区域选择tab展示 -->
       <div v-if="region" class="wd-picker__region-tabs">
-        <ul class="wd-picker__region" :class="showStart ? 'is-active' : ''" @click="chooseItem()">
+        <ul
+          class="wd-picker__region"
+          :class="showStart ? 'is-active' : ''"
+          @click="chooseItem()"
+        >
           <li>开始时间</li>
-          <li>{{showTabLabel[0]}}</li>
+          <li>{{ showTabLabel[0] }}</li>
         </ul>
         <ul
           class="wd-picker__region"
@@ -15,7 +25,7 @@
           @click="chooseItem(false)"
         >
           <li>结束时间</li>
-          <li>{{showTabLabel[1]}}</li>
+          <li>{{ showTabLabel[1] }}</li>
         </ul>
       </div>
       <!-- 开始 -->
@@ -106,6 +116,10 @@ export default {
       default: 'datetime'
     },
     displayFormatTabLabel: Function,
+    appendToBody: {
+      type: Boolean,
+      default: false
+    },
     ...pickerViewProps,
     ...pickerProps,
     ...datetimePickerViewProps
@@ -138,18 +152,27 @@ export default {
   },
 
   methods: {
-    // 对外暴露接口，打开弹框
+    /**
+     * @description 对外暴露接口，打开弹框
+     */
     open () {
       this.showPopup()
     },
 
-    // 对外暴露接口，关闭弹框
+    /**
+     * @description 对外暴露接口，关闭弹框
+     */
     close () {
       this.onCancel()
     },
 
-    // 初始化展示参数
+    /**
+     * @description 初始化展示参数
+     */
     showPopInit () {
+      if (this.appendToBody) {
+        document.body.appendChild(this.$refs.popup.$el)
+      }
       this.showStart = true
       this.setShowValue()
     },
@@ -184,7 +207,9 @@ export default {
       })
     },
 
-    // 取消是状态重置
+    /**
+     * @description 取消是状态重置
+     */
     onCancel () {
       // reset innerValue
       // 格式化单个this.value.start
@@ -246,13 +271,14 @@ export default {
     },
 
     /**
-     * 区域选择time禁用规则
+     * @description 区域选择time禁用规则
      * @param {String} isStart 时间段类型 true：start | false：end
      * @param {Array} column 当前遍历到的列数组
      * @param {Number} cindex 外层column的索引（对应每一个类型）
      * @param {Number / String} value 遍历到的当前值
      * @param {Array} currentValue 当前选中的值 this.pickerValue
      * @param {Array} boundary 当前变量的限制值，决定禁用的边界值
+     * @return {Boolean} 是否禁用当前选项
      */
     columnDisabledRules (isStart, columns, cIndex, value, currentValue, boundary) {
       // 0年 1月 2日 3時 4分

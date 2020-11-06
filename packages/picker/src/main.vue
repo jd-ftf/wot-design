@@ -1,7 +1,14 @@
 <template>
   <div :class="customClass">
     <custom-cell />
-    <wd-popup v-model="popupShow" position="bottom" @click-modal="onCancel" :duration="250">
+    <wd-popup
+      ref="popup"
+      v-model="popupShow"
+      position="bottom"
+      @click-modal="onCancel"
+      :duration="250"
+      class="wd-picker__popup"
+    >
       <toolbar :target="currentTarget"></toolbar>
       <!-- 开始 -->
       <wd-picker-view
@@ -45,7 +52,11 @@ export default {
 
   props: {
     columns: [Array, Object],
-    value: [String, Number, Boolean, Array]
+    value: [String, Number, Boolean, Array],
+    appendToBody: {
+      type: Boolean,
+      default: true
+    }
   },
 
   watch: {
@@ -104,6 +115,9 @@ export default {
     },
 
     showPopInit () {
+      if (this.appendToBody) {
+        document.body.appendChild(this.$refs.popup.$el)
+      }
       const pickerView = this.$refs.pickerView
       this.lastColumns = pickerView.getColumnsData()
     },
