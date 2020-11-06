@@ -1,34 +1,28 @@
-- title: 基础组件
+- title: 基础
   icon: //img10.360buyimg.com/jmadvertisement/jfs/t1/66588/29/14007/357/5db52ec2E8707b074/5c48948a4dbe08d0.png
   children:
-    - name: badge
-      title: Badge 角标
     - name: button
       title: Button 按钮
     - name: icon
       title: Icon 图标
     - name: popup
       title: Popup 弹出层
-- title: 导航组件
+- title: 导航
   icon: //img10.360buyimg.com/jmadvertisement/jfs/t1/57401/2/14433/579/5db52423Eb624b53d/5fdc9b3664a130c5.png
   children:
     - name: anchor
       title: Anchor 锚点
-    - name: cell
-      title: Cell 单元格
-    - name: grid
-      title: Grid 宫格
-    - name: layout
-      title: Layout 布局
     - name: navbar
       title: Navbar 导航栏
     - name: pagination
-      title: Pagination 分页         
+      title: Pagination 分页
+    - name: popover
+      title: Popover 气泡
+    - name: tabs
+      title: Tabs 标签页  
     - name: tabbar
       title: Tabbar 标签栏
-    - name: tabs
-      title: Tabs 标签页
-- title: 表单组件
+- title: 数据输入
   icon: //img10.360buyimg.com/jmadvertisement/jfs/t1/95180/24/842/200/5db52eb0E1070b290/055da7b5938eff6e.png
   children:
     - name: checkbox
@@ -39,6 +33,8 @@
       title: DatetimePicker 时间选择器
     - name: datetimePickerView
       title: DatetimePickerView 时间选择器视图
+    - name: dropMenu
+      title: DropMenu 下拉菜单
     - name: form
       title: Form 表单组合
     - name: input
@@ -63,32 +59,44 @@
       title: Switch 开关
     - name: upload
       title: Upload 上传
-- title: 交互组件
+- title: 反馈
   icon: //img10.360buyimg.com/jmadvertisement/jfs/t1/61394/26/14003/924/5db5213aEebdbae4b/13a175a474dcf220.png
   children:
     - name: actionSheet
       title: ActionSheet 动作面板
-    - name: dropMenu
-      title: DropMenu 下拉菜单
     - name: infiniteLoad
       title: InfiniteLoad 无限加载
+    - name: lazyload
+      title: Lazyload 图片懒加载
     - name: loading
       title: Loading 加载指示器
     - name: messageBox
       title: MessageBox 弹框
+    - name: noticeBar
+      title: NoticeBar 消息提示
+    - name: progress
+      title: Progress 进度条
     - name: pullRefresh
       title: PullRefresh 下拉刷新
-    - name: swipe
-      title: Swipe 轮播图
+    - name: sortButton
+      title: SortButton 排序按钮
+    - name: statusTip
+      title: StatusTip 缺省提示
     - name: swipeAction
       title: SwipeAction 滑动操作
     - name: toast
       title: Toast 轻提示
-- title: 展示组件
+    - name: tooltip
+      title: Tooltip 文字提示
+- title: 数据展示
   icon: //img10.360buyimg.com/jmadvertisement/jfs/t1/64146/11/13923/495/5db52ed3Ea32effd5/f15411c2a37f5dc9.png
   children:
+    - name: badge
+      title: Badge 徽标 
     - name: card
-      title: Card 卡片
+      title: Card 卡片 
+    - name: cell
+      title: Cell 单元格
     - name: collapse
       title: Collapse 折叠面板
     - name: curtain
@@ -99,23 +107,15 @@
       title: Img 图片
     - name: imgPreview
       title: ImgPreview 图片预览
-    - name: lazyload
-      title: Lazyload 图片懒加载
-    - name: noticeBar
-      title: NoticeBar 通知栏
-    - name: popover
-      title: Popover 气泡
-    - name: progress
-      title: Progress 进度条
-    - name: statusTip
-      title: StatusTip 缺省提示
-    - name: sortButton
-      title: SortButton 排序按钮
+    - name: grid
+      title: Grid 宫格
+    - name: layout
+      title: Layout 布局
     - name: steps
       title: Steps 步骤条
     - name: sticky
-      title: Sticky 粘性布局
+      title: Sticky 进度条
+    - name: swipe
+      title: Swipe 轮播图
     - name: tag
       title: Tag 标签
-    - name: tooltip
-      title: Tooltip 文字提示

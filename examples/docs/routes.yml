@@ -37,8 +37,6 @@
         - type: group
           title: 基础
           children:
-            - name: badge
-              title: Badge 角标
             - name: button
               title: Button 按钮
             - name: icon
@@ -50,22 +48,18 @@
           children:
             - name: anchor
               title: Anchor 锚点
-            - name: cell
-              title: Cell 单元格
-            - name: grid
-              title: Grid 宫格
-            - name: layout
-              title: Layout 布局
             - name: navbar
               title: Navbar 导航栏
             - name: pagination
-              title: Pagination 分页               
+              title: Pagination 分页
+            - name: popover
+              title: Popover 气泡              
             - name: tabs
               title: Tabs 标签页
             - name: tabbar
               title: Tabbar 标签栏
         - type: group
-          title: 表单
+          title: 数据输入
           children:
             - name: checkbox
               title: Checkbox 复选框
@@ -75,6 +69,8 @@
               title: DatetimePicker 时间选择器
             - name: datetimePickerView
               title: DatetimePickerView 时间选择器视图
+            - name: dropMenu
+              title: DropMenu 下拉菜单
             - name: form
               title: Form 表单组合
             - name: input
@@ -100,31 +96,43 @@
             - name: upload
               title: Upload 上传
         - type: group
-          title: 交互
+          title: 反馈
           children:
             - name: actionSheet
               title: ActionSheet 动作面板
-            - name: dropMenu
-              title: DropMenu 下拉菜单
             - name: infiniteLoad
               title: InfiniteLoad 无限加载
+            - name: lazyload
+              title: Lazyload 图片懒加载
             - name: loading
               title: Loading 加载
             - name: messageBox
               title: MessageBox 弹框
+            - name: noticeBar
+              title: NoticeBar 消息提示
+            - name: progress
+              title: Progress 进度条
             - name: pullRefresh
               title: PullRefresh 下拉刷新
-            - name: swipe
-              title: Swipe 轮播图
+            - name: sortButton
+              title: SortButton 排序按钮
+            - name: statusTip
+              title: StatusTip 缺省提示
             - name: swipeAction
               title: SwipeAction 滑动操作
             - name: toast
               title: Toast 轻提示
+            - name: tooltip
+              title: Tooltip 文字提示
         - type: group
-          title: 展示
+          title: 数据展示
           children:
+            - name: badge
+              title: Badge 徽标 
             - name: card
-              title: Card 卡片
+              title: Card 卡片 
+            - name: cell
+              title: Cell 单元格
             - name: collapse
               title: Collapse 折叠面板
             - name: curtain
@@ -135,26 +143,18 @@
               title: Img 图片
             - name: imgPreview
               title: ImgPreview 图片预览
-            - name: lazyload
-              title: Lazyload 图片懒加载
-            - name: noticeBar
-              title: NoticeBar 通知栏
-            - name: popover
-              title: Popover 气泡
-            - name: progress
-              title: Progress 进度条
-            - name: statusTip
-              title: StatusTip 缺省提示
-            - name: sortButton
-              title: SortButton 排序按钮
+            - name: grid
+              title: Grid 宫格
+            - name: layout
+              title: Layout 布局
             - name: steps
               title: Steps 步骤条
             - name: sticky
-              title: Sticky 粘性布局
+              title: Sticky 进度条
+            - name: swipe
+              title: Swipe 轮播图
             - name: tag
               title: Tag 标签
-            - name: tooltip
-              title: Tooltip 文字提示
 - type: link
   name: mini-components
   title: 小程序
