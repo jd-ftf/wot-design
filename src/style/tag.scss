@@ -90,11 +90,11 @@
   }
   @include e(text-real) {
     font-size: 20px;
-    transform: scale(0.5);
-    transform-origin: left top;
+    transform: scale(0.5) translate(-100%, -100%);
+    transform-origin: 50% 50%;
     position: absolute;
-    left: 0;
-    top: 0;
+    left: 50%;
+    top: 50%;
     white-space: nowrap;
   }
   @include e(text-container) {
