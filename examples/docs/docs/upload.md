@@ -301,6 +301,8 @@ export default {
 |---------- |-------------- |---------- |--------------------------------  |-------- |
 | file-list | 上传的文件列表, 例如: [{name: 'food.jpg', url: 'https://xxx.cdn.com/xxx.jpg'}] | array | — | [] |
 | action | 必选参数，上传的地址 | string | — | - |
+| name | 上传的文件字段名 | string | - | 'file' |
+| data | 上传时附带的额外参数 | object | - | - |
 | headers | 设置上传的请求头部 | object | — | — |
 | multiple | 是否支持多选文件 | boolean | — | — |
 | with-credentials | 支持发送 cookie 凭证信息 | boolean | — | false |
