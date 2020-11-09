@@ -1,7 +1,7 @@
 <script>
 import { upload } from './utils'
-import context from '../../../src/utils/id'
-import { isEqual } from '../../../src/utils/index'
+import context from 'wot-design/src/utils/id'
+import { isEqual } from 'wot-design/src/utils/index'
 import WdLoading from 'wot-design/packages/loading'
 import locale from 'wot-design/src/mixins/locale'
 
@@ -30,6 +30,11 @@ export default {
     action: {
       type: String,
       required: true
+    },
+    data: Object,
+    name: {
+      type: String,
+      default: 'file'
     },
     headers: {
       type: Object,
@@ -145,6 +150,14 @@ export default {
         })
       }
     }
+  },
+
+  beforeDestroy () {
+    this.fileList.forEach(file => {
+      if (file.url && file.url.indexOf('blob:') === 0) {
+        URL.revokeObjectURL(file.url)
+      }
+    })
   },
 
   methods: {
