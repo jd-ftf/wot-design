@@ -75,6 +75,8 @@ export function upload (option) {
       })
     }
 
+    formData.append(option.filename, option.file)
+
     // 注册失败事件回调函数处理器
     xhr.onerror = function error (e) {
       if (e instanceof Event) {
