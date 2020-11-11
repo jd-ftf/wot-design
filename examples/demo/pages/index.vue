@@ -148,6 +148,9 @@ export default {
     width: 100%;
     transition: height 0.3s;
     overflow: hidden;
+    margin: 0;
+    padding: 0;
+    list-style: none;
   }
   .kind-list__list-item {
     position: relative;
@@ -172,6 +175,12 @@ export default {
     background: #fff;
     justify-content: space-between;
     align-items: center;
+    color: #333;
+    text-decoration: none;
+
+    &:active {
+      color: #333;
+    }
   }
   .custom-icon-right {
     color: #aaa;

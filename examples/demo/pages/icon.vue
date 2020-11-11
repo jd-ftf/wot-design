@@ -29,6 +29,8 @@ export default {
   margin: 15px;
   flex-wrap: wrap;
   background: #fff;
+  padding: 0;
+  list-style: none;
 
   li {
     width: 25%;
