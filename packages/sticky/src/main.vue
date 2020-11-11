@@ -7,21 +7,19 @@
 </template>
 
 <script>
-import { isSupportSticky, getScrollTargetEvent } from 'wot-design/src/utils'
+import { isSupportSticky } from 'wot-design/src/utils'
 
 export default {
   name: 'Sticky',
   data () {
     return {
       fixed: false,
-      scroller: null,
       height: null,
       shouldScroll: !isSupportSticky,
       transformY: 0
     }
   },
   props: {
-    container: null,
     zIndex: {
       type: Number,
       default: 9
@@ -44,6 +42,24 @@ export default {
       }
 
       return style
+    },
+    canSticky () {
+      let currentNode = this.$el.parentNode
+
+      while (currentNode &&
+        currentNode.tagName !== 'HTML' &&
+        currentNode.tagName !== 'BODY' &&
+        currentNode !== window &&
+        currentNode.nodeType === 1) {
+        let overflow = document.defaultView.getComputedStyle(currentNode).overflow
+        if (overflow !== 'visible') {
+          return false
+        }
+
+        currentNode = currentNode.parentNode
+      }
+
+      return true
     }
   },
   methods: {
@@ -51,40 +67,37 @@ export default {
       this.height = this.$el.offsetHeight
       let stickyTop = this.$el.getBoundingClientRect().top
 
-      if (this.container) {
-        let containerHeight = this.container.offsetHeight
-        let containerBottom = this.container.getBoundingClientRect().bottom
+      let containerHeight = this.$el.parentNode.offsetHeight
+      let containerBottom = this.$el.parentNode.getBoundingClientRect().bottom
 
-        // if is in container
-        if (this.height + this.offsetTop < containerHeight) {
-          if (stickyTop < this.offsetTop && containerBottom > 0) {
-            this.fixed = true
-            let distance = containerBottom - (this.height + this.offsetTop)
-            distance < 0 && (this.transformY = distance)
-          } else {
-            this.fixed = false
-            this.transformY = 0
-          }
+      // if is in container
+      if (this.height + this.offsetTop < containerHeight) {
+        if (stickyTop < this.offsetTop && containerBottom > 0) {
+          this.fixed = true
+          let distance = containerBottom - (this.height + this.offsetTop)
+          distance < 0 && (this.transformY = distance)
+        } else {
+          this.fixed = false
+          this.transformY = 0
         }
-        return
-      }
-
-      if (stickyTop < this.offsetTop) {
-        this.fixed = true
-      } else {
-        this.fixed = false
       }
     }
   },
   mounted () {
+    if (!this.canSticky) {
+      console.warn('[wot-design warning] if you want to use sticky, the overflow of the ancestor element cannot be auto, overlay, scroll and hidden')
+      return
+    }
+
     if (this.shouldScroll) {
       this.height = this.$el.clientHeight
-      this.scroller = getScrollTargetEvent(this.$el)
-      this.scroller.addEventListener('scroll', this.onScroll)
+      window.addEventListener('scroll', this.onScroll)
     }
   },
   beforeDestroy () {
-    this.scroller && this.scroller.removeEventListener('scroll', this.onScroll)
+    if (this.canSticky && this.shouldScroll) {
+      window.removeEventListener('scroll', this.onScroll)
+    }
   }
 }
 </script>
