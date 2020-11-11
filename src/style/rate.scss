@@ -4,6 +4,8 @@
 
 @include b(rate) {
   display: inline-block;
+  margin: 0;
+  padding: 0;
   list-style: none;
   vertical-align: middle;
   line-height: 1;
