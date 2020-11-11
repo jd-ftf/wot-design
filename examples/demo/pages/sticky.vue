@@ -1,22 +1,31 @@
 <template>
   <div class="page-sticky">
-    <div class="page-sticky-space">基本用法，可以设置 offset-top 距离顶部距离，这里为 44，因为头部导航高度为 44</div>
+    <div class="page-sticky-space">基本用法，顶部距离默认设置44，避开顶部导航</div>
     <sticky :offset-top="44">
-      <p class="page-sticky-title">这是第一个标题</p>
+      <div class="page-sticky-pad">
+        <wd-button type="success">基本用法</wd-button>
+      </div>
     </sticky>
-    <div class="page-sticky-space">设置 offset-top 为 100</div>
+    <div class="page-sticky-space">吸顶距离，设置100距离</div>
     <sticky :offset-top="100">
-      <p class="page-sticky-title">这是第二个标题</p>
+      <div class="page-sticky-pad" style="text-align: center;">
+        <wd-button>吸顶距离</wd-button>
+      </div>
     </sticky>
-    <div class="page-sticky-space">设置容器 container</div>
-    <div class="page-sticky-container" ref="container1">
-      <sticky :offset-top="150" :container="container1">
-        <p class="page-sticky-title">这是第三个标题</p>
+    <div class="page-sticky-space">相对容器，容器是自动相对于父元素，跟 position: sticky 计算一致</div>
+    <div class="page-sticky-container">
+      <sticky :offset-top="44">
+        <div class="page-sticky-pad" style="text-align: right;">
+          <wd-button type="warning">sticky</wd-button>
+        </div>
       </sticky>
     </div>
-    <div class="page-sticky-container" ref="container2">
-      <sticky :offset-top="150" :container="container2">
-        <p class="page-sticky-title">这是第四个标题</p>
+    <div class="page-sticky-space">相对容器+相对顶部距离</div>
+    <div class="page-sticky-container">
+      <sticky :offset-top="150">
+        <div class="page-sticky-pad">
+          <wd-button type="warning">sticky</wd-button>
+        </div>
       </sticky>
     </div>
   </div>
@@ -47,6 +56,9 @@ export default {
   margin: 10px 0;
   color: #666;
 }
+.page-sticky-pad {
+  padding: 0 15px;
+}
 .page-sticky-title {
   margin: 0;
   padding: 10px 15px;
@@ -56,6 +68,6 @@ export default {
 }
 .page-sticky-container {
   min-height: 200px;
-  background: #eee;
+  background: #fff;
 }
 </style>

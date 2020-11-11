@@ -293,7 +293,7 @@ export default {
       >
         {
           this.sticky
-            ? <Sticky offsetTop={this.offsetTop} container={this.$el}>{Nav}{NavMap}</Sticky>
+            ? <Sticky offsetTop={this.offsetTop}>{Nav}{NavMap}</Sticky>
             : Nav
         }
         <div class="wd-tabs__container">
