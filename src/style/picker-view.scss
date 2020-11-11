@@ -58,6 +58,9 @@
   top: $-picker-column-height / 2 - $-picker-column-item-height / 2;
   width: 100%;
   height: $-picker-column-item-height;
+  margin: 0;
+  padding: 0;
+  list-style: none;
 
   @include e(item) {
     position: absolute;
@@ -78,6 +81,12 @@
       color: $-picker-column-disabled-color;
     }
   }
+}
+
+@include b(picker-view-list) {
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
 @include b(picker-view-content) {

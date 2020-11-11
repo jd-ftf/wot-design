@@ -63,7 +63,7 @@
       </div>
     </demo-block>
     <demo-block title="控制显隐">
-      <wd-button size="small" @click="control">{{show ? '关' : '开'}}</wd-button>
+      <wd-button plain size="small" @click="control">{{show ? '关闭' : '打开'}}</wd-button>
       <div class="center">
         <wd-tooltip v-model="show" placement="top" content="top 提示文字" @show="onShow" @hide="onHide">
           <wd-button :round="false" class="btn btn-default">控制显隐</wd-button>
