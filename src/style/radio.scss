@@ -61,6 +61,7 @@
       position: relative;
       display: inline-block;
       box-sizing: border-box;
+      transition: none;
 
       &::before {
         content: "";
@@ -71,7 +72,8 @@
         top: 2px;
         border-radius: 50%;
         background-color: #fff;
-        opacity: 0;
+        transform: scale(0);
+        transition: transform .2s ease-in;
       }
     }
     @include when(checked) {
@@ -79,7 +81,7 @@
         background-color: $-radio-dot-checked-bg;
         border-color: $-radio-dot-checked-border-color;
         &::before {
-          opacity: 1;
+          transform: scale(1);
         }
       }
     }

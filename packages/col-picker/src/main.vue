@@ -79,7 +79,7 @@
           </div>
         </template>
         <div v-if="loading" class="wd-col-picker__loading">
-          <wd-loading :color="loadingColor" />
+          <wd-loading type="circular-ring" :color="loadingColor" />
         </div>
       </div>
     </wd-action-sheet>
