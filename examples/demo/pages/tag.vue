@@ -36,7 +36,7 @@
       <wd-tag type="success" round>标签</wd-tag>
     </demo-block>
     <demo-block title="设置图标">
-      <wd-tag icon="wd-icon-clock" mark>标签</wd-tag>
+      <wd-tag icon="wd-icon-dong" mark>标签</wd-tag>
     </demo-block>
     <demo-block title="自定义颜色">
       <wd-tag color="#0083ff" bg-color="#d0e8ff">标签</wd-tag>
