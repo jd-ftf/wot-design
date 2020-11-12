@@ -69,8 +69,6 @@
               title: DatetimePicker 时间选择器
             - name: datetimePickerView
               title: DatetimePickerView 时间选择器视图
-            - name: dropMenu
-              title: DropMenu 下拉菜单
             - name: form
               title: Form 表单组合
             - name: input
@@ -100,10 +98,10 @@
           children:
             - name: actionSheet
               title: ActionSheet 动作面板
+            - name: dropMenu
+              title: DropMenu 下拉菜单
             - name: infiniteLoad
               title: InfiniteLoad 无限加载
-            - name: lazyload
-              title: Lazyload 图片懒加载
             - name: loading
               title: Loading 加载
             - name: messageBox
@@ -147,10 +145,12 @@
               title: Grid 宫格
             - name: layout
               title: Layout 布局
+            - name: lazyload
+              title: Lazyload 图片懒加载
             - name: steps
               title: Steps 步骤条
             - name: sticky
-              title: Sticky 进度条
+              title: Sticky 吸顶
             - name: swipe
               title: Swipe 轮播图
             - name: tag
