@@ -9,6 +9,9 @@
     <demo-block title="设置 desc-first 优先切换为降序">
       <wd-sort-button v-model="value3" title="价格" desc-first />
     </demo-block>
+    <demo-block title="不展示下划线（当只有一个排序按钮时，应取消展示下划线）">
+      <wd-sort-button v-model="value4" title="价格" :line="false" />
+    </demo-block>
   </div>
 </template>
 <script>
@@ -17,7 +20,8 @@ export default {
     return {
       value1: 0,
       value2: 0,
-      value3: 0
+      value3: 0,
+      value4: -1
     }
   }
 }

@@ -5,6 +5,27 @@
 @include b(sort-button){
   display: inline-block;
 
+  @include m(line) {
+    .wd-sort-button__left{
+      &::after {
+        position: absolute;
+        content: '';
+        width: 19px;
+        height: 3px;
+        bottom: 6px;
+        left: 50%;
+        transform: translate(-50%, 0);
+        background: $-sort-button-line-color;
+        border-radius: $-sort-button-line-height / 2;
+        transition: opacity .15s;
+        opacity: 0;
+      }
+
+      &.is-active::after {
+        opacity: 1;
+      }
+    }
+  }
   @include e(wrapper){
     font-size: $-sort-button-fs;
     color: $-sort-button-color;
@@ -36,9 +57,6 @@
     @include when(active) {
       font-weight: $-fw-medium;
 
-      &::after {
-        opacity: 1;
-      }
       .wd-sort-button__right {
         justify-content: center;
       }
@@ -54,7 +72,7 @@
 
     @include when(active) {
       .wd-sort-button__icon {
-        transform: scale((4/7));
+        transform: scale((10/14));
       }
     }
   }
@@ -64,10 +82,10 @@
     line-height: 1.1;
 
     @include m(up){
-      transform: scale((4/7)) translate(0, 7px);
+      transform: scale((10/14)) translate(0, 7px);
     }
     @include m(down){
-      transform: scale((4/7)) translate(0, -7px);
+      transform: scale((10/14)) translate(0, -7px);
     }
   }
 }
