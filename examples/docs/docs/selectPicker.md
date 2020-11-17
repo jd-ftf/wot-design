@@ -273,8 +273,8 @@ export default {
 | value/v-model | 选中项，`type`类型为`checkbox`时，类型为 array；`type`为`radio` 时 ，类型为 number / boolean / string | array / number / boolean / string | - | - |
 | columns | 选择器数据，一维数组 | array | - | - |
 | type | 单复选picker类型 | string | checkbox / radio | 'checkbox' |
-| value-key | 选项对象中，value对应的 key | string | - | 'label' |
-| label-key | 选项对象中，展示的文本对应的 key | string | - | 'value' |
+| value-key | 选项对象中，value对应的 key | string | - | 'value' |
+| label-key | 选项对象中，展示的文本对应的 key | string | - | 'label' |
 | title | 弹出层标题 | string | - | - |
 | label | 选择器左侧文案 | string | - | - |
 | placeholder | 选择器占位符 | string | - | '请选择' |

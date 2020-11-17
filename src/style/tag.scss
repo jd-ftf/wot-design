@@ -21,11 +21,18 @@
     border-radius: $-tag-round-radius;
   }
   @include when(mark) {
+    position: relative;
     padding: 2px 6px;
     border-radius: $-tag-mark-radius;
 
     @include when(plain) {
       padding: 1px 6px;
+    }
+
+    @include when(icon) {
+      .wd-tag__text-container {
+        margin-left: 14px;
+      }
     }
   }
   @include when(active) {
@@ -76,10 +83,11 @@
   }
   @include e(icon) {
     display: inline-block;
-    margin-right: 4px;
-    font-size: $-tag-small-fs;
-    line-height: 1;
-    vertical-align: middle;
+    font-size: 20px;
+    position: absolute;
+    transform: scale(0.5) translate(10px, -100%);
+    top: 50%;
+    left: -5px;
   }
   @include e(text) {
     display: inline-block;
@@ -90,11 +98,11 @@
   }
   @include e(text-real) {
     font-size: 20px;
-    transform: scale(0.5);
-    transform-origin: left top;
+    transform: scale(0.5) translate(-100%, -100%);
+    transform-origin: 50% 50%;
     position: absolute;
-    left: 0;
-    top: 0;
+    left: 50%;
+    top: 50%;
     white-space: nowrap;
   }
   @include e(text-container) {
