@@ -1,6 +1,9 @@
 <template>
   <div
     class="wd-sort-button"
+    :class="{
+      'wd-sort-button--line': line
+    }"
     @click="handleClick"
   >
     <div class="wd-sort-button__wrapper">
@@ -29,7 +32,11 @@ export default {
       required: true
     },
     allowReset: Boolean,
-    descFirst: Boolean
+    descFirst: Boolean,
+    line: {
+      type: Boolean,
+      default: true
+    }
   },
   methods: {
     handleClick () {
