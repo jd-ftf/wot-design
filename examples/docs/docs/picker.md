@@ -249,8 +249,8 @@ export default {
 | loading | 加载中 | boolean | - | false |
 | arrow-html | 是否使用html渲染选择器内容 | boolean | - | true |
 | columns-height | 内部pickerView高 | number | - | 217 |
-| value-key | 选项对象中，value对应的 key | string | - | 'label' |
-| label-key | 选项对象中，展示的文本对应的 key | string | - | 'value' |
+| value-key | 选项对象中，value对应的 key | string | - | 'value' |
+| label-key | 选项对象中，展示的文本对应的 key | string | - | 'label' |
 | title | 弹出层标题 | string | - | - |
 | cancel-button-text | 取消按钮文案 | string | - | '取消' |
 | confirm-button-text | 确认按钮文案 | string | - | '完成' |
