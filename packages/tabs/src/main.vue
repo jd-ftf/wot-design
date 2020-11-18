@@ -183,7 +183,7 @@ export default {
         let key = item.name || index
         return (
           <div key={key} class='wd-tabs__map-nav-item'>
-            <button
+            <span
               key={key}
               class={{
                 'wd-tabs__map-nav-btn': true,
@@ -195,7 +195,7 @@ export default {
                 !item.disabled && this.toggleMap()
               }}>
               {title}
-            </button>
+            </span>
           </div>
         )
       })
