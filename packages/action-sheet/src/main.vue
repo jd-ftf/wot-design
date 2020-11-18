@@ -15,7 +15,7 @@
       <i class="wd-action-sheet__close wd-icon-add" @click="close"></i>
     </div>
     <div v-if="actions && actions.length" class="wd-action-sheet__actions">
-      <button
+      <div
         v-for="(item, index) in actions"
         :key="index"
         :class="{
@@ -30,7 +30,7 @@
           <span class="wd-action-sheet__name">{{ item.name }}</span>
           <span v-if="item.subname" class="wd-action-sheet__subname">{{ item.subname }}</span>
         </template>
-      </button>
+      </div>
     </div>
     <template v-if="formatPanels && formatPanels.length">
       <div
@@ -52,7 +52,7 @@
       </div>
     </template>
     <slot></slot>
-    <button v-if="cancelText" class="wd-action-sheet__cancel" @click="handleCancel">{{ cancelText }}</button>
+    <div v-if="cancelText" class="wd-action-sheet__cancel" @click="handleCancel">{{ cancelText }}</div>
   </wd-popup>
 </template>
 
