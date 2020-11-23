@@ -329,6 +329,8 @@ export default {
 | on-long-tap | 开启图片预览，长按事件钩子，详细使用说明查看[图片预览组件 JS 调用](/docs#/components/imgPreview) | Function | -  | - |
 | on-close | 开启图片预览，打开预览列表钩子，详细使用说明查看[图片预览组件 JS 调用](/docs#/components/imgPreview) | Function | -  | - |
 | on-open | 开启图片预览，关闭预览列表钩子，详细使用说明查看[图片预览组件 JS 调用](/docs#/components/imgPreview) | Function | -  | - |
+| name-key | file 数据结构中，name 对应的 key | string | - | 'name' |
+| status-key | file 数据结构中，status 对应的 key | string | - | 'status' |
 
 ### file 数据结构
 
