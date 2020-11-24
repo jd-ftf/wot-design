@@ -100,6 +100,14 @@ export default {
       type: Boolean,
       default: true
     },
+    nameKey: {
+      type: String,
+      default: 'name'
+    },
+    statusKey: {
+      type: String,
+      default: 'status'
+    },
     // 图片预览 长按事件钩子
     onLongTap: Function,
     // 图片预览 关闭预览列表钩子
@@ -143,7 +151,7 @@ export default {
         if (isEqual(fileList, this.uploadFiles)) return
         this.uploadFiles = fileList.map(item => {
           item.uid = context.id++
-          item.status = item.status || 'success'
+          item[this.statusKey] = item[this.statusKey] || 'success'
           item.size = item.size || ''
           item.action = this.action || ''
           return item
@@ -173,8 +181,8 @@ export default {
         // 设置files内容初始值
         const initState = {
           uid: context.id++,
-          status: 'loading',
-          name: file.name,
+          [this.statusKey]: 'loading',
+          [this.nameKey]: file[this.nameKey],
           size: file.size,
           file,
           url: URL.createObjectURL(file),
@@ -260,7 +268,7 @@ export default {
     handleSuccess (res, rawFile) {
       const file = this.getFileFromList(rawFile)
       if (file) {
-        file.status = 'success'
+        file[this.statusKey] = 'success'
         file.response = res
         this.$emit('success', res, file, this.uploadFiles)
       }
@@ -270,7 +278,7 @@ export default {
       const file = this.getFileFromList(rawFile)
       if (file) {
         file.error = res.message
-        file.status = 'fail'
+        file[this.statusKey] = 'fail'
         file.response = res
         this.$emit('fail', res, file, this.uploadFiles)
       }
@@ -395,24 +403,24 @@ export default {
       this.showImgPreview && imgList.push(file.url)
 
       // 加载中、失败状态下的样式
-      const statusDiv = file.status === 'loading' ? (
+      const statusDiv = file[this.statusKey] === 'loading' ? (
         <div class="wd-upload__status-content">
           {loading}
           <span class="wd-upload__progress-txt">{file.percent}%</span>
         </div>
-      ) : file.status === 'fail' ? (
+      ) : file[this.statusKey] === 'fail' ? (
         <div class="wd-upload__status-content">
           <i class="wd-icon-close-outline wd-upload__icon"></i>
           <span class="wd-upload__progress-txt">{file.error || t('wd.upload.error') }</span>
         </div>
       ) : ''
 
-      const mask = file.status !== 'success' ? (
+      const mask = file[this.statusKey] !== 'success' ? (
         <div class="wd-upload__mask wd-upload__status-content">{statusDiv}</div>
       ) : ''
 
       // 右上角关闭按钮
-      const closeButton = file.status === 'loading' ? '' : (
+      const closeButton = file[this.statusKey] === 'loading' ? '' : (
         <i
           class="wd-icon-error-fill wd-upload__close"
           onClick={() => {
@@ -431,7 +439,7 @@ export default {
               this.showImgPreview && this.preview(imgList, file, index)
             }}>
             <img src={file.url} class="wd-upload__picture" />
-            {showName ? <div class="wd-upload__picture-name">{file.name || t('wd.upload.fileName') }</div> : ''}
+            {showName ? <div class="wd-upload__picture-name">{file[this.nameKey] || t('wd.upload.fileName') }</div> : ''}
           </div>
           {closeButton}
         </div>
