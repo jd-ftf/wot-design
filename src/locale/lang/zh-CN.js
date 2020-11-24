@@ -6,7 +6,8 @@ export default {
     },
     colPicker: {
       title: '请选择',
-      placeholder: '请选择'
+      placeholder: '请选择',
+      select: '请选择'
     },
     infiniteLoad: {
       loading: '正在努力加载中...',

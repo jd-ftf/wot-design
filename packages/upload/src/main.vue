@@ -406,7 +406,7 @@ export default {
       const statusDiv = file[this.statusKey] === 'loading' ? (
         <div class="wd-upload__status-content">
           {loading}
-          <span class="wd-upload__progress-txt">{file.percent}%</span>
+          <span class="wd-upload__progress-txt">{parseInt(file.percent)}%</span>
         </div>
       ) : file[this.statusKey] === 'fail' ? (
         <div class="wd-upload__status-content">
@@ -439,7 +439,7 @@ export default {
               this.showImgPreview && this.preview(imgList, file, index)
             }}>
             <img src={file.url} class="wd-upload__picture" />
-            {showName ? <div class="wd-upload__picture-name">{file[this.nameKey] || t('wd.upload.fileName') }</div> : ''}
+            {showName && file[this.statusKey] === 'success' ? <div class="wd-upload__picture-name">{file[this.nameKey] || t('wd.upload.fileName') }</div> : ''}
           </div>
           {closeButton}
         </div>

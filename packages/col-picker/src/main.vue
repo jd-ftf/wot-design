@@ -49,7 +49,7 @@
             }"
             @click="handleColClick(colIndex)"
           >
-            {{ pickerColSelected[colIndex] && getSelectedItem(pickerColSelected[colIndex], colIndex)[labelKey] || '请选择' }}
+            {{ pickerColSelected[colIndex] && getSelectedItem(pickerColSelected[colIndex], colIndex)[labelKey] || t('wd.colPicker.select') }}
           </div>
           <i class="wd-col-picker__selected-line" :style="lineStyle"></i>
         </div>

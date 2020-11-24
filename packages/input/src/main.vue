@@ -152,7 +152,7 @@ export default {
     min: String,
     step: String,
     rows: {
-      type: String,
+      type: [String, Number],
       default: '3'
     },
     autosize: [Boolean, Object],
