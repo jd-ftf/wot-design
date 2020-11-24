@@ -241,8 +241,12 @@ export default {
       this.$set(this.pickerColSelected, colIndex, item[this.valueKey])
       this.setLineStyle()
       this.lineScrollIntoView()
-      this.loading = true
       this.selectList = this.selectList.slice(0, colIndex + 1)
+      this.handleColChange(colIndex, item, index)
+    },
+    // 触发 columnChange，如果有 callback 回调，则为递归补齐 columns 数据，需要避免触发 confirm 事件
+    handleColChange (colIndex, item, index, callback) {
+      this.loading = true
       this.columnChange({
         selectedItem: item,
         index: colIndex,
@@ -256,9 +260,10 @@ export default {
           this.selectList.push(nextColumn)
           this.loading = false
           this.currentCol = colIndex + 1
+          typeof callback === 'function' && callback()
         },
         finish: (isOk) => {
-          if (typeof isOk === 'boolean' && !isOk) {
+          if ((typeof isOk === 'boolean' && !isOk) || typeof callback === 'function') {
             this.loading = false
             return
           }
@@ -339,6 +344,28 @@ export default {
           return item[this.labelKey]
         }).join('')
       }
+    },
+    // 递归列数据补齐
+    diffColumns (colIndex) {
+      // colIndex 为 -1 时，item 为空对象，>=0 时则具有 value 属性
+      let item = colIndex === -1 ? {} : { [this.valueKey]: this.value[colIndex] }
+      this.handleColChange(colIndex, item, -1, () => {
+        // 每次获取新数据后，设置展示数据回显，因为不知道有多少列，所以每补齐一列数据就设置一次回显
+        this.setShowValue()
+
+        // 如果 columns 长度还小于 value 长度，colIndex + 1，继续递归补齐
+        if (this.columns.length < this.value.length) {
+          this.diffColumns(colIndex + 1)
+        }
+      })
+    }
+  },
+  mounted () {
+    // 如果 columns 数组长度为空，或者长度小于 value 的长度，自动触发 columnChange 来补齐数据
+    if (this.columns.length < this.value.length || this.columns.length === 0) {
+      // 如果 columns 长度为空，则传入的 colIndex 为 -1
+      let colIndex = this.columns.length === 0 ? -1 : (this.columns.length - 1)
+      this.diffColumns(colIndex)
     }
   }
 }
