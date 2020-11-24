@@ -27,6 +27,7 @@
       />
       <wd-picker :columns="columns1" label="错误" v-model="value17" error />
       <wd-picker :columns="columns1" v-model="value14" label="必填" required />
+      <wd-picker :columns="columns4" label="html渲染展示" v-model="value18" />
     </wd-cell-group>
     <demo-block title="label不传" transparent>
       <wd-picker :columns="columns1" v-model="value10" />
@@ -76,6 +77,20 @@ export default {
         district[district[0][0].value],
         district[district[district[0][0].value][0].value]
       ],
+      columns4: [
+        {
+          value: 'English',
+          icon: '//img11.360buyimg.com/ftfman/jfs/t1/147877/7/15634/1271/5fbcbc7eE60de3d42/310077a607899b65.jpg'
+        }, {
+          value: 'ไทย',
+          icon: '//img11.360buyimg.com/ftfman/jfs/t1/152502/1/6915/683/5fbcbd44E03b5922d/ede7afb53462f211.png'
+        }
+      ].map(item => {
+        return {
+          value: item.value,
+          label: `<img src="${item.icon}" style="width: 18px; height: 12px; margin-right: 10px;" /><span style="display: inline-block; width: 100px;">${item.value}</span>`
+        }
+      }),
       value1: '',
       value2: '选项3',
       value3: '选项4',
@@ -93,6 +108,7 @@ export default {
       value15: '选项6',
       value16: '选项3',
       value17: '选项1',
+      value18: 'English',
       isLoading: false
     }
   },
