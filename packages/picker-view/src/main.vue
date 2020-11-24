@@ -152,7 +152,6 @@ export default {
       const column = this.children[columnIndex]
 
       if (column) {
-        console.log(column.data)
         return column.data[column.selectedIndex || 0]
       }
     },
