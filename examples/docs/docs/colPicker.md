@@ -24,10 +24,12 @@ Vue.use(ColPicker)
 | 参数      | 类型 | 说明                                 |
 |---------- |---- |---------- |
 | selectedItem | object | 当前列的选中项，数据结构跟 columns 中选项的数据结构一致 |
-| index | number | 当前列下标 |
+| index | number | 当前列下标，当 columns 数组为空时，传入的 index 为 -1，可以根据该标记来获取第一列数据 |
 | rowIndex | number | 当前列选中项下标 |
 | resolve | function | 接收下一列的选项数组 |
 | finish | function | 结束 picker 选择，若无法正常关闭如数据获取失败，则执行 `finish(false)` |
+
+> 当 `columns` 数组为空时或者 `columns` 数组长度小于 `value` 数组长度时，会自动触发 `column-change` 来获取每一列的数据，此时 `columns` 数组为空时，传入的 `index` 参数为 -`1，selectedItem` 只有 `value` 属性。
 
 ```html
 <wd-col-picker label="选择地址" v-model="value" :columns="areaData" :column-change="columnChange"></wd-col-picker>
@@ -117,7 +119,7 @@ export default {
 
 ### 初始选项
 
-设置初始选项时，`columns` 的数组长度应与 `value` 的数组长度一致，`value` 每一列的值必须对应可以在 `columns` 中找到。
+设置初始选项时，`columns` 可以传入空数组，也可以跟 `value` 一样初始化好。当 `columns` 为空数组或者数组长度小于 `value` 时，会自动触发 `columnChange` 函数来补齐数据。
 
 ```html
 <wd-col-picker label="选择地址" v-model="value" :columns="areaData" :column-change="columnChange"></wd-col-picker>
@@ -130,28 +132,14 @@ export default {
   data () {
     return {
       value: ['150000', '150100', '150121'],
-      areaData: [Object.keys(areaData[86]).map(key => {
-        return {
-          value: key,
-          label: areaData[86][key]
-        }
-      }), Object.keys(areaData[150000]).map(key => {
-        return {
-          value: key,
-          label: areaData[150000][key]
-        }
-      }), Object.keys(areaData[150100]).map(key => {
-        return {
-          value: key,
-          label: areaData[150100][key]
-        }
-      })],
+      areaData: [],
       columnChange ({ selectedItem, resolve, finish }) {
-        if (areaData[selectedItem.value]) {
-          resolve(Object.keys(areaData[selectedItem.value]).map(key => {
+        const value = index === -1 ? 86 : selectedItem.value
+        if (areaData[value]) {
+          resolve(Object.keys(areaData[value]).map(key => {
             return {
               value: key,
-              label: areaData[selectedItem.value][key]
+              label: areaData[value][key]
             }
           }))
         } else {

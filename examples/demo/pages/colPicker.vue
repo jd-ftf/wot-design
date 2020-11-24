@@ -2,7 +2,7 @@
   <div class="page-col-picker">
     <wd-cell-group border style="margin: 20px 0">
       <wd-col-picker label="选择地址" v-model="value1" :columns="areaData1" :column-change="columnChange1" />
-      <wd-col-picker label="初始选项" v-model="value2" :columns="areaData2" :column-change="columnChange1" />
+      <wd-col-picker label="初始选项" v-model="value2" :columns="areaData2" :column-change="columnChange3" />
       <wd-col-picker label="禁用" disabled v-model="value3" :columns="areaData3" :column-change="columnChange1" />
       <wd-col-picker label="只读" readonly v-model="value3" :columns="areaData3" :column-change="columnChange1" />
       <wd-col-picker label="禁用选项" v-model="value4" :columns="areaData4" :column-change="columnChange1" />
@@ -64,22 +64,7 @@ export default {
           label: areaData[86][key]
         }
       })],
-      areaData2: [Object.keys(areaData[86]).map(key => {
-        return {
-          value: key,
-          label: areaData[86][key]
-        }
-      }), Object.keys(areaData[150000]).map(key => {
-        return {
-          value: key,
-          label: areaData[150000][key]
-        }
-      }), Object.keys(areaData[150100]).map(key => {
-        return {
-          value: key,
-          label: areaData[150100][key]
-        }
-      })],
+      areaData2: [],
       areaData3: [Object.keys(areaData[86]).map(key => {
         return {
           value: key,
@@ -141,6 +126,19 @@ export default {
             finish()
           }
         }, 300)
+      },
+      columnChange3 ({ selectedItem, index, resolve, finish }) {
+        const value = index === -1 ? 86 : selectedItem.value
+        if (areaData[value]) {
+          resolve(Object.keys(areaData[value]).map(key => {
+            return {
+              value: key,
+              label: areaData[value][key]
+            }
+          }))
+        } else {
+          finish()
+        }
       },
       displayFormat (selectedItems) {
         return selectedItems[selectedItems.length - 2].label + '-' + selectedItems[selectedItems.length - 1].label
