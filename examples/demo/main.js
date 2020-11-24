@@ -9,6 +9,7 @@ import TouchEmulator from './utils/touch-emulator'
 import VueI18n from 'vue-i18n'
 import zhCN from 'main/locale/lang/zh-CN'
 import enUS from 'main/locale/lang/en-US'
+import thTH from 'main/locale/lang/th-TH'
 
 if (!navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i)) {
   new TouchEmulator()
@@ -16,16 +17,11 @@ if (!navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobi
 
 Vue.use(VueI18n)
 const i18n = new VueI18n({
-  locale: 'zh_CN',
+  locale: 'th_TH',
   messages: {
-    'zh_CN': {
-      hello: '你好',
-      ...zhCN
-    },
-    'en_US': {
-      hello: 'Hello',
-      ...enUS
-    }
+    'zh_CN': zhCN,
+    'en_US': enUS,
+    'th_TH': thTH
   }
 })
 Vue.use(WotDesign, {

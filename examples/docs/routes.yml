@@ -139,12 +139,12 @@
               title: Curtain 幕帘
             - name: divider
               title: Divider 分割线
+            - name: grid
+              title: Grid 宫格
             - name: img
               title: Img 图片
             - name: imgPreview
               title: ImgPreview 图片预览
-            - name: grid
-              title: Grid 宫格
             - name: lazyload
               title: Lazyload 图片懒加载
             - name: steps

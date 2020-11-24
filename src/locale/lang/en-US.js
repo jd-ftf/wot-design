@@ -2,53 +2,58 @@ export default {
   wd: {
     collapse: {
       expand: 'Expand',
-      retract: 'Retract'
+      retract: 'Fold'
     },
     colPicker: {
-      title: 'please select',
-      placeholder: 'please select'
+      title: 'Select',
+      placeholder: 'Select',
+      select: 'Select'
     },
     infiniteLoad: {
-      loading: 'loading...',
-      finished: 'no more',
-      error: 'Failed to load',
-      retry: 'click to try again'
+      loading: 'Loading...',
+      finished: 'Finished loading',
+      error: 'Failed to load...',
+      retry: 'Refresh'
     },
     messageBox: {
-      inputPlaceholder: 'please enter',
-      confirm: 'Confirm',
+      inputPlaceholder: 'Please input information',
+      confirm: 'OK',
       cancel: 'Cancel',
-      inputNoValidate: 'The data entered is not legal'
+      inputNoValidate: 'Please ensure you input correct information'
     },
     pagination: {
-      prev: 'prev',
-      next: 'next',
-      page: 'current page：{value}',
-      total: 'total：{total}',
-      size: 'page size：{size}'
+      prev: 'Previous',
+      next: 'Next',
+      page: 'Page：{value}',
+      total: 'Total：{total}',
+      size: '{size}/page'
     },
     picker: {
       cancel: 'Cancel',
       done: 'Done',
-      placeholder: 'please select'
+      placeholder: 'Select'
     },
     pullRefresh: {
-      topPull: 'Pull down',
-      topDrop: 'Release',
-      topLoading: 'Refreshing'
+      topPull: 'Drag down to refresh',
+      topDrop: 'Release to refresh',
+      topLoading: 'Refreshing the page..'
     },
     search: {
       search: 'Search',
       cancel: 'Cancel'
     },
     steps: {
-      wait: 'Wait',
-      finished: 'Finished',
-      process: 'Process',
+      wait: 'Not Started',
+      finished: 'Expired',
+      process: 'In Progress',
       failed: 'Failed'
     },
     tabs: {
       all: 'All'
+    },
+    upload: {
+      fileName: 'File name',
+      error: 'Failed to upload'
     }
   }
 }
