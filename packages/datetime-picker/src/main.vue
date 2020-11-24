@@ -88,7 +88,6 @@ export default {
     return {
       showStart: true,
       timePicker: true,
-      currentTarget: this,
       showTabLabel: [],
       innerValue: this.region ? this.value[0] : this.value,
       displayColumns: [],
