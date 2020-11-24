@@ -44,7 +44,7 @@ export default {
     value: [String, Array, Boolean],
     accordion: Boolean,
     viewmore: Boolean,
-    lienNum: {
+    lineNum: {
       type: Number,
       default: 2
     }
@@ -52,7 +52,7 @@ export default {
   computed: {
     contentLineNum () {
       return this.viewmore && !this.value
-        ? this.lienNum
+        ? this.lineNum
         : ''
     }
   },
