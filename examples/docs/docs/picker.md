@@ -180,6 +180,38 @@ export default {
 <wd-picker label="单列选项" error v-model="value" :columns="columns" />
 ```
 
+### 使用 html 渲染选型
+
+设置 `arrow-html` 属性，同时 columns 传入的 label 为 html 即可。
+
+```html
+<wd-picker :columns="columns" label="html渲染展示" v-model="value" />
+
+<script>
+export default {
+  data () {
+    return {
+      value: 'English',
+      columns: [
+        {
+          value: 'English',
+          icon: '//img11.360buyimg.com/ftfman/jfs/t1/147877/7/15634/1271/5fbcbc7eE60de3d42/310077a607899b65.jpg'
+        }, {
+          value: 'ไทย',
+          icon: '//img11.360buyimg.com/ftfman/jfs/t1/152502/1/6915/683/5fbcbd44E03b5922d/ede7afb53462f211.png'
+        }
+      ].map(item => {
+        return {
+          value: item.value,
+          label: `<img src="${item.icon}" style="width: 18px; height: 12px; margin-right: 10px;" /><span style="display: inline-block; width: 100px;">${item.value}</span>`
+        }
+      })
+    }
+  }
+}
+</script>
+```
+
 ### 校验标志
 
 设置 `required` 属性，展示必填样式。

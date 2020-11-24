@@ -33,7 +33,8 @@ export default {
           showValue,
           showPopup,
           required,
-          t
+          t,
+          arrowHtml
         } = parent
         const fieldClass = ['wd-picker__field']
         // 右箭头
@@ -41,9 +42,22 @@ export default {
 
         const noValue = !value || (value instanceof Array && !value.length)
         // 右侧展示值
-        const valueDiv = <div class="wd-picker__value" class={['wd-picker__value ', noValue ? 'wd-picker__placeholder' : '']}>
-          {(noValue ? placeholder : showValue) || t('wd.picker.placeholder')}
-        </div>
+        let valueLabel = (noValue ? placeholder : (arrowHtml ? '' : showValue)) || t('wd.picker.placeholder')
+        let valueDiv
+        if (arrowHtml && !noValue) {
+          valueDiv = <div
+            class={['wd-picker__value ', noValue ? 'wd-picker__placeholder' : '']}
+            domPropsInnerHTML={ showValue }
+          >
+            { valueLabel }
+          </div>
+        } else {
+          valueDiv = <div
+            class={['wd-picker__value ', noValue ? 'wd-picker__placeholder' : '']}
+          >
+            { valueLabel }
+          </div>
+        }
         // 左侧label
         const labelWrapper = label || parent.$slots.label ? (<div
           class={['wd-picker__label', required ? 'is-required' : '']}
