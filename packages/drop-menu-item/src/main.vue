@@ -6,7 +6,7 @@
       :close-on-click-modal="closeOnClickModal"
       :position="direction === 'down' ? 'top' : 'bottom'"
       :modal-style="{
-        position: 'absolute'
+        position: 'absolute',
       }"
       class="wd-drop-item__popup"
       @click-modal="close"
@@ -25,16 +25,22 @@
           @click="choose(item)"
           class="wd-drop-item__option"
           :class="{
-            'is-active': (item.value ? item.value : item) === value
+            'is-active': (item[valueKey] ? item[valueKey] : item) === value,
           }"
         >
           <!-- 左侧文字 -->
           <div class="wd-drop-item__title custom-title">
-            <span>{{ item.label ? item.label : item }}</span>
-            <span v-if="item.tip" class="wd-drop-item__tip">{{ item.tip }}</span>
+            <span>{{ item[labelKey] ? item[labelKey] : item }}</span>
+            <span v-if="item.tip" class="wd-drop-item__tip">{{
+              item.tip
+            }}</span>
           </div>
           <!-- 按钮 -->
-          <wd-icon v-if="(item.value ? item.value : item) === value" :name="iconName" class="wd-drop-item__icon" />
+          <wd-icon
+            v-if="(item[valueKey] ? item[valueKey] : item) === value"
+            :name="iconName"
+            class="wd-drop-item__icon"
+          />
         </div>
       </template>
     </wd-popup>
@@ -59,6 +65,14 @@ export default {
   props: {
     value: [String, Number],
     options: Array,
+    labelKey: {
+      type: String,
+      default: 'label'
+    },
+    valueKey: {
+      type: String,
+      default: 'value'
+    },
     disabled: {
       type: Boolean,
       default: false
@@ -92,8 +106,8 @@ export default {
       if (this.title) return this.title
 
       for (let i = 0, len = this.options.length; i < len; i++) {
-        if (this.value === this.options[i].value) {
-          return this.options[i].label
+        if (this.value === this.options[i][this.valueKey]) {
+          return this.options[i][this.labelKey]
         }
       }
 
