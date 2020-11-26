@@ -1,5 +1,6 @@
 <template>
   <wd-popup
+    :append-to-body="true"
     class="wd-action-sheet"
     :class="{'wd-action-sheet--spacing': actions && actions.length || panels && panels.length}"
     :lock-scroll="lockScroll"
@@ -93,6 +94,10 @@ export default {
     lockScroll: {
       type: Boolean,
       default: true
+    },
+    appendToBody: {
+      type: Boolean,
+      default: false
     },
     duration: {
       type: Number,

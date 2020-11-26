@@ -11,7 +11,11 @@ export default {
     },
     duration: Number,
     closable: Boolean,
-    transition: String
+    transition: String,
+    appendToBody: {
+      type: Boolean,
+      default: false
+    }
   },
   computed: {
     transitionName () {
@@ -28,6 +32,9 @@ export default {
   },
   methods: {
     handleOpened () {
+      if (this.appendToBody) {
+        document.body.appendChild(this.$el)
+      }
       this.$emit('opened')
     },
     handleClosed () {
@@ -50,6 +57,7 @@ export default {
       <transition name={transitionName} onAfterEnter={handleOpened} onAfterLeave={handleClosed} >
         <div
           v-show={value}
+          ref="popup"
           class={[
             'wd-popup',
             `wd-popup--${position}`

@@ -4,6 +4,7 @@
     <wd-popup
       ref="popup"
       v-model="popupShow"
+      :append-to-body="appendToBody"
       position="bottom"
       @click-modal="onCancel"
       :duration="250"
@@ -55,7 +56,7 @@ export default {
     value: [String, Number, Boolean, Array],
     appendToBody: {
       type: Boolean,
-      default: true
+      default: false
     }
   },
 
@@ -115,9 +116,6 @@ export default {
     },
 
     showPopInit () {
-      if (this.appendToBody) {
-        document.body.appendChild(this.$refs.popup.$el)
-      }
       const pickerView = this.$refs.pickerView
       this.lastColumns = pickerView.getColumnsData()
     },

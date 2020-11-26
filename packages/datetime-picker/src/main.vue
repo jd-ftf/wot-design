@@ -3,6 +3,7 @@
     <custom-cell />
     <wd-popup
       ref="popup"
+      :append-to-body="appendToBody"
       v-model="popupShow"
       position="bottom"
       @click-modal="onCancel"
@@ -80,6 +81,7 @@
 <script>
 import pickerMixin from 'wot-design/src/mixins/picker'
 import WdPickerView from 'wot-design/packages/datetime-picker-view'
+import WdPopup from 'wot-design/packages/popup'
 import pickerViewProps from 'wot-design/packages/picker-view/src/pickerViewProps'
 import datetimePickerViewProps from 'wot-design/packages/datetime-picker-view/src/datetimePickerProps'
 import pickerProps from 'wot-design/packages/picker/src/pickerProps'
@@ -91,7 +93,8 @@ export default {
   mixins: [pickerMixin],
 
   components: {
-    WdPickerView
+    WdPickerView,
+    WdPopup
   },
 
   data () {
@@ -170,9 +173,6 @@ export default {
      * @description 初始化展示参数
      */
     showPopInit () {
-      if (this.appendToBody) {
-        document.body.appendChild(this.$refs.popup.$el)
-      }
       this.showStart = true
       this.setShowValue()
     },
