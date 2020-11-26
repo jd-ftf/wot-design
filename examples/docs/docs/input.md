@@ -160,8 +160,6 @@ export default {
 | prefixIcon | 前置图标，京麦icon中的图标类名 | string | - | - |
 | suffixIcon | 后置图标，京麦icon中的图标类名 | string | - | - |
 | show-word-limit | 显示字数限制，需要同时设置 maxlength | boolean | - | false |
-| max | 原生属性，最大值 | string | - | - |
-| min | 原生属性，最小值 | string | - | - |
 | step | 原生属性，设置输入字段的合法数字间隔 | string | - | - |
 | rows | 原生属性，textarea 的行数 | string | - | '3' |
 | autosize | 是否高度自适应，可以设置为对象，如 { minRows: 2, maxRows: 6 } | boolean / object | - | - |
