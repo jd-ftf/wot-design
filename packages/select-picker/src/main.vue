@@ -100,6 +100,7 @@ import WdCheckbox from 'wot-design/packages/checkbox'
 import WdCheckboxGroup from 'wot-design/packages/checkbox-group'
 import WdRadio from 'wot-design/packages/radio'
 import WdRadioGroup from 'wot-design/packages/radio-group'
+import WdButton from 'wot-design/packages/button'
 import cellProps from 'wot-design/packages/select-picker/src/cellProps'
 import selectProps from 'wot-design/packages/select-picker/src/selectProps'
 import WdLoading from 'wot-design/packages/loading'
@@ -113,6 +114,7 @@ export default {
     WdCheckboxGroup,
     WdRadio,
     WdRadioGroup,
+    WdButton,
     WdLoading
   },
 
@@ -140,6 +142,10 @@ export default {
     type: {
       type: String,
       default: 'checkbox'
+    },
+    appendToBody: {
+      type: Boolean,
+      default: true
     },
     displayFormat: Function,
     beforeConfirm: Function,
@@ -200,7 +206,9 @@ export default {
       this.$emit('cancel')
     },
 
-    // 对外暴露接口，打开弹框
+    /**
+     * @description 外部可调用方法，打开弹框
+     */
     open () {
       if (this.disabled || this.readonly) return
       this.selectList = this.valueFormat(this.value)
@@ -208,7 +216,9 @@ export default {
       this.isConfirm = false
     },
 
-    // 对外暴露接口，关闭弹框
+    /**
+     * @description 外部可调用方法，关闭弹框
+     */
     close () {
       this.pickerShow = false
       this.handlePickerClose()

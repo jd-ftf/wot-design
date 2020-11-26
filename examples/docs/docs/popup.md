@@ -44,6 +44,7 @@ Vue.use(Popup)
 | lock-scroll | 锁定背景滚动 | boolean | - | true |
 | close-on-click-modal | 点击遮罩是否关闭 | boolean | - | true | 
 | duration | 动画持续时间 | number | - | 300(ms) |
+| append-to-body | 是否将dom转移到body下 | boolean | - | false |
 
 ### Events
 
