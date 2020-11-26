@@ -89,8 +89,6 @@
         :disabled="disabled"
         :minlength="minlength"
         :maxlength="maxlength"
-        :min="min"
-        :max="max"
         :step="step"
         :autofocus="autofocus"
         @focus="handleFocus"
@@ -148,8 +146,6 @@ export default {
     prefixIcon: String,
     suffixIcon: String,
     showWordLimit: Boolean,
-    max: String,
-    min: String,
     step: String,
     rows: {
       type: [String, Number],

@@ -32,6 +32,7 @@
 
 <script>
 import Popper from 'wot-design/src/mixins/popover'
+import context from 'wot-design/src/utils/id'
 
 export default {
   name: 'WdTooltip',
@@ -40,7 +41,8 @@ export default {
 
   data () {
     return {
-      el: 'tooltip'
+      el: 'tooltip',
+      popId: `el-tooltip-${context.id++}`
     }
   },
 

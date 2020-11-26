@@ -1,17 +1,3 @@
-<template>
-  <transition :name="transitionName" @after-enter="handleOpened" @after-leave="handleClosed">
-    <div
-      v-show="value"
-      class="wd-popup"
-      :class="[ `wd-popup--${position}` ]"
-      :style="{ 'transition-duration': duration ? (duration + 'ms') : '' }"
-    >
-      <slot></slot>
-      <i v-if="closable" class="wd-popup__close wd-icon-add" @click="close"></i>
-    </div>
-  </transition>
-</template>
-
 <script>
 import popupMixin from 'wot-design/src/mixins/popup'
 
@@ -25,7 +11,11 @@ export default {
     },
     duration: Number,
     closable: Boolean,
-    transition: String
+    transition: String,
+    appendToBody: {
+      type: Boolean,
+      default: false
+    }
   },
   computed: {
     transitionName () {
@@ -42,11 +32,47 @@ export default {
   },
   methods: {
     handleOpened () {
+      if (this.appendToBody) {
+        document.body.appendChild(this.$el)
+      }
       this.$emit('opened')
     },
     handleClosed () {
       this.$emit('closed')
     }
+  },
+
+  render () {
+    const {
+      transitionName,
+      handleOpened,
+      handleClosed,
+      value,
+      position,
+      duration,
+      closable,
+      close
+    } = this
+    return (
+      <transition name={transitionName} onAfterEnter={handleOpened} onAfterLeave={handleClosed} >
+        <div
+          v-show={value}
+          ref="popup"
+          class={[
+            'wd-popup',
+            `wd-popup--${position}`
+          ]}
+          ref="popup"
+          style={
+            { 'transition-duration': duration ? (duration + 'ms') : '' }
+          }
+        >
+          <slot></slot>
+          {this.$slots.default}
+          {closable ? <i class="wd-popup__close wd-icon-add" onClick={close}></i> : ''}
+        </div>
+      </transition>
+    )
   }
 }
 </script>

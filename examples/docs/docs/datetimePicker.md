@@ -295,6 +295,7 @@ export default {
 | disabled | 禁用 | boolean | - | fasle |
 | readonly | 只读 | boolean | - | false |
 | required | 是否校验 | boolean | - | false |
+| append-to-body | 是否将dom转移到body下 | boolean | - | false |
 | display-format | 自定义展示文案的格式化函数，返回一个字符串 | function | - | - |
 | display-format-tab-label | 在区域选择模式下，自定义展示tab标签文案的格式化函数，返回一个字符串 | function | - | - |
 | formatter | 自定义弹出层选项文案的格式化函数，返回一个字符串 | function | - | - |
