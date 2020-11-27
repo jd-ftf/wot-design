@@ -37,6 +37,7 @@
     <!-- 弹出框 -->
     <wd-action-sheet
       v-model="pickerShow"
+      :teleport="teleport"
       :duration="250"
       :title="title || t('wd.colPicker.title')"
       @close="handlePickerClose"
@@ -157,7 +158,8 @@ export default {
     confirmButtonText: {
       type: String,
       default: '确定'
-    }
+    },
+    teleport: [String, Object]
   },
 
   watch: {
