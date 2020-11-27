@@ -1,8 +1,8 @@
 <template>
   <wd-popup
     v-model="show"
-    :append-to-body="true"
     position="center"
+    :teleport="teleport"
     :close-on-click-modal="closeOnClickModal"
     transition="wd-zoom-in"
     @open="open"
@@ -36,7 +36,8 @@ export default {
     src: String,
     to: String,
     width: String,
-    closeOnClickModal: Boolean
+    closeOnClickModal: Boolean,
+    teleport: [String, Object]
   },
 
   data () {

@@ -3,7 +3,7 @@
     <custom-cell />
     <wd-popup
       ref="popup"
-      :append-to-body="appendToBody"
+      :teleport="teleport"
       v-model="popupShow"
       position="bottom"
       @click-modal="onCancel"
@@ -119,10 +119,7 @@ export default {
       default: 'datetime'
     },
     displayFormatTabLabel: Function,
-    appendToBody: {
-      type: Boolean,
-      default: false
-    },
+    teleport: [String, Object],
     ...pickerViewProps,
     ...pickerProps,
     ...datetimePickerViewProps

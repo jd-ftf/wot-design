@@ -184,6 +184,7 @@ export default {
 | lock-scroll | 锁定背景滚动 | boolean | - | true |
 | close-on-click-modal | 点击遮罩是否关闭 | boolean | - | true | 
 | duration | 动画持续时间 | number | - | 200(ms) |
+| teleport | 指定挂载的 HTML 节点, 可以为字符串，也可以为对象，为对象时有 `to` 和 `disabled` 属性，`to` 表示挂载点，`disabled` 表示挂载到当前节点上 | string / object  | - | 'body' |
 
 ### Events
 

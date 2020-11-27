@@ -168,6 +168,7 @@ this.$messageBox.prompt(title, options) //  title 可以跳过不写，即支持
 | inputValidate      | 当type为prompt时，输入框校验函数，点击确定按钮时进行校验      | function    | -          | -   |
 | confirmButtonText      | 确定按钮文案      | string    | -          | '确定'   |
 | cancelButtonText      | 取消按钮文案     | string    | -          | '取消'   |
+| teleport | 指定挂载的 HTML 节点, 可以为字符串，也可以为对象，为对象时有 `to` 和 `disabled` 属性，`to` 表示挂载点，`disabled` 表示挂载到当前节点上 | string / object  | - | 'body' |
 
 ### MessageBox 组件调用
 

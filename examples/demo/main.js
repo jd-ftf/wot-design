@@ -17,7 +17,7 @@ if (!navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobi
 
 Vue.use(VueI18n)
 const i18n = new VueI18n({
-  locale: 'th_TH',
+  locale: 'zh_CN',
   messages: {
     'zh_CN': zhCN,
     'en_US': enUS,

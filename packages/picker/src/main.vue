@@ -4,7 +4,7 @@
     <wd-popup
       ref="popup"
       v-model="popupShow"
-      :append-to-body="appendToBody"
+      :teleport="teleport"
       position="bottom"
       @click-modal="onCancel"
       :duration="250"
@@ -54,10 +54,7 @@ export default {
   props: {
     columns: [Array, Object],
     value: [String, Number, Boolean, Array],
-    appendToBody: {
-      type: Boolean,
-      default: false
-    }
+    teleport: [String, Object]
   },
 
   watch: {
