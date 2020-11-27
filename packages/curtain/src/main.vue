@@ -2,6 +2,7 @@
   <wd-popup
     v-model="show"
     position="center"
+    :teleport="teleport"
     :close-on-click-modal="closeOnClickModal"
     transition="wd-zoom-in"
     @open="open"
@@ -35,7 +36,8 @@ export default {
     src: String,
     to: String,
     width: String,
-    closeOnClickModal: Boolean
+    closeOnClickModal: Boolean,
+    teleport: [String, Object]
   },
 
   data () {
