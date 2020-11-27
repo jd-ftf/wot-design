@@ -44,11 +44,8 @@ export default {
       position,
       duration,
       closable,
-      close,
-      inited
+      close
     } = this
-
-    if (!inited) return
 
     return (
       <transition name={transitionName} onAfterEnter={handleOpened} onAfterLeave={handleClosed} >

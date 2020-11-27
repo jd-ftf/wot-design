@@ -60,10 +60,8 @@ export default {
     value (val) {
       const type = val ? 'open' : 'close'
       this.inited = this.inited || this.value
-      this.$nextTick(() => {
-        this[type]()
-        this.$emit(type)
-      })
+      this[type]()
+      this.$emit(type)
     },
     teleport: 'appendTeleport'
   },

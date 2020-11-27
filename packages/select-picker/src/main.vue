@@ -158,8 +158,7 @@ export default {
     confirmButtonText: {
       type: String,
       default: '确定'
-    },
-    teleport: [String, Object]
+    }
   },
 
   watch: {
