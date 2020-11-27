@@ -1,7 +1,6 @@
 <template>
   <wd-popup
     v-model="show"
-    :append-to-body="true"
     position="center"
     :close-on-click-modal="closeOnClickModal"
     transition="wd-zoom-in"

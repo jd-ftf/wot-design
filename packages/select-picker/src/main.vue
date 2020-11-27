@@ -143,10 +143,7 @@ export default {
       type: String,
       default: 'checkbox'
     },
-    appendToBody: {
-      type: Boolean,
-      default: true
-    },
+    teleport: [String, Object],
     displayFormat: Function,
     beforeConfirm: Function,
     valueKey: {

@@ -21,6 +21,10 @@
       <wd-button @click="show6 = true">关闭按钮</wd-button>
       <wd-popup v-model="show6" position="bottom" :style="{ 'height': '200px' }" closable></wd-popup>
     </demo-block>
+    <demo-block title="设置 teleport 挂载点">
+      <wd-button @click="show7 = true">挂载到 #app</wd-button>
+      <wd-popup v-model="show7" teleport="#app" :style="{ 'padding': '30px 40px' }">内容</wd-popup>
+    </demo-block>
   </div>
 </template>
 
@@ -33,7 +37,8 @@ export default {
       show3: false,
       show4: false,
       show5: false,
-      show6: false
+      show6: false,
+      show7: false
     }
   }
 }

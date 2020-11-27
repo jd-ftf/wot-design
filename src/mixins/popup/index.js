@@ -50,15 +50,22 @@ export default {
       default () {
         return {}
       }
+    },
+    teleport: {
+      type: [String, Object],
+      default: 'body'
     }
   },
   watch: {
     value (val) {
       const type = val ? 'open' : 'close'
       this.inited = this.inited || this.value
-      this[type]()
-      this.$emit(type)
-    }
+      this.$nextTick(() => {
+        this[type]()
+        this.$emit(type)
+      })
+    },
+    teleport: 'appendTeleport'
   },
   methods: {
     open () {
@@ -125,14 +132,41 @@ export default {
         !(parseInt(status, 2) & parseInt(direction, 2))) {
         preventDefault(event)
       }
+    },
+    appendTeleport () {
+      if (this.$isServer) return
+
+      let to = 'body'
+      let disabled = false
+      const teleportType = typeof this.teleport
+      if (teleportType === 'object') {
+        to = this.teleport.to
+        disabled = this.teleport.disabled
+      } else if (teleportType === 'string') {
+        to = this.teleport
+      }
+
+      if (!disabled) {
+        const container = document.querySelector(to)
+        container.appendChild(this.$el)
+      }
     }
   },
   mounted () {
+    if (this.teleport) {
+      this.appendTeleport()
+    }
+
     if (this.value) {
       this.open()
     }
   },
   beforeDestroy () {
+    if (this.teleport) {
+      const parentNode = this.$el.parentNode
+      parentNode.removeChild(this.$el)
+    }
+
     this.close()
   },
   activated () {
