@@ -58,7 +58,8 @@ Vue.use(Curtain)
 | to | 幕帘图片点击链接 | string | - | - |
 | width | 幕帘图片宽度 | string | - | - |
 | close-position | 关闭按钮位置 | string | 'inset', 'top', 'bottom', 'bottom', 'top-left', 'top-right', 'bottom-left', 'bottom-right' | 'inset' |
-| close-on-click-modal | 点击遮罩是否关闭 | boolean | - | false | 
+| close-on-click-modal | 点击遮罩是否关闭 | boolean | - | false |
+| teleport | 指定挂载的 HTML 节点, 可以为字符串，也可以为对象，为对象时有 `to` 和 `disabled` 属性，`to` 表示挂载点，`disabled` 表示挂载到当前节点上 | string / object  | - | 'body' |
 
 ### Events
 

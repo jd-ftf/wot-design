@@ -1,6 +1,6 @@
 <template>
   <wd-popup
-    :append-to-body="true"
+    :teleport="teleport"
     class="wd-action-sheet"
     :class="{'wd-action-sheet--spacing': actions && actions.length || panels && panels.length}"
     :lock-scroll="lockScroll"
@@ -95,10 +95,7 @@ export default {
       type: Boolean,
       default: true
     },
-    appendToBody: {
-      type: Boolean,
-      default: false
-    },
+    teleport: [String, Object],
     duration: {
       type: Number,
       default: 200

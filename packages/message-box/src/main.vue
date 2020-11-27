@@ -1,6 +1,7 @@
 <template>
   <wd-popup
     class="wd-message-box"
+    :teleport="teleport"
     :lock-scroll="lockScroll"
     :value="show"
     :close-on-click-modal="closeOnClickModal"
@@ -102,7 +103,8 @@ export default {
     lockScroll: {
       type: Boolean,
       default: true
-    }
+    },
+    teleport: [String, Object]
   },
   watch: {
     inputValue (value, oldValue) {

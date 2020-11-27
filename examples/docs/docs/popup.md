@@ -34,6 +34,20 @@ Vue.use(Popup)
 <wd-popup v-model="show" position="bottom" :style="{ 'height': '200px' }" closable></wd-popup>
 ```
 
+### 设置挂载点
+
+使用 `teleport` 属性设置挂载点，默认为 'body'，用 CSS 选择器的写法。 `teleport` 可以为对象，有 `to` 和 `disabled` 属性，`to` 表示挂载点，`disabled` 表示挂载到当前节点上。
+
+```html
+<wd-popup v-model="show" teleport="#app" :style="{ 'padding': '30px 40px' }">内容</wd-popup>
+```
+
+挂载到当前节点上。
+
+```html
+<wd-popup v-model="show" :teleport="{ disabled: true }" :style="{ 'padding': '30px 40px' }">内容</wd-popup>
+```
+
 ### Attributes
 
 | 参数      | 说明                                 | 类型      | 可选值       | 默认值   |
@@ -44,7 +58,7 @@ Vue.use(Popup)
 | lock-scroll | 锁定背景滚动 | boolean | - | true |
 | close-on-click-modal | 点击遮罩是否关闭 | boolean | - | true | 
 | duration | 动画持续时间 | number | - | 300(ms) |
-| append-to-body | 是否将dom转移到body下 | boolean | - | false |
+| teleport | 指定挂载的 HTML 节点, 可以为字符串，也可以为对象，为对象时有 `to` 和 `disabled` 属性，`to` 表示挂载点，`disabled` 表示挂载到当前节点上 | string / object  | - | 'body' |
 
 ### Events
 

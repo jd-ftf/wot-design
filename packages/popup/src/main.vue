@@ -11,11 +11,7 @@ export default {
     },
     duration: Number,
     closable: Boolean,
-    transition: String,
-    appendToBody: {
-      type: Boolean,
-      default: false
-    }
+    transition: String
   },
   computed: {
     transitionName () {
@@ -32,9 +28,6 @@ export default {
   },
   methods: {
     handleOpened () {
-      if (this.appendToBody) {
-        document.body.appendChild(this.$el)
-      }
       this.$emit('opened')
     },
     handleClosed () {
@@ -53,6 +46,7 @@ export default {
       closable,
       close
     } = this
+
     return (
       <transition name={transitionName} onAfterEnter={handleOpened} onAfterLeave={handleClosed} >
         <div

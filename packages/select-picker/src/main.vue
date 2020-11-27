@@ -37,6 +37,7 @@
     <!-- 弹出框 -->
     <wd-action-sheet
       v-model="pickerShow"
+      :teleport="teleport"
       :duration="250"
       :title="title || t('wd.colPicker.title')"
       @close="handlePickerClose"
@@ -143,10 +144,7 @@ export default {
       type: String,
       default: 'checkbox'
     },
-    appendToBody: {
-      type: Boolean,
-      default: true
-    },
+    teleport: [String, Object],
     displayFormat: Function,
     beforeConfirm: Function,
     valueKey: {
