@@ -105,7 +105,7 @@ export default {
       innerValue: this.region ? this.value[0] : this.value,
       displayColumns: [],
       end: {
-        innerValue: this.value[1] || '',
+        innerValue: this.region ? (this.value[1] || '') : '',
         displayColumns: []
       }
     }
