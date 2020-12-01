@@ -23,7 +23,7 @@
     <demo-block title="大尺寸" transparent>
       <wd-cell-group>
         <wd-cell title="标题文字" value="内容" size="large" />
-        <wd-cell title="标题文字" label="描述信息" value="内容" size="large" />
+        <wd-cell title="标题文字" label="描述信息" value="内容" size="large" is-link />
       </wd-cell-group>
     </demo-block>
     <demo-block title="展示边框线" transparent>

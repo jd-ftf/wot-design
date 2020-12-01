@@ -8,6 +8,8 @@
       position="bottom"
       @click-modal="onCancel"
       :duration="250"
+      :close-on-click-modal="closeOnClickModal"
+      class="wd-picker__popup"
     >
       <toolbar :target="currentTarget"></toolbar>
       <!-- 区域选择tab展示 -->
@@ -135,10 +137,10 @@ export default {
     value: {
       handler (val, oldVal) {
         // 存在旧值，新值与 innerValue 相同，则不作处理
-        if (oldVal && val.valueOf() === this.innerValue.valueOf()) return
-        this.innerValue = this.region ? val[0] : val
+        if (oldVal && (val && this.innerValue && val.valueOf() === this.innerValue.valueOf())) return
+        this.innerValue = (this.region ? val[0] : val) || ''
         if (this.region) {
-          this.end.innerValue = val[1]
+          this.end.innerValue = val[1] || ''
         }
       },
       immediate: true
@@ -210,8 +212,10 @@ export default {
     onCancel () {
       // reset innerValue
       // 格式化单个this.value.start
-      this.innerValue = this.region ? this.value[0] : this.value
-      this.end.innerValue = this.value[1] || ''
+      this.innerValue = (this.region ? this.value[0] : this.value) || ''
+      if (this.region) {
+        this.end.innerValue = this.value[1] || ''
+      }
       this.closePopup()
       this.$emit('cancel')
     },

@@ -8,6 +8,7 @@
       position="bottom"
       @click-modal="onCancel"
       :duration="250"
+      :close-on-click-modal="closeOnClickModal"
       class="wd-picker__popup"
     >
       <toolbar :target="currentTarget"></toolbar>

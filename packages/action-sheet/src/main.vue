@@ -7,6 +7,7 @@
     :duration="duration"
     :value="value"
     position="bottom"
+    :close-on-click-modal="closeOnClickModal"
     @click-modal="handleClickModal"
     @opened="handleOpened"
     @closed="handleClosed"
