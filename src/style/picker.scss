@@ -117,6 +117,7 @@
     color: $-picker-toolbar-finish-color;
     background: transparent;
     padding: 22px 15px 12px;
+    -webkit-tap-highlight-color: transparent;
 
     @include m(cancel) {
       color: $-picker-toolbar-cancel-color;
