@@ -2,7 +2,7 @@
   <div class="page-tabs">
     <demo-block title="基本用法" transparent>
       <wd-tabs v-model="tab1">
-        <wd-tab v-for="item in 4" :key="item" :title="`标签${item}`" class="demo-tab">
+        <wd-tab v-for="item in 4" :key="item" :title="`标签${item}`" class="demo-tab" >
           <p>内容{{ item }}</p>
         </wd-tab>
       </wd-tabs>

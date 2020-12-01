@@ -169,6 +169,9 @@ export default {
     },
 
     getColumnsData () {
+      if (this.isSingle) {
+        return this.children[0].data
+      }
       return this.children.map(column => {
         return column.data
       })

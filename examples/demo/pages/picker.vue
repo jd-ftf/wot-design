@@ -38,7 +38,6 @@
     <demo-block title="大小" transparent>
       <wd-picker :columns="columns1" label="单列选择" v-model="value11" size="large" />
     </demo-block>
-    </demo-block>
     <demo-block title="值靠右显示" transparent>
       <wd-picker :columns="columns1" label="单列选择" v-model="value12" align-right />
     </demo-block>
