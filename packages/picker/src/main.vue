@@ -62,7 +62,6 @@ export default {
     value: {
       handler () {
         this.pickerValue = this.value
-
         this.$nextTick(() => {
           this.setShowValue()
         })
