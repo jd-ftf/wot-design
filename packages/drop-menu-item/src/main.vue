@@ -134,10 +134,10 @@ export default {
     // 模拟单选操作 默认根据 value 选中操作
     choose (item) {
       if (this.disabled) return
-      this.currentValue = item.value
+      this.currentValue = item[this.valueKey]
       this.close()
-      this.$emit('input', item.value)
-      this.$emit('change', item.value)
+      this.$emit('input', item[this.valueKey])
+      this.$emit('change', item[this.valueKey])
     },
     // 外部关闭弹出框
     close () {

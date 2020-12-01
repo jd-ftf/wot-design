@@ -100,13 +100,13 @@ export default {
           this.changeTab(index + diff, isClick, diff)
         }
       } else {
-        this.$emit('change', index, name)
-        isClick && this.$emit('click', index, name)
         if (typeof this.value === 'number') {
           this.$emit('input', index)
         } else {
           this.$emit('input', name)
         }
+        this.$emit('change', index, name)
+        isClick && this.$emit('click', index, name)
       }
     },
     setLineStyle () {
@@ -263,12 +263,12 @@ export default {
           <div
             class="wd-tabs__map-header"
             style={{ display: this.mapShow ? '' : 'none', opacity: this.animating ? 1 : '' }}
-          >{ this.t('wd.tabs.all') }</div>
+          >{this.t('wd.tabs.all')}</div>
           <div class={{
             'wd-tabs__map-body': true,
             'is-open': this.animating
           }} style={{ display: this.mapShow ? '' : 'none' }}>
-            { MapNavs }
+            {MapNavs}
           </div>
         </div>
       )
