@@ -13,6 +13,9 @@
 
   @include e(actions) {
     padding: 8px 0;
+    max-height: 50vh;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
   }
   @include e(action) {
     position: relative;
