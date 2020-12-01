@@ -40,6 +40,7 @@
       :teleport="teleport"
       :duration="250"
       :title="title || t('wd.colPicker.title')"
+      :close-on-click-modal="closeOnClickModal"
       @close="handlePickerClose"
     >
       <div class="wd-select-picker__wrapper">
@@ -158,6 +159,10 @@ export default {
     confirmButtonText: {
       type: String,
       default: '确定'
+    },
+    closeOnClickModal: {
+      type: Boolean,
+      default: true
     }
   },
 

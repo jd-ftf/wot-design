@@ -311,6 +311,7 @@ export default {
 | error | 是否为错误状态，错误状态时右侧内容为红色 | boolean | - | false |
 | align-right | 选择器的值靠右展示 | boolean | - | false |
 | before-confirm | 确定前校验函数，接收 (value, resolve) 参数，通过 resolve 继续执行 picker，resolve 接收1个boolean参数 | function | - | - |
+| close-on-click-action | 点击选项后是否关闭菜单 | boolean | - | true |
 
 ### Slot
 

@@ -108,7 +108,44 @@ locale.i18n((key, value) => i18n.t(key, value))
 <script src="//cdn.jsdelivr.net/npm/wot-design/lib/umd/locale/en-US.js"></script>
 
 <script>
-  WotDesign.locale(WotDesign.lang.en)
+  WotDesign.locale(WotDesign.lang.enUS)
+</script>
+```
+
+### CDN 方式配合 vue-i18n
+
+```html
+<script src="//cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="//cdn.jsdelivr.net/npm/vue-i18n/dist/vue-i18n.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/wot-design/lib/index.js"></script>
+<script src="//cdn.jsdelivr.net/npm/wot-design/lib/umd/locale/zh-CN.js"></script>
+<script src="//cdn.jsdelivr.net/npm/wot-design/lib/umd/locale/en-US.js"></script>
+
+<script>
+  var i18n = new VueI18n({
+    locale: 'en_US',
+    messages: {
+      'zh_CN': Object.assign({
+        hello: '你好'
+      }, WotDesign.lang.zhCN),
+      'en_US': Object.assign({
+        hello: 'Hello'
+      }, WotDesign.lang.enUS)
+    }
+  })
+  // 修改组件库的翻译函数的执行
+  WotDesign.i18n = function (key, value) {
+    return i18n.t(key, value)
+  }
+  new Vue({
+    el: '#app',
+    i18n: i18n
+  })
+
+  // 模拟切换语言
+  setTimeout(function () {
+    i18n.locale = 'zh_CN'
+  }, 2000)
 </script>
 ```
 
@@ -116,3 +153,4 @@ locale.i18n((key, value) => i18n.t(key, value))
 
 * zh-CN 简体中文
 * en-US 英文
+* th-TH 泰文

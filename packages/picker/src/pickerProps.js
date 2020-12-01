@@ -22,5 +22,9 @@ export default {
   labelKey: {
     type: String,
     default: 'label'
+  },
+  closeOnClickModal: {
+    type: Boolean,
+    default: true
   }
 }

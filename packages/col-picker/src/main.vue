@@ -36,7 +36,13 @@
         </div>
       </slot>
     </div>
-    <wd-action-sheet v-model="pickerShow" :duration="250" :title="title || t('wd.colPicker.title')" @close="handlePickerClose">
+    <wd-action-sheet
+      v-model="pickerShow"
+      :duration="250"
+      :title="title || t('wd.colPicker.title')"
+      :close-on-click-modal="closeOnClickModal"
+      @close="handlePickerClose"
+    >
       <div class="wd-col-picker__selected" ref="selectedVisible">
         <div class="wd-col-picker__selected-container" ref="selectedContainer">
           <div
@@ -152,7 +158,11 @@ export default {
       type: String,
       default: 'tip'
     },
-    loadingColor: String
+    loadingColor: String,
+    closeOnClickModal: {
+      type: Boolean,
+      default: true
+    }
   },
   watch: {
     value: {
