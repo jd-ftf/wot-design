@@ -79,7 +79,7 @@ export default {
     isChecked () {
       if (this.checkboxGroup) {
         return this.checkboxGroup.value.indexOf(this.value) > -1
-      } else if (this.trueValue && this.falseValue) {
+      } else if (this.trueValue !== undefined && this.falseValue !== undefined) {
         return this.value === this.trueValue
       } else {
         return this.value
@@ -113,7 +113,7 @@ export default {
         this.checkboxGroup.changeValue(this.value)
       } else {
         let newValue
-        if (this.trueValue && this.falseValue) {
+        if (this.trueValue !== undefined && this.falseValue !== undefined) {
           newValue = this.isChecked ? this.falseValue : this.trueValue
         } else {
           newValue = !this.value
