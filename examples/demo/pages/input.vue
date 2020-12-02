@@ -46,7 +46,9 @@
     </demo-block>
     <demo-block title="cell类型" transparent>
       <wd-cell-group border>
-        <wd-input v-model="value13" placeholder="请输入..." label="基本用法" />
+        <wd-input v-model="value13" placeholder="请输入...">
+          <div slot="label">基本信息</div>
+        </wd-input>
         <wd-input v-model="value14" placeholder="请输入..." label="禁用" disabled />
         <wd-input v-model="value15" placeholder="请输入..." label="清除、密码" show-password clearable />
         <wd-input v-model="value16" placeholder="请输入..." label="错误状态" error />
