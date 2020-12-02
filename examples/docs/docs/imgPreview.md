@@ -155,7 +155,6 @@ export default {
 | show-index | 是否显示页码 | Boolean | -  | true |
 | current | 图片预览起始位置索引 | Number | -  | 0 |
 | swipe-duration | 动画时长，单位为`ms` | Number | -  | 500 |
-| on-long-tap | 长按事件钩子 | Function | -  | - |
 
 ### Slots
 
@@ -171,5 +170,6 @@ export default {
 
 | 方法名称      | 说明       | 参数   |
 |------------- |----------- |---------  |
-| open | 打开弹框时触发 | - |
+| open | 打开弹框时触发 | { index: 索引 } |
 | close | 关闭弹框时触发 | { index: 索引 } |
+| long-tap | 长按图片事件 | { index: 索引 } |

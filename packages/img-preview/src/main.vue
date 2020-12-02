@@ -181,7 +181,9 @@ export default {
         this.duration = this.swipeDuration
       }, 30)
 
-      this.$emit('open')
+      this.$emit('open', {
+        index: this.currentIndex
+      })
     },
 
     /**
@@ -415,7 +417,9 @@ export default {
         } else if (deltaTime > LONG_TAP_TIME) {
           // 超过600毫秒属于长按范围
           // 长按事件
-          this.onLongTap && this.onLongTap()
+          this.$emit('long-tap', {
+            index: this.currentIndex
+          })
         }
       }
     },

@@ -30,6 +30,10 @@ const showPreviewList = (instance, options) => {
     instance.$once('open', options.onOpen)
   }
 
+  if (options.onLongTap) {
+    instance.$on('long-tap', options.onLongTap)
+  }
+
   if (!instance.inited) {
     document.body.appendChild(instance.$el)
     instance.inited = true
@@ -52,7 +56,7 @@ const ImgPreview = options => {
 export default {
   install (Vue) {
     Vue.component(wdImgPreview.name, wdImgPreview)
-    Vue.prototype.$messageBox = ImgPreview
+    Vue.prototype.$preview = ImgPreview
   },
   wdImgPreview,
   ImgPreview

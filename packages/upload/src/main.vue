@@ -5,8 +5,6 @@ import { isEqual } from 'wot-design/src/utils/index'
 import WdLoading from 'wot-design/packages/loading'
 import locale from 'wot-design/src/mixins/locale'
 
-function noop () { }
-
 export default {
   name: 'WdUpload',
 
@@ -108,40 +106,12 @@ export default {
       type: String,
       default: 'status'
     },
-    // 图片预览 长按事件钩子
-    onLongTap: Function,
-    // 图片预览 关闭预览列表钩子
-    onClose: Function,
-    // 图片预览 打开预览列表钩子
-    onOpen: Function,
     // 文件上传之前
     beforeUpload: Function,
     // 文件移除前的钩子
     beforeRemove: Function,
     // 预览前的钩子
-    beforePreview: Function,
-    // 个数超出限制的钩子
-    onExceed: Function,
-    // 文件移除时的钩子
-    onRemove: {
-      type: Function,
-      default: noop
-    },
-    // 文件上传成功时的钩子
-    onSuccess: {
-      type: Function,
-      default: noop
-    },
-    // 文件上传时的钩子
-    onProgress: {
-      type: Function,
-      default: noop
-    },
-    // 文件上传失败时的钩子
-    onError: {
-      type: Function,
-      default: noop
-    }
+    beforePreview: Function
   },
 
   watch: {
@@ -197,7 +167,9 @@ export default {
           this.post(initState)
         } else {
           // 自定义超出尺寸行为
-          this.$emit('oversize', file)
+          this.$emit('oversize', {
+            file
+          })
         }
       })
     },
@@ -251,13 +223,20 @@ export default {
       if (!files || this.disabled) return
       // 检查上传数量是否超过限制数
       if (this.limit && (this.uploadFiles.length + files.length > this.limit)) {
-        this.onExceed ? this.onExceed(files, this.uploadFiles) : console.warn('文件超出最大限制')
+        this.$emit('exceed', {
+          files,
+          fileList: this.uploadFiles
+        })
         return
       }
       // 上传前钩子
       if (this.beforeUpload) {
-        this.beforeUpload(files, isPass => {
-          isPass && this.readyToPost(files)
+        this.beforeUpload({
+          files,
+          fileList: this.uploadFiles,
+          resolve: isPass => {
+            isPass && this.readyToPost(files)
+          }
         })
       } else {
         this.readyToPost(files)
@@ -270,17 +249,24 @@ export default {
       if (file) {
         file[this.statusKey] = 'success'
         file.response = res
-        this.$emit('success', res, file, this.uploadFiles)
+        this.$emit('success', {
+          response: res,
+          file,
+          fileList: this.uploadFiles
+        })
       }
     },
 
-    handleError (res, rawFile) {
+    handleError (err, rawFile) {
       const file = this.getFileFromList(rawFile)
       if (file) {
-        file.error = res.message
+        file.error = err.message
         file[this.statusKey] = 'fail'
-        file.response = res
-        this.$emit('fail', res, file, this.uploadFiles)
+        this.$emit('fail', {
+          error: err,
+          file,
+          fileList: this.uploadFiles
+        })
       }
     },
 
@@ -288,7 +274,11 @@ export default {
       const file = this.getFileFromList(rawFile)
       if (file) {
         file.percent = e.percent
-        this.$emit('progress', e, file)
+        this.$emit('progress', {
+          event: e,
+          file,
+          fileList: this.uploadFiles
+        })
       }
     },
 
@@ -301,14 +291,20 @@ export default {
         maxZoom: this.maxZoom,
         showIndex: this.showIndex,
         swipeDuration: this.swipeDuration,
-        onClose: () => {
-          this.onClose && this.onClose()
+        onClose: ({ index }) => {
+          this.$emit('preview-close', {
+            index
+          })
         },
-        onOpen: () => {
-          this.onOpen && this.onOpen()
+        onOpen: ({ index }) => {
+          this.$emit('preview-open', {
+            index
+          })
         },
-        onLongTap: () => {
-          this.onLongTap && this.onLongTap()
+        onLongTap: ({ index }) => {
+          this.$emit('preview-long-tap', {
+            index
+          })
         }
       })
     },
@@ -316,13 +312,21 @@ export default {
     handleRemove (file, index) {
       this.uploadFiles.splice(index, 1)
       this.$emit('input', this.uploadFiles)
-      this.$emit('remove', file)
+      this.$emit('remove', {
+        file,
+        fileList: this.uploadFiles
+      })
     },
 
     removeFile (file, index) {
       if (this.beforeRemove) {
-        this.beforeRemove(file, isPass => {
-          isPass && this.handleRemove(file, index)
+        this.beforeRemove({
+          file,
+          index,
+          fileList: this.uploadFiles,
+          resolve: isPass => {
+            isPass && this.handleRemove(file, index)
+          }
         })
       } else {
         this.handleRemove(file, index)
@@ -331,8 +335,13 @@ export default {
 
     preview (imgList, file, index) {
       if (this.beforePreview) {
-        this.beforePreview(file, isPass => {
-          isPass && this.handlePreview(imgList, file, index)
+        this.beforePreview({
+          file,
+          index,
+          imgList,
+          resolve: isPass => {
+            isPass && this.handlePreview(imgList, file, index)
+          }
         })
       } else {
         this.handlePreview(imgList, file, index)
