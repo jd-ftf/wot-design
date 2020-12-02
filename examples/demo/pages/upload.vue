@@ -10,8 +10,8 @@
       <wd-upload
         v-model="fileList3"
         multiple
-        :on-success="handleSuccess"
-        :on-remove="handleRemove"
+        @success="handleSuccess"
+        @remove="handleRemove"
         action="https://jsonplaceholder.typicode.com/posts/"
       ></wd-upload>
     </demo-block>
@@ -20,7 +20,7 @@
         v-model="fileList4"
         :limit="3"
         action="https://jsonplaceholder.typicode.com/posts/"
-        :on-exceed="handleExceed"
+        @exceed="handleExceed"
       ></wd-upload>
     </demo-block>
     <demo-block title="拦截预览图片操作">
@@ -111,36 +111,36 @@ export default {
   },
 
   methods: {
-    beforeUpload (file, resolve) {
+    beforeUpload ({ files, resolve }) {
       this.$messageBox.confirm('是否上传', '提示').then(() => {
         resolve(true)
       }).catch(() => {
         resolve(false)
       })
     },
-    beforeRemove (file, resolve) {
+    beforeRemove ({ file, resolve }) {
       this.$messageBox.confirm('是否删除', '提示').then(() => {
         resolve(true)
       }).catch(() => {
         resolve(false)
       })
     },
-    handleRemove (file, fileList) {
+    handleRemove ({ file, fileList }) {
       this.$toast.success('删除成功')
     },
-    handleProgress (e, file) {
+    handleProgress ({ event, file, fileList }) {
       this.$toast(`正在上传.... ${file.percent}%`)
     },
-    handleSuccess (res, file, fileList) {
+    handleSuccess ({ response, file, fileList }) {
       this.$toast.success(`图片[${file.name}]上传成功`)
     },
-    handleError (res, file, fileList) {
+    handleError ({ error, file, fileList }) {
       this.$toast.error('上传失败')
     },
-    handleExceed (files, fileList) {
+    handleExceed ({ files, fileList }) {
       this.$toast.warning('超出最大个数限制')
     },
-    handlePictureCardPreview (file, resolve) {
+    handlePictureCardPreview ({ file, resolve }) {
       this.isShow = true
       this.previewImgUrl = file.url
       resolve(false)
