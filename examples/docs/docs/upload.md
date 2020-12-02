@@ -75,22 +75,22 @@ export default {
 
 ### 最大上传数限制
 
-上传组件可通过设置 `limit` 和 `on-exceed` 来限制上传文件的个数和定义超出限制时的行为。
+上传组件可通过设置 `limit` 来限制上传文件的个数。
 
-传入 `on-exceed` 属性，其类型为 `function`，接收参数 files: Object；fileList: Array；
+通过监听 `exceed` 事件来处理上传文件个数超出的行为，接收参数： { files: array, fileList: array }。
 
 ```html
 <wd-upload
   v-model="fileList"
   :limit="3"
   action="https://jsonplaceholder.typicode.com/posts/"
-  :on-exceed="handleExceed"
+  @exceed="handleExceed"
 ></wd-upload>
 
 <script>
 export default {
   methods: {
-    handleExceed (files, fileList) {
+    handleExceed ({ files, fileList }) {
       this.$toast.warning('超出最大个数限制')
     }
   }
@@ -100,7 +100,7 @@ export default {
 
 ### 自定义预览
 
-设置 `before-preview` 函数，在用户点击图片进行预览时，会执行 `before-preview` 函数，并传入 `file` 和 `resolve` 参数，可以对 `file` 进行处理，并通过 `resolve` 函数告知组件是否确定通过，`resolve` 接受1个 boolean 值，`resolve(true)` 表示选项通过，`resolve(false)` 表示选项不通过，不通过时不会执行预览图片操作。
+设置 `before-preview` 函数，在用户点击图片进行预览时，会执行 `before-preview` 函数，接收 { file: 当前预览的文件, index: 当前预览的下标, imgList: 所有图片地址列表, resolve }，可以对 `file` 进行处理，并通过 `resolve` 函数告知组件是否确定通过，`resolve` 接受1个 boolean 值，`resolve(true)` 表示选项通过，`resolve(false)` 表示选项不通过，不通过时不会执行预览图片操作。
 
 ```html
 <wd-upload
@@ -125,7 +125,7 @@ export default {
     }
   },
   methods: {
-    handlePictureCardPreview (file, resolve) {
+    handlePictureCardPreview ({ file, resolve }) {
       this.isShow = true
       this.previewImgUrl = file.url
       resolve(false)
@@ -140,7 +140,7 @@ export default {
 
 ### 上传前置处理
 
-设置 `before-upload` 函数，弹出图片选择界面，在用户选择图片点击确认后，会执行 `before-upload` 函数，并传入 `file` 和 `resolve` 参数，可以对 `file` 进行处理，并通过 `resolve` 函数告知组件是否确定通过，`resolve` 接受1个 boolean 值，`resolve(true)` 表示选项通过，`resolve(false)` 表示选项不通过，不通过时不会执行上传操作。
+设置 `before-upload` 函数，弹出图片选择界面，在用户选择图片点击确认后，会执行 `before-upload` 函数，接收 { files: 当前上传的文件（input 的 files 原生属性）, fileList: 文件列表, resolve }，可以对 `file` 进行处理，并通过 `resolve` 函数告知组件是否确定通过，`resolve` 接受1个 boolean 值，`resolve(true)` 表示选项通过，`resolve(false)` 表示选项不通过，不通过时不会执行上传操作。
 
 ```html
 <wd-upload
@@ -160,7 +160,7 @@ export default {
     }
   },
   methods: {
-    beforeUpload (file, resolve) {
+    beforeUpload ({ files, resolve }) {
       this.$messageBox.confirm('是否上传', '提示').then(() => {
         resolve(true)
       }).catch(() => {
@@ -174,9 +174,9 @@ export default {
 
 ### 移除图片前置处理
 
-设置 `before-remove` 函数，在用户点击关闭按钮时，会执行 `before-remove` 函数，并传入 `file` 和 `resolve` 参数，可以对 `file` 进行处理，并通过 `resolve` 函数告知组件是否确定通过，`resolve` 接受1个 boolean 值，`resolve(true)` 表示选项通过，`resolve(false)` 表示选项不通过，不通过时不会执行移除图片操作。
+设置 `before-remove` 函数，在用户点击关闭按钮时，会执行 `before-remove` 函数，接收 { file: 移除的文件, index: 移除文件的下标, fileList: 文件列表, resolve }，可以对 `file` 进行处理，并通过 `resolve` 函数告知组件是否确定通过，`resolve` 接受1个 boolean 值，`resolve(true)` 表示选项通过，`resolve(false)` 表示选项不通过，不通过时不会执行移除图片操作。
 
-传入 `on-remove` 属性，在图片移除后触发，其类型为 `function`，接收参数 file: object；fileList: Array；
+监听 `remove` 事件来处理图片移除后的行为，接收参数：{ file: object, fileList: array }。
 
 ```html
 <wd-upload
@@ -197,10 +197,10 @@ export default {
     }
   },
   methods: {
-    handleRemove (file, fileList) {
+    handleRemove ({ file, fileList }) {
       this.$toast.success('删除成功')
     },
-    beforeRemove (file, resolve) {
+    beforeRemove ({ file, resolve }) {
       this.$messageBox.confirm('是否删除', '提示').then(() => {
         resolve(true)
       }).catch(() => {
@@ -214,11 +214,11 @@ export default {
 
 ### 上传各个状态
 
-事件 `fail`，在上传失败时触发，类型为 `Function`，接收参数 error: object；file: object；fileList: Array；
+事件 `fail`，在上传失败时触发，接收参数 { error: object, file: object, fileList: array }。
 
-事件 `progress`，在上传时触发，类型为 `Function`，接收参数 event: object；file: object；
+事件 `progress`，在上传时触发，接收参数 { event: object, file: object, filelist: array }。
 
-事件 `success`，在上传成功时触发，类型为 `Function`，接收参数 response: object；file: object；fileList: Array；
+事件 `success`，在上传成功时触发，接收参数 { response: object, file: object, fileList: array }。
 
 ```html
 <wd-upload
@@ -240,14 +240,14 @@ export default {
     }
   },
   methods: {
-    handleProgress (event, file) {
+    handleProgress ({ event, file, fileList }) {
       console.log('正在上传....', file)
     },
-    handleSuccess (response, file, fileList) {
+    handleSuccess ({ response, file, fileList }) {
       console.log(file)
       this.$toast.success(`图片[${file.name}]上传成功`)
     },
-    handleError (error, file, fileList) {
+    handleError ({ error, file, fileList }) {
       this.$toast.error('上传失败')
     }
   }
@@ -314,10 +314,9 @@ export default {
 | limit | 最大允许上传个数 |  number | — | — |
 | show-limit-num | 限制上传个数的情况下，是否展示当前上传的个数 | boolean | — | false |
 | max-size | 文件大小限制，单位为`byte` |  number | — | — |
-| on-exceed | 文件超出个数限制时的钩子 | function(files, fileList) | — | - |
-| before-upload | 上传文件之前的钩子，参数为上传的文件，若返回 false 或者返回 Promise 且被 reject，则停止上传。 | function(file) | — | — |
-| before-remove | 删除文件之前的钩子，参数为上传的文件和文件列表，若返回 false 或者返回 Promise 且被 reject，则停止上传。| function(file, fileList) | — | — |
-| before-preview | 图片预览前的钩子，参数为上传的文件和文件列表，若返回 false 或者返回 Promise 且被 reject，则停止上传。| function(file, fileList) | — | — |
+| before-upload | 上传文件之前的钩子，参数为上传的文件，若返回 false 或者返回 Promise 且被 reject，则停止上传。 | function({ files, fileList, resolve }) | — | — |
+| before-remove | 删除文件之前的钩子，参数为上传的文件和文件列表，若返回 false 或者返回 Promise 且被 reject，则停止上传。| function({ file, index, fileList, resolve }) | — | — |
+| before-preview | 图片预览前的钩子，参数为上传的文件和文件列表，若返回 false 或者返回 Promise 且被 reject，则停止上传。| function({ file, index, imgList, resolve }) | — | — |
 | loading-type | [加载中图标类型](/docs#/components/loading) | string | — | 'circular-ring' |
 | loading-color | [加载中图标颜色](/docs#/components/loading) | string | — | '#ffffff' |
 | loading-size | [加载中图标尺寸](/docs#/components/loading) | string | — | '24px' |
@@ -326,9 +325,6 @@ export default {
 | min-zoom | 开启图片预览，手势缩放时，最小缩放比例，详细使用说明查看[图片预览组件 JS 调用](/docs#/components/imgPreview) | Number | -  | 1/3 |
 | show-index | 开启图片预览，是否显示页码，详细使用说明查看[图片预览组件 JS 调用](/docs#/components/imgPreview) | Boolean | -  | true |
 | swipe-duration |开启图片预览， 动画时长，单位为`ms`，详细使用说明查看[图片预览组件 JS 调用](/docs#/components/imgPreview) | Number | -  | 500 |
-| on-long-tap | 开启图片预览，长按事件钩子，详细使用说明查看[图片预览组件 JS 调用](/docs#/components/imgPreview) | Function | -  | - |
-| on-close | 开启图片预览，打开预览列表钩子，详细使用说明查看[图片预览组件 JS 调用](/docs#/components/imgPreview) | Function | -  | - |
-| on-open | 开启图片预览，关闭预览列表钩子，详细使用说明查看[图片预览组件 JS 调用](/docs#/components/imgPreview) | Function | -  | - |
 | name-key | file 数据结构中，name 对应的 key | string | - | 'name' |
 | status-key | file 数据结构中，status 对应的 key | string | - | 'status' |
 
@@ -355,8 +351,12 @@ export default {
 
 | 事件名 | 说明 | 回调参数 |
 |------|------|------|
-| oversize | 文件大小超过限制时触发 | file: 尺寸超出的文件信息 |
-| remove | 文件列表移除文件时触发 | file: 尺寸超出的文件信息，fileList: 文件列表 |
-| success | 文件上传成功时触发 | response: 响应信息，file: 尺寸超出的文件信息，fileList: 文件列表 |
-| fail | 文件上传失败时触发 | err: 错误信息，file: 尺寸超出的文件信息，fileList: 文件列表 |
-| progress | 文件上传时触发 | event: 上传中事件信息，file: 尺寸超出的文件信息，fileList: 文件列表 |
+| oversize | 文件大小超过限制时触发 | { file: 尺寸超出的文件信息 } |
+| remove | 文件列表移除文件时触发 | { file: 移除的文件，fileList: 文件列表 } |
+| success | 文件上传成功时触发 | { response: 响应信息，file: 上传的文件，fileList: 文件列表 } |
+| fail | 文件上传失败时触发 | { error: 错误信息，file: 上传的文件，fileList: 文件列表 } |
+| progress | 文件上传时触发 | { event: 上传中事件信息，file: 上传的文件，fileList: 文件列表 } |
+| exceed | 文件超出个数限制时的钩子 | { files: 当前选择的文件(input 的 files 原生结构)，fileList: 文件列表 } |
+| preview-open | 预览图片开启时，详细使用说明查看[图片预览组件 JS 调用](/docs#/components/imgPreview) | { index: 当前预览图片下标索引 } |
+| preview-close | 预览图片关闭时，详细使用说明查看[图片预览组件 JS 调用](/docs#/components/imgPreview) | { index: 当前预览图片下标索引 } |
+| preview-long-tap | 预览图片时，长按图片事件，详细使用说明查看[图片预览组件 JS 调用](/docs#/components/imgPreview) | { index: 当前预览图片下标索引 } |
