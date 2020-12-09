@@ -119,7 +119,7 @@ export default {
 
 ### 初始选项
 
-设置初始选项时，`columns` 可以传入空数组，也可以跟 `value` 一样初始化好。当 `columns` 为空数组或者数组长度小于 `value` 时，会自动触发 `columnChange` 函数来补齐数据。
+设置初始选项时。当 `columns` 数组长度小于 `value` 时，会自动触发 `columnChange` 函数来补齐数据。
 
 ```html
 <wd-col-picker label="选择地址" v-model="value" :columns="areaData" :column-change="columnChange"></wd-col-picker>

@@ -170,6 +170,12 @@ export default {
         this.pickerColSelected = val
         this.lastPickerColSelected = this.pickerColSelected
         this.setShowValue()
+        // 如果 columns 数组长度为空，或者长度小于 value 的长度，自动触发 columnChange 来补齐数据
+        if (this.columns.length < this.value.length) {
+          // 如果 columns 长度为空，则传入的 colIndex 为 -1
+          let colIndex = this.columns.length === 0 ? -1 : (this.columns.length - 1)
+          this.diffColumns(colIndex)
+        }
       },
       immediate: true
     },
@@ -262,12 +268,13 @@ export default {
         index: colIndex,
         rowIndex: index,
         resolve: (nextColumn) => {
+          console.log(nextColumn)
           if (!(nextColumn instanceof Array)) {
             console.error('[wot design] error(wd-col-picker): the data of each column of wd-col-picker should be an array')
             return
           }
 
-          this.selectList.push(nextColumn)
+          this.$set(this.selectList, colIndex + 1, nextColumn)
           this.loading = false
           this.currentCol = colIndex + 1
           typeof callback === 'function' && callback()
@@ -368,14 +375,6 @@ export default {
           this.diffColumns(colIndex + 1)
         }
       })
-    }
-  },
-  mounted () {
-    // 如果 columns 数组长度为空，或者长度小于 value 的长度，自动触发 columnChange 来补齐数据
-    if (this.columns.length < this.value.length || this.columns.length === 0) {
-      // 如果 columns 长度为空，则传入的 colIndex 为 -1
-      let colIndex = this.columns.length === 0 ? -1 : (this.columns.length - 1)
-      this.diffColumns(colIndex)
     }
   }
 }
