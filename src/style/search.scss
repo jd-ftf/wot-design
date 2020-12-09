@@ -28,7 +28,6 @@
     box-sizing: border-box;
     padding: $-search-input-padding;
     border: none;
-    line-height: $-search-input-height;
     background: transparent;
     font-size: $-search-input-fs;
     -webkit-appearance: none;
@@ -46,10 +45,10 @@
   @include e(placeholder) {
     position: absolute;
     width: 100%;
-    height: 100%;
-    line-height: $-search-input-height;
+    top: 50%;
+    transform: translateY(-50%);
     left: 0;
-    top: 0;
+    top: 50%;
     text-align: center;
     font-size: 0;
     user-select: none;
