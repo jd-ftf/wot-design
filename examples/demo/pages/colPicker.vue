@@ -2,7 +2,7 @@
   <div class="page-col-picker">
     <wd-cell-group border style="margin: 20px 0">
       <wd-col-picker label="选择地址" v-model="value1" :columns="areaData1" :column-change="columnChange1" />
-      <wd-col-picker label="初始选项" v-model="value2" :columns="areaData2" :column-change="columnChange3" />
+      <wd-col-picker label="初始选项" v-model="value2" :columns="areaData2" :column-change="columnChange3" auto-complete />
       <wd-col-picker label="禁用" disabled v-model="value3" :columns="areaData3" :column-change="columnChange1" />
       <wd-col-picker label="只读" readonly v-model="value3" :columns="areaData3" :column-change="columnChange1" />
       <wd-col-picker label="禁用选项" v-model="value4" :columns="areaData4" :column-change="columnChange1" />

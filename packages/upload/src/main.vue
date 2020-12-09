@@ -49,7 +49,7 @@ export default {
     },
     loadingType: {
       type: String,
-      default: 'circular-ring'
+      default: 'ring'
     },
     loadingSize: {
       type: String,

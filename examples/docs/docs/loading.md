@@ -13,7 +13,7 @@ Vue.use(Loading)
 
 ### 基本用法
 
-默认为 `circle-outline` 类型的加载指示器。
+基本用法，适用于按钮加载状态和页面轻提示。
 
 ```html
 <wd-loading></wd-loading>
@@ -21,28 +21,27 @@ Vue.use(Loading)
 
 ### 修改指示器类型
 
-通过 `type` 修改指示器的类型，可选值为 'spinner' / 'circle' / 'circle-outline' / 'circular-ring'，默认为 'circle-outline'。
+通过 `type` 修改指示器的类型，可选值为 'outline'，适用于通用模块加载。
 
 ```html
-<wd-loading type="circular-ring"></wd-loading>
+<wd-loading type="outline" />
 ```
 
 ### 修改颜色
 
 通过 `color` 属性修改指示器的颜色。比如修改为白色，同时设置背景为黑色。
 
-注意：当type类型为 `circular-ring` 时，设置指示器颜色必须为16进制色值，且不接受色值缩写。
+:::warning
+默认类型设置指示器颜色必须为16进制色值，且不接受色值缩写，默认类型的 loading 需要计算拖尾颜色，计算是通过十六进制换算计算的。其他类型的 loading 可以使用任意色值写法。
+:::
 
 ```html
-<wd-loading color="#fff" class="loading-black"></wd-loading>
+<wd-loading color="#ffffff"></wd-loading>
 
-<!-- 当 type='circular-ring' 时： -->
-<!-- 正确写法 -->
-<wd-loading color="#ffffff" type="circular-ring"></wd-loading>
 <!-- 错误写法 -->
-<wd-loading color="#fff" type="circular-ring"></wd-loading>
-<wd-loading color="green" type="circular-ring"></wd-loading>
-<wd-loading color="rgba(255,255,255,1)" type="circular-ring"></wd-loading>
+<wd-loading color="#fff"></wd-loading>
+<wd-loading color="green"></wd-loading>
+<wd-loading color="rgba(255,255,255,1)"></wd-loading>
 ```
 
 ```css
@@ -67,14 +66,6 @@ Vue.use(Loading)
 
 | 参数      | 说明                                 | 类型      | 可选值       | 默认值   |
 |---------- |------------------------------------ |---------- |------------- |-------- |
-| type      | 加载指示器类型 | string | 'spinner'/'circle-outline'/'circle'/'circular-ring'  | 'circle-outline'  |
+| type      | 加载指示器类型 | string | 'outline'  | 'ring'  |
 | color     | 设置加载指示器颜色 | string | - | '#4D80F0' |
 | size      | 设置加载指示器大小 | string    | - | '32px' |
-
-### Options
-
-options可以为Object也可以为String
-
-| 参数 | 说明 | 类型      | 可选值       | 默认值   |
-|---------- |------------------------------------ |---------- |------------- |-------- |
-| type | 加载指示器类型 | string | 'spinner'/'circle-outline'/'circle'/'circular-ring' | 'circle'  |

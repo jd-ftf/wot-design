@@ -162,6 +162,7 @@ export default {
 | disabled | 禁用菜单 | boolean | - | false |
 | value-key | 选项对象中，value对应的 key | string | - | 'value' |
 | label-key | 选项对象中，展示的文本对应的 key | string | - | 'label' |
+| tip-key | 选项对象中，选项说明对应的 key | string | - | 'tip' |
 | options | 列表数据，对应数据结构 `[{text: '标题', value: '0', tip: '提示文字'}]` | array | - | - |
 | icon-name | 选中的图标名称(可选名称在wd-icon组件中) | string | - | 'check' |
 | title | 菜单标题 | string | - | - |

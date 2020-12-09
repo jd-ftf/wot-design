@@ -15,7 +15,6 @@
           <wd-loading
             v-if="topStatus == 'loading'"
             class="wd-pull-refresh__loading"
-            type="circular-ring"
             size="16px"
           />
           <i

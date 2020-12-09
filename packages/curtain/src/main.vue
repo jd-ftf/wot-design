@@ -99,8 +99,8 @@ export default {
       this.imgSucc = true
     },
     imgErr () {
-      console.warn('幕帘图片加载失败！')
       this.imgSucc = false
+      this.$emit('error')
     },
     clickImg () {
       if (this.to) {

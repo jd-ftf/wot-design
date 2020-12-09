@@ -1,5 +1,7 @@
 ## StatusTip 缺省提示
 
+一般用于兜底占位展示。
+
 ### 按需引入
 
 ```javascript

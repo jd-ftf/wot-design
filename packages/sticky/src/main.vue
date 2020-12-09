@@ -85,7 +85,7 @@ export default {
   },
   mounted () {
     if (!this.canSticky) {
-      console.warn('[wot-design warning] if you want to use sticky, the overflow of the ancestor element cannot be auto, overlay, scroll and hidden')
+      console.warn('[wot-design] warning(wd-sticky): if you want to use sticky, the overflow of the ancestor element cannot be auto, overlay, scroll and hidden')
       return
     }
 

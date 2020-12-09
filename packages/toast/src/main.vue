@@ -48,7 +48,7 @@ export default {
     show: Boolean,
     loadingType: {
       type: String,
-      default: 'circle-outline'
+      default: 'outline'
     },
     loadingColor: {
       type: String,

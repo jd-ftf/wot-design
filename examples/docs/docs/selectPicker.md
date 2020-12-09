@@ -280,7 +280,7 @@ export default {
 | placeholder | 选择器占位符 | string | - | '请选择' |
 | disabled | 禁用 | boolean | - | fasle |
 | loading | 加载中 | boolean | - | false |
-| loading-color | 加载的颜色 | String | - | '#4D80F0' |
+| loading-color | 加载的颜色，只能使用十六进制的色值写法，且不能使用缩写 | string | - | '#4D80F0' |
 | readonly | 只读 | boolean | - | false |
 | display-format | 自定义展示文案的格式化函数，返回一个字符串 | function | - | - |
 | confirm-button-text | 确认按钮文案 | string | - | '确认' |
@@ -295,7 +295,7 @@ export default {
 | max | 最大选中的数量，0 为无限数量，默认为 0（仅在复选框类型下生效，`type`类型为`checkbox`） | number | - | 0 |
 | checked-color | 选中的颜色（单/复选框） | string | - | '#4D80F0' |
 | teleport | 指定挂载的 HTML 节点, 可以为字符串，也可以为对象，为对象时有 `to` 和 `disabled` 属性，`to` 表示挂载点，`disabled` 表示挂载到当前节点上 | string / object  | - | 'body' |
-| close-on-click-action | 点击选项后是否关闭菜单 | boolean | - | true |
+| close-on-click-modal | 点击遮罩是否关闭 | boolean | - | true | 
 
 ### 选项数据结构
 

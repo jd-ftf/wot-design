@@ -86,8 +86,8 @@ this.$toast.close()
 | iconSize | 左侧图标尺寸 | string | - | '42px' |
 | iconClass  | 图标类目，自定义图标，可以使用 Icon 章节的那些图标类名，iconName 优先级更高  | string   | —             | —   |
 | position   | 提示信息框的位置                      | string   | 'top', 'middle', 'bottom'  | 'default'  |
-| loadingType | 加载指示器类型 | string | 'circle-outline', 'spinner','circle' | 'circle-outline' |
-| loadingColor | 加载icon的颜色 | string | '' | '#4D80F0' |
+| loadingType | [加载中图标类型](/docs#/components/loading) | string | 'ring' | 'outline' |
+| loadingColor | [加载中图标颜色](/docs#/components/loading) | string | '' | '#4D80F0' |
 
 ### Methods
 
