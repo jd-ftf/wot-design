@@ -280,7 +280,7 @@ export default {
 | placeholder | 选择器占位符 | string | - | '请选择' |
 | disabled | 禁用 | boolean | - | fasle |
 | loading | 加载中 | boolean | - | false |
-| loading-color | 加载的颜色 | String | - | '#4D80F0' |
+| loading-color | 加载的颜色，只能使用十六进制的色值写法，且不能使用缩写 | string | - | '#4D80F0' |
 | readonly | 只读 | boolean | - | false |
 | display-format | 自定义展示文案的格式化函数，返回一个字符串 | function | - | - |
 | confirm-button-text | 确认按钮文案 | string | - | '确认' |

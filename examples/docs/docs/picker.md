@@ -299,7 +299,7 @@ export default {
 | error | 是否为错误状态，错误状态时右侧内容为红色 | boolean | - | false |
 | align-right | 选择器的值靠右展示 | boolean | - | false |
 | before-confirm | 确定前校验函数，接收 (value, resolve) 参数，通过 resolve 继续执行 picker，resolve 接收1个boolean参数 | function | - | - |
-| loading-color | 加载的颜色 | String | - | '#4D80F0' |
+| loading-color | 加载的颜色，只能使用十六进制的色值写法，且不能使用缩写 | string | - | '#4D80F0' |
 | close-on-click-modal | 点击遮罩是否关闭 | boolean | - | true | 
 
 ### Slot

@@ -27,7 +27,7 @@
         :style="{ 'color': item.color }"
         @click="select('action', index)"
       >
-        <wd-loading v-if="item.loading" type="circular-ring" size="20px" style="display: inline-block;" :color="item.color" />
+        <wd-loading v-if="item.loading" size="20px" style="display: inline-block;" :color="item.color" />
         <template v-else>
           <span class="wd-action-sheet__name">{{ item.name }}</span>
           <span v-if="item.subname" class="wd-action-sheet__subname">{{ item.subname }}</span>
