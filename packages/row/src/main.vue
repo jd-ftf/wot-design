@@ -43,7 +43,7 @@ export default {
     setGutter () {
       const { gutter } = this
       if (gutter < 0) {
-        console.warn('Attribute gutter must be greater than or equal to 0')
+        console.warn('[wot design] warning(wd-row): attribute gutter must be greater than or equal to 0')
       }
       const margin = `${gutter / 2}px`
       const style = gutter ? `margin-left: -${margin}; margin-right: -${margin};` : ''

@@ -112,7 +112,7 @@ export default {
         }
       }
 
-      console.warn('[wot-design warning]no value is matched in the options option.')
+      console.warn('[wot-design] warning(wd-drop-menu-item): no value is matched in the options option.')
       return ''
     },
     positionStyle () {

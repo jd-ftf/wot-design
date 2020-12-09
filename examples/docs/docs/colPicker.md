@@ -461,7 +461,7 @@ export default {
 | align-right | 选择器的值靠右展示 | boolean | - | false |
 | loading-color | 加载的颜色 | String | - | '#4D80F0' |
 | before-confirm | 确定前校验函数，接收 (value, resolve) 参数，通过 resolve 继续执行 picker，resolve 接收1个boolean参数 | function | - | - |
-| close-on-click-action | 点击选项后是否关闭菜单 | boolean | - | true |
+| close-on-click-modal | 点击遮罩是否关闭 | boolean | - | true | 
 
 ### 选项数据结构
 
