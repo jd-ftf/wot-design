@@ -8,6 +8,7 @@
       :modal-style="{
         position: 'absolute',
       }"
+      :teleport="{ disabled: true }"
       class="wd-drop-item__popup"
       @click-modal="close"
       @open="handleOpen"
