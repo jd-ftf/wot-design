@@ -119,10 +119,60 @@ export default {
 
 ### 初始选项
 
-设置初始选项时。当 `columns` 数组长度小于 `value` 时，会自动触发 `columnChange` 函数来补齐数据。
+初始选项有两种方式：
+
+1）设置初始选项时，`columns` 的数组长度应与 `value` 的数组长度一致，`value` 每一列的值必须对应可以在 `columns` 中找到。
 
 ```html
 <wd-col-picker label="选择地址" v-model="value" :columns="areaData" :column-change="columnChange"></wd-col-picker>
+
+<script>
+// 使用的是 `china-area-data` 库，包含国内最新的地区编码
+import areaData from 'china-area-data'
+
+export default {
+  data () {
+    return {
+      value: ['150000', '150100', '150121'],
+      areaData: [Object.keys(areaData[86]).map(key => {
+        return {
+          value: key,
+          label: areaData[86][key]
+        }
+      }), Object.keys(areaData[150000]).map(key => {
+        return {
+          value: key,
+          label: areaData[150000][key]
+        }
+      }), Object.keys(areaData[150100]).map(key => {
+        return {
+          value: key,
+          label: areaData[150100][key]
+        }
+      })],
+      columnChange ({ selectedItem, resolve, finish }) {
+        const value = index === -1 ? 86 : selectedItem.value
+        if (areaData[value]) {
+          resolve(Object.keys(areaData[value]).map(key => {
+            return {
+              value: key,
+              label: areaData[value][key]
+            }
+          }))
+        } else {
+          finish()
+        }
+      }
+    }
+  }
+}
+</script>
+```
+
+2）设置 `auto-complete` 属性，当 `columns` 数组长度小于 `value` 或长度为 0 时，会自动触发 `columnChange` 函数来补齐数据。设置了该属性后，因为数据需要动态补全，因此 传递出来的参数 selectedItem 只有 value 字段，没有 label 字段。
+
+```html
+<wd-col-picker label="选择地址" v-model="value" :columns="areaData" :column-change="columnChange" auto-complete></wd-col-picker>
 
 <script>
 // 使用的是 `china-area-data` 库，包含国内最新的地区编码
@@ -461,7 +511,8 @@ export default {
 | align-right | 选择器的值靠右展示 | boolean | - | false |
 | loading-color | 加载的颜色 | String | - | '#4D80F0' |
 | before-confirm | 确定前校验函数，接收 (value, resolve) 参数，通过 resolve 继续执行 picker，resolve 接收1个boolean参数 | function | - | - |
-| close-on-click-modal | 点击遮罩是否关闭 | boolean | - | true | 
+| close-on-click-modal | 点击遮罩是否关闭 | boolean | - | true |
+| auto-change | 自动触发 column-change 事件来补全数据，当 columns 为空数组或者 columns 数组长度小于 value 数组长度时，会自动触发 column-change | - | false |
 
 ### 选项数据结构
 
