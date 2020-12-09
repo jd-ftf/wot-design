@@ -13,7 +13,7 @@
         </template>
       </div>
       <div v-if="!isFinished && !isError">
-        <wd-loading type="circular-ring" size="16px" class="wd-infinite-load__loading" />
+        <wd-loading size="16px" class="wd-infinite-load__loading" />
         <span class="wd-infinite-load__text">{{ loadingText || t('wd.infiniteLoad.loading') }}</span>
       </div>
     </slot>

@@ -22,21 +22,21 @@ export default {
     imgName () {
       switch (this.type) {
         case 'collect':
-          return '//img11.360buyimg.com/ftfman/jfs/t1/148663/13/7213/25961/5f4e168bEbe3d2737/893e70e0a102fd67.png'
+          return '//img11.360buyimg.com/ftfman/jfs/t1/146876/19/17683/28878/5fd03b70E2e029d9d/b3ebf4444ec144cf.png'
         case 'comment':
-          return '//img11.360buyimg.com/ftfman/jfs/t1/126956/32/11684/26254/5f4e16d7E3d242ac3/33c0bc78a8403651.png'
+          return '//img11.360buyimg.com/ftfman/jfs/t1/136543/33/19003/31469/5fd03b92E510000ff/0f9f2f302d8c084f.png'
         case 'content':
-          return '//img11.360buyimg.com/ftfman/jfs/t1/110808/18/19406/27939/5f4e16e9E9605a4d6/4326440f10c00461.png'
+          return '//img11.360buyimg.com/ftfman/jfs/t1/140894/19/17605/31485/5fd03b8dE22c82234/0506be411332b914.png'
         case 'halo':
-          return '//img11.360buyimg.com/ftfman/jfs/t1/128362/20/11364/22220/5f4e16fbE2f203938/a98687769030a42d.png'
+          return '//img11.360buyimg.com/ftfman/jfs/t1/137867/20/17583/28484/5fd03b96E99da5386/eae93dc441c061b6.png'
         case 'message':
-          return '//img11.360buyimg.com/ftfman/jfs/t1/121735/36/11584/28302/5f4e170dE5838662d/d34b027fe9938bef.png'
+          return '//img11.360buyimg.com/ftfman/jfs/t1/145522/14/17551/32214/5fd03b9aE7de897d8/066e511adebe4223.png'
         case 'network':
-          return '//img11.360buyimg.com/ftfman/jfs/t1/147117/23/7326/21362/5f4e1708E9dd45767/070c33bc6bbdced3.png'
+          return '//img11.360buyimg.com/ftfman/jfs/t1/148420/6/17526/26156/5fd03b9eE0119edb0/0d93541f6085c74c.png'
         case 'search':
-          return '//img11.360buyimg.com/ftfman/jfs/t1/137154/17/8858/31689/5f4e1711Ecd5eb6f8/68fc5b9677caac1f.png'
+          return '//img11.360buyimg.com/ftfman/jfs/t1/130609/24/19259/35205/5fd03cc7E49456a46/4fb443c24e0cf799.png'
         default:
-          return '//img11.360buyimg.com/ftfman/jfs/t1/147117/23/7326/21362/5f4e1708E9dd45767/070c33bc6bbdced3.png'
+          return '//img11.360buyimg.com/ftfman/jfs/t1/148420/6/17526/26156/5fd03b9eE0119edb0/0d93541f6085c74c.png'
       }
     }
   }

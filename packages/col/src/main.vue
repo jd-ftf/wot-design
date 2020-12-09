@@ -40,7 +40,7 @@ export default {
   methods: {
     check () {
       if (this.span < 0 || this.offset < 0) {
-        console.warn('Attribute span/offset must be greater than or equal to 0')
+        console.warn('[wot design] warning(wd-col): attribute span/offset must be greater than or equal to 0')
       }
     },
 

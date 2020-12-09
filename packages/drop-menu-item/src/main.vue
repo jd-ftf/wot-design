@@ -8,6 +8,7 @@
       :modal-style="{
         position: 'absolute',
       }"
+      :teleport="{ disabled: true }"
       class="wd-drop-item__popup"
       @click-modal="close"
       @open="handleOpen"
@@ -31,9 +32,7 @@
           <!-- 左侧文字 -->
           <div class="wd-drop-item__title custom-title">
             <span>{{ item[labelKey] ? item[labelKey] : item }}</span>
-            <span v-if="item.tip" class="wd-drop-item__tip">{{
-              item.tip
-            }}</span>
+            <span v-if="item[tipKey]" class="wd-drop-item__tip">{{ item[tipKey] }}</span>
           </div>
           <!-- 按钮 -->
           <wd-icon
@@ -73,6 +72,10 @@ export default {
       type: String,
       default: 'value'
     },
+    tipKey: {
+      type: String,
+      default: 'tip'
+    },
     disabled: {
       type: Boolean,
       default: false
@@ -111,7 +114,7 @@ export default {
         }
       }
 
-      console.warn('[wot-design warning]no value is matched in the options option.')
+      console.warn('[wot-design] warning(wd-drop-menu-item): no value is matched in the options option.')
       return ''
     },
     positionStyle () {

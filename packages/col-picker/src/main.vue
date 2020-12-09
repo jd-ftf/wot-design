@@ -85,7 +85,7 @@
           </div>
         </template>
         <div v-if="loading" class="wd-col-picker__loading">
-          <wd-loading type="circular-ring" :color="loadingColor" />
+          <wd-loading :color="loadingColor" />
         </div>
       </div>
     </wd-action-sheet>
@@ -116,7 +116,8 @@ export default {
       isChange: false,
       lastSelectList: [],
       lastPickerColSelected: [],
-      lineStyle: {}
+      lineStyle: {},
+      isCompleting: false // 是否在自动补全，锁操作
     }
   },
   props: {
@@ -162,26 +163,41 @@ export default {
     closeOnClickModal: {
       type: Boolean,
       default: true
-    }
+    },
+    autoComplete: Boolean
   },
   watch: {
     value: {
       handler (val) {
         this.pickerColSelected = val
-        this.lastPickerColSelected = this.pickerColSelected
         this.setShowValue()
+        if (this.autoComplete) {
+          this.$nextTick(() => {
+            // 如果 columns 数组长度为空，或者长度小于 value 的长度，自动触发 columnChange 来补齐数据
+            if (this.selectList.length < this.value.length || this.selectList.length === 0) {
+              if (!this.isCompleting) {
+                // 如果 columns 长度为空，则传入的 colIndex 为 -1
+                let colIndex = this.selectList.length === 0 ? -1 : (this.selectList.length - 1)
+                this.diffColumns(colIndex)
+              }
+
+              this.isCompleting = true
+            }
+          })
+        }
       },
       immediate: true
     },
     columns: {
-      handler (val) {
+      handler (val, oldVal) {
         if (val.length && !(val[0] instanceof Array)) {
-          console.error('[Wot Design] error: the columns props of wd-col-picker should be a two-dimensional array')
+          console.error('[wot design] error(wd-col-picker): the columns props of wd-col-picker should be a two-dimensional array')
           return
         }
 
+        if (val.length === 0 && !oldVal) return
+
         this.selectList = val.slice(0)
-        this.lastSelectList = this.selectList
         if (this.selectList.length > 0) {
           this.currentCol = this.selectList.length - 1
           this.setShowValue()
@@ -213,8 +229,8 @@ export default {
     handlePickerClose () {
       // 未确定选项时，数据还原复位
       if (this.isChange) {
-        this.selectList = this.lastSelectList
-        this.pickerColSelected = this.lastPickerColSelected
+        this.selectList = this.lastSelectList.slice(0)
+        this.pickerColSelected = this.lastPickerColSelected.slice(0)
         this.currentCol = this.lastSelectList.length - 1
         this.isChange = false
       }
@@ -223,6 +239,8 @@ export default {
     showPicker () {
       if (this.disabled || this.readonly) return
 
+      this.lastSelectList = this.selectList.slice(0)
+      this.lastPickerColSelected = this.pickerColSelected.slice(0)
       this.pickerShow = true
       this.setLineStyle(false)
       this.lineScrollIntoView(false)
@@ -263,17 +281,25 @@ export default {
         rowIndex: index,
         resolve: (nextColumn) => {
           if (!(nextColumn instanceof Array)) {
-            console.error('[Wot Design] error: the data of each column of wd-col-picker should be an array')
+            console.error('[wot design] error(wd-col-picker): the data of each column of wd-col-picker should be an array')
             return
           }
 
-          this.selectList.push(nextColumn)
+          this.$set(this.selectList, colIndex + 1, nextColumn)
           this.loading = false
           this.currentCol = colIndex + 1
-          typeof callback === 'function' && callback()
+          if (typeof callback === 'function') {
+            this.isCompleting = false
+            callback()
+          }
         },
         finish: (isOk) => {
-          if ((typeof isOk === 'boolean' && !isOk) || typeof callback === 'function') {
+          if (typeof callback === 'function') {
+            this.isCompleting = false
+            this.loading = false
+            return
+          }
+          if (typeof isOk === 'boolean' && !isOk) {
             this.loading = false
             return
           }
@@ -300,8 +326,6 @@ export default {
       this.pickerShow = false
       this.$emit('input', this.pickerColSelected)
       this.setShowValue()
-      this.lastPickerColSelected = this.pickerColSelected
-      this.lastSelectList = this.selectList
       this.setLineStyle()
       this.lineScrollIntoView()
       this.$emit('confirm', this.pickerColSelected, this.pickerColSelected.map((item, colIndex) => {
@@ -360,22 +384,13 @@ export default {
       // colIndex 为 -1 时，item 为空对象，>=0 时则具有 value 属性
       let item = colIndex === -1 ? {} : { [this.valueKey]: this.value[colIndex] }
       this.handleColChange(colIndex, item, -1, () => {
-        // 每次获取新数据后，设置展示数据回显，因为不知道有多少列，所以每补齐一列数据就设置一次回显
-        this.setShowValue()
-
         // 如果 columns 长度还小于 value 长度，colIndex + 1，继续递归补齐
-        if (this.columns.length < this.value.length) {
+        if (this.selectList.length < this.value.length) {
           this.diffColumns(colIndex + 1)
+        } else {
+          this.setShowValue()
         }
       })
-    }
-  },
-  mounted () {
-    // 如果 columns 数组长度为空，或者长度小于 value 的长度，自动触发 columnChange 来补齐数据
-    if (this.columns.length < this.value.length || this.columns.length === 0) {
-      // 如果 columns 长度为空，则传入的 colIndex 为 -1
-      let colIndex = this.columns.length === 0 ? -1 : (this.columns.length - 1)
-      this.diffColumns(colIndex)
     }
   }
 }

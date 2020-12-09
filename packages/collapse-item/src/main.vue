@@ -41,7 +41,7 @@ export default {
   computed: {
     isExpand () {
       if (!this.collapse.value) {
-        console.warn('[wot-design warning]there is no value with Collapse.')
+        console.warn('[wot-design] warning(wd-collapse-item): there is no value with Collapse.')
         return true
       }
 

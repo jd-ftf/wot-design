@@ -167,7 +167,7 @@ export default {
           arrowStyle.transform = 'translateY(50%)'
           break
         default:
-          console.warn('Wrong placement prop')
+          console.warn('[wot design] warning: wrong placement prop')
       }
       this.popStyle = {
         top: position.top + 'px',

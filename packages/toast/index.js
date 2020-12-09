@@ -35,7 +35,7 @@ const showToast = (instance, options) => {
   instance.iconName = options.iconName || ''
   instance.iconClass = options.iconClass || ''
   instance.iconSize = options.iconSize || '42px'
-  instance.loadingType = options.loadingType || 'circle-outline'
+  instance.loadingType = options.loadingType || 'outline'
   instance.loadingColor = options.loadingColor || '#4D80F0'
 
   if (!instance.inited) {
