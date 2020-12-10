@@ -10,17 +10,15 @@
         @click="updatePage(value - 1)"
       >
         <span v-if="!showIcon">{{ prevText || t("wd.pagination.prev") }}</span>
-        <wd-icon
+        <i
           v-else
-          class="wd-pager__left"
+          class="wd-pager__left wd-icon-arrow-right"
           :class="[
             value === 1
               ? 'wd-pager__nav--disabled'
               : 'wd-pager__nav--active'
           ]"
-          size="14px"
-          name="arrow-right"
-        ></wd-icon>
+        />
       </wd-button>
       <div class="wd-pager__size">
         <span class="wd-pager__current">{{ value }}</span>
@@ -36,16 +34,15 @@
         @click="updatePage(value + 1)"
       >
         <span v-if="!showIcon">{{ nextText || t("wd.pagination.next") }}</span>
-        <wd-icon
+        <i
           v-else
-          size="14px"
+          class="wd-pager__right wd-icon-arrow-right"
           :class="[
             value === this.computedPageSize
               ? 'wd-pager__nav--disabled'
               : 'wd-pager__nav--active'
           ]"
-          name="arrow-right"
-        ></wd-icon>
+        ></i>
       </wd-button>
     </div>
     <div class="wd-pager__message" v-if="showMessage">
@@ -58,13 +55,11 @@
 
 <script>
 import WdButton from 'wot-design/packages/button'
-import WdIcon from 'wot-design/packages/icon'
 import locale from 'wot-design/src/mixins/locale'
 export default {
   name: 'WdPagination',
   mixins: [locale],
   components: {
-    WdIcon,
     WdButton
   },
   props: {

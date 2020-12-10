@@ -36,10 +36,15 @@
 import locale from 'wot-design/src/mixins/locale'
 import { getScrollTargetEvent } from 'wot-design/src/utils'
 import WdLoading from 'wot-design/packages/loading'
+import WdButton from 'wot-design/packages/button'
 
 export default {
   name: 'WdPullRefresh',
   mixins: [locale],
+  components: {
+    WdLoading,
+    WdButton
+  },
   props: {
     value: Boolean,
     topPullText: String,
@@ -90,9 +95,6 @@ export default {
     transform () {
       return this.translate === 0 ? null : `translate3d(0, ${this.ease(this.translate)}px, 0)`
     }
-  },
-  components: {
-    WdLoading
   },
   watch: {
     value (val) {
