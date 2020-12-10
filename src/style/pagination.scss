@@ -35,6 +35,13 @@
   }
   @include e(left){
     transform: rotate(180deg);
+    font-size: 14px;
+    line-height: 16px;
+    display: inline-block;
+  }
+  @include e(right){
+    font-size: 14px;
+    line-height: 16px;
     display: inline-block;
   }
   @include e(current){

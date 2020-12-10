@@ -35,10 +35,10 @@
             <span v-if="item[tipKey]" class="wd-drop-item__tip">{{ item[tipKey] }}</span>
           </div>
           <!-- 按钮 -->
-          <wd-icon
+          <i
             v-if="(item[valueKey] ? item[valueKey] : item) === value"
-            :name="iconName"
             class="wd-drop-item__icon"
+            :class="`wd-icon-${iconName}`"
           />
         </div>
       </template>

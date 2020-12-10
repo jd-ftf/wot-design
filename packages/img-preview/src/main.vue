@@ -40,6 +40,8 @@
 
 <script>
 import touchMixin from 'wot-design/src/mixins/touch'
+import WdSwipe from 'wot-design/packages/swipe'
+import WdSwipeItem from 'wot-design/packages/swipe-item'
 import { range } from 'wot-design/src/utils/index'
 
 const SINGLE_CLIK_TIME = 300
@@ -50,6 +52,11 @@ export default {
   name: 'WdImgPreview',
 
   mixins: [touchMixin],
+
+  components: {
+    WdSwipe,
+    WdSwipeItem
+  },
 
   data () {
     return {

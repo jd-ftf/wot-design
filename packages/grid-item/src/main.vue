@@ -8,7 +8,7 @@
       :class="{
         'wd-grid-item__content': true,
         'is-square': grid.square,
-        'is-round': grid.border && grid.gutter > 0
+        'is-round': grid.border && grid.gutter > 0,
       }"
       :style="gutterContentStyle"
     >
@@ -19,11 +19,16 @@
           :value="value"
           :max="max"
           :type="type"
-          :style="{ width:iconSize,height: iconSize }"
+          :style="{ width: iconSize, height: iconSize }"
         >
           <slot v-if="$slots.icon" name="icon" />
-          <!-- TODO 标签切换为类名展示 -->
-          <wd-icon v-else :name="icon" :size="iconSize" />
+          <i
+            v-else
+            :class="`wd-icon-${icon}`"
+            :style="{
+              'font-size': iconSize
+            }"
+          />
         </wd-badge>
         <slot name="text" v-if="$slots.text" />
         <div v-else class="wd-grid-item__text">{{ text }}</div>

@@ -19,12 +19,11 @@
           <!-- 内容自定义插槽 -->
           <slot name="content" v-else></slot>
         </div>
-        <wd-icon
+        <i
           v-if="showClose"
-          name="close"
-          class="wd-tooltip__close-icon"
-          @click.native="toggle()"
-        ></wd-icon>
+          class="wd-tooltip__close-icon wd-icon-close"
+          @click="toggle()"
+        />
       </div>
     </transition>
   </div>

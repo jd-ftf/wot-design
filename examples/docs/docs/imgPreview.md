@@ -1,4 +1,4 @@
-## ImagePreview 图片预览
+## ImgPreview 图片预览
 
 图片预览支持使用JS直接弹出弹框，也支持组件引用的方式。
 
@@ -6,9 +6,9 @@
 
 ```javascript
 import Vue from 'vue'
-import { ImagePreview } from 'wot-design'
+import { ImgPreview } from 'wot-design'
 
-Vue.use(ImagePreview)
+Vue.use(ImgPreview)
 ```
 
 ## 代码演示

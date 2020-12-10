@@ -46,6 +46,7 @@
     z-index: $-popover-z-index;
     position: relative;
     background-color: $-popover-bg;
+    border-radius: $-popover-radius;
   }
 
   @include e(icon) {
