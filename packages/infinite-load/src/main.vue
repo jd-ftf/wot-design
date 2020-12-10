@@ -9,7 +9,9 @@
         <template v-else>
           <span class="wd-infinite-load__text">{{ t('wd.infiniteLoad.error') }}</span>
           <span class="wd-infinite-load__text is-light">{{ t('wd.infiniteLoad.retry') }}</span>
-          <wd-icon name="refresh" size="16px" class="wd-infinite-load__refresh" />
+          <i
+            class="wd-icon-refresh wd-infinite-load__refresh"
+          />
         </template>
       </div>
       <div v-if="!isFinished && !isError">
@@ -22,7 +24,6 @@
 
 <script>
 import locale from 'wot-design/src/mixins/locale'
-import WdIcon from 'wot-design/packages/icon'
 import WdDivider from 'wot-design/packages/divider'
 import WdLoading from 'wot-design/packages/loading'
 
@@ -52,7 +53,6 @@ export default {
     }
   },
   components: {
-    WdIcon,
     WdDivider,
     WdLoading
   },

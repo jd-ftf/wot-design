@@ -29,7 +29,7 @@
       </div>
     </div>
     <span v-if="closable" class="wd-notice-bar__suffix">
-      <wd-icon name="close-bold" @click.native="handleClick"></wd-icon>
+      <i class="wd-icon-close-bold" @click="handleClick"></i>
     </span>
     <slot name="suffix"></slot>
   </div>

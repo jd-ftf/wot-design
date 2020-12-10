@@ -58,13 +58,17 @@
 
 <script>
 import WdPopup from 'wot-design/packages/popup'
+import WdInput from 'wot-design/packages/input'
+import WdButton from 'wot-design/packages/button'
 import locale from 'wot-design/src/mixins/locale'
 
 export default {
   name: 'WdMessageBox',
   mixins: [locale],
   components: {
-    WdPopup
+    WdPopup,
+    WdButton,
+    WdInput
   },
   data () {
     return {
