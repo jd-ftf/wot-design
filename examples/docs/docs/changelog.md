@@ -1,5 +1,112 @@
 ## 更新日志
 
+### 2.2.0
+
+*2020-12-10*
+
+#### 新特性
+
+- ActionSheet
+  - 新增 `teleport` 属性，可以手动设置挂载点，默认挂载到 body 上 (by [@yawuling](https://github.com/yawuling) ) )
+- ColPicker
+  - 新增 `close-on-click-modal` 属性 (by [@yawuling](https://github.com/yawuling) ) )
+  - 新增 `auto-complete` 属性，自动触发 `column-change` 补全列表初始数据 (by [@yawuling](https://github.com/yawuling) ) )
+- DatetimePicker
+  - 新增 `teleport` 属性，可以手动设置挂载点，默认挂载到 body 上 (by [@yawuling](https://github.com/yawuling) ) )
+  - 新增 `close-on-click-modal` 属性 (by [@yawuling](https://github.com/yawuling) ) )
+- DropMenu
+  - 新增 `value-key` 属性，支持自定义 options 中数据结构的 value 字段 (by [@yawuling](https://github.com/yawuling) ) )
+  - 新增 `label-key` 属性，支持自定义 options 中数据结构的 label 字段 (by [@yawuling](https://github.com/yawuling) ) )
+  - 新增 `tip-key` 属性，支持自定义 options 中数据结构的 value 字段 (by [@yawuling](https://github.com/yawuling) ) )
+- MessageBox
+  - 新增 `teleport` 属性，可以手动设置挂载点，默认挂载到 body 上 (by [@yawuling](https://github.com/yawuling) ) )
+- Picker
+  - 新增 `teleport` 属性，可以手动设置挂载点，默认挂载到 body 上 (by [@yawuling](https://github.com/yawuling) ) )
+  - 新增 `close-on-click-modal` 属性 (by [@yawuling](https://github.com/yawuling) ) )
+- Popup
+  - 新增 `teleport` 属性，可以手动设置挂载点，默认挂载到 body 上 (by [@yawuling](https://github.com/yawuling) ) )
+- SelectPicker
+  - 新增 `teleport` 属性，可以手动设置挂载点，默认挂载到 body 上 (by [@yawuling](https://github.com/yawuling) ) )
+  - 新增 `close-on-click-modal` 属性 (by [@yawuling](https://github.com/yawuling) ) )
+- SortButton
+  - 新增 `line` 属性 (by [@yawuling](https://github.com/yawuling) ) )
+- Upload
+  - 新增 `name` 属性，支持自定义上传文件字段名 (by [@yawuling](https://github.com/yawuling) ) )
+  - 新增 `data` 属性，支持上传时附带额外参数 (by [@yawuling](https://github.com/yawuling) ) )
+  - 新增 `name-key` 和 `status-key`，支持自定义 file 数据结构中的 name 字段和 status 字段 (by [@yawuling](https://github.com/yawuling) ) )
+
+#### 优化
+
+- ActionSheet
+  - 给列表添加最大高度限制，为选项过多的情况做展示兜底 (by [@yawuling](https://github.com/yawuling) ) )
+- Cell
+  - 将右侧value值的字号从12px调整为14px (by [@yawuling](https://github.com/yawuling) ) )
+- CheckBox
+  - `true-value` 和 `false-value` 支持空字符串 (by [@yawuling](https://github.com/yawuling) ) )
+  - 图标添加 line-height 避免被外部样式干扰导致错位 (by [@yawuling](https://github.com/yawuling) ) )
+- ColPicker
+  - 修改 loading 类型 (by [@yawuling](https://github.com/yawuling) ) )
+- ImgPreview
+  - `open`、`long-tap` 事件添加 `index` 参数回调 (by [@yawuling](https://github.com/yawuling) ) )
+- Input
+  - `min`, `max` 属性删除，在移动端无效，建议用 `InputNumber` (by [@yawuling](https://github.com/yawuling) ) )
+- Loading
+  - 去掉1.0中的 loading 类型，并做好向下兼容 (by [@yawuling](https://github.com/yawuling) ) )
+- Picker
+  - 去掉 取消 和 完成 按钮的点击态 (by [@yawuling](https://github.com/yawuling) ) )
+- Radio
+  - 优化 dot 类型的动画 (by [@yawuling](https://github.com/yawuling) ) )
+  - 图标添加 line-height 避免被外部样式干扰导致错位 (by [@yawuling](https://github.com/yawuling) ) )
+- Rate
+  - `active-color` 支持数组，支持设置两种颜色 (by [@awjing](https://github.com/awjing) )
+- StatusTip
+  - 更新占位图，清晰部分细节 (by [@yawuling](https://github.com/yawuling) ) )
+- Sticky
+  - 优化实现，去掉 `container` 属性，改为自动获取 (by [@yawuling](https://github.com/yawuling) ) )
+- Upload
+  - 添加国际化支持 (by [@HXCStudio123](https://github.com/HXCStudio123) )
+  - 上传进度取整展示 (by [@yawuling](https://github.com/yawuling) ) )
+  - 上传失败不展示文件名 (by [@yawuling](https://github.com/yawuling) ) )
+  - 修正事件传递和参数传递 (by [@yawuling](https://github.com/yawuling) ) )
+- Locale
+  - 添加 泰文 th-TH (by [@yawuling](https://github.com/yawuling) ) )
+  - 优化 英文 en-US (by [@yawuling](https://github.com/yawuling) ) )
+
+#### Bug 修复
+
+- ActionSheet
+  - 将 button 标签替换为 div，避免触发 form 标签的提交操作 (by [@yawuling](https://github.com/yawuling) ) )
+  - 修复 `close-on-click-modal` 的使用 (by [@yawuling](https://github.com/yawuling) ) )
+- Collapse
+  - 修正 `line-num` 字段名 (by [@yawuling](https://github.com/yawuling) ) )
+  - 将展开收起设置为行内块 (by [@yawuling](https://github.com/yawuling) ) )
+- DatetimePicker
+  - 修复 CDN 引用方式内存溢出问题 (by [@yawuling](https://github.com/yawuling) ) )
+  - 修复时间范围类型 value 的数值初始化bug (by [@yawuling](https://github.com/yawuling) ) )
+  - 修复 `value` 为 undefined 时的取值异常 (by [@yawuling](https://github.com/yawuling) ) )
+- ImgPreview
+  - 按需引入 $preview 函数名称修正 (by [@yawuling](https://github.com/yawuling) ) )
+  - 按需引入找不到组件 Bug 修复 (by [@HXCStudio123](https://github.com/HXCStudio123) )
+- MessageBox
+  - 按需引入找不到组件 Bug 修复 (by [@HXCStudio123](https://github.com/HXCStudio123) )
+- Picker
+  - 将 button 标签替换为 div，避免触发 form 标签的提交操作 (by [@yawuling](https://github.com/yawuling) ) )
+  - 修正设置 `arrow-html` 属性，回显没有按照 html 渲染的问题 (by [@yawuling](https://github.com/yawuling) ) )
+  - 修复未选择取消后再次进入选中为数组格式 (by [@yawuling](https://github.com/yawuling) ) )
+- PickerView
+  - 去掉 ul 默认样式 (by [@yawuling](https://github.com/yawuling) ) )
+- PullRefresh
+  - 按需引入找不到组件 Bug 修复 (by [@HXCStudio123](https://github.com/HXCStudio123) )
+- Rate
+  - 去掉 ul 默认样式 (by [@yawuling](https://github.com/yawuling) ) )
+- Search
+  - 修复垂直居中问题 (by [@yawuling](https://github.com/yawuling) ) )
+- Tabs
+  - 将 button 标签替换为 div，避免触发 form 标签的提交操作 (by [@yawuling](https://github.com/yawuling) ) )
+  - 修改 `change` 和 `click` 触发时机 (by [@yawuling](https://github.com/yawuling) ) )
+- Upload
+  - 修复上传时文件没有携带上去的问题 (by [@yawuling](https://github.com/yawuling) ) )
+
 ### 2.1.0
 
 *2020-09-30*
