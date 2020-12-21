@@ -4,6 +4,8 @@
 
 #### Bug 修复
 
+- InfiniteLoad
+  - 修复滚动容器顶部有margin时无法触发滚动加载事件的问题 (by [@yawuling](https://github.com/yawuling) ) )
 - Search
   - 修复样式超出右侧边界问题 (by [@yawuling](https://github.com/yawuling) ) )
 
