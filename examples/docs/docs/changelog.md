@@ -1,5 +1,12 @@
 ## 更新日志
 
+### 2.2.1
+
+#### Bug 修复
+
+- Search
+  - 修复样式超出右侧边界问题 (by [@yawuling](https://github.com/yawuling) ) )
+
 ### 2.2.0
 
 *2020-12-10*
