@@ -134,9 +134,9 @@ locale.i18n((key, value) => i18n.t(key, value))
     }
   })
   // 修改组件库的翻译函数的执行
-  WotDesign.i18n = function (key, value) {
+  WotDesign.i18n(function (key, value) {
     return i18n.t(key, value)
-  }
+  })
   new Vue({
     el: '#app',
     i18n: i18n
