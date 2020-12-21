@@ -4,12 +4,6 @@
 
 #### Bug 修复
 
-- DatetimePicker
-  - 修复范围选择时tab的列表样式未重置的问题 (by [@yawuling](https://github.com/yawuling) ) )
-- InfiniteLoad
-  - 修复滚动容器顶部有margin时无法触发滚动加载事件的问题 (by [@yawuling](https://github.com/yawuling) ) )
-- MessageBox
-  - 修复直接使用 messageBox(options) 时 type 类型没有设置初始配置的问题 (by [@yawuling](https://github.com/yawuling) ) )
 - Search
   - 修复样式超出右侧边界问题 (by [@yawuling](https://github.com/yawuling) ) )
 
