@@ -75,7 +75,7 @@ export default {
     },
     value: {
       handler (val) {
-        if ((!val || (val instanceof Array && !val.length)) && this.columns.length) {
+        if (((val === '' || val === null || val === undefined) || (val instanceof Array && !val.length)) && this.columns.length) {
           this.$nextTick(() => {
             this.onChange(0)
           })

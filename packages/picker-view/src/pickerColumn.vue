@@ -103,7 +103,7 @@ export default {
             break
           }
         }
-        this.setIndex(selectedIndex, val === '')
+        this.setIndex(selectedIndex, val === '' || val === null || val === undefined)
       },
       immediate: true
     },
