@@ -127,6 +127,21 @@ const MessageBox = (options, callback) => {
     callback = options.callback
   }
 
+  if (options.type === 'alert') {
+    options = merge({
+      closeOnClickModal: false
+    }, options)
+  } else if (options.type === 'confirm') {
+    options = merge({
+      showCancelButton: true
+    }, options)
+  } else if (options.type === 'prompt') {
+    options = merge({
+      showCancelButton: true,
+      showInput: true
+    }, options)
+  }
+
   if (typeof Promise !== 'undefined') {
     return new Promise((resolve, reject) => {
       msgQueue.push({
@@ -158,8 +173,7 @@ MessageBox.alert = (msg, title, options) => {
   return MessageBox(merge({
     title: title,
     msg: msg,
-    type: 'alert',
-    closeOnClickModal: false
+    type: 'alert'
   }, options))
 }
 
@@ -172,8 +186,7 @@ MessageBox.confirm = (msg, title, options) => {
   return MessageBox(merge({
     title: title,
     msg: msg,
-    type: 'confirm',
-    showCancelButton: true
+    type: 'confirm'
   }, options))
 }
 
@@ -185,9 +198,7 @@ MessageBox.prompt = (title, options) => {
 
   return MessageBox(merge({
     title: title,
-    type: 'prompt',
-    showCancelButton: true,
-    showInput: true
+    type: 'prompt'
   }, options))
 }
 
