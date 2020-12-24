@@ -16,6 +16,8 @@
   - 修复属性 placement 为 top/right 系列位置时，arrow样式位置失效问题  (by [@HXCStudio123](https://github.com/HXCStudio123) )
 - Search
   - 修复样式超出右侧边界问题 (by [@yawuling](https://github.com/yawuling) ) )
+- Tabbar
+  - 去掉 `to` 属性为外链时的下划线样式 (by [@yawuling](https://github.com/yawuling) ) )
 - Tabs
   - 修复导航地图中按钮的居中问题 (by [@yawuling](https://github.com/yawuling) ) )
 

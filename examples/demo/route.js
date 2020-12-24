@@ -33,14 +33,18 @@ const router = new Router({
       children: [
         ...pagesRouter
       ]
-    },
-    {
-      path: '*',
-      redirect: {
-        name: 'Index'
-      }
     }
   ]
+})
+
+router.beforeEach((to, from, next) => {
+  if (to.matched.length === 0) {
+    next({
+      name: 'Index'
+    })
+  } else {
+    next()
+  }
 })
 
 router.afterEach(() => {
