@@ -9,6 +9,7 @@
   text-align: center;
   color: $-tabbar-color;
   user-select: none;
+  text-decoration: none;
   -webkit-tap-highlight-color: transparent;
 
   @include e(icon-container) {
