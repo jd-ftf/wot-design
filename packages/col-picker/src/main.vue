@@ -168,7 +168,21 @@ export default {
   },
   watch: {
     value: {
-      handler (val) {
+      handler (val, oldVal) {
+        let jumpFlag = false
+        val && val.some((value, index) => {
+          if (jumpFlag) return true
+          this.selectList[index] && this.selectList[index].some((selectItem, selectIndex) => {
+            // 当前 value 项在 selectList 中对应列能找到，及匹配成功，继续匹配下一列
+            if (value === selectItem.value) return true
+            // 直到最后一项 value 也不能在地址列表中匹配，则更新地址列表值
+            if (selectIndex === this.selectList[index].length - 1) {
+              this.selectList = this.columns.slice(0)
+              this.isCompleting = false
+              jumpFlag = true
+            }
+          })
+        })
         this.pickerColSelected = val
         this.setShowValue()
         if (this.autoComplete) {
