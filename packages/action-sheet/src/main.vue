@@ -102,6 +102,11 @@ export default {
       default: 200
     }
   },
+  activated () {
+    window.addEventListener('popstate', () => {
+      this.close()
+    }, false)
+  },
   computed: {
     isSingle () {
       return this.panels.length && !(this.panels[0] instanceof Array)
