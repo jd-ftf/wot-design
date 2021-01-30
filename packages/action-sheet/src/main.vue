@@ -148,6 +148,12 @@ export default {
     handleClosed () {
       this.$emit('closed')
     }
+  },
+  mounted () {
+    window.addEventListener('popstate', this.close)
+  },
+  beforeDestroy () {
+    window.removeEventListener('popstate', this.close)
   }
 }
 </script>
