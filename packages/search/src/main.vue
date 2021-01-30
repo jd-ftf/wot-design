@@ -26,7 +26,7 @@
           <span v-show="!typing && !value" class="wd-search__placeholder-txt">{{ placeholder || t('wd.search.search') }}</span>
         </div>
       </div>
-      <a v-show="typing || value" class="wd-search__clear" @click="clearSearch">
+      <a v-show="typing || value" class="wd-search__clear" @mousedown="clearSearch">
         <i class="wd-search__clear-icon wd-icon-error-fill"></i>
       </a>
     </div>
@@ -71,6 +71,8 @@ export default {
       this.typing = false
       this.isFocus = true
       this.$refs.searchInput.focus()
+      // 采用mousedown先于blur事件触发，阻止默认的blur事件行为
+      event.preventDefault()
     },
     search (e) {
       this.$refs.searchInput.blur()
