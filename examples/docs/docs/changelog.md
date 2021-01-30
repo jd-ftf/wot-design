@@ -1,5 +1,15 @@
 ## 更新日志
 
+### 2.2.2
+#### Bug 修复
+
+- ActionSheet
+  - 修复控制面板页面回退时未关闭行为 (by [@awjing](https://github.com/awjing) )
+- ColPicker
+  - 使用keep-alive缓存页面，修改选中项再进入，初始化未生效问题 (by [@awjing](https://github.com/awjing) )
+- Search
+  - 修复clear事件晚于blur事件触发 (by [@HXCStudio123](https://github.com/HXCStudio123) )
+
 ### 2.2.1
 
 #### Bug 修复
