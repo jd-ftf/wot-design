@@ -102,11 +102,6 @@ export default {
       default: 200
     }
   },
-  activated () {
-    window.addEventListener('popstate', () => {
-      this.close()
-    }, false)
-  },
   computed: {
     isSingle () {
       return this.panels.length && !(this.panels[0] instanceof Array)
@@ -153,6 +148,12 @@ export default {
     handleClosed () {
       this.$emit('closed')
     }
+  },
+  mounted () {
+    window.addEventListener('popstate', this.close)
+  },
+  beforeDestroy () {
+    window.removeEventListener('popstate', this.close)
   }
 }
 </script>
