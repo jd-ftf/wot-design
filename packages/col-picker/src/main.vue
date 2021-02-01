@@ -41,6 +41,7 @@
       :duration="250"
       :title="title || t('wd.colPicker.title')"
       :close-on-click-modal="closeOnClickModal"
+      :close-on-popstate="closeOnPopstate"
       @close="handlePickerClose"
     >
       <div class="wd-col-picker__selected" ref="selectedVisible">
@@ -164,7 +165,11 @@ export default {
       type: Boolean,
       default: true
     },
-    autoComplete: Boolean
+    autoComplete: Boolean,
+    closeOnPopstate: {
+      type: Boolean,
+      default: true
+    }
   },
   watch: {
     value: {

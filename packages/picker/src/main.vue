@@ -6,9 +6,10 @@
       v-model="popupShow"
       :teleport="teleport"
       position="bottom"
-      @click-modal="onCancel"
+      @close="onCancel"
       :duration="250"
       :close-on-click-modal="closeOnClickModal"
+      :close-on-popstate="closeOnPopstate"
       class="wd-picker__popup"
     >
       <toolbar :target="currentTarget"></toolbar>

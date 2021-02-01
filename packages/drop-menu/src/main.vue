@@ -34,6 +34,10 @@ export default {
       type: Boolean,
       default: true
     },
+    closeOnPopstate: {
+      type: Boolean,
+      default: true
+    },
     duration: {
       type: Number,
       default: 200

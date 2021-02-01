@@ -152,6 +152,7 @@ export default {
 | close-outside | 是否开启点击外部关闭 | boolean | - | true |
 | modal | 是否展示蒙层 | boolean | - | true |
 | close-on-click-modal | 是否点击蒙层时关闭 | boolean | - | true |
+| close-on-popstate | 页面返回时自动关闭 | boolean | - | true |
 | duration | 菜单展开收起动画时间，单位 ms | number | - | 200 |
 
 ### DropMenuItem Attributes

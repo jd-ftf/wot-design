@@ -4,16 +4,16 @@
       v-model="showPop"
       :duration="duration"
       :close-on-click-modal="closeOnClickModal"
+      :close-on-popstate="closeOnPopstate"
       :position="direction === 'down' ? 'top' : 'bottom'"
       :modal-style="{
         position: 'absolute',
       }"
       :teleport="{ disabled: true }"
       class="wd-drop-item__popup"
-      @click-modal="close"
       @open="handleOpen"
       @opened="handleOpened"
-      @close="handleClose"
+      @close="close"
       @closed="onPopupClose"
     >
       <template v-if="$slots.default">
@@ -99,6 +99,9 @@ export default {
     closeOnClickModal () {
       return this.dropMenu.closeOnClickModal
     },
+    closeOnPopstate () {
+      return this.dropMenu.closeOnPopstate
+    },
     duration () {
       return this.dropMenu.duration
     },
@@ -146,6 +149,7 @@ export default {
     close () {
       this.showPop = false
       this.dropMenu.fold(-1)
+      this.handleClose()
     },
     open () {
       this.showWrapper = true

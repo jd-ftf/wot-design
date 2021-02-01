@@ -160,6 +160,7 @@ this.$messageBox.prompt(title, options) //  title 可以跳过不写，即支持
 | msg | 消息，支持html渲染 | string    | - | - |
 | type | 弹框类型 | string | 'alert', 'confirm', 'prompt' | 'alert'   |
 | closeOnClickModal | 是否支持点击蒙层进行关闭，点击蒙层回调传入的action为'modal'    | boolean    | -          | true |
+| closeOnPopstate | 页面返回时自动关闭 | boolean | - | true |
 | inputType      | 当type为prompt时，输入框类型   | string    | -          | 'text'   |
 | inputValue      | 当type为prompt时，输入框初始值   | string / number    | -          | -   |
 | inputPlaceholder      | 当type为prompt时，输入框placeholder      | string    | -          | -   |
@@ -179,9 +180,10 @@ this.$messageBox.prompt(title, options) //  title 可以跳过不写，即支持
 | title      | 标题                        | string    | -   | -  |
 | show-cancel-button     | 是否显示取消按钮                      | boolean    | -         | false |
 | show      | 是否显示弹框                      | boolean    | -          | false   |
-| closeOnClickModal      | 是否支持点击蒙层进行关闭，点击蒙层回调传入的action是'modal'     | boolean    | -          | true   |
-| confirmButtonText      | 确定按钮文案      | string    | -          | '确定'   |
-| cancelButtonText      | 取消按钮文案     | string    | -          | '取消'   |
+| close-on-click-modal      | 是否支持点击蒙层进行关闭，点击蒙层回调传入的action是'modal'     | boolean    | -          | true   |
+| close-on-popstate | 页面返回时自动关闭 | boolean | - | true |
+| confirm-button-text      | 确定按钮文案      | string    | -          | '确定'   |
+| cancel-button-text      | 取消按钮文案     | string    | -          | '取消'   |
 
 #### Events
 

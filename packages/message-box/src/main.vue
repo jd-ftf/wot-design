@@ -5,9 +5,11 @@
     :lock-scroll="lockScroll"
     :value="show"
     :close-on-click-modal="closeOnClickModal"
+    :close-on-popstate="closeOnPopstate"
     transition="wd-zoom-in"
     :duration="200"
     @click-modal="toggleModal('modal')"
+    @popstate="toggleModal('cancel')"
     @opened="handleOpened"
     @closed="handleClosed"
     style="overflow: hidden;"
@@ -101,6 +103,10 @@ export default {
     confirmButtonText: String,
     cancelButtonText: String,
     closeOnClickModal: {
+      type: Boolean,
+      default: true
+    },
+    closeOnPopstate: {
       type: Boolean,
       default: true
     },

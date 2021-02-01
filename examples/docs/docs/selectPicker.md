@@ -295,7 +295,8 @@ export default {
 | max | 最大选中的数量，0 为无限数量，默认为 0（仅在复选框类型下生效，`type`类型为`checkbox`） | number | - | 0 |
 | checked-color | 选中的颜色（单/复选框） | string | - | '#4D80F0' |
 | teleport | 指定挂载的 HTML 节点, 可以为字符串，也可以为对象，为对象时有 `to` 和 `disabled` 属性，`to` 表示挂载点，`disabled` 表示挂载到当前节点上 | string / object  | - | 'body' |
-| close-on-click-modal | 点击遮罩是否关闭 | boolean | - | true | 
+| close-on-click-modal | 点击遮罩是否关闭 | boolean | - | true |
+| close-on-popstate | 页面返回时自动关闭 | boolean | - | true |
 
 ### 选项数据结构
 

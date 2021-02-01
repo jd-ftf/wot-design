@@ -162,6 +162,8 @@ Toast.loading = options => {
   return Toast(options)
 }
 
+window.addEventListener('popstate', Toast.close)
+
 Toast.install = Vue => {
   Vue.prototype.$toast = Toast
 }

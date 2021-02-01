@@ -1,12 +1,32 @@
 ## 更新日志
 
 ### 2.2.2
-#### Bug 修复
+
+#### 新特性
 
 - ActionSheet
-  - 修复控制面板页面回退时未关闭行为 (by [@awjing](https://github.com/awjing) )
+  - 新增 `close-on-popstate` 属性，返回时自动关闭 (by [@yawuling](https://github.com/yawuling) )
 - ColPicker
-  - 使用keep-alive缓存页面，修改选中项再进入，初始化未生效问题 (by [@awjing](https://github.com/awjing) )
+  - 新增 `close-on-popstate` 属性，返回时自动关闭 (by [@yawuling](https://github.com/yawuling) )
+- Curtain
+  - 新增 `close-on-popstate` 属性，返回时自动关闭 (by [@yawuling](https://github.com/yawuling) )
+- DatetimePicker
+  - 新增 `close-on-popstate` 属性，返回时自动关闭 (by [@yawuling](https://github.com/yawuling) )
+- DropMenu
+  - 新增 `close-on-popstate` 属性，返回时自动关闭 (by [@yawuling](https://github.com/yawuling) )
+- MessageBox
+  - 新增 `close-on-popstate` 属性，返回时自动关闭 (by [@yawuling](https://github.com/yawuling) )
+- Picker
+  - 新增 `close-on-popstate` 属性，返回时自动关闭 (by [@yawuling](https://github.com/yawuling) )
+- Popup
+  - 新增 `close-on-popstate` 属性，返回时自动关闭 (by [@yawuling](https://github.com/yawuling) )
+- SelectPicker
+  - 新增 `close-on-popstate` 属性，返回时自动关闭 (by [@yawuling](https://github.com/yawuling) )
+
+#### Bug 修复
+
+- ColPicker
+  - value 重新赋值时需重置选项 (by [@yawuling](https://github.com/yawuling) )
 - Search
   - 修复clear事件晚于blur事件触发 (by [@HXCStudio123](https://github.com/HXCStudio123) )
 
@@ -15,21 +35,21 @@
 #### Bug 修复
 
 - DatetimePicker
-  - 修复范围选择时tab的列表样式未重置的问题 (by [@yawuling](https://github.com/yawuling) ) )
+  - 修复范围选择时tab的列表样式未重置的问题 (by [@yawuling](https://github.com/yawuling) )
 - InfiniteLoad
-  - 修复滚动容器顶部有margin时无法触发滚动加载事件的问题 (by [@yawuling](https://github.com/yawuling) ) )
+  - 修复滚动容器顶部有margin时无法触发滚动加载事件的问题 (by [@yawuling](https://github.com/yawuling) )
 - MessageBox
-  - 修复直接使用 messageBox(options) 时 type 类型没有设置初始配置的问题 (by [@yawuling](https://github.com/yawuling) ) )
+  - 修复直接使用 messageBox(options) 时 type 类型没有设置初始配置的问题 (by [@yawuling](https://github.com/yawuling) )
 - PickerView
-  - 修复value为null时，无法自动设置value为第一项的问题 (by [@yawuling](https://github.com/yawuling) ) )
+  - 修复value为null时，无法自动设置value为第一项的问题 (by [@yawuling](https://github.com/yawuling) )
 - Popover
   - 修复属性 placement 为 top/right 系列位置时，arrow样式位置失效问题  (by [@HXCStudio123](https://github.com/HXCStudio123) )
 - Search
-  - 修复样式超出右侧边界问题 (by [@yawuling](https://github.com/yawuling) ) )
+  - 修复样式超出右侧边界问题 (by [@yawuling](https://github.com/yawuling) )
 - Tabbar
-  - 去掉 `to` 属性为外链时的下划线样式 (by [@yawuling](https://github.com/yawuling) ) )
+  - 去掉 `to` 属性为外链时的下划线样式 (by [@yawuling](https://github.com/yawuling) )
 - Tabs
-  - 修复导航地图中按钮的居中问题 (by [@yawuling](https://github.com/yawuling) ) )
+  - 修复导航地图中按钮的居中问题 (by [@yawuling](https://github.com/yawuling) )
 
 ### 2.2.0
 
@@ -38,105 +58,105 @@
 #### 新特性
 
 - ActionSheet
-  - 新增 `teleport` 属性，可以手动设置挂载点，默认挂载到 body 上 (by [@yawuling](https://github.com/yawuling) ) )
+  - 新增 `teleport` 属性，可以手动设置挂载点，默认挂载到 body 上 (by [@yawuling](https://github.com/yawuling) )
 - ColPicker
-  - 新增 `close-on-click-modal` 属性 (by [@yawuling](https://github.com/yawuling) ) )
-  - 新增 `auto-complete` 属性，自动触发 `column-change` 补全列表初始数据 (by [@yawuling](https://github.com/yawuling) ) )
+  - 新增 `close-on-click-modal` 属性 (by [@yawuling](https://github.com/yawuling) )
+  - 新增 `auto-complete` 属性，自动触发 `column-change` 补全列表初始数据 (by [@yawuling](https://github.com/yawuling) )
 - DatetimePicker
-  - 新增 `teleport` 属性，可以手动设置挂载点，默认挂载到 body 上 (by [@yawuling](https://github.com/yawuling) ) )
-  - 新增 `close-on-click-modal` 属性 (by [@yawuling](https://github.com/yawuling) ) )
+  - 新增 `teleport` 属性，可以手动设置挂载点，默认挂载到 body 上 (by [@yawuling](https://github.com/yawuling) )
+  - 新增 `close-on-click-modal` 属性 (by [@yawuling](https://github.com/yawuling) )
 - DropMenu
-  - 新增 `value-key` 属性，支持自定义 options 中数据结构的 value 字段 (by [@yawuling](https://github.com/yawuling) ) )
-  - 新增 `label-key` 属性，支持自定义 options 中数据结构的 label 字段 (by [@yawuling](https://github.com/yawuling) ) )
-  - 新增 `tip-key` 属性，支持自定义 options 中数据结构的 value 字段 (by [@yawuling](https://github.com/yawuling) ) )
+  - 新增 `value-key` 属性，支持自定义 options 中数据结构的 value 字段 (by [@yawuling](https://github.com/yawuling) )
+  - 新增 `label-key` 属性，支持自定义 options 中数据结构的 label 字段 (by [@yawuling](https://github.com/yawuling) )
+  - 新增 `tip-key` 属性，支持自定义 options 中数据结构的 value 字段 (by [@yawuling](https://github.com/yawuling) )
 - MessageBox
-  - 新增 `teleport` 属性，可以手动设置挂载点，默认挂载到 body 上 (by [@yawuling](https://github.com/yawuling) ) )
+  - 新增 `teleport` 属性，可以手动设置挂载点，默认挂载到 body 上 (by [@yawuling](https://github.com/yawuling) )
 - Picker
-  - 新增 `teleport` 属性，可以手动设置挂载点，默认挂载到 body 上 (by [@yawuling](https://github.com/yawuling) ) )
-  - 新增 `close-on-click-modal` 属性 (by [@yawuling](https://github.com/yawuling) ) )
+  - 新增 `teleport` 属性，可以手动设置挂载点，默认挂载到 body 上 (by [@yawuling](https://github.com/yawuling) )
+  - 新增 `close-on-click-modal` 属性 (by [@yawuling](https://github.com/yawuling) )
 - Popup
-  - 新增 `teleport` 属性，可以手动设置挂载点，默认挂载到 body 上 (by [@yawuling](https://github.com/yawuling) ) )
+  - 新增 `teleport` 属性，可以手动设置挂载点，默认挂载到 body 上 (by [@yawuling](https://github.com/yawuling) )
 - SelectPicker
-  - 新增 `teleport` 属性，可以手动设置挂载点，默认挂载到 body 上 (by [@yawuling](https://github.com/yawuling) ) )
-  - 新增 `close-on-click-modal` 属性 (by [@yawuling](https://github.com/yawuling) ) )
+  - 新增 `teleport` 属性，可以手动设置挂载点，默认挂载到 body 上 (by [@yawuling](https://github.com/yawuling) )
+  - 新增 `close-on-click-modal` 属性 (by [@yawuling](https://github.com/yawuling) )
 - SortButton
-  - 新增 `line` 属性 (by [@yawuling](https://github.com/yawuling) ) )
+  - 新增 `line` 属性 (by [@yawuling](https://github.com/yawuling) )
 - Upload
-  - 新增 `name` 属性，支持自定义上传文件字段名 (by [@yawuling](https://github.com/yawuling) ) )
-  - 新增 `data` 属性，支持上传时附带额外参数 (by [@yawuling](https://github.com/yawuling) ) )
-  - 新增 `name-key` 和 `status-key`，支持自定义 file 数据结构中的 name 字段和 status 字段 (by [@yawuling](https://github.com/yawuling) ) )
+  - 新增 `name` 属性，支持自定义上传文件字段名 (by [@yawuling](https://github.com/yawuling) )
+  - 新增 `data` 属性，支持上传时附带额外参数 (by [@yawuling](https://github.com/yawuling) )
+  - 新增 `name-key` 和 `status-key`，支持自定义 file 数据结构中的 name 字段和 status 字段 (by [@yawuling](https://github.com/yawuling) )
 
 #### 优化
 
 - ActionSheet
-  - 给列表添加最大高度限制，为选项过多的情况做展示兜底 (by [@yawuling](https://github.com/yawuling) ) )
+  - 给列表添加最大高度限制，为选项过多的情况做展示兜底 (by [@yawuling](https://github.com/yawuling) )
 - Cell
-  - 将右侧value值的字号从12px调整为14px (by [@yawuling](https://github.com/yawuling) ) )
+  - 将右侧value值的字号从12px调整为14px (by [@yawuling](https://github.com/yawuling) )
 - CheckBox
-  - `true-value` 和 `false-value` 支持空字符串 (by [@yawuling](https://github.com/yawuling) ) )
-  - 图标添加 line-height 避免被外部样式干扰导致错位 (by [@yawuling](https://github.com/yawuling) ) )
+  - `true-value` 和 `false-value` 支持空字符串 (by [@yawuling](https://github.com/yawuling) )
+  - 图标添加 line-height 避免被外部样式干扰导致错位 (by [@yawuling](https://github.com/yawuling) )
 - ColPicker
-  - 修改 loading 类型 (by [@yawuling](https://github.com/yawuling) ) )
+  - 修改 loading 类型 (by [@yawuling](https://github.com/yawuling) )
 - ImgPreview
-  - `open`、`long-tap` 事件添加 `index` 参数回调 (by [@yawuling](https://github.com/yawuling) ) )
+  - `open`、`long-tap` 事件添加 `index` 参数回调 (by [@yawuling](https://github.com/yawuling) )
 - Input
-  - `min`, `max` 属性删除，在移动端无效，建议用 `InputNumber` (by [@yawuling](https://github.com/yawuling) ) )
+  - `min`, `max` 属性删除，在移动端无效，建议用 `InputNumber` (by [@yawuling](https://github.com/yawuling) )
 - Loading
-  - 去掉1.0中的 loading 类型，并做好向下兼容 (by [@yawuling](https://github.com/yawuling) ) )
+  - 去掉1.0中的 loading 类型，并做好向下兼容 (by [@yawuling](https://github.com/yawuling) )
 - Picker
-  - 去掉 取消 和 完成 按钮的点击态 (by [@yawuling](https://github.com/yawuling) ) )
+  - 去掉 取消 和 完成 按钮的点击态 (by [@yawuling](https://github.com/yawuling) )
 - Radio
-  - 优化 dot 类型的动画 (by [@yawuling](https://github.com/yawuling) ) )
-  - 图标添加 line-height 避免被外部样式干扰导致错位 (by [@yawuling](https://github.com/yawuling) ) )
+  - 优化 dot 类型的动画 (by [@yawuling](https://github.com/yawuling) )
+  - 图标添加 line-height 避免被外部样式干扰导致错位 (by [@yawuling](https://github.com/yawuling) )
 - Rate
   - `active-color` 支持数组，支持设置两种颜色 (by [@awjing](https://github.com/awjing) )
 - StatusTip
-  - 更新占位图，清晰部分细节 (by [@yawuling](https://github.com/yawuling) ) )
+  - 更新占位图，清晰部分细节 (by [@yawuling](https://github.com/yawuling) )
 - Sticky
-  - 优化实现，去掉 `container` 属性，改为自动获取 (by [@yawuling](https://github.com/yawuling) ) )
+  - 优化实现，去掉 `container` 属性，改为自动获取 (by [@yawuling](https://github.com/yawuling) )
 - Upload
   - 添加国际化支持 (by [@HXCStudio123](https://github.com/HXCStudio123) )
-  - 上传进度取整展示 (by [@yawuling](https://github.com/yawuling) ) )
-  - 上传失败不展示文件名 (by [@yawuling](https://github.com/yawuling) ) )
-  - 修正事件传递和参数传递 (by [@yawuling](https://github.com/yawuling) ) )
+  - 上传进度取整展示 (by [@yawuling](https://github.com/yawuling) )
+  - 上传失败不展示文件名 (by [@yawuling](https://github.com/yawuling) )
+  - 修正事件传递和参数传递 (by [@yawuling](https://github.com/yawuling) )
 - Locale
-  - 添加 泰文 th-TH (by [@yawuling](https://github.com/yawuling) ) )
-  - 优化 英文 en-US (by [@yawuling](https://github.com/yawuling) ) )
+  - 添加 泰文 th-TH (by [@yawuling](https://github.com/yawuling) )
+  - 优化 英文 en-US (by [@yawuling](https://github.com/yawuling) )
 
 #### Bug 修复
 
 - ActionSheet
-  - 将 button 标签替换为 div，避免触发 form 标签的提交操作 (by [@yawuling](https://github.com/yawuling) ) )
-  - 修复 `close-on-click-modal` 的使用 (by [@yawuling](https://github.com/yawuling) ) )
+  - 将 button 标签替换为 div，避免触发 form 标签的提交操作 (by [@yawuling](https://github.com/yawuling) )
+  - 修复 `close-on-click-modal` 的使用 (by [@yawuling](https://github.com/yawuling) )
 - Collapse
-  - 修正 `line-num` 字段名 (by [@yawuling](https://github.com/yawuling) ) )
-  - 将展开收起设置为行内块 (by [@yawuling](https://github.com/yawuling) ) )
+  - 修正 `line-num` 字段名 (by [@yawuling](https://github.com/yawuling) )
+  - 将展开收起设置为行内块 (by [@yawuling](https://github.com/yawuling) )
 - DatetimePicker
-  - 修复 CDN 引用方式内存溢出问题 (by [@yawuling](https://github.com/yawuling) ) )
-  - 修复时间范围类型 value 的数值初始化bug (by [@yawuling](https://github.com/yawuling) ) )
-  - 修复 `value` 为 undefined 时的取值异常 (by [@yawuling](https://github.com/yawuling) ) )
+  - 修复 CDN 引用方式内存溢出问题 (by [@yawuling](https://github.com/yawuling) )
+  - 修复时间范围类型 value 的数值初始化bug (by [@yawuling](https://github.com/yawuling) )
+  - 修复 `value` 为 undefined 时的取值异常 (by [@yawuling](https://github.com/yawuling) )
 - ImgPreview
-  - 按需引入 $preview 函数名称修正 (by [@yawuling](https://github.com/yawuling) ) )
+  - 按需引入 $preview 函数名称修正 (by [@yawuling](https://github.com/yawuling) )
   - 按需引入找不到组件 Bug 修复 (by [@HXCStudio123](https://github.com/HXCStudio123) )
 - MessageBox
   - 按需引入找不到组件 Bug 修复 (by [@HXCStudio123](https://github.com/HXCStudio123) )
 - Picker
-  - 将 button 标签替换为 div，避免触发 form 标签的提交操作 (by [@yawuling](https://github.com/yawuling) ) )
-  - 修正设置 `arrow-html` 属性，回显没有按照 html 渲染的问题 (by [@yawuling](https://github.com/yawuling) ) )
-  - 修复未选择取消后再次进入选中为数组格式 (by [@yawuling](https://github.com/yawuling) ) )
+  - 将 button 标签替换为 div，避免触发 form 标签的提交操作 (by [@yawuling](https://github.com/yawuling) )
+  - 修正设置 `arrow-html` 属性，回显没有按照 html 渲染的问题 (by [@yawuling](https://github.com/yawuling) )
+  - 修复未选择取消后再次进入选中为数组格式 (by [@yawuling](https://github.com/yawuling) )
 - PickerView
-  - 去掉 ul 默认样式 (by [@yawuling](https://github.com/yawuling) ) )
+  - 去掉 ul 默认样式 (by [@yawuling](https://github.com/yawuling) )
 - PullRefresh
   - 按需引入找不到组件 Bug 修复 (by [@HXCStudio123](https://github.com/HXCStudio123) )
 - Rate
-  - 去掉 ul 默认样式 (by [@yawuling](https://github.com/yawuling) ) )
+  - 去掉 ul 默认样式 (by [@yawuling](https://github.com/yawuling) )
 - Search
-  - 修复垂直居中问题 (by [@yawuling](https://github.com/yawuling) ) )
+  - 修复垂直居中问题 (by [@yawuling](https://github.com/yawuling) )
 - Tabs
-  - 将 button 标签替换为 div，避免触发 form 标签的提交操作 (by [@yawuling](https://github.com/yawuling) ) )
-  - 修改 `change` 和 `click` 触发时机 (by [@yawuling](https://github.com/yawuling) ) )
+  - 将 button 标签替换为 div，避免触发 form 标签的提交操作 (by [@yawuling](https://github.com/yawuling) )
+  - 修改 `change` 和 `click` 触发时机 (by [@yawuling](https://github.com/yawuling) )
 - Upload
-  - 修复上传时文件没有携带上去的问题 (by [@yawuling](https://github.com/yawuling) ) )
+  - 修复上传时文件没有携带上去的问题 (by [@yawuling](https://github.com/yawuling) )
 
 ### 2.1.0
 
@@ -169,13 +189,13 @@
   - 新增属性 `top` 为正时表示角标向下偏移对应的像素 (by [@awjing](https://github.com/awjing) )
   - 新增属性 `right` 为正时表示角标向左偏移对应的像素 (by [@awjing](https://github.com/awjing) )
 - Button
-  - click 事件抛出event对象 (by [@yawuling](https://github.com/yawuling)） )
+  - click 事件抛出event对象 (by [@yawuling](https://github.com/yawuling) )
   - type 默认值改为 `primary` (by [@HXCStudio123](https://github.com/HXCStudio123) )
   - round 默认值改为 `true` (by [@HXCStudio123](https://github.com/HXCStudio123) )
 - Card
   - 新增卡片组件 Card  (by [@awjing](https://github.com/awjing) )
 - Cell
-  - 新增属性 `required`, 支持表单属性设置必填项 (by [@yawuling](https://github.com/yawuling) ) )
+  - 新增属性 `required`, 支持表单属性设置必填项 (by [@yawuling](https://github.com/yawuling) )
   - 新增属性 `vertical`, 支持表单属性展示为上下结构 (by [@yawuling](https://github.com/yawuling) )
 - CellGroup
   - 新增属性 `border`, 支持设置表单组是否展示边框线 (by [@HXCStudio123](https://github.com/HXCStudio123) )
@@ -187,7 +207,7 @@
 - Curtain
   - 新增 Curtain 幕帘组件 (by [@RedJoy](https://github.com/RedJoy) )
 - Divider
-  - 新增 Divider 分割线组件 （by [@yawuling](https://github.com/yawuling)）
+  - 新增 Divider 分割线组件 (by [@yawuling](https://github.com/yawuling) )
 - DatetimePicker
   - 属性 `value` 添加 `Array` 格式，用来支持时间范围选择。 (by [@HXCStudio123](https://github.com/HXCStudio123) )
   - 新增属性 `columns-height`, 支持设置 picker 内部的单个 pickerView 高 (by [@HXCStudio123](https://github.com/HXCStudio123) )
@@ -197,8 +217,8 @@
   - 新增默认插槽，可更改默认唤起 picker 的形式（默认为cell）。(by [@HXCStudio123](https://github.com/HXCStudio123) )
   - 将 pickerView 交互形式更改为滚筒交互。 (by [@HXCStudio123](https://github.com/HXCStudio123) )
   - 新增属性 `loading-color`, 支持修改加载的颜色 (by [@HXCStudio123](https://github.com/HXCStudio123) )
-  - 展开弹出框事件名称由 `showPicker` 改为 `open`。（by [@yawuling](https://github.com/yawuling)）
-  - 新增方法 `close`, 支持关闭弹出框 (by [@yawuling](https://github.com/yawuling)） )
+  - 展开弹出框事件名称由 `showPicker` 改为 `open`。(by [@yawuling](https://github.com/yawuling) )
+  - 新增方法 `close`, 支持关闭弹出框 (by [@yawuling](https://github.com/yawuling) )
   - 新增方法 `toggle`, 在区域选择模式下，tab标签切换时触发 (by [@HXCStudio123](https://github.com/HXCStudio123) )
   - 新增属性 `display-format-tab-label`, 在区域选择模式下，自定义展示tab标签文案的格式化函数，返回一个字符串 (by [@HXCStudio123](https://github.com/HXCStudio123) )
 - DatetimePickerView
@@ -209,14 +229,14 @@
   - 将 pickerView 交互形式更改为滚筒交互。 (by [@HXCStudio123](https://github.com/HXCStudio123) )
   - 新增属性 `loading-color`, 支持修改加载的颜色 (by [@HXCStudio123](https://github.com/HXCStudio123) )
 - DropMenu
-  - 重构下拉菜单组件，优化其体验性及扩展性，自定义菜单选项功能移除原来的插槽 `custom`，采用组件外部flex布局添加新菜单选项  （by [@yawuling](https://github.com/yawuling)）
-  - 移除属性 `active-color` （by [@yawuling](https://github.com/yawuling)）
-  - 将组件 `DropMenuItem` 中的属性 `modal` 移至 `DropMenu` 控制是否展示蒙层 （by [@yawuling](https://github.com/yawuling)）
-  - 将组件 `DropMenuItem` 中的属性 `close-on-click-modal` 移至 `DropMenu`  控制是否点击蒙层时关闭 （by [@yawuling](https://github.com/yawuling)）
+  - 重构下拉菜单组件，优化其体验性及扩展性，自定义菜单选项功能移除原来的插槽 `custom`，采用组件外部flex布局添加新菜单选项 (by [@yawuling](https://github.com/yawuling) )
+  - 移除属性 `active-color` (by [@yawuling](https://github.com/yawuling) )
+  - 将组件 `DropMenuItem` 中的属性 `modal` 移至 `DropMenu` 控制是否展示蒙层 (by [@yawuling](https://github.com/yawuling) )
+  - 将组件 `DropMenuItem` 中的属性 `close-on-click-modal` 移至 `DropMenu`  控制是否点击蒙层时关闭 (by [@yawuling](https://github.com/yawuling) )
 - DropMenuItem
-  - 移除插槽 `menu` （by [@yawuling](https://github.com/yawuling)）
-  - 新增插槽 `default`  （by [@yawuling](https://github.com/yawuling)）
-  - 新增插槽 `title`  （by [@yawuling](https://github.com/yawuling)）
+  - 移除插槽 `menu` (by [@yawuling](https://github.com/yawuling) )
+  - 新增插槽 `default`  (by [@yawuling](https://github.com/yawuling) )
+  - 新增插槽 `title`  (by [@yawuling](https://github.com/yawuling) )
 - Grid
   - 新增属性 `bg-color`, 支持宫格设置背景颜色 (by [@HXCStudio123](https://github.com/HXCStudio123) )
 - ImgPreview
@@ -227,7 +247,7 @@
   - 新增事件 `click-prefix-icon`, 点击前置图标时触发 (by [@yawuling](https://github.com/yawuling) )
   - 新增事件 `click-suffix-icon`, 点击后置图标时触发 (by [@yawuling](https://github.com/yawuling) )
 - Loading
-  - 属性 `type` 新增类型 `circle-outline` loading样式 和 `circular-ring` loading 样式 (by [@HXCStudio123](https://github.com/HXCStudio123) ) )
+  - 属性 `type` 新增类型 `circle-outline` loading样式 和 `circular-ring` loading 样式 (by [@HXCStudio123](https://github.com/HXCStudio123) )
 - Navbar
   - 新增默认插槽，可更改标题处展示样式。(by [@HXCStudio123](https://github.com/HXCStudio123) )
 - NoticeBar
@@ -245,8 +265,8 @@
   - 将 pickerView 交互形式更改为滚筒交互。 (by [@HXCStudio123](https://github.com/HXCStudio123) )
   - 新增默认插槽，可更改默认唤起 picker 的形式（默认为cell）。(by [@HXCStudio123](https://github.com/HXCStudio123) )
   - 新增属性 `loading-color`, 支持修改加载的颜色 (by [@HXCStudio123](https://github.com/HXCStudio123) )
-  - 展开弹出框事件名称由 `showPicker` 改为 `open`。（by [@yawuling](https://github.com/yawuling)）
-  - 新增方法 `close`, 支持关闭弹出框 (by [@yawuling](https://github.com/yawuling)） )
+  - 展开弹出框事件名称由 `showPicker` 改为 `open`。（(by [@yawuling](https://github.com/yawuling) )
+  - 新增方法 `close`, 支持关闭弹出框 (by [@yawuling](https://github.com/yawuling) )
 - PickerView
   - 新增属性 `columns-height`, 支持设置 pickerView 高 (by [@HXCStudio123](https://github.com/HXCStudio123) )
   - 移除属性 `item-height` (by [@HXCStudio123](https://github.com/HXCStudio123) )
@@ -269,9 +289,9 @@
 - SelectPicker
   - 新增组件 SelectPicker 。 (by [@HXCStudio123](https://github.com/HXCStudio123))
 - SortButton
-  - 排序按钮组件重构，移除控制颜色的属性 `color` / `title-color`  （by [@yawuling](https://github.com/yawuling)）
-  - 交互形式默认改为 点击排序后只保留一个当前状态箭头，移除属性 `one-arrow`  （by [@yawuling](https://github.com/yawuling)）
-  - 新增属性 `desc-first`  优先切换为降序，不开启则默认优先切换为升序 （by [@yawuling](https://github.com/yawuling)）
+  - 排序按钮组件重构，移除控制颜色的属性 `color` / `title-color` (by [@yawuling](https://github.com/yawuling) )
+  - 交互形式默认改为 点击排序后只保留一个当前状态箭头，移除属性 `one-arrow` (by [@yawuling](https://github.com/yawuling) )
+  - 新增属性 `desc-first`  优先切换为降序，不开启则默认优先切换为升序 (by [@yawuling](https://github.com/yawuling) )
 - Tabbar（TabbarItem）
   - 新增属性 `active-icon` 选中图标的类名 (by [@awjing](https://github.com/awjing) )
   - 新增属性 `top` 为正时表示角标向下偏移对应的像素 (by [@awjing](https://github.com/awjing) )
@@ -307,9 +327,9 @@
   - 属性 `min` 支持动态修改后重置值 （by [@HXCStudio123](https://github.com/HXCStudio123) ）
   - 属性 `max` 支持动态修改后重置值 （by [@HXCStudio123](https://github.com/HXCStudio123) ）
 - LazyLoad
-  - 图片懒加载兜底图优化 （by [@yawuling](https://github.com/yawuling)）
+  - 图片懒加载兜底图优化 (by [@yawuling](https://github.com/yawuling) )
 - MessageBox
-  - 动画时间由300ms改为200ms，减少等待时间 （by [@yawuling](https://github.com/yawuling)）
+  - 动画时间由300ms改为200ms，减少等待时间 (by [@yawuling](https://github.com/yawuling) )
 - Status Tip
   - 属性 `type` 下的七种类型 对应缺省展示图片更改。 (by [@awjing](https://github.com/awjing))
 
@@ -318,19 +338,19 @@
 - Checkbox
   - 修复复选框组禁用模式下，单项禁用失效问题 (by [@HXCStudio123](https://github.com/HXCStudio123) )
 - PickerView
-  - 修复columns延迟传入时无法自动选中第一项的问题；修复columns延迟传入时picker重置数据的记录 (by [@yawuling](https://github.com/yawuling)） )
+  - 修复columns延迟传入时无法自动选中第一项的问题；修复columns延迟传入时picker重置数据的记录 (by [@yawuling](https://github.com/yawuling) )
 - Popup
-  - 修复按需引入popup和messageBox缺少modal样式问题 (by [@yawuling](https://github.com/yawuling)） )
+  - 修复按需引入popup和messageBox缺少modal样式问题 (by [@yawuling](https://github.com/yawuling) )
 - StatusTip
-  - 去掉占位图的白色背景，将图片从base64改为图片链接以减少包大小 (by [@yawuling](https://github.com/yawuling)） )
+  - 去掉占位图的白色背景，将图片从base64改为图片链接以减少包大小 (by [@yawuling](https://github.com/yawuling) )
 - Cell
-  - 修复边框线样式calc计算无效问题 (by [@yawuling](https://github.com/yawuling)） )
+  - 修复边框线样式calc计算无效问题 (by [@yawuling](https://github.com/yawuling) )
 - InfiniteLoad
-  - 修复finished和error后还反复触发 loadmore 事件 （by [@yawuling](https://github.com/yawuling)）
+  - 修复finished和error后还反复触发 loadmore 事件 (by [@yawuling](https://github.com/yawuling) )
 - Search
-  - 修复搜索框点清空按钮，placeholder 未居左的问题 （by [@yawuling](https://github.com/yawuling)）
+  - 修复搜索框点清空按钮，placeholder 未居左的问题 (by [@yawuling](https://github.com/yawuling) )
 - Tabs
-  - 修复 sticky 按需引入无样式问题  （by [@yawuling](https://github.com/yawuling)）
+  - 修复 sticky 按需引入无样式问题 (by [@yawuling](https://github.com/yawuling) )
 
 ### 2.0.0-beta3
 
