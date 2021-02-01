@@ -2,6 +2,7 @@
   "action-sheet": "./packages/action-sheet/index.js",
   "badge": "./packages/badge/index.js",
   "button": "./packages/button/index.js",
+  "calendar-view": "./packages/calendar-view/index.js",
   "cell": "./packages/cell/index.js",
   "cell-group": "./packages/cell-group/index.js",
   "checkbox": "./packages/checkbox/index.js",

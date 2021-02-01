@@ -27,6 +27,8 @@
 - title: 数据输入
   icon: //img10.360buyimg.com/jmadvertisement/jfs/t1/95180/24/842/200/5db52eb0E1070b290/055da7b5938eff6e.png
   children:
+    - name: calendarView
+      title: CalendarView 日历面板
     - name: checkbox
       title: Checkbox 复选框
     - name: colPicker
