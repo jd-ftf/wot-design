@@ -181,6 +181,7 @@ export default {
 | title | 标题 | string | - | - |
 | cancel-text | 取消按钮文案 | string | - | - |
 | close-on-click-action | 点击选项后是否关闭菜单 | boolean | - | true |
+| close-on-popstate | 页面返回时自动关闭 | boolean | - | true |
 | lock-scroll | 锁定背景滚动 | boolean | - | true |
 | close-on-click-modal | 点击遮罩是否关闭 | boolean | - | true | 
 | duration | 动画持续时间 | number | - | 200(ms) |

@@ -36,6 +36,10 @@ export default {
       type: Boolean,
       default: true
     },
+    closeOnPopstate: {
+      type: Boolean,
+      default: true
+    },
     zIndex: Number,
     duration: {
       type: Number,
@@ -148,6 +152,10 @@ export default {
         const container = document.querySelector(to)
         container.appendChild(this.$el)
       }
+    },
+    handlePopstate () {
+      this.$emit('popstate')
+      this.close()
     }
   },
   mounted () {
@@ -158,6 +166,10 @@ export default {
     if (this.value) {
       this.open()
     }
+
+    if (this.closeOnPopstate) {
+      window.addEventListener('popstate', this.handlePopstate)
+    }
   },
   beforeDestroy () {
     if (this.teleport) {
@@ -166,13 +178,9 @@ export default {
     }
 
     this.close()
-  },
-  activated () {
-    if (this.value) {
-      this.open()
+
+    if (this.closeOnPopstate) {
+      window.removeEventListener('popstate', this.handlePopstate)
     }
-  },
-  deactivated () {
-    this.close()
   }
 }

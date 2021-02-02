@@ -41,6 +41,7 @@
       :duration="250"
       :title="title || t('wd.colPicker.title')"
       :close-on-click-modal="closeOnClickModal"
+      :close-on-popstate="closeOnPopstate"
       @close="handlePickerClose"
     >
       <div class="wd-select-picker__wrapper">
@@ -161,6 +162,10 @@ export default {
       default: '确定'
     },
     closeOnClickModal: {
+      type: Boolean,
+      default: true
+    },
+    closeOnPopstate: {
       type: Boolean,
       default: true
     }

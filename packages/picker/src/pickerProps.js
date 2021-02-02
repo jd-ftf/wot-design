@@ -26,5 +26,9 @@ export default {
   closeOnClickModal: {
     type: Boolean,
     default: true
+  },
+  closeOnPopstate: {
+    type: Boolean,
+    default: true
   }
 }

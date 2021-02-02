@@ -4,6 +4,7 @@
     position="center"
     :teleport="teleport"
     :close-on-click-modal="closeOnClickModal"
+    :close-on-popstate="closeOnPopstate"
     transition="wd-zoom-in"
     @open="open"
     @opened="opened"
@@ -37,6 +38,10 @@ export default {
     to: String,
     width: String,
     closeOnClickModal: Boolean,
+    closeOnPopstate: {
+      type: Boolean,
+      default: true
+    },
     teleport: [String, Object]
   },
 

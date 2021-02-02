@@ -14,6 +14,7 @@ let defaults = {
   type: 'alert',
   showInput: false,
   closeOnClickModal: true, // 是否可以点击幕布关闭
+  closeOnPopstate: true, // 是否返回时关闭
   inputType: 'text', // prompt中input类型
   inputValue: '', // prompt中input数据
   inputPattern: '', // prompt中验证input数据的正则表达式

@@ -41,6 +41,7 @@
       :duration="250"
       :title="title || t('wd.colPicker.title')"
       :close-on-click-modal="closeOnClickModal"
+      :close-on-popstate="closeOnPopstate"
       @close="handlePickerClose"
     >
       <div class="wd-col-picker__selected" ref="selectedVisible">
@@ -164,25 +165,17 @@ export default {
       type: Boolean,
       default: true
     },
-    autoComplete: Boolean
+    autoComplete: Boolean,
+    closeOnPopstate: {
+      type: Boolean,
+      default: true
+    }
   },
   watch: {
     value: {
       handler (val) {
-        let jumpFlag = false
-        val && val.some((value, index) => {
-          if (jumpFlag) return true
-          this.selectList[index] && this.selectList[index].some((selectItem, selectIndex) => {
-            // 当前 value 对应项在 columns 中能成功匹配，继续匹配下一项
-            if (value === selectItem.value) return true
-            // 直到最后一项 value 也不能在 columns 中匹配，则更新 columns 数据
-            if (selectIndex === this.selectList[index].length - 1) {
-              this.selectList = this.columns.slice(0)
-              this.isCompleting = false
-              jumpFlag = true
-            }
-          })
-        })
+        this.checkValueData()
+
         this.pickerColSelected = val
         this.setShowValue()
         if (this.autoComplete) {
@@ -238,6 +231,28 @@ export default {
     close () {
       this.pickerShow = false
       this.handlePickerClose()
+    },
+
+    // 检测 selectList 中是否匹配 value，不匹配则重置 selectList
+    checkValueData () {
+      const valueMatchData = this.value.every((val, index) => {
+        if (this.selectList[index]) {
+          const isMatch = this.selectList[index].some(item => {
+            if (item[this.valueKey] === val) {
+              return true
+            }
+          })
+
+          return isMatch
+        }
+
+        return false
+      })
+
+      if (!valueMatchData) {
+        this.selectList = this.columns.slice(0)
+        this.isCompleting = false
+      }
     },
 
     handlePickerClose () {

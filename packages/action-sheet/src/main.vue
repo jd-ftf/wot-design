@@ -8,7 +8,9 @@
     :value="value"
     position="bottom"
     :close-on-click-modal="closeOnClickModal"
+    :close-on-popstate="closeOnPopstate"
     @click-modal="handleClickModal"
+    @popstate="close"
     @opened="handleOpened"
     @closed="handleClosed"
   >
@@ -100,6 +102,10 @@ export default {
     duration: {
       type: Number,
       default: 200
+    },
+    closeOnPopstate: {
+      type: Boolean,
+      default: true
     }
   },
   computed: {
@@ -148,12 +154,6 @@ export default {
     handleClosed () {
       this.$emit('closed')
     }
-  },
-  mounted () {
-    window.addEventListener('popstate', this.close)
-  },
-  beforeDestroy () {
-    window.removeEventListener('popstate', this.close)
   }
 }
 </script>
