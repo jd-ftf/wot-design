@@ -24,7 +24,7 @@
       <div v-if="title" class="wd-message-box__title">{{ title }}</div>
       <div class="wd-message-box__content">
         <slot v-if="type !== 'prompt'">
-          <div v-html="msg"></div>
+          <div class="wd-message-box__content-text" v-html="msg"></div>
         </slot>
         <template v-else>
           <div class="wd-message-box__input-container">
@@ -114,7 +114,11 @@ export default {
       type: Boolean,
       default: true
     },
-    teleport: [String, Object]
+    teleport: [String, Object],
+    overflow: {
+      type: Boolean,
+      default: true
+    }
   },
   watch: {
     inputValue (value, oldValue) {

@@ -27,8 +27,6 @@
 
 - ColPicker
   - value 重新赋值时需重置选项 (by [@yawuling](https://github.com/yawuling) )
-- Input
-  - 修复因 overflow: hidden 导致部分 iOS 系统在定位使用 input 时无法聚焦的问题 (by [@yawuling](https://github.com/yawuling) )
 - MessageBox
   - 修复在部分手机上的兼容性问题 (by [@yawuling](https://github.com/yawuling) )
 - Search
