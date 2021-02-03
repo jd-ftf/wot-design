@@ -29,10 +29,7 @@
     max-height: $-message-box-content-max-height;
     color: $-message-box-content-color;
     font-size: $-message-box-content-fs;
-    text-align: center;
-    overflow: auto;
     line-height: 1.43;
-    word-break: break-all;
 
     &::-webkit-scrollbar {
       width: $-message-box-content-scrollbar-width;
@@ -42,6 +39,12 @@
       background: $-message-box-content-scrollbar-color;
       border-radius: $-message-box-content-scrollbar-width / 2;
     }
+  }
+  @include e(content-text) {
+    max-height: $-message-box-content-max-height;
+    overflow: auto;
+    word-break: break-all;
+    text-align: center;
   }
   @include e(input-container) {
     margin-top: 12px;
