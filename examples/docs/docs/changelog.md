@@ -27,6 +27,8 @@
 
 - ColPicker
   - value 重新赋值时需重置选项 (by [@yawuling](https://github.com/yawuling) )
+- MessageBox
+  - 修复在部分手机上的兼容性问题 (by [@yawuling](https://github.com/yawuling) )
 - Search
   - 修复clear事件晚于blur事件触发 (by [@HXCStudio123](https://github.com/HXCStudio123) )
 
