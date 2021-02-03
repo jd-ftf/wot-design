@@ -28,8 +28,8 @@ const merge = (target, ...args) => {
   for (let i = 0; i < args.length; i++) {
     let source = args[i]
     if (source) {
-      for (let [key, value] of Object.entries(source)) {
-        target[key] = value
+      for (let key in source) {
+        target[key] = source[key]
       }
     }
   }
@@ -94,8 +94,8 @@ let showNextMsg = () => {
       currentMsg = msgQueue.shift()
 
       let options = currentMsg.options
-      for (let [key, value] of Object.entries(options)) {
-        instance[key] = value
+      for (let key in options) {
+        instance[key] = options[key]
       }
       if (options.callback === undefined) {
         instance.callback = defaultCallback
