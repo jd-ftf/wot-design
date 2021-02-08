@@ -162,7 +162,33 @@ export default {
 
     setColumnData (columnIndex, data) {
       const column = this.children[columnIndex]
-      if (column && JSON.stringify(column.data) !== JSON.stringify(data)) {
+      const columnData = column.data.map(item => {
+        if (typeof item === 'object') {
+          return {
+            label: item.label,
+            value: item.value || item.label
+          }
+        } else {
+          return {
+            label: item,
+            value: item
+          }
+        }
+      })
+      const newData = data.map(item => {
+        if (typeof item === 'object') {
+          return {
+            label: item.label,
+            value: item.value || item.label
+          }
+        } else {
+          return {
+            label: item,
+            value: item
+          }
+        }
+      })
+      if (column && JSON.stringify(columnData) !== JSON.stringify(newData)) {
         column.data = data
         column.setIndex(0, false)
       }

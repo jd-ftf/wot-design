@@ -63,6 +63,8 @@
         - type: group
           title: 数据输入
           children:
+            - name: calendarView
+              title: CalendarView 日历面板
             - name: checkbox
               title: Checkbox 复选框
             - name: colPicker

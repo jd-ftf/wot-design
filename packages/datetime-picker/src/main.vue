@@ -33,52 +33,54 @@
           <li>{{ showTabLabel[1] }}</li>
         </ul>
       </div>
-      <!-- 开始 -->
-      <wd-picker-view
-        v-show="showStart"
-        ref="pickerView"
-        v-model="innerValue"
-        :type="type"
-        :loading="loading"
-        :loading-color="loadingColor"
-        :filter="filter"
-        :formatter="formatter"
-        :arrow-html="arrowHtml"
-        :value-key="valueKey"
-        :label-key="labelKey"
-        :min-date="minDate"
-        :max-date="maxDate"
-        :min-hour="minHour"
-        :max-hour="maxHour"
-        :max-minute="maxMinute"
-        :min-minute="minMinute"
-        :columns-height="columnsHeight"
-        :start-symbol="true"
-        :column-formatter="region ? customColumnFormatter : null"
-      />
-      <!-- 结束 -->
-      <!-- 如果有结束事件那么是范围选择模式，该模式仅在时间选择下有效 -->
-      <wd-picker-view
-        v-if="region"
-        v-show="!showStart"
-        ref="endPickerView"
-        v-model="end.innerValue"
-        :type="type"
-        :loading="loading"
-        :loading-color="loadingColor"
-        :filter="filter"
-        :formatter="formatter"
-        :arrow-html="arrowHtml"
-        :value-key="valueKey"
-        :min-date="minDate"
-        :max-date="maxDate"
-        :min-hour="minHour"
-        :max-hour="maxHour"
-        :max-minute="maxMinute"
-        :min-minute="minMinute"
-        :columns-height="columnsHeight"
-        :column-formatter="customColumnFormatter"
-      />
+      <div class="wd-picker__container">
+        <!-- 开始 -->
+        <wd-picker-view
+          v-show="showStart"
+          ref="pickerView"
+          v-model="innerValue"
+          :type="type"
+          :loading="loading"
+          :loading-color="loadingColor"
+          :filter="filter"
+          :formatter="formatter"
+          :arrow-html="arrowHtml"
+          :value-key="valueKey"
+          :label-key="labelKey"
+          :min-date="minDate"
+          :max-date="maxDate"
+          :min-hour="minHour"
+          :max-hour="maxHour"
+          :max-minute="maxMinute"
+          :min-minute="minMinute"
+          :columns-height="columnsHeight"
+          :start-symbol="true"
+          :column-formatter="region ? customColumnFormatter : null"
+        />
+        <!-- 结束 -->
+        <!-- 如果有结束事件那么是范围选择模式，该模式仅在时间选择下有效 -->
+        <wd-picker-view
+          v-if="region"
+          v-show="!showStart"
+          ref="endPickerView"
+          v-model="end.innerValue"
+          :type="type"
+          :loading="loading"
+          :loading-color="loadingColor"
+          :filter="filter"
+          :formatter="formatter"
+          :arrow-html="arrowHtml"
+          :value-key="valueKey"
+          :min-date="minDate"
+          :max-date="maxDate"
+          :min-hour="minHour"
+          :max-hour="maxHour"
+          :max-minute="maxMinute"
+          :min-minute="minMinute"
+          :columns-height="columnsHeight"
+          :column-formatter="customColumnFormatter"
+        />
+      </div>
     </wd-popup>
   </div>
 </template>

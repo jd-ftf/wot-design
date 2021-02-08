@@ -115,6 +115,11 @@ export default {
         this.transformY = 0
         this.setMove(-this.itemHeight * val, 'end', 0, false)
       }
+    },
+    data (val) {
+      if (val[this.selectedIndex].disabled) {
+        this.setIndex(this.selectedIndex, true)
+      }
     }
   },
 
@@ -218,7 +223,7 @@ export default {
         if (typeof this.data[i] !== 'object' || !this.data[i].disabled) return i
       }
 
-      for (let i = this.length - 1; i >= index; i--) {
+      for (let i = index; i > 0; i--) {
         if (typeof this.data[i] !== 'object' || !this.data[i].disabled) return i
       }
     },

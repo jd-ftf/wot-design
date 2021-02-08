@@ -13,7 +13,7 @@
         'wd-month-panel__container--time': !!timeType
       }"
       :style="{
-        height: !!timeType ? ((panelHeight || 378) - 125) : (panelHeight || 378) + 'px'
+        height: (timeType ? ((panelHeight || 378) - 125) : (panelHeight || 378)) + 'px'
       }"
     >
       <month
@@ -40,7 +40,7 @@
       </div>
       <div class="wd-month-panel__time-picker">
         <wd-picker-view
-          :value="timeValue"
+          v-model="timeValue"
           :columns="timeData"
           :columns-height="125"
           @change="handleTimeChange"
@@ -82,7 +82,8 @@ export default {
       title: '',
       timeValue: [],
       timeData: [],
-      timeType: ''
+      timeType: '',
+      innerValue: ''
     }
   },
   computed: {
@@ -97,6 +98,25 @@ export default {
       }
 
       return months
+    }
+  },
+  watch: {
+    value: {
+      handler (val) {
+        if (isEqual(val, this.innerValue)) return
+
+        if ((this.type === 'datetime' && val) || (this.type === 'datetimerange' && val && val.length > 0 && val[0])) {
+          this.timeType = 'start'
+          this.setTime(val, 'start')
+        }
+      },
+      immediate: true
+    },
+    type (val) {
+      if ((val === 'datetime' && this.value) || (val === 'datetimerange' && this.value && this.value.length > 0 && this.value[0])) {
+        this.timeType = 'start'
+        this.setTime(this.value, 'start')
+      }
     }
   },
   mounted () {
@@ -170,7 +190,8 @@ export default {
 
       this.months.some((month, index) => {
         if (compareMonth(month, activeDate) === 0) {
-          this.$refs.months[index].$el.scrollIntoView(true)
+          const { container, months } = this.$refs
+          container.scrollTop = months[index].$el.getBoundingClientRect().top - container.getBoundingClientRect().top + container.scrollTop
           return true
         }
 
@@ -234,12 +255,17 @@ export default {
       return this.hideSecond ? [hour, minute] : [hour, minute, second]
     },
     setTime (value, type) {
+      if (getType(value) === 'array' && value[0] && value[1] && type === 'start' && this.timeType === 'start') {
+        type = 'end'
+      }
+
       this.timeData = this.getTimeData(value, type)
       this.timeValue = this.getTimeValue(value, type)
       this.timeType = type
     },
     handleDateChange ({ value, type }) {
       if (!isEqual(value, this.value)) {
+        this.innerValue = value
         this.handleChange(value)
       }
       // datetime 和 datetimerange 类型，需要计算 timeData 并做展示
@@ -258,10 +284,7 @@ export default {
         date.setSeconds(this.hideSecond ? 0 : value[2])
         const dateTime = date.getTime()
 
-        this.setData({
-          timeData: this.getTimeData(dateTime),
-          timeValue: value
-        })
+        this.timeData = this.getTimeData(dateTime)
         this.handleChange(dateTime)
       } else {
         const [start, end] = this.value
@@ -281,6 +304,7 @@ export default {
           finalValue[1] = dateTime
         }
 
+        this.innerValue = finalValue
         this.timeData = this.getTimeData(finalValue, this.timeType)
 
         this.handleChange(finalValue)

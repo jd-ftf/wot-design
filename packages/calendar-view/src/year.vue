@@ -92,7 +92,7 @@ export default {
         const [startDate, endDate] = this.value || []
 
         if (startDate && compareMonth(date, startDate) === 0) {
-          if (this.allowSameDay && endDate && compareMonth(startDate, endDate) === 0) {
+          if (endDate && compareMonth(startDate, endDate) === 0) {
             return 'same'
           }
           return 'start'

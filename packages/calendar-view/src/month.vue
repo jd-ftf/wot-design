@@ -29,7 +29,6 @@ import Toast from 'wot-design/packages/toast'
 import { getType } from 'wot-design/src/utils'
 import {
   compareDate,
-  compareMonth,
   getMonthEndDay,
   getWeekRange,
   getDateByDefaultTime,
@@ -93,11 +92,6 @@ export default {
       if (this.type.indexOf('range') > -1) {
         if (!value || !value[1]) {
           classList.push('is-without-end')
-        } else if (value && value[0] && value[1]) {
-          if ((this.type === 'daterange' && compareDate(value[0], value[1]) === 0) ||
-            (this.type === 'monthrange' && compareMonth(value[0], value[1]) === 0)) {
-            classList.push('is-same-end')
-          }
         }
       }
 
@@ -273,7 +267,7 @@ export default {
       const compare = compareDate(date.date, startDate)
 
       // 禁止选择同个日期
-      if (!this.allowSameDay && compare === 0 && (this.type === 'datetime' || (this.type === 'datetimerange' && !endDate))) {
+      if (!this.allowSameDay && compare === 0 && (this.type === 'daterange' || this.type === 'datetimerange') && !endDate) {
         return
       }
 
@@ -310,8 +304,6 @@ export default {
       })
     },
     handleWeekChange (date) {
-      if (date.type === 'selected' || date.type === 'middle') return
-
       const [weekStart] = getWeekRange(date.date, this.firstDayOfWeek)
 
       // 周的第一天如果是禁用状态，则不可选中

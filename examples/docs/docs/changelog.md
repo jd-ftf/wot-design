@@ -6,6 +6,8 @@
 
 - ActionSheet
   - 新增 `close-on-popstate` 属性，返回时自动关闭 (by [@yawuling](https://github.com/yawuling) )
+- Calendar
+  - 新增日历面板组件 (by [@yawuling](https://github.com/yawuling) )
 - ColPicker
   - 新增 `close-on-popstate` 属性，返回时自动关闭 (by [@yawuling](https://github.com/yawuling) )
 - Curtain
@@ -22,6 +24,11 @@
   - 新增 `close-on-popstate` 属性，返回时自动关闭 (by [@yawuling](https://github.com/yawuling) )
 - SelectPicker
   - 新增 `close-on-popstate` 属性，返回时自动关闭 (by [@yawuling](https://github.com/yawuling) )
+
+#### 优化
+
+- PickerView
+  - 优化 `columns` 修改时的选中项重置逻辑，如果 `value`、`label` 相同则不重置选项 (by [@yawuling](https://github.com/yawuling) )
 
 #### Bug 修复
 

@@ -159,6 +159,10 @@
       color: $-color-white;
     }
   }
+
+  @include e(container) {
+    padding: 10px 0;
+  }
 }
 
 .wd-popup.wd-picker__popup {

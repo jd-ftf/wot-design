@@ -28,6 +28,18 @@
     <demo-block title="时间类型" :hor="0">
       <wd-calendar-view type="datetime" v-model="value4" />
     </demo-block>
+    <demo-block title="时间范围类型" :hor="0">
+      <wd-calendar-view type="datetimerange" allow-same-day v-model="value5" />
+    </demo-block>
+    <demo-block title="限制最大选择范围" :hor="0">
+      <wd-calendar-view type="daterange" :max-range="3" v-model="value6" />
+    </demo-block>
+    <demo-block title="自定义日期" :hor="0">
+      <wd-calendar-view type="daterange" v-model="value7" :formatter="formatter" />
+    </demo-block>
+    <demo-block title="设置周起始日" :hor="0">
+      <wd-calendar-view type="daterange" :first-day-of-week="1" v-model="value8" />
+    </demo-block>
   </div>
 </template>
 
@@ -37,10 +49,51 @@ export default {
     return {
       type1: 'date',
       type2: 'daterange',
-      value1: '',
+      value1: Date.now(),
       value2: '',
-      value3: '',
-      value4: Date.now()
+      value3: [Date.now() - 24 * 60 * 60 * 1000 * 3, Date.now() - 24 * 60 * 60 * 1000],
+      value4: Date.now(),
+      value5: [Date.now() - 24 * 60 * 60 * 1000 * 3, Date.now() - 24 * 60 * 60 * 1000],
+      value6: '',
+      value7: '',
+      value8: '',
+      formatter (day) {
+        const date = new Date(day.date)
+        const now = new Date()
+
+        const year = date.getFullYear()
+        const month = date.getMonth()
+        const da = date.getDate()
+        const nowYear = now.getFullYear()
+        const nowMonth = now.getMonth()
+        const nowDa = now.getDate()
+
+        if (year === nowYear && month === nowMonth && da === nowDa) {
+          day.topInfo = '今天'
+        }
+
+        if (month === 5 && da === 18) {
+          day.topInfo = '618大促'
+        }
+
+        if (month === 10 && da === 11) {
+          day.topInfo = '京东双11'
+        }
+
+        if (day.type === 'start') {
+          day.bottomInfo = '开始'
+        }
+
+        if (day.type === 'end') {
+          day.bottomInfo = '结束'
+        }
+
+        if (day.type === 'same') {
+          day.bottomInfo = '开始/结束'
+        }
+
+        return day
+      }
     }
   }
 }

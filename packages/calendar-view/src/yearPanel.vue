@@ -7,7 +7,7 @@
       ref="container"
       class="wd-year-panel__container"
       :style="{
-        height: (panelHeight || 378) + 'px'
+        height: (panelHeight || 378) + (showPanelTitle ? 26 : 16) + 'px'
       }"
     >
       <year
@@ -134,7 +134,8 @@ export default {
 
       this.years.some((year, index) => {
         if (compareYear(year, activeDate) === 0) {
-          this.$refs.years[index].$el.scrollIntoView(true)
+          const { container, years } = this.$refs
+          container.scrollTop = years[index].$el.getBoundingClientRect().top - container.getBoundingClientRect().top + container.scrollTop
           return true
         }
 

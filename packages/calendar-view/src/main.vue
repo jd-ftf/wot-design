@@ -91,9 +91,8 @@ export default {
   },
   methods: {
     // 对外暴露方法
-    scrollIntoView (thresholds) {
+    scrollIntoView () {
       const panel = this.getPanel()
-      panel.initRect && panel.initRect(thresholds)
       panel.scrollIntoView()
     },
     getPanel () {
