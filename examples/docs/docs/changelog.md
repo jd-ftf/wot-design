@@ -1,6 +1,6 @@
 ## 更新日志
 
-### 2.2.2
+### 2.3.0
 
 #### 新特性
 
@@ -14,6 +14,7 @@
   - 新增 `close-on-popstate` 属性，返回时自动关闭 (by [@yawuling](https://github.com/yawuling) )
 - DatetimePicker
   - 新增 `close-on-popstate` 属性，返回时自动关闭 (by [@yawuling](https://github.com/yawuling) )
+  - 新增 `default-value` 属性，支持设置默认选中项 (by [@yawuling](https://github.com/yawuling) )
 - DropMenu
   - 新增 `close-on-popstate` 属性，返回时自动关闭 (by [@yawuling](https://github.com/yawuling) )
 - MessageBox

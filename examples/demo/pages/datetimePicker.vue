@@ -11,6 +11,7 @@
       <wd-datetime-picker v-model="value8" label="before-confirm" :before-confirm="beforeConfirm" />
       <wd-datetime-picker v-model="value11" label="错误" error />
       <wd-datetime-picker v-model="value18" label="必填" required />
+      <wd-datetime-picker v-model="value19" label="默认日期" :default-value="defaultValue" />
     </wd-cell-group>
     <demo-block title="label 不传" transparent>
       <wd-datetime-picker v-model="value9" />
@@ -87,7 +88,7 @@ export default {
       ],
       value18: '',
       value19: '',
-      value20: ''
+      defaultValue: new Date()
     }
   },
 
