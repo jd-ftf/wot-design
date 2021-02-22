@@ -38,7 +38,8 @@ export default {
     size: {
       type: String,
       default: '28px'
-    }
+    },
+    beforeChange: Function
   },
   watch: {
     checked () {
@@ -90,8 +91,21 @@ export default {
     },
     handleChange () {
       let val = this.checked ? this.inactiveValue : this.activeValue
-      this.$emit('input', val)
-      this.$emit('change', val)
+
+      if (this.beforeChange) {
+        this.beforeChange({
+          value: val,
+          resolve: (pass) => {
+            if (pass) {
+              this.$emit('input', val)
+              this.$emit('change', val)
+            }
+          }
+        })
+      } else {
+        this.$emit('input', val)
+        this.$emit('change', val)
+      }
     }
   },
   mounted () {
