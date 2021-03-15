@@ -21,7 +21,7 @@ export default {
     },
     offset: {
       type: Number,
-      default: 5
+      default: 0
     },
     value: Boolean,
     closeOutside: {
@@ -95,84 +95,142 @@ export default {
       const arrow = this.$refs.arrow || ''
       const arrowHeight = arrow.offsetHeight || 0
       const arrowWidth = arrow.offsetWidth || 0
-      const arrowStyle = {}
-      const position = {
-        top: 0,
-        left: 0
-      }
+      let arrowStyle = {}
+      let position = {}
+      // 上下位（纵轴）对应的距离左边的距离
+      const verticalX = trigger.offsetWidth / 2
+      // 上下位（纵轴）对应的距离底部的距离
+      const verticalY = trigger.offsetHeight + arrowHeight + 5
+      // 左右位（横轴）对应的距离左边的距离
+      const horizontalX = trigger.offsetWidth + arrowWidth + 5
+      // 左右位（横轴）对应的距离底部的距离
+      const horizontalY = trigger.offsetHeight / 2
+
+      const offsetX = ((verticalX - arrowWidth > 0) ? 0 : (verticalX - 25)) + this.offset
+      const offsetY = ((horizontalY - arrowHeight > 0) ? 0 : (horizontalY - 20)) + this.offset
+
       // 定位元素，考虑滚动该高度，当前参照对象的距离顶部高度，左侧相对屏幕距离
       switch (this.placement) {
         case 'top':
-          position.left = trigger.offsetLeft - popover.offsetWidth / 2 + trigger.offsetWidth / 2
-          position.top = -popover.offsetHeight - this.offset - arrowHeight
-          arrowStyle.left = '50%'
+          position = {
+            left: `${verticalX}px`,
+            transform: 'translateX(-50%)',
+            bottom: `${verticalY}px`
+          }
+          arrowStyle = {
+            left: '50%'
+          }
           break
         case 'top-start':
-          position.left = trigger.offsetLeft
-          position.top = -popover.offsetHeight - this.offset - arrowHeight
-          arrowStyle.left = (trigger.offsetWidth <= popover.offsetWidth ? trigger.offsetWidth / 2 : 20) + 'px'
+          position = {
+            left: `${offsetX}px`,
+            bottom: `${verticalY}px`
+          }
+          arrowStyle = {
+            left: `${(popover.offsetWidth >= trigger.offsetWidth ? verticalX : popover.offsetWidth - 25) - offsetX}px`
+          }
           break
         case 'top-end':
-          position.left = trigger.offsetLeft + trigger.offsetWidth - popover.offsetWidth
-          position.top = -popover.offsetHeight - this.offset - arrowHeight
-          arrowStyle.right = (popover.offsetWidth >= trigger.offsetWidth ? trigger.offsetWidth / 2 : 20) + 'px'
-          arrowStyle.transform = 'translateX(50%)'
+          position = {
+            right: `${offsetX}px`,
+            bottom: `${verticalY}px`
+          }
+          arrowStyle = {
+            right: `${(popover.offsetWidth >= trigger.offsetWidth ? verticalX : popover.offsetWidth - 25) - offsetX}px`,
+            transform: 'translateX(50%)'
+          }
           break
         case 'bottom':
-          position.left = trigger.offsetLeft - popover.offsetWidth / 2 + trigger.offsetWidth / 2
-          position.top = trigger.offsetHeight + arrowHeight + this.offset
-          arrowStyle.left = '50%'
+          position = {
+            left: `${verticalX}px`,
+            transform: 'translateX(-50%)',
+            top: `${verticalY}px`
+          }
+          arrowStyle = {
+            left: '50%'
+          }
           break
         case 'bottom-start':
-          position.left = trigger.offsetLeft
-          position.top = trigger.offsetHeight + arrowHeight + this.offset
-          arrowStyle.left = (trigger.offsetWidth <= popover.offsetWidth ? trigger.offsetWidth / 2 : 20) + 'px'
+          position = {
+            left: `${offsetX}px`,
+            top: `${verticalY}px`
+          }
+          arrowStyle = {
+            left: `${25 - this.offset}px`
+          }
           break
         case 'bottom-end':
-          position.left = trigger.offsetLeft + trigger.offsetWidth - popover.offsetWidth
-          position.top = trigger.offsetHeight + arrowHeight + this.offset
-          arrowStyle.right = (popover.offsetWidth >= trigger.offsetWidth ? trigger.offsetWidth / 2 : 20) + 'px'
-          arrowStyle.transform = 'translateX(50%)'
+          position = {
+            right: `${offsetX}px`,
+            top: `${verticalY}px`
+          }
+          arrowStyle = {
+            right: `${25 - this.offset}px`,
+            transform: 'translateX(50%)'
+          }
           break
         case 'left':
-          position.left = trigger.offsetLeft - popover.offsetWidth - this.offset - arrowWidth
-          position.top = -popover.offsetHeight / 2 + trigger.offsetHeight / 2
-          arrowStyle.top = '50%'
+          position = {
+            right: `${horizontalX}px`,
+            top: `${horizontalY}px`,
+            transform: 'translateY(-50%)'
+          }
+          arrowStyle = {
+            top: '50%'
+          }
           break
         case 'left-start':
-          position.left = trigger.offsetLeft - popover.offsetWidth - this.offset - arrowWidth
-          position.top = 0
-          arrowStyle.top = (popover.offsetHeight > trigger.offsetHeight / 2 ? trigger.offsetHeight / 2 : 0) + 'px'
+          position = {
+            right: `${horizontalX}px`,
+            top: `${offsetY}px`
+          }
+          arrowStyle = {
+            top: `${20 - this.offset}px`
+          }
           break
         case 'left-end':
-          position.left = trigger.offsetLeft - popover.offsetWidth - this.offset - arrowWidth
-          position.top = -popover.offsetHeight + trigger.offsetHeight
-          arrowStyle.bottom = (popover.offsetHeight > trigger.offsetHeight / 2 ? trigger.offsetHeight / 2 : 0) + 'px'
-          arrowStyle.transform = 'translateY(50%)'
+          position = {
+            right: `${horizontalX}px`,
+            bottom: `${offsetY}px`
+          }
+          arrowStyle = {
+            bottom: `${(popover.offsetHeight >= trigger.offsetHeight ? horizontalY : popover.offsetHeight - 20) - offsetX}px`,
+            transform: 'translateY(50%)'
+          }
           break
         case 'right':
-          position.left = trigger.offsetLeft + trigger.offsetWidth + this.offset + arrowWidth
-          position.top = -popover.offsetHeight / 2 + trigger.offsetHeight / 2
-          arrowStyle.top = '50%'
+          position = {
+            left: `${horizontalX}px`,
+            top: `${horizontalY}px`,
+            transform: 'translateY(-50%)'
+          }
+          arrowStyle = {
+            top: '50%'
+          }
           break
         case 'right-start':
-          position.left = trigger.offsetLeft + trigger.offsetWidth + this.offset + arrowWidth
-          position.top = 0
-          arrowStyle.top = (popover.offsetHeight > trigger.offsetHeight / 2 ? trigger.offsetHeight / 2 : 0) + 'px'
+          position = {
+            left: `${horizontalX}px`,
+            top: `${offsetY}px`
+          }
+          arrowStyle = {
+            top: `${(popover.offsetHeight >= trigger.offsetHeight ? horizontalY : popover.offsetHeight - 20) - offsetX}px`
+          }
           break
         case 'right-end':
-          position.left = trigger.offsetLeft + trigger.offsetWidth + this.offset + arrowWidth
-          position.top = -popover.offsetHeight + trigger.offsetHeight
-          arrowStyle.bottom = (popover.offsetHeight > trigger.offsetHeight / 2 ? trigger.offsetHeight / 2 : 0) + 'px'
-          arrowStyle.transform = 'translateY(50%)'
+          position = {
+            left: `${horizontalX}px`,
+            bottom: `${offsetY}px`
+          }
+          arrowStyle = {
+            bottom: `${(popover.offsetHeight >= trigger.offsetHeight ? horizontalY : popover.offsetHeight - 20) - offsetX}px`,
+            transform: 'translateY(50%)'
+          }
           break
         default:
           console.warn('[wot design] warning: wrong placement prop')
       }
-      this.popStyle = {
-        top: position.top + 'px',
-        left: position.left + 'px'
-      }
+      this.popStyle = position
       this.arrowStyle = arrowStyle
     }
   },

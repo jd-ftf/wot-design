@@ -43,8 +43,14 @@
   - value 重新赋值时需重置选项 (by [@yawuling](https://github.com/yawuling) )
 - MessageBox
   - 修复在部分手机上的兼容性问题 (by [@yawuling](https://github.com/yawuling) )
+- Popover
+  - 修复插槽宽度较小时，弹出层的箭头样式偏移错乱问题 (by [@yawuling](https://github.com/yawuling) )
+  - 修正 `offset` 属性的使用 (by [@yawuling](https://github.com/yawuling) )
 - Search
   - 修复clear事件晚于blur事件触发 (by [@HXCStudio123](https://github.com/HXCStudio123) )
+- Tooltip
+  - 修复插槽宽度较小时，弹出层的箭头样式偏移错乱问题 (by [@yawuling](https://github.com/yawuling) )
+  - 修正 `offset` 属性的使用 (by [@yawuling](https://github.com/yawuling) )
 - Upload
   - 修复 `disabled` 状态下可以删除图片的问题 (by [@yawuling](https://github.com/yawuling) )
 
