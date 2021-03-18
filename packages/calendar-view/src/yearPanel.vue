@@ -33,7 +33,7 @@
 <script>
 import { getType, isEqual } from 'wot-design/src/utils'
 import Year from './year'
-import { compareYear, formatYearTitle } from './utils'
+import { compareYear, formatYearTitle, getYears } from './utils'
 
 export default {
   components: {
@@ -59,17 +59,7 @@ export default {
   },
   computed: {
     years () {
-      const years = []
-      const year = new Date(this.minDate)
-      year.setMonth(0)
-      year.setDate(1)
-
-      while (compareYear(year, this.maxDate) < 1) {
-        years.push(year.getTime())
-        year.setFullYear(year.getFullYear() + 1)
-      }
-
-      return years
+      return getYears(this.minDate, this.maxDate)
     }
   },
   mounted () {
@@ -98,18 +88,12 @@ export default {
 
       let currentYear
       let height = 0
-      const visibleRange = [-1, -1]
 
       for (let i = 0, len = years.length; i < len; i++) {
         const visible = height < bottom && (height + heights[i]) > top
 
-        if (visible) {
-          visibleRange[1] = i
-
-          if (!currentYear) {
-            currentYear = years[i]
-            visibleRange[0] = i
-          }
+        if (visible && !currentYear) {
+          currentYear = years[i]
         }
 
         height += heights[i]

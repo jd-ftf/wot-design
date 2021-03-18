@@ -54,7 +54,7 @@
 import WdPickerView from 'wot-design/packages/picker-view'
 import { getType, isEqual } from 'wot-design/src/utils'
 import Month from './month'
-import { compareMonth, formatMonthTitle, getTimeData } from './utils'
+import { compareMonth, formatMonthTitle, getTimeData, getMonths } from './utils'
 
 export default {
   components: {
@@ -88,16 +88,7 @@ export default {
   },
   computed: {
     months () {
-      const months = []
-      const month = new Date(this.minDate)
-      month.setDate(1)
-
-      while (compareMonth(month, this.maxDate) < 1) {
-        months.push(month.getTime())
-        month.setMonth(month.getMonth() + 1)
-      }
-
-      return months
+      return getMonths(this.minDate, this.maxDate)
     }
   },
   watch: {
@@ -154,18 +145,12 @@ export default {
 
       let currentMonth
       let height = 0
-      const visibleRange = [-1, -1]
 
       for (let i = 0, len = months.length; i < len; i++) {
         const visible = height < bottom && (height + heights[i]) > top
 
-        if (visible) {
-          visibleRange[1] = i
-
-          if (!currentMonth) {
-            currentMonth = months[i]
-            visibleRange[0] = i
-          }
+        if (visible && !currentMonth) {
+          currentMonth = months[i]
         }
 
         height += heights[i]

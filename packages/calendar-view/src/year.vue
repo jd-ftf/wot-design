@@ -87,7 +87,7 @@ export default {
 
       return classList.join(' ')
     },
-    getMonthType (date, value) {
+    getMonthType (date) {
       if (this.type === 'monthrange') {
         const [startDate, endDate] = this.value || []
 
@@ -107,7 +107,7 @@ export default {
         if (this.value && compareMonth(date, this.value) === 0) {
           return 'selected'
         } else {
-          return []
+          return ''
         }
       }
     },
