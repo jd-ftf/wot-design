@@ -14,19 +14,20 @@
       class="wd-picker__popup"
     >
       <toolbar :target="currentTarget"></toolbar>
-      <!-- 开始 -->
-      <wd-picker-view
-        ref="pickerView"
-        v-model="pickerValue"
-        :columns="displayColumns"
-        :loading="loading"
-        :loading-color="loadingColor"
-        :arrow-html="arrowHtml"
-        :value-key="valueKey"
-        :label-key="labelKey"
-        :columns-height="columnsHeight"
-        :column-change="columnChange"
-      />
+      <div class="wd-picker__container">
+        <wd-picker-view
+          ref="pickerView"
+          v-model="pickerValue"
+          :columns="displayColumns"
+          :loading="loading"
+          :loading-color="loadingColor"
+          :arrow-html="arrowHtml"
+          :value-key="valueKey"
+          :label-key="labelKey"
+          :columns-height="columnsHeight"
+          :column-change="columnChange"
+        />
+      </div>
     </wd-popup>
   </div>
 </template>

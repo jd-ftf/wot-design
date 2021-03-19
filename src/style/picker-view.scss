@@ -3,8 +3,6 @@
 @import "./loading.scss";
 
 @include b(picker-view) {
-  padding: 10px 0;
-
   @include e(columns) {
     position: relative;
     display: flex;

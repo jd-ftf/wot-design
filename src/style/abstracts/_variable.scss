@@ -244,6 +244,25 @@ $-cell-required-color: $-color-danger !default; // 要求必填*颜色
 $-cell-required-size: 20px !default; // 必填*字号
 $-cell-vertical-top: 16px !default; // 表单类型-上下结构的间距
 
+/* calendar */
+$-calendar-fs: 16px !default;
+$-calendar-panel-padding: 0 12px !default;
+$-calendar-panel-title-fs: 14px !default;
+$-calendar-panel-title-color: rgba(0, 0, 0, 0.85) !default;
+$-calendar-week-color: rgba(0, 0, 0, 0.85) !default;
+$-calendar-week-height: 36px !default;
+$-calendar-week-fs: 12px !default;
+$-calendar-day-fs: 16px !default;
+$-calendar-day-color: rgba(0, 0, 0, 0.85) !default;
+$-calendar-day-fw: 500 !default;
+$-calendar-day-height: 64px !default;
+$-calendar-month-width: 50px !default;
+$-calendar-active-color: $-color-theme !default;
+$-calendar-disabled-color: rgba(0, 0, 0, 0.25) !default;
+$-calendar-range-color: rgba($-color-theme, 0.09) !default;
+$-calendar-active-border: 8px !default;
+$-calendar-info-fs: 10px !default;
+
 /* checkbox */
 $-checkbox-margin: 10px !default; // 多个复选框距离
 $-checkbox-bg: $-color-white !default; // 多个复选框距离

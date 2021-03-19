@@ -3,7 +3,7 @@
     <div v-if="title || $slots.title" class="demo-block__title">
       <slot name="title">{{ title }}</slot>
     </div>
-    <div class="demo-block__body">
+    <div class="demo-block__body" :style="{ 'margin': `${ver}px ${hor}px` }">
       <slot></slot>
     </div>
   </div>
@@ -14,7 +14,15 @@ export default {
   name: 'DemoBlock',
   props: {
     title: String,
-    transparent: Boolean
+    transparent: Boolean,
+    ver: {
+      type: Number,
+      default: 10
+    },
+    hor: {
+      type: Number,
+      default: 15
+    }
   }
 }
 </script>
@@ -22,12 +30,13 @@ export default {
 <style lang="scss">
 .demo-block {
   margin: 15px 0;
-  padding: 1px 15px;
+  padding: 1px 0;
   color: #666;
   background: #fff;
 
   .demo-block__title {
     margin: 10px 0;
+    padding: 0 15px;
     line-height: 1.4;
   }
   .demo-block__body {
@@ -36,10 +45,6 @@ export default {
   &.is-transparent {
     padding: 0;
     background: transparent;
-
-    .demo-block__title {
-      padding: 0 15px;
-    }
   }
 }
 </style>
