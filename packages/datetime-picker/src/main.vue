@@ -119,6 +119,7 @@ export default {
 
   props: {
     value: null,
+    defaultValue: null,
     // datetime / 'date' / 'year-month' / 'time'
     type: {
       type: String,
@@ -139,15 +140,20 @@ export default {
 
   watch: {
     value: {
-      handler (val, oldVal) {
+      handler () {
         // 存在旧值，新值与 innerValue 相同，则不作处理
-        if (oldVal && (val && this.innerValue && val.valueOf() === this.innerValue.valueOf())) return
-        this.innerValue = (this.region ? val[0] : val) || ''
+        this.innerValue = this.getDefaultInnerValue()
         if (this.region) {
-          this.end.innerValue = val[1] || ''
+          this.end.innerValue = this.getDefaultInnerValue(true)
         }
       },
       immediate: true
+    },
+    defaultValue (val) {
+      this.innerValue = this.getDefaultInnerValue()
+      if (val instanceof Array) {
+        this.end.innerValue = this.getDefaultInnerValue(true)
+      }
     },
     innerValue () {
       this.setLabel()
@@ -158,6 +164,17 @@ export default {
   },
 
   methods: {
+    getDefaultInnerValue (isEnd) {
+      if (this.region) {
+        if (isEnd) {
+          return this.value[1] || (this.defaultValue && this.defaultValue.length ? this.defaultValue[1] : '') || ''
+        } else {
+          return this.value[0] || (this.defaultValue && this.defaultValue.length ? this.defaultValue[0] : '') || ''
+        }
+      } else {
+        return this.value || this.defaultValue
+      }
+    },
     /**
      * @description 对外暴露接口，打开弹框
      */
@@ -216,9 +233,9 @@ export default {
     onCancel () {
       // reset innerValue
       // 格式化单个this.value.start
-      this.innerValue = (this.region ? this.value[0] : this.value) || ''
+      this.innerValue = this.getDefaultInnerValue()
       if (this.region) {
-        this.end.innerValue = this.value[1] || ''
+        this.end.innerValue = this.getDefaultInnerValue(true)
       }
       this.closePopup()
       this.$emit('cancel')

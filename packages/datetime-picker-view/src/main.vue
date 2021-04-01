@@ -132,7 +132,7 @@ export default {
     value: {
       handler (val, oldVal) {
         // 存在旧值，新值与 innerValue 相同，则不作处理
-        if (oldVal && val.valueOf() === this.innerValue.valueOf()) return
+        if (oldVal && val && this.innerValue && val.valueOf() === this.innerValue.valueOf()) return
         // 格式化新值
         val = this.formatValue(val)
         // 当前 value 赋值
