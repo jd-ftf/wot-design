@@ -21,6 +21,9 @@ export default {
       cancel: '取消',
       inputNoValidate: '输入的数据不合法'
     },
+    numberKeyboard: {
+      confirm: '完成'
+    },
     pagination: {
       prev: '上一页',
       next: '下一页',

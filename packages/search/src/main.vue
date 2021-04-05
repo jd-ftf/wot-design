@@ -10,6 +10,7 @@
             class="wd-search__input"
             autocomplete="off"
             ref="searchInput"
+            @keyup="formatType"
             @input="input"
             @search="search"
             @compositionstart="toggleTyping"
@@ -45,7 +46,7 @@ export default {
   name: 'WdSearch',
   mixins: [locale],
   props: {
-    value: String,
+    value: [String, Number],
     placeholder: String,
     cancelTxt: String,
     light: Boolean,
@@ -53,7 +54,8 @@ export default {
     hideCancel: Boolean,
     disabled: Boolean,
     maxlength: String,
-    autofocus: Boolean
+    autofocus: Boolean,
+    type: String
   },
   data () {
     return {
@@ -62,10 +64,18 @@ export default {
     }
   },
   methods: {
-    input (e) {
-      this.$emit('input', e.target.value)
+    formatType (e) {
+      if (this.type === 'number') {
+        e.target.value = e.target.value.replace(/[^0-9]/g, '')
+      }
     },
-    clearSearch () {
+    input (e) {
+      if (this.type === 'number') {
+        e.target.value = e.target.value.replace(/[^0-9]/g, '')
+      }
+      this.$emit('input', this.type === 'number' ? parseInt(e.target.value) : e.target.value)
+    },
+    clearSearch (event) {
       this.$emit('input', '')
       this.$emit('clear')
       this.typing = false

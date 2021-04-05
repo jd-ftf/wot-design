@@ -34,6 +34,7 @@ import MessageBox from '../packages/message-box'
 import Modal from '../packages/modal'
 import Navbar from '../packages/navbar'
 import NoticeBar from '../packages/notice-bar'
+import NumberKeyboard from '../packages/number-keyboard'
 import Pagination from '../packages/pagination'
 import Picker from '../packages/picker'
 import PickerView from '../packages/picker-view'
@@ -99,6 +100,7 @@ const components = [
   Modal,
   Navbar,
   NoticeBar,
+  NumberKeyboard,
   Pagination,
   Picker,
   PickerView,
@@ -191,6 +193,7 @@ export default {
   Modal,
   Navbar,
   NoticeBar,
+  NumberKeyboard,
   Pagination,
   Picker,
   PickerView,
