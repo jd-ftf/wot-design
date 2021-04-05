@@ -54,18 +54,22 @@ export default {
     MonthPanel
   },
   props: {
-    value: [String, Number, Array],
+    value: null,
     type: {
       type: String,
       default: 'date'
     },
     minDate: {
-      type: Number,
-      default: new Date(currentYear, currentMonth - 6, currentDay).getTime()
+      type: Date,
+      default () {
+        return new Date(currentYear, currentMonth - 6, currentDay)
+      }
     },
     maxDate: {
-      type: Number,
-      default: new Date(currentYear, currentMonth + 6, currentDay, 23, 59, 59).getTime()
+      type: Date,
+      default () {
+        return new Date(currentYear, currentMonth + 6, currentDay, 23, 59, 59)
+      }
     },
     firstDayOfWeek: {
       type: Number,
@@ -96,7 +100,7 @@ export default {
       panel.scrollIntoView()
     },
     getPanel () {
-      return this.data.type.indexOf('month') > -1 ? this.$refs.yearPanel : this.$refs.monthPanel
+      return this.type.indexOf('month') > -1 ? this.$refs.yearPanel : this.$refs.monthPanel
     },
     handleChange (value) {
       this.$emit('input', value)

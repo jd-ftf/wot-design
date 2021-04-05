@@ -270,7 +270,7 @@ export default {
         this.currentCol = this.lastSelectList.length - 1
         this.isChange = false
       }
-      this.$emit('close')
+      this.$emit('cancel')
     },
     showPicker () {
       if (this.disabled || this.readonly) return

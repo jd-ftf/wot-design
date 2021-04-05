@@ -4,6 +4,7 @@
 import ActionSheet from '../packages/action-sheet'
 import Badge from '../packages/badge'
 import Button from '../packages/button'
+import Calendar from '../packages/calendar'
 import CalendarView from '../packages/calendar-view'
 import Cell from '../packages/cell'
 import CellGroup from '../packages/cell-group'
@@ -73,6 +74,7 @@ const components = [
   ActionSheet,
   Badge,
   Button,
+  Calendar,
   CalendarView,
   Cell,
   CellGroup,
@@ -163,6 +165,7 @@ export default {
   ActionSheet,
   Badge,
   Button,
+  Calendar,
   CalendarView,
   Cell,
   CellGroup,

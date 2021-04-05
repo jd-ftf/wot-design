@@ -66,6 +66,8 @@
         - type: group
           title: 数据输入
           children:
+            - name: calendar
+              title: Calendar 日历选择器
             - name: calendarView
               title: CalendarView 日历面板
             - name: checkbox

@@ -39,6 +39,14 @@
         display: none;
       }
     }
+    .wd-calendar {
+      .wd-calendar__cell {
+        @include halfPixelBorder('bottom', $-cell-padding);
+      }
+      &:last-child .wd-col-picker__cell::after {
+        display: none;
+      }
+    }
   }
   @include e(title) {
     position: relative;

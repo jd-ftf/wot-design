@@ -109,9 +109,7 @@ export default {
         isClick && this.$emit('click', index, name)
       }
     },
-    setLineStyle () {
-      let shouldAnimate = this.ifAnimate
-
+    setLineStyle (shouldAnimate = this.ifAnimate) {
       this.$nextTick(() => {
         let left = 0
         let width = 19

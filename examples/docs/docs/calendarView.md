@@ -15,7 +15,7 @@ Vue.use(CalendarView)
 
 ### 基本使用
 
-`type` 默认为 `date` 类型，设置 `value` 绑定值（13位时间戳格式）。`min-date` 最小日期默认为当前日期往前推 6 个月，`max-date` 最大日期默认为当前日期往后推 6 个月，日历面板的日期只展示最小日期到最大日期之间的日期。
+`type` 默认为 `date` 类型，设置 `value` 绑定值（Date 类型）。`min-date` 最小日期默认为当前日期往前推 6 个月，`max-date` 最大日期默认为当前日期往后推 6 个月，日历面板的日期只展示最小日期到最大日期之间的日期。
 
 ```html
 <wd-calendar-view v-model="value" />
@@ -24,7 +24,7 @@ Vue.use(CalendarView)
 export default {
   data () {
     return {
-      value: Date.now()
+      value: new Date()
     }
   }
 }
@@ -60,7 +60,7 @@ export default {
 export default {
   data () {
     return {
-      value: Date.now()
+      value: new Date()
     }
   }
 }
@@ -78,7 +78,7 @@ export default {
 export default {
   data () {
     return {
-      value: Date.now()
+      value: new Date()
     }
   }
 }
@@ -162,7 +162,7 @@ export default {
 | 属性 | 类型 | 说明 | 最低版本 |
 |-----|-----|------|---------|
 | type | string | 日期类型，'selected' - 单日期选中，'start' - 范围开始日期，'end' - 范围结束日期，'middle' - 范围开始与结束之间的日期，'same' - 范围开始与结束日期同一天 | - |
-| date | timestamp | 13位的时间戳 | - |
+| date | Date | 日期 | - |
 | text | string | 日期文本内容 | - |
 | topInfo | string | 上方提示信息 | - |
 | bottomInfo | string | 下方提示信息 | - |
@@ -177,12 +177,11 @@ export default {
     return {
       value: '',
       formatter (day) {
-        const date = new Date(day.date)
         const now = new Date()
 
-        const year = date.getFullYear()
-        const month = date.getMonth()
-        const da = date.getDate()
+        const year = day.date.getFullYear()
+        const month = day.date.getMonth()
+        const da = day.date.getDate()
         const nowYear = now.getFullYear()
         const nowMonth = now.getMonth()
         const nowDa = now.getDate()
@@ -243,10 +242,10 @@ export default {
 
 | 参数 | 说明 | 类型 | 可选值 | 默认值 | 最低版本 |
 |-----|-----|------|-------|-------|-----|
-| value/v-model | 选中值，为 13 位时间戳或时间戳数组 | null / number / array | - | - | 2.3.0 |
+| value/v-model | 选中值，为 Date 实例或 Date 数组 | null / Date / array | - | - | 2.3.0 |
 | type | 日期类型 | string | date / dates / datetime / week / month / daterange / datetimerange / weekrange / monthrange | date | 2.3.0 |
-| min-date | 最小日期，为 13 位时间戳 | number | - | 当前日期往前推 6 个月 | 2.3.0 |
-| max-date | 最大日期，为 13 位时间戳 | number | - | 当前日期往后推 6 个月 | 2.3.0 |
+| min-date | 最小日期 | Date | - | 当前日期往前推 6 个月 | 2.3.0 |
+| max-date | 最大日期 | Date | - | 当前日期往后推 6 个月 | 2.3.0 |
 | first-day-of-week | 周起始天 | number | - | 0 | 2.3.0 |
 | formatter | 日期格式化函数 | function | - | - | 2.3.0 |
 | max-range | type 为范围选择时有效，最大日期范围 | number | - | - | 2.3.0 |

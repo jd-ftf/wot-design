@@ -1,5 +1,46 @@
 export default {
   wd: {
+    calendar: {
+      placeholder: 'เลือก',
+      title: 'เลือกวันที่',
+      day: 'วันที่',
+      week: 'สัปดาห์',
+      month: 'เดือน',
+      confirm: 'ยืนยัน',
+      startTime: 'วันที่เริ่มต้น',
+      endTime: 'วันที่สิ้นสุด',
+      to: 'ถึง',
+      timeFormat: 'YY-MM-DD HH:mm:ss',
+      dateFormat: 'YYYY-MM-DD',
+      weekFormat: '{year} W{week}',
+      startWeek: 'เริ่มต้นสัปดาห์',
+      endWeek: 'สิ้นสุดสัปดาห์',
+      startMonth: 'เดือนเริ่มต้น',
+      endMonth: 'สิ้นเดือน',
+      monthFormat: 'YYYY-MM'
+    },
+    calendarView: {
+      startTime: 'เวลาเริ่มต้น',
+      endTime: 'เวลาสิ้นสุด',
+      weeks: {
+        sun: 'อา',
+        mon: 'จ',
+        tue: 'อ',
+        wed: 'พ',
+        thu: 'พฤ',
+        fri: 'ศ',
+        sat: 'ส'
+      },
+      rangePrompt: 'จำนวนวันที่เลือกต้องไม่เกิน {maxRange} วัน',
+      rangePromptWeek: 'จำนวนสัปดาห์ที่เลือกต้องไม่เกิน {maxRange} สัปดาห์',
+      rangePromptMonth: 'เดือนที่เลือกต้องไม่เกิน {maxRange} เดือน',
+      monthTitle: 'YYYY-MM',
+      yearTitle: 'YYYY',
+      month: 'MM',
+      hour: '{value}',
+      minute: '{value}',
+      second: '{value}'
+    },
     collapse: {
       expand: 'ดูเพิ่มเติม',
       retract: 'ย่อ'

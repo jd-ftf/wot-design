@@ -1,5 +1,46 @@
 export default {
   wd: {
+    calendar: {
+      placeholder: 'Select',
+      title: 'Select Date',
+      day: 'Date',
+      week: 'Week',
+      month: 'Month',
+      confirm: 'OK',
+      startTime: 'Start Date',
+      endTime: 'End Date',
+      to: 'To',
+      timeFormat: 'YY-MM-DD HH:mm:ss',
+      dateFormat: 'YYYY-MM-DD',
+      weekFormat: '{year} W{week}',
+      startWeek: 'Start Week',
+      endWeek: 'End Week',
+      startMonth: 'Start Month',
+      endMonth: 'End Month',
+      monthFormat: 'YYYY-MM'
+    },
+    calendarView: {
+      startTime: 'Start Time',
+      endTime: 'End Time',
+      weeks: {
+        sun: 'Sun',
+        mon: 'Mon',
+        tue: 'Tue',
+        wed: 'Wed',
+        thu: 'Thu',
+        fri: 'Fri',
+        sat: 'Sat'
+      },
+      rangePrompt: 'The number of selected days cannot exceed {maxRange} days',
+      rangePromptWeek: 'The number of weeks selected cannot exceed {maxRange} weeks',
+      rangePromptMonth: 'The selected month cannot exceed {maxRange} months',
+      monthTitle: 'YYYY-MM',
+      yearTitle: 'YYYY',
+      month: 'MM',
+      hour: '{value}',
+      minute: '{value}',
+      second: '{value}'
+    },
     collapse: {
       expand: 'Expand',
       retract: 'Fold'

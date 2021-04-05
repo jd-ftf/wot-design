@@ -19,7 +19,7 @@
       <month
         v-for="item in months"
         ref="months"
-        :key="item"
+        :key="item.getTime()"
         :type="type"
         :date="item"
         :value="value"
@@ -36,13 +36,13 @@
     </div>
     <div v-if="!!timeType" class="wd-month-panel__time">
       <div v-if="type === 'datetimerange'" class="wd-month-panel__time-label">
-        <div class="wd-month-panel__time-text">{{ timeType === 'start' ? '开始' : '结束' }}</div>
+        <div class="wd-month-panel__time-text">{{ timeType === 'start' ? t('wd.calendarView.startTime') : t('wd.calendarView.endTime') }}</div>
       </div>
       <div class="wd-month-panel__time-picker">
         <wd-picker-view
           v-model="timeValue"
           :columns="timeData"
-          :columns-height="125"
+          :columns-height="105"
           @change="handleTimeChange"
         />
       </div>
@@ -51,21 +51,24 @@
 </template>
 
 <script>
+import dayjs from 'dayjs'
+import locale from 'wot-design/src/mixins/locale'
 import WdPickerView from 'wot-design/packages/picker-view'
 import { getType, isEqual } from 'wot-design/src/utils'
 import Month from './month'
-import { compareMonth, formatMonthTitle, getTimeData, getMonths } from './utils'
+import { compareMonth, getTimeData, getMonths, dateToTimestamp } from './utils'
 
 export default {
+  mixins: [locale],
   components: {
     WdPickerView,
     Month
   },
   props: {
     type: String,
-    value: [String, Number, Array],
-    minDate: Number,
-    maxDate: Number,
+    value: null,
+    minDate: Date,
+    maxDate: Date,
     firstDayOfWeek: Number,
     formatter: Function,
     maxRange: Number,
@@ -94,7 +97,7 @@ export default {
   watch: {
     value: {
       handler (val) {
-        if (isEqual(val, this.innerValue)) return
+        if (isEqual(dateToTimestamp(val), dateToTimestamp(this.innerValue))) return
 
         if ((this.type === 'datetime' && val) || (this.type === 'datetimerange' && val && val.length > 0 && val[0])) {
           this.timeType = 'start'
@@ -126,13 +129,13 @@ export default {
   },
   methods: {
     getWeekLabel (index) {
-      const weeks = ['日', '一', '二', '三', '四', '五', '六']
+      const weeks = ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat']
 
       if (index >= 7) {
         index = index % 7
       }
 
-      return weeks[index]
+      return this.t(`wd.calendarView.weeks.${weeks[index]}`)
     },
     onScroll () {
       const { container, months } = this.$refs
@@ -157,7 +160,7 @@ export default {
       }
 
       if (currentMonth) {
-        this.title = formatMonthTitle(currentMonth.date)
+        this.title = dayjs(currentMonth.date).format(this.t('wd.calendarView.monthTitle'))
       }
     },
     scrollIntoView () {
@@ -165,12 +168,12 @@ export default {
       const type = getType(this.value)
       if (type === 'array') {
         activeDate = this.value[0]
-      } else if (type === 'number') {
+      } else if (type === 'Date') {
         activeDate = this.value
       }
 
       if (!activeDate) {
-        activeDate = Date.now()
+        activeDate = new Date()
       }
 
       this.months.some((month, index) => {
@@ -190,7 +193,7 @@ export default {
      */
     getTimeData (value, type) {
       if (this.type === 'datetime') {
-        return getTimeData({
+        return getTimeData.call(this, {
           date: value,
           minDate: this.minDate,
           maxDate: this.maxDate,
@@ -199,7 +202,7 @@ export default {
         })
       } else {
         if (type === 'start') {
-          return getTimeData({
+          return getTimeData.call(this, {
             date: value[0],
             minDate: this.minDate,
             maxDate: this.value[1] ? this.value[1] : this.maxDate,
@@ -207,7 +210,7 @@ export default {
             isHideSecond: this.hideSecond
           })
         } else {
-          return getTimeData({
+          return getTimeData.call(this, {
             date: value[1],
             minDate: value[0],
             maxDate: this.maxDate,
@@ -223,13 +226,11 @@ export default {
      * @param {string} type 类型，是开始还是结束
      */
     getTimeValue (date, type) {
-      if (this.type === 'datetime') {
-        date = new Date(date)
-      } else {
+      if (this.type !== 'datetime') {
         if (type === 'start') {
-          date = new Date(date[0])
+          date = date[0]
         } else {
-          date = new Date(date[1])
+          date = date[1]
         }
       }
 
@@ -249,7 +250,7 @@ export default {
       this.timeType = type
     },
     handleDateChange ({ value, type }) {
-      if (!isEqual(value, this.value)) {
+      if (!isEqual(dateToTimestamp(value), dateToTimestamp(this.value))) {
         this.innerValue = value
         this.handleChange(value)
       }
@@ -263,30 +264,28 @@ export default {
     },
     handleTimeChange (picker, value) {
       if (this.type === 'datetime') {
-        const date = new Date(this.value)
+        const date = new Date(this.value.getTime())
         date.setHours(value[0])
         date.setMinutes(value[1])
         date.setSeconds(this.hideSecond ? 0 : value[2])
-        const dateTime = date.getTime()
 
-        this.timeData = this.getTimeData(dateTime)
-        this.handleChange(dateTime)
+        this.timeData = this.getTimeData(date)
+        this.handleChange(date)
       } else {
         const [start, end] = this.value
         const dataValue = this.timeType === 'start' ? start : end
-        const date = new Date(dataValue)
+        const date = new Date(dataValue.getTime())
         date.setHours(value[0])
         date.setMinutes(value[1])
         date.setSeconds(this.hideSecond ? 0 : value[2])
-        const dateTime = date.getTime()
 
-        if (dateTime === dataValue) return
+        if (date.getTime() === dataValue.getTime()) return
 
         const finalValue = [start, end]
         if (this.timeType === 'start') {
-          finalValue[0] = dateTime
+          finalValue[0] = date
         } else {
-          finalValue[1] = dateTime
+          finalValue[1] = date
         }
 
         this.innerValue = finalValue

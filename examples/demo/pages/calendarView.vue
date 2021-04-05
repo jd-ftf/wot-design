@@ -49,21 +49,20 @@ export default {
     return {
       type1: 'date',
       type2: 'daterange',
-      value1: Date.now(),
+      value1: new Date(),
       value2: '',
-      value3: [Date.now() - 24 * 60 * 60 * 1000 * 3, Date.now() - 24 * 60 * 60 * 1000],
-      value4: Date.now(),
-      value5: [Date.now() - 24 * 60 * 60 * 1000 * 3, Date.now() - 24 * 60 * 60 * 1000],
+      value3: [new Date(Date.now() - 24 * 60 * 60 * 1000 * 3), new Date(Date.now() - 24 * 60 * 60 * 1000)],
+      value4: new Date(),
+      value5: [new Date(Date.now() - 24 * 60 * 60 * 1000 * 3), new Date(Date.now() - 24 * 60 * 60 * 1000)],
       value6: '',
       value7: '',
       value8: '',
       formatter (day) {
-        const date = new Date(day.date)
         const now = new Date()
 
-        const year = date.getFullYear()
-        const month = date.getMonth()
-        const da = date.getDate()
+        const year = day.date.getFullYear()
+        const month = day.date.getMonth()
+        const da = day.date.getDate()
         const nowYear = now.getFullYear()
         const nowMonth = now.getMonth()
         const nowDa = now.getDate()

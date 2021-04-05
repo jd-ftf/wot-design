@@ -2,12 +2,12 @@ import { getType, padZero } from 'wot-design/src/utils'
 
 /**
  * 比较两个时间的日期是否相等
- * @param {timestamp} date1
- * @param {timestamp} date2
+ * @param {Date} date1
+ * @param {Date} date2
  */
 export function compareDate (date1, date2) {
-  date1 = new Date(date1)
-  date2 = new Date(date2)
+  if (!date1) return -1
+  if (!date2) return 1
 
   const year1 = date1.getFullYear()
   const year2 = date2.getFullYear()
@@ -28,12 +28,12 @@ export function compareDate (date1, date2) {
 
 /**
  * 比较两个日期的月份是否相等
- * @param {timestamp} date1
- * @param {timestamp} date2
+ * @param {Date} date1
+ * @param {Date} date2
  */
 export function compareMonth (date1, date2) {
-  date1 = new Date(date1)
-  date2 = new Date(date2)
+  if (!date1) return -1
+  if (!date2) return 1
 
   const year1 = date1.getFullYear()
   const year2 = date2.getFullYear()
@@ -49,13 +49,10 @@ export function compareMonth (date1, date2) {
 
 /**
  * 比较两个日期的年份是否一致
- * @param {timestamp} date1
- * @param {timestamp} date2
+ * @param {Date} date1
+ * @param {Date} date2
  */
 export function compareYear (date1, date2) {
-  date1 = new Date(date1)
-  date2 = new Date(date2)
-
   const year1 = date1.getFullYear()
   const year2 = date2.getFullYear()
 
@@ -72,42 +69,17 @@ export function getMonthEndDay (year, month) {
 }
 
 /**
- * 格式化年月
- * @param {timestamp} date
- */
-export function formatMonthTitle (date) {
-  date = new Date(date)
-
-  const year = date.getFullYear()
-  const month = date.getMonth() + 1
-
-  return year + '年' + month + '月'
-}
-
-/**
- * 格式化年份
- * @param {timestamp} date
- */
-export function formatYearTitle (date) {
-  date = new Date(date)
-
-  const year = date.getFullYear()
-
-  return year + '年'
-}
-
-/**
  * 根据最小日期和最大日期获取这之间总共有几个月份
- * @param {timestamp} minDate
- * @param {timestamp} maxDate
+ * @param {Date} minDate
+ * @param {Date} maxDate
  */
 export function getMonths (minDate, maxDate) {
   const months = []
-  const month = new Date(minDate)
+  const month = new Date(minDate.getTime())
   month.setDate(1)
 
   while (compareMonth(month, maxDate) < 1) {
-    months.push(month.getTime())
+    months.push(new Date(month.getTime()))
     month.setMonth(month.getMonth() + 1)
   }
 
@@ -116,17 +88,17 @@ export function getMonths (minDate, maxDate) {
 
 /**
  * 根据最小日期和最大日期获取这之间总共有几年
- * @param {timestamp} minDate
- * @param {timestamp} maxDate
+ * @param {Date} minDate
+ * @param {Date} maxDate
  */
 export function getYears (minDate, maxDate) {
   const years = []
-  const year = new Date(minDate)
+  const year = new Date(minDate.getTime())
   year.setMonth(0)
   year.setDate(1)
 
   while (compareYear(year, maxDate) < 1) {
-    years.push(year.getTime())
+    years.push(new Date(year.getTime()))
     year.setFullYear(year.getFullYear() + 1)
   }
 
@@ -135,14 +107,14 @@ export function getYears (minDate, maxDate) {
 
 /**
  * 获取一个日期所在周的第一天和最后一天
- * @param {timestamp} date
+ * @param {Date} date
  */
 export function getWeekRange (date, firstDayOfWeek) {
   if (firstDayOfWeek >= 7) {
     firstDayOfWeek = firstDayOfWeek % 7
   }
 
-  date = new Date(date)
+  date = new Date(date.getTime())
   date.setHours(0, 0, 0, 0)
   const year = date.getFullYear()
   const month = date.getMonth()
@@ -152,39 +124,47 @@ export function getWeekRange (date, firstDayOfWeek) {
   const weekStart = new Date(year, month, day - (7 + week - firstDayOfWeek) % 7)
   const weekEnd = new Date(year, month, day + 6 - (7 + week - firstDayOfWeek) % 7)
 
-  return [weekStart.getTime(), weekEnd.getTime()]
+  return [weekStart, weekEnd]
 }
 
 /**
  * 获取日期偏移量
- * @param {timestamp} date1
- * @param {timestamp} date2
+ * @param {Date} date1
+ * @param {Date} date2
  */
 export function getDayOffset (date1, date2) {
-  return (date1 - date2) / (24 * 60 * 60 * 1000) + 1
+  return (date1.getTime() - date2.getTime()) / (24 * 60 * 60 * 1000) + 1
 }
 
 /**
  * 获取偏移日期
- * @param {timestamp} date
+ * @param {Date} date
  * @param {number} offset
  */
 export function getDayByOffset (date, offset) {
-  date = new Date(date)
+  date = new Date(date.getTime())
   date.setDate(date.getDate() + offset)
 
-  return date.getTime()
+  return date
+}
+
+export function getWeekOffset (date1, date2) {
+  return (date1.getTime() - date2.getTime()) / (7 * 24 * 60 * 60 * 1000) + 1
+}
+
+export function getWeekByOffset (date, offset) {
+  date = new Date(date.getTime())
+  date.setDate(date.getDate() + offset * 7)
+
+  return date
 }
 
 /**
  * 获取月份偏移量
- * @param {timestamp} date1
- * @param {timestamp} date2
+ * @param {Date} date1
+ * @param {Date} date2
  */
 export function getMonthOffset (date1, date2) {
-  date1 = new Date(date1)
-  date2 = new Date(date2)
-
   const year1 = date1.getFullYear()
   const year2 = date2.getFullYear()
   let month1 = date1.getMonth()
@@ -197,14 +177,14 @@ export function getMonthOffset (date1, date2) {
 
 /**
  * 获取偏移月份
- * @param {timestamp} date
+ * @param {Date} date
  * @param {number} offset
  */
 export function getMonthByOffset (date, offset) {
-  date = new Date(date)
+  date = new Date(date.getTime())
   date.setMonth(date.getMonth() + offset)
 
-  return date.getTime()
+  return date
 }
 
 /**
@@ -231,16 +211,16 @@ export function getDefaultTime (defaultTime) {
 
 /**
  * 根据默认时间获取日期
- * @param {timestamp} date
+ * @param {Date} date
  * @param {array} defaultTime
  */
 export function getDateByDefaultTime (date, defaultTime) {
-  date = new Date(date)
+  date = new Date(date.getTime())
   date.setHours(defaultTime[0])
   date.setMinutes(defaultTime[1])
   date.setSeconds(defaultTime[2])
 
-  return date.getTime()
+  return date
 }
 
 /**
@@ -259,10 +239,9 @@ const times = (n, iteratee) => {
 
 /**
  * 获取时分秒
- * @param {timestamp} date
+ * @param {Date} date
  */
 const getTime = (date) => {
-  date = new Date(date)
   return [date.getHours(), date.getMinutes(), date.getSeconds()]
 }
 
@@ -312,14 +291,14 @@ export function getTimeData ({ date, minDate, maxDate, isHideSecond, filter } = 
   let columns = []
   let hours = times(24, index => {
     return {
-      label: `${padZero(index)}时`,
+      label: this.t('wd.calendarView.hour', { value: padZero(index) }),
       value: index,
       disabled: index < minHour || index > maxHour
     }
   })
   let minutes = times(60, index => {
     return {
-      label: `${padZero(index)}分`,
+      label: this.t('wd.calendarView.minute', { value: padZero(index) }),
       value: index,
       disabled: index < minMinute || index > maxMinute
     }
@@ -339,7 +318,7 @@ export function getTimeData ({ date, minDate, maxDate, isHideSecond, filter } = 
   if (!isHideSecond) {
     seconds = times(60, index => {
       return {
-        label: `${padZero(index)}秒`,
+        label: this.t('wd.calendarView.second', { value: padZero(index) }),
         value: index,
         disabled: index < minSecond || index > maxSecond
       }
@@ -355,4 +334,30 @@ export function getTimeData ({ date, minDate, maxDate, isHideSecond, filter } = 
   columns = isHideSecond ? [hours, minutes] : [hours, minutes, seconds]
 
   return columns
+}
+
+/**
+ * 获取当前是第几周
+ * @param {Date} date
+ */
+export function getWeekNumber (date) {
+  date = new Date(date.getTime())
+  date.setHours(0, 0, 0, 0)
+  // Thursday in current week decides the year.
+  date.setDate(date.getDate() + 3 - (date.getDay() + 6) % 7)
+  // January 4 is always in week 1.
+  const week = new Date(date.getFullYear(), 0, 4)
+  // Adjust to Thursday in week 1 and count number of weeks from date to week 1.
+  // Rounding should be fine for Daylight Saving Time. Its shift should never be more than 12 hours.
+  return 1 + Math.round(((date.getTime() - week.getTime()) / 86400000 - 3 + (week.getDay() + 6) % 7) / 7)
+}
+
+export function dateToTimestamp (value) {
+  if (value instanceof Array) {
+    return value.map((item) => {
+      return item && item.getTime ? item.getTime() : item
+    })
+  }
+
+  return value && value.getTime ? value.getTime() : value
 }
