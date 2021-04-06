@@ -32,6 +32,7 @@
   "modal": "./packages/modal/index.js",
   "navbar": "./packages/navbar/index.js",
   "notice-bar": "./packages/notice-bar/index.js",
+  "number-keyboard": "./packages/number-keyboard/index.js",
   "pagination": "./packages/pagination/index.js",
   "picker": "./packages/picker/index.js",
   "picker-view": "./packages/picker-view/index.js",

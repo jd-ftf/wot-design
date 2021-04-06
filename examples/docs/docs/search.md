@@ -145,31 +145,32 @@ export default {
 
 ### Attributes
 
-| 参数      | 说明                                 | 类型      | 可选值       | 默认值   |
-|---------- |------------------------------------ |---------- |------------- |-------- |
-| value/v-model   |	绑定值                        |	string     | -   |	-  |
-| placeholder	    | 搜索框占位文本                  |	string    |	-         |	'搜索' |
-| cancel-txt      | 搜索框右侧文本                   | string    | -          | '取消'   |
-| light           | 搜索框亮色（白色）                | boolean   | -          | false   |
-| placeholder-left | 搜索框占位文本是否靠左对齐        | boolean    | -         | false   |
-| hide-cancel     | 是否隐藏右侧文本                 | boolean    | -          | false   |
-| disabled        | 是否禁用搜索框                   | boolean    | -          | false   |
-| maxlength | 原生属性，设置最大长度 | string | - | - |
-| autofocus | 原生属性，是否自动聚焦，如果在页面加载时让其获得焦点，对于 android 有效， iOS 无效 | boolean | - | - |
+| 参数      | 说明                                 | 类型      | 可选值       | 默认值   | 版本号 |
+|---------- |------------------------------------ |---------- |------------- |-------- |-----|
+| value/v-model   |	绑定值                        |	string     | -   |	-  | - |
+| type | 输入类型 | string | 'number' | 'string' | 2.3.0 |
+| placeholder	    | 搜索框占位文本                  |	string    |	-         |	'搜索' | - |
+| cancel-txt      | 搜索框右侧文本                   | string    | -          | '取消'   | - |
+| light           | 搜索框亮色（白色）                | boolean   | -          | false   | - |
+| placeholder-left | 搜索框占位文本是否靠左对齐        | boolean    | -         | false   | - |
+| hide-cancel     | 是否隐藏右侧文本                 | boolean    | -          | false   | - |
+| disabled        | 是否禁用搜索框                   | boolean    | -          | false   | - |
+| maxlength | 原生属性，设置最大长度 | string | - | - | - |
+| autofocus | 原生属性，是否自动聚焦，如果在页面加载时让其获得焦点，对于 android 有效， iOS 无效 | boolean | - | - | - |
 
 ### Events
 
-| 事件名称      | 说明                                 | 参数     |
-|------------- |------------------------------------ |--------- |
-| focus        | 监听输入框focus事件                    | -       |
-| blur         | 监听输入框blur事件                     | -       |
-| search       | 监听输入框搜索事件                      | 搜索输入框文本       |
-| clear        | 监听输入框清空按钮事件                   | -       |
-| cancel       | 监听输入框右侧文本点击事件               | -       |
+| 事件名称      | 说明                                 | 参数     | 版本号 |
+|------------- |------------------------------------ |--------- |------|
+| focus        | 监听输入框focus事件                    | -       | - |
+| blur         | 监听输入框blur事件                     | -       | - |
+| search       | 监听输入框搜索事件                      | 搜索输入框文本       | - |
+| clear        | 监听输入框清空按钮事件                   | -       | - |
+| cancel       | 监听输入框右侧文本点击事件               | -       | - |
 
 ### Slots
 
-| name      | 说明       |
-|------------- |----------- |
-| prefix | 左侧插槽 |
-| suffix | 右侧插槽 |
+| name      | 说明       | 版本号 |
+|------------- |----------- |---|
+| prefix | 左侧插槽 | - |
+| suffix | 右侧插槽 | - |

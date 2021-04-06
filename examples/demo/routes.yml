@@ -43,6 +43,8 @@
       title: Input 输入框
     - name: inputNumber
       title: InputNumber 计数器
+    - name: numberKeyboard
+      title: NumberKeyboard 数字键盘
     - name: picker
       title: Picker 选择器
     - name: pickerView

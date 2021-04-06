@@ -1,0 +1,75 @@
+@import './abstracts/mixin';
+@import './abstracts/variable';
+
+@include b(number-keyboard) {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  padding-top: $-number-keyboard-padding;
+  background-color: $-number-keyboard-bg;
+
+  @include e(body) {
+    display: flex;
+    flex: 3;
+    flex-wrap: wrap;
+  }
+  @include e(key-item) {
+    flex-basis: calc(33.3% - #{$-number-keyboard-padding});
+    margin: 0 0 0 $-number-keyboard-padding;
+    margin-bottom: $-number-keyboard-padding;
+    height: $-number-keyboard-key-height;
+    background: $-number-keyboard-key-bg;
+    border-radius: $-number-keyboard-key-radius;
+    border: none;
+    box-shadow: $-number-keyboard-key-shadow;
+    font-size: $-number-keyboard-key-fs;
+    color: $-number-keyboard-key-color;
+    outline: none;
+    -webkit-appearance: none;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+
+    &:active {
+      background: mix($-number-keyboard-key-bg, rgba(0, 0, 0, 1), 95%);
+    }
+  }
+  @include e(actions) {
+    flex: 1;
+  }
+  @include e(action) {
+    display: block;
+    width: calc(100% - #{$-number-keyboard-padding * 2});
+    margin: 0 $-number-keyboard-padding $-number-keyboard-padding;
+    height: $-number-keyboard-key-height * 2 + $-number-keyboard-padding;
+    background: $-number-keyboard-key-bg;
+    border-radius: $-number-keyboard-key-radius;
+    border: none;
+    box-shadow: $-number-keyboard-key-shadow;
+    font-size: $-number-keyboard-action-fs;
+    color: $-number-keyboard-key-color;
+    outline: none;
+    -webkit-appearance: none;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+
+    &:active {
+      background: mix($-number-keyboard-key-bg, rgba(0, 0, 0, 1), 95%);
+    }
+    @include m(confirm) {
+      background: $-number-keyboard-finish-bg;
+      color: $-number-keyboard-finish-color;
+
+      &:active {
+        background: mix($-color-theme, rgba(0, 0, 0, 1), 95%);
+      }
+    }
+  }
+}
+.wd-slide-up-enter, .wd-slide-up-leave-to {
+  transform: translate(0, 100%);
+}
+.wd-slide-up-enter-active, .wd-slide-up-leave-active {
+  transition: transform .2s;
+}

@@ -21,6 +21,9 @@ export default {
       cancel: 'Cancel',
       inputNoValidate: 'Please ensure you input correct information'
     },
+    numberKeyboard: {
+      confirm: 'done'
+    },
     pagination: {
       prev: 'Previous',
       next: 'Next',

@@ -437,6 +437,26 @@ $-notice-bar-close-color: $-color-white !default; // 右侧关闭按钮颜色
 $-notice-bar-close-size: 10px !default; // 关闭按钮大小
 $-notice-bar-wrap-padding: 14px $-size-side-padding !default; // 换行下的padding
 
+/* number-keyboard */
+$-number-keyboard-padding: 6px !default; // 间距
+$-number-keyboard-bg: rgba(210, 213, 219, 0.9) !default; // 键盘背景色
+$-number-keyboard-key-height: 46px !default; // 按键高度
+$-number-keyboard-key-radius: 5px !default; // 按键圆角
+$-number-keyboard-key-bg: rgba(255, 255, 255, 1) !default; // 按键背景色
+$-number-keyboard-key-color: rgba(0, 0, 0, 1) !default; // 按键颜色
+$-number-keyboard-key-fs: 25px !default; // 按键字号
+$-number-keyboard-key-shadow: 0px 1px 0px 0px rgba(132, 134, 136, 1) !default; // 按键阴影
+$-number-keyboard-action-fs: 20px !default; // 操作按钮字号
+$-number-keyboard-finish-bg: resultColor(
+  $open-linear,
+  315deg,
+  $-color-theme,
+  "dark" "light",
+  rgba(79, 124, 248, 1) rgba(102, 141, 248, 1),
+  0% 100%
+) !default; // 完成按钮背景色
+$-number-keyboard-finish-color: rgba(255, 255, 255, 1) !default; // 完成按钮颜色
+
 /* pagination */
 $-pagination-content-padding: 10px 15px !default;
 $-pagination-message-padding: 1px 0 16px 0 !default;
