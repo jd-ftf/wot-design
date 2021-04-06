@@ -154,6 +154,8 @@
               title: Img 图片
             - name: imgPreview
               title: ImgPreview 图片预览
+            - name: imgCropper
+              title: ImgCropper 图片裁剪
             - name: lazyload
               title: Lazyload 图片懒加载
             - name: steps

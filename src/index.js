@@ -29,6 +29,7 @@ import Input from '../packages/input'
 import InputNumber from '../packages/input-number'
 import Img from '../packages/img'
 import ImgPreview from '../packages/img-preview'
+import ImgCropper from '../packages/img-cropper'
 import Lazyload from '../packages/lazyload'
 import Loading from '../packages/loading'
 import MessageBox from '../packages/message-box'
@@ -135,7 +136,8 @@ const components = [
   Tooltip,
   Upload,
   MessageBox.wdMessageBox,
-  ImgPreview.wdImgPreview
+  ImgPreview.wdImgPreview,
+  ImgCropper.wdImgCropper
 ]
 
 const install = (Vue, config = {}) => {
@@ -196,6 +198,7 @@ export default {
   InputNumber,
   Img,
   ImgPreview,
+  ImgCropper,
   Lazyload,
   Loading,
   MessageBox,

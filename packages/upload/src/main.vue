@@ -420,7 +420,7 @@ export default {
       ) : file[this.statusKey] === 'fail' ? (
         <div class="wd-upload__status-content">
           <i class="wd-icon-close-outline wd-upload__icon"></i>
-          <span class="wd-upload__progress-txt">{file.error || t('wd.upload.error') }</span>
+          <span class="wd-upload__progress-txt">{file.error || t('wd.upload.error')}</span>
         </div>
       ) : ''
 
@@ -448,7 +448,7 @@ export default {
               this.showImgPreview && this.preview(imgList, file, index)
             }}>
             <img src={file.url} class="wd-upload__picture" />
-            {showName && file[this.statusKey] === 'success' ? <div class="wd-upload__picture-name">{file[this.nameKey] || t('wd.upload.fileName') }</div> : ''}
+            {showName && file[this.statusKey] === 'success' ? <div class="wd-upload__picture-name">{file[this.nameKey] || t('wd.upload.fileName')}</div> : ''}
           </div>
           {closeButton}
         </div>
@@ -477,6 +477,7 @@ export default {
           </transition-group>
         )
     }
+
     const upload = reverse ? transition(evoke, previewList) : transition(previewList, evoke)
 
     return upload
