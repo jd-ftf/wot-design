@@ -429,7 +429,7 @@ export default {
       ) : ''
 
       // 右上角关闭按钮
-      const closeButton = file[this.statusKey] === 'loading' ? '' : (
+      const closeButton = (file[this.statusKey] === 'loading' || disabled) ? '' : (
         <i
           class="wd-icon-error-fill wd-upload__close"
           onClick={() => {

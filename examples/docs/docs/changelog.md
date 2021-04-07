@@ -43,6 +43,8 @@
   - 修复在部分手机上的兼容性问题 (by [@yawuling](https://github.com/yawuling) )
 - Search
   - 修复clear事件晚于blur事件触发 (by [@HXCStudio123](https://github.com/HXCStudio123) )
+- Upload
+  - 修复 `disabled` 状态下可以删除图片的问题 (by [@yawuling](https://github.com/yawuling) )
 
 ### 2.2.1
 
