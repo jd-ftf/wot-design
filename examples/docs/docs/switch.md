@@ -65,6 +65,33 @@ export default {
 
 设置 `disabled` 属性。
 
+### 修改前钩子
+
+设置 `before-change` 属性，修改前钩子，接收 { value, resolve } 参数，`resolve(true)` 表示修改通过，`resolve(false)` 表示不修改。
+
+```html
+<wd-switch v-model="value" :before-change="beforeChange" />
+
+<script>
+export default {
+  data () {
+    return {
+      value: true
+    }
+  },
+  methods: {
+    beforeChange ({ value, resolve }) {
+      this.$messageBox.confirm('是否切换开关').then(() => {
+        resolve(true)
+      }).catch(() => {
+        resolve(false)
+      })
+    }
+  }
+}
+</script>
+```
+
 ### Attributes
 
 | 参数      | 说明                                 | 类型      | 可选值       | 默认值   |
