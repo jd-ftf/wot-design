@@ -7,8 +7,6 @@
  
   @include e(body) {
     position: absolute;
-    left: 0;
-    top: 0;
     z-index: $-tooltip-z-index;
     line-height: $-tooltip-line-height;
     min-width: 138px;

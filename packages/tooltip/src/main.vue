@@ -15,9 +15,12 @@
       >
         <div v-if="visibleArrow" ref="arrow" :class="arrowClass" :style="arrowStyle"></div>
         <div>
-          <div v-if="content" class="wd-tooltip__inner">{{content}}</div>
+          <div class="wd-tooltip__inner">
+            <slot name="content">
+              {{content}}
+            </slot>
+          </div>
           <!-- 内容自定义插槽 -->
-          <slot name="content" v-else></slot>
         </div>
         <i
           v-if="showClose"
