@@ -48,6 +48,8 @@
   - 修正 `offset` 属性的使用 (by [@yawuling](https://github.com/yawuling) )
 - Search
   - 修复clear事件晚于blur事件触发 (by [@HXCStudio123](https://github.com/HXCStudio123) )
+- Tabbar
+  - 修复使用 `name` 属性设置无法高亮的问题 (by [@yawuling](https://github.com/yawuling) )
 - Tooltip
   - 修复插槽宽度较小时，弹出层的箭头样式偏移错乱问题 (by [@yawuling](https://github.com/yawuling) )
   - 修正 `offset` 属性的使用 (by [@yawuling](https://github.com/yawuling) )
