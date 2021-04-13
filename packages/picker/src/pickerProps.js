@@ -30,5 +30,9 @@ export default {
   closeOnPopstate: {
     type: Boolean,
     default: true
+  },
+  safeAreaInsetBottom: {
+    type: Boolean,
+    default: true
   }
 }

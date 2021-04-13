@@ -1,6 +1,6 @@
 <template>
   <transition name="wd-slide-up" @after-enter="onOpen" @after-leave="onClose">
-    <div v-show="show" class="wd-number-keyboard" :style="{ 'z-index': zIndex }" @touchstart.stop="noop">
+    <div v-show="show" class="wd-number-keyboard" :class="{ 'is-safe-area-inset-bottom': safeAreaInsetBottom }" :style="{ 'z-index': zIndex }" @touchstart.stop="noop">
       <div class="wd-number-keyboard__body">
         <button
           v-for="item in 9" :key="item"
@@ -56,6 +56,10 @@ export default {
     zIndex: {
       type: Number,
       default: 100
+    },
+    safeAreaInsetBottom: {
+      type: Boolean,
+      default: true
     }
   },
   data () {

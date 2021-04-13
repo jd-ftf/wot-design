@@ -9,6 +9,7 @@
       :duration="250"
       :close-on-click-modal="closeOnClickModal"
       :close-on-popstate="closeOnPopstate"
+      :safe-area-inset-bottom="safeAreaInsetBottom"
       @click-modal="onCancel"
       @popstate="onCancel"
       class="wd-picker__popup"

@@ -142,6 +142,7 @@ export default {
 | close-on-popstate | 页面返回时自动关闭 | boolean | - | true | 2.3.0 |
 | teleport | 指定挂载的 HTML 节点, 可以为字符串，也可以为对象，为对象时有 `to` 和 `disabled` 属性，`to` 表示挂载点，`disabled` 表示挂载到当前节点上 | string / object  | - | 'body' | 2.3.0 |
 | z-index | 键盘层级 | number | - | 100 | 2.3.0 |
+| safe-area-inset-bottom | 弹出面板是否设置底部安全距离（iphone X 类型的机型），见 [底部安全区域适配](#/components/commonProblems#di-bu-an-quan-qu-yu-gua-pei-iphone-x-lei-xing-de-ji-xing) | boolean | - | true | 2.3.0 |
 
 ### Events
 

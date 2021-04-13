@@ -10,6 +10,10 @@
   padding-top: $-number-keyboard-padding;
   background-color: $-number-keyboard-bg;
 
+  @include when(safe-area-inset-bottom) {
+    padding-bottom: constant(safe-area-inset-bottom);
+    padding-bottom: env(safe-area-inset-bottom);
+  }
   @include e(body) {
     display: flex;
     flex: 3;

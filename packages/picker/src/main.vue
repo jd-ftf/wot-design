@@ -11,6 +11,7 @@
       :duration="250"
       :close-on-click-modal="closeOnClickModal"
       :close-on-popstate="closeOnPopstate"
+      :safe-area-inset-bottom="safeAreaInsetBottom"
       class="wd-picker__popup"
     >
       <toolbar :target="currentTarget"></toolbar>

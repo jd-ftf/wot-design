@@ -11,7 +11,8 @@ export default {
     },
     duration: Number,
     closable: Boolean,
-    transition: String
+    transition: String,
+    safeAreaInsetBottom: Boolean
   },
   computed: {
     transitionName () {
@@ -44,7 +45,8 @@ export default {
       position,
       duration,
       closable,
-      close
+      close,
+      safeAreaInsetBottom
     } = this
 
     return (
@@ -54,7 +56,8 @@ export default {
           ref="popup"
           class={[
             'wd-popup',
-            `wd-popup--${position}`
+            `wd-popup--${position}`,
+            safeAreaInsetBottom ? 'is-safe-area-inset-bottom' : ''
           ]}
           ref="popup"
           style={

@@ -1,62 +1,65 @@
 <template>
   <wd-popup
     :teleport="teleport"
-    class="wd-action-sheet"
-    :class="{'wd-action-sheet--spacing': actions && actions.length || panels && panels.length}"
+    class="wd-action-sheet__popup"
+    :class="{'is-spacing': actions && actions.length || panels && panels.length}"
     :lock-scroll="lockScroll"
     :duration="duration"
     :value="value"
     position="bottom"
     :close-on-click-modal="closeOnClickModal"
     :close-on-popstate="closeOnPopstate"
+    :safe-area-inset-bottom="safeAreaInsetBottom"
     @click-modal="handleClickModal"
     @popstate="close"
     @opened="handleOpened"
     @closed="handleClosed"
   >
-    <div v-if="title" class="wd-action-sheet__header">
-      {{ title }}
-      <i class="wd-action-sheet__close wd-icon-add" @click="close"></i>
-    </div>
-    <div v-if="actions && actions.length" class="wd-action-sheet__actions">
-      <div
-        v-for="(item, index) in actions"
-        :key="index"
-        :class="{
-          'wd-action-sheet__action': true,
-          'wd-action-sheet__action--disabled': item.disabled
-        }"
-        :style="{ 'color': item.color }"
-        @click="select('action', index)"
-      >
-        <wd-loading v-if="item.loading" size="20px" style="display: inline-block;" :color="item.color" />
-        <template v-else>
-          <span class="wd-action-sheet__name">{{ item.name }}</span>
-          <span v-if="item.subname" class="wd-action-sheet__subname">{{ item.subname }}</span>
-        </template>
+    <div class="wd-action-sheet" :class="{'is-spacing': actions && actions.length || panels && panels.length}">
+      <div v-if="title" class="wd-action-sheet__header">
+        {{ title }}
+        <i class="wd-action-sheet__close wd-icon-add" @click="close"></i>
       </div>
-    </div>
-    <template v-if="formatPanels && formatPanels.length">
-      <div
-        v-for="(item, rowIndex) in formatPanels"
-        :key="rowIndex"
-        class="wd-action-sheet__panels"
-      >
-        <div class="wd-action-sheet__panels-content">
-          <div
-            v-for="(panel, colIndex) in item"
-            :key="colIndex"
-            class="wd-action-sheet__panel"
-            @click="select('panel', rowIndex, colIndex)"
-          >
-            <img class="wd-action-sheet__panel-img" :src="panel.iconUrl" />
-            <div class="wd-action-sheet__panel-title">{{ panel.title }}</div>
-          </div>
+      <div v-if="actions && actions.length" class="wd-action-sheet__actions">
+        <div
+          v-for="(item, index) in actions"
+          :key="index"
+          :class="{
+            'wd-action-sheet__action': true,
+            'wd-action-sheet__action--disabled': item.disabled
+          }"
+          :style="{ 'color': item.color }"
+          @click="select('action', index)"
+        >
+          <wd-loading v-if="item.loading" size="20px" style="display: inline-block;" :color="item.color" />
+          <template v-else>
+            <span class="wd-action-sheet__name">{{ item.name }}</span>
+            <span v-if="item.subname" class="wd-action-sheet__subname">{{ item.subname }}</span>
+          </template>
         </div>
       </div>
-    </template>
-    <slot></slot>
-    <div v-if="cancelText" class="wd-action-sheet__cancel" @click="handleCancel">{{ cancelText }}</div>
+      <template v-if="formatPanels && formatPanels.length">
+        <div
+          v-for="(item, rowIndex) in formatPanels"
+          :key="rowIndex"
+          class="wd-action-sheet__panels"
+        >
+          <div class="wd-action-sheet__panels-content">
+            <div
+              v-for="(panel, colIndex) in item"
+              :key="colIndex"
+              class="wd-action-sheet__panel"
+              @click="select('panel', rowIndex, colIndex)"
+            >
+              <img class="wd-action-sheet__panel-img" :src="panel.iconUrl" />
+              <div class="wd-action-sheet__panel-title">{{ panel.title }}</div>
+            </div>
+          </div>
+        </div>
+      </template>
+      <slot></slot>
+      <div v-if="cancelText" class="wd-action-sheet__cancel" :class="{ 'is-panel': formatPanels && formatPanels.length }" @click="handleCancel">{{ cancelText }}</div>
+    </div>
   </wd-popup>
 </template>
 
@@ -104,6 +107,10 @@ export default {
       default: 200
     },
     closeOnPopstate: {
+      type: Boolean,
+      default: true
+    },
+    safeAreaInsetBottom: {
       type: Boolean,
       default: true
     }
