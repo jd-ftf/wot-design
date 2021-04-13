@@ -4,11 +4,18 @@
 @import './loading.scss';
 
 @include b(action-sheet) {
-  border-radius: $-action-sheet-radius $-action-sheet-radius 0 0;
-
-  @include m(spacing) {
-    margin: $-action-sheet-spacing;
+  @include when(spacing) {
+    background-color: #fff;
     border-radius: $-action-sheet-radius;
+    overflow: hidden;
+  }
+  @include e(popup) {
+    border-radius: $-action-sheet-radius $-action-sheet-radius 0 0;
+
+    @include when(spacing) {
+      margin: $-action-sheet-spacing;
+      background: transparent;
+    }
   }
 
   @include e(actions) {
@@ -61,6 +68,10 @@
 
     &:active {
       background: $-action-sheet-active-color;
+    }
+
+    @include when(panel) {
+      margin-top: 13px;
     }
   }
   @include e(header) {

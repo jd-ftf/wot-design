@@ -42,6 +42,7 @@
       :title="title || t('wd.colPicker.title')"
       :close-on-click-modal="closeOnClickModal"
       :close-on-popstate="closeOnPopstate"
+      :safe-area-inset-bottom="safeAreaInsetBottom"
       @close="handlePickerClose"
     >
       <div class="wd-select-picker__wrapper">
@@ -166,6 +167,10 @@ export default {
       default: true
     },
     closeOnPopstate: {
+      type: Boolean,
+      default: true
+    },
+    safeAreaInsetBottom: {
       type: Boolean,
       default: true
     }

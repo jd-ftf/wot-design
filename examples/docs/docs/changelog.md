@@ -6,15 +6,18 @@
 
 - ActionSheet
   - 新增 `close-on-popstate` 属性，返回时自动关闭 (by [@yawuling](https://github.com/yawuling) )
+  - 新增 `safe-area-inset-bottom` 属性，设置底部安全距离 (by [@yawuling](https://github.com/yawuling) )
 - Calendar
   - 新增日历面板组件 (by [@yawuling](https://github.com/yawuling) )
 - ColPicker
   - 新增 `close-on-popstate` 属性，返回时自动关闭 (by [@yawuling](https://github.com/yawuling) )
+  - 新增 `safe-area-inset-bottom` 属性，设置底部安全距离 (by [@yawuling](https://github.com/yawuling) )
 - Curtain
   - 新增 `close-on-popstate` 属性，返回时自动关闭 (by [@yawuling](https://github.com/yawuling) )
 - DatetimePicker
   - 新增 `close-on-popstate` 属性，返回时自动关闭 (by [@yawuling](https://github.com/yawuling) )
   - 新增 `default-value` 属性，支持设置默认选中项 (by [@yawuling](https://github.com/yawuling) )
+  - 新增 `safe-area-inset-bottom` 属性，设置底部安全距离 (by [@yawuling](https://github.com/yawuling) )
 - DropMenu
   - 新增 `close-on-popstate` 属性，返回时自动关闭 (by [@yawuling](https://github.com/yawuling) )
 - MessageBox
@@ -23,12 +26,15 @@
   - 新增数字键盘组件 (by [@yawuling](https://github.com/yawuling) )
 - Picker
   - 新增 `close-on-popstate` 属性，返回时自动关闭 (by [@yawuling](https://github.com/yawuling) )
+  - 新增 `safe-area-inset-bottom` 属性，设置底部安全距离 (by [@yawuling](https://github.com/yawuling) )
 - Popup
   - 新增 `close-on-popstate` 属性，返回时自动关闭 (by [@yawuling](https://github.com/yawuling) )
+  - 新增 `safe-area-inset-bottom` 属性，设置底部安全距离 (by [@yawuling](https://github.com/yawuling) )
 - Search
   - 新增 `type` 属性，支持设置 'number' 输入类型 (by [@yawuling](https://github.com/yawuling) )
 - SelectPicker
   - 新增 `close-on-popstate` 属性，返回时自动关闭 (by [@yawuling](https://github.com/yawuling) )
+  - 新增 `safe-area-inset-bottom` 属性，设置底部安全距离 (by [@yawuling](https://github.com/yawuling) )
 - Switch
   - 新增 `before-change` 修改前钩子函数  (by [@yawuling](https://github.com/yawuling) )
 

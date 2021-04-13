@@ -31,6 +31,9 @@
       name: changelog
       title: 更新日志
       demo: /
+    - name: commonProblems
+      title: 常见问题
+      demo: /
     - type: module
       title: 组件
       children:

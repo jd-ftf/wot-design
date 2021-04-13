@@ -173,45 +173,46 @@ export default {
 
 ### Attributes
 
-| 参数      | 说明                                 | 类型      | 可选值       | 默认值   |
-|---------- |------------------------------------ |---------- |------------- |-------- |
-| value/v-model | 绑定值，展示/关闭菜单 | boolean | - | - |
-| actions | 菜单选项 | array | - | [] |
-| panels | 自定义面板项,可以为字符串数组，也可以为对象数组，如果为二维数组，则为多行展示 | array | - | [] |
-| title | 标题 | string | - | - |
-| cancel-text | 取消按钮文案 | string | - | - |
-| close-on-click-action | 点击选项后是否关闭菜单 | boolean | - | true |
-| close-on-popstate | 页面返回时自动关闭 | boolean | - | true |
-| lock-scroll | 锁定背景滚动 | boolean | - | true |
-| close-on-click-modal | 点击遮罩是否关闭 | boolean | - | true | 
-| duration | 动画持续时间 | number | - | 200(ms) |
-| teleport | 指定挂载的 HTML 节点, 可以为字符串，也可以为对象，为对象时有 `to` 和 `disabled` 属性，`to` 表示挂载点，`disabled` 表示挂载到当前节点上 | string / object  | - | 'body' |
+| 参数 | 说明 | 类型 | 可选值 | 默认值   | 版本 |
+|-----|------|-----|-------|-------- |---|
+| value/v-model | 绑定值，展示/关闭菜单 | boolean | - | - | - |
+| actions | 菜单选项 | array | - | [] | - |
+| panels | 自定义面板项,可以为字符串数组，也可以为对象数组，如果为二维数组，则为多行展示 | array | - | [] | - |
+| title | 标题 | string | - | - | - |
+| cancel-text | 取消按钮文案 | string | - | - | - |
+| close-on-click-action | 点击选项后是否关闭菜单 | boolean | - | true | - |
+| close-on-popstate | 页面返回时自动关闭 | boolean | - | true | 2.3.0 |
+| lock-scroll | 锁定背景滚动 | boolean | - | true | - |
+| close-on-click-modal | 点击遮罩是否关闭 | boolean | - | true | - |
+| duration | 动画持续时间 | number | - | 200(ms) | - |
+| teleport | 指定挂载的 HTML 节点, 可以为字符串，也可以为对象，为对象时有 `to` 和 `disabled` 属性，`to` 表示挂载点，`disabled` 表示挂载到当前节点上 | string / object  | - | 'body' | - |
+| safe-area-inset-bottom | 弹出面板是否设置底部安全距离（iphone X 类型的机型），见 [底部安全区域适配](#/components/commonProblems#di-bu-an-quan-qu-yu-gua-pei-iphone-x-lei-xing-de-ji-xing) | boolean | - | true | 2.3.0 |
 
 ### Events
 
-| 事件名称      | 说明                                 | 参数     |
-|------------- |------------------------------------ |--------- |
-| select | 点击选项时触发 | 菜单选项或自定义面板一维数组 （item: 选项对象, index: 选项下标），自定义面板二维数组（item: 选项对象, rowIndex: 选项行下标, colIndex选项列下标）|
-| open | 弹出层打开时触发 | - |
-| opened | 弹出层打开动画结束时触发 | - |
-| close | 弹出层关闭时触发 | - |
-| closed | 弹出层关闭动画结束时触发 | - |
-| click-modal | 点击遮罩时触发 | - |
-| cancel | 点击取消按钮时触发 | - |
+| 事件名称 | 说明 | 参数 | 版本 |
+|--------|------|-----|-----|
+| select | 点击选项时触发 | 菜单选项或自定义面板一维数组 （item: 选项对象, index: 选项下标），自定义面板二维数组（item: 选项对象, rowIndex: 选项行下标, colIndex选项列下标）| - |
+| open | 弹出层打开时触发 | - | - |
+| opened | 弹出层打开动画结束时触发 | - | - |
+| close | 弹出层关闭时触发 | - | - |
+| closed | 弹出层关闭动画结束时触发 | - | - |
+| click-modal | 点击遮罩时触发 | - | - |
+| cancel | 点击取消按钮时触发 | - | - |
 
 ### Action 数据结构
 
-| 键名 | 说明 | 类型 |
-|----- |----- |----- |
-| name | 选项名称 | string |
-| subname | 描述信息 | string |
-| color | 颜色 | string |
-| disabled | 禁用 | boolean |
-| loading | 加载中状态 | boolean |
+| 键名 | 说明 | 类型 | 版本 |
+|----- |----- |----- |---|
+| name | 选项名称 | string | - |
+| subname | 描述信息 | string | - |
+| color | 颜色 | string | - |
+| disabled | 禁用 | boolean | - |
+| loading | 加载中状态 | boolean | - |
 
 ### Panel 数据结构
 
-| 键名 | 说明 | 类型 |
-|----- |----- |----- |
-| iconUrl | 图片地址 | string |
-| title | 标题内容 | string |
+| 键名 | 说明 | 类型 | 版本 |
+|----- |----- |----- |---|
+| iconUrl | 图片地址 | string | - |
+| title | 标题内容 | string | - |

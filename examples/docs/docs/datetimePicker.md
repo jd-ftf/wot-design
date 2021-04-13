@@ -298,60 +298,61 @@ export default {
 
 ### Attributes
 
-| 参数      | 说明                                 | 类型      | 可选值       | 默认值   |
-|---------- |------------------------------------ |---------- |------------- |-------- |
-| value/v-model | 选中项，当 type 为 time 时，类型为字符串；当 type 为 Array 时，类型为范围选择；否则为 Date | string / date / Array | - |
-| default-value | 默认日期，类型保持与 value 一致，打开面板时面板自动选到默认日期 ｜ string / date / array | - |
-| type | 选择器类型 | string | 'date' / 'year-month' / 'time'  | 'datetime' |
-| loading | 加载中 | boolean | - | false |
-| loading-color | 加载的颜色，只能使用十六进制的色值写法，且不能使用缩写 | string | - | '#4D80F0' |
-| arrow-html | 是否使用html渲染选择器内容 | boolean | - | true |
-| columns-height | picker内部滚筒高 | number | - | 217 |
-| title | 弹出层标题 | string | - | - |
-| cancel-button-text | 取消按钮文案 | string | - | '取消' |
-| confirm-button-text | 确认按钮文案 | string | - | '完成' |
-| label | 选择器左侧文案 | string | - | - |
-| placeholder | 选择器占位符 | string | - | '请选择' |
-| disabled | 禁用 | boolean | - | fasle |
-| readonly | 只读 | boolean | - | false |
-| required | 是否校验 | boolean | - | false |
-| teleport | 指定挂载的 HTML 节点, 可以为字符串，也可以为对象，为对象时有 `to` 和 `disabled` 属性，`to` 表示挂载点，`disabled` 表示挂载到当前节点上 | string / object  | - | 'body' |
-| display-format | 自定义展示文案的格式化函数，返回一个字符串 | function | - | - |
-| display-format-tab-label | 在区域选择模式下，自定义展示tab标签文案的格式化函数，返回一个字符串 | function | - | - |
-| formatter | 自定义弹出层选项文案的格式化函数，返回一个字符串 | function | - | - |
-| filter | 自定义过滤选项的函数，返回列的选项数组 | function | - | - |
-| minDate | 最小日期 | date | - | 当前日期 - 10年 |
-| maxDate | 最大日期 | date | - | 当前日志 + 10年 |
-| minHour | 最小小时 | number | - | 0 |
-| maxHour | 最大小时 | number | - | 23 |
-| minMinute | 最小分钟 | number | - | 0 |
-| maxMinute | 最大分钟 | number | - | 59 |
-| size | 设置选择器大小 | string | 'large' | - |
-| label-width | 设置左侧标题宽度 | string | - | '33%' |
-| error | 是否为错误状态，错误状态时右侧内容为红色 | boolean | - | false |
-| align-right | 选择器的值靠右展示 | boolean | - | false |
-| before-confirm | 确定前校验函数，接收 (value, resolve) 参数，通过 resolve 继续执行 picker，resolve 接收1个boolean参数 | function | - | - |
-| close-on-click-modal | 点击遮罩是否关闭 | boolean | - | true |
-| close-on-popstate | 页面返回时自动关闭 | boolean | - | true |
+| 参数 | 说明 | 类型 | 可选值 | 默认值 | 版本 |
+|-----|------|-----|-------|-------|-----|
+| value/v-model | 选中项，当 type 为 time 时，类型为字符串；当 type 为 Array 时，类型为范围选择；否则为 Date | string / date / Array | - | - |
+| default-value | 默认日期，类型保持与 value 一致，打开面板时面板自动选到默认日期 ｜ string / date / array | - | - |
+| type | 选择器类型 | string | 'date' / 'year-month' / 'time'  | 'datetime' | - |
+| loading | 加载中 | boolean | - | false | - |
+| loading-color | 加载的颜色，只能使用十六进制的色值写法，且不能使用缩写 | string | - | '#4D80F0' | - |
+| arrow-html | 是否使用html渲染选择器内容 | boolean | - | true | - |
+| columns-height | picker内部滚筒高 | number | - | 217 | - |
+| title | 弹出层标题 | string | - | - | - |
+| cancel-button-text | 取消按钮文案 | string | - | '取消' | - |
+| confirm-button-text | 确认按钮文案 | string | - | '完成' | - |
+| label | 选择器左侧文案 | string | - | - | - |
+| placeholder | 选择器占位符 | string | - | '请选择' | - |
+| disabled | 禁用 | boolean | - | fasle | - |
+| readonly | 只读 | boolean | - | false | - |
+| required | 是否校验 | boolean | - | false | - |
+| teleport | 指定挂载的 HTML 节点, 可以为字符串，也可以为对象，为对象时有 `to` 和 `disabled` 属性，`to` 表示挂载点，`disabled` 表示挂载到当前节点上 | string / object  | - | 'body' | - |
+| display-format | 自定义展示文案的格式化函数，返回一个字符串 | function | - | - | - |
+| display-format-tab-label | 在区域选择模式下，自定义展示tab标签文案的格式化函数，返回一个字符串 | function | - | - | - |
+| formatter | 自定义弹出层选项文案的格式化函数，返回一个字符串 | function | - | - | - |
+| filter | 自定义过滤选项的函数，返回列的选项数组 | function | - | - | - |
+| minDate | 最小日期 | date | - | 当前日期 - 10年 | - |
+| maxDate | 最大日期 | date | - | 当前日志 + 10年 | - |
+| minHour | 最小小时 | number | - | 0 | - |
+| maxHour | 最大小时 | number | - | 23 | - |
+| minMinute | 最小分钟 | number | - | 0 | - |
+| maxMinute | 最大分钟 | number | - | 59 | - |
+| size | 设置选择器大小 | string | 'large' | - | - |
+| label-width | 设置左侧标题宽度 | string | - | '33%' | - |
+| error | 是否为错误状态，错误状态时右侧内容为红色 | boolean | - | false | - |
+| align-right | 选择器的值靠右展示 | boolean | - | false | - |
+| before-confirm | 确定前校验函数，接收 (value, resolve) 参数，通过 resolve 继续执行 picker，resolve 接收1个boolean参数 | function | - | - | - |
+| close-on-click-modal | 点击遮罩是否关闭 | boolean | - | true | - |
+| close-on-popstate | 页面返回时自动关闭 | boolean | - | true | 2.3.0 |
+| safe-area-inset-bottom | 弹出面板是否设置底部安全距离（iphone X 类型的机型），见 [底部安全区域适配](#/components/commonProblems#di-bu-an-quan-qu-yu-gua-pei-iphone-x-lei-xing-de-ji-xing) | boolean | - | true | 2.3.0 |
 
 ### Slot
 
-| name      | 说明       |
-|------------- |----------- |
-| default | 唤起picker的展示形式，不设置则展示cell表单样式 |
-| label | cell展示时，左侧展示文案 |
+| name | 说明 | 版本 |
+|------|-----|-----|
+| default | 唤起picker的展示形式，不设置则展示cell表单样式 | - |
+| label | cell展示时，左侧展示文案 | - |
 
 ### Events
 
-| 事件名称      | 说明                                 | 参数     |
-|------------- |------------------------------------ |--------- |
-| confirm | 点击右侧按钮触发 | 确认选中得到的当前picker选中的值 |
-| cancel | 点击左侧按钮触发 | - |
-| toggle | 在区域选择模式下，tab标签切换时触发 | 切换到当前picker选中的值 |
+| 事件名称 | 说明 | 参数 | 版本 |
+|---------|-----|-----|------|
+| confirm | 点击右侧按钮触发 | 确认选中得到的当前picker选中的值 | - |
+| cancel | 点击左侧按钮触发 | - | - |
+| toggle | 在区域选择模式下，tab标签切换时触发 | 切换到当前picker选中的值 | - |
 
 ### Methods
 
-| 方法名称      | 说明       | 参数   |
-|------------- |----------- |---------  |
-| open | 打开picker弹框 |
-| close | 关闭picker弹框 |
+| 方法名称 | 说明 | 参数 | 版本 |
+|--------|------|-----|------|
+| open | 打开picker弹框 | - |
+| close | 关闭picker弹框 | - |
