@@ -1,5 +1,11 @@
 <template>
-  <div v-if="show" class="wd-img-cropper" @touchmove="preventTouchMove">
+  <div
+    v-if="show"
+    class="wd-img-cropper"
+    @touchmove="preventTouchMove"
+    :style="{ width: rootWidth, height: rootHeight }"
+    ref="cropper"
+  >
     <!-- 展示在用户面前的裁剪框 -->
     <div class="wd-img-cropper__wrapper">
       <!-- 画出裁剪框 -->
@@ -60,10 +66,10 @@
         :style="{
           width: picWidth ? picWidth + 'px' : 'auto',
           height: picHeight ? picHeight + 'px' : 'auto',
-          transform: `translate(${imgLeft - picWidth / 2}px, ${
+          transform: `translate3d(${imgLeft - picWidth / 2}px, ${
             imgTop - picHeight / 2
-          }px) scale(${imgScale}) rotate(${imgAngle}deg)`,
-          'transition-duration': `${isAnimation ? 0.4 : 0}s`,
+          }px, 0) scale(${imgScale}) rotate(${imgAngle}deg)`,
+          'transition-duration': `${isAnimation ? 0.3 : 0}s`,
         }"
         @touchstart="handleImgTouchStart"
         @touchmove="handleImgTouchMove"
@@ -82,7 +88,7 @@
     <div class="wd-img-cropper__footer">
       <i
         v-if="!disabledRotate"
-        class="wd-icon-fill-camera wd-img-cropper__footer--rotate"
+        class="wd-icon-rotate wd-img-cropper__footer--rotate"
         @click="handleRotate"
       ></i>
 
@@ -119,6 +125,8 @@ export default {
 
   data () {
     return {
+      rootWidth: window.screen.width,
+      rootHeight: window.screen.height,
       picWidth: this.imgWidth,
       picHeight: this.imgHeight,
       isAnimation: false,
@@ -265,23 +273,27 @@ export default {
      * @description 打开图片裁剪窗口
      */
     open () {
-      INIT_IMGWIDTH = this.picWidth
-      INIT_IMGHEIGHT = this.picHeight
-      const cutSize = window.screen.availWidth - this.offset * 2
-      this.cutWidth = cutSize
-      this.cutHeight = cutSize
-      this.cutTop = (window.screen.availHeight * TOP_PERCENT - cutSize) / 2
-      this.cutLeft = this.offset
-      this.canvasScale = this.exportScale
-      this.canvasHeight = cutSize
-      this.canvasWidth = cutSize
+      this.$nextTick(() => {
+        this.resize()
 
-      // 根据开发者设置的图片目标尺寸计算实际尺寸
-      this.initImageSize()
-      // 初始化canvas
-      this.initCanvas()
-      // 加载图片
-      this.imgSrc && this.loadImg()
+        INIT_IMGWIDTH = this.picWidth
+        INIT_IMGHEIGHT = this.picHeight
+        const cutSize = this.rootWidth - this.offset * 2
+        this.cutWidth = cutSize
+        this.cutHeight = cutSize
+        this.cutTop = (this.rootHeight * TOP_PERCENT - cutSize) / 2
+        this.cutLeft = this.offset
+        this.canvasScale = this.exportScale
+        this.canvasHeight = cutSize
+        this.canvasWidth = cutSize
+
+        // 根据开发者设置的图片目标尺寸计算实际尺寸
+        this.initImageSize()
+        // 初始化canvas
+        this.initCanvas()
+        // 加载图片
+        this.imgSrc && this.loadImg()
+      })
     },
 
     /**
@@ -296,14 +308,20 @@ export default {
       this.detectImgPosIsEdge()
     },
 
+    resize () {
+      const rect = this.$refs.cropper.getBoundingClientRect()
+      this.rootWidth = rect.width
+      this.rootHeight = rect.height
+    },
+
     /**
      * @description 对外暴露：初始化图片的大小和角度以及距离
      */
     resetImg () {
       this.imgScale = 1
       this.imgAngle = 0
-      this.imgLeft = window.screen.availWidth / 2
-      this.imgTop = window.screen.availHeight / 2 * TOP_PERCENT
+      this.imgLeft = this.rootWidth / 2
+      this.imgTop = this.rootHeight / 2 * TOP_PERCENT
     },
 
     /**
@@ -368,7 +386,6 @@ export default {
      * @description canvas 初始化
      */
     initCanvas () {
-      console.log('初始化')
       if (!this.ctx) {
         this.$nextTick(() => {
           this.canvas = this.$refs.canvas
@@ -384,11 +401,11 @@ export default {
       // 处理宽高特殊单位 %>px
       if (INIT_IMGWIDTH && typeof INIT_IMGWIDTH === 'string' && INIT_IMGWIDTH.indexOf('%') !== -1) {
         const width = INIT_IMGWIDTH.replace('%', '')
-        INIT_IMGWIDTH = this.picWidth = window.screen.availWidth / 100 * width
+        INIT_IMGWIDTH = this.picWidth = this.rootWidth / 100 * width
       }
       if (INIT_IMGHEIGHT && typeof INIT_IMGHEIGHT === 'string' && INIT_IMGHEIGHT.indexOf('%') !== -1) {
         const height = this.picHeight.replace('%', '')
-        INIT_IMGHEIGHT = this.picHeight = window.screen.availHeight / 100 * height
+        INIT_IMGHEIGHT = this.picHeight = this.rootHeight / 100 * height
       }
     },
 
@@ -574,10 +591,8 @@ export default {
           let output = document.createElement('img')
           output.src = this.canvas.toDataURL(this.fileType, this.quality)
           output.onload = (e) => {
-            console.log(e)
             this.$emit('confirm', {
-              src: this.canvas.toDataURL(this.fileType, this.quality),
-              size: '',
+              url: this.canvas.toDataURL(this.fileType, this.quality),
               width: cutWidth * cutScale,
               height: cutHeight * cutScale
             })

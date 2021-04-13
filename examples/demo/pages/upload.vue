@@ -1,10 +1,10 @@
 <template>
   <div>
     <demo-block title="基本用法">
-      <wd-upload v-model="fileList1" action="https://jsonplaceholder.typicode.com/posts/"></wd-upload>
+      <wd-upload v-model="fileList1" action="https://ftf.jd.com/api/uploadImg"></wd-upload>
     </demo-block>
     <demo-block title="展示文件名">
-      <wd-upload show-name v-model="fileList2" action="https://jsonplaceholder.typicode.com/posts/"></wd-upload>
+      <wd-upload show-name v-model="fileList2" action="https://ftf.jd.com/api/uploadImg"></wd-upload>
     </demo-block>
     <demo-block title="多选上传">
       <wd-upload
@@ -12,35 +12,35 @@
         multiple
         @success="handleSuccess"
         @remove="handleRemove"
-        action="https://jsonplaceholder.typicode.com/posts/"
+        action="https://ftf.jd.com/api/uploadImg"
       ></wd-upload>
     </demo-block>
     <demo-block title="最大上传数限制">
       <wd-upload
         v-model="fileList4"
         :limit="3"
-        action="https://jsonplaceholder.typicode.com/posts/"
+        action="https://ftf.jd.com/api/uploadImg"
         @exceed="handleExceed"
       ></wd-upload>
     </demo-block>
     <demo-block title="拦截预览图片操作">
       <wd-upload
         v-model="fileList5"
-        action="https://jsonplaceholder.typicode.com/posts/"
+        action="https://ftf.jd.com/api/uploadImg"
         :before-preview="handlePictureCardPreview"
       ></wd-upload>
     </demo-block>
     <demo-block title="上传前置处理">
       <wd-upload
         v-model="fileList6"
-        action="https://jsonplaceholder.typicode.com/posts/"
+        action="https://ftf.jd.com/api/uploadImg"
         :before-upload="beforeUpload"
       ></wd-upload>
     </demo-block>
     <demo-block title="移除图片前置处理">
       <wd-upload
         v-model="fileList7"
-        action="https://jsonplaceholder.typicode.com/posts/"
+        action="https://ftf.jd.com/api/uploadImg"
         @remove="handleRemove"
         :before-remove="beforeRemove"
       ></wd-upload>
@@ -48,19 +48,19 @@
     <demo-block title="上传各个状态">
       <wd-upload
         v-model="fileList8"
-        action="https://jsonplaceholder.typicode.com/posts/"
+        action="https://ftf.jd.com/api/uploadImg"
         @fail="handleError"
         @progress="handleProgress"
         @success="handleSuccess"
       ></wd-upload>
     </demo-block>
     <demo-block title="禁用">
-      <wd-upload v-model="fileList9" disabled action="https://jsonplaceholder.typicode.com/posts/"></wd-upload>
+      <wd-upload v-model="fileList9" disabled action="https://ftf.jd.com/api/uploadImg"></wd-upload>
     </demo-block>
     <demo-block title="自定义唤起上传样式">
       <wd-upload
         v-model="fileList10"
-        action="https://jsonplaceholder.typicode.com/posts/"
+        action="https://ftf.jd.com/api/uploadImg"
         reverse
         custom-evoke-class="test-class"
       >

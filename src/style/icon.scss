@@ -18,17 +18,17 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.wd-icon-keyboard-collapse:before {
-  content: "\e900";
-}
-.wd-icon-keyboard-delete:before {
-  content: "\e901";
-}
 .wd-icon-arrow-thin-up:before {
   content: "\e898";
 }
 .wd-icon-arrow-thin-down:before {
   content: "\e899";
+}
+.wd-icon-keyboard-collapse:before {
+  content: "\e900";
+}
+.wd-icon-keyboard-delete:before {
+  content: "\e901";
 }
 .wd-icon-setting:before {
   content: "\e902";
@@ -200,4 +200,7 @@
 }
 .wd-icon-check:before {
   content: "\e93f";
+}
+.wd-icon-rotate:before {
+  content: "\e92c";
 }

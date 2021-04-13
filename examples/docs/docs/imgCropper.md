@@ -17,10 +17,9 @@ Vue.use(ImgCropper)
 
 ### 基本用法
 
-图片裁剪组件需要绑定 `show` 来控制组件的显示与隐藏，通过属性 `img-src` 控制展示的图片资源位，也可以通过函数 `resetImg` 来控制组件图片的初始化。进入组件后，可以对图片进行拖拽、双指缩放、旋转等操作。监听 `confirm` 事件获取选中值。
+图片裁剪组件需要绑定 `v-model` 来控制组件的显示与隐藏，通过属性 `img-src` 控制展示的图片资源位，也可以通过函数 `resetImg` 来控制组件图片的初始化。进入组件后，可以对图片进行拖拽、双指缩放、旋转等操作。监听 `confirm` 事件获取选中值。
 
 > *注意：在使用组件时，最好在一个新页面中使用图片裁剪组件，图片裁剪保持`show`为true，完成裁剪时，返回上一页。*
-
 
 ```html
 <template>
@@ -46,13 +45,12 @@ Vue.use(ImgCropper)
         :src="loadSrc"
         mode="aspectFit"
         class="profile-img"
-        @click="preview"
       />
     </div>
     <wd-upload
       ref="upload"
       v-model="fileList"
-      :show-list="false"
+      :show-preview-list="false"
       :before-upload="beforeUpload"
       @success="handleSuccess"
       action="https://ling.jd.com/atom/api_v2/upload/jdimage"
@@ -114,10 +112,6 @@ export default {
 
     handleCancel () {
       console.log('取消')
-    },
-
-    preview () {
-      this.show = true
     },
   },
 }

@@ -24,7 +24,6 @@ const i18n = new VueI18n({
     'th_TH': thTH
   }
 })
-console.log(WotDesign)
 
 Vue.use(WotDesign, {
   i18n: (key, value) => i18n.t(key, value)

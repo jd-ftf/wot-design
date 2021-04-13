@@ -13,17 +13,17 @@
           :src="loadSrc"
           mode="aspectFit"
           class="profile-img"
-          @click="preview"
+          @click="upload"
         />
       </div>
 
       <wd-upload
         ref="upload"
         v-model="fileList"
-        :show-list="false"
+        :show-preview-list="false"
         :before-upload="beforeUpload"
         @success="handleSuccess"
-        action="https://ling.jd.com/atom/api_v2/upload/jdimage"
+        action="https://ftf.jd.com/api/uploadImg"
       >
         <wd-button>上传</wd-button>
       </wd-upload>
@@ -47,7 +47,7 @@ export default {
       fileList: [],
       loadSrc: '',
       show: false,
-      imgSrc: 'http://img11.360buyimg.com/img/jfs/t1/113350/16/3837/423464/5eaa681cE92b8f63f/243ded8ae363db28.png',
+      imgSrc: '',
     }
   },
 
@@ -90,14 +90,11 @@ export default {
 
     handleConfirm (res) {
       console.log(res)
+      this.loadSrc = res.url
     },
 
     handleCancel () {
       console.log('取消')
-    },
-
-    preview () {
-      this.show = true
     },
   },
 }

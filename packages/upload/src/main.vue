@@ -98,6 +98,11 @@ export default {
       type: Boolean,
       default: true
     },
+    // 是否展示预览列表
+    showPreviewList: {
+      type: Boolean,
+      default: true
+    },
     nameKey: {
       type: String,
       default: 'name'
@@ -219,6 +224,7 @@ export default {
     },
 
     handleChange ({ target: { files } }) {
+      console.log(12345)
       // 检查是否是图片
       if (!files || this.disabled) return
       // 检查上传数量是否超过限制数
@@ -362,6 +368,7 @@ export default {
       loadingColor,
       loadingSize,
       showName,
+      showPreviewList,
       t,
       customEvokeClass } = this
 
@@ -478,7 +485,7 @@ export default {
         )
     }
 
-    const upload = reverse ? transition(evoke, previewList) : transition(previewList, evoke)
+    const upload = showPreviewList ? (reverse ? transition(evoke, previewList) : transition(previewList, evoke)) : evoke
 
     return upload
   }
