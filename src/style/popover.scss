@@ -7,8 +7,6 @@
 
   @include e(body) {
     position: absolute;
-    left: 0;
-    top: 0;
     z-index: $-popover-z-index;
     line-height: $-popover-line-height;
     font-size: $-popover-fs;
@@ -32,11 +30,12 @@
   }
 
   @include e(menu-inner) {
+    position: relative;
     padding: $-popover-padding 0;
-    border-bottom: 1px solid $-popover-border-color;
+    @include halfPixelBorder("top", 0, $-popover-border-color);
 
-    &:last-child {
-      border-bottom: none;
+    &:first-child::after {
+      display: none;
     }
   }
   @include e(menu) {

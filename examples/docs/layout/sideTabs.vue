@@ -173,7 +173,7 @@ export default {
   .demo-iframe {
     position: fixed;
     top: 50%;
-    right: 50px;
+    right: 80px;
     transform: translateY(-50%);
     width: 425px;
     height: 820px;
