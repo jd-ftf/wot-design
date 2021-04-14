@@ -45,7 +45,8 @@
       :safe-area-inset-bottom="safeAreaInsetBottom"
       @close="handlePickerClose"
     >
-      <div class="wd-select-picker__wrapper">
+      <wd-search v-if="filterable" v-model="filterVal" :placeholder="filterPlaceholder" placeholder-left hide-cancel />
+      <div class="wd-select-picker__wrapper" :class="{ 'is-filterable': filterable }" :style="inputFocus ? `height: ${focusHeight}; max-height: ${focusHeight}` : ''">
         <!-- 多选 -->
         <wd-checkbox-group
           v-if="type === 'checkbox'"
@@ -58,11 +59,19 @@
           @change="handleChange"
         >
           <wd-checkbox
-            v-for="(item, index) in columns"
+            v-for="(item, index) in filterColumns"
             :key="index"
             :value="item[valueKey]"
             :disabled="item.disabled"
-          >{{item[labelKey]}}</wd-checkbox>
+          >
+            <template v-if="filterable && filterVal">
+              <template v-for="(text, index) in getFilterText(item[labelKey])">
+                <span v-if="text.type === 'active'" :key="index" class="wd-select-picker__text-active">{{ text.label }}</span>
+                <span v-else :key="index">{{ text.label }}</span>
+              </template>
+            </template>
+            <template v-else>{{ item[labelKey] }}</template>
+          </wd-checkbox>
         </wd-checkbox-group>
         <!-- 单选 -->
         <wd-radio-group
@@ -74,18 +83,26 @@
           @change="handleChange"
         >
           <wd-radio
-            v-for="(item, index) in columns"
+            v-for="(item, index) in filterColumns"
             :key="index"
             :value="item[valueKey]"
             :disabled="item.disabled"
-          >{{item[labelKey]}}</wd-radio>
+          >
+            <template v-if="filterable && filterVal">{{ item[labelKey] }}</template>
+            <template v-else>
+              <template v-for="(text, index) in getFilterText(item[labelKey])">
+                <span v-if="text.type === 'active'" :key="index" class="wd-select-picker__text-active">{{ text.label }}</span>
+                <span v-else :key="index">{{ text.label }}</span>
+              </template>
+            </template>
+          </wd-radio>
         </wd-radio-group>
         <div v-if="loading" class="wd-picker-view__loading" @touchmove.stop.prevent>
           <wd-loading :color="loadingColor" />
         </div>
       </div>
       <!-- 确认按钮 -->
-      <footer class="wd-select-picker__footer">
+      <footer v-if="!inputFocus" class="wd-select-picker__footer">
         <wd-button
           block
           size="large"
@@ -105,6 +122,7 @@ import WdCheckboxGroup from 'wot-design/packages/checkbox-group'
 import WdRadio from 'wot-design/packages/radio'
 import WdRadioGroup from 'wot-design/packages/radio-group'
 import WdButton from 'wot-design/packages/button'
+import WdSearch from 'wot-design/packages/search'
 import cellProps from 'wot-design/packages/select-picker/src/cellProps'
 import selectProps from 'wot-design/packages/select-picker/src/selectProps'
 import WdLoading from 'wot-design/packages/loading'
@@ -119,7 +137,8 @@ export default {
     WdRadio,
     WdRadioGroup,
     WdButton,
-    WdLoading
+    WdLoading,
+    WdSearch
   },
 
   data () {
@@ -128,7 +147,9 @@ export default {
       selectList: this.valueFormat(this.value),
       showValue: '',
       isConfirm: false,
-      lastSelectList: []
+      lastSelectList: [],
+      filterVal: '',
+      inputFocus: false
     }
   },
 
@@ -173,6 +194,22 @@ export default {
     safeAreaInsetBottom: {
       type: Boolean,
       default: true
+    },
+    filterable: Boolean,
+    filterPlaceholder: String
+  },
+
+  computed: {
+    filterColumns () {
+      if (this.filterable && this.filterVal) {
+        return this.columns.filter((item) => {
+          const visible = item[this.labelKey].indexOf(this.filterVal) > -1
+
+          return visible
+        })
+      }
+
+      return this.columns
     }
   },
 
@@ -185,6 +222,17 @@ export default {
       },
       immediate: true
     }
+  },
+
+  mounted () {
+    // fix android keyboard
+    const winHeight = document.documentElement.clientHeight
+    window.addEventListener('resize', () => {
+      const currentHeight = document.documentElement.clientHeight
+      // wrapper's height add footer's height, and sub keyboard's height
+      this.focusHeight = 314 + 92 - (winHeight - currentHeight) + 'px'
+      this.inputFocus = currentHeight < winHeight
+    })
   },
 
   methods: {
@@ -281,6 +329,17 @@ export default {
         }
         this.showValue = showValue
       }
+    },
+
+    getFilterText (label) {
+      const reg = new RegExp(`(${this.filterVal})`, 'g')
+
+      return label.split(reg).map((text) => {
+        return {
+          type: text === this.filterVal ? 'active' : 'normal',
+          label: text
+        }
+      })
     }
   }
 }

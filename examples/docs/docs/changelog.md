@@ -35,6 +35,7 @@
 - SelectPicker
   - 新增 `close-on-popstate` 属性，返回时自动关闭 (by [@yawuling](https://github.com/yawuling) )
   - 新增 `safe-area-inset-bottom` 属性，设置底部安全距离 (by [@yawuling](https://github.com/yawuling) )
+  - 新增 `filterable` 和 `filter-placeholder` 属性，支持本地搜索 (by [@yawuling](https://github.com/yawuling) )
 - Switch
   - 新增 `before-change` 修改前钩子函数  (by [@yawuling](https://github.com/yawuling) )
 
