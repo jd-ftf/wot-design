@@ -1,4 +1,5 @@
 @import './picker.scss';
+@import './search.scss';
 
 @include b(select-picker) {
   .wd-action-sheet__header {
@@ -8,8 +9,20 @@
   @include e(wrapper) {
     padding: 0 10px;
     position: relative;
-    max-height: 245px;
+    max-height: 364px;
     overflow: auto;
+
+    @include when(filterable) {
+      height: 314px;
+      max-height: 314px;
+    }
+    // @include when(filter-active) {
+    //   height: 127px;
+    //   max-height: 127px;
+    // }
+  }
+  @include e(text-active) {
+    color: $-color-theme;
   }
   @include e(footer) {
     padding: 24px 15px;

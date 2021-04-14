@@ -26,19 +26,19 @@ export default {
     return {
       columns1: [
         {
-          value: '1',
-          label: '京麦'
+          value: '101',
+          label: '男装'
         },
         {
-          value: '2',
-          label: '京东金融'
+          value: '102',
+          label: '奢侈品'
         },
         {
-          value: '3',
-          label: '京me'
+          value: '103',
+          label: '女装'
         }
       ],
-      value: ['1']
+      value: ['101']
     }
   }
 }
@@ -60,19 +60,19 @@ export default {
     return {
       columns1: [
         {
-          value: '1',
-          label: '京麦'
+          value: '101',
+          label: '男装'
         },
         {
-          value: '2',
-          label: '京东金融'
+          value: '102',
+          label: '奢侈品'
         },
         {
-          value: '3',
-          label: '京me'
+          value: '103',
+          label: '女装'
         }
       ],
-      value: '1'
+      value: '101'
     }
   }
 }
@@ -108,20 +108,20 @@ export default {
     return {
       columns: [
         {
-          value: '1',
-          label: '京麦',
+          value: '101',
+          label: '男装',
           disabled: true
         },
         {
-          value: '2',
-          label: '京东金融'
+          value: '102',
+          label: '奢侈品'
         },
         {
-          value: '3',
-          label: '京me'
+          value: '103',
+          label: '女装'
         }
       ],
-      value: ['1']
+      value: ['101']
     }
   }
 }
@@ -141,19 +141,19 @@ export default {
     return {
       columns1: [
         {
-          value: '1',
-          label: '京麦'
+          value: '101',
+          label: '男装'
         },
         {
-          value: '2',
-          label: '京东金融'
+          value: '102',
+          label: '奢侈品'
         },
         {
-          value: '3',
-          label: '京me'
+          value: '103',
+          label: '女装'
         }
       ],
-      value: ['1']
+      value: ['101']
     }
   },
   methods: {
@@ -186,19 +186,19 @@ export default {
     return {
       columns1: [
         {
-          value: '1',
-          label: '京麦'
+          value: '101',
+          label: '男装'
         },
         {
-          value: '2',
-          label: '京东金融'
+          value: '102',
+          label: '奢侈品'
         },
         {
-          value: '3',
-          label: '京me'
+          value: '103',
+          label: '女装'
         }
       ],
-      value: ['1']
+      value: ['101']
     }
   },
   methods: {
@@ -255,6 +255,14 @@ export default {
 <wd-select-picker label="值靠右展示" v-model="value" :columns="columns" align-right></wd-select-picker>
 ```
 
+### 可搜索
+
+设置 `filterable` 属性支持本地搜索，设置 `filter-placeholder` 属性设置搜索框的占位符。
+
+```html
+<wd-select-picker label="可搜索" v-model="value" :columns="columns" filterable></wd-select-picker>
+```
+
 ### 自定义选择器
 
 如果默认的 cell 类型的展示格式不满足需求，可以通过默认插槽进行自定义选择器样式。
@@ -298,6 +306,8 @@ export default {
 | close-on-click-modal | 点击遮罩是否关闭 | boolean | - | true | - |
 | close-on-popstate | 页面返回时自动关闭 | boolean | - | true | 2.3.0 |
 | safe-area-inset-bottom | 弹出面板是否设置底部安全距离（iphone X 类型的机型），见 [底部安全区域适配](#/components/commonProblems#di-bu-an-quan-qu-yu-gua-pei-iphone-x-lei-xing-de-ji-xing) | boolean | - | true | 2.3.0 |
+| filterable | 可搜索（目前只支持本地搜索） | boolean | - | false | 2.3.0 |
+| filter-placeholder | 搜索框占位符 | string | - | 搜索 | 2.3.0 |
 
 ### 选项数据结构
 

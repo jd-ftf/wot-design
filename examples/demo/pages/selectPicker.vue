@@ -30,19 +30,20 @@
         @change="handleChange"
       ></wd-select-picker>
       <wd-select-picker label="值靠右展示" v-model="value13" :columns="columns1" align-right></wd-select-picker>
+      <wd-select-picker label="可搜索" v-model="value14" :columns="columns1" filterable></wd-select-picker>
     </wd-cell-group>
     <demo-block title="label不传" transparent>
-      <wd-select-picker v-model="value14" :columns="columns1"></wd-select-picker>
+      <wd-select-picker v-model="value15" :columns="columns1"></wd-select-picker>
     </demo-block>
     <demo-block title="大小" transparent>
-      <wd-select-picker label="大尺寸" v-model="value15" size="large" :columns="columns1"></wd-select-picker>
+      <wd-select-picker label="大尺寸" v-model="value16" size="large" :columns="columns1"></wd-select-picker>
     </demo-block>
     <demo-block title="默认插槽">
       <div class="text">
         当前选中项：
         <span>{{value16}}</span>
       </div>
-      <wd-select-picker v-model="value16" :columns="columns1">
+      <wd-select-picker v-model="value17" :columns="columns1">
         <wd-button>默认唤起项</wd-button>
       </wd-select-picker>
     </demo-block>
@@ -57,61 +58,73 @@ export default {
       initValue: '',
       columns1: [
         {
-          value: '1',
-          label: '京麦'
+          value: '101',
+          label: '男装'
         },
         {
-          value: '2',
-          label: '京东金融'
+          value: '102',
+          label: '奢侈品'
         },
         {
-          value: '3',
-          label: '京me'
+          value: '103',
+          label: '女装'
         },
         {
-          value: '4',
-          label: '京麦'
+          value: '104',
+          label: '鞋靴'
         },
         {
-          value: '5',
-          label: '京东金融'
+          value: '105',
+          label: '内衣配饰'
         },
         {
-          value: '6',
-          label: '京me'
+          value: '106',
+          label: '箱包'
         },
         {
-          value: '7',
-          label: '京麦'
+          value: '107',
+          label: '美妆护肤'
         },
         {
-          value: '8',
-          label: '京东金融'
+          value: '108',
+          label: '个性清洁'
         },
         {
-          value: '9',
-          label: '京me'
+          value: '109',
+          label: '钟表珠宝'
+        },
+        {
+          value: '110',
+          label: '手机'
+        },
+        {
+          value: '111',
+          label: '数码'
+        },
+        {
+          value: '112',
+          label: '电脑办公'
         }
       ],
       columns2: [
         {
-          value: '1',
-          label: '京麦',
+          value: '101',
+          label: '男装',
           disabled: true
         },
         {
-          value: '2',
-          label: '京东金融'
+          value: '102',
+          label: '奢侈品'
         },
         {
-          value: '3',
-          label: '京me'
+          value: '103',
+          label: '女装'
         }
       ],
-      value1: ['1'],
-      value2: '1',
-      value3: ['2'],
-      value4: ['3'],
+      value1: ['101'],
+      value2: '101',
+      value3: ['102'],
+      value4: ['103'],
       value5: [],
       value6: [],
       value7: [],
@@ -119,11 +132,12 @@ export default {
       value9: [],
       value10: [],
       value11: [],
-      value12: ['3'],
-      value13: ['2'],
-      value14: ['1'],
-      value15: ['3'],
-      value16: ['2']
+      value12: ['103'],
+      value13: ['102'],
+      value14: [],
+      value15: ['101'],
+      value16: ['103'],
+      value17: ['102']
     }
   },
 
