@@ -6,56 +6,27 @@
 @mixin button-type-style($color, $normal, $active, $disabled, $disabledcolor, $loadingColor) {
   background: $normal;
   color: $color;
-  border-color: $normal;
   font-weight: 500;
 
+  &::after {
+    border-color: $normal;
+  }
   &:active {
     background: $active;
-    border-color: $active;
+
+    &::after {
+      border-color: $active;
+    }
   }
   @include when(disabled) {
     &:active {
       background: $disabled;
       color: $disabledcolor;
     }
-
     background: $disabled;
-    border-color: $disabled;
     color: $disabledcolor;
-  }
-  @include when(loading) {
-    &,
-    &:active {
-      color: $color;
-      background: $normal;
-      border-color: $normal;
-    }
-    .wd-button__loading {
-      color: $loadingColor;
-    }
-  }
-  @include when(suck) {
-    border: none;
-    border-radius: 0;
-  }
-}
 
-@mixin button-plain-style($color, $normal, $active, $disabled) {
-  color: $color;
-  border-color: $normal;
-  background: transparent;
-
-  &:active {
-    color: $active;
-    border-color: $active;
-    background: transparent;
-  }
-  @include when(disabled) {
-    color: $disabled;
-    border-color: $disabled;
-    background: transparent;
-    &:active {
-      background: transparent;
+    &::after {
       border-color: $disabled;
     }
   }
@@ -63,19 +34,67 @@
     &,
     &:active {
       color: $color;
+      background: $normal;
+    }
+    &::after {
       border-color: $normal;
+    }
+    .wd-button__loading {
+      color: $loadingColor;
+    }
+  }
+  @include when(suck) {
+    border-radius: 0;
+  }
+}
+
+@mixin button-plain-style($color, $normal, $active, $disabled) {
+  color: $color;
+  background: transparent;
+
+  &::after {
+    border-color: $normal;
+  }
+  &:active {
+    color: $active;
+    background: transparent;
+
+    &::after {
+      border-color: $active;
+    }
+  }
+  @include when(disabled) {
+    color: $disabled;
+    background: transparent;
+
+    &::after {
+      border-color: $disabled;
+    }
+    &:active {
       background: transparent;
+    }
+  }
+  @include when(loading) {
+    &,
+    &:active {
+      color: $color;
+      background: transparent;
+
+      &::after {
+        border-color: $normal;
+      }
     }
   }
 }
 
 @include b(button) {
+  position: relative;
   outline: none;
   text-align: center;
   -webkit-appearance: none;
   outline: none;
   background: transparent;
-  border: 1px solid $-button-border-color;
+  border: none;
   color: $-button-normal-color;
   box-sizing: border-box;
   transition: all 0.2s;
@@ -85,17 +104,25 @@
   &:active {
     color: $-button-normal-active-color;
     background: $-button-normal-active-bg;
-    border-color: $-button-normal-border-active-color;
+
+    &::after {
+      border-color: $-button-normal-border-active-color;
+    }
   }
   @include when(disabled) {
     color: $-button-normal-disabled-color;
     background: $-button-normal-disabled-bg;
-    border-color: $-button-normal-border-disabled-color;
 
+    &::after {
+      border-color: $-button-normal-border-disabled-color;
+    }
     &:active {
       color: $-button-normal-disabled-color;
       background: $-button-normal-disabled-bg;
-      border-color: $-button-normal-border-disabled-color;
+      
+      &::after {
+        border-color: $-button-normal-border-disabled-color;
+      }
     }
   }
 
@@ -110,7 +137,10 @@
     &:active {
       color: $-button-normal-color;
       background: transparent;
-      border-color: $-button-border-color;
+
+      &::after {
+        border-color: $-button-border-color;
+      }
     }
   }
 
@@ -123,7 +153,6 @@
       $-color-white,
       $-button-primary-color
     );
-    border: none;
   }
   @include when(success) {
     @include button-type-style(
@@ -168,13 +197,16 @@
 
   @include when(small) {
     height: $-button-small-height;
-    // padding: $-button-small-padding;
     padding: 0 11px;
     border-radius: $-button-small-radius;
     font-size: $-button-small-fs;
     font-weight: normal;
     @include when(round) {
       border-radius: $-button-small-height / 2;
+
+      &::after {
+        border-radius: $-button-small-height;
+      }
     }
     .wd-button__loading {
       width: $-button-small-loading;
@@ -189,6 +221,9 @@
     border-radius: $-button-medium-radius;
     font-size: $-button-medium-fs;
 
+    &::after {
+      border-radius: $-button-medium-radius * 2;
+    }
     &:not(.is-plain) {
       @include when(primary) {
         box-shadow: $-button-medium-box-shadow-size $-button-primary-box-shadow-color;
@@ -211,6 +246,10 @@
       &:not(.is-icon) {
         min-width: 118px;
         border-radius: $-button-medium-height / 2;
+
+        &::after {
+          border-radius: $-button-medium-height;
+        }
       }
       @include when(text) {
         min-width: 0;
@@ -229,6 +268,9 @@
     border-radius: $-button-large-radius;
     font-size: $-button-large-fs;
 
+    &::after {
+      border-radius: $-button-large-radius * 2;
+    }
     &:not(.is-plain) {
       @include when(primary) {
         box-shadow: $-button-large-box-shadow-size $-button-primary-box-shadow-color;
@@ -250,6 +292,10 @@
     @include when(round) {
       &:not(.is-icon) {
         border-radius: $-button-large-height / 2;
+
+        &::after {
+          border-radius: $-button-large-height;
+        }
       }
       @include when(text) {
         border-radius: 0;
@@ -262,10 +308,12 @@
   }
 
   @include when(text) {
-    border: none;
     color: $-button-primary-color;
     padding: 4px 0;
 
+    &::after {
+      display: none;
+    }
     &:active {
       color: $-button-primary-active-color;
       background: transparent;
@@ -279,6 +327,19 @@
   @include when(plain) {
     background: $-color-white;
 
+    &::after {
+      position: absolute;
+      display: block;
+      content: '';
+      width: 200%;
+      height: 200%;
+      left: 0;
+      top: 0;
+      border: 1px solid $-button-border-color;
+      box-sizing: border-box;
+      transform: scale(0.5);
+      transform-origin: left top;
+    }
     @include when(primary) {
       @include button-plain-style(
         $-button-primary-color,
@@ -286,7 +347,6 @@
         $-button-primary-active-color,
         $-button-primary-disabled-color
       );
-      border: 1px solid;
       &:active {
         background-color: $-button-primary-plain-active-bg-color;
       }
@@ -314,21 +374,29 @@
         $-button-info-active-color,
         $-button-info-disabled-color
       );
-      border-color: $-button-info-plain-color;
+      &::after {
+        border-color: $-button-info-plain-color;
+      }
       &:active {
         background-color: $-button-info-plain-active-bg-color;
-        border-color: $-button-info-plain-active-color;
+
+        &::after {
+          border-color: $-button-info-plain-active-color;
+        }
       }
       @include when(disabled) {
         &,
         &:active {
           background-color: $-button-info-plain-disabled-bg-color;
-          border-color: $-button-info-plain-disabled-bg-color;
+
+          &::after {
+            border-color: $-button-info-plain-disabled-bg-color;
+          }
         }
       }
       @include when(loading) {
-        &,
-        &:active {
+        &::after,
+        &:active::after {
           border-color: $-button-info-plain-color;
         }
       }
@@ -363,8 +431,11 @@
     font-size: $-button-large-fs;
     height: $-button-suck-height;
     width: 100%;
-    border: none;
     border-radius: 0;
+
+    &::after {
+      display: none;
+    }
   }
 
   @include when(block) {
@@ -377,11 +448,13 @@
     padding: 0;
     line-height: $-button-icon-size;
     text-align: center;
-    border: none;
     border-radius: 50%;
     font-size: 0;
     color: $-button-icon-color;
 
+    &::after {
+      display: none;
+    }
     &:active {
       background: $-button-icon-active-color;
     }

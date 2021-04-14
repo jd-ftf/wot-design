@@ -21,19 +21,21 @@
     &::after {
       position: absolute;
       content: "";
-      width: calc(100% - 2px);
-      height: calc(100% - 2px);
+      width: calc(200% - 2px);
+      height: calc(200% - 2px);
       left: 0;
       top: 0;
       border: 1px solid $-input-number-border-color;
-      border-top-left-radius: $-input-number-radius;
-      border-bottom-left-radius: $-input-number-radius;
+      border-top-left-radius: $-input-number-radius * 2;
+      border-bottom-left-radius: $-input-number-radius * 2;
+      transform: scale(0.5);
+      transform-origin: left top;
     }
     &:last-child::after {
       border-top-left-radius: 0;
       border-bottom-left-radius: 0;
-      border-top-right-radius: $-input-number-radius;
-      border-bottom-right-radius: $-input-number-radius;
+      border-top-right-radius: $-input-number-radius * 2;
+      border-bottom-right-radius: $-input-number-radius * 2;
     }
     @include when(disabled) {
       color: $-input-number-disabled-color;
@@ -65,11 +67,13 @@
   @include e(input-border) {
     position: absolute;
     width: 100%;
-    height: calc(100% - 2px);
+    height: calc(200% - 2px);
     left: 0;
     top: 0;
     border-top: 1px solid $-input-number-border-color;
     border-bottom: 1px solid $-input-number-border-color;
+    transform: scaleY(0.5);
+    transform-origin: left top;
     z-index: 0;
   }
   @include e(action-icon) {

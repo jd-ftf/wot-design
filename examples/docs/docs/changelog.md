@@ -40,8 +40,12 @@
 
 #### 优化
 
+- Card
+  - 优化卡片组件的样式结构 (by [@yawuling](https://github.com/yawuling) )
 - PickerView
   - 优化 `columns` 修改时的选中项重置逻辑，如果 `value`、`label` 相同则不重置选项 (by [@yawuling](https://github.com/yawuling) )
+- 边框
+  - Button、Card、Divider、Grid、InputNumber、Popover、Steps、Switch 边框调整为 0.5 像素 (by [@yawuling](https://github.com/yawuling) )
 
 #### Bug 修复
 

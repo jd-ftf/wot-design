@@ -3,7 +3,7 @@
     <div v-if="title || $slots.title" class="demo-block__title">
       <slot name="title">{{ title }}</slot>
     </div>
-    <div class="demo-block__body" :style="{ 'margin': `${ver}px ${hor}px` }">
+    <div class="demo-block__body" :style="{ 'margin': transparent ? '' : `${ver}px ${hor}px` }">
       <slot></slot>
     </div>
   </div>

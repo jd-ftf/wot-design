@@ -81,9 +81,6 @@ export default {
   padding: 40px 40px 30px;
   margin-bottom: 30px;
   background: #fff;
-  border-bottom-left-radius: 16px;
-  border-bottom-right-radius: 16px;
-  box-shadow: 0 2px 10px #ddd;
 
   .page__title {
     text-align: left;
@@ -117,10 +114,9 @@ export default {
   user-select: none;
 
   .kind-list__item {
-    margin: 15px 0;
-    border-radius: 12px;
+    margin: 20px 0;
+    border-radius: 30px;
     background: #fff;
-    box-shadow: 0 0 10px #ddd;
     overflow: hidden;
 
     &:first-child {
@@ -129,17 +125,18 @@ export default {
   }
   .kind-list__item-hd {
     display: flex;
-    padding: 15px 20px;
+    padding: 15px 30px;
     justify-content: space-between;
     align-items: center;
   }
   .kind-list__item-title {
     font-size: 14px;
+    color: rgba(0, 0, 0, 0.85);
   }
   .kind-list__item-icon {
     display: block;
-    width: 30px;
-    height: 30px;
+    width: 20px;
+    height: 20px;
     background-size: cover;
     background-repeat: no-repeat;
   }
@@ -171,15 +168,17 @@ export default {
   }
   .kind-list__list-item-link {
     display: flex;
-    padding: 15px;
+    padding: 15px 20px;
     background: #fff;
     justify-content: space-between;
     align-items: center;
-    color: #333;
+    color: rgba(0, 0, 0, 0.65);
+    font-size: 12px;
     text-decoration: none;
+    -webkit-tap-highlight-color: transparent;
 
     &:active {
-      color: #333;
+      background: rgba(77, 128, 240, 0.02);
     }
   }
   .custom-icon-right {
