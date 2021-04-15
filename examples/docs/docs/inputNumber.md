@@ -83,16 +83,26 @@ export default {
 <wd-input-number v-model="value" input-width="70px"></wd-input-number>
 ```
 
+### 允许空值，设置 placeholder
+
+设置 `allow-null` 属性允许空值，设置 `placeholder` 提示填写。
+
+```html
+<wd-input-number v-model="value" allow-null placeholder="不限" />
+```
+
 ### Attributes
 
-| 参数      | 说明                                 | 类型      | 可选值       | 默认值   |
-|---------- |------------------------------------ |---------- |------------- |-------- |
-| value/v-model | 绑定值 | number / string | - | - |
-| min | 最小值 | number | - | 1 |
-| max | 最大值 | number | - | Infinity |
-| step | 步数 | number | - | 1 |
-| step-strictly | 严格值为步数的倍数 | boolean | - | false |
-| precision | 小数精度 | number | - | 0 |
-| disabled | 禁用 | boolean | - | false |
-| without-input | 不显示输入框 | boolean | - | false |
-| input-width | 输入框宽度 | string | - | 36px |
+| 参数 | 说明 | 类型 | 可选值 | 默认值 | 最低版本 |
+|-----|------|-----|-------|-------|---------|
+| value/v-model | 绑定值 | number / string | - | - | - |
+| min | 最小值 | number | - | 1 | - |
+| max | 最大值 | number | - | Infinity | - |
+| step | 步数 | number | - | 1 | - |
+| step-strictly | 严格值为步数的倍数 | boolean | - | false | - |
+| precision | 小数精度 | number | - | 0 | - |
+| disabled | 禁用 | boolean | - | false | - |
+| without-input | 不显示输入框 | boolean | - | false | - |
+| input-width | 输入框宽度 | string | - | 36px | - |
+| allow-null | 允许空值 | boolean | - | false | 2.3.0 |
+| placeholder | 占位文本 | string | - | - | 2.3.0 |

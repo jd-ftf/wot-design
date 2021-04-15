@@ -334,6 +334,7 @@ export default {
 | close-on-click-modal | 点击遮罩是否关闭 | boolean | - | true | - |
 | close-on-popstate | 页面返回时自动关闭 | boolean | - | true | 2.3.0 |
 | safe-area-inset-bottom | 弹出面板是否设置底部安全距离（iphone X 类型的机型），见 [底部安全区域适配](#/components/commonProblems#di-bu-an-quan-qu-yu-gua-pei-iphone-x-lei-xing-de-ji-xing) | boolean | - | true | 2.3.0 |
+| ellipsis | 展示的值是否超出长度隐藏，显示省略号 | boolean | - | false | 2.3.0 |
 
 ### Slot
 

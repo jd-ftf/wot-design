@@ -27,7 +27,8 @@
           <div
             class="wd-col-picker__value"
             :class="{
-              'wd-col-picker__value--placeholder': (!value || (value instanceof Array && !value.length))
+              'wd-col-picker__value--placeholder': (!value || (value instanceof Array && !value.length)),
+              'is-ellipsis': ellipsis
             }"
           >{{ ((!value || (value instanceof Array && !value.length)) ? placeholder : showValue) || t('wd.colPicker.placeholder') }}</div>
           <i v-if="!disabled && !readonly" class="wd-col-picker__arrow wd-icon-arrow-right"></i>
@@ -149,6 +150,7 @@ export default {
       isConfirm: false,
       lastSelectList: [],
       filterVal: '',
+      winHeight: 0,
       inputFocus: false
     }
   },
@@ -196,7 +198,8 @@ export default {
       default: true
     },
     filterable: Boolean,
-    filterPlaceholder: String
+    filterPlaceholder: String,
+    ellipsis: Boolean
   },
 
   computed: {
@@ -226,16 +229,22 @@ export default {
 
   mounted () {
     // fix android keyboard
-    const winHeight = document.documentElement.clientHeight
-    window.addEventListener('resize', () => {
-      const currentHeight = document.documentElement.clientHeight
-      // wrapper's height add footer's height, and sub keyboard's height
-      this.focusHeight = 314 + 92 - (winHeight - currentHeight) + 'px'
-      this.inputFocus = currentHeight < winHeight
-    })
+    this.winHeight = document.documentElement.clientHeight
+    window.addEventListener('resize', this.resizeListener)
+  },
+
+  beforeDestroy () {
+    window.removeEventListener('resize', this.resizeListener)
   },
 
   methods: {
+    resizeListener () {
+      const currentHeight = document.documentElement.clientHeight
+      // wrapper's height add footer's height, and sub keyboard's height
+      this.focusHeight = 314 + 92 - (this.winHeight - currentHeight) + 'px'
+      this.inputFocus = currentHeight < this.winHeight
+    },
+
     getSelectedItem (value) {
       const selecteds = this.columns.filter(item => {
         return item[this.valueKey] === value

@@ -515,6 +515,7 @@ export default {
 | close-on-popstate | 页面返回时自动关闭 | boolean | - | true | 2.3.0 |
 | auto-complete | 自动触发 column-change 事件来补全数据，当 columns 为空数组或者 columns 数组长度小于 value 数组长度时，会自动触发 column-change | - | false | - |
 | safe-area-inset-bottom | 弹出面板是否设置底部安全距离（iphone X 类型的机型），见 [底部安全区域适配](#/components/commonProblems#di-bu-an-quan-qu-yu-gua-pei-iphone-x-lei-xing-de-ji-xing) | boolean | - | true | 2.3.0 |
+| ellipsis | 展示的值是否超出长度隐藏，显示省略号 | boolean | - | false | 2.3.0 |
 
 ### 选项数据结构
 

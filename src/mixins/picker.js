@@ -34,7 +34,8 @@ export default {
           showPopup,
           required,
           t,
-          arrowHtml
+          arrowHtml,
+          ellipsis
         } = parent
         const fieldClass = ['wd-picker__field']
         // 右箭头
@@ -53,7 +54,7 @@ export default {
           </div>
         } else {
           valueDiv = <div
-            class={['wd-picker__value ', noValue ? 'wd-picker__placeholder' : '']}
+            class={['wd-picker__value ', noValue ? 'wd-picker__placeholder' : '', ellipsis ? 'is-ellipsis' : '']}
           >
             { valueLabel }
           </div>

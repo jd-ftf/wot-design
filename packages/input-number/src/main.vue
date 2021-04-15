@@ -20,6 +20,7 @@
         :max="max"
         :disabled="disabled"
         :value="displayValue"
+        :placeholder="placeholder"
         @input="handleInput"
         @change="handleChange"
         @blur="handleBlur"
@@ -33,6 +34,8 @@
 </template>
 
 <script>
+import { getType } from 'wot-design/src/utils'
+
 export default {
   name: 'WdInputNumber',
   data () {
@@ -61,7 +64,9 @@ export default {
     },
     disabled: Boolean,
     withoutInput: Boolean,
-    inputWidth: String
+    inputWidth: String,
+    allowNull: Boolean,
+    placeholder: String
   },
   watch: {
     value: {
@@ -111,12 +116,16 @@ export default {
       return Math.round(value / this.step) * precisionFactory * this.step / precisionFactory
     },
     setValue (value) {
-      if (this.stepStrictly) {
-        value = this.toStrictlyStep(value)
+      const type = getType(value)
+      if (!this.allowNull || (type !== 'null' && type !== 'undefined' && value !== '')) {
+        if (this.stepStrictly) {
+          value = this.toStrictlyStep(value)
+        }
+        value = this.toPrecision(value)
+        if (value > this.max) value = this.max
+        if (value < this.min) value = this.min
       }
-      value = this.toPrecision(value)
-      if (value > this.max) value = this.max
-      if (value < this.min) value = this.min
+
       this.$emit('input', value)
       this.$emit('change', value)
     },
@@ -145,7 +154,7 @@ export default {
       this.inputValue = event.target.value
     },
     handleChange (event) {
-      let value = event.target.value === '' ? this.min : Number(event.target.value)
+      let value = event.target.value === '' ? (this.allowNull ? '' : this.min) : Number(event.target.value)
       this.setValue(value)
       this.inputValue = null
     },
@@ -153,6 +162,12 @@ export default {
       this.$emit('blur')
     },
     formatValue (value) {
+      const type = getType(value)
+
+      if (this.allowNull && (type === 'null' || type === 'undefined' || value === '')) {
+        return ''
+      }
+
       value = Number(value)
 
       if (isNaN(value)) {

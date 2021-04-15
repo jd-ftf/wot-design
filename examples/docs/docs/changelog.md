@@ -12,14 +12,19 @@
 - ColPicker
   - 新增 `close-on-popstate` 属性，返回时自动关闭 (by [@yawuling](https://github.com/yawuling) )
   - 新增 `safe-area-inset-bottom` 属性，设置底部安全距离 (by [@yawuling](https://github.com/yawuling) )
+  - 新增 `ellipsis` 属性，设置是否超出隐藏，默认 `false` (by [@yawuling](https://github.com/yawuling) )
 - Curtain
   - 新增 `close-on-popstate` 属性，返回时自动关闭 (by [@yawuling](https://github.com/yawuling) )
 - DatetimePicker
   - 新增 `close-on-popstate` 属性，返回时自动关闭 (by [@yawuling](https://github.com/yawuling) )
   - 新增 `default-value` 属性，支持设置默认选中项 (by [@yawuling](https://github.com/yawuling) )
   - 新增 `safe-area-inset-bottom` 属性，设置底部安全距离 (by [@yawuling](https://github.com/yawuling) )
+  - 新增 `ellipsis` 属性，设置是否超出隐藏，默认 `false` (by [@yawuling](https://github.com/yawuling) )
 - DropMenu
   - 新增 `close-on-popstate` 属性，返回时自动关闭 (by [@yawuling](https://github.com/yawuling) )
+- InputNumber
+  - 新增 `allow-null` 属性允许空值 (by [@yawuling](https://github.com/yawuling) )
+  - 新增 `placeholder` 属性设置占位文本 (by [@yawuling](https://github.com/yawuling) )
 - MessageBox
   - 新增 `close-on-popstate` 属性，返回时自动关闭 (by [@yawuling](https://github.com/yawuling) )
 - NumberKeyboard
@@ -27,6 +32,7 @@
 - Picker
   - 新增 `close-on-popstate` 属性，返回时自动关闭 (by [@yawuling](https://github.com/yawuling) )
   - 新增 `safe-area-inset-bottom` 属性，设置底部安全距离 (by [@yawuling](https://github.com/yawuling) )
+  - 新增 `ellipsis` 属性，设置是否超出隐藏，默认 `false` (by [@yawuling](https://github.com/yawuling) )
 - Popup
   - 新增 `close-on-popstate` 属性，返回时自动关闭 (by [@yawuling](https://github.com/yawuling) )
   - 新增 `safe-area-inset-bottom` 属性，设置底部安全距离 (by [@yawuling](https://github.com/yawuling) )
@@ -36,6 +42,7 @@
   - 新增 `close-on-popstate` 属性，返回时自动关闭 (by [@yawuling](https://github.com/yawuling) )
   - 新增 `safe-area-inset-bottom` 属性，设置底部安全距离 (by [@yawuling](https://github.com/yawuling) )
   - 新增 `filterable` 和 `filter-placeholder` 属性，支持本地搜索 (by [@yawuling](https://github.com/yawuling) )
+  - 新增 `ellipsis` 属性，设置是否超出隐藏，默认 `false` (by [@yawuling](https://github.com/yawuling) )
 - Switch
   - 新增 `before-change` 修改前钩子函数  (by [@yawuling](https://github.com/yawuling) )
 
@@ -51,9 +58,11 @@
 #### Bug 修复
 
 - ColPicker
-  - value 重新赋值时需重置选项 (by [@yawuling](https://github.com/yawuling) )
+  - 修复 value 重新赋值时需重置选项的问题 (by [@yawuling](https://github.com/yawuling) )
 - MessageBox
   - 修复在部分手机上的兼容性问题 (by [@yawuling](https://github.com/yawuling) )
+- PickerView
+  - 修复选项长度过长时换行的问题 (by [@yawuling](https://github.com/yawuling) )
 - Popover
   - 修复插槽宽度较小时，弹出层的箭头样式偏移错乱问题 (by [@yawuling](https://github.com/yawuling) )
   - 修正 `offset` 属性的使用 (by [@yawuling](https://github.com/yawuling) )
@@ -66,6 +75,11 @@
   - 修正 `offset` 属性的使用 (by [@yawuling](https://github.com/yawuling) )
 - Upload
   - 修复 `disabled` 状态下可以删除图片的问题 (by [@yawuling](https://github.com/yawuling) )
+
+#### 本次更新可能影响范围
+
+- Card 的样式实现发生变动，如果您有覆盖 Card 组件的样式，则可能会影响到您的页面
+- ColPicker、DatetimePicker、Picker、SelectPicker 原先值为超出默认隐藏，显示为省略号，本次调整为默认不隐藏，若需隐藏，需手动设置 `ellipsis` 属性
 
 ### 2.2.1
 
