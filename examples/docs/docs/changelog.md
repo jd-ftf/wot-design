@@ -20,6 +20,9 @@
   - 新增 `safe-area-inset-bottom` 属性，设置底部安全距离 (by [@yawuling](https://github.com/yawuling) )
 - DropMenu
   - 新增 `close-on-popstate` 属性，返回时自动关闭 (by [@yawuling](https://github.com/yawuling) )
+- InputNumber
+  - 新增 `allow-null` 属性允许空值 (by [@yawuling](https://github.com/yawuling) )
+  - 新增 `placeholder` 属性设置占位文本 (by [@yawuling](https://github.com/yawuling) )
 - MessageBox
   - 新增 `close-on-popstate` 属性，返回时自动关闭 (by [@yawuling](https://github.com/yawuling) )
 - NumberKeyboard
@@ -51,9 +54,11 @@
 #### Bug 修复
 
 - ColPicker
-  - value 重新赋值时需重置选项 (by [@yawuling](https://github.com/yawuling) )
+  - 修复 value 重新赋值时需重置选项的问题 (by [@yawuling](https://github.com/yawuling) )
 - MessageBox
   - 修复在部分手机上的兼容性问题 (by [@yawuling](https://github.com/yawuling) )
+- PickerView
+  - 修复选项长度过长时换行的问题 (by [@yawuling](https://github.com/yawuling) )
 - Popover
   - 修复插槽宽度较小时，弹出层的箭头样式偏移错乱问题 (by [@yawuling](https://github.com/yawuling) )
   - 修正 `offset` 属性的使用 (by [@yawuling](https://github.com/yawuling) )

@@ -149,6 +149,7 @@ export default {
       isConfirm: false,
       lastSelectList: [],
       filterVal: '',
+      winHeight: 0,
       inputFocus: false
     }
   },
@@ -226,16 +227,22 @@ export default {
 
   mounted () {
     // fix android keyboard
-    const winHeight = document.documentElement.clientHeight
-    window.addEventListener('resize', () => {
-      const currentHeight = document.documentElement.clientHeight
-      // wrapper's height add footer's height, and sub keyboard's height
-      this.focusHeight = 314 + 92 - (winHeight - currentHeight) + 'px'
-      this.inputFocus = currentHeight < winHeight
-    })
+    this.winHeight = document.documentElement.clientHeight
+    window.addEventListener('resize', this.resizeListener)
+  },
+
+  beforeDestroy () {
+    window.removeEventListener('resize', this.resizeListener)
   },
 
   methods: {
+    resizeListener () {
+      const currentHeight = document.documentElement.clientHeight
+      // wrapper's height add footer's height, and sub keyboard's height
+      this.focusHeight = 314 + 92 - (this.winHeight - currentHeight) + 'px'
+      this.inputFocus = currentHeight < this.winHeight
+    },
+
     getSelectedItem (value) {
       const selecteds = this.columns.filter(item => {
         return item[this.valueKey] === value

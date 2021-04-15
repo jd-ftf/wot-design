@@ -66,10 +66,13 @@
     font-size: $-picker-column-fs;
     top: 0;
     width: 100%;
+    padding: $-picker-column-padding;
+    box-sizing: border-box;
     backface-visibility: hidden;
     background-color: $-picker-bg;
     height: $-picker-column-item-height;
     line-height: $-picker-column-item-height;
+    @include lineEllipsis;
 
     @include when(hidden) {
       visibility: hidden;
@@ -85,6 +88,11 @@
   margin: 0;
   padding: 0;
   list-style: none;
+
+  li {
+    padding: $-picker-column-padding;
+    @include lineEllipsis;
+  }
 }
 
 @include b(picker-view-content) {

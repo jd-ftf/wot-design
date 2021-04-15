@@ -27,6 +27,9 @@
     <demo-block title="修改输入框宽度">
       <wd-input-number v-model="value8" input-width="70px" />
     </demo-block>
+    <demo-block title="允许空值，并设置 placeholder">
+      <wd-input-number v-model="value9" allow-null placeholder="不限" input-width="70px" />
+    </demo-block>
   </div>
 </template>
 
@@ -41,7 +44,8 @@ export default {
       value5: 1,
       value6: '1.205',
       value7: 1,
-      value8: 1
+      value8: 1,
+      value9: ''
     }
   }
 }
