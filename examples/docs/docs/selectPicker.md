@@ -308,6 +308,7 @@ export default {
 | safe-area-inset-bottom | 弹出面板是否设置底部安全距离（iphone X 类型的机型），见 [底部安全区域适配](#/components/commonProblems#di-bu-an-quan-qu-yu-gua-pei-iphone-x-lei-xing-de-ji-xing) | boolean | - | true | 2.3.0 |
 | filterable | 可搜索（目前只支持本地搜索） | boolean | - | false | 2.3.0 |
 | filter-placeholder | 搜索框占位符 | string | - | 搜索 | 2.3.0 |
+| ellipsis | 展示的值是否超出长度隐藏，显示省略号 | boolean | - | false | 2.3.0 |
 
 ### 选项数据结构
 

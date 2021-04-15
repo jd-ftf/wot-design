@@ -29,7 +29,8 @@
           <div
             class="wd-col-picker__value"
             :class="{
-              'wd-col-picker__value--placeholder': (!value || (value instanceof Array && !value.length))
+              'wd-col-picker__value--placeholder': (!value || (value instanceof Array && !value.length)),
+              'is-ellipsis': ellipsis
             }"
           >{{ ((!value || (value instanceof Array && !value.length)) ? placeholder : showValue) || t('wd.colPicker.placeholder') }}</div>
           <i v-if="!disabled && !readonly" class="wd-col-picker__arrow wd-icon-arrow-right"></i>
@@ -174,7 +175,8 @@ export default {
     safeAreaInsetBottom: {
       type: Boolean,
       default: true
-    }
+    },
+    ellipsis: Boolean
   },
   watch: {
     value: {

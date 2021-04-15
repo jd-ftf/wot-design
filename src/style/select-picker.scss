@@ -16,10 +16,6 @@
       height: 314px;
       max-height: 314px;
     }
-    // @include when(filter-active) {
-    //   height: 127px;
-    //   max-height: 127px;
-    // }
   }
   @include e(text-active) {
     color: $-color-theme;
