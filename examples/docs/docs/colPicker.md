@@ -21,13 +21,13 @@ Vue.use(ColPicker)
 
 传入 `column-change` 属性，其类型为 `function`，接收参数 options: object；options 的结构如下：
 
-| 参数      | 类型 | 说明                                 |
-|---------- |---- |---------- |
-| selectedItem | object | 当前列的选中项，数据结构跟 columns 中选项的数据结构一致 |
-| index | number | 当前列下标，当 columns 数组为空时，传入的 index 为 -1，可以根据该标记来获取第一列数据 |
-| rowIndex | number | 当前列选中项下标 |
-| resolve | function | 接收下一列的选项数组 |
-| finish | function | 结束 picker 选择，若无法正常关闭如数据获取失败，则执行 `finish(false)` |
+| 参数 | 类型 | 说明 | 最低版本 |
+|-----|-----|------|---------|
+| selectedItem | object | 当前列的选中项，数据结构跟 columns 中选项的数据结构一致 | - |
+| index | number | 当前列下标，当 columns 数组为空时，传入的 index 为 -1，可以根据该标记来获取第一列数据 | - |
+| rowIndex | number | 当前列选中项下标 | - |
+| resolve | function | 接收下一列的选项数组 | - |
+| finish | function | 结束 picker 选择，若无法正常关闭如数据获取失败，则执行 `finish(false)` | - |
 
 > 当 `columns` 数组为空时或者 `columns` 数组长度小于 `value` 数组长度时，会自动触发 `column-change` 来获取每一列的数据，此时 `columns` 数组为空时，传入的 `index` 参数为 -`1，selectedItem` 只有 `value` 属性。
 
@@ -490,36 +490,36 @@ export default {
 
 ### Attributes
 
-| 参数 | 说明 | 类型 | 可选值 | 默认值 | 版本 |
+| 参数 | 说明 | 类型 | 可选值 | 默认值 | 最低版本 |
 |-----|------|-----|-------|-------|-----|
 | value/v-model | 选中项 | array | - | - | - |
 | columns | 选择器数据，二维数组 | array | - | - | - |
-| value-key | 选项对象中，value对应的 key | string | - | 'value' | - |
-| label-key | 选项对象中，展示的文本对应的 key | string | - | 'label' | - |
-| tip-key | 选项对象中，提示文案对应的 key | string | - | 'tip' | - |
+| value-key | 选项对象中，value对应的 key | string | - | value | - |
+| label-key | 选项对象中，展示的文本对应的 key | string | - | label | - |
+| tip-key | 选项对象中，提示文案对应的 key | string | - | tip | - |
 | title | 弹出层标题 | string | - | - | - |
 | label | 选择器左侧文案 | string | - | - | - |
-| placeholder | 选择器占位符 | string | - | '请选择' | - |
+| placeholder | 选择器占位符 | string | - | 请选择 | - |
 | disabled | 禁用 | boolean | - | fasle | - |
 | readonly | 只读 | boolean | - | false | - |
 | display-format | 自定义展示文案的格式化函数，返回一个字符串 | function | - | - | - |
 | column-change | 接收当前列的选中项 item、当前列下标、当前列选中项下标下一列数据处理函数 resolve、结束选择 finish | function | - | - | - |
-| size | 设置选择器大小 | string | 'large' | - | - |
-| label-width | 设置左侧标题宽度 | string | - | '33%' | - |
+| size | 设置选择器大小 | string | large | - | - |
+| label-width | 设置左侧标题宽度 | string | - | 33% | - |
 | error | 是否为错误状态，错误状态时右侧内容为红色 | boolean | - | false | - |
 | required | 必填样式 | boolean | - | false | - |
 | align-right | 选择器的值靠右展示 | boolean | - | false | - |
-| loading-color | 加载的颜色 | String | - | '#4D80F0' | - |
+| loading-color | 加载的颜色 | String | - | #4D80F0 | - |
 | before-confirm | 确定前校验函数，接收 (value, resolve) 参数，通过 resolve 继续执行 picker，resolve 接收1个boolean参数 | function | - | - | - |
 | close-on-click-modal | 点击遮罩是否关闭 | boolean | - | true | - |
 | close-on-popstate | 页面返回时自动关闭 | boolean | - | true | 2.3.0 |
-| auto-complete | 自动触发 column-change 事件来补全数据，当 columns 为空数组或者 columns 数组长度小于 value 数组长度时，会自动触发 column-change | - | false | - |
+| auto-complete | 自动触发 column-change 事件来补全数据，当 columns 为空数组或者 columns 数组长度小于 value 数组长度时，会自动触发 column-change | boolean | - | false | - |
 | safe-area-inset-bottom | 弹出面板是否设置底部安全距离（iphone X 类型的机型），见 [底部安全区域适配](#/components/commonProblems#di-bu-an-quan-qu-yu-gua-pei-iphone-x-lei-xing-de-ji-xing) | boolean | - | true | 2.3.0 |
 | ellipsis | 展示的值是否超出长度隐藏，显示省略号 | boolean | - | false | 2.3.0 |
 
 ### 选项数据结构
 
-| 键名 | 说明 | 类型 | 是否必填 | 版本 |
+| 键名 | 说明 | 类型 | 是否必填 | 最低版本 |
 |-----|------|-----|---------|-----|
 | value | 选项值 | string | 是 | - |
 | label | 选项名 | string | 是 | - |
@@ -528,21 +528,21 @@ export default {
 
 ### Events
 
-| 事件名称 | 说明 | 参数 | 版本 |
+| 事件名称 | 说明 | 参数 | 最低版本 |
 |--------|------|-----|------|
 | confirm | 最后一列选项选中时触发 | value(选项值数组), selectedItem(选项数组) | - |
 | cancel | 点击关闭按钮或者蒙层时触发 | - | - |
 
 ### Methods
 
-| 方法名称 | 说明 | 参数 | 版本 |
+| 方法名称 | 说明 | 参数 | 最低版本 |
 |--------|------|-----|------|
-| open | 打开picker弹框 | - |
-| close | 关闭picker弹框 | - |
+| open | 打开picker弹框 | - | - |
+| close | 关闭picker弹框 | - | - |
 
 ### Slots
 
-| 插槽名称 | 说明 | 版本 |
+| 插槽名称 | 说明 | 最低版本 |
 |--------|------|-----|
 | default | 自定义展示 | - |
 | label | 左侧插槽 | - |

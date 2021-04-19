@@ -140,26 +140,26 @@ Tooltip 组件通过属性`show-close` 控制是否显示关闭按钮。
 
 ### Tooltip Attributes
 
-| 参数               | 说明                                                     | 类型              | 可选值      | 默认值 |
-|--------------------|----------------------------------------------------------|-------------------|-------------|--------|
-|  value / v-model |  手动状态是否可见  | Boolean           | — |  false |
-|  content        |  显示的内容，也可以通过 `slot#content` 传入  | String            | — | — |
-|  placement        |  Tooltip 的出现位置  | String           |  top/top-start/top-end/bottom/bottom-start/bottom-end/left/left-start/left-end/right/right-start/right-end |  bottom |
-|  visible-arrow   |  是否显示 Tooltip 箭头 | Boolean | — | true |
-|  show-close   |  是否显示 Tooltip 内部的关闭按钮 | Boolean | — | false |
-|  disabled       |  Tooltip 是否可用  | Boolean           | — |  false |
-|  offset        |  出现位置的偏移量  | Number           | — |  5 |
-| close-outside | 是否可以通过点击其他位置 关闭 tooltip | boolean    | — | true |
+| 参数 | 说明 | 类型 | 可选值 | 默认值 | 最低版本 |
+|-----|------|-----|-------|-------|--------|
+| value / v-model | 手动状态是否可见 | boolean | - | false | - |
+| content | 显示的内容，也可以通过 `slot#content` 传入 | string | - | - | - |
+| placement | Tooltip 的出现位置 | string |  top / top-start / top-end / bottom / bottom-start / bottom-end / left / left-start / left-end / right / right-start / right-end | bottom | - |
+| visible-arrow | 是否显示 Tooltip 箭头 | boolean | - | true | - |
+| show-close | 是否显示 Tooltip 内部的关闭按钮 | boolean | - | false | - |
+| disabled | Tooltip 是否可用 | boolean | - | false | - |
+| offset | 出现位置的偏移量 | number | - | 0 | - |
+| close-outside | 是否可以通过点击其他位置 关闭 tooltip | boolean | - | true | - |
 
 ### Slot
 
-| name      | 说明       |
-|------------- |----------- |
-| content | 多行内容或用户自定义样式 |
+| name | 说明 | 最低版本 |
+|------|-----|---------|
+| content | 多行内容或用户自定义样式 | - |
 
 ### Events
 
-| 事件名称           | 说明             | 回调参数                                     |
-| -------------- | -------------- | ---------------------------------------- |
-| show     |显示时触发       | - |
-| hide | 隐藏时触发 | - |
+| 事件名称 | 说明 | 回调参数 | 最低版本 |
+|--------|------|---------|--------|
+| show |显示时触发 | - | - |
+| hide | 隐藏时触发 | - | - |

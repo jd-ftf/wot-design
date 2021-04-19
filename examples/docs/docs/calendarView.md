@@ -1,6 +1,6 @@
 ## CalendarView 日历面板组件
 
-[2.3.0版本新增]()
+**2.3.0版本新增**
 
 提供日历单选、多选、范围选择、周维度、月维度等功能。可以根据实际业务场景基于该组件进行封装高度定制化组件。
 
@@ -159,14 +159,14 @@ export default {
 
 设置 `formatter` 参数，其值为函数类型，接收一个 `object` 参数，返回一个对象，对象的属性保持跟入参的属性一致，其属性如下：
 
-| 属性      | 类型 | 说明   |
-|---------- |---- |---------- |
-| type | string | 日期类型，'selected' - 单日期选中，'start' - 范围开始日期，'end' - 范围结束日期，'middle' - 范围开始与结束之间的日期，'same' - 范围开始与结束日期同一天 |
-| date | timestamp | 13位的时间戳 |
-| text | string | 日期文本内容 |
-| topInfo | string | 上方提示信息 |
-| bottomInfo | string | 下方提示信息 |
-| disabled | boolean | 是否禁用 |
+| 属性 | 类型 | 说明 | 最低版本 |
+|-----|-----|------|---------|
+| type | string | 日期类型，'selected' - 单日期选中，'start' - 范围开始日期，'end' - 范围结束日期，'middle' - 范围开始与结束之间的日期，'same' - 范围开始与结束日期同一天 | - |
+| date | timestamp | 13位的时间戳 | - |
+| text | string | 日期文本内容 | - |
+| topInfo | string | 上方提示信息 | - |
+| bottomInfo | string | 下方提示信息 | - |
+| disabled | boolean | 是否禁用 | - |
 
 ```html
 <wd-calendar-view type="daterange" v-model="value" allow-same-day :formatter="formatter" />
@@ -244,28 +244,28 @@ export default {
 | 参数 | 说明 | 类型 | 可选值 | 默认值 | 最低版本 |
 |-----|-----|------|-------|-------|-----|
 | value/v-model | 选中值，为 13 位时间戳或时间戳数组 | null / number / array | - | - | 2.3.0 |
-| type | 日期类型 | string | 'date' / 'dates' / 'datetime' / 'week' / 'month' / 'daterange' / 'datetimerange' / 'weekrange' / 'monthrange' | 'date' | 2.3.0 |
+| type | 日期类型 | string | date / dates / datetime / week / month / daterange / datetimerange / weekrange / monthrange | date | 2.3.0 |
 | min-date | 最小日期，为 13 位时间戳 | number | - | 当前日期往前推 6 个月 | 2.3.0 |
 | max-date | 最大日期，为 13 位时间戳 | number | - | 当前日期往后推 6 个月 | 2.3.0 |
 | first-day-of-week | 周起始天 | number | - | 0 | 2.3.0 |
 | formatter | 日期格式化函数 | function | - | - | 2.3.0 |
 | max-range | type 为范围选择时有效，最大日期范围 | number | - | - | 2.3.0 |
-| range-prompt | type 为范围选择时有效，选择超出最大日期范围时的错误提示文案 | string | - | '选择天数不能超过x天' | 2.3.0 |
+| range-prompt | type 为范围选择时有效，选择超出最大日期范围时的错误提示文案 | string | - | 选择天数不能超过x天 | 2.3.0 |
 | allow-same-day | type 为范围选择时有效，是否允许选择同一天 | boolean | - | false | 2.3.0 |
 | show-panel-title | 是否展示面板标题，自动计算当前滚动的日期月份 | boolean | - | true | 2.3.0 |
-| default-time | 选中日期所使用的当日内具体时刻 | string / array | - | '00:00:00' | 2.3.0 |
+| default-time | 选中日期所使用的当日内具体时刻 | string / array | - | 00:00:00 | 2.3.0 |
 | panel-height | 可滚动面板的高度 | number | - | 378 | 2.3.0 |
-| time-filter | type 为 'datetime' 或 'datetimerange' 时有效，用于过滤时间选择器的数据 | function | - | - | 2.3.0 |
-| hide-second | type 为 'datetime' 或 'datetimerange' 时有效，是否不展示秒修改 | boolean | - | false | 2.3.0 |
+| time-filter | type 为 datetime 或 datetimerange 时有效，用于过滤时间选择器的数据 | function | - | - | 2.3.0 |
+| hide-second | type 为 datetime 或 datetimerange 时有效，是否不展示秒修改 | boolean | - | false | 2.3.0 |
 
 ### Events
 
-| 事件名称 | 说明 | 参数 |
-|---------|-----|-----|
-| change | 绑定值变化时触发 | value |
+| 事件名称 | 说明 | 参数 | 最低版本 |
+|---------|-----|-----|---------|
+| change | 绑定值变化时触发 | value | - |
 
 ### Methods
 
-| 方法名称 | 说明 | 参数 |
-|---------|-----|-----|
-| scrollIntoView | 使当前日期或者选中日期滚动到可视区域，并监听滚动，在面板从 隐藏状态（如 display: none） 切换为展示状态时调用 | - |
+| 方法名称 | 说明 | 参数 | 最低版本 |
+|---------|-----|-----|---------|
+| scrollIntoView | 使当前日期或者选中日期滚动到可视区域，并监听滚动，在面板从 隐藏状态（如 display: none） 切换为展示状态时调用 | - | - |

@@ -117,29 +117,29 @@ export default {
 
 ### Attributes
 
-| 参数      | 说明                                 | 类型      | 可选值       | 默认值   |
-|---------- |------------------------------------ |---------- |------------- |-------- |
-| type | 标签类型 | String | 'primary', 'danger', 'warning', 'success' | - | - |
-| plain | 幽灵类型 | Boolean | - | false |
-| mark | 标记类型 | Boolean | - | false |
-| round | 圆角类型 | Boolean | - | false |
-| icon | 左侧图标 | String | - | - |
-| color | 文字颜色 | String | - | - |
-| bg-color | 背景色和边框色 | String | - | - |
-| closable | 可关闭(只对圆角类型支持) | Boolean | - | false |
-| disable-transition | 禁用动画 | Boolean | - | false |
-| dynamic | 新增标签 | Boolean | - | false |
+| 参数 | 说明 | 类型 | 可选值 | 默认值 | 最低版本 |
+|-----|------|-----|-------|-------|---------|
+| type | 标签类型 | string | primary / danger / warning / success | - | - | - |
+| plain | 幽灵类型 | boolean | - | false | - |
+| mark | 标记类型 | boolean | - | false | - |
+| round | 圆角类型 | boolean | - | false | - |
+| icon | 左侧图标 | string | - | - | - |
+| color | 文字颜色 | string | - | - | - |
+| bg-color | 背景色和边框色 | string | - | - | - |
+| closable | 可关闭(只对圆角类型支持) | boolean | - | false | - |
+| disable-transition | 禁用动画 | boolean | - | false | - |
+| dynamic | 新增标签 | boolean | - | false | - |
 
 ### Events
 
-| 事件名称      | 说明                                 | 参数     |
-|------------- |------------------------------------ |--------- |
-| click | 标签点击时触发 | - |
-| close | 点击关闭按钮时触发 | - |
-| confirm | 新增标签输入内容确定后触发 | - |
+| 事件名称 | 说明 | 参数 | 最低版本 |
+|--------|------|-----|---------|
+| click | 标签点击时触发 | - | - |
+| close | 点击关闭按钮时触发 | - | - |
+| confirm | 新增标签输入内容确定后触发 | - | - |
 
 ### Slot
 
-| name      | 说明       |
-|------------- |----------- |
-| icon | 图标 |
+| name | 说明 | 最低版本 |
+|------|-----|---------|
+| icon | 图标 | - |

@@ -146,58 +146,58 @@ export default {
 
 ### Attributes
 
-| 参数      | 说明                                 | 类型      | 可选值       | 默认值   |
-|---------- |------------------------------------ |---------- |------------- |-------- |
-| type | 类型 | string | text, textarea, number, email | text |
-| value/v-model   |	绑定值                        |	string / number     | -   |	-  |
-| placeholder	    | 占位文本                  |	string    |	-         |	'搜索' |
-| clearable | 显示清空按钮 | boolean | - | false |
-| maxlength | 原生属性，最大长度 | string | - | - |
-| minlength | 原生属性，最小长度 | string | - | - |
-| show-password | 显示为密码框 | boolean | - | false |
-| disabled | 原生属性，禁用 | boolean | - | false |
-| readonly | 原生属性，只读 | boolean | - | false |
-| prefixIcon | 前置图标，京麦icon中的图标类名 | string | - | - |
-| suffixIcon | 后置图标，京麦icon中的图标类名 | string | - | - |
-| show-word-limit | 显示字数限制，需要同时设置 maxlength | boolean | - | false |
-| ~~max~~ | ~~原生属性，最大值。~~ 移动端上该属性无效，请使用 InputNumber 组件 | string | - | - |
-| ~~min~~ | ~~原生属性，最小值。~~ 移动端上该属性无效，请使用 InputNumber 组件 | string | - | - |
-| step | 原生属性，设置输入字段的合法数字间隔 | string | - | - |
-| rows | 原生属性，textarea 的行数 | string | - | '3' |
-| autosize | 是否高度自适应，可以设置为对象，如 { minRows: 2, maxRows: 6 } | boolean / object | - | - |
-| resize | 是否允许用户缩放 | string | 'none', 'both', 'horizontal', 'vertical' | 'none' |
-| autofocus | 原生属性，是否自动聚焦，如果在页面加载时让其获得焦点，对于 android 有效， iOS 无效 | boolean | - | false |
-| label | 设置左侧标题 | string | - | - |
-| size | 设置输入框大小 | string | - | - |
-| error | 设置输入框错误状态，错误状态时为红色 | boolean | - | false |
-| center | 当有label属性时，设置标题和输入框垂直居中，默认为顶部居中 | boolean | - | false |
-| label-width | 设置左侧标题宽度 | string | - | '33%' |
-| no-border | 取消底部边框 | boolean | - | false |
-| required | cell 类型下必填样式 | boolean | - | false |
+| 参数 | 说明 | 类型 | 可选值 | 默认值 | 最低版本 |
+|-----|------|-----|-------|-------|--------|
+| type | 类型 | string | text / textarea / number / email | text | - |
+| value/v-model | 绑定值 | string / number | - | - | - |
+| placeholder | 占位文本 | string | - | - | - |
+| clearable | 显示清空按钮 | boolean | - | false | - |
+| maxlength | 原生属性，最大长度 | string | - | - | - |
+| minlength | 原生属性，最小长度 | string | - | - | - |
+| show-password | 显示为密码框 | boolean | - | false | - |
+| disabled | 原生属性，禁用 | boolean | - | false | - |
+| readonly | 原生属性，只读 | boolean | - | false | - |
+| prefixIcon | 前置图标，京麦icon中的图标类名 | string | - | - | - |
+| suffixIcon | 后置图标，京麦icon中的图标类名 | string | - | - | - |
+| show-word-limit | 显示字数限制，需要同时设置 maxlength | boolean | - | false | - |
+| ~~max~~ | ~~原生属性，最大值。~~ 移动端上该属性无效，请使用 InputNumber 组件 | string | - | - | - |
+| ~~min~~ | ~~原生属性，最小值。~~ 移动端上该属性无效，请使用 InputNumber 组件 | string | - | - | - |
+| step | 原生属性，设置输入字段的合法数字间隔 | string | - | - | - |
+| rows | 原生属性，textarea 的行数 | string | - | 3 | - |
+| autosize | 是否高度自适应，可以设置为对象，如 { minRows: 2, maxRows: 6 } | boolean / object | - | - | - |
+| resize | 是否允许用户缩放 | string | none / both / horizontal / vertical | none | - |
+| autofocus | 原生属性，是否自动聚焦，如果在页面加载时让其获得焦点，对于 android 有效， iOS 无效 | boolean | - | false | - |
+| label | 设置左侧标题 | string | - | - | - |
+| size | 设置输入框大小 | string | - | - | - |
+| error | 设置输入框错误状态，错误状态时为红色 | boolean | - | false | - |
+| center | 当有label属性时，设置标题和输入框垂直居中，默认为顶部居中 | boolean | - | false | - |
+| label-width | 设置左侧标题宽度 | string | - | 33% | - |
+| no-border | 取消底部边框 | boolean | - | false | - |
+| required | cell 类型下必填样式 | boolean | - | false | - |
 
 ### Events
 
-| 事件名称      | 说明                                 | 参数     |
-|------------- |------------------------------------ |--------- |
-| focus        | 监听输入框focus事件                    | -       |
-| blur         | 监听输入框blur事件                     | -       |
-| change       | 监听输入框修改事件                      | 搜索输入框文本       |
-| clear        | 监听输入框清空按钮事件                   | -       |
-| click-prefix-icon | 点击前置图标时触发                | - |
-| click-suffix-icon | 点击后置图标时触发                | - |
+| 事件名称 | 说明 | 参数 | 最低版本 |
+|---------|-----|-----|---------|
+| focus | 监听输入框focus事件 | - | - |
+| blur | 监听输入框blur事件 | - | - |
+| change | 监听输入框修改事件 | 搜索输入框文本 | - |
+| clear | 监听输入框清空按钮事件 | - | - |
+| click-prefix-icon | 点击前置图标时触发 | - | - |
+| click-suffix-icon | 点击后置图标时触发 | - | - |
 
 ### Methods
 
-| 方法名称      | 说明       | 参数   |
-|------------- |----------- |---------  |
-| focus      | 使输入框获得焦点 | —  |
-| blur    | 使输入框失去焦点 | -  |
-| select | 使输入框内容被选中 | - |
+| 方法名称 | 说明 | 参数 | 最低版本 |
+|--------|------|-----|---------|
+| focus | 使输入框获得焦点 | - | - |
+| blur | 使输入框失去焦点 | -  | - |
+| select | 使输入框内容被选中 | - | - |
 
 ### Slot
 
-| name      | 说明       |
-|------------- |----------- |
-| label | 左侧标题插槽 |
-| prefix | 前置插槽 |
-| suffix | 后置插槽 |
+| name | 说明 | 最低版本 |
+|------|-----|---------|
+| label | 左侧标题插槽 | - |
+| prefix | 前置插槽 | - |
+| suffix | 后置插槽 | - |

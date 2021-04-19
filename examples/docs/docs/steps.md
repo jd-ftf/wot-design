@@ -96,19 +96,19 @@ Vue.use(Steps)
 
 ### Steps Attributes
 
-| 参数      | 说明                                 | 类型      | 可选值       | 默认值   |
-|---------- |------------------------------------ |---------- |------------- |-------- |
-| active | 步骤进度 | number | - | 0 |
-| vertical | 垂直方向 | boolean | - | false |
-| dot | 点状步骤条 | dot | - | false |
-| space | 步骤条间距，默认为自动计算 | string | - | - |
-| align-center | 是否水平居中，只对横向步骤条有效 | boolean | - | false |
+| 参数 | 说明 | 类型 | 可选值 | 默认值 | 最低版本 |
+|-----|------|-----|-------|-------|--------|
+| active | 步骤进度 | number | - | 0 | - |
+| vertical | 垂直方向 | boolean | - | false | - |
+| dot | 点状步骤条 | boolean | - | false | - |
+| space | 步骤条间距，默认为自动计算 | string | - | - | - |
+| align-center | 是否水平居中，只对横向步骤条有效 | boolean | - | false | - |
 
 ### Step Attributes
 
-| 参数      | 说明                                 | 类型      | 可选值       | 默认值   |
-|---------- |------------------------------------ |---------- |------------- |-------- |
-| title | 标题，如果没有则为默认文案。当只有标题而没有描述时，标题的字号会小2号 | string | - | - 
-| description | 描述 | string | - | - |
-| icon | 图标 | string | - | - |
-| status | 步骤状态 | string | 'finished', 'process', 'error' | - |
+| 参数 | 说明 | 类型 | 可选值 | 默认值 | 最低版本 |
+|-----|-----|------|-------|-------|--------|
+| title | 标题，如果没有则为默认文案。当只有标题而没有描述时，标题的字号会小2号 | string | - | - | - |
+| description | 描述 | string | - | - | - |
+| icon | 图标 | string | - | - | - |
+| status | 步骤状态 | string | finished / process / error | - | - |

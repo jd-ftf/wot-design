@@ -146,50 +146,50 @@ export default {
 
 ### DropMenu Attributes
 
-| 参数      | 说明                                 | 类型      | 可选值       | 默认值   |
-|---------- |------------------------------------ |---------- |------------- |-------- |
-| direction | 菜单展开方向，可选值为`up` 或 `down` | string | - | 'down' |
-| close-outside | 是否开启点击外部关闭 | boolean | - | true |
-| modal | 是否展示蒙层 | boolean | - | true |
-| close-on-click-modal | 是否点击蒙层时关闭 | boolean | - | true |
-| close-on-popstate | 页面返回时自动关闭 | boolean | - | true |
-| duration | 菜单展开收起动画时间，单位 ms | number | - | 200 |
+| 参数 | 说明 | 类型 | 可选值 | 默认值 | 最低版本 |
+|-----|------|-----|-------|-------|---------|
+| direction | 菜单展开方向，可选值为`up` 或 `down` | string | up | down | - |
+| close-outside | 是否开启点击外部关闭 | boolean | - | true | - |
+| modal | 是否展示蒙层 | boolean | - | true | - |
+| close-on-click-modal | 是否点击蒙层时关闭 | boolean | - | true | - |
+| close-on-popstate | 页面返回时自动关闭 | boolean | - | true | - |
+| duration | 菜单展开收起动画时间，单位 ms | number | - | 200 | - |
 
 ### DropMenuItem Attributes
 
-| 参数      | 说明                                 | 类型      | 可选值       | 默认值   |
-|---------- |------------------------------------ |---------- |------------- |-------- |
-| value / v-model | 当前选中项对应选中的 value | string / number | - | - |
-| disabled | 禁用菜单 | boolean | - | false |
-| value-key | 选项对象中，value对应的 key | string | - | 'value' |
-| label-key | 选项对象中，展示的文本对应的 key | string | - | 'label' |
-| tip-key | 选项对象中，选项说明对应的 key | string | - | 'tip' |
-| options | 列表数据，对应数据结构 `[{text: '标题', value: '0', tip: '提示文字'}]` | array | - | - |
-| icon-name | 选中的图标名称(可选名称在wd-icon组件中) | string | - | 'check' |
-| title | 菜单标题 | string | - | - |
+| 参数 | 说明 | 类型 | 可选值 | 默认值 | 最低版本 |
+|-----|-----|------|-------|-------|---------|
+| value / v-model | 当前选中项对应选中的 value | string / number | - | - | - |
+| disabled | 禁用菜单 | boolean | - | false | - |
+| value-key | 选项对象中，value对应的 key | string | - | value | - |
+| label-key | 选项对象中，展示的文本对应的 key | string | - | label | - |
+| tip-key | 选项对象中，选项说明对应的 key | string | - | tip | - |
+| options | 列表数据，对应数据结构 `[{text: '标题', value: '0', tip: '提示文字'}]` | array | - | - | - |
+| icon-name | 选中的图标名称(可选名称在wd-icon组件中) | string | - | check | - |
+| title | 菜单标题 | string | - | - | - |
 
 ### DropdownItem Event
 
-| 事件名称      | 说明                                 | 参数     |
-|------------- |------------------------------------ |--------- |
-| change | 菜单选项修改时触发 | value |
+| 事件名称 | 说明 | 参数 | 最低版本 |
+|--------|------|-----|---------|
+| change | 菜单选项修改时触发 | value | - |
 
 ### DropdownItem Methods
 
-| 方法名 | 说明 | 参数 | 返回值 |
-|------|------|------|------|
-| close | 关闭菜单 | - | - |
-| open | 展开菜单 | - | - |
+| 方法名 | 说明 | 参数 | 返回值 | 最低版本 |
+|------|------|------|------|---------|
+| close | 关闭菜单 | - | - | - |
+| open | 展开菜单 | - | - | - |
 
 ### DropMenu Slot
 
-| name      | 说明       |
-|------------- |----------- |
-| default | 菜单内容 |
+| name | 说明 | 最低版本 |
+|------|-----|---------|
+| default | 菜单内容 | - |
 
 ### DropMenuItem Slot
 
-| name      | 说明       |
-|------------- |----------- |
-| default | 菜单自定义内部内容 |
-| title | 菜单自定义标题 |
+| name | 说明 | 最低版本 |
+|------|-----|---------|
+| default | 菜单自定义内部内容 | - |
+| title | 菜单自定义标题 | - |

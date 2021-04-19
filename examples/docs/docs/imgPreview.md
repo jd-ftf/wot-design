@@ -128,17 +128,17 @@ export default {
 
 通过函数调用 `ImgPreview` 时，支持传入以下选项：
 
-| 参数      | 说明                                 | 类型      | 可选值       | 默认值   |
-|---------- |------------------------------------ |---------- |------------- |-------- |
-| urls | 需要预览的图片 URL 数组 | Array | -  | [] |
-| maxZoom | 手势缩放时，最大缩放比例 | Number | -  | 3 |
-| minZoom | 手势缩放时，最小缩放比例 | Number | -  | 1/3 |
-| showIndex | 是否显示页码 | Boolean | -  | true |
-| current | 图片预览起始位置索引 | Number | -  | 0 |
-| swipeDuration | 动画时长，单位为`ms` | Number | -  | 500 |
-| onLongTap | 长按事件钩子 | Function | -  | - |
-| onClose | 打开预览列表钩子 | Function | -  | - |
-| onOpen | 关闭预览列表钩子 | Function | -  | - |
+| 参数 | 说明 | 类型 | 可选值 | 默认值 | 最低版本 |
+|-----|------|-----|-------|-------|---------|
+| urls | 需要预览的图片 URL 数组 | array | -  | [] | - |
+| maxZoom | 手势缩放时，最大缩放比例 | number | -  | 3 | - |
+| minZoom | 手势缩放时，最小缩放比例 | number | -  | 1/3 | - |
+| showIndex | 是否显示页码 | boolean | -  | true | - |
+| current | 图片预览起始位置索引 | number | -  | 0 | - |
+| swipeDuration | 动画时长，单位为`ms` | number | -  | 500 | - |
+| onLongTap | 长按事件钩子 | function | -  | - | - |
+| onClose | 打开预览列表钩子 | function | -  | - | - |
+| onOpen | 关闭预览列表钩子 | function | -  | - | - |
 
 ### ImgPreview 组件调用
 
@@ -146,30 +146,30 @@ export default {
 
 通过组件调用 `ImgPreview` 时，支持以下 Props：
 
-| 参数 | 说明 | 类型      | 可选值       | 默认值   |
-|---------- |------------------------------------ |---------- |------------- |-------- |
-| v-model | 是否打开图片预览组件 | Boolean    | -   | false  |
-| urls | 需要预览的图片 URL 数组 | Array | -  | [] |
-| max-zoom | 手势缩放时，最大缩放比例 | Number | -  | 3 |
-| min-zoom | 手势缩放时，最小缩放比例 | Number | -  | 1/3 |
-| show-index | 是否显示页码 | Boolean | -  | true |
-| current | 图片预览起始位置索引 | Number | -  | 0 |
-| swipe-duration | 动画时长，单位为`ms` | Number | -  | 500 |
+| 参数 | 说明 | 类型 | 可选值 | 默认值 | 最低版本 |
+|-----|-----|------|-------|-------|---------|
+| v-model | 是否打开图片预览组件 | boolean | - | false | - |
+| urls | 需要预览的图片 URL 数组 | array | -  | [] | - |
+| max-zoom | 手势缩放时，最大缩放比例 | number | -  | 3 | - |
+| min-zoom | 手势缩放时，最小缩放比例 | number | -  | 1/3 | - |
+| show-index | 是否显示页码 | boolean | -  | true | - |
+| current | 图片预览起始位置索引 | number | -  | 0 | - |
+| swipe-duration | 动画时长，单位为`ms` | number | -  | 500 | - |
 
 ### Slots
 
 通过组件调用 `ImgPreview` 时，支持以下插槽：
 
-| 名称 | 说明 |
-|------|------|
-| index | 自定义页码内容 |
+| 名称 | 说明 | 最低版本 |
+|-----|------|--------|
+| index | 自定义页码内容 | - |
 
 ### Events
 
 通过组件调用 `ImgPreview` 时，支持以下事件：
 
-| 方法名称      | 说明       | 参数   |
-|------------- |----------- |---------  |
-| open | 打开弹框时触发 | { index: 索引 } |
-| close | 关闭弹框时触发 | { index: 索引 } |
-| long-tap | 长按图片事件 | { index: 索引 } |
+| 方法名称 | 说明 | 参数 | 最低版本 |
+|--------|------|-----|---------|
+| open | 打开弹框时触发 | { index: 索引 } | - |
+| close | 关闭弹框时触发 | { index: 索引 } | - |
+| long-tap | 长按图片事件 | { index: 索引 } | - |

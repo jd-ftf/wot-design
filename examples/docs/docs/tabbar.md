@@ -94,39 +94,39 @@ export default {
 
 ### Tabbar Attributes
 
-| 参数      | 说明                                 | 类型      | 可选值       | 默认值   |
-|---------- |------------------------------------ |---------- |------------- |-------- |
-| value/v-model | 绑定值 | string / number | - | - |
-| active-color | 选中值颜色 | string | - | '#0083ff' |
-| inactive-color | 未选中的颜色 | string | - | '#a7a7a7' |
-| badge-color | 角标的颜色 | string | - | '#e2231a' |
-| fixed | 绝对定位 | boolean | - | false |
-| border | 显示上边框 | boolean | - | false |
+| 参数 | 说明 | 类型 | 可选值 | 默认值 | 最低版本 |
+|-----|------|-----|-------|-------|---------|
+| value/v-model | 绑定值 | string / number | - | - | - |
+| active-color | 选中值颜色 | string | - | #4D80F0 | - |
+| inactive-color | 未选中的颜色 | string | - | rgba(51, 51, 51, 1) | - |
+| badge-color | 角标的颜色 | string | - | #fa4350 | - |
+| fixed | 绝对定位 | boolean | - | false | - |
+| border | 显示上边框 | boolean | - | false | - |
 
 ### Tabbar Events
 
-| 事件名称      | 说明                                 | 参数     |
-|------------- |------------------------------------ |--------- |
-| change | 绑定值变化时触发 | 下标index, 标题名称name |
-| click | 点击标题时触发 | 下标index, 标题名称name |
+| 事件名称 | 说明 | 参数 | 最低版本 |
+|--------|------|-----|---------|
+| change | 绑定值变化时触发 | 下标index, 标题名称name | - |
+| click | 点击标题时触发 | 下标index, 标题名称name | - |
 
 ### TabbarItem Attributes
 
-| 参数      | 说明                                 | 类型      | 可选值       | 默认值   |
-|---------- |------------------------------------ |---------- |------------- |-------- |
-| name | 标签栏名称 | string | - | - |
-| icon | 图标类名 | string | - | - |
-| active-icon | 选中图标类名 | string | - | - |
-| dot | 是否显示小圆点 | boolean | - | false |
-| top    | 为正时，角标向下偏移对应的像素             | Number          | - |    —    |
-| right    | 为正时，角标向左偏移对应的像素              | Number          | - |    —    |
-| value | 文字或者数字角标 | string / number | - | - |
-| max | 数字角标的最大值 | number | - | - |
-| to | 路由地址，可以为链接或者为router中的路由 | string / number | - | - |
-| replace | 跳转时是否替换当前路由历史 | boolean | - | fasle |
+| 参数 | 说明 | 类型 | 可选值 | 默认值 | 最低版本 |
+|-----|-----|------|-------|-------|---------|
+| name | 标签栏名称 | string | - | - | - |
+| icon | 图标类名 | string | - | - | - |
+| active-icon | 选中图标类名 | string | - | - | - |
+| dot | 是否显示小圆点 | boolean | - | false | - |
+| top | 为正时，角标向下偏移对应的像素 | number | - | - | - |
+| right | 为正时，角标向左偏移对应的像素 | number | - | - | - |
+| value | 文字或者数字角标 | string / number | - | - | - |
+| max | 数字角标的最大值 | number | - | - | - |
+| to | 路由地址，可以为链接或者为router中的路由 | string / number | - | - | - |
+| replace | 跳转时是否替换当前路由历史 | boolean | - | fasle | - |
 
 ### TabbarItem Slot
 
-| name      | 说明       |
-|------------- |----------- |
-| icon | 图标 |
+| name | 说明 | 最低版本 |
+|------|-----|---------|
+| icon | 图标 | - |

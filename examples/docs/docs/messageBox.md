@@ -154,43 +154,43 @@ this.$messageBox.prompt(title, options) //  title 可以跳过不写，即支持
 
 #### Options Attributes
 
-| 参数      | 说明                                 | 类型      | 可选值       | 默认值   |
-|---------- |------------------------------------ |---------- |------------- |-------- |
-| title | 标题 | string | -  | - |
-| msg | 消息，支持html渲染 | string    | - | - |
-| type | 弹框类型 | string | 'alert', 'confirm', 'prompt' | 'alert'   |
-| closeOnClickModal | 是否支持点击蒙层进行关闭，点击蒙层回调传入的action为'modal'    | boolean    | -          | true |
-| closeOnPopstate | 页面返回时自动关闭 | boolean | - | true |
-| inputType      | 当type为prompt时，输入框类型   | string    | -          | 'text'   |
-| inputValue      | 当type为prompt时，输入框初始值   | string / number    | -          | -   |
-| inputPlaceholder      | 当type为prompt时，输入框placeholder      | string    | -          | -   |
-| inputPattern      | 当type为prompt时，输入框正则校验，点击确定按钮时进行校验      | regex    | -          | -   |
-| inputError | 当type为prompt时，输入框检验不通过时的错误提示文案 | string | - | - |
-| inputValidate      | 当type为prompt时，输入框校验函数，点击确定按钮时进行校验      | function    | -          | -   |
-| confirmButtonText      | 确定按钮文案      | string    | -          | '确定'   |
-| cancelButtonText      | 取消按钮文案     | string    | -          | '取消'   |
-| teleport | 指定挂载的 HTML 节点, 可以为字符串，也可以为对象，为对象时有 `to` 和 `disabled` 属性，`to` 表示挂载点，`disabled` 表示挂载到当前节点上 | string / object  | - | 'body' |
+| 参数 | 说明 | 类型 | 可选值 | 默认值 | 最低版本 |
+|-----|------|-----|-------|-------|---------|
+| title | 标题 | string | -  | - | - |
+| msg | 消息，支持html渲染 | string | - | - | - |
+| type | 弹框类型 | string | alert / confirm / prompt | alert | - |
+| closeOnClickModal | 是否支持点击蒙层进行关闭，点击蒙层回调传入的action为'modal' | boolean | - | true | - |
+| closeOnPopstate | 页面返回时自动关闭 | boolean | - | true | - |
+| inputType | 当type为prompt时，输入框类型 | string | - | text | - |
+| inputValue | 当type为prompt时，输入框初始值 | string / number | - | -   | - |
+| inputPlaceholder | 当type为prompt时，输入框placeholder | string | - | - | - |
+| inputPattern | 当type为prompt时，输入框正则校验，点击确定按钮时进行校验 | regex | - | - | - |
+| inputError | 当type为prompt时，输入框检验不通过时的错误提示文案 | string | - | - | - |
+| inputValidate | 当type为prompt时，输入框校验函数，点击确定按钮时进行校验 | function | - | - | - |
+| confirmButtonText | 确定按钮文案 | string | - | 确定 | - |
+| cancelButtonText | 取消按钮文案 | string | - | 取消 | - |
+| teleport | 指定挂载的 HTML 节点, 可以为字符串，也可以为对象，为对象时有 `to` 和 `disabled` 属性，`to` 表示挂载点，`disabled` 表示挂载到当前节点上 | string / object  | - | body | - |
 
 ### MessageBox 组件调用
 
 #### Attributes
 
-| 参数      | 说明                                 | 类型      | 可选值       | 默认值   |
-|---------- |------------------------------------ |---------- |------------- |-------- |
-| title      | 标题                        | string    | -   | -  |
-| show-cancel-button     | 是否显示取消按钮                      | boolean    | -         | false |
-| show      | 是否显示弹框                      | boolean    | -          | false   |
-| close-on-click-modal      | 是否支持点击蒙层进行关闭，点击蒙层回调传入的action是'modal'     | boolean    | -          | true   |
-| close-on-popstate | 页面返回时自动关闭 | boolean | - | true |
-| confirm-button-text      | 确定按钮文案      | string    | -          | '确定'   |
-| cancel-button-text      | 取消按钮文案     | string    | -          | '取消'   |
+| 参数 | 说明 | 类型 | 可选值 | 默认值 | 最低版本 |
+|-----|------|-----|-------|-------|---------|
+| title | 标题 | string | - | - | - |
+| show-cancel-button | 是否显示取消按钮 | boolean | - | false | - |
+| show | 是否显示弹框 | boolean | - | false | - |
+| close-on-click-modal | 是否支持点击蒙层进行关闭，点击蒙层回调传入的action是'modal' | boolean | - | true | - |
+| close-on-popstate | 页面返回时自动关闭 | boolean | - | true | - |
+| confirm-button-text | 确定按钮文案 | string | - | 确定 | - |
+| cancel-button-text | 取消按钮文案 | string | - | 取消 | - |
 
 #### Events
 
-| 事件名称      | 说明                                 | 参数     |
-|------------- |------------------------------------ |--------- |
-| open | 当弹窗打开时触发 | - |
-| opened | 当弹窗完全打开时触发 | - |
-| close | 当弹窗关闭时触发 | - |
-| closed | 当弹窗完全关闭时触发 | - |
-| action | 当点击蒙层（modal）、取消按钮（cancel）、确定按钮（confirm）时触发 | 'modal' / 'cancel' / 'confirm' |
+| 事件名称 | 说明 | 参数 | 最低版本 |
+|---------|-----|-----|---------|
+| open | 当弹窗打开时触发 | - | - |
+| opened | 当弹窗完全打开时触发 | - | - |
+| close | 当弹窗关闭时触发 | - | - |
+| closed | 当弹窗完全关闭时触发 | - | - |
+| action | 当点击蒙层（modal）、取消按钮（cancel）、确定按钮（confirm）时触发 | modal / cancel / confirm | - |

@@ -51,24 +51,24 @@ Vue.use(Curtain)
 
 ### Attributes
 
-| 参数      | 说明                                 | 类型      | 可选值       | 默认值   |
-|---------- |------------------------------------ |---------- |------------- |-------- |
-| value/v-model | 绑定值，展示/关闭幕帘 | boolean | - | - |
-| src | 幕帘图片地址 | string | 在线地址 | - |
-| to | 幕帘图片点击链接 | string | - | - |
-| width | 幕帘图片宽度 | string | - | - |
-| close-position | 关闭按钮位置 | string | 'inset', 'top', 'bottom', 'bottom', 'top-left', 'top-right', 'bottom-left', 'bottom-right' | 'inset' |
-| close-on-click-modal | 点击遮罩是否关闭 | boolean | - | false |
-| close-on-popstate | 页面返回时自动关闭 | boolean | - | true |
-| teleport | 指定挂载的 HTML 节点, 可以为字符串，也可以为对象，为对象时有 `to` 和 `disabled` 属性，`to` 表示挂载点，`disabled` 表示挂载到当前节点上 | string / object  | - | 'body' |
+| 参数 | 说明 | 类型 | 可选值 | 默认值 | 最低版本 |
+|-----|------|-----|-------|-------|---------|
+| value/v-model | 绑定值，展示/关闭幕帘 | boolean | - | - | - |
+| src | 幕帘图片地址 | string | 在线地址 | - | - |
+| to | 幕帘图片点击链接 | string | - | - | - |
+| width | 幕帘图片宽度 | string | - | - | - |
+| close-position | 关闭按钮位置 | string | inset / top / bottom / bottom / top-left / top-right / bottom-left / bottom-right | inset | - |
+| close-on-click-modal | 点击遮罩是否关闭 | boolean | - | false | - |
+| close-on-popstate | 页面返回时自动关闭 | boolean | - | true | - |
+| teleport | 指定挂载的 HTML 节点, 可以为字符串，也可以为对象，为对象时有 `to` 和 `disabled` 属性，`to` 表示挂载点，`disabled` 表示挂载到当前节点上 | string / object  | - | body | - |
 
 ### Events
 
-| 事件名称      | 说明                                 | 参数     |
-|------------- |------------------------------------ |--------- |
-| click | 点击幕帘时触发 | - |
-| open | 幕帘打开时触发 | - |
-| opened | 幕帘打开动画结束时触发 | - |
-| close | 幕帘关闭时触发 | - |
-| closed | 幕帘关闭动画结束时触发 | - |
-| click-modal | 点击遮罩时触发 | - |
+| 事件名称 | 说明 | 参数 | 最低版本 |
+|---------|-----|-----|---------|
+| click | 点击幕帘时触发 | - | - |
+| open | 幕帘打开时触发 | - | - |
+| opened | 幕帘打开动画结束时触发 | - | - |
+| close | 幕帘关闭时触发 | - | - |
+| closed | 幕帘关闭动画结束时触发 | - | - |
+| click-modal | 点击遮罩时触发 | - | - |

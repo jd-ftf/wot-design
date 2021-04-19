@@ -229,23 +229,23 @@ export default {
 
 ### Attributes
 
-| 参数      | 说明                                 | 类型      | 可选值       | 默认值   |
-|---------- |------------------------------------ |---------- |------------- |-------- |
-| v-model | 滑动按钮的状态 | string | 'left'、'close'、'right' | 'close' |
-| disabled | 是否禁用滑动操作 | boolean | - | false |
-| auto-close | 点击 swipeAction 以外的部分是否自动关闭 滑动操作 | boolean | - | true |
-| before-close | 关闭滑动按钮前的钩子函数 | function | - | - |
+| 参数 | 说明 | 类型 | 可选值 | 默认值 | 最低版本 |
+|-----|-----|------|-------|-------|---------|
+| v-model | 滑动按钮的状态 | string | left / close / right | close | - |
+| disabled | 是否禁用滑动操作 | boolean | - | false | - |
+| auto-close | 点击 swipeAction 以外的部分是否自动关闭 滑动操作 | boolean | - | true | - |
+| before-close | 关闭滑动按钮前的钩子函数 | function | - | - | - |
 
 ### Events
 
-| 事件名称      | 说明                                 | 参数     |
-|------------- |------------------------------------ |--------- |
-| click | 屏幕点击事件 | event.detail='left'、'inside'、outside'、'right' |
+| 事件名称 | 说明 | 参数 | 最低版本 |
+|--------|------|-----|---------|
+| click | 屏幕点击事件 | 点击的位置: 'left'、'inside'、outside'、'right' | - |
 
 ### Slot
 
-| name      | 说明       |
-|------------- |----------- |
-| left | 自定义左按钮 |
-| default | 自定义内容 |
-| right | 自定义右按钮 |
+| name | 说明 | 最低版本 |
+|------|-----|---------|
+| left | 自定义左按钮 | - |
+| default | 自定义内容 | - |
+| right | 自定义右按钮 | - |

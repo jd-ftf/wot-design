@@ -72,30 +72,30 @@ this.$toast.close()
 
 ### Attributes
 
-| 参数      | 说明                                 | 类型      | 可选值       | 默认值   |
-|---------- |------------------------------------ |---------- |------------- |-------- |
-| options    | 配置项，可以直接传入字符串作为提示信息     | string / object   | —           | —       |
+| 参数 | 说明 | 类型 | 可选值 | 默认值 | 最低版本 |
+|-----|-----|------|-------|-------|--------|
+| options | 配置项，可以直接传入字符串作为提示信息 | string / object | - | - |
 
 ### options
 
-| 参数      | 说明                                 | 类型      | 可选值       | 默认值   |
-|---------- |------------------------------------ |---------- |------------- |-------- |
-| msg        | 消息内容                             | string   | — | — |
-| duration | 持续时间，单位 ms，为 0 时表示不自动关闭 | Number | — | 2000 |
-| iconName | Toast 可使用图标类型 | string | 'success', 'error', 'warning', 'info' | — |
-| iconSize | 左侧图标尺寸 | string | - | '42px' |
-| iconClass  | 图标类目，自定义图标，可以使用 Icon 章节的那些图标类名，iconName 优先级更高  | string   | —             | —   |
-| position   | 提示信息框的位置                      | string   | 'top', 'middle', 'bottom'  | 'default'  |
-| loadingType | [加载中图标类型](/docs#/components/loading) | string | 'ring' | 'outline' |
-| loadingColor | [加载中图标颜色](/docs#/components/loading) | string | '' | '#4D80F0' |
+| 参数 | 说明 | 类型 | 可选值 | 默认值 | 最低版本 |
+|-----|------|-----|-------|-------|---------|
+| msg | 消息内容 | string | - | - | - |
+| duration | 持续时间，单位 ms，为 0 时表示不自动关闭 | number | - | 2000 | - |
+| iconName | Toast 可使用图标类型 | string | success / error / warning / info | - | - |
+| iconSize | 左侧图标尺寸 | string | - | 42px | - |
+| iconClass | 图标类目，自定义图标，可以使用 Icon 章节的那些图标类名，iconName 优先级更高 | string | - | - | - |
+| position | 提示信息框的位置 | string   | top / middle / bottom  | - | - |
+| loadingType | [加载中图标类型](/docs#/components/loading) | string | ring | outline | - |
+| loadingColor | [加载中图标颜色](/docs#/components/loading) | string | - | #4D80F0 | - |
 
 ### Methods
 
-| 方法名称      | 说明       | 参数   |
-|------------- |----------- |---------  |
-| success | 成功提示 | options |
-| error | 关闭提示 | options |
-| info | 常规提示 | options |
-| warning | 警告提示 | options |
-| loading | 加载提示 | options |
-| close | 手动关闭消息提示框，是Toast实例上的方法| —  |
+| 方法名称 | 说明 | 参数 | 最低版本 |
+|---------|-----|-----|---------|
+| success | 成功提示 | options | - |
+| error | 关闭提示 | options | - |
+| info | 常规提示 | options | - |
+| warning | 警告提示 | options | - |
+| loading | 加载提示 | options | - |
+| close | 手动关闭消息提示框，是Toast实例上的方法| - | - |
