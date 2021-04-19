@@ -135,16 +135,16 @@ Vue.use(Col)
 
 ### Row Attributes
 
-| 参数      | 说明                                 | 类型      | 可选值       | 默认值   |
-|---------- |------------------------------------ |---------- |------------- |-------- |
-| gutter | 列元素之间的间距（单位为px） | number / string | - | 0 |
-| flex | Flex布局 | boolean| - | false |
-| justify | Flex 主轴对齐方式 | string| `end` `center` `space-around` `space-between` | - |
-| align | Flex 交叉轴对齐方式 | string| `center` `end`  | - |
+| 参数 | 说明 | 类型 | 可选值 | 默认值 | 最低版本 |
+|-----|------|-----|-------|-------|---------|
+| gutter | 列元素之间的间距（单位为px） | number / string | - | 0 | - |
+| flex | Flex布局 | boolean| - | false | - |
+| justify | Flex 主轴对齐方式 | string | end / center / space-around / space-between | - | - |
+| align | Flex 交叉轴对齐方式 | string | center / end | - | - |
 
 ### Col Attributes
 
-| 参数      | 说明                                 | 类型      | 可选值       | 默认值   |
-|---------- |------------------------------------ |---------- |------------- |-------- |
-| span | 列元素宽度 | number / string | - | 24 |
-| offset | 列元素偏移距离 | number / string | - | 0 |
+| 参数 | 说明 | 类型 | 可选值 | 默认值 | 最低版本 |
+|-----|-----|------|-------|-------|---------|
+| span | 列元素宽度 | number / string | - | 24 | - |
+| offset | 列元素偏移距离 | number / string | - | 0 | - |

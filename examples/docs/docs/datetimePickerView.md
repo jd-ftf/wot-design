@@ -181,27 +181,27 @@ export default {
 
 ### Attributes
 
-| 参数      | 说明                                 | 类型      | 可选值       | 默认值   |
-|---------- |------------------------------------ |---------- |------------- |-------- |
-| value/v-model | 选中项，当 type 为 time 时，类型为字符串，否则为 Date | string / date | - |
-| type | 选择器类型 | string | 'date' / 'year-month' / 'time' / 'datetime' | 'datetime' |
-| loading | 加载中 | boolean | - | false |
-| loading-color | 加载的颜色，只能使用十六进制的色值写法，且不能使用缩写 | string | - | '#4D80F0' |
-| arrow-html | 是否使用html渲染选择器内容 | boolean | - | true |
-| disabled | 禁用 | boolean | - | fasle |
-| readonly | 只读 | boolean | - | false |
-| formatter | 自定义弹出层选项文案的格式化函数，返回一个字符串 | function | - | - |
-| filter | 自定义过滤选项的函数，返回列的选项数组 | function | - | - |
-| minDate | 最小日期 | date | - | 当前日期 - 10年 |
-| maxDate | 最大日期 | date | - | 当前日志 + 10年 |
-| minHour | 最小小时 | number | - | 0 |
-| maxHour | 最大小时 | number | - | 23 |
-| minMinute | 最小分钟 | number | - | 0 |
-| maxMinute | 最大分钟 | number | - | 59 |
-| column-formatter | 接收 pickerView 实例、pickerView 源数组 originColumns、当前 pickerView 的 value 作为入参，根据选中项和边界范围进行判断，通过 pickerView 实例暴露出来的 `getPickerValue` 获取对数据进行数组转换。 | function | - | - |
+| 参数 | 说明 | 类型 | 可选值 | 默认值 | 最低版本 |
+|-----|------|-----|-------|-------|---------|
+| value/v-model | 选中项，当 type 为 time 时，类型为字符串，否则为 Date | string / date | - | - |
+| type | 选择器类型 | string | date / year-month / time / datetime | datetime | - |
+| loading | 加载中 | boolean | - | false | - |
+| loading-color | 加载的颜色，只能使用十六进制的色值写法，且不能使用缩写 | string | - | #4D80F0 | - |
+| arrow-html | 是否使用html渲染选择器内容 | boolean | - | true | - |
+| disabled | 禁用 | boolean | - | fasle | - |
+| readonly | 只读 | boolean | - | false | - |
+| formatter | 自定义弹出层选项文案的格式化函数，返回一个字符串 | function | - | - | - |
+| filter | 自定义过滤选项的函数，返回列的选项数组 | function | - | - | - |
+| minDate | 最小日期 | date | - | 当前日期 - 10年 | - |
+| maxDate | 最大日期 | date | - | 当前日志 + 10年 | - |
+| minHour | 最小小时 | number | - | 0 | - |
+| maxHour | 最大小时 | number | - | 23 | - |
+| minMinute | 最小分钟 | number | - | 0 | - |
+| maxMinute | 最大分钟 | number | - | 59 | - |
+| column-formatter | 接收 pickerView 实例、pickerView 源数组 originColumns、当前 pickerView 的 value 作为入参，根据选中项和边界范围进行判断，通过 pickerView 实例暴露出来的 `getPickerValue` 获取对数据进行数组转换。 | function | - | - | - |
 
 ### Events
 
-| 事件名称      | 说明                                 | 参数     |
-|------------- |------------------------------------ |--------- |
-| change | 选项值修改时触发 | picker实例, 所有列选中项值, 当前列的下标 |
+| 事件名称 | 说明 | 参数 | 最低版本 |
+|--------|------|-----|---------|
+| change | 选项值修改时触发 | picker实例, 所有列选中项值, 当前列的下标 | - |

@@ -89,15 +89,15 @@ Vue.use(Button)
 
 ### Attributes
 
-| 参数      | 说明                                 | 类型      | 可选值       | 默认值   |
-|---------- |------------------------------------ |---------- |------------- |-------- |
-| type   |	按钮类型                        |	string     | 'primary', 'success', 'info', 'warning', 'error', 'text', 'icon' |	'primary'  |
-| round	    | 圆角按钮                  |	boolean    |	-         |	true |
-| plain | 幽灵按钮 | boolean | - | false |
-| loading | 加载中按钮 | boolean | - | false |
-| suck | 吸顶按钮 | boolean | - | false |
-| block | 块状按钮 | boolean | - | false |
-| size | 按钮尺寸 | string | 'small', 'medium', 'large' | 'medium' |
-| disabled | 禁用按钮 | boolean | - | false |
-| icon | 图标类名 | string | - | - |
-| nativeType | 原生type属性 | string | - | 'button' |
+| 参数 | 说明 | 类型 | 可选值 | 默认值 | 最低版本 |
+|-----|------|-----|-------|-------|---------|
+| type | 按钮类型 | string | primary / success / info / warning / error / text / icon | primary  | - |
+| round | 圆角按钮 | boolean | - | true | - |
+| plain | 幽灵按钮 | boolean | - | false | - |
+| loading | 加载中按钮 | boolean | - | false | - |
+| suck | 吸顶按钮 | boolean | - | false | - |
+| block | 块状按钮 | boolean | - | false | - |
+| size | 按钮尺寸 | string | small / medium / large | medium | - |
+| disabled | 禁用按钮 | boolean | - | false | - |
+| icon | 图标类名 | string | - | - | - |
+| nativeType | 原生type属性 | string | - | button | - |

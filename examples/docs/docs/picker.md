@@ -13,7 +13,7 @@ Vue.use(Picker)
 
 ### 基本用法
 
-`columns` 设置数据源，`label` 设置左侧文本内容，`v-model` 设置选中项的值。
+`columns` 设置选项数据源，选项可以为字符串，也可以为对象，如果为对象则默认取 `label` 属性为选项内容进行渲染。`label` 设置左侧文本内容，`v-model` 设置选中项的值。
 
 ```html
 <wd-picker :columns="columns1" label="单列选项" v-model="value"></wd-picker>
@@ -29,6 +29,14 @@ export default {
 }
 </script>
 ```
+
+当 `columns` 选项为对象时，其数据结构为：
+
+| 参数 | 类型 | 说明 | 最低版本 |
+|-----|-----|------|---------|
+| value | string / number / boolean | 选项值，如果 value 属性不存在，则使用 label 作为选项的值 | - |
+| label | string | 选项文本内容 | - |
+| disabled | boolean | 选项是否禁用 | - |
 
 ### 禁用
 
@@ -281,25 +289,25 @@ export default {
 | loading | 加载中 | boolean | - | false | - |
 | arrow-html | 是否使用html渲染选择器内容 | boolean | - | true | - |
 | columns-height | 内部pickerView高 | number | - | 217 | - |
-| value-key | 选项对象中，value对应的 key | string | - | 'value' | - |
-| label-key | 选项对象中，展示的文本对应的 key | string | - | 'label' | - |
+| value-key | 选项对象中，value对应的 key | string | - | value | - |
+| label-key | 选项对象中，展示的文本对应的 key | string | - | label | - |
 | title | 弹出层标题 | string | - | - | - |
-| cancel-button-text | 取消按钮文案 | string | - | '取消' | - |
-| confirm-button-text | 确认按钮文案 | string | - | '完成' | - |
+| cancel-button-text | 取消按钮文案 | string | - | 取消 | - |
+| confirm-button-text | 确认按钮文案 | string | - | 完成 | - |
 | label | 选择器左侧文案 | string | - | - | - |
-| placeholder | 选择器占位符 | string | - | '请选择' | - |
+| placeholder | 选择器占位符 | string | - | 请选择 | - |
 | disabled | 禁用 | boolean | - | fasle | - |
 | readonly | 只读 | boolean | - | false | - |
 | required | 是否校验 | boolean | - | false | - |
-| teleport | 指定挂载的 HTML 节点, 可以为字符串，也可以为对象，为对象时有 `to` 和 `disabled` 属性，`to` 表示挂载点，`disabled` 表示挂载到当前节点上 | string / object  | - | 'body' | - |
+| teleport | 指定挂载的 HTML 节点, 可以为字符串，也可以为对象，为对象时有 `to` 和 `disabled` 属性，`to` 表示挂载点，`disabled` 表示挂载到当前节点上 | string / object  | - | body | - |
 | display-format | 自定义展示文案的格式化函数，返回一个字符串 | function | - | - | - |
 | column-change | 接收 pickerView 实例、选中项、当前修改列的下标、resolve 作为入参，根据选中项和列下标进行判断，通过 pickerView 实例暴露出来的 `setColumnData` 方法修改其他列的数据源。 | function | - | - | - |
-| size | 设置选择器大小 | string | 'large' | - | - |
-| label-width | 设置左侧标题宽度 | string | - | '33%' | - |
+| size | 设置选择器大小 | string | large | - | - |
+| label-width | 设置左侧标题宽度 | string | - | 33% | - |
 | error | 是否为错误状态，错误状态时右侧内容为红色 | boolean | - | false | - |
 | align-right | 选择器的值靠右展示 | boolean | - | false | - |
 | before-confirm | 确定前校验函数，接收 (value, resolve) 参数，通过 resolve 继续执行 picker，resolve 接收1个boolean参数 | function | - | - | - |
-| loading-color | 加载的颜色，只能使用十六进制的色值写法，且不能使用缩写 | string | - | '#4D80F0' | - |
+| loading-color | 加载的颜色，只能使用十六进制的色值写法，且不能使用缩写 | string | - | #4D80F0 | - |
 | close-on-click-modal | 点击遮罩是否关闭 | boolean | - | true | - |
 | close-on-popstate | 页面返回时自动关闭 | boolean | - | true | 2.3.0 |
 | safe-area-inset-bottom | 弹出面板是否设置底部安全距离（iphone X 类型的机型），见 [底部安全区域适配](#/components/commonProblems#di-bu-an-quan-qu-yu-gua-pei-iphone-x-lei-xing-de-ji-xing) | boolean | - | true | 2.3.0 |
@@ -307,14 +315,14 @@ export default {
 
 ### Slot
 
-| name      | 说明       |
-|------------- |----------- |
-| default | 唤起picker的展示形式，不设置则展示cell表单样式 |
-| label | cell展示时，左侧展示文案 |
+| name | 说明 | 最低版本 |
+|------|-----|---------|
+| default | 唤起picker的展示形式，不设置则展示cell表单样式 | - |
+| label | cell展示时，左侧展示文案 | - |
 
 ### Events
 
-| 事件名称      | 说明                                 | 参数     |
-|------------- |------------------------------------ |--------- |
-| confirm | 点击右侧按钮触发 | value: 确认后的选中值 |
-| cancel | 点击左侧按钮触发 | - |
+| 事件名称 | 说明 | 参数 | 最低版本 |
+|---------|-----|-----|---------|
+| confirm | 点击右侧按钮触发 | value: 确认后的选中值 | - |
+| cancel | 点击左侧按钮触发 | - | - |

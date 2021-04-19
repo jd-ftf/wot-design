@@ -202,48 +202,48 @@ export default {
 
 ### CellGroup Attributes
 
-| 参数      | 说明                                 | 类型      | 可选值       | 默认值   |
-|---------- |------------------------------------ |---------- |------------- |-------- |
-| title | 分组标题 | string | - | - |
-| value | 分组右侧内容 | string | - | - |
-| border | 是否展示边框线 | boolean | - | false |
+| 参数 | 说明 | 类型 | 可选值 | 默认值 | 最低版本 |
+|-----|------|-----|-------|-------|---------|
+| title | 分组标题 | string | - | - | - |
+| value | 分组右侧内容 | string | - | - | - |
+| border | 是否展示边框线 | boolean | - | false | - |
 
 ### Cell Attributes
 
-| 参数      | 说明                                 | 类型      | 可选值       | 默认值   |
-|---------- |------------------------------------ |---------- |------------- |-------- |
-| title | 标题 | string | - | - |
-| value | 右侧内容 | string | - | - |
-| icon | 图标类名 | string | - | - |
-| label | 描述信息 | string | - | - |
-| is-link | 是否为跳转链接 | boolean | - | false |
-| to | 跳转地址 | string / object | - | - |
-| clickable | 开启点击反馈，is-link默认开启 | boolean | - | false |
-| replace | 跳转时是否替换栈顶页面，只对`vue-router` 中的路由对象有效，普通链接无效 | boolean | - | false |
-| size | 设置单元格大小 | string | 'large' / 'small' | 'large' |
-| title-width | 设置左侧标题宽度 | string | - | - |
-| center | 是否垂直居中，默认顶部居中 | boolean | - | false |
-| required | 表单属性，必填 | boolean | - | false |
-| vertical | 表单属性，上下结构 | boolean | - | false |
+| 参数 | 说明 | 类型 | 可选值 | 默认值 | 最低版本 |
+|-----|------|-----|-------|-------|---------|
+| title | 标题 | string | - | - | - |
+| value | 右侧内容 | string | - | - | - |
+| icon | 图标类名 | string | - | - | - |
+| label | 描述信息 | string | - | - | - |
+| is-link | 是否为跳转链接 | boolean | - | false | - |
+| to | 跳转地址 | string / object | - | - | - |
+| clickable | 开启点击反馈，is-link默认开启 | boolean | - | false | - |
+| replace | 跳转时是否替换栈顶页面，只对`vue-router` 中的路由对象有效，普通链接无效 | boolean | - | false | - |
+| size | 设置单元格大小 | string | large / small | large | - |
+| title-width | 设置左侧标题宽度 | string | - | - | - |
+| center | 是否垂直居中，默认顶部居中 | boolean | - | false | - |
+| required | 表单属性，必填 | boolean | - | false | - |
+| vertical | 表单属性，上下结构 | boolean | - | false | - |
 
 ### Cell Events
 
-| 事件名称      | 说明                                 | 参数     |
-|------------- |------------------------------------ |--------- |
-| click | 当 clickable 或 is-link 为 true 时点击单元格触发 | - |
+| 事件名称 | 说明 | 参数 | 最低版本 |
+|--------|------|-----|---------|
+| click | 当 clickable 或 is-link 为 true 时点击单元格触发 | - | - |
 
 ### CellGroup Slot
 
-| name      | 说明       |
-|------------- |----------- |
-| title | 分组标题 |
-| value | 分组右侧内容 |
+| name | 说明 | 最低版本 |
+|------|-----|---------|
+| title | 分组标题 | - |
+| value | 分组右侧内容 | - |
 
 ### Cell Slot
 
-| name      | 说明       |
-|------------- |----------- |
-| title | 标题 |
-| default | 右侧内容 |
-| icon | 图标 |
-| label | 描述信息 |
+| name | 说明 | 最低版本 |
+|------|------|--------|
+| title | 标题 | - |
+| default | 右侧内容 | - |
+| icon | 图标 | - |
+| label | 描述信息 | - |

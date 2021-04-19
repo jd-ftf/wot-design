@@ -27,9 +27,9 @@ Vue.use(StatusTip)
 
 ### Attributes
 
-| 参数      | 说明                                 | 类型      | 可选值       | 默认值   |
-|---------- |------------------------------------ |---------- |------------- |-------- |
-| type | 缺省类型 | String | 'search',  'network', 'content', 'collect', 'comment', 'halo', 'message' | 'network' |
-| tip | 提示文案 | String | - | - |
+| 参数 | 说明 | 类型 | 可选值 | 默认值 | 最低版本 |
+|-----|-----|------|-------|-------|---------|
+| type | 缺省类型 | string | search / network / content / collect / comment / halo / message | network | - |
+| tip | 提示文案 | string | - | - | - |
 
 

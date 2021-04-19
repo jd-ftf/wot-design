@@ -186,45 +186,45 @@ export default {
 
 ### Grid Attributes
 
-| 参数      | 说明                                 | 类型      | 可选值       | 默认值   |
-|---------- |------------------------------------ |---------- |------------- |-------- |
-| column | 列数 | number | - | - |
-| border | 是否显示边框 | boolean | - | false |
-| gutter | 格子之间的间距，默认单位为`px` | number | - | 0 |
-| square | 是否将格子固定为正方形 | boolean | - | false |
-| clickable | 是否开启格子点击反馈 | boolean | - | false |
-| bg-color | 背景颜色设置 | string | - | ‘’ |
+| 参数 | 说明 | 类型 | 可选值 | 默认值 | 最低版本 |
+|-----|-----|------|-------|-------|---------|
+| column | 列数 | number | - | - | - |
+| border | 是否显示边框 | boolean | - | false | - |
+| gutter | 格子之间的间距，默认单位为`px` | number | - | 0 | - |
+| square | 是否将格子固定为正方形 | boolean | - | false | - |
+| clickable | 是否开启格子点击反馈 | boolean | - | false | - |
+| bg-color | 背景颜色设置 | string | - | - | - |
 
 ### GridItem Attributes
 
-| 参数      | 说明                                 | 类型      | 可选值       | 默认值   |
-|---------- |------------------------------------ |---------- |------------- |-------- |
-| text | 文字 value | string | - | - |
-| icon-size | 图标大小，默认单位为`px` | string | - | '26px' |
-| icon | 图标名称，可选值见 `wd-icon` 组件 | string | - | - |
-| is-dot | 是否显示图标右上角小红点 | boolean / false | - | - | - |
-| type | 图标右上角显示的 `badge` 类型 | string | primary / success / warning / danger / info | - |
-| value | 图标右上角 `badge` 显示值 | string, number | - | - |
-| max | 图标右上角 `badge` 最大值，超过最大值会显示 '{max}+'，要求 value 是 Number 类型 | number | - | - |
-| to | 跳转地址 | string / object | - | - |
-| replace | 跳转时是否替换栈顶页面，只对 `vue-router` 中的路由对象有效，普通链接无效 | boolean | - | false |
+| 参数 | 说明 | 类型 | 可选值 | 默认值 | 最低版本 |
+|-----|------|-----|-------|-------|---------|
+| text | 文字 value | string | - | - | - |
+| icon-size | 图标大小，默认单位为`px` | string | - | 26px | - |
+| icon | 图标名称，可选值见 `wd-icon` 组件 | string | - | - | - |
+| is-dot | 是否显示图标右上角小红点 | boolean / false | - | - | - | - |
+| type | 图标右上角显示的 `badge` 类型 | string | primary / success / warning / danger / info | - | - |
+| value | 图标右上角 `badge` 显示值 | string, number | - | - | - |
+| max | 图标右上角 `badge` 最大值，超过最大值会显示 '{max}+'，要求 value 是 Number 类型 | number | - | - | - |
+| to | 跳转地址 | string / object | - | - | - |
+| replace | 跳转时是否替换栈顶页面，只对 `vue-router` 中的路由对象有效，普通链接无效 | boolean | - | false | - |
 
 ### GridItem Events
 
-| 方法名 | 说明 | 参数 | 返回值 |
-|------|------|------|------|
-| item-click | 点击(跳转)事件 | event | - |
+| 方法名 | 说明 | 参数 | 返回值 | 最低版本 |
+|------|------|------|------|---------|
+| item-click | 点击(跳转)事件 | event | - | - |
 
 ### Grid Slot
 
-| name      | 说明       |
-|------------- |----------- |
-| default | 宫格内容 |
+| name | 说明 | 最低版本 |
+|------|-----|---------|
+| default | 宫格内容 | - |
 
 ### GridItem Slot
 
-| name      | 说明       |
-|------------- |----------- |
-| default | 宫格中每一格的默认显示全部内容 |
-| icon | 宫格中图标位内容 |
-| text | 宫格中文本位内容 |
+| name | 说明 | 最低版本 |
+|------|-----|---------|
+| default | 宫格中每一格的默认显示全部内容 | - |
+| icon | 宫格中图标位内容 | - |
+| text | 宫格中文本位内容 | - |

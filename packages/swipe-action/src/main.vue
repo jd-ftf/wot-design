@@ -253,7 +253,7 @@ export default {
 
       // click 了 position 导致了 close 滑动操作
       this.close('click', position)
-      // 触发父组件的click时间
+      // 触发父组件的click事件
       this.$emit('click', position)
     },
     /**
