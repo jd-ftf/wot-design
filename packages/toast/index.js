@@ -164,8 +164,8 @@ Toast.loading = options => {
 
 window.addEventListener('popstate', Toast.close)
 
-Toast.install = Vue => {
-  Vue.prototype.$toast = Toast
+Toast.install = (Vue, { toastKey = '$toast' } = {}) => {
+  Vue.prototype[toastKey] = Toast
 }
 
 export default Toast

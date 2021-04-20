@@ -10,8 +10,14 @@
 import Vue from 'vue'
 import { MessageBox } from 'wot-design'
 
-Vue.use(MessageBox)
+Vue.use(MessageBox[, options])
 ```
+
+options 为一个对象，不传入则使用默认配置，其参数为：
+
+| 参数 | 说明 | 类型 | 可选值 | 默认值 | 最低版本 |
+|-----|------|-----|-------|-------|---------|
+| messageBoxKey | MessageBox 弹窗组件在 `Vue.prototype` 原型上的属性名 | string | - | $messageBox | 2.3.0 |
 
 ### Alert 弹框
 
