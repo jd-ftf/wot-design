@@ -4,7 +4,7 @@
     <div class="wd-month__days">
       <div
         v-for="(day, index) in days"
-        :key="day.date"
+        :key="day.date.getTime()"
         class="wd-month__day"
         :class="[{
           'is-disabled': day.disabled,
@@ -25,6 +25,8 @@
 </template>
 
 <script>
+import dayjs from 'dayjs'
+import locale from 'wot-design/src/mixins/locale'
 import Toast from 'wot-design/packages/toast'
 import { getType } from 'wot-design/src/utils'
 import {
@@ -33,16 +35,19 @@ import {
   getWeekRange,
   getDateByDefaultTime,
   getDayOffset,
-  getDayByOffset
+  getDayByOffset,
+  getWeekOffset,
+  getWeekByOffset
 } from './utils'
 
 export default {
+  mixins: [locale],
   props: {
     type: String,
-    date: Number,
-    value: [String, Number, Array],
-    minDate: Number,
-    maxDate: Number,
+    date: Date,
+    value: null,
+    minDate: Date,
+    maxDate: Date,
     firstDayOfWeek: Number,
     formatter: Function,
     maxRange: Number,
@@ -53,9 +58,8 @@ export default {
   computed: {
     days () {
       const days = []
-      const date = new Date(this.date)
-      const year = date.getFullYear()
-      const month = date.getMonth()
+      const year = this.date.getFullYear()
+      const month = this.date.getMonth()
 
       const totalDay = getMonthEndDay(year, month + 1)
 
@@ -66,9 +70,9 @@ export default {
       }
 
       for (let day = 1; day <= totalDay; day++) {
-        const date = new Date(year, month, day).getTime()
+        const date = new Date(year, month, day)
         let type = this.getDayType(date, value)
-        if (!type && compareDate(date, Date.now()) === 0) {
+        if (!type && compareDate(date, new Date()) === 0) {
           type = 'current'
         }
         const dayObj = this.getFormatterDate(date, day, type)
@@ -78,11 +82,7 @@ export default {
       return days
     },
     formatTitle () {
-      const date = new Date(this.date)
-      const year = date.getFullYear()
-      const month = date.getMonth() + 1
-
-      return year + '年' + month + '月'
+      return dayjs(this.date).format(this.t('wd.calendarView.monthTitle'))
     }
   },
   methods: {
@@ -104,7 +104,6 @@ export default {
 
       if (index !== 0) return ''
 
-      date = new Date(date)
       const offset = (7 + date.getDay() - firstDayOfWeek) % 7
 
       return 'margin-left: ' + (100 / 7) * offset + '%'
@@ -229,9 +228,9 @@ export default {
         ? getDateByDefaultTime(date, isEnd ? this.defaultTime[1] : this.defaultTime[0])
         : date
 
-      if (date < this.minDate) return this.minDate
+      if (date.getTime() < this.minDate.getTime()) return new Date(this.minDate.getTime())
 
-      if (date > this.maxDate) return this.maxDate
+      if (date.getTime() > this.maxDate.getTime()) return new Date(this.maxDate.getTime())
 
       return date
     },
@@ -248,11 +247,14 @@ export default {
     handleDatesChange (date) {
       if (date.disabled) return
 
-      const value = this.value || []
-      if (date.type !== 'seleced') {
+      const value = (this.value || []).slice(0)
+      if (date.type !== 'selected') {
         value.push(this.getDate(date.date))
       } else {
-        value.splice(value.indexOf(date.date), 1)
+        const index = value.findIndex((item) => {
+          return compareDate(item, date.date) === 0
+        })
+        value.splice(index, 1)
       }
       this.$emit('change', {
         value
@@ -277,7 +279,7 @@ export default {
           const maxEndDate = getDayByOffset(startDate, this.maxRange - 1)
           value = [startDate, this.getDate(maxEndDate, true)]
           Toast({
-            msg: this.rangePrompt || `选择天数不能超过${this.maxRange}天`,
+            msg: this.rangePrompt || this.t('wd.calendarView.rangePrompt', { maxRange: this.maxRange }),
             context: this
           })
         } else {
@@ -310,7 +312,7 @@ export default {
       if (this.getFormatterDate(weekStart, new Date(weekStart).getDate()).disabled) return
 
       this.$emit('change', {
-        value: this.getDate(weekStart) + 24 * 60 * 60 * 1000
+        value: new Date(this.getDate(weekStart).getTime() + 24 * 60 * 60 * 1000)
       })
     },
     handleWeekRangeChange (date) {
@@ -322,11 +324,24 @@ export default {
       let value
       const [startDate, endDate] = this.value || []
       const [startWeekStartDate] = startDate ? getWeekRange(startDate, this.firstDayOfWeek) : []
+      const compare = compareDate(weekStartDate, startWeekStartDate)
 
-      if (startDate && !endDate && compareDate(weekStartDate, startWeekStartDate) > -1) {
-        value = [this.getDate(startWeekStartDate) + 24 * 60 * 60 * 1000, this.getDate(weekStartDate) + 24 * 60 * 60 * 1000]
+      if (startDate && !endDate && compare > -1) {
+        if (!this.allowSameDay && compare === 0) return
+
+        // 不能选择超过最大范围的日期
+        if (this.maxRange && getWeekOffset(weekStartDate, startWeekStartDate) > this.maxRange) {
+          const maxEndDate = getWeekByOffset(startWeekStartDate, this.maxRange - 1)
+          value = [new Date(this.getDate(startWeekStartDate).getTime() + 24 * 60 * 60 * 1000), this.getDate(maxEndDate, true)]
+          Toast({
+            msg: this.rangePrompt || this.t('wd.calendarView.rangePromptWeek', { maxRange: this.maxRange }),
+            context: this
+          })
+        } else {
+          value = [new Date(this.getDate(startWeekStartDate).getTime() + 24 * 60 * 60 * 1000), new Date(this.getDate(weekStartDate).getTime() + 24 * 60 * 60 * 1000)]
+        }
       } else {
-        value = [this.getDate(weekStartDate) + 24 * 60 * 60 * 1000, null]
+        value = [new Date(this.getDate(weekStartDate).getTime() + 24 * 60 * 60 * 1000), null]
       }
 
       this.$emit('change', {

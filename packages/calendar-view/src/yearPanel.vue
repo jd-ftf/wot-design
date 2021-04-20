@@ -13,7 +13,7 @@
       <year
         v-for="item in years"
         ref="years"
-        :key="item"
+        :key="item.getTime()"
         :type="type"
         :date="item"
         :value="value"
@@ -31,19 +31,22 @@
 </template>
 
 <script>
+import dayjs from 'dayjs'
+import locale from 'wot-design/src/mixins/locale'
 import { getType, isEqual } from 'wot-design/src/utils'
 import Year from './year'
-import { compareYear, formatYearTitle, getYears } from './utils'
+import { compareYear, getYears, dateToTimestamp } from './utils'
 
 export default {
+  mixins: [locale],
   components: {
     Year
   },
   props: {
     type: String,
-    value: [String, Number, Array],
-    minDate: Number,
-    maxDate: Number,
+    value: null,
+    minDate: Date,
+    maxDate: Date,
     formatter: Function,
     maxRange: Number,
     rangePrompt: String,
@@ -100,7 +103,7 @@ export default {
       }
 
       if (currentYear) {
-        this.title = formatYearTitle(currentYear.date)
+        this.title = dayjs(currentYear.date).format(this.t('wd.calendarView.yearTitle'))
       }
     },
     scrollIntoView () {
@@ -108,12 +111,12 @@ export default {
       const type = getType(this.value)
       if (type === 'array') {
         activeDate = this.value[0]
-      } else if (type === 'number') {
+      } else if (type === 'Date') {
         activeDate = this.value
       }
 
       if (!activeDate) {
-        activeDate = Date.now()
+        activeDate = new Date()
       }
 
       this.years.some((year, index) => {
@@ -127,7 +130,7 @@ export default {
       })
     },
     handleDateChange (value) {
-      if (!isEqual(value, this.value)) {
+      if (!isEqual(dateToTimestamp(value), dateToTimestamp(this.value))) {
         this.$emit('change', value)
       }
     }

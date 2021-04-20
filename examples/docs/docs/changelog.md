@@ -8,6 +8,8 @@
   - 新增 `close-on-popstate` 属性，返回时自动关闭 (by [@yawuling](https://github.com/yawuling) )
   - 新增 `safe-area-inset-bottom` 属性，设置底部安全距离 (by [@yawuling](https://github.com/yawuling) )
 - Calendar
+  - 新增日历选择器组件 (by [@yawuling](https://github.com/yawuling) )
+- CalendarView
   - 新增日历面板组件 (by [@yawuling](https://github.com/yawuling) )
 - ColPicker
   - 新增 `close-on-popstate` 属性，返回时自动关闭 (by [@yawuling](https://github.com/yawuling) )
@@ -59,6 +61,7 @@
 
 - ColPicker
   - 修复 value 重新赋值时需重置选项的问题 (by [@yawuling](https://github.com/yawuling) )
+  - 修复 `cancel` 事件无效的问题 (by [@yawuling](https://github.com/yawuling) )
 - MessageBox
   - 修复在部分手机上的兼容性问题 (by [@yawuling](https://github.com/yawuling) )
 - PickerView

@@ -4,7 +4,7 @@
     <div class="wd-year__months">
       <div
         v-for="month in months"
-        :key="month.date"
+        :key="month.date.getTime()"
         class="wd-year__month"
         :class="[{
           'is-disabled': month.disabled,
@@ -14,7 +14,7 @@
         <div class="wd-year__month-container">
           <div class="wd-year__month-top">{{ month.topInfo }}</div>
           <div class="wd-year__month-text">
-            {{ month.text }}月
+            {{ getMonthLabel(month.date) }}
           </div>
           <div class="wd-year__month-bottom">{{ month.bottomInfo }}</div>
         </div>
@@ -24,6 +24,8 @@
 </template>
 
 <script>
+import dayjs from 'dayjs'
+import locale from 'wot-design/src/mixins/locale'
 import Toast from 'wot-design/packages/toast'
 import { getType } from 'wot-design/src/utils'
 import {
@@ -34,12 +36,13 @@ import {
 } from './utils'
 
 export default {
+  mixins: [locale],
   props: {
     type: String,
-    date: Number,
-    value: [String, Number, Array],
-    minDate: Number,
-    maxDate: Number,
+    date: Date,
+    value: null,
+    minDate: Date,
+    maxDate: Date,
     formatter: Function,
     maxRange: Number,
     rangePrompt: String,
@@ -49,13 +52,12 @@ export default {
   computed: {
     months () {
       const months = []
-      const date = new Date(this.date)
-      const year = date.getFullYear()
+      const year = this.date.getFullYear()
 
       for (let month = 0; month < 12; month++) {
-        const date = new Date(year, month, 1).getTime()
+        const date = new Date(year, month, 1)
         let type = this.getMonthType(date, this.value)
-        if (!type && compareMonth(date, Date.now()) === 0) {
+        if (!type && compareMonth(date, new Date()) === 0) {
           type = 'current'
         }
         const monthObj = this.getFormatterDate(date, month, type)
@@ -65,13 +67,13 @@ export default {
       return months
     },
     formatTitle () {
-      const date = new Date(this.date)
-      const year = date.getFullYear()
-
-      return year + '年'
+      return dayjs(this.date).format(this.t('wd.calendarView.yearTitle'))
     }
   },
   methods: {
+    getMonthLabel (date) {
+      return dayjs(date).format(this.t('wd.calendarView.month'))
+    },
     getItemClass (monthType, value) {
       const classList = [('is-' + monthType)]
 
@@ -130,9 +132,9 @@ export default {
         ? getDateByDefaultTime(date, isEnd ? this.defaultTime[1] : this.defaultTime[0])
         : date
 
-      if (date < this.minDate) return this.minDate
+      if (date < this.minDate) return new Date(this.minDate.getTime())
 
-      if (date > this.maxDate) return this.maxDate
+      if (date > this.maxDate) return new Date(this.maxDate.getTime())
 
       return date
     },
@@ -147,14 +149,14 @@ export default {
       const compare = compareMonth(date.date, startDate)
 
       // 禁止选择同个日期
-      if (!this.allowSameDay && compare === 0) return
+      if (!this.allowSameDay && !endDate && compare === 0) return
 
       if (startDate && !endDate && compare > -1) {
         if (this.maxRange && getMonthOffset(date.date, startDate) > this.maxRange) {
           const maxEndDate = getMonthByOffset(startDate, this.maxRange - 1)
           value = [startDate, this.getDate(maxEndDate)]
           Toast({
-            msg: this.rangePrompt || `选择月份不能超过${this.maxRange}个月`,
+            msg: this.rangePrompt || this.t('wd.calendarView.rangePromptMonth', { maxRange: this.maxRange }),
             context: this
           })
         } else {
