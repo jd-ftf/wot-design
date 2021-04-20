@@ -34,6 +34,19 @@ new Vue({
 }).$mount('#app')
 ```
 
+#### Vue.use(WotDesign[, options])
+
+组件库注册时，支持传入参数 options，为 object 类型，其参数为：
+
+| 参数 | 说明 | 类型 | 可选值 | 默认值 | 最低版本 |
+|-----|------|-----|-------|-------|---------|
+| lazyload | 懒加载组件参数配置，详细配置见 `vue-lazyload` [文档](https://github.com/hilongjw/vue-lazyload) | object | - | { loading: [JDM 字样的占位符], error: [JDM 字样的占位符], attempt: 3 } | 1.0.0 |
+| locale | 国际化翻译文案，详细见 [国际化](#/components/locale) | object | - | 组件库自带中文文案 | 1.0.0 |
+| i18n | 国际化翻译函数，详细见 [国际化](#/components/locale) | function | - | 组件库自带翻译函数 | 1.0.0 |
+| messageBoxKey | MessageBox 弹窗组件在 `Vue.prototype` 原型上的属性名 | string | - | $messageBox | 2.3.0 |
+| toastKey | Toast 轻提示组件在 `Vue.prototype` 原型上的属性名 | string | - | $toast | 2.3.0 |
+| previewKey | ImgPreview 预览组件在 `Vue.prototype` 原型上的属性名 | string | - | $preview | 2.3.0 |
+
 ### 按需引入
 
 借助 [babel-plugin-import](https://www.npmjs.com/package/babel-plugin-import)，我们可以只引入需要的组件，以达到减小项目体积的目的。

@@ -16,9 +16,7 @@
     </demo-block>
     <demo-block title="loading">
       <wd-button @click="handleToast7">Loading加载</wd-button>
-      <wd-button @click="handleToast8">Circle类型loading</wd-button>
-      <wd-button @click="handleToast10">Spinner类型loading</wd-button>
-      <wd-button @click="handleToast12">circular-ring类型loading</wd-button>
+      <wd-button @click="handleToast8">Ring类型loading</wd-button>
     </demo-block>
   </div>
 </template>
@@ -66,7 +64,7 @@ export default {
     handleToast8 () {
       this.$toast.loading({
         msg: '3s后调用close关闭',
-        loadingType: 'circle',
+        loadingType: 'ring',
         loadingColor: '#ffffff'
       })
       setTimeout(() => {
@@ -76,28 +74,8 @@ export default {
     handleToast9 () {
       this.$toast('这是一段很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长的文案')
     },
-    handleToast10 () {
-      this.$toast.loading({
-        msg: '3s后调用close关闭',
-        loadingType: 'spinner',
-        loadingColor: '#c7c7c7'
-      })
-      setTimeout(() => {
-        this.$toast.close()
-      }, 3000)
-    },
     handleToast11 () {
       this.$toast.info('常规提示常规提示')
-    },
-    handleToast12 () {
-      this.$toast.loading({
-        msg: '3s后调用close关闭',
-        loadingType: 'circular-ring',
-        loadingColor: '#ffffff'
-      })
-      setTimeout(() => {
-        this.$toast.close()
-      }, 3000)
     }
   }
 }

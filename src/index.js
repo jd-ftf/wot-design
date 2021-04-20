@@ -146,9 +146,15 @@ const install = (Vue, config = {}) => {
     Vue.component(component.name, component)
   })
 
-  Vue.prototype.$toast = Toast
-  Vue.prototype.$messageBox = MessageBox.MessageBox
-  Vue.prototype.$preview = ImgPreview.ImgPreview
+  const {
+    toastKey = '$toast',
+    messageBoxKey = '$messageBox',
+    previewKey = '$preview'
+  } = config
+
+  Vue.prototype[toastKey] = Toast
+  Vue.prototype[messageBoxKey] = MessageBox.MessageBox
+  Vue.prototype[previewKey] = ImgPreview.ImgPreview
 
   Vue.use(Lazyload, config.lazyload)
 }

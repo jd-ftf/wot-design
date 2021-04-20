@@ -54,9 +54,9 @@ const ImgPreview = options => {
 }
 
 export default {
-  install (Vue) {
+  install (Vue, { previewKey = '$preview' } = {}) {
     Vue.component(wdImgPreview.name, wdImgPreview)
-    Vue.prototype.$preview = ImgPreview
+    Vue.prototype[previewKey] = ImgPreview
   },
   wdImgPreview,
   ImgPreview

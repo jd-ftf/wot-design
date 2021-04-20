@@ -6,8 +6,14 @@
 import Vue from 'vue'
 import { Toast } from 'wot-design'
 
-Vue.use(Toast)
+Vue.use(Toast[, options])
 ```
+
+options 为一个对象，不传入则使用默认配置，其参数为：
+
+| 参数 | 说明 | 类型 | 可选值 | 默认值 | 最低版本 |
+|-----|------|-----|-------|-------|---------|
+| toastKey | Toast 轻提示组件在 `Vue.prototype` 原型上的属性名 | string | - | $toast | 2.3.0 |
 
 ### 基本用法
 
@@ -59,7 +65,7 @@ this.$toast.loading('加载中...')
 
 ```javascript
 this.$toast.loading({
-  loadingType: 'spinner',
+  loadingType: 'ring',
   msg: '加载中...'
 })
 ```

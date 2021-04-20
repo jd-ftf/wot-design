@@ -27,8 +27,11 @@
 - InputNumber
   - 新增 `allow-null` 属性允许空值 (by [@yawuling](https://github.com/yawuling) )
   - 新增 `placeholder` 属性设置占位文本 (by [@yawuling](https://github.com/yawuling) )
+- ImgPreview
+  - 支持设置 previewKey 来修改 Vue.prototype 原型上的 $preview 属性名 (by [@yawuling](https://github.com/yawuling) )
 - MessageBox
   - 新增 `close-on-popstate` 属性，返回时自动关闭 (by [@yawuling](https://github.com/yawuling) )
+  - 支持设置 messageBoxKey 来修改 Vue.prototype 原型上的 $messageBox 属性名 (by [@yawuling](https://github.com/yawuling) )
 - NumberKeyboard
   - 新增数字键盘组件 (by [@yawuling](https://github.com/yawuling) )
 - Picker
@@ -47,6 +50,8 @@
   - 新增 `ellipsis` 属性，设置是否超出隐藏，默认 `false` (by [@yawuling](https://github.com/yawuling) )
 - Switch
   - 新增 `before-change` 修改前钩子函数  (by [@yawuling](https://github.com/yawuling) )
+- Toast
+  - 支持设置 toastKey 来修改 Vue.prototype 原型上的 $toast 属性名 (by [@yawuling](https://github.com/yawuling) )
 
 #### 优化
 

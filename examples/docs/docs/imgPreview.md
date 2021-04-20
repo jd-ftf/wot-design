@@ -8,8 +8,14 @@
 import Vue from 'vue'
 import { ImgPreview } from 'wot-design'
 
-Vue.use(ImgPreview)
+Vue.use(ImgPreview[, options])
 ```
+
+options 为一个对象，不传入则使用默认配置，其参数为：
+
+| 参数 | 说明 | 类型 | 可选值 | 默认值 | 最低版本 |
+|-----|------|-----|-------|-------|---------|
+| previewKey | ImgPreview 预览组件在 `Vue.prototype` 原型上的属性名 | string | - | $preview | 2.3.0 |
 
 ## 代码演示
 

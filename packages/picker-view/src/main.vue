@@ -162,6 +162,9 @@ export default {
 
     setColumnData (columnIndex, data) {
       const column = this.children[columnIndex]
+
+      if (!column) return
+
       const columnData = column.data.map(item => {
         if (typeof item === 'object') {
           return {

@@ -214,9 +214,9 @@ MessageBox.close = () => {
 }
 
 export default {
-  install (Vue) {
+  install (Vue, { messageBoxKey = '$messageBox' } = {}) {
     Vue.component(wdMessageBox.name, wdMessageBox)
-    Vue.prototype.$messageBox = MessageBox
+    Vue.prototype[messageBoxKey] = MessageBox
   },
   wdMessageBox,
   MessageBox
