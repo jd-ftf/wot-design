@@ -5,7 +5,6 @@
     </demo-block>
     <demo-block title="outline 类型（适用于通用模块加载）">
       <wd-loading type="outline" />
-      <wd-loading type="circular-ring" color="#faa3ee" intermediate-color="pink" />
     </demo-block>
     <demo-block title="修改颜色">
       <wd-loading color="#faa3ee" />
