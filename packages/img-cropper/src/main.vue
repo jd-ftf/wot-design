@@ -2,7 +2,6 @@
   <div
     v-if="show"
     class="wd-img-cropper"
-    @touchmove="preventTouchMove"
     :style="{ width: rootWidth, height: rootHeight }"
     ref="cropper"
   >
@@ -534,7 +533,7 @@ export default {
      * @description 旋转图片
      */
     handleRotate () {
-      this.setRoate(this.imgAngle + 90)
+      this.setRoate(this.imgAngle - 90)
     },
 
     /**
@@ -609,7 +608,6 @@ export default {
         draw()
       }
     },
-    preventTouchMove () { },
 
     onPopstate () {
       this.show && this.handleCancel()
