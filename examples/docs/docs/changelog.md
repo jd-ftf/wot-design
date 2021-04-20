@@ -389,6 +389,8 @@
   - 图片懒加载兜底图优化 (by [@yawuling](https://github.com/yawuling) )
 - MessageBox
   - 动画时间由300ms改为200ms，减少等待时间 (by [@yawuling](https://github.com/yawuling) )
+- Navbar
+  - 优化深色背景的颜色 (by [@yawuling](https://github.com/yawuling) )
 - Status Tip
   - 属性 `type` 下的七种类型 对应缺省展示图片更改。 (by [@awjing](https://github.com/awjing))
 
@@ -410,6 +412,8 @@
   - 修复搜索框点清空按钮，placeholder 未居左的问题 (by [@yawuling](https://github.com/yawuling) )
 - Tabs
   - 修复 sticky 按需引入无样式问题 (by [@yawuling](https://github.com/yawuling) )
+- 按需引入
+  - 修复按需引入下部分组件缺少样式的问题 (by [@yawuling](https://github.com/yawuling) )
 
 ### 2.0.0-beta3
 

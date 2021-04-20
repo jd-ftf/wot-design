@@ -1,5 +1,6 @@
 @import "./abstracts/variable";
 @import "./abstracts/mixin";
+@import './icon.scss';
 
 @include b(drop-menu) {
   box-sizing: border-box;

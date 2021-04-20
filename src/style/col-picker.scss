@@ -2,6 +2,7 @@
 @import './abstracts/mixin';
 @import './icon.scss';
 @import './action-sheet.scss';
+@import './loading.scss';
 
 @include b(col-picker) {
   @include e(cell) {

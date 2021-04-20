@@ -1,5 +1,6 @@
 @import './abstracts/mixin';
 @import './abstracts/variable';
+@import './icon.scss';
 
 @include b(number-keyboard) {
   position: fixed;
