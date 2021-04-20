@@ -1,5 +1,7 @@
 @import "./abstracts/variable";
 @import "./abstracts/mixin";
+@import "./swipe.scss";
+@import "./swipe-item.scss";
 
 @include b(img-preview) {
   position: fixed;

@@ -1,7 +1,6 @@
 @import './abstracts/variable';
 @import './abstracts/mixin';
 
-
 @include b(status-tip) {
   padding: $-statustip-padding;
   width: 100%;

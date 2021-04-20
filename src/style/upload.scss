@@ -1,5 +1,7 @@
 @import "./abstracts/variable";
 @import "./abstracts/mixin";
+@import "./loading.scss";
+@import "./icon.scss";
 
 @include b(upload) {
   position: relative;
