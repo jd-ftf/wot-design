@@ -112,3 +112,11 @@ Vue.use(Steps)
 | description | 描述 | string | - | - | - |
 | icon | 图标 | string | - | - | - |
 | status | 步骤状态 | string | finished / process / error | - | - |
+
+### Step Slot
+
+| name      | 说明       | 最低版本 |
+|------------- |----------- |---|
+| icon | 步骤调内部图标 | - |
+| title | 步骤标题 | - |
+| description | 底部描述 | - |
