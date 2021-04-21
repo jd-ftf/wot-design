@@ -22,7 +22,6 @@
     <wd-img-cropper
       v-model="show"
       :img-src="imgSrc"
-      file-type="image/jpeg"
       @confirm="handleConfirm"
       @cancel="handleCancel"
     >

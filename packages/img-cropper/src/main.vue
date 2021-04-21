@@ -200,12 +200,12 @@ export default {
     // canvasToTempFilePath —— fileType
     fileType: {
       type: String,
-      value: 'image/png'
+      default: 'png'
     },
     // canvasToTempFilePath —— quality
     quality: {
       type: Number,
-      value: 1
+      default: 1
     },
     filename: {
       type: String,
@@ -606,14 +606,14 @@ export default {
           }
           this.ctx.drawImage(image, -width / 2, -height / 2, width, height)
           // 生成图片
-          let src = this.canvas.toDataURL(this.fileType, this.quality)
+          let src = this.canvas.toDataURL(`image/${this.fileType}`, this.quality)
           src = src.split(',')[1]
-          this.base64ToBlob({ source: src, contentType: this.fileType }, (blob) => {
+          this.base64ToBlob({ source: src, contentType: `image/${this.fileType}` }, (blob) => {
             this.blobToDataURL(blob, (dataUrl) => {
               this.$emit('confirm', {
                 url: dataUrl,
-                file: new File([blob], `${this.filename}.${this.fileType.split('/')[1]}`, {
-                  type: this.fileType
+                file: new File([blob], `${this.filename}.${this.fileType}`, {
+                  type: `image/${this.fileType}`
                 }),
                 width: cutWidth * exportScale,
                 height: cutHeight * exportScale
