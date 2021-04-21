@@ -1,5 +1,17 @@
 ## 更新日志
 
+### 2.3.1
+
+*2021-04-22*
+
+#### Bug 修复
+
+- ImgCropper
+  - 修复二次选择图片时图片尺寸不匹配的问题 (by [@yawuling](https://github.com/yawuling) )
+  - 修复 `img-width` 和 `img-height` 属性设置 `number` 类型时无效的问题 (by [@yawuling](https://github.com/yawuling) )
+- Picker
+  - 修复国际化文案异常问题 (by [@HXCStudio123](https://github.com/HXCStudio123) )
+
 ### 2.3.0
 
 *2021-04-21*
