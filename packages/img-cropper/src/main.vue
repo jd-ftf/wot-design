@@ -93,10 +93,10 @@
 
       <div class="wd-img-cropper__footer--button">
         <div class="is-cancel" @click="handleCancel">
-          {{ cancelButtonText }}
+          {{ cancelButtonText || t('wd.imgCropper.cancel') }}
         </div>
         <wd-button size="small" class="is-confirm" @click="handleConfirm">
-          {{ confirmButtonText }}
+          {{ confirmButtonText || t('wd.imgCropper.confirm') }}
         </wd-button>
       </div>
     </div>
@@ -104,6 +104,9 @@
 </template>
 
 <script>
+import locale from 'wot-design/src/mixins/locale'
+import WdButton from 'wot-design/packages/button'
+
 // 延时动画设置
 let CHANGE_TIME = null
 // 移动节流
@@ -121,6 +124,12 @@ const TOP_PERCENT = 0.85
 
 export default {
   name: 'WdImgCropper',
+
+  mixins: [locale],
+
+  components: {
+    WdButton
+  },
 
   data () {
     return {
@@ -177,14 +186,11 @@ export default {
       default: '完成'
     },
     // 是否禁用旋转
-    disabledRotate: {
-      type: Boolean,
-      default: false
-    },
+    disabledRotate: Boolean,
     // 图片源路径
     imgSrc: {
-      type: null,
-      default: null
+      type: String,
+      default: ''
     },
     // 图片宽
     imgWidth: {
@@ -245,7 +251,7 @@ export default {
 
     imgSrc: {
       handler (val) {
-        // val && this.loadImg()
+        val && this.loadImg()
       },
       immediate: true
     },
@@ -385,6 +391,8 @@ export default {
      * @description canvas 初始化
      */
     initCanvas () {
+      this.ctx = null
+      this.canvas = null
       if (!this.ctx) {
         this.$nextTick(() => {
           this.canvas = this.$refs.canvas
@@ -551,6 +559,31 @@ export default {
       this.draw()
     },
 
+    base64ToBlob ({ source = '', contentType = 'image/png', sliceSize = 512 } = {}) {
+      return new Promise((resolve, reject) => {
+        // 使用 atob() 方法将数据解码
+        let byteCharacters = atob(source)
+        let byteArrays = []
+        for (let offset = 0; offset < byteCharacters.length; offset += sliceSize) {
+          let slice = byteCharacters.slice(offset, offset + sliceSize)
+          let byteNumbers = []
+          for (let i = 0; i < slice.length; i++) {
+            byteNumbers.push(slice.charCodeAt(i))
+          }
+          // 8 位无符号整数值的类型化数组。内容将初始化为 0。
+          // 如果无法分配请求数目的字节，则将引发异常。
+          byteArrays.push(new Uint8Array(byteNumbers))
+        }
+        let result = new Blob(byteArrays, {
+          type: contentType
+        })
+        result = Object.assign(result, {
+          preview: URL.createObjectURL(result)
+        })
+        resolve(result)
+      })
+    },
+
     /**
      * @description canvas绘制，用canvas模拟裁剪框 对根据图片当前的裁剪信息进行模拟
      */
@@ -587,16 +620,22 @@ export default {
             this.ctx.rotate(imgAngle * Math.PI / 180)
           }
           this.ctx.drawImage(image, -width / 2, -height / 2, width, height)
+          // 生成图片
           let output = document.createElement('img')
-          output.src = this.canvas.toDataURL(this.fileType, this.quality)
-          output.onload = (e) => {
-            this.$emit('confirm', {
-              url: this.canvas.toDataURL(this.fileType, this.quality),
-              width: cutWidth * cutScale,
-              height: cutHeight * cutScale
-            })
-            this.$emit('input', false)
-          }
+          let src = this.canvas.toDataURL(this.fileType, this.quality)
+          src = src.split(',')[1]
+          src = this.base64ToBlob({ source: src, contentType: this.fileType }).then((result) => {
+            src = result.preview
+            output.src = src
+            output.onload = (e) => {
+              this.$emit('confirm', {
+                url: src,
+                width: cutWidth * cutScale,
+                height: cutHeight * cutScale
+              })
+              this.$emit('input', false)
+            }
+          })
         }
       }
 

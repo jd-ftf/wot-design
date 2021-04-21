@@ -1,21 +1,23 @@
 @import "./abstracts/variable";
 @import "./abstracts/mixin";
+@import "./icon.scss";
+@import "./button.scss";
 
 @include b(img-cropper) {
-  background: rgba(0, 0, 0, 1);
+  background: $-img-cropper-bg;
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  z-index: 1;
+  z-index: $-img-cropper-z-index;
   // 裁剪框包裹器
   @include e(wrapper) {
     position: relative;
-    background: rgba(0, 0, 0, 0.45);
+    background: $-img-cropper-cut-bg;
   }
   @include e(cut) {
-    z-index: 9;
+    z-index: $-img-cropper-z-index + 2;
     position: absolute;
     width: 100vw;
     height: 100vh;
@@ -28,10 +30,10 @@
     .wd-img-cropper__cut--left,
     .wd-img-cropper__cut--right {
       // 拖动中背景蒙层为0 拖动结束为0.85
-      background-color: rgba(0, 0, 0, 0.85);
+      background-color: $-img-cropper-moved-bg;
       transition: background 0.2s;
       @include when(hightlight) {
-        background-color: rgba(0, 0, 0, 0);
+        background-color: $-img-cropper-moving-bg;
       }
     }
     .wd-img-cropper__cut--bottom,
@@ -57,8 +59,6 @@
         left: -50%;
       }
 
-      // 结算框对角尺寸
-      $border-size: 2px;
       // 节选框的四个角
       .is-left-top,
       .is-left-bottom,
@@ -67,7 +67,7 @@
         &::before {
           content: "";
           position: absolute;
-          width: $border-size;
+          width: $-img-cropper-border-size;
           height: 20px;
           background-color: #fff;
         }
@@ -75,36 +75,36 @@
           content: "";
           position: absolute;
           width: 20px;
-          height: $border-size;
+          height: $-img-cropper-border-size;
           background-color: #fff;
         }
       }
       .is-left-top {
         &::before,
         &::after {
-          left: -$border-size;
-          top: -$border-size;
+          left: -$-img-cropper-border-size;
+          top: -$-img-cropper-border-size;
         }
       }
       .is-left-bottom {
         &::before,
         &::after {
-          left: -$border-size;
-          bottom: -$border-size;
+          left: -$-img-cropper-border-size;
+          bottom: -$-img-cropper-border-size;
         }
       }
       .is-right-top {
         &::before,
         &::after {
-          right: -$border-size;
-          top: -$border-size;
+          right: -$-img-cropper-border-size;
+          top: -$-img-cropper-border-size;
         }
       }
       .is-right-bottom {
         &::before,
         &::after {
-          right: -$border-size;
-          bottom: -$border-size;
+          right: -$-img-cropper-border-size;
+          bottom: -$-img-cropper-border-size;
         }
       }
 
@@ -149,7 +149,7 @@
     }
   }
   @include e(img) {
-    z-index: 2;
+    z-index: $-img-cropper-z-index + 1;
     top: 0;
     left: 0;
     position: absolute;
@@ -163,23 +163,21 @@
     background: white;
     width: 150px;
     height: 150px;
-    z-index: 10;
+    z-index: $-img-cropper-z-index + 3;
     top: -200%;
     pointer-events: none;
   }
   @include e(footer) {
     position: fixed;
-    z-index: 10;
+    z-index: $-img-cropper-z-index + 3;
     bottom: 10px;
     width: 100%;
     height: 15vh;
     text-align: center;
-    .wd-icon-rotate {
-      font-size: 16px;
-    }
+
     @include m(rotate) {
       color: #fff;
-      font-size: 24px;
+      font-size: $-img-cropper-rotate-fs;
     }
     @include m(button) {
       position: relative;
@@ -189,14 +187,14 @@
       .is-cancel {
         display: inline-block;
         color: #fff;
-        font-size: 16px;
+        font-size: $-img-cropper-fs;
       }
       .is-confirm {
         position: absolute;
         right: 0;
         width: 56px;
         border-radius: 16px;
-        font-size: 16px;
+        font-size: $-img-cropper-fs;
       }
     }
   }

@@ -11,7 +11,6 @@
           width="200px"
           height="200px"
           :src="loadSrc"
-          mode="aspectFit"
           class="profile-img"
           @click="upload"
         />
@@ -48,6 +47,7 @@ export default {
       loadSrc: '',
       show: false,
       imgSrc: '',
+      resolve: null
     }
   },
 
@@ -58,8 +58,10 @@ export default {
     },
 
     beforeUpload ({ files, resolve }) {
-      this.$toast.loading('上传中')
-      resolve(true)
+      this.loadFile(files[0], () => {
+        // 裁剪成功
+        this.resolve = resolve
+      })
     },
 
     /**
@@ -78,18 +80,16 @@ export default {
         this.imgSrc = data
         this.show = true
       }
-      reader.readAsDataURL(file.file)
+      reader.readAsDataURL(file)
     },
 
     handleSuccess (file) {
       this.$toast.success('上传成功')
-      this.fileList = [file]
-      this.loadFile(file.file)
-      console.log(this.fileList)
     },
 
     handleConfirm (res) {
-      console.log(res)
+      this.$toast.loading('上传中')
+      this.resolve(true)
       this.loadSrc = res.url
     },
 

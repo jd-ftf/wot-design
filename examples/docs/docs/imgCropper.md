@@ -1,10 +1,9 @@
 ## ImgCropper 图片裁剪
 
-- 1、上传图片(demo)
-- 2、图片裁剪
-- 3、支持拖拽，用于移动图片使其位于对应位置
-- 4、支持缩放，用于截取限定区域
-- 5、支持旋转，用于截取对应角度
+- 支持拖拽，用于移动图片使其位于对应位置
+- 支持缩放，用于截取限定区域
+- 支持旋转，用于截取对应角度
+- 支持图片裁剪
 
 ### 按需引入
 
@@ -43,7 +42,6 @@ Vue.use(ImgCropper)
         width="200px"
         height="200px"
         :src="loadSrc"
-        mode="aspectFit"
         class="profile-img"
       />
     </div>
@@ -67,6 +65,7 @@ export default {
       loadSrc: '',
       show: false,
       imgSrc: '',
+      resolve: null
     }
   },
   methods: {
@@ -76,8 +75,10 @@ export default {
     },
 
     beforeUpload ({ files, resolve }) {
-      this.$toast.loading('上传中')
-      resolve(true)
+      this.loadFile(files[0], () => {
+        // 裁剪成功
+        this.resolve = resolve
+      })
     },
 
     /**
@@ -96,18 +97,17 @@ export default {
         this.imgSrc = data
         this.show = true
       }
-      reader.readAsDataURL(file.file)
+      reader.readAsDataURL(file)
     },
 
     handleSuccess (file) {
       this.$toast.success('上传成功')
-      this.fileList = [file]
-      this.loadFile(file.file)
-      console.log(this.fileList)
     },
 
     handleConfirm (res) {
-      console.log(res)
+      this.$toast.loading('上传中')
+      this.resolve(true)
+      this.loadSrc = res.url
     },
 
     handleCancel () {
@@ -138,7 +138,7 @@ export default {
 
 | 事件名称      | 说明                                 | 参数     | 最低版本 |
 |------------- |------------------------------------ |--------- |-------- |
-| bind:confirm | 完成截图时触发 | event.detail = {url, width, height} 分别为生成地址、生成图片宽、生成图片高|2.3.0|
+| bind:confirm | 完成截图时触发 | {url, width, height} 分别为生成地址、生成图片宽、生成图片高|2.3.0|
 | bind:cancel | 当取消截图时触发 | - |2.3.0|
 
 ### Methods

@@ -909,6 +909,16 @@ $-img-preview-color: $-color-white !default; // 图片预览文字颜色
 $-img-preview-fs: 16px !default; // 图片预览分页字号
 $-img-preview-z-index: 2000 !default; // 图片预览默认层级
 
+/* imgCropper */
+$-img-cropper-bg: rgba($-color-black, 1); // 组件弹层背景色
+$-img-cropper-cut-bg: rgba($-color-black, 0.45); // 组件裁剪框周围蒙层背景色
+$-img-cropper-moving-bg: rgba($-color-black, 0); // 图片移动时裁剪框周围背景色
+$-img-cropper-moved-bg: rgba($-color-black, 0.85); // 图片不移动时裁剪框周围背景色
+$-img-cropper-rotate-fs: 24px; // 旋转按钮尺寸
+$-img-cropper-z-index: 1; // 组件z-index
+$-img-cropper-fs: 16px; // 组件内部文字尺寸
+$-img-cropper-border-size: 2px; // 结算框对角尺寸
+
 /* curtain */
 $-curtain-content-radius: 24px !default; // 内容圆角
 $-curtain-content-close-color: $-color-white !default; // 关闭按钮颜色
