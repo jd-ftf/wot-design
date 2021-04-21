@@ -15,23 +15,14 @@
           @click="upload"
         />
       </div>
-
-      <wd-upload
-        ref="upload"
-        v-model="fileList"
-        :show-preview-list="false"
-        :before-upload="beforeUpload"
-        @success="handleSuccess"
-        action="https://ftf.jd.com/api/uploadImg"
-      >
-        <wd-button>上传</wd-button>
-      </wd-upload>
+      <input style="position: absolute; top: 0; left: 0; width: 0; height: 0; opacity: 0;" type="file" ref="input" @change="chooseFile" />
+      <p>点击上传头像</p>
     </demo-block>
 
     <wd-img-cropper
-      id="wd-img-cropper"
       v-model="show"
       :img-src="imgSrc"
+      file-type="image/jpeg"
       @confirm="handleConfirm"
       @cancel="handleCancel"
     >
@@ -43,60 +34,34 @@
 export default {
   data () {
     return {
-      fileList: [],
       loadSrc: '',
       show: false,
-      imgSrc: '',
-      resolve: null
+      imgSrc: ''
     }
   },
-
   methods: {
     upload () {
-      const target = this.$refs.upload
-      target.$refs.input.click()
+      this.$refs.input.click()
     },
-
-    beforeUpload ({ files, resolve }) {
-      this.loadFile(files[0], () => {
-        // 裁剪成功
-        this.resolve = resolve
-      })
-    },
-
-    /**
-     * @description 上传的文件
-     * @param {Object} file 上传的文件
-     */
-    loadFile (file, callback) {
+    chooseFile (e) {
+      const { files } = e.target
       const reader = new FileReader()
       reader.onload = (e) => {
-        const data = e.target.result
-        let image = new Image()
-        image.onload = (e) => {
-          callback && callback(e)
-        }
-        image.src = data
-        this.imgSrc = data
+        const { result } = e.target
+        this.imgSrc = result
         this.show = true
+        this.$refs.input.value = null
       }
-      reader.readAsDataURL(file)
+      reader.readAsDataURL(files[0])
     },
-
-    handleSuccess (file) {
-      this.$toast.success('上传成功')
+    handleConfirm ({ url }) {
+      this.loadSrc = url
+      // 使用 res.file 对象进行上传
     },
-
-    handleConfirm (res) {
-      this.$toast.loading('上传中')
-      this.resolve(true)
-      this.loadSrc = res.url
-    },
-
     handleCancel () {
       console.log('取消')
-    },
-  },
+    }
+  }
 }
 </script>
 

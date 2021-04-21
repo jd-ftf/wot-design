@@ -224,7 +224,6 @@ export default {
     },
 
     handleChange ({ target: { files } }) {
-      console.log(12345)
       // 检查是否是图片
       if (!files || this.disabled) return
       // 检查上传数量是否超过限制数
