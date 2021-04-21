@@ -264,8 +264,8 @@ export default {
       this.$nextTick(() => {
         this.resize()
 
-        INIT_IMGWIDTH = this.picWidth
-        INIT_IMGHEIGHT = this.picHeight
+        INIT_IMGWIDTH = this.imgWidth
+        INIT_IMGHEIGHT = this.imgHeight
         const cutSize = this.rootWidth - this.offset * 2
         this.cutWidth = cutSize
         this.cutHeight = cutSize
@@ -362,7 +362,7 @@ export default {
         }
       } else if (INIT_IMGHEIGHT && !INIT_IMGWIDTH) {
         picWidth = imgInfo.width / imgInfo.height * INIT_IMGHEIGHT
-      } else if (!INIT_IMGHEIGHT && INIT_IMGWIDTH) {
+      } else if ((!INIT_IMGHEIGHT && INIT_IMGWIDTH) || (INIT_IMGHEIGHT && INIT_IMGWIDTH)) {
         picHeight = imgInfo.height / imgInfo.width * INIT_IMGWIDTH
       }
 
@@ -392,10 +392,14 @@ export default {
       if (INIT_IMGWIDTH && typeof INIT_IMGWIDTH === 'string' && INIT_IMGWIDTH.indexOf('%') !== -1) {
         const width = INIT_IMGWIDTH.replace('%', '')
         INIT_IMGWIDTH = this.picWidth = this.rootWidth / 100 * width
+      } else if (INIT_IMGWIDTH && typeof INIT_IMGWIDTH === 'number') {
+        this.picWidth = INIT_IMGWIDTH
       }
       if (INIT_IMGHEIGHT && typeof INIT_IMGHEIGHT === 'string' && INIT_IMGHEIGHT.indexOf('%') !== -1) {
         const height = this.picHeight.replace('%', '')
         INIT_IMGHEIGHT = this.picHeight = this.rootHeight / 100 * height
+      } else if (INIT_IMGHEIGHT && typeof INIT_IMGHEIGHT === 'number') {
+        this.picWidth = INIT_IMGHEIGHT
       }
     },
 
