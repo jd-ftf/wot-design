@@ -143,7 +143,6 @@ export default {
       // 裁剪框的宽高
       cutWidth: 0,
       cutHeight: 0,
-      cutScale: 2,
       offset: 20,
       // 裁剪框的距顶距左
       cutLeft: 0,
@@ -177,31 +176,16 @@ export default {
 
   props: {
     value: Boolean,
-    cancelButtonText: {
-      type: String,
-      default: '取消'
-    },
-    confirmButtonText: {
-      type: String,
-      default: '完成'
-    },
+    cancelButtonText: String,
+    confirmButtonText: String,
     // 是否禁用旋转
     disabledRotate: Boolean,
     // 图片源路径
-    imgSrc: {
-      type: String,
-      default: ''
-    },
+    imgSrc: String,
     // 图片宽
-    imgWidth: {
-      type: null,
-      default: null
-    },
+    imgWidth: null,
     // 图片高
-    imgHeight: {
-      type: null,
-      default: null
-    },
+    imgHeight: null,
     // 最大缩放
     maxScale: {
       type: Number,
@@ -223,10 +207,9 @@ export default {
       type: Number,
       value: 1
     },
-    // 最大缩放
-    type: {
+    filename: {
       type: String,
-      default: 'png'
+      default: 'filename'
     }
   },
 
@@ -559,29 +542,31 @@ export default {
       this.draw()
     },
 
-    base64ToBlob ({ source = '', contentType = 'image/png', sliceSize = 512 } = {}) {
-      return new Promise((resolve, reject) => {
-        // 使用 atob() 方法将数据解码
-        let byteCharacters = atob(source)
-        let byteArrays = []
-        for (let offset = 0; offset < byteCharacters.length; offset += sliceSize) {
-          let slice = byteCharacters.slice(offset, offset + sliceSize)
-          let byteNumbers = []
-          for (let i = 0; i < slice.length; i++) {
-            byteNumbers.push(slice.charCodeAt(i))
-          }
-          // 8 位无符号整数值的类型化数组。内容将初始化为 0。
-          // 如果无法分配请求数目的字节，则将引发异常。
-          byteArrays.push(new Uint8Array(byteNumbers))
+    base64ToBlob ({ source = '', contentType = 'image/png', sliceSize = 512 } = {}, callback) {
+      // 使用 atob() 方法将数据解码
+      let byteCharacters = atob(source)
+      let byteArrays = []
+      for (let offset = 0; offset < byteCharacters.length; offset += sliceSize) {
+        let slice = byteCharacters.slice(offset, offset + sliceSize)
+        let byteNumbers = []
+        for (let i = 0; i < slice.length; i++) {
+          byteNumbers.push(slice.charCodeAt(i))
         }
-        let result = new Blob(byteArrays, {
-          type: contentType
-        })
-        result = Object.assign(result, {
-          preview: URL.createObjectURL(result)
-        })
-        resolve(result)
-      })
+        // 8 位无符号整数值的类型化数组。内容将初始化为 0。
+        // 如果无法分配请求数目的字节，则将引发异常。
+        byteArrays.push(new Uint8Array(byteNumbers))
+      }
+      callback(new Blob(byteArrays, {
+        type: contentType
+      }))
+    },
+
+    blobToDataURL (blob, callback) {
+      const reader = new FileReader()
+      reader.onload = function (e) {
+        callback(e.target.result)
+      }
+      reader.readAsDataURL(blob)
     },
 
     /**
@@ -601,40 +586,40 @@ export default {
         cutTop,
         cutHeight,
         cutWidth,
-        cutScale,
+        exportScale,
         disabledRotate
       } = this
       const draw = () => {
         // 图片真实大小
-        const width = picWidth * imgScale * cutScale
-        const height = picHeight * imgScale * cutScale
+        const width = picWidth * imgScale * exportScale
+        const height = picHeight * imgScale * exportScale
         // 取裁剪框和图片的交集
         const x = imgLeft - cutLeft
         const y = imgTop - cutTop
         const image = document.createElement('img')
         image.src = imgSrc
         image.onload = () => {
-          this.ctx.translate(x * cutScale, y * cutScale)
+          this.ctx.translate(x * exportScale, y * exportScale)
           // 设置 旋转角度
           if (!disabledRotate) {
             this.ctx.rotate(imgAngle * Math.PI / 180)
           }
           this.ctx.drawImage(image, -width / 2, -height / 2, width, height)
           // 生成图片
-          let output = document.createElement('img')
           let src = this.canvas.toDataURL(this.fileType, this.quality)
           src = src.split(',')[1]
-          src = this.base64ToBlob({ source: src, contentType: this.fileType }).then((result) => {
-            src = result.preview
-            output.src = src
-            output.onload = (e) => {
+          this.base64ToBlob({ source: src, contentType: this.fileType }, (blob) => {
+            this.blobToDataURL(blob, (dataUrl) => {
               this.$emit('confirm', {
-                url: src,
-                width: cutWidth * cutScale,
-                height: cutHeight * cutScale
+                url: dataUrl,
+                file: new File([blob], `${this.filename}.${this.fileType.split('/')[1]}`, {
+                  type: this.fileType
+                }),
+                width: cutWidth * exportScale,
+                height: cutHeight * exportScale
               })
               this.$emit('input', false)
-            }
+            })
           })
         }
       }

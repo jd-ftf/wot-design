@@ -77,9 +77,8 @@ export default {
       cancel: '取消'
     },
     imgCropper: {
-      cancel: '取消',
-      done: '完成',
-      placeholder: '请选择'
+      confirm: '完成',
+      cancel: '取消'
     },
     pullRefresh: {
       topPull: '下拉刷新',
