@@ -29,6 +29,8 @@
   - 新增 `placeholder` 属性设置占位文本 (by [@yawuling](https://github.com/yawuling) )
 - ImgPreview
   - 支持设置 previewKey 来修改 Vue.prototype 原型上的 $preview 属性名 (by [@yawuling](https://github.com/yawuling) )
+- ImgCropper
+  - 新增图片裁剪组件 (by [@HXCStudio123](https://github.com/HXCStudio123) )
 - MessageBox
   - 新增 `close-on-popstate` 属性，返回时自动关闭 (by [@yawuling](https://github.com/yawuling) )
   - 支持设置 messageBoxKey 来修改 Vue.prototype 原型上的 $messageBox 属性名 (by [@yawuling](https://github.com/yawuling) )
@@ -52,6 +54,8 @@
   - 新增 `before-change` 修改前钩子函数  (by [@yawuling](https://github.com/yawuling) )
 - Toast
   - 支持设置 toastKey 来修改 Vue.prototype 原型上的 $toast 属性名 (by [@yawuling](https://github.com/yawuling) )
+- Upload
+  - 新增 `show-preview-list` 控制上传成功后是否展示预览列表  (by [@HXCStudio123](https://github.com/HXCStudio123) )
 
 #### 优化
 

@@ -73,6 +73,10 @@ export default {
       size: '分页大小：{size}'
     },
     picker: {
+      confirm: '确定',
+      cancel: '取消'
+    },
+    imgCropper: {
       cancel: '取消',
       done: '完成',
       placeholder: '请选择'

@@ -56,6 +56,10 @@ export default {
       error: 'Failed to load...',
       retry: 'Refresh'
     },
+    imgCropper: {
+      confirm: 'OK',
+      cancel: 'Cancel'
+    },
     messageBox: {
       inputPlaceholder: 'Please input information',
       confirm: 'OK',

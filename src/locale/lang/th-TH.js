@@ -56,6 +56,10 @@ export default {
       error: 'โหลดไม่สำเร็จ',
       retry: 'รีเฟรช'
     },
+    imgCropper: {
+      confirm: 'ยืนยัน',
+      cancel: 'ยกเลิก'
+    },
     messageBox: {
       inputPlaceholder: 'กรุณาใส่ข้อมูล',
       confirm: 'ยืนยัน',

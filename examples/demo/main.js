@@ -24,9 +24,11 @@ const i18n = new VueI18n({
     'th_TH': thTH
   }
 })
+
 Vue.use(WotDesign, {
   i18n: (key, value) => i18n.t(key, value)
 })
+
 Vue.component(DemoBlock.name, DemoBlock)
 Vue.config.productionTip = false
 
