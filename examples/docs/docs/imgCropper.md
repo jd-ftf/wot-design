@@ -99,7 +99,7 @@ export default {
 | cancel-button-text | 取消按钮文案 | string | - | 取消 | 2.3.0 |
 | confirm-button-text | 确认按钮文案 | string | - | 完成 | 2.3.0 |
 | quality | 生成的图片质量 | Number | 0/1 | 1 | 2.3.0 |
-| file-type | 目标文件的类型 | string | - | image/png | 2.3.0 |
+| file-type | 目标文件的类型 | string | - | png | 2.3.0 |
 | filename | 目标文件的 file 对象文件名，自动根据 file-type 拼接后缀 | string | - | filename | 否 |
 
 ### Events

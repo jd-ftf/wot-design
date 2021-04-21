@@ -2,6 +2,8 @@
 
 ### 2.3.0
 
+*2021-04-21*
+
 #### 新特性
 
 - ActionSheet
@@ -94,6 +96,8 @@
 - ColPicker、DatetimePicker、Picker、SelectPicker 原先值为超出默认隐藏，显示为省略号，本次调整为默认不隐藏，若需隐藏，需手动设置 `ellipsis` 属性
 
 ### 2.2.1
+
+*2020-12-25*
 
 #### Bug 修复
 
