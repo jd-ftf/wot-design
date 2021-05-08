@@ -50,6 +50,10 @@ export default {
       placeholder: '请选择',
       select: '请选择'
     },
+    datetimePicker: {
+      start: '开始时间',
+      end: '结束时间'
+    },
     infiniteLoad: {
       loading: '正在努力加载中...',
       finished: '已加载完毕',

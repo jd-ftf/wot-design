@@ -126,17 +126,15 @@ export default {
   },
 
   watch: {
-    innerValue () {
-      this.$emit('input', this.innerValue)
-    },
     value: {
       handler (val, oldVal) {
         // 存在旧值，新值与 innerValue 相同，则不作处理
         if (oldVal && val && this.innerValue && val.valueOf() === this.innerValue.valueOf()) return
         // 格式化新值
-        val = this.formatValue(val)
+        const formatVal = this.formatValue(val)
         // 当前 value 赋值
-        this.innerValue = val
+        this.innerValue = formatVal
+
         // 每一列选择器数据赋值
         this.pickerValue = this.getPickerValue(val)
       },
@@ -287,6 +285,7 @@ export default {
 
       if (this.type === 'time') {
         this.innerValue = `${padZero(values[0])}:${padZero(values[1])}`
+        this.$emit('input', this.innerValue)
         return
       }
 
@@ -315,6 +314,7 @@ export default {
       const value = new Date(year, month - 1, date, hour, minute)
 
       this.innerValue = this.formatValue(value)
+      this.$emit('input', this.innerValue)
     },
 
     // picker列项更改矫正
@@ -329,11 +329,7 @@ export default {
       // 区分时间范围 还是 普通计时
       const values = this.getValueArray(this.innerValue)
 
-      this.$nextTick(() => {
-        // 根据数组 设置 pickerView 值
-        const pickerView = this.$refs.pickerView || this.getPickerView()
-        pickerView.setValues(values)
-      })
+      this.pickerValue = values
     },
 
     // 将日期拆分成数组
