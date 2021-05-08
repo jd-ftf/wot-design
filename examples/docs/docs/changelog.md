@@ -1,5 +1,15 @@
 ## 更新日志
 
+### 2.3.2
+
+*2021-05-08*
+
+#### Bug 修复
+
+- DatetimePicker
+  - 修复 `value` 在组件挂载后二次赋值无效的问题 (by [@yawuling](https://github.com/yawuling) )
+  - 补全日期范围类型下的国际化 (by [@yawuling](https://github.com/yawuling) )
+
 ### 2.3.1
 
 *2021-04-22*

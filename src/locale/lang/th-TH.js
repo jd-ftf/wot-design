@@ -50,6 +50,10 @@ export default {
       placeholder: 'เลือก',
       select: 'เลือก'
     },
+    datetimePicker: {
+      start: 'จาก',
+      end: 'ถึง'
+    },
     infiniteLoad: {
       loading: 'กำลังโหลด.. รอสักครู่..',
       finished: 'โหลดสำเร็จ',

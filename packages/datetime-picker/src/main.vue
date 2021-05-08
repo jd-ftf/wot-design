@@ -22,7 +22,7 @@
           :class="showStart ? 'is-active' : ''"
           @click="chooseItem()"
         >
-          <li>开始时间</li>
+          <li>{{ t('wd.datetimePicker.start') }}</li>
           <li>{{ showTabLabel[0] }}</li>
         </ul>
         <ul
@@ -30,7 +30,7 @@
           :class="showStart ? '' : 'is-active'"
           @click="chooseItem(false)"
         >
-          <li>结束时间</li>
+          <li>{{ t('wd.datetimePicker.end') }}</li>
           <li>{{ showTabLabel[1] }}</li>
         </ul>
       </div>
@@ -85,7 +85,9 @@
     </wd-popup>
   </div>
 </template>
+
 <script>
+import locale from 'wot-design/src/mixins/locale'
 import pickerMixin from 'wot-design/src/mixins/picker'
 import WdPickerView from 'wot-design/packages/datetime-picker-view'
 import WdPopup from 'wot-design/packages/popup'
@@ -97,7 +99,7 @@ import { padZero } from 'wot-design/src/utils'
 export default {
   name: 'WdDatetimePicker',
 
-  mixins: [pickerMixin],
+  mixins: [locale, pickerMixin],
 
   components: {
     WdPickerView,
@@ -147,6 +149,9 @@ export default {
         if (this.region) {
           this.end.innerValue = this.getDefaultInnerValue(true)
         }
+        this.$nextTick(() => {
+          this.setShowValue()
+        })
       },
       immediate: true
     },
@@ -188,14 +193,6 @@ export default {
      */
     close () {
       this.onCancel()
-    },
-
-    /**
-     * @description 初始化展示参数
-     */
-    showPopInit () {
-      this.showStart = true
-      this.setShowValue()
     },
 
     chooseItem (isStart = true) {
@@ -274,8 +271,11 @@ export default {
     setLabel (index = 0) {
       if (this.region) {
         const pickerView = index === 0 ? this.$refs.pickerView.$refs.pickerView : this.$refs.endPickerView.$refs.pickerView
-        const items = pickerView.getItems()
-        this.showTabLabel[index] = this.defaultDisplayFormat(items, true)
+
+        if (pickerView) {
+          const items = pickerView.getItems()
+          this.showTabLabel[index] = this.defaultDisplayFormat(items, true)
+        }
       }
     },
 
@@ -400,12 +400,6 @@ export default {
 
       return mapColumns(originColumns)
     }
-  },
-
-  mounted () {
-    this.$nextTick(() => {
-      this.setShowValue()
-    })
   }
 }
 </script>
