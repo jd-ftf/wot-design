@@ -76,9 +76,7 @@ export default {
     value: {
       handler (val) {
         if (((val === '' || val === null || val === undefined) || (val instanceof Array && !val.length)) && this.columns.length) {
-          this.$nextTick(() => {
-            this.onChange(0)
-          })
+          this.onChange(0)
         }
       },
       immediate: true
@@ -204,22 +202,6 @@ export default {
       return this.children.map(column => {
         return column.data
       })
-    },
-
-    onCancel () {
-      this.$emit('cancel')
-    },
-
-    onConfirm () {
-      this.children.forEach(column => column.onTranstionEnd())
-      if (this.isSingle) {
-        this.$emit('confirm', this, this.getColumnValue(0), this.getColumnIndex(0))
-      } else {
-        let allIndex = this.children.map(column => {
-          return column.selectedIndex || 0
-        })
-        this.$emit('confirm', this, this.getValues(), allIndex)
-      }
     }
   }
 }

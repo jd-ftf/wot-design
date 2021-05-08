@@ -110,14 +110,14 @@ export default {
     initialData () {
       this.data = this.initialData || []
     },
-    selectedIndex (val, oldVal) {
+    selectedIndex (val) {
       if (val !== this.currentIndex) {
         this.transformY = 0
         this.setMove(-this.itemHeight * val, 'end', 0, false)
       }
     },
     data (val) {
-      if (val[this.selectedIndex].disabled) {
+      if (this.selectedIndex && val[this.selectedIndex] && val[this.selectedIndex].disabled) {
         this.setIndex(this.selectedIndex, true)
       }
     }
@@ -309,13 +309,11 @@ export default {
 
   mounted () {
     // 初始化位置 函数
-    this.$nextTick(() => {
-      this.setMove(-this.itemHeight * (this.selectedIndex || 0), 'end', 0)
-      this.$el.addEventListener('touchstart', this.onTouchStart)
-      this.$el.addEventListener('touchmove', this.onTouchMove)
-      this.$el.addEventListener('touchend', this.onTouchEnd)
-      this.$el.addEventListener('touchcancel', this.onTouchEnd)
-    })
+    this.setMove(-this.itemHeight * (this.selectedIndex || 0), 'end', 0)
+    this.$el.addEventListener('touchstart', this.onTouchStart)
+    this.$el.addEventListener('touchmove', this.onTouchMove)
+    this.$el.addEventListener('touchend', this.onTouchEnd)
+    this.$el.addEventListener('touchcancel', this.onTouchEnd)
   },
 
   beforeDestroy () {

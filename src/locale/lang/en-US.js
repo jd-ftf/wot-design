@@ -41,6 +41,10 @@ export default {
       minute: '{value}',
       second: '{value}'
     },
+    datetimePicker: {
+      start: 'From',
+      end: 'To'
+    },
     collapse: {
       expand: 'Expand',
       retract: 'Fold'
