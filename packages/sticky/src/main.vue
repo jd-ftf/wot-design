@@ -10,7 +10,7 @@
 import { isSupportSticky } from 'wot-design/src/utils'
 
 export default {
-  name: 'Sticky',
+  name: 'WdSticky',
   data () {
     return {
       fixed: false,
