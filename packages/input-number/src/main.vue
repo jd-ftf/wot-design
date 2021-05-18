@@ -143,12 +143,16 @@ export default {
     sub () {
       if (this.minDisabled) return
 
-      this.$emit('input', this.changeStep(this.value, -this.step))
+      const value = this.changeStep(this.value, -this.step)
+      this.$emit('input', value)
+      this.$emit('sub', value)
     },
     add () {
       if (this.maxDisabled) return
 
-      this.$emit('input', this.changeStep(this.value, this.step))
+      const value = this.changeStep(this.value, this.step)
+      this.$emit('input', value)
+      this.$emit('add', value)
     },
     handleInput (event) {
       this.inputValue = event.target.value
