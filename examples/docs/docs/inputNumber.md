@@ -106,3 +106,11 @@ export default {
 | input-width | 输入框宽度 | string | - | 36px | - |
 | allow-null | 允许空值 | boolean | - | false | 2.3.0 |
 | placeholder | 占位文本 | string | - | - | 2.3.0 |
+
+
+### Events
+
+| 事件名称 | 说明 | 参数 | 最低版本 |
+|---------|-----|-----|---------|
+| add | "+"按钮点击事件 | value | - |
+| sub | "-"按钮点击事件 | value | - |
