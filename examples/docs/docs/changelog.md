@@ -1,5 +1,9 @@
 ## 更新日志
 
+### 2.4.0
+- inputNumber
+  - 新增 组件增加、减小按钮的点击事件 (by [@MrJiangLei](https://github.com/MrJiangLei) )
+
 ### 2.3.2
 
 *2021-05-08*
