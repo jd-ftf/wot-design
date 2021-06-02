@@ -33,7 +33,7 @@
     font-size: $-pagination-nav-content-fs;
   }
   @include e(separator){
-    padding: $-pagination-nav-sepatator-padding;
+    padding: $-pagination-nav-separator-padding;
   }
   @include e(left){
     transform: rotate(180deg);
