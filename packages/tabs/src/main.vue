@@ -232,7 +232,7 @@ export default {
     }
   },
   mounted () {
-    this.clientWidth = document.body.clientWidth
+    this.clientWidth = this.$refs.tabsRef.clientWidth
     if (this.swipeable) {
       this.$refs.tabsBody.addEventListener('touchstart', this.onTouchStart)
       this.$refs.tabsBody.addEventListener('touchmove', this.onTouchMove)
@@ -288,6 +288,7 @@ export default {
           'is-slide': this.slidableNum < this.items.length,
           'is-map': this.mapNum < this.items.length && this.mapNum !== 0
         }}
+        ref="tabsRef"
       >
         {
           this.sticky
