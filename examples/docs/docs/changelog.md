@@ -2,12 +2,17 @@
 
 ### 2.4.0
 
-*2021-05-18*
+*2021-06-25*
 
 #### 新特性
 
 - inputNumber
   - 新增 组件增加、减小按钮的点击事件 (by [@MrJiangLei](https://github.com/MrJiangLei) )
+
+#### Bug Fix
+
+- Upload
+  - 使用 before-upload 钩子时，选择一张图片后，不让通过，再次选择同一张图片未触发 [#315](https://github.com/jd-ftf/wot-design/issues/315)  (by [@HXCStudio123](https://github.com/HXCStudio123) )
 
 ### 2.3.2
 
