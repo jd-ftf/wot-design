@@ -89,13 +89,13 @@
             :value="item[valueKey]"
             :disabled="item.disabled"
           >
-            <template v-if="filterable && filterVal">{{ item[labelKey] }}</template>
-            <template v-else>
+            <template v-if="filterable && filterVal">
               <template v-for="(text, index) in getFilterText(item[labelKey])">
                 <span v-if="text.type === 'active'" :key="index" class="wd-select-picker__text-active">{{ text.label }}</span>
                 <span v-else :key="index">{{ text.label }}</span>
               </template>
             </template>
+            <template v-else>{{ item[labelKey] }}</template>
           </wd-radio>
         </wd-radio-group>
         <div v-if="loading" class="wd-picker-view__loading" @touchmove.stop.prevent>

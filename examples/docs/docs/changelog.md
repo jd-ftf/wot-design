@@ -7,7 +7,12 @@
 #### 新特性
 
 - inputNumber
-  - 新增 组件增加、减小按钮的点击事件 (by [@MrJiangLei](https://github.com/MrJiangLei) )
+  - 新增增加、减小按钮的点击事件 (by [@MrJiangLei](https://github.com/MrJiangLei) )
+
+#### Bug 修复
+
+- SelectPicker
+  - 修复 `type` 为 'radio'，搜索时未正确高亮搜索文本的问题 (by [@yawuling](https://github.com/yawuling) )
 
 #### Bug Fix
 
