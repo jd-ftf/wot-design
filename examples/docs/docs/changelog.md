@@ -6,9 +6,11 @@
 
 #### 新特性
 
-- inputNumber
+- InputNumber
   - 新增增加、减小按钮的点击事件 (by [@MrJiangLei](https://github.com/MrJiangLei) )
-
+- Toast
+  - 新增 `type` 提示类型属性，弃用 `iconName` 属性 (by [@yawuling](https://github.com/yawuling) )
+  - 新增 `onClose` 关闭回调属性 (by [@yawuling](https://github.com/yawuling) )
 #### Bug 修复
 
 - SelectPicker

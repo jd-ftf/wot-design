@@ -1,6 +1,6 @@
 ## Loading 加载指示器
 
-加载提示，如果要使用JS调用，请查看 Toast 章节。
+加载提示展示，如果要使用JS调用加载（如接口请求时整个页面显示`加载效果`），请查看[Toast 章节](/docs#/components/toast#loading-ti-shi)。
 
 ### 按需引入
 

@@ -14,6 +14,9 @@
       <wd-button @click="handleToast5">顶部toast</wd-button>
       <wd-button @click="handleToast6">底部toast</wd-button>
     </demo-block>
+    <demo-block title="onClose 关闭回调">
+      <wd-button @click="handleToast10">onClose 回调</wd-button>
+    </demo-block>
     <demo-block title="loading">
       <wd-button @click="handleToast7">Loading加载</wd-button>
       <wd-button @click="handleToast8">Ring类型loading</wd-button>
@@ -31,7 +34,10 @@ export default {
   methods: {
     handleToast1 () {
       this.$toast({
-        msg: '提示信息'
+        msg: '提示信息',
+        onClose: () => {
+          console.log(1)
+        }
       })
     },
     handleToast2 () {
@@ -73,6 +79,14 @@ export default {
     },
     handleToast9 () {
       this.$toast('这是一段很长很长很长很长很长很长很长很长很长很长很长很长很长很长很长的文案')
+    },
+    handleToast10 () {
+      this.$toast({
+      msg: 'onClose 关闭回调',
+      onClose: () => {
+        this.$toast('已关闭')
+      }
+    })
     },
     handleToast11 () {
       this.$toast.info('常规提示常规提示')

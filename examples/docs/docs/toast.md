@@ -17,20 +17,40 @@ options 为一个对象，不传入则使用默认配置，其参数为：
 
 ### 基本用法
 
-基本用法。
+基本用法，`toast` 支持直接传入一个字符串：
 
 ```javascript
 // 纯文字提示
 this.$toast('提示信息')
 ```
 
+参数设置，`toast` 也支持传入参数对象 `this.$toast(options: object)`：
+
+```javascript
+this.$toast({
+  msg: '提示信息',
+  duration: 5000
+})
+```
+
 ### 成功、异常、警告、常规
+
+快捷使用：
 
 ```javascript
 this.$toast.success('操作成功')
 this.$toast.error('手机验证码输入错误，请重新输入')
 this.$toast.warning('提示信息')
 this.$toast.info('常规提示信息')
+```
+
+设置参数：
+
+```javascript
+this.$toast.success({
+  msg: '操作成功',
+  duration: 5000
+})
 ```
 
 ### 提示位置
@@ -53,6 +73,21 @@ this.$toast({
 
 ```javascript
 this.$toast.close()
+```
+
+### 提示 onClose 回调
+
+通过设置 `onClose` 参数，监听提示关闭。
+
+> 手动执行 `this.$toast.close()` 也会触发该回调
+
+```javascript
+this.$toast({
+  msg: 'onClose 关闭回调',
+  onClose: () => {
+    this.$toast('已关闭')
+  }
+})
 ```
 
 ### loading 提示
@@ -87,13 +122,15 @@ this.$toast.close()
 | 参数 | 说明 | 类型 | 可选值 | 默认值 | 最低版本 |
 |-----|------|-----|-------|-------|---------|
 | msg | 消息内容 | string | - | - | - |
+| type | toast 类型，优先级高于 iconClass | string | success / error / warning / info / loading | - | 2.4.0 |
 | duration | 持续时间，单位 ms，为 0 时表示不自动关闭 | number | - | 2000 | - |
-| iconName | Toast 可使用图标类型 | string | success / error / warning / info | - | - |
+| ~~iconName~~ | ~~Toast 可使用图标类型~~ `2.4.0` 开始弃用，建议用 `type` 属性，不影响原来系统的使用 | ~~string~~ | ~~success / error / warning / info~~ | - | `2.4.0 开始弃用` |
 | iconSize | 左侧图标尺寸 | string | - | 42px | - |
 | iconClass | 图标类目，自定义图标，可以使用 Icon 章节的那些图标类名，iconName 优先级更高 | string | - | - | - |
-| position | 提示信息框的位置 | string   | top / middle / bottom  | - | - |
+| position | 提示信息框的位置 | string | top / middle / bottom  | - | - |
 | loadingType | [加载中图标类型](/docs#/components/loading) | string | ring | outline | - |
 | loadingColor | [加载中图标颜色](/docs#/components/loading) | string | - | #4D80F0 | - |
+| onClose | 当 toast 关闭时触发，手动执行 `this.$toast.close()` 也会触发该回调 | function | - | - | 2.4.0 |
 
 ### Methods
 

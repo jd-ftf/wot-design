@@ -57,7 +57,8 @@ export default {
     iconSize: {
       type: String,
       default: '42px'
-    }
+    },
+    onClose: Function
   },
   computed: {
     customClass () {
