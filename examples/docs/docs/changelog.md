@@ -6,8 +6,15 @@
 
 #### 新特性
 
-- inputNumber
-  - 新增 组件增加、减小按钮的点击事件 (by [@MrJiangLei](https://github.com/MrJiangLei) )
+- InputNumber
+  - 新增增加、减小按钮的点击事件 (by [@MrJiangLei](https://github.com/MrJiangLei) )
+- Toast
+  - 新增 `type` 提示类型属性，弃用 `iconName` 属性 (by [@yawuling](https://github.com/yawuling) )
+  - 新增 `onClose` 关闭回调属性 (by [@yawuling](https://github.com/yawuling) )
+#### Bug 修复
+
+- SelectPicker
+  - 修复 `type` 为 'radio'，搜索时未正确高亮搜索文本的问题 (by [@yawuling](https://github.com/yawuling) )
 
 #### Bug Fix
 

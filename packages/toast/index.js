@@ -37,6 +37,7 @@ const showToast = (instance, options) => {
   instance.iconSize = options.iconSize || '42px'
   instance.loadingType = options.loadingType || 'outline'
   instance.loadingColor = options.loadingColor || '#4D80F0'
+  instance.onClose = options.onClose
 
   if (!instance.inited) {
     document.body.appendChild(instance.$el)
@@ -51,6 +52,7 @@ const showToast = (instance, options) => {
           return
         }
         instance.close()
+        instance.onClose && instance.onClose(instance)
       }, duration)
     }
   })
@@ -60,6 +62,33 @@ const showToast = (instance, options) => {
 
 let Toast = options => {
   options = options || {}
+
+  switch (options.type) {
+    case 'success': {
+      options.iconName = 'success'
+      options.duration = options.duration || 1500
+      break
+    }
+    case 'info': {
+      options.iconName = 'info'
+      break
+    }
+    case 'error': {
+      options.iconName = 'error'
+      break
+    }
+    case 'warning': {
+      options.iconName = 'warning'
+      break
+    }
+    case 'loading': {
+      options.iconName = 'loading'
+      options.forbidClick = true
+      options.duration = 0
+      break
+    }
+    default: {}
+  }
 
   if (!toast) {
     toast = new ToastConstructor({
@@ -73,6 +102,13 @@ let Toast = options => {
 Toast.close = () => {
   if (toast) {
     toast.close()
+    toast.onClose && toast.onClose(toast)
+  }
+}
+
+Toast._close = () => {
+  if (toast) {
+    toast.close()
   }
 }
 
@@ -80,14 +116,12 @@ Toast.success = options => {
   if (typeof options === 'string') {
     options = {
       msg: options,
-      iconName: 'success',
-      duration: 1500
+      type: 'success'
     }
   } else {
     options = {
       ...options,
-      iconName: 'success',
-      duration: options.duration || 1500
+      type: 'success'
     }
   }
 
@@ -98,12 +132,12 @@ Toast.info = options => {
   if (typeof options === 'string') {
     options = {
       msg: options,
-      iconName: 'info'
+      type: 'info'
     }
   } else {
     options = {
       ...options,
-      iconName: 'info'
+      type: 'info'
     }
   }
 
@@ -114,12 +148,12 @@ Toast.error = options => {
   if (typeof options === 'string') {
     options = {
       msg: options,
-      iconName: 'error'
+      type: 'error'
     }
   } else {
     options = {
       ...options,
-      iconName: 'error'
+      type: 'error'
     }
   }
 
@@ -129,13 +163,13 @@ Toast.error = options => {
 Toast.warning = options => {
   if (typeof options === 'string') {
     options = {
-      msg: options,
-      iconName: 'warning'
+      type: 'warning',
+      msg: options
     }
   } else {
     options = {
       ...options,
-      iconName: 'warning'
+      type: 'warning'
     }
   }
 
@@ -145,24 +179,20 @@ Toast.warning = options => {
 Toast.loading = options => {
   if (typeof options === 'string') {
     options = {
-      forbidClick: true,
-      msg: options,
-      duration: 0,
-      iconName: 'loading'
+      type: 'loading',
+      msg: options
     }
   } else {
     options = {
-      forbidClick: true,
       ...options,
-      duration: 0,
-      iconName: 'loading'
+      type: 'loading'
     }
   }
 
   return Toast(options)
 }
 
-window.addEventListener('popstate', Toast.close)
+window.addEventListener('popstate', Toast._close)
 
 Toast.install = (Vue, { toastKey = '$toast' } = {}) => {
   Vue.prototype[toastKey] = Toast
