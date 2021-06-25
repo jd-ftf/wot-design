@@ -241,10 +241,12 @@ export default {
           fileList: this.uploadFiles,
           resolve: isPass => {
             isPass && this.readyToPost(files)
+            this.$refs.input.value = null
           }
         })
       } else {
         this.readyToPost(files)
+        this.$refs.input.value = null
       }
     },
 
