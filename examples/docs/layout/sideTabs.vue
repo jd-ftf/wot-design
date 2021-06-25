@@ -25,6 +25,7 @@
 <script>
 import SideBar from './sidebar'
 import PageController from './pageController'
+import { on } from '../utils/event'
 
 export default {
   data () {
@@ -61,9 +62,9 @@ export default {
         const elm = document.querySelector(anchor[0])
         if (!elm) return
 
-        setTimeout(() => {
+        this.$nextTick(() => {
           this.bodyContent.scrollTop = elm.offsetTop
-        }, 50)
+        })
       }
     }
   },
@@ -74,21 +75,28 @@ export default {
   },
   beforeRouteUpdate (to, from, next) {
     this.$refs.iframe.contentWindow.scrollTo(0, 0)
-    next()
     const toPath = to.path
     const fromPath = from.path
     if (toPath !== fromPath) {
       this.bodyContent.scrollTop = 0
     }
-    setTimeout(() => {
-      if (toPath === fromPath && to.hash) {
-        this.goAnchor()
-      }
+    next()
+    this.$nextTick(() => {
+      this.goAnchor()
 
       if (toPath !== fromPath) {
         this.renderAnchorHref()
       }
-    }, 100)
+    })
+    on('asyncComponentLoaded', () => {
+      this.$nextTick(() => {
+        this.goAnchor()
+
+        if (toPath !== fromPath) {
+          this.renderAnchorHref()
+        }
+      })
+    })
   }
 }
 </script>

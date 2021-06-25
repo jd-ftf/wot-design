@@ -34,11 +34,11 @@ export default {
   },
   data () {
     return {
-      forbidClick: false
+      forbidClick: false,
+      iconName: ''
     }
   },
   props: {
-    iconName: String,
     iconClass: String,
     msg: String,
     position: {

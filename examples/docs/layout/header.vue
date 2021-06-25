@@ -1,5 +1,6 @@
 <template>
   <header class="header">
+    <page-progress />
     <div class="header-container">
       <router-link :to="{ path: '/' }" class="logo-block">
         <img class="wot-design-logo" src="../assets/img/wot-design.png" alt="wot design" />
@@ -55,12 +56,13 @@
 <script>
 import routesConfig from '../routes.yml'
 import search from './search.vue'
+import PageProgress from './progress.vue'
 import survey from './survey'
 import axios from 'axios'
 
 const { version } = require('../../../package.json')
 export default {
-  components: { search, survey },
+  components: { search, survey, PageProgress },
   data () {
     return {
       pages: routesConfig,

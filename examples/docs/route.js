@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import MainLayout from './layout/main'
 import routesConfig from './routes.yml'
+import { trigger } from './utils/event'
 
 Vue.use(Router)
 
@@ -76,6 +77,17 @@ const router = new Router({
       children: pages
     }
   ]
+})
+
+router.beforeEach((to, from, next) => {
+  if (to.matched && typeof to.matched[to.matched.length - 1].components.default === 'function') {
+    trigger('asyncComponentLoading')
+  }
+  next()
+})
+router.beforeResolve((to, from, next) => {
+  trigger('asyncComponentLoaded')
+  next()
 })
 
 export default router
