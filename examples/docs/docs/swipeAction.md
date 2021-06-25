@@ -23,9 +23,9 @@ Vue.use(SwipeAction)
 <wd-swipe-action>
   <wd-cell title="标题文字" value="内容"/>
   <div slot="right" class="action">
-    <div class="button" style="background: #C8C7CD;" @click="handleAction('操作1')">操作1</div>
-    <div class="button" style="background: #FFB300;" @click="handleAction('操作1')">操作2</div>
-    <div class="button" style="background: #E2231A;" @click="handleAction('操作1')">操作3</div>
+    <button class="button" style="background: #C8C7CD;" @click="handleAction('操作1')">操作1</button>
+    <button class="button" style="background: #FFB300;" @click="handleAction('操作1')">操作2</button>
+    <button class="button" style="background: #E2231A;" @click="handleAction('操作1')">操作3</button>
   </div>
 </wd-swipe-action>
 ```
@@ -42,15 +42,17 @@ export default {
 .action {
   height: 100%;
   display: flex;
-flex-direction: row;
 }
 .button{
-  display: inline-block;
-  width: 40px;
+  display: block;
+  margin: 0;
+  padding: 0 11px;
   height: 100%;
   color: white;
-  line-height: 44px;
-  text-align: center;
+  border: none;
+  outline: none;
+  -webkit-appearance: none;
+  -webkit-tap-highlight-color: transparent;
 }
 ```
 
@@ -62,9 +64,9 @@ flex-direction: row;
 <wd-swipe-action :auto-close="false">
   <wd-cell title="标题文字" value="内容"/>
   <div slot="right" class="action">
-    <div class="button" style="background: #C8C7CD;">操作1</div>
-    <div class="button" style="background: #FFB300;">操作2</div>
-    <div class="button" style="background: #E2231A;">操作3</div>
+    <button class="button" style="background: #C8C7CD;">操作1</button>
+    <button class="button" style="background: #FFB300;">操作2</button>
+    <button class="button" style="background: #E2231A;">操作3</button>
   </div>
 </wd-swipe-action>
 ```
@@ -76,15 +78,15 @@ flex-direction: row;
 ```html
 <wd-swipe-action>
   <div slot="left" class="action">
-    <div class="button" style="background: #C8C7CD;">操作1</div>
-    <div class="button" style="background: #FFB300;">操作2</div>
-    <div class="button" style="background: #E2231A;">操作3</div>
+    <button class="button" style="background: #C8C7CD;">操作1</button>
+    <button class="button" style="background: #FFB300;">操作2</button>
+    <button class="button" style="background: #E2231A;">操作3</button>
   </div>
   <wd-cell title="标题文字" value="内容" />
   <div slot="right" class="action">
-    <div class="button" style="background: #cdb86e;">操作4</div>
-    <div class="button" style="background: #42ffd1;">操作5</div>
-    <div class="button" style="background: #383fe2;">操作6</div>
+    <button class="button" style="background: #cdb86e;">操作4</button>
+    <button class="button" style="background: #42ffd1;">操作5</button>
+    <button class="button" style="background: #383fe2;">操作6</button>
   </div>
 </wd-swipe-action>
 ```
@@ -96,15 +98,15 @@ flex-direction: row;
 ```html
 <wd-swipe-action v-model="value">
   <div slot="left" class="action">
-    <div class="button" style="background: #C8C7CD;">操作1</div>
-    <div class="button" style="background: #FFB300;">操作2</div>
-    <div class="button" style="background: #E2231A;">操作3</div>
+    <button class="button" style="background: #C8C7CD;">操作1</button>
+    <button class="button" style="background: #FFB300;">操作2</button>
+    <button class="button" style="background: #E2231A;">操作3</button>
   </div>
   <wd-cell title="标题文字" value="内容"/>
   <div slot="right" class="action">
-    <div class="button" style="background: #cdb86e;">操作4</div>
-    <div class="button" style="background: #42ffd1;">操作5</div>
-    <div class="button" style="background: #383fe2;">操作6</div>
+    <button class="button" style="background: #cdb86e;">操作4</button>
+    <button class="button" style="background: #42ffd1;">操作5</button>
+    <button class="button" style="background: #383fe2;">操作6</button>
   </div>
 </wd-swipe-action>
 
@@ -150,15 +152,15 @@ export default {
 ```html
 <wd-swipe-action v-model="value" :before-close="beforeClose">
   <div slot="left" class="action">
-    <div class="button" style="background: #C8C7CD;">操作1</div>
-    <div class="button" style="background: #FFB300;">操作2</div>
-    <div class="button" style="background: #E2231A;">操作3</div>
+    <button class="button" style="background: #C8C7CD;">操作1</button>
+    <button class="button" style="background: #FFB300;">操作2</button>
+    <button class="button" style="background: #E2231A;">操作3</button>
   </div>
   <wd-cell title="标题文字" value="内容"/>
   <div slot="right" class="action">
-    <div class="button" style="background: #cdb86e;">操作4</div>
-    <div class="button" style="background: #42ffd1;">操作5</div>
-    <div class="button" style="background: #383fe2;">操作6</div>
+    <button class="button" style="background: #cdb86e;">操作4</button>
+    <button class="button" style="background: #42ffd1;">操作5</button>
+    <button class="button" style="background: #383fe2;">操作6</button>
   </div>
 </wd-swipe-action>
 
@@ -196,9 +198,9 @@ export default {
   <wd-swipe-action @click="handleClick">
     <wd-cell title="标题文字" value="内容"/>
     <div slot="right" class="action">
-      <div class="button" style="background: #C8C7CD;">操作1</div>
-      <div class="button" style="background: #FFB300;">操作2</div>
-      <div class="button" style="background: #E2231A;">操作3</div>
+      <button class="button" style="background: #C8C7CD;">操作1</button>
+      <button class="button" style="background: #FFB300;">操作2</button>
+      <button class="button" style="background: #E2231A;">操作3</button>
     </div>
   </wd-swipe-action>
 ```
@@ -220,9 +222,9 @@ export default {
 <wd-swipe-action disabled>
   <wd-cell title="标题文字" value="内容" />
   <div slot="right" class="action">
-    <div class="button" style="background: #C8C7CD;">操作1</div>
-    <div class="button" style="background: #FFB300;">操作2</div>
-    <div class="button" style="background: #E2231A;">操作3</div>
+    <button class="button" style="background: #C8C7CD;">操作1</button>
+    <button class="button" style="background: #FFB300;">操作2</button>
+    <button class="button" style="background: #E2231A;">操作3</button>
   </div>
 </wd-swipe-action>
 ```
