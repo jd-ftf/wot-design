@@ -21,7 +21,10 @@ let defaults = {
   inputValidate: '', // prompt中验证input数据的函数
   showConfirmButton: true,
   showCancelButton: false,
-  inputError: ''
+  confirmButtonText: '',
+  cancelButtonText: '',
+  inputError: '',
+  lockScroll: true
 }
 
 const merge = (target, ...args) => {
