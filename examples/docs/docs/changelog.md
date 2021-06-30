@@ -13,6 +13,9 @@
   - 新增 `onClose` 关闭回调属性 (by [@yawuling](https://github.com/yawuling) )
 #### Bug 修复
 
+- MessageBox
+  - 修复 `confirmButtonText`、`cancelButtonText`、`lockScroll` 属性未重置的问题 (by [@yawuling](https://github.com/yawuling) )
+  - 修复 `teleport` 属性的文档位置，该属性只能对组件调用方式有效 (by [@yawuling](https://github.com/yawuling) )
 - SelectPicker
   - 修复 `type` 为 'radio'，搜索时未正确高亮搜索文本的问题 (by [@yawuling](https://github.com/yawuling) )
 
