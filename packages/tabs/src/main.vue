@@ -232,7 +232,8 @@ export default {
     }
   },
   mounted () {
-    this.clientWidth = this.$refs.tabsRef.clientWidth
+    // 临时紧急修复问题（tabs在 display: none 的结构中，获取不到宽度的问题），后续再优化 tab 这一块
+    this.clientWidth = this.$refs.tabsRef.clientWidth || document.body.clientWidth
     if (this.swipeable) {
       this.$refs.tabsBody.addEventListener('touchstart', this.onTouchStart)
       this.$refs.tabsBody.addEventListener('touchmove', this.onTouchMove)
