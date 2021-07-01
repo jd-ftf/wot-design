@@ -1,5 +1,14 @@
 ## 更新日志
 
+### 2.4.1
+
+*2021-07-01*
+
+#### Bug 修复
+
+- Tabs
+  - 修复在 `display: none` 的结构中，获取不到宽度的问题 (by [@yawuling](https://github.com/yawuling) )
+
 ### 2.4.0
 
 *2021-06-30*
@@ -11,6 +20,7 @@
 - Toast
   - 新增 `type` 提示类型属性，弃用 `iconName` 属性 (by [@yawuling](https://github.com/yawuling) )
   - 新增 `onClose` 关闭回调属性 (by [@yawuling](https://github.com/yawuling) )
+
 #### Bug 修复
 
 - MessageBox
@@ -18,9 +28,8 @@
   - 修复 `teleport` 属性的文档位置，该属性只能对组件调用方式有效 (by [@yawuling](https://github.com/yawuling) )
 - SelectPicker
   - 修复 `type` 为 'radio'，搜索时未正确高亮搜索文本的问题 (by [@yawuling](https://github.com/yawuling) )
-
-#### Bug Fix
-
+- Tabs
+  - 修复在不同宽度容器下无法正确获取宽度的问题 (by [@tclyjy](https://github.com/tclyjy) )
 - Upload
   - 使用 before-upload 钩子时，选择一张图片后，不让通过，再次选择同一张图片未触发 [#315](https://github.com/jd-ftf/wot-design/issues/315)  (by [@HXCStudio123](https://github.com/HXCStudio123) )
 

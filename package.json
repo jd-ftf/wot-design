@@ -1,6 +1,6 @@
 {
   "name": "wot-design",
-  "version": "2.4.0",
+  "version": "2.4.1",
   "description": "Mobile UI components built on vue.js",
   "scripts": {
     "dev": "npm run build:files && node build/build-install.js && cross-env NODE_ENV=development webpack-dev-server --progress --config build/webpack.docs.conf.js",
