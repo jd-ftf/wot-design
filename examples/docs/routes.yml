@@ -161,7 +161,7 @@
             - name: steps
               title: Steps 步骤条
             - name: sticky
-              title: Sticky 吸顶
+              title: Sticky 粘性布局
             - name: swipe
               title: Swipe 轮播图
             - name: tag
