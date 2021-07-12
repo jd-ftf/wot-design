@@ -278,7 +278,7 @@ export default {
 
     // 更新inner
     updateInnerValue () {
-      const pickerView = this.$refs.pickerView || this.getPickerView()
+      const pickerView = this.$refs.pickerView
       let values = ''
 
       values = pickerView.getValues()
