@@ -90,7 +90,7 @@ export default {
       !this.disabled && this.handleChange()
     },
     handleChange () {
-      let val = this.checked ? this.inactiveValue : this.activeValue
+      const val = this.checked ? this.inactiveValue : this.activeValue
 
       if (this.beforeChange) {
         this.beforeChange({

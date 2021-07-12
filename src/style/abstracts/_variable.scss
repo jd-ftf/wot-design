@@ -687,9 +687,9 @@ $-swipe-indicator-height: 3px !default; // 点状指示器高
 $-swipe-indicator-active-width: 12px !default; // 点状指示激活态长度
 
 /* switch */
-$-switch-width: 51px !default; // 宽度
-$-switch-height: 32px !default; // 高度
-$-switch-circle-size: 28px !default; // 圆点大小
+$-switch-width: 1.82em !default; // 宽度
+$-switch-height: 1.14em !default; // 高度
+$-switch-circle-size: 1em !default; // 圆点大小
 $-switch-border-color: #e5e5e5 !default; // 边框颜色选中状态背景颜色
 $-switch-active-color: resultColor(
   $open-linear,

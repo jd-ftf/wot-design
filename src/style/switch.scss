@@ -24,19 +24,19 @@
     display: inline-block;
     width: $-switch-circle-size;
     height: $-switch-circle-size;
-    top: 2px;
-    left: 2px;
+    top: 0.07em;
+    left: 0.07em;
     background: #fff;
     border-radius: 50%;
     transition: left .3s ease-out;
-    box-shadow: 0 2px 4px 0 $-switch-inactive-shadow-color;
+    box-shadow: 0 0.07em 0.14em 0 $-switch-inactive-shadow-color;
 
 
     &::after {
       position: absolute;
       content: '';
-      width: calc(200% - 2px);
-      height: calc(200% - 2px);
+      width: calc(200% - 0.07em);
+      height: calc(200% - 0.07em);
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%) scale(0.5);
@@ -49,8 +49,8 @@
     border-color: $-switch-active-color;
 
     .wd-switch__circle {
-      left: calc(#{$-switch-width - $-switch-circle-size} - 2px);
-      box-shadow: 0 2px 4px 0 $-switch-active-shadow-color
+      left: calc(#{$-switch-width - $-switch-circle-size} - 0.07em);
+      box-shadow: 0 0.07em 0.14em 0 $-switch-active-shadow-color
     }
   }
   @include when(disabled) {
