@@ -239,8 +239,8 @@ export default {
         this.beforeUpload({
           files,
           fileList: this.uploadFiles,
-          resolve: isPass => {
-            isPass && this.readyToPost(files)
+          resolve: (isPass, customFiles) => {
+            isPass && this.readyToPost(customFiles || files)
             this.$refs.input.value = null
           }
         })
