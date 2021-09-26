@@ -1,0 +1,55 @@
+name: release
+
+on:
+  push:
+    tags:
+      - v[0-9]+.[0-9]+.[0-9]+
+jobs:
+  beforeRelease:
+    runs-on: ubuntu-latest
+    outputs:
+      releaseNote: ${{ steps.set-releaseNote.outputs.releaseNote }}
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install Node
+        uses: actions/setup-node@v2
+        with:
+          node-version: '12.x'
+          registry-url: 'https://registry.npmjs.org'
+      - name: Install Dependencies
+        run: npm install
+      - name: Set Release Note
+        id: set-releaseNote
+        run: |
+          echo "::set-output name=releaseNote::$(node build/deploy/change-log.js)"
+  
+  release:
+    needs: beforeRelease
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install Node
+        uses: actions/setup-node@v2
+        with:
+          node-version: '12.x'
+          registry-url: 'https://registry.npmjs.org'
+      - name: Install Dependencies
+        run: npm install
+      - name: Check Release
+        run: node build/deploy/check-release.js
+        env:
+          RELEASE_NOTE: ${{ needs.beforeRelease.outputs.releaseNote }}
+      - name: Npm Publish
+        run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - name: Create Release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: ${{ github.ref }}
+          body: ${{ needs.beforeRelease.outputs.releaseNote }}
+          draft: false
+          prerelease: false
