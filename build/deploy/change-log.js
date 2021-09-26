@@ -3,20 +3,12 @@
  * @author Gkxie
  * @date 2019-12-25
  */
-const minimist = require('minimist')
 const fs = require('fs')
 const path = require('path')
 const MarkdownIt = require('markdown-it')
-const args = minimist(process.argv.slice(2))
+const pkg = require('../../package.json')
 const md = new MarkdownIt()
-const rules = /\d+\.\d+\.\d+/
-const html = md.render(
-  fs.readFileSync(
-    args.hasOwnProperty('path')
-      ? path.resolve(args.path)
-      : path.resolve(__dirname, '../../examples/docs/docs/changelog.md')
-    , { encoding: 'utf-8' })
-)
+const html = md.render(fs.readFileSync(path.resolve(__dirname, '../../examples/docs/docs/changelog.md'), { encoding: 'utf-8' }))
   .split('\n')
   .filter(s => Boolean(s))
 const isH3 = /<h3>(\S+)<\/h3>/
@@ -41,11 +33,6 @@ for (let i = 0; i < html.length; i++) {
 const versions = Object.keys(versionList)
 module.exports = versions
 
-if (versions.length > 0 && args.path) {
-  if (args.version) {
-    const version = args.version.match(rules)[0]
-    process.stdout.write((versionList[version] || '') + '\n')
-  } else {
-    process.stdout.write((versionList[versions[0]] || '') + '\n')
-  }
+if (versions.length > 0) {
+  process.stdout.write((versionList[pkg.version] || '') + '\n')
 }
