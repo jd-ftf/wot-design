@@ -140,7 +140,7 @@ export default {
 
 ### 上传前置处理
 
-设置 `before-upload` 函数，弹出图片选择界面，在用户选择图片点击确认后，会执行 `before-upload` 函数，接收 { files: 当前上传的文件（input 的 files 原生属性）, fileList: 文件列表, resolve }，可以对 `file` 进行处理，并通过 `resolve` 函数告知组件是否确定通过，`resolve` 接受1个 boolean 值，`resolve(true)` 表示选项通过，`resolve(false)` 表示选项不通过，不通过时不会执行上传操作。
+设置 `before-upload` 函数，弹出图片选择界面，在用户选择图片点击确认后，会执行 `before-upload` 函数，接收 { files: 当前上传的文件（input 的 files 原生属性）, fileList: 文件列表, resolve }，可以对 `file` 进行处理，并通过 `resolve` 函数告知组件是否确定通过，`resolve` 接受2个参数，第一个参数 为 boolean 值， 第二个参数(可选)为自定义文件列表。 `resolve(true)` 表示选项通过，`resolve(true, customFiles)`表示选项通过且上传自定义的文件列表， `resolve(false)` 表示选项不通过，不通过时不会执行上传操作。
 
 ```html
 <wd-upload
