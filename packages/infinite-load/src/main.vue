@@ -114,6 +114,12 @@ export default {
     this.setContainer()
     this.reset()
   },
+  activated () {
+    this.scrollObj.addEventListener('scroll', this.loadmore)
+  },
+  deactivated () {
+    this.scrollObj.removeEventListener('scroll', this.loadmore)
+  },
   beforeDestroy () {
     this.scrollObj.removeEventListener('scroll', this.loadmore)
   }
