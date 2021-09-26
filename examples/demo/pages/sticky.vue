@@ -1,32 +1,32 @@
 <template>
   <div class="page-sticky">
     <div class="page-sticky-space">基本用法，顶部距离默认设置44，避开顶部导航</div>
-    <sticky :offset-top="44">
+    <wd-sticky :offset-top="44">
       <div class="page-sticky-pad">
         <wd-button type="success">基本用法</wd-button>
       </div>
-    </sticky>
+    </wd-sticky>
     <div class="page-sticky-space">吸顶距离，设置100距离</div>
-    <sticky :offset-top="100">
+    <wd-sticky :offset-top="100">
       <div class="page-sticky-pad" style="text-align: center;">
         <wd-button>吸顶距离</wd-button>
       </div>
-    </sticky>
+    </wd-sticky>
     <div class="page-sticky-space">相对容器，容器是自动相对于父元素，跟 position: sticky 计算一致</div>
     <div class="page-sticky-container">
-      <sticky :offset-top="44">
+      <wd-sticky :offset-top="44">
         <div class="page-sticky-pad" style="text-align: right;">
           <wd-button type="warning">sticky</wd-button>
         </div>
-      </sticky>
+      </wd-sticky>
     </div>
     <div class="page-sticky-space">相对容器+相对顶部距离</div>
     <div class="page-sticky-container">
-      <sticky :offset-top="150">
+      <wd-sticky :offset-top="150">
         <div class="page-sticky-pad">
           <wd-button type="warning">sticky</wd-button>
         </div>
-      </sticky>
+      </wd-sticky>
     </div>
   </div>
 </template>
