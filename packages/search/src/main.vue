@@ -73,7 +73,7 @@ export default {
       if (this.type === 'number') {
         e.target.value = e.target.value.replace(/[^0-9]/g, '')
       }
-      this.$emit('input', this.type === 'number' ? parseInt(e.target.value) : e.target.value)
+      this.$emit('input', this.type === 'number' && e.target.value ? parseInt(e.target.value) : e.target.value)
     },
     clearSearch (event) {
       this.$emit('input', '')
