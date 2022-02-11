@@ -5,7 +5,7 @@
       <wd-calendar label="多个日期选择" type="dates" v-model="value2" />
       <wd-calendar label="日期范围选择" type="daterange" v-model="value3" />
       <wd-calendar label="日期时间选择" type="datetime" v-model="value4" />
-      <wd-calendar label="日期时间范围选择" type="datetimerange" v-model="value5" />
+      <wd-calendar label="日期时间范围选择" type="datetimerange" v-model="value5" :default-time="['00:00:00', '23:59:59']" />
       <wd-calendar label="周选择" type="week" v-model="value6" />
       <wd-calendar label="月选择" type="month" v-model="value7" />
       <wd-calendar label="周范围选择" :first-day-of-week="1" type="weekrange" v-model="value8" />
@@ -38,7 +38,7 @@ export default {
       value2: [new Date(Date.now() - 24 * 60 * 60 * 1000 * 3), new Date()],
       value3: [],
       value4: new Date(),
-      value5: [new Date(Date.now() - 24 * 60 * 60 * 1000 * 3), new Date(Date.now() - 24 * 60 * 60 * 1000)],
+      value5: [],
       value6: new Date(),
       value7: new Date(),
       value8: [new Date(Date.now() - 24 * 60 * 60 * 1000 * 14), new Date()],
