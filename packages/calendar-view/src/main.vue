@@ -41,6 +41,7 @@
 <script>
 import YearPanel from './yearPanel'
 import MonthPanel from './monthPanel'
+import { getDefaultTime } from './utils'
 
 const current = new Date()
 const currentYear = current.getFullYear()
@@ -88,9 +89,9 @@ export default {
     timeFilter: Function,
     hideSecond: Boolean
   },
-  data () {
-    return {
-      formatDefauleTime: []
+  computed: {
+    formatDefauleTime () {
+      return getDefaultTime(this.defaultTime)
     }
   },
   methods: {
